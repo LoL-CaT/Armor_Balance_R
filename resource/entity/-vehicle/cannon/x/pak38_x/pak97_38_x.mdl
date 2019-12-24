@@ -1,0 +1,122 @@
+;Exported by: Mauzer
+;Date:        Sun Mar 06 18:53:56 2011
+;File:        E:\Autodesk\Low poly\freelance\DMS\Cannon\Pak 38\pak38_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.7}}
+			}
+			{Position -0.974014	-0.0759926	6.02257}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.9}}
+				}
+				{limits -20 20}
+				{speed 0.01}
+				{Position -2.73513	-0.0137566	7.30923}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.6}}
+					}
+					{limits -10 10}
+					{speed 0.08}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-1.96631	0	2.25052
+					}
+					{VolumeView "gun_rot2.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							22.3909	0.326458	-0.0738812
+						}
+						{VolumeView "gun97.ply"}
+					}
+				}
+				{bone "shld2"
+					{Matrix34
+						1	0	0
+						0	-1	0
+						0	0	1
+						2.76939	-0.000731543	4.51522
+					}
+					{VolumeView "shld2.ply"}
+				}
+			}
+			{bone "standl"
+				{Matrix34
+					0.994522	-0.104528	0
+					0.104528	0.994522	0
+					0	0	1
+					-5.26213	6.94579	2.79033
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{Matrix34
+					0.994522	0.104528	0
+					-0.104528	0.994522	0
+					0	0	1
+					-5.26216	-6.9457	2.79033
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone "shld"
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	1
+					5.87937	0	-0.197217
+				}
+				{VolumeView "shld.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position -2.71024	0.00751734	1.75893}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.4;"}
+					{animation
+						{sequence "break" {file "wheelL.anm"}}
+					}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						4.70717	14.749	-0.32059
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.4;"}
+					{animation
+						{sequence "break" {file "wheelR.anm"}}
+					}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						4.70716	-14.764	-0.320595
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+		}
+	}
+}

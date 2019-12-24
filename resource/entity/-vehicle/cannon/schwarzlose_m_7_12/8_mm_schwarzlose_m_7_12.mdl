@@ -1,0 +1,197 @@
+;Exported by: Sergey
+;Date:        Sun Sep 16 17:42:54 2012
+;File:        D:\Documents\3dsmax\scenes\Станковый пулемет Шварцлозе\Schwarzlose M.07-12_04.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.721406	0	0.692512
+				0	1	0
+				-0.692512	0	0.721406
+				0	0.00876779	11.4895
+			}
+			{VolumeView "body.ply"}
+			{bone "support02"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.95246	0	-0.304665
+					-0.304665	0	-0.95246
+					0	-1	0
+					0	1.5333	0
+				}
+				{VolumeView "support02.ply"}
+				{bone "support02-1"
+					{parameters "ID=body;"}
+					{Matrix34
+						1	0	0
+						0	0.311646	0.950198
+						0	-0.950198	0.311646
+						0	13.2184	-4.10573
+					}
+					{VolumeView "support02-1.ply"}
+				}
+				{bone "styazhka02"
+					{Matrix34
+						-0.898095	-0.439802	0
+						0	0	1
+						-0.439802	0.898095	0
+						-0.826551	7.12799	-2.00329
+					}
+					{VolumeView "styazhka02.ply"}
+				}
+			}
+			{bone "support01"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.952177	0	-0.305547
+					-0.305547	0	-0.952177
+					0	1	0
+					0	-1.5719	0
+				}
+				{VolumeView "support01.ply"}
+				{bone "support01-1"
+					{parameters "ID=body;"}
+					{Matrix34
+						1	0	0
+						0	0.311646	0.950198
+						0	-0.950199	0.311646
+						0	13.2005	-4.09987
+					}
+					{VolumeView "support01-1.ply"}
+				}
+				{bone "styazhka01"
+					{Matrix34
+						0.898501	0.438971	0
+						0	0	1
+						0.438971	-0.898501	0
+						-0.811365	6.98079	0.672151
+					}
+					{VolumeView "styazhka01.ply"}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -30 30}
+				{speed 0.01}
+				{Matrix34
+					0.721406	0	-0.692512
+					0	1	0
+					0.692512	0	0.721406
+					0.691668	-0.00876794	1.92215
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=body;"}
+					{limits -5 15}
+					{Matrix34
+						0.999989	0	-0.00473077
+						0.00473077	0	0.999989
+						0	-1	0
+						-0.110681	0.85567	0.533558
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "mgun"
+						{Matrix34
+							0.999989	0.00473073	0
+							-0.00473073	0.999989	0
+							0	0	1
+							-6.50252	-1.4489	0.855669
+						}
+						{bone "rolik"
+							{Matrix34
+								0.965798	0.259297	0
+								0	0	-1
+								-0.259297	0.965798	0
+								6.40993	0.923162	0
+							}
+							{VolumeView "rolik.ply"}
+						}
+						{bone "fxshell"
+							{Matrix34
+								0.233534	-0.294654	-0.926629
+								-0.972349	-0.0707681	-0.222554
+								0	0.95298	-0.303033
+								9.13258	5.72781	-4.04473
+							}
+						}
+						{bone "visor"
+							{Position 26.7373	3.42532	0}
+						}
+					}
+				}
+				{bone "gunner"
+					{Position -15.9271	-0.223628	-13.3551}
+				}
+				{bone "commander"
+					{Position -14.5521	-16.2097	-13.3551}
+				}
+			}
+			{bone "support03"
+				{parameters "ID=body;"}
+				{Position -7.90894	-0.00876794	0.300297}
+				{VolumeView "support03.ply"}
+			}
+			{bone "sector"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.718122	0	-0.695917
+					0.695917	0	0.718122
+					0	-1	0
+					0.981319	0.846902	2.38372
+				}
+				{VolumeView "sector.ply"}
+			}
+		}
+		{bone "emit1"
+			{Position -35.3574	0.120544	0}
+		}
+		{bone "emit2"
+			{Position -45.277	14.7318	0}
+		}
+		{bone "driver1"
+			{Position -6.93682	5.78473	0}
+		}
+		{bone "driver2"
+			{Position -7.06864	-4.4371	0}
+		}
+	}
+}
+{Volume "body1"
+	{Cylinder 0.984252 7.87402}
+	{Bone "support01"}
+	{Matrix34
+		-0.00917405	-0.297463	-0.954689
+		0.999525	-0.0308262	0
+		-0.0294296	-0.954236	0.297604
+		-0.184329	3.85798	-1.01288
+	}
+}
+{Volume "body2"
+	{Cylinder 0.984252 7.87402}
+	{Bone "support02"}
+	{Matrix34
+		0.0133769	0.308589	0.951102
+		0.999062	-0.0433077	0
+		-0.0411898	-0.950209	0.308879
+		-0.109686	4.46998	-1.17697
+	}
+}
+{Volume "body"
+	{Cylinder 1.86226 14.9606}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		-0.038268	0	0.999268
+		-0.999268	0	-0.038268
+		-6.27146	-0.00259287	0.677335
+	}
+}

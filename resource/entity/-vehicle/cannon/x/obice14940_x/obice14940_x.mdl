@@ -1,0 +1,113 @@
+;Exported by: Zeke Wolff
+;Date:        Fri Apr 15 20:50:45 2015
+;File:        E:\DCG\MoW\Obice14940.ms3d
+{Skeleton
+   {bone "basis"
+        {Orientation
+            1.0000 0.0000 0.0000
+            0.0000 -1.0000 0.0000
+            0.0000 0.0000 1.0000
+        }
+        {bone "body"
+            {parameters "ID=body;"}
+            {Position 2.7742 0.0000 6.4298}
+            {VolumeView "body.ply"}
+	{bone revolute "wheell"
+                {parameters "ID=wheelleft;Radius=0.60;Support=1;"}
+                {Matrix34
+                    1.0000 0.0000 0.0000
+                    0.0000 0.0000 -1.0000
+                    0.0000 1.0000 0.0000
+                    3 13.3399 5.9860
+                }
+                {VolumeView "wheell.ply"}
+            }
+            {bone revolute "wheelr"
+                {parameters "ID=wheelright;Radius=0.60;Support=1;"}
+                {Matrix34
+                    1.0000 0.0000 0.0000
+                    0.0000 0.0000 -1.0000
+                    0.0000 1.0000 0.0000
+                    3 -13.3670 5.9860
+                }
+                {VolumeView "wheelr.ply"}
+            }
+	{bone "standl_a"
+                {Position -9.0000 1.0000 -3.5}
+                {bone "standL"
+                    {parameters "ID=standL;"}
+                    {Position -0.6911 7.4717 2.3439}
+                    {VolumeView "standl.ply"}
+                }
+            }
+            {bone "standr_a"
+                {Position -9.0000 -1.0000 -3.5}
+                {bone "standr"
+                    {parameters "ID=standR;"}
+                    {Position -0.6539 -7.4737 2.3439}
+                    {VolumeView "standr.ply"}
+                }
+            }
+            {bone revolute "turret"
+                {parameters "ID=turret;"}
+                {limits -10.0000 10.0000}
+                {speed 0.0100}
+                {Position 0 0.0000 5}
+                {VolumeView "turret.ply"}
+                {bone revolute "gun_rot"
+                    {parameters "ID=gun;"}
+                    {limits 0.0000 -45.0000}
+                    {Matrix34
+                        1.0000 0.0000 0.0000
+                        0.0000 0.0000 -1.0000
+                        0.0000 1.0000 0.0000
+                        -7 0.9466 12
+                    }
+                    {VolumeView "gun_rot.ply"}
+                    {bone "gun"
+                        {parameters "ID=gun;"}
+                        {Matrix34
+                            1.0000 0.0000 0.0000
+                            0.0000 0.0000 1.0000
+                            0.0000 -1.0000 0.0000
+                            -12.1 -2.4 3.4
+                        }
+                        {VolumeView "gun.ply"}
+                        }
+                }
+            }
+            {bone "pivot_front"
+                {Position 3.3998 -0.0756 -4.5772}
+            }
+            {bone "pivot_back"
+                {Position -65.2883 -0.1013 -5.1598}
+            }
+            {bone "support1"
+                {Position 3.2291 0.0028 -4.7198}
+            }
+            {bone "support2"
+                {Position -56.4255 -0.1072 -4.9398}
+            }
+        }
+    }
+}
+{Volume "wheelleft"
+    {Cylinder 8.39080 3.22803}
+    {Bone "wheell"}
+    {Matrix34
+        -1.3953 0.0000 0.0000
+        0.0000 -1.4101 0.0000
+        0.0000 0.0000 1.5094
+        -0.0156 -0.3794 0.9567
+    }
+}
+{Volume "wheelright"
+    {Cylinder 8.39080 3.22803}
+    {Bone "wheelr"}
+    {Matrix34
+        -1.4060 0.0000 0.0000
+        0.0000 -1.3476 0.0000
+        0.0000 0.0000 1.4560
+        -0.1342 -0.0021 -0.2694
+    }
+}

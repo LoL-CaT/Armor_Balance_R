@@ -1,0 +1,51 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "searchlight"}
+	{targetSelector "searchlight"}
+	{Extension "searchlight.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.6))
+
+	{Volume "gun"
+		{Tags  "body"}
+		{thickness hollow 1}
+	}
+	{Volume "lamp"
+		{thickness 0.1}
+		{able {obstacle 0}}
+	}
+
+	("armor_light" args 0.7)
+
+	{bone "turret"
+		{limits}
+	}
+	{sensor
+		{Visor "main"
+			{vision "searchlight"}
+		}
+	}
+
+	("crew_gunner")
+	{extender "inventory"
+		{weapon "gun"
+			{mask "weapon searchlight"}
+		}
+		{box
+			{size 8 6}
+		}
+	}
+	{Weaponry
+		{place "light"
+			{weapon "searchlight"}
+		}
+	}
+	{extender "light"
+		{lamp "1"}
+		{lightfx "light_search"}
+		{breakfx "glass_hit"}
+		{check_operatable}
+	}
+	{extender "bone_rotator"
+		{watchBone "gun"}
+	}
+}

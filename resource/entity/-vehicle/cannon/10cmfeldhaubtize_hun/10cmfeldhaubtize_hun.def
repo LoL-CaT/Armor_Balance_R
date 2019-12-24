@@ -1,0 +1,80 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "vision_cannon_medium" "muzzle_large" "round_sandbag5"}
+	{PatherId "cannon.large"}
+
+	("armor_heavy")
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_pdr25_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pdr25_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon1_right" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon1_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet100hunS fg" 6}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}			
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "100mm_m14" filling "bullet100hunS fg" 1}
+			{Rotate}
+			("abm_howitzer")
+		}
+	}
+	
+	{mass 1400}
+	
+	{Extension "10cmfeldhaubtize.mdl"}
+	(include "/properties/selection/cannon.inc" scale(0.7))
+	
+;	{bone "turret"
+;		{speed2 5}
+;	}
+	{bone "gun_rot"
+		{speed2 5}
+	}	
+
+		{extender "cannon"
+			{animation
+				{move	"cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+				{aim	"Cannon_pdr25_gunlayer" ""}
+				{fire	"Cannon_pdr25_gunlayer_fire-alert" "cannon_pdr25_charger_fire"}
+				{reload	"" "Cannon_pdr25_charger"}
+			}
+			{move {obstacle "close"}}
+			{attack {obstacle "open"}}
+		    (mod "mp" {rotate_ik_Limit 6})			
+		}
+
+	{Chassis "track"
+;		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+	{Volume "body"
+	}
+	{Volume "body1"
+	}
+}

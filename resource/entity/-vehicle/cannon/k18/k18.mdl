@@ -1,0 +1,190 @@
+;Exported by: garry
+;Date:        Mon Jul 03 17:35:48 2006
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\k18\k18.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 1}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -45.3541	0.0324554	29.1949}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -30 30}
+				{speed 0.002}
+				{Position -15.8664	-0.0324583	-4.57152}
+				{VolumeView "turret.ply"}
+				{bone "visor"
+					{Position 83.5235	0.0341481	18.9854}
+				}
+				{bone "commander"
+					{Position 64.505	19.1128	-24.3002}
+				}
+				{bone "fx_invers"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						27.4513	0.0341586	3.51214
+					}
+				}
+				{bone revolute "gun_rot"
+					{parameters "ID=turret;"}
+					{limits -7 20}
+					{speed 0.002}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						62.6936	0	-3.644
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Position 74.5046	6.67454	0}
+						{VolumeView "gun.ply"}
+						{bone "foresight1"
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								81.2937	0.00210466	-0.0347628
+							}
+						}
+					}
+					{bone "detail1"
+						{parameters "CommonMesh;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							48.8049	7.45116	-0.00106239
+						}
+						{VolumeView "detail1.ply"}
+					}
+				}
+				{bone "commander2"
+					{Position 64.1705	-18.4085	-24.3002}
+				}
+				{bone "gunner"
+					{Position 31.8096	-18.3818	-24.3002}
+				}
+				{bone "commander1"
+					{Position 34.7571	14.6577	-24.3002}
+				}
+				{bone "emit3"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						61.5729	-37.0591	-24.5669
+					}
+					{visibility 0}
+				}
+				{bone "emit1"
+					{Matrix34
+						0	-1	0
+						1	0	0
+						0	0	1
+						60.4734	36.9318	-24.5669
+					}
+					{visibility 0}
+				}
+				{bone "emit2"
+					{Matrix34
+						0	-1	0
+						1	0	0
+						0	0	1
+						30.2576	38.5055	-24.5669
+					}
+					{visibility 0}
+				}
+				{bone "emit4"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						33.9046	-38.2875	-24.5669
+					}
+					{visibility 0}
+				}
+				{bone "detail2"
+					{parameters "CommonMesh;ID=turret;"}
+					{Matrix34
+						0	1	0
+						0	0	1
+						1	0	0
+						89.5309	-23.6835	2.32273
+					}
+					{VolumeView "detail2.ply"}
+				}
+			}
+			{bone "visor2"
+				{Position 67.657	19.3747	23.5409}
+			}
+		}
+	}
+}
+{Obstacle "turret1"
+	{Obb2
+		{Center -5.99413 0.0347931}
+		{Extent 28.4568 7.32172}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "turret"
+	{Obb2
+		{Center 19.1051 -0.00357819}
+		{Extent 8.98062 38.9301}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Volume "gun_rot"
+	{Cylinder 4.79105 79.3571}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	-1	0
+		0	0	-1
+		1	0	0
+		27.7184	6.67453	0.00015654
+	}
+}
+{Volume "gun"
+	{Cylinder 4.06022 88.6425}
+	{Bone "gun"}
+	{Matrix34
+		0	-1	0
+		0	0	-1
+		1	0	0
+		36.6581	2.43524e-005	-0.000172418
+	}
+}
+{Volume "turret1"
+	{Box 14.6434 56.9137 18.7715}
+	{Bone "turret"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		55.2263	-0.0347903	1.38085
+	}
+}
+{Volume "turret"
+	{Box 11.4334 77.8602 45.6488}
+	{Bone "turret"}
+	{Matrix34
+		0.989333	0	0.145674
+		0	1	0
+		-0.145674	0	0.989333
+		80.3256	0.00358172	0.875379
+	}
+}

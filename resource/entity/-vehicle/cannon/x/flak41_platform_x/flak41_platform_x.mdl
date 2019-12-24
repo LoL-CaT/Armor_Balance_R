@@ -1,0 +1,69 @@
+;Exported by: ubrashaev
+;Date:        Thu Jul 06 12:29:06 2006
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\-Пушки\Flak41\Flak41_forplatform_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "shield_front"
+			{parameters "ID=body;"}
+			{Position -0.0982327	-0.17843	8.4935}
+			{VolumeView "shield_front.ply"}
+			{bone revolute "turret"
+				{parameters "CommonMesh;ID=Turret;"}
+				{speed 0.01}
+				{Position 0	0	-6.02104}
+				{LODView
+					{VolumeView "turret.ply"}
+					{VolumeView "turret_lod1.ply"}
+				}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -47 10}
+					{speed 0.009}
+					{Matrix34
+						0.986832	0	0.16175
+						-0.16175	0	0.986832
+						0	-1	0
+						-14.0186	-0.0236727	26.3097
+					}
+					{LODView
+						{VolumeView "gun_rot.ply"}
+						{VolumeView "gun_rot_lod1.ply"}
+					}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-6.94963	4.64296	-0.0193665
+						}
+						{LODView
+							{VolumeView "gun.ply"}
+							{VolumeView "gun_lod1.ply"}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "shield_front"}
+	{Position -4.84169	0.178426	23.5819}
+}
+{Volume "gun"
+	{Box 98.5455 6.20197 4.98694}
+	{Bone "gun"}
+	{Position 46.8245	0.0110031	-0.352537}
+}
+{Volume "turret"
+	{Box 20.2009 14.1315 22.8648}
+	{Bone "turret"}
+	{Position -5.88101	-0.218953	13.4445}
+}

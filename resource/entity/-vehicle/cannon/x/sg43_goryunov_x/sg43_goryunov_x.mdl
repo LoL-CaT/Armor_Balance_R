@@ -1,0 +1,177 @@
+;Exported by: skr
+;Date:        Sun Feb 10 19:59:02 2013
+;File:        E:\Documents\3dsmax\scenes\SG-43 Goryunov\SG-43 Goryunov_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Position 11.9855	0.000401953	3.03488}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -30 30}
+				{speed 0.01}
+				{Position -2.94664	-0.00101213	0.515564}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=mgun;"}
+					{limits -10 35}
+					{speed 0.01}
+					{Matrix34
+						0.996733	0	-0.0807725
+						0.0807725	0	0.996733
+						0	-1	0
+						0.0665569	0.0250453	1.14523
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "mgun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0.995278	-0.0968665	-0.00622364
+							0.0968667	0.995297	-0.000259092
+							-0.00621947	0.000344995	-0.999981
+							1.25698	3.6421	0.0227144
+						}
+						{VolumeView "mgun.ply"}
+					}
+				}
+				{bone "ammo_box"
+					{parameters "CommonMesh;ID=ammo_box;"}
+					{Matrix34
+						1.55727e-005	-1	0
+						0	0	1
+						-1	-1.55727e-005	0
+						-0.889462	-8.98209	-0.65561
+					}
+					{VolumeView "ammo_box.ply"}
+					{bone "cover_box"
+						{parameters "ID=ammo_box;"}
+						{Matrix34
+							0.962366	-0.271757	0
+							0.271757	0.962366	0
+							0	0	1
+							2.24148	2.22028	0.366642
+						}
+						{VolumeView "cover_box.ply"}
+					}
+					{bone "ammo1"
+						{parameters "CommonMesh;"}
+						{Matrix34
+							0.9998	-0.0199952	1.55846e-005
+							-0.0199952	-0.9998	0
+							1.5572e-005	0	-1
+							-3.34968	3.18173	1.43686
+						}
+						{VolumeView "ammo1.ply"}
+					}
+					{bone "ammo2"
+						{parameters "CommonMesh;"}
+						{Matrix34
+							0.011871	-0.99993	0
+							-0.99993	-0.011871	-1.57356e-005
+							1.57384e-005	0	-1
+							-1.75037	0.93911	1.43689
+						}
+						{VolumeView "ammo2.ply"}
+					}
+					{bone "ammo3"
+						{parameters "CommonMesh;"}
+						{Matrix34
+							-0.611523	0.791226	-1.00136e-005
+							0.791226	0.611523	1.23103e-005
+							1.58638e-005	0	-1
+							-1.81294	2.85529	1.43689
+						}
+						{VolumeView "ammo3.ply"}
+					}
+					{bone "ammo4"
+						{parameters "CommonMesh;"}
+						{Matrix34
+							0.619567	-0.784944	0
+							-0.784944	-0.619567	-1.58866e-005
+							1.14152e-005	1.11793e-005	-1
+							1.55029	-2.18462	1.43694
+						}
+						{VolumeView "ammo4.ply"}
+					}
+					{bone "ammo_box01"
+						{parameters "CommonMesh;ID=ammo_box;"}
+						{Matrix34
+							0.0201647	0	0.999797
+							0	1	0
+							-0.999797	0	0.0201647
+							-0.240539	0.00631332	6.64877
+						}
+						{VolumeView "ammo_box01.ply"}
+					}
+				}
+				{bone "shield"
+					{parameters "ID=shield;"}
+					{Matrix34
+						-1.49374e-005	1	0
+						0.0810465	0	0.99671
+						-0.99626	-1.60363e-005	0.086407
+						0.687678	-0.0661617	3.98323
+					}
+					{VolumeView "shield.ply"}
+				}
+			}
+			{bone "pivot_back"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					-21.1771	-0.000401953	-1.29569
+				}
+			}
+			{bone revolute "pivot_front"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					-0.0182629	0.0184913	-0.0262341
+				}
+			}
+			{bone "support1"
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-0.0213032	-4.29862	-0.0292168
+				}
+			}
+			{bone "support2"
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-0.0213032	4.3815	-0.0292168
+				}
+			}
+			{bone revolute "wheelright"
+				{parameters "ID=wheelright;Support=1;Radius=0.19;"}
+				{Matrix34
+					-0.999983	-0.00327899	0.00475802
+					-0.00474922	-0.0026858	-0.999985
+					0.00329172	-0.999991	0.00267018
+					-0.0182629	-4.89003	-0.0262346
+				}
+				{VolumeView "wheelright.ply"}
+			}
+			{bone revolute "wheelleft"
+				{parameters "ID=wheelleft;Support=1;Radius=0.19;"}
+				{Matrix34
+					-0.999928	-0.0110574	0.00475986
+					-0.0047934	0.00300848	-0.999984
+					-0.0110429	0.999934	0.00306127
+					-0.0182629	4.99424	-0.0262341
+				}
+				{VolumeView "wheelleft.ply"}
+			}
+		}
+	}
+}

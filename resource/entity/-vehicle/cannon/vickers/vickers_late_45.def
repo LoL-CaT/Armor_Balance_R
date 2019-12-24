@@ -1,0 +1,96 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{Extension "vickers.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{props "vehicle" "cannon" "wheeled" "turret" "turret_rotator" "vision_cannon_low" "muzzle_medium" "round_sandbag5"}
+        {targetSelector "flak"}
+	("armor_heavy")
+	{PatherID "cannon.large"}
+
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "commander"} {useVision 0}}
+	}	
+
+	{Volume "body"
+		{thickness 15}
+		{tags "body"}
+		{component "body"}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelleft2")
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_vickers_gunlaeyr-R" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_vickers_gunlaeyr-L" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "Cannon_vickers_gunlaeyr-R" "Cannon_vickers_gunlaeyr-L"}
+			{fire  "Cannon_vickers_gunlaeyr-R_fire-alert" "Cannon_vickers_gunlaeyr-L_fire-alert"}
+			{reload  "" "cannon_flak38_charger_left"}
+			{switch "close"}
+		}
+		{move {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_big")
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet93eng ap" 20}
+			{item "bullet93eng fg" 20}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "93mm_vickers_aa_late" filling "bullet93eng ap" 1}
+
+			("abm_field_gun")
+		}
+	}  	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+		{visor "commander"
+			{vision "cannon_crew"}
+			{bone "visor3"}
+		}
+	}
+
+	{bone "turret"
+		{speed2 35}
+	}
+	{bone "gun_rot"
+	    {limits 15 65}	
+		{speed2 20}
+	}
+	
+	{mass 10000}
+}

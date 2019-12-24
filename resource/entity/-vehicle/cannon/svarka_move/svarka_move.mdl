@@ -1,0 +1,158 @@
+;Exported by: butyvsky
+;Date:        Fri Aug 03 18:01:24 2007
+;File:        D:\-Projects-\-3D Work-\entourage\svarka_elektro.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.5}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				4.41389	0	3.52118
+			}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-0.322712	0.0349348	-3.52118
+				}
+				{bone "fxtracel1"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						-2.14765	10.2991	0.109508
+					}
+				}
+				{bone "fxtracer1"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						-2.1475	-10.4765	0.10951
+					}
+				}
+			}
+			{bone "pivot_back"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					11.4904	-0.0512934	-3.52118
+				}
+			}
+			{bone revolute "wheelright"
+				{parameters "ID=wheelright;Support=1;Radius=0.19;"}
+				{Matrix34
+					-1	0	0
+					0	0	-1
+					0	-1	0
+					-0.0825958	10.3534	-0.00447726
+				}
+				{VolumeView "wheelright.ply"}
+			}
+			{bone revolute "wheelleft"
+				{parameters "ID=wheelleft;Support=1;Radius=0.19;"}
+				{Matrix34
+					-1	0	0
+					0	0	-1
+					0	-1	0
+					-0.0794334	-10.3577	-0.0042851
+				}
+				{VolumeView "wheelleft.ply"}
+			}
+			{bone "support1"
+				{Position 11.3645	-6.5613	-3.49664}
+			}
+			{bone "support2"
+				{Position 11.3502	6.43766	-3.49664}
+			}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{Matrix34
+					-1	0	0
+					0	0	-1
+					0	-1	0
+					3.51009	-0.108483	10.8748
+				}
+				{bone "visor"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0	-9.58805	0
+					}
+				}
+			}
+		}
+		{bone "driver"
+			{Position 28.8783	-2.04333	0}
+		}
+		{bone "gunner"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				33.6717	0.482016	0
+			}
+		}
+		{bone "emit1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				33.7834	-6.53613	-0.00741569
+			}
+			{visibility 0}
+		}
+	}
+}
+{Obstacle "obstacle1"
+	{Obb2
+		{Center -0.536606 -0.0478821}
+		{Extent 9.5928 7.52334}
+		{Axis 1.05629e-007 1}
+	}
+	{Tags  "close"}
+	{Rotate}
+}
+{Volume "body"
+	{Box 15.0064 8.95923 13.8925}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		4.72601	-0.0384293	7.76548
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 3.74016 1.03496}
+	{Bone "wheelleft"}
+	{Matrix34
+		0.0348994	0.999391	0
+		0.999391	-0.0348994	0
+		0	0	-1
+		0	0	0
+	}
+}
+{Volume "wheelright"
+	{Cylinder 3.74016 1.03496}
+	{Bone "wheelright"}
+	{Matrix34
+		0.0348999	0.999391	0
+		0.999391	-0.0348999	0
+		0	0	-1
+		0	0	0
+	}
+}

@@ -1,0 +1,25 @@
+{game_entity
+	(include "/properties/cannon_mgun_1.ext")
+	{props "vision_cannon_minimum"}
+	("armor_mgun" args 0.9)
+
+	{Volume "touch"
+		{able clear {touch}}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{weapon "mg34stan" filled}
+		}
+	}
+	{placer	{place "gunner" {visor "main"}}}
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_mgun_dot"}}
+		}
+	}
+	{Extension "mg34_dot2.mdl"}
+	{bone "turret"
+	      {limits -30 30}
+	}
+}

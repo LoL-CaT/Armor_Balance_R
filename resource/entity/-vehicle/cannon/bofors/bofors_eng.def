@@ -1,0 +1,118 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "wheeled" "turret" "turret_rotator" "vision_cannon_minimum" "muzzle_minimum" "round_sandbag5"}
+	{PatherID "cannon.large"}
+	("armor_mgun" args 1.1)
+        {targetSelector "cannon_shell_flak"}
+
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "wheelleft2"
+		{tags "wheelleft"}
+		{component "wheelleft"}
+	}
+	{Volume "wheelleft"
+	}
+	{Volume "wheelright2"
+		{tags "wheelright"}
+		{component "wheelright"}
+	}
+	{Volume "wheelright"
+	}
+
+	
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+	}	
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelleft2")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_61K_gunlayer_right" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_61K_gunlayer_left" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet40_bofors zenite" 60}
+			{item "bullet40_bofors ap" 60}
+			{item "bullet40_bofors fg" 60}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "40mm_bofors" filling "ammo bullet40_bofors zenite" 4}
+			("abm_zenite")
+		}
+	}  
+  	
+	{mass 1500}
+
+	{Extension "40mm_bofors.mdl"}
+	{bone "turret"
+		{speed2 40}
+	}	
+	{bone "gun_rot"
+		{limits -5 85}		
+		{speed2 25}
+	}
+
+	
+	{extender "cannon"
+		{animation
+			{aim "Cannon_61K_gunlayer_right" "Cannon_61K_gunlayer_left"}
+;			{fire	"" ""}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+;			{reload  "" "cannon_flak38_charger_left"}
+			{switch "close"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel03") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+	{mass 2400}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+}

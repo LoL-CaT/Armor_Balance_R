@@ -1,0 +1,61 @@
+﻿{game_entity ; Корабельный автомат
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "turret" "turret_rotator" "vision_cannon_minimum" "muzzle_minimum"}
+        {targetSelector "cannon_shell_flak"}
+
+    ("armor_light")
+
+	("crew_2_human")
+
+	{Boarder
+	{anm "gunner"
+			{forward	{end "pose_m5_gunlayer" 10}}
+		}
+	{anm "commander"
+			{forward	{end "pose_m5_charger" 10}}
+		}
+
+		{place "gunner"}
+		{place "commander"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "gunner"}
+		{link "emit2" "commander"}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet45rus zenite" 1500}
+			{item "ammo bullet45rus ap" 1500}
+			{item "ammo bullet45rus fg" 1500}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "45mm_21k" filling "ammo bullet45rus zenite" 1}
+			("abm_zenite")
+		}
+	}
+
+	{mass 800}
+	{extender "cannon"
+		{animation
+			{aim "cannon_zis3_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire 0.1"}
+			{reload  "" "Cannon_zis3_charger"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+	
+		
+	{Extension "45mm_21k.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))	
+	{bone "turret"
+		{limits -160 0}	
+		{speed2 35}
+	}	
+	{bone "gun_rot"
+		{speed2 20}
+	}
+}

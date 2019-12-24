@@ -1,0 +1,142 @@
+;SDL
+{Placer
+	{place "driver"
+		{LinkBone "driver"}
+		{turnoff {sensor} {shadow}}
+	}
+	{place "gun1"
+		{entity "mk10"}
+		{Linkbone "attach_gun1"}
+		{obstacle disable}
+	}
+	{place "gun2"
+		{entity "mk10"}
+		{Linkbone "attach_gun2"}
+		{obstacle disable}
+	}
+	{place "gun3"
+		{entity "mk10"}
+		{Linkbone "attach_gun3"}
+		{obstacle disable}
+	}
+	{place "gun4"
+		{entity "mk10"}
+		{Linkbone "attach_gun4"}
+		{obstacle disable}
+	}
+}
+
+{Boarder
+	{door "emit8" {queue 0}}
+	{node "ladder_bottom"}
+	{node "ladder_top"}
+
+	{anm "ladder_bind"
+		{forward	{begin	"stand_climb_stairs"}}
+		{reverse	{end	"stand_climb_stairs" -1}}
+	}
+	{anm "ladder"
+		{forward	{speed 1.2} {loop "stand_upstairs"}}
+		{reverse	{speed 1.2} {loop "stand_upstairs" -1}}
+	}
+
+	{anm "stand"
+		{forward	{end "Stand_on_LCI"}}
+	}
+	{anm "seat"
+		{forward	{end "seat_passenger"}}
+	}
+
+
+;	{link "emit8" 				"ladder_bottom"		{anm "ladder_bind"} {forward putoff} {reverse puton}}
+;	{link "ladder_bottom" 		"ladder_top" 		{anm "ladder"}}
+;	{link "ladder_top" 			"place37"			{anm "stand"}}
+ 
+	{door "emit8" {queue 0}}
+	{node "ladder_bottom1"}
+	{link "emit8" 				"ladder_bottom1"	{anm "ladder_bind"}}
+	{link "ladder_bottom1"		"place30"			{anm "stand"}}
+	{link "ladder_bottom1"		"place31"			{anm "stand"}}
+	{link "ladder_bottom1"		"place32"			{anm "stand"}}
+	{link "ladder_bottom1"		"place33"			{anm "stand"}}
+	{link "ladder_bottom1"		"place34"			{anm "stand"}}
+	{link "ladder_bottom1"		"place35"			{anm "stand"}}
+	{link "ladder_bottom1"		"place36"			{anm "stand"}}
+}
+
+(define "define_place"
+	{placer
+		{place "%place"
+			{linkbone "%place"}
+			{turnoff {sensor} {shadow} {targetable}}
+		}
+	}
+)
+
+(define "define_place_common"
+	("define_place" place(%place))
+	{boarder
+		{link "%emit" "%place" {anm "%anm"}}
+	}
+)
+
+("define_place_common" place(place1) anm(stand) emit(emit1))
+("define_place_common" place(place2) anm(stand) emit(emit1))
+("define_place_common" place(place3) anm(stand) emit(emit1))
+("define_place_common" place(place4) anm(stand) emit(emit1))
+("define_place_common" place(place5) anm(stand) emit(emit1))
+("define_place_common" place(place6) anm(stand) emit(emit1))
+("define_place_common" place(place7) anm(stand) emit(emit1))
+("define_place_common" place(place8) anm(stand) emit(emit1))
+("define_place_common" place(place9) anm(seat) emit(emit6))
+("define_place_common" place(place10) anm(seat) emit(emit6))
+("define_place_common" place(place11) anm(seat) emit(emit6))
+("define_place_common" place(place12) anm(stand) emit(emit6))
+("define_place_common" place(place13) anm(stand) emit(emit1))
+("define_place_common" place(place14) anm(seat)  emit(emit6))
+("define_place_common" place(place15) anm(seat)  emit(emit6))
+("define_place_common" place(place16) anm(seat) emit(emit6))
+("define_place_common" place(place17) anm(stand) emit(emit6))
+("define_place_common" place(place18) anm(stand) emit(emit5))
+("define_place_common" place(place19) anm(stand) emit(emit5))
+("define_place_common" place(place20) anm(stand) emit(emit5))
+("define_place_common" place(place21) anm(stand) emit(emit5))
+("define_place_common" place(place22) anm(stand)  emit(emit5))
+("define_place_common" place(place23) anm(seat) emit(emit5))
+("define_place_common" place(place24) anm(stand) emit(emit7))
+("define_place_common" place(place25) anm(stand)  emit(emit7))
+("define_place_common" place(place26) anm(seat)  emit(emit7))
+("define_place_common" place(place27) anm(seat) emit(emit7))
+("define_place_common" place(place28) anm(stand) emit(emit7))
+("define_place_common" place(place29) anm(stand) emit(emit7))
+
+("define_place" place(place30))
+("define_place" place(place31))
+("define_place" place(place32))
+("define_place" place(place33))
+("define_place" place(place34))
+("define_place" place(place35))
+("define_place" place(place36))
+
+{boarder
+	{anm "driver"
+		{forward {end "seat_passenger"}}
+	}
+	{anm "passenger"
+		{forward {end "seat_passenger"}}
+	}
+
+	{door "emit1"}
+	{door "emit2"}
+	{door "emit3"}
+	{door "emit4"}
+	{door "emit5"}
+	{door "emit6"}
+	{door "emit7"}
+	{door "emit8"}
+	{link "emit8" "driver" {anm "driver"} {forward putoff}}
+	{link "emit1" "gun1"}
+	{link "emit2" "gun2"}
+	{link "emit3" "gun3"}
+	{link "emit4" "gun4"}
+}

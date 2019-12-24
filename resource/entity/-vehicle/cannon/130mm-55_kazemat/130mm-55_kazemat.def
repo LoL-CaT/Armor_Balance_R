@@ -1,0 +1,60 @@
+{game_entity ; 130-мм корабельная пушка образца 1913 года
+	(include "/properties/cannon.ext")
+	{Extension "130mm-55_kazemat.mdl"}
+	{props "vehicle" "cannon" "armored_locomotive" "vision_cannon_medium" "muzzle_large"}
+	{simulation {able 0}}
+	{targetClass "tank" "ap fg bullet"}
+	("armor_heavy")
+	
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{able {visible 0}}
+	}
+
+	{autooperatable 1}
+	
+	{placer
+		{crew 0}
+		{place "gunner" remove}
+		{place "commander" remove}
+	}	
+
+	{extender "cannon"
+		{## animation
+			{switch "close"}
+			{move "" ""}
+			{aim "" ""}
+			{fire  "" ""}
+			{reload  "" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers clear} {obstacle "open"}}
+		
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet130 fg" 800}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "130mm_55" filling "bullet130 fg" 1}
+		}
+	}  	
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+	{mass 9000}
+}

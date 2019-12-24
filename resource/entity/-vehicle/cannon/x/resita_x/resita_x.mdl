@@ -1,0 +1,129 @@
+;Exported by: butyvsky
+;Date:        Fri Jan 27 18:52:23 2006
+;File:        D:\-Projects-\-3D Work-\canon\zis3\zis3_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position -1.54005	-1.39597	18.6282}
+				{VolumeView "turret.ply"}
+				{bone "shield"
+					{parameters "ID=turret;"}
+					{Matrix34
+						0.998878	0	-0.0473523
+						0	1	0
+						0.0473523	0	0.998878
+						-5.02184	1.44542	-5.52706
+					}
+					{VolumeView "shield.ply"}
+				}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-2.50864	0	-3.15168
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun_rot2"
+						{VolumeView "gun_rot2.ply"}
+					}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{animation
+							{sequence "break" {file "gun_b.anm"} {speed 0.6}}
+						}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-3.10553	3.15841	0.0476615
+						}
+						{VolumeView "gun.ply"}
+						{bone "gun_brake"
+							{parameters "ID=gun;"}
+							{Matrix34
+								0.999997	0	-0.00247745
+								0	1	0
+								0.00247745	0	0.999997
+								57.3	0.0474911	0.102274
+							}
+							{VolumeView "gun_brake.ply"}
+						}
+					}
+				}
+			}
+			{bone "standl"
+				{Position -2.10709	8.31155	10.0549}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{Position -2.11176	-10.9562	8.6344}
+				{VolumeView "standr.ply"}
+			}
+			{bone "pivot_back"
+				{Position -47.8155	-2.04485	3.86713}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position -0.225964	-1.41066	8.90051}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.4;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0	14.832	0
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.4;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0	-14.7934	0
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 6.22186 3.74016}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.101388	0.136813	-0.753918
+	}
+}
+{Volume "wheelright"
+	{Cylinder 6.35658 3.74016}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.10139	0.13681	1.03852
+	}
+}

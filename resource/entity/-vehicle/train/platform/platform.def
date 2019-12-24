@@ -1,0 +1,24 @@
+{actor
+	(include "/properties/railway.ext")
+    {mass 10000}
+    {props "platform" "train_part" "no_minimap_view"}
+	
+	{Extension "platform.mdl"}
+	{Placer
+		{place "vehicle"
+			{Linkbone "attach_vehicle"}
+			{handlebone "basis"}
+			{attach}
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	{Volume "body"
+		{thickness 10}
+	}
+	{component "body"}
+}

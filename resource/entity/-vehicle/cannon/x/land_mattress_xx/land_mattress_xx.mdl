@@ -1,0 +1,142 @@
+;Exported by: sk
+;Date:        Tue Jul 15 15:57:19 2008
+;File:        D:\-Projects1_5-\-3DWork-\-Model-\Eng\Land Mattress\Land_Mattress_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "pivot_back"
+			{Matrix34
+				1	0	0
+				0	1	0
+				0	0	1
+				-40.9024	0.270049	8.57824
+			}
+		}
+		{bone "pivot_front"
+			{Matrix34
+				1	0	0
+				0	1	0
+				0	0	1
+				1.48596	0.270066	8.57824
+			}
+			{bone revolute "part1"
+				{parameters "ID=wheelleft;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0.0646534	16.6604	0.322268
+				}
+				{VolumeView "part1.ply"}
+			}
+			{bone revolute "part2"
+				{parameters "ID=wheelright;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0.0646718	-16.5839	0.322267
+				}
+				{VolumeView "part2.ply"}
+			}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 1.55063	0.201504	8.90051}
+			{VolumeView "body.ply"}
+			{bone prizmatic "turret"
+				{parameters "ID=body;"}
+				{limits -10 10}
+				{speed 0.01}
+				{Position -12.9979	0	0}
+				{VolumeView "turret.ply"}
+				{bone revolute "part3"
+					{parameters "ID=gun;"}
+					{limits -2 60}
+					{speed 0.01}
+					{Matrix34
+						0.766045	0	0.642787
+						-0.642787	0	0.766045
+						0	-1	0
+						-4.93397	0	-2.60932
+					}
+					{VolumeView "part3.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Cylinder 1.21062 40.1926}
+	{Bone "body"}
+	{Matrix34
+		0.288295	-0.95619	0.0508675
+		-0.173761	0	0.984788
+		-0.941644	-0.292748	-0.166148
+		-27.0496	6.28224	-3.90489
+	}
+}
+{Volume "body2"
+	{Cylinder 1.21062 40.1926}
+	{Bone "body"}
+	{Matrix34
+		-0.338439	-0.932218	-0.128175
+		-0.190827	-0.0653892	0.979443
+		-0.921436	0.355942	-0.155762
+		-28.761	-6.10016	-4.31864
+	}
+}
+{Volume "body"
+	{Box 17.2512 5.04635 22.5833}
+	{Bone "body"}
+	{Matrix34
+		-0.984808	0	-0.173648
+		0.173648	0	-0.984808
+		0	-1	0
+		-0.10369	1.20944	0.667153
+	}
+}
+{Volume "Turret"
+	{Box 34.7286 24.5154 19.1526}
+	{Bone "part3"}
+	{Matrix34
+		0.996004	-0.089286	-0.00176191
+		-0.00109702	0.00749527	-0.999971
+		0.0892963	0.995978	0.00736737
+		17.2216	10.2146	0.0705463
+	}
+}
+{Volume "part1"
+	{Cylinder 5.92568 3.9}
+	{Bone "part1"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	1
+		0	0	-0.611072
+	}
+}
+{Volume "part2"
+	{Cylinder 7.20218 3.9}
+	{Bone "part2"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		0	-0.0866944	0.813636
+	}
+}
+{Volume "Body3"
+	{Box 11.4162 2.69452 24.832}
+	{Bone "turret"}
+	{Matrix34
+		-0.984808	0	-0.173648
+		0.173648	0	-0.984808
+		0	-1	0
+		4.42005	-0.367197	2.58328
+	}
+}

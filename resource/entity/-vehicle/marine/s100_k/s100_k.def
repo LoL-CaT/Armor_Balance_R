@@ -1,0 +1,66 @@
+{game_entity
+	(include "/properties/marine.ext")
+	(include "/properties/selection/vehicle_elongate.inc" scalex(1.8) scaley(1.0))
+	{lodclass "vehicle_large"}
+	{Extension "s100_k.mdl"}
+	{mass 10000}
+	{props "vehicle" "marine" "flag" "emit_on_sink" "boat" "big"}
+
+	{extension "crew.ext"}
+
+	{Volume "ballast1"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast2"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast3"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast4"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{volume "body_front"
+		{tags "body"}
+		{able {touch 0}}
+		{thickness 20}
+	}
+	{volume "body"
+		{tags "body"}
+		{able {touch 0}}
+		{thickness 20}
+	}
+	{volume "body_rear"
+		{tags "body"}
+		{able {touch 0}}
+		{thickness 20}
+	}
+	{volume "cabin"
+		{thickness hollow 4}
+	}
+
+	{component "body_front"} ;to _x view
+	{component "body_rear"}
+	{component "body"}
+	{component "cabin"
+		{RepairTime 15}
+	}
+
+	{patherID "water"}
+	{Sensor
+		{Visor "main"
+			{bone	 "visor1"}
+		}
+	}
+	{chassis
+		{Locomotion ("locomotion")
+			{TurnRadius	15}
+			{MaxSpeed	65}
+			{StartTime	5 }	
+		}
+	}
+}

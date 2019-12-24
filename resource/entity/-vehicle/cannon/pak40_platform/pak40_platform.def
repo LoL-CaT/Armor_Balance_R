@@ -1,0 +1,60 @@
+{game_entity ; Платформа ПАК 40
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "vision_cannon_low" "muzzle_medium" "round_sandbag2"}
+	{placer	{place "gunner" {visor "main"} {UseVision 0}}}	
+
+	("armor_medium")
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("crew_2_human")
+	("crew_human" place(driver1) bone(driver1)	door(emit1) animation(commander))
+	("crew_human" place(driver2) bone(driver2)	door(emit2) animation(commander))
+	{placer	{place "gunner" {UseVision 0}}}
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_pak40_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pak40_charger" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{aim "cannon_pak40_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire 0.2"}
+			{reload  "" "cannon_pak40_charger"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet75_pak40 ap" 400}
+			{item "bullet75_pak40 fg" 400}	
+		    {item "sandbag_kit2" 5}			
+		}
+	}
+	{Weaponry
+
+		{place "gun"
+			{weapon "75mm_pak40" filling "bullet75_pak40 ap" 1}
+
+			("abm_field_gun")
+		}
+	}
+	{mass 1420}
+	{Extension "pak40_platform.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{bone "turret"
+		{speed2 5}		
+	}
+	{bone "gun_rot"
+		{limits -22 6}
+		{speed2 5}	
+	}
+}

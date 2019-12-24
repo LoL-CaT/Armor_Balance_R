@@ -1,0 +1,75 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	{props "round_sandbag2" "cannon" "cannon_small" "vision_cannon_minimum"} 
+	{collider "cannon_small"}
+
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			;{LinkBone ""}
+			{weapon "type1hmg" filled}
+		}
+	}
+{boarder
+	{anm "gunner"
+		{forward	{end "pose_maxim_gunlaeyr"}}
+	}
+	{anm "commander"
+		{forward	{end "lie_take_item_end"}}
+	}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mortar_driver_l" 10}}
+		}
+	{link "driver1" "gunner"}
+	{link "driver2" "commander"}
+}
+{extender "inventory"
+		{box
+			{clear}
+			{item "ammo mgun" 500}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}	
+	{extender "cannon"
+		{animation
+			{move "mgun_browning_driver_r" "mortar_driver_l"}
+			{reload  "" "squat_reload_gun end lie_take_item_end"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+
+	{Extension "type1_stan.mdl"}
+
+	{Volume "body1"
+		{tags "body"}
+		{able{obstacle 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{able{obstacle 0} {blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{able{obstacle 0} {blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{able{obstacle 0} {blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+
+	{Texmod "dunkelgelb"}
+}

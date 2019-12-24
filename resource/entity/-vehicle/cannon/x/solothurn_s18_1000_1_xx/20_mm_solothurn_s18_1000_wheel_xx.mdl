@@ -1,0 +1,166 @@
+;Exported by: Sergey
+;Date:        Thu Oct 11 17:09:08 2012
+;File:        D:\Documents\3dsmax\scenes\Solothurn S18-1000\Solothurn S18-1000 wheel_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				-0.0400507	0	0.999198
+				0	-1	0
+				0.999198	0	0.0400507
+				-9.96452	0.0104408	1.9347
+			}
+			{VolumeView "body.ply"}
+			{bone "povorot"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999842	0	0.017777
+					-0.017777	0	0.999842
+					0	-1	0
+					8.05773	2.43245	-1.12993
+				}
+				{VolumeView "povorot.ply"}
+			}
+		}
+		{bone revolute "gun_rot"
+			{parameters "ID=gun;"}
+			{limits -5 10}
+			{speed 0.01}
+			{Matrix34
+				0.999361	-0.0350347	0.00712818
+				-0.0357525	-0.979298	0.199241
+				0	-0.199368	-0.979925
+				-11.8114	-24.3504	0.546635
+			}
+			{VolumeView "gun_rot.ply"}
+			{bone "gun"
+				{parameters "ID=gun;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-0.535812	0	0
+				}
+				{VolumeView "gun.ply"}
+			}
+		}
+		{bone "stan1"
+			{parameters "ID=stan1;"}
+			{Matrix34
+				-0.992393	0	0.123112
+				0	-1	0
+				-0.123112	0	-0.992393
+				7.11007	33.0537	0.962701
+			}
+			{VolumeView "stan1.ply"}
+		}
+		{bone "stan2"
+			{parameters "ID=stan2;"}
+			{Matrix34
+				0.963484	-0.148328	-0.222927
+				-0.249925	-0.199368	-0.947518
+				0.0960986	0.968634	-0.229159
+				-12.5686	-11.9617	5.24901
+			}
+			{VolumeView "stan2.ply"}
+		}
+		{bone "podem"
+			{parameters "ID=body;"}
+			{Matrix34
+				-0.999905	0	-0.0137587
+				-0.013754	-0.0261766	0.999563
+				-0.000360307	0.999657	0.0261742
+				-45.0022	-0.0788422	0.253035
+			}
+			{VolumeView "podem.ply"}
+			{bone "osnova"
+				{parameters "ID=body;"}
+				{Matrix34
+					-0.937544	-0.347685	-0.0112288
+					-0.34769	0.937608	-0.00154828
+					0.0110665	0.00245255	-0.999936
+					-7.90835	-0.0137218	2.79994
+				}
+				{VolumeView "osnova.ply"}
+				{bone "sharnir1"
+					{parameters "ID=body;"}
+					{Matrix34
+						0.994851	-0.101352	0
+						0.101352	0.994851	0
+						0	0	1
+						0.143612	0	-0.489849
+					}
+					{VolumeView "sharnir1.ply"}
+				}
+			}
+		}
+		{bone revolute "turret"
+			{parameters "ID=gun;"}
+			{limits -15 15}
+			{speed 0.01}
+			{Matrix34
+				0.942241	-0.00212338	-0.334928
+				0.0107385	0.999657	0.0238726
+				0.334762	-0.0260904	0.941941
+				-25.5114	3.08675	0.628283
+			}
+			{VolumeView "turret.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 6.88976 4.13386 11.811}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		3.827	-0.0601013	0.101675
+	}
+}
+{Volume "gun1"
+	{Box 16.0858 5.63003 2.95276}
+	{Bone "gun"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-11.3622	0.158396	-0.412173
+	}
+}
+{Volume "gun"
+	{Cylinder 0.989599 27.1654}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		10.2593	0.0224145	0.00592776
+	}
+}
+{Volume "stan1"
+	{Box 31.2795 6.72984 4.52756}
+	{Bone "stan1"}
+	{Matrix34
+		0.98016	0.197284	0.019122
+		-0.196581	0.979914	-0.0335315
+		0.0253531	-0.0291072	-0.999255
+		18.243	7.82365	2.47912
+	}
+}
+{Volume "stan2"
+	{Box 31.2795 6.72984 4.52756}
+	{Bone "stan2"}
+	{Matrix34
+		-0.97232	0.232974	-0.0177841
+		-0.232143	-0.971875	-0.0395971
+		-0.0265091	-0.0343726	0.999058
+		-17.909	8.18684	-2.44365
+	}
+}

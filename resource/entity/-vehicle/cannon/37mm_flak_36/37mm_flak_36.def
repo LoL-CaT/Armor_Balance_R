@@ -1,0 +1,87 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "flak" "barrel1" "wheeled" "vision_cannon_minimum" "muzzle_minimum" "turret" "turret_rotator" "round_sandbag2"}
+	{placer	{place "gunner" {UseVision 0}}}
+	{collider "cannon_small"}
+        {targetSelector "cannon_shell_flak"}
+
+	("armor_light")
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("crew_wheeled_gun")
+	{boarder
+		{place "gunner"}
+		{place "commander"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "gunner"}
+		{link "emit2" "commander"}
+		{anm "gunner"
+			{forward	{end "pose_flak38-1_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38_charger_left" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_flak38-1_gunlayer" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_flak38_charger_left" 10}}
+		}
+	}
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "cannon_flak38-1_gunlayer" ""}
+			{reload "" "cannon_flak38_charger_left"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel02a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet37_flak36 zenite" 60}
+			{item "bullet37_flak36 ap" 60}
+			{item "bullet37_flak36 fg" 60}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "37mm_flak_36" filling "ammo bullet37_flak36 zenite" 6}
+			("abm_zenite")
+		}
+	}  	
+
+	{mass 1550}
+	{Extension "37_mm_flak_36.mdl"}
+	{bone "turret"
+		{speed2 40}
+	}	
+	{bone "gun_rot"
+		{speed2 25}
+	}	
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+}
+

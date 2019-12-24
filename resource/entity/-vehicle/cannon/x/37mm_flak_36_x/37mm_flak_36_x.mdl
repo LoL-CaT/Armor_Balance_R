@@ -1,0 +1,56 @@
+;Exported by: Kislov_A
+;Date:        Tue Jan 13 10:28:15 2009
+;File:        E:\Black\DESIGN~1\Art\Models\Technics\ARTILL~1\3_7CM_~1\001_3_~2\FLAK36~1.MAX
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -9.70256	-0.459538	0.799278}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "id=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.5}}
+				}
+				{Matrix34
+					0.999051	0	-0.0435497
+					0	1	0
+					0.0435497	0	0.999051
+					7.81262	0.105399	2.76745
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=Gun;"}
+					{animation
+						{sequence "break" {file "Gun_rot_b.anm"} {speed 0.2}}
+					}
+					{Matrix34
+						0.994	0.109383	0
+						0	0	-1
+						-0.109383	0.994	0
+						-1.613	0	11.3937
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=Gun;"}
+						{animation
+							{sequence "break" {file "Gun_b.anm"} {speed 0.2}}
+						}
+						{Matrix34
+							0.989643	-0.093526	-0.108903
+							0.0918803	0.995568	-0.0200437
+							0.110295	0.00983004	0.99385
+							19.1104	-4.57218	-2.6385
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}

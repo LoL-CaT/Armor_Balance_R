@@ -1,0 +1,115 @@
+{game_entity
+	(include "/properties/car.ext")
+    (include "/properties/l_car_mobility.ext")		
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{collider "truck"}
+	{props "vehicle" "car" "truck" "wheeled" "vision_vehicle_minimum"}
+	{able "emit_on_attack" "emit_passengers_on_enemy"}
+	{targetClass "car" "fg bullet"}	
+	("armor_medium" args 1.0)
+	{PatherID  "vehicle.large"}
+
+	("crew_2_human")
+	
+	("board_animation"
+		place(driver)
+		board_begin(board_big-midcar)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-midcar_driver)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+	
+	("seat_inside")
+	{boarder
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_passenger"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+	}
+	("crew_human" place(seat1)	bone(seat01)	door(emit3) 	animation(passenger))
+	("crew_human" place(seat2)	bone(seat02)	door(emit4)	animation(passenger))
+	("crew_human" place(seat3)	bone(seat03)	door(emit3)	animation(passenger))
+	("crew_human" place(seat4)	bone(seat04)	door(emit4)	animation(passenger))
+	("crew_human" place(seat5)	bone(seat05)	door(emit3)	animation(passenger))
+	("crew_human" place(seat6)	bone(seat06)	door(emit4)	animation(passenger))
+	("crew_human" place(seat7)	bone(seat07)	door(emit3)	animation(passenger))
+	("crew_human" place(seat8)	bone(seat08)	door(emit4)	animation(passenger))
+	("crew_human" place(seat9)	bone(seat09)	door(emit3)	animation(passenger))
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+
+	{volume "tarp"	
+		{able {nowounddecal}}
+		{thickness 1}
+	}
+	{component "tarp"	
+		{RepairTime 10}
+	}
+	{volume "shield01"
+		{able {nowounddecal}}
+		{thickness 1}
+	}
+	{component "shield01"
+		{RepairTime 15}
+	}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}
+	}
+	{volume "cabin"
+		{tags "cabin"}
+		{component "cabin"}
+		{thickness 2}
+	}
+
+	{extender "inventory"
+		{box
+      			{size 6 12}
+          			{clear}
+			{item "balloon" filling "fuel" 30}
+			{item "antipersonnel" "mine" 20}
+			{item "dynamite" }
+			{item "can" }
+			{item "repair_kit" }
+			{item "ammo_box_inf" 3}
+			{item "oto42flam" "grenade" 20}
+			{item "ccm34smoke" "grenade" 20 }
+			{item "OTO_mod35" "grenade" 30 }
+		}
+	}
+	
+	{mass 4500}
+	
+	{Chassis
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))	
+		("mobility"
+			speed(65)
+			weight(4.8)
+			power(55)
+			fuel(177)	
+		)
+	}
+	
+	{extender "shield"
+			{on}
+	}
+
+	{Extension "fiat35.mdl"}
+}

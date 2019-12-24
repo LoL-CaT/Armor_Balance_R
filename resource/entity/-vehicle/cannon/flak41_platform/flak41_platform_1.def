@@ -1,0 +1,84 @@
+﻿{game_entity ; 88мм зенитка в неподвижной башне.
+	(include "/properties/cannon.ext")
+	{Extension "Flak41_platform.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{props "vehicle" "cannon" "vision_cannon_medium" "armored_locomotive" "muzzle_medium"}
+	{simulation {able 0}}
+	{targetClass "tank" "ap fg bullet"}
+        {targetSelector "flak"}
+	("armor_heavy")
+	
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body5"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body6"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{able {visible 0}}
+	}
+
+	("crew_2_human")
+	{placer	{place "gunner" {visor "main"} {useVision 0}}}	
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_flak41_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak41_gunlayer_1" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{aim "Cannon_flak41_gunlayer" ""}
+			{fire	"Cannon_flak41_gunlayer_fire-alert" "Cannon_flak41_gunlayer_fire-alert_1"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet88gerl ap" 20}
+			{item "bullet88gerl fg" 20}			
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "88mm_flak41" filling "ammo bullet88gerl ap" 1}
+			{RestoreIKAfterAim}
+		}
+	}  	
+	{bone "turret"
+		{speed2 35}
+        {limits -130 130}		
+	}	
+	{bone "gun_rot"
+		{speed2 20}
+	}
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+	{mass 11200}
+}

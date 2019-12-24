@@ -1,0 +1,129 @@
+{actor
+	(include "/properties/railway.ext")
+	(include "/properties/car_crew.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.5))
+    {mass 200000}
+	{Chassis
+		{Locomotion ("locomotion")
+			{MaxSpeed	20	}		; максимальная скорость, kmph
+			{StartTime	3	}		; время разгона до макс. скорости с 0, seconds
+			{BrakeTime	3	}		; время торможения с макс. скорости до 0, seconds
+		}
+	}
+	{Extension "steam_locomotive.mdl"}
+	{props "vehicle" "steam_locomotive" "steel" "train_part"}
+
+	{placer
+		{place "driver" {group "driver"} {linkbone "driver"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{anm "driver_left"
+			{forward	{begin	"board_steam_locomotive"} {end "Steam_locomotive_driver"} {base "doorleft"}}
+			{reverse 	{end	"board_steam_locomotive" -1} {base "doorleft" -1}}
+		}
+		{anm "driver_right"
+			{forward	{begin	"board_steam_locomotive"} {end "Steam_locomotive_driver"} {base "doorright"}}
+			{reverse 	{end	"board_steam_locomotive" -1} {base "doorright" -1}}
+		}
+		{door "emit"}
+		{door "emit1"}
+		{link "emit" "driver" {anm "driver_left"} {forward putoff} {reverse puton}}
+		{link "emit1" "driver" {anm "driver_right"} {forward putoff} {reverse puton}}
+
+	}
+
+	
+
+	{Volume "wheels_left"
+		{thickness 10}
+	}
+	{Volume "wheels_right"
+		{thickness 10}
+	}
+	{Volume "fore-part3"
+		{thickness 20}
+		{component "fore-part"}
+	}
+	{Volume "fore-part2"
+		{thickness 20}
+		{component "fore-part"}
+	}
+	{Volume "fore-part1"
+		{thickness 20}
+		{component "fore-part"}
+	}
+	{Volume "fore-part"
+		{thickness 20}
+		{component "fore-part"}
+	}
+	{Volume "engine"
+		{thickness 20}
+	}
+	{Volume "cabin"
+		{thickness 10}
+		{able {holed}}
+	}
+	{Volume "body"
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body1"
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body3"
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "hatch"
+		{thickness 10}
+		{component "engine"}
+	}
+
+	{component "body"
+		{tags "mover"}
+	}
+	{component "engine"
+		{tags "mover"}
+	}
+	{component "cabin"
+	}
+	{component "wheels_left"
+		{tags "mover"}
+	}
+	{component "wheels_right"
+		{tags "mover"}
+	}
+	{component "fore-part"
+	}
+	{volume	"hole1"
+		{able clear {hole}}
+	}
+	{volume	"hole2"
+		{able clear {hole}}		
+	}
+	{volume	"hole3"
+		{able clear {hole}}
+	}
+	{volume	"hole4"
+		{able clear {hole}}
+	}
+	{volume	"hole5"
+		{able clear {hole}}
+	}
+	{volume	"hole6"
+		{able clear {hole}}
+	}
+	{volume	"hole7"
+		{able clear {hole}}
+	}
+	{volume	"hole8"
+		{able clear {hole}}
+	}
+	{volume	"hole9"
+		{able clear {hole}}
+	}
+	{volume	"hole10"
+		{able clear {hole}}
+	}
+}

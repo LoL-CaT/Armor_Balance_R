@@ -1,0 +1,222 @@
+;Exported by: ubrashaev
+;Date:        Fri Apr 25 16:17:08 2008
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\-пушки\vickers_mgun\vicker_mgun.max
+{Skeleton
+	{animation
+		{sequence "fire" {speed 0.5}}
+		{sequence "close" {speed 0.5}}
+	}
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit1"
+			{parameters "Group=crew;"}
+			{Position -27.2695	0.0332977	0}
+			{visibility 0}
+		}
+		{bone "emit2"
+			{parameters "Group=crew;"}
+			{Position -29.8528	-14.7385	0}
+			{visibility 0}
+		}
+		{bone "body"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				0	0	4.98928
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{speed 0.04}
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					-0.0364532	-0.0275569	5.62338
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{limits -5 10}
+					{speed 0.05}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.22673	0.0494364	1.14106
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{Matrix34
+							0	0	-1
+							-1	0	0
+							0	1	0
+							-0.226746	-0.077301	0.0494218
+						}
+						{VolumeView "gun.ply"}
+						{bone "fxshell"
+							{Matrix34
+								-0.866025	0	0.5
+								0	-1	0
+								0.5	0	0.866025
+								1.23303	2.32642	2.45329
+							}
+						}
+						{bone "visor"
+							{Matrix34
+								0	-1	0
+								1	0	0
+								0	0	1
+								-1.37234	-1.23023	5.27397
+							}
+						}
+						{bone "cylinder03"
+							{Position 1.04539	-0.976746	-6.68714}
+							{VolumeView "cylinder03.ply"}
+						}
+						{bone "foresight3"
+							{Matrix34
+								0	-1	0
+								0	0	1
+								-1	0	0
+								0.0304184	-16.1898	1.62293
+							}
+						}
+						{bone "shield"
+							{parameters "ID=shield;"}
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								0.0960375	0.610028	2.14823
+							}
+							{VolumeView "shield.ply"}
+						}
+					}
+				}
+				{bone "commander"
+					{Position -13.954	-10.3017	-10.6127}
+				}
+				{bone "gunner"
+					{Matrix34
+						0.999999	0	-0.00134094
+						0	1	5.55822e-005
+						0.00134094	-5.55822e-005	0.999999
+						-17.2096	-0.0513313	-10.6127
+					}
+				}
+				{bone "cartridge_belt"
+					{parameters "CommonMesh;"}
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						0.976746	1.04539	-5.62338
+					}
+					{VolumeView "cartridge_belt.ply"}
+				}
+			}
+			{bone "stan1"
+				{Position -1.16963	-1.27952	0}
+				{VolumeView "stan1.ply"}
+			}
+			{bone "stan2"
+				{VolumeView "stan2.ply"}
+			}
+			{bone "stan3"
+				{Position -0.329613	1.98519	0}
+				{VolumeView "stan3.ply"}
+			}
+			{bone "support1"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					-0.0680923	15.614	-4.98928
+				}
+			}
+			{bone "support2"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					11.2896	-10.9454	-4.98928
+				}
+			}
+			{bone "support3"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					-11.6042	-10.9454	-4.98928
+				}
+			}
+		}
+		{bone "driver1"
+			{Position 0.624893	7.58267	0}
+		}
+		{bone "driver2"
+			{Position -7.1757	-7.70972	0}
+		}
+	}
+}
+{Obstacle "obstacle"
+	{Circle2
+		{Radius 13.7795}
+		{Center 0.604904 1.41732}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 15.2246 1.47939 1.51262}
+	{Bone "stan1"}
+	{Matrix34
+		0.677945	0.666996	0.309042
+		-0.734139	0.592679	0.331318
+		0.0378248	-0.451495	0.891471
+		-4.98185	-4.77519	-1.76939
+	}
+}
+{Volume "body2"
+	{Box 15.2246 1.47939 1.51262}
+	{Bone "stan2"}
+	{Matrix34
+		-0.666996	0.677945	0.309042
+		-0.592679	-0.734139	0.331318
+		0.451495	0.0378248	0.891471
+		6.29511	-6.01117	-1.76939
+	}
+}
+{Volume "body3"
+	{Box 15.2246 1.47939 1.51262}
+	{Bone "stan3"}
+	{Matrix34
+		0	-0.939693	0.34202
+		1	0	0
+		0	0.34202	0.939693
+		0.372446	6.74112	-1.81677
+	}
+}
+{Volume "gun"
+	{Cylinder 1.59669 24.3503}
+	{Bone "gun"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		0.0272532	-2.2818	2.26923
+	}
+}
+{Volume "shield"
+	{Box 1.32092 12.1775 8.82957}
+	{Bone "shield"}
+	{Matrix34
+		0	0.171949	0.985106
+		1	0	0
+		0	0.985106	-0.171949
+		-0.0190169	3.85885	0.57215
+	}
+}

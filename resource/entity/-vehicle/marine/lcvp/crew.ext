@@ -1,0 +1,83 @@
+;SDL
+
+{boarder
+	{anm "passenger"
+		{forward	{end "seat_passenger"}}
+	}
+	{anm "gunner"
+		{forward	{end "seat_gunner_stand"}}
+	}
+	{anm "crew"
+		{reverse	{end "emit_lcvp"}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(gunner1)	bone(gunner1)	door(emit)			animation(gunner))
+("crew_human" place(gunner2)	bone(gunner2)	door(emit)			animation(gunner))
+("crew_human" place(driver)		bone(driver)	door(emit)			animation(passenger))
+
+{placer
+	{place "driver"		{group "crew"}}
+	{place "gunner1"	{group "crew"}}
+	{place "gunner2"	{group "crew"}}
+}
+
+
+(define "define_place"
+	{placer
+		{place "attach%place"
+			{attach squat_lie}
+			{linkbone "%place"}
+			{turnoff {shadow}}
+			{obstacle disable}
+		}
+	}
+	{boarder
+		{door "%place"}
+		{link "%place" "attach%place"}
+	}
+	{Volume "%place"
+		{tags "attach" "attach%place"}
+		{able clear {bullet 0} {touch 1}}
+	}
+)
+
+(define "define_place_jump"
+	{placer
+		{place "attachplace%i"
+			{attach squat_lie}
+			{linkbone "place%i"}
+			{turnoff {shadow}}
+			{obstacle disable}
+		}
+	}
+	{boarder
+		{door "emit%i"}
+		{node "node%i"}
+		{link "emit%i" "node%i" {anm "crew"}}
+		{link "node%i" "attachplace%i"}
+	}
+	{Volume "place%i"
+		{tags "attach" "attachplace%i"}
+		{able clear {bullet 0} {touch 1}}
+	}
+)
+
+("define_place_jump" i(1))		("define_place_jump" i(2))
+
+("define_place" place(place3))  	("define_place" place(place4))
+("define_place" place(place5))  	("define_place" place(place6))
+("define_place" place(place7))  	("define_place" place(place8))
+("define_place" place(place9))  	("define_place" place(place10))
+("define_place" place(place11)) 	("define_place" place(place12))
+("define_place" place(place13)) 	("define_place" place(place14))

@@ -1,0 +1,220 @@
+;SDL
+{Placer
+	{place "driver"
+		{Group "crew"}
+		{LinkBone "driver"}
+		{turnoff {sensor} {shadow}}
+	}
+	{place "commander"
+		{Group "crew"}
+		{LinkBone "commander"}
+		{turnoff {sensor} {shadow}}
+	}
+;	{place "gunner"
+;		{Group "crew"}
+;		{LinkBone "gunner"}
+;		{turnoff {sensor} {shadow}}
+;	}	
+
+	{place "side1"
+		{entity "120mm_l50"}
+		{Linkbone "attach_gun1"}
+		{obstacle disable}
+	}
+	{place "side2"
+		{entity "120mm_l50"}
+		{Linkbone "attach_gun2"}
+		{obstacle disable}
+	}
+	{place "side3"
+		{entity "120mm_l50"}
+		{Linkbone "attach_gun3"}
+		{obstacle disable}
+	}
+	{place "side4"
+		{entity "mk10"}
+		{Linkbone "attach_gun4"}
+		{obstacle disable}
+	}
+	{place "side5"
+		{entity "mk10"}
+		{Linkbone "attach_gun5"}
+		{obstacle disable}
+	}
+	{place "side6"
+		{entity "mk10"}
+		{Linkbone "attach_gun6"}
+		{obstacle disable}
+	}
+	{place "side7"
+		{entity "mk10"}
+		{Linkbone "attach_gun7"}
+		{obstacle disable}
+	}
+	{place "side8"
+		{entity "mk10"}
+		{Linkbone "attach_gun8"}
+		{obstacle disable}
+	}
+	{place "side9"
+		{entity "mk10"}
+		{Linkbone "attach_gun9"}
+		{obstacle disable}
+	}
+	{place "side10"
+		{entity "control_tower_lamp2"}
+		{Linkbone "attach2"}
+		{obstacle disable}
+	}
+	{place "side11"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach4"}
+		{obstacle disable}
+	}
+	{place "side12"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach5"}
+		{obstacle disable}
+	}
+	{place "side13"
+		{entity "control_tower_lamp2"}
+		{Linkbone "attach6"}
+		{obstacle disable}
+	}
+	{place "side14"
+		{entity "control_tower_lamp2"}
+		{Linkbone "attach7"}
+		{obstacle disable}
+	}
+	{place "side15"
+		{entity "control_tower_lamp2"}
+		{Linkbone "attach9"}
+		{obstacle disable}
+	}
+	{place "side16"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach13"}
+		{obstacle disable}
+	}
+	{place "side17"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach14"}
+		{obstacle disable}
+	}
+	{place "side18"
+		{entity "light_plafond_dim_entity"}
+		{Linkbone "attach18"}
+		{obstacle disable}
+	}
+	{place "side19"
+		{entity "light_plafond_dim_entity"}
+		{Linkbone "attach19"}
+		{obstacle disable}
+	}
+	{place "side20"
+		{entity "light_plafond_dim_entity"}
+		{Linkbone "attach3"}
+		{obstacle disable}
+	}
+	{place "side21"
+		{entity "light_plafond_dim_entity"}
+		{Linkbone "attach11"}
+		{obstacle disable}
+	}
+	{place "side22"
+		{entity "light_plafond_dim_entity"}
+		{Linkbone "attach16"}
+		{obstacle disable}
+	}
+	{place "side23"
+		{entity "light_plafond_dim_entity"}
+		{Linkbone "attach17"}
+		{obstacle disable}
+	}
+	{place "side24"
+		{entity "light_plafond_dim_w_entity"}
+		{Linkbone "attach10"}
+		{obstacle disable}
+	}
+	{place "side25"
+		{entity "light_plafond_dim_w_entity"}
+		{Linkbone "attach15"}
+		{obstacle disable}
+	}
+	{place "side26"
+		{entity "light_plafond_dim_w_entity"}
+		{Linkbone "attach20"}
+		{obstacle disable}
+	}
+}
+
+
+(define "define_place"
+	{placer
+		{place "%place"
+			{linkbone "%place"}
+			{attach squat_lie}
+			{turnoff {shadow}}
+			{obstacle disable}
+		}
+	}
+	{Volume "%place"
+		{tags "attach" "attach_%place"}
+		{able clear {bullet 0} {touch 1}}
+	}
+)
+
+{boarder
+	{door "emit1"}
+	{node "node_r1"}
+	{door "emit2"}
+	{node "node_r2"}
+	{door "emit3"}
+	{node "node_r3"}
+	{door "emit4"}
+	{node "node_r4"}
+	{door "emit5"}
+	{node "node_l1"}
+	{door "emit6"}
+	{node "node_l2"}
+	{door "emit7"}
+	{node "node_l3"}
+	(define "climb"
+		{anm "climb%0"
+			{forward	{begin	"board_torpedo_boat"} {base "rope%0"}}
+			{reverse 	{begin	"emit_Bk1124"}} ;emit_torpedo_boat
+		}
+	)
+	("climb" args 1)
+	("climb" args 2)
+	("climb" args 3)
+	("climb" args 4)
+	{anm "seat" {forward {end "pose_watch_binocular"}}}
+
+	{link "emit1"	"node_r1"	{anm "climb1"} {forward putoff} {reverse puton}}
+
+	{link "node_r1" "driver" 	{anm "seat"}}
+	{link "node_r1" "commander" 	{anm "seat"}}
+	{link "node_r1"	"side5"		} ;{anm "walk"}
+
+	{link "emit2"	"node_r2"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "node_r2"	"side2"		} ;{anm "walk"}
+	{link "node_r2"	"side6"		} ;{anm "walk"}
+
+	{link "emit3"	"node_r3"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "node_r3"	"side1"		} ;{anm "walk"}
+
+	{link "emit4"	"node_r4"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "node_r4"	"side3"		} ;{anm "walk"}
+	{link "node_r4"	"side9"		} ;{anm "walk"}
+
+	{link "emit5"	"node_l1"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "node_l1"	"side4"		} ;{anm "walk"}
+
+	{link "emit6"	"node_l2"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "node_l2"	"side7"		} ;{anm "walk"}
+
+	{link "emit7"	"node_l3"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "node_l3"	"side8"		} ;{anm "walk"}
+}
+

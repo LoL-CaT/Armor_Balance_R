@@ -1,0 +1,74 @@
+;Exported by: skr
+;Date:        Sun Aug 18 21:44:01 2013
+;File:        D:\Documents\3dsmax\scenes\Type 32 HMG tripod\type92_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Position 1.41274	-0.00300169	4.04943}
+			{VolumeView "body.ply"}
+			{bone "stoika"
+				{parameters "ID=body;"}
+				{Position 0	0	6.90129}
+				{VolumeView "stoika.ply"}
+				{bone revolute "turret"
+					{parameters "ID=body;"}
+					{limits -30 30}
+					{speed 0.04}
+					{Position 0	0	0.797642}
+					{VolumeView "turret.ply"}
+					{bone revolute "gun_rot"
+						{parameters "ID=mgun;"}
+						{limits -5 10}
+						{speed 0.05}
+						{Matrix34
+							0.86979	0	-0.493421
+							0.493421	0	0.86979
+							0	-1	0
+							0.136504	1.02165	3.08232
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "mgun"
+							{Position -8.22675	-1.40161	1.01865}
+							{bone "ammobelt"
+								{parameters "ID=mgun;"}
+								{Matrix34
+									1	0	0
+									0	0.00443083	-0.99999
+									0	0.99999	0.00443083
+									5.49215	1.90942	-2.28123
+								}
+								{VolumeView "ammobelt.ply"}
+							}
+							{bone "sector"
+								{Matrix34
+									-0.0888077	0.996049	0
+									-0.996049	-0.0888075	0
+									0	0	1
+									8.22288	1.38307	-0.227666
+								}
+								{VolumeView "sector.ply"}
+							}
+						}
+					}
+				}
+			}
+			{bone "ruchka_back"
+				{Position 10.2496	-0.0144286	-3.75453}
+				{VolumeView "ruchka_back.ply"}
+			}
+			{bone "ruchka_front_r"
+				{Position 9.60241	-5.33225	-3.65612}
+				{VolumeView "ruchka_front_r.ply"}
+			}
+			{bone "ruchka_front_l"
+				{Position 7.44897	5.25191	-3.63344}
+				{VolumeView "ruchka_front_l.ply"}
+			}
+		}
+	}
+}

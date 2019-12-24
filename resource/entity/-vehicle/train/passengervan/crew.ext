@@ -1,0 +1,76 @@
+;SDL
+(define "board_animation"
+	{boarder
+		{anm "%name"
+			{forward {begin	"board_bigcar"} {end "pose_squat_empty"} {base "%name"}}
+			{reverse {end "board_bigcar" -1} {base "%name" -1}}
+		}
+	}
+)
+
+("board_animation"	name(doorright1))
+("board_animation"	name(doorright2))
+("board_animation"	name(doorleft1))
+("board_animation"	name(doorleft2))
+
+{placer
+	{place "1" {attach snipe_cover} {linkbone "attach1"}}
+	{place "2" {attach snipe_cover} {linkbone "attach2"}}
+	{place "3" {attach snipe_cover} {linkbone "attach3"}}
+	{place "4" {attach snipe_cover} {linkbone "attach4"}}
+	{place "5" {attach snipe_cover} {linkbone "attach5"}}
+	{place "6" {attach snipe_cover} {linkbone "attach6"}}
+	{place "7" {attach snipe_cover} {linkbone "attach7"}}
+	{place "seat01" {group "passanger"} {linkbone "seat01"} {turnoff {sensor} {shadow}}}
+	{place "seat02" {group "passanger"} {linkbone "seat02"} {turnoff {sensor} {shadow}}}
+	{place "seat03" {group "passanger"} {linkbone "seat03"} {turnoff {sensor} {shadow}}}
+	{place "seat04" {group "passanger"} {linkbone "seat04"} {turnoff {sensor} {shadow}}}
+	{place "seat05" {group "passanger"} {linkbone "seat05"} {turnoff {sensor} {shadow}}}
+	{place "seat06" {group "passanger"} {linkbone "seat06"} {turnoff {sensor} {shadow}}}
+	{place "seat07" {group "passanger"} {linkbone "seat07"} {turnoff {sensor} {shadow}}}
+	{place "seat08" {group "passanger"} {linkbone "seat08"} {turnoff {sensor} {shadow}}}
+	{place "seat09" {group "passanger"} {linkbone "seat09"} {turnoff {sensor} {shadow}}}
+	{place "seat10" {group "passanger"} {linkbone "seat10"} {turnoff {sensor} {shadow}}}
+	{place "seat11" {group "passanger"} {linkbone "seat11"} {turnoff {sensor} {shadow}}}
+	{place "seat12" {group "passanger"} {linkbone "seat12"} {turnoff {sensor} {shadow}}}
+	{place "seat13" {group "passanger"} {linkbone "seat13"} {turnoff {sensor} {shadow}}}
+	{place "seat14" {group "passanger"} {linkbone "seat14"} {turnoff {sensor} {shadow}}}
+	{place "seat15" {group "passanger"} {linkbone "seat15"} {turnoff {sensor} {shadow}}}
+}
+
+(define "link"
+	{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+)
+
+(define "link_emit"
+	{door "%emit"}
+	("link" door(%emit) place(1) animation(%animation))
+	("link" door(%emit) place(2) animation(%animation))
+	("link" door(%emit) place(3) animation(%animation))
+	("link" door(%emit) place(4) animation(%animation))
+	("link" door(%emit) place(5) animation(%animation))
+	("link" door(%emit) place(6) animation(%animation))
+	("link" door(%emit) place(7) animation(%animation))
+	("link" door(%emit) place(seat01) animation(%animation))
+	("link" door(%emit) place(seat02) animation(%animation))
+	("link" door(%emit) place(seat03) animation(%animation))
+	("link" door(%emit) place(seat04) animation(%animation))
+	("link" door(%emit) place(seat05) animation(%animation))
+	("link" door(%emit) place(seat06) animation(%animation))
+	("link" door(%emit) place(seat07) animation(%animation))
+	("link" door(%emit) place(seat08) animation(%animation))
+	("link" door(%emit) place(seat09) animation(%animation))
+	("link" door(%emit) place(seat10) animation(%animation))
+	("link" door(%emit) place(seat11) animation(%animation))
+	("link" door(%emit) place(seat12) animation(%animation))
+	("link" door(%emit) place(seat13) animation(%animation))
+	("link" door(%emit) place(seat14) animation(%animation))
+	("link" door(%emit) place(seat15) animation(%animation))
+)
+
+{boarder
+	("link_emit" emit(emit1) animation(doorleft1))
+	("link_emit" emit(emit2) animation(doorright1))
+	("link_emit" emit(emit3) animation(doorleft2))
+	("link_emit" emit(emit4) animation(doorright2))
+}

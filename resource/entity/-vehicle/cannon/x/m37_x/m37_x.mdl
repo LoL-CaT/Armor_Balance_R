@@ -1,0 +1,106 @@
+;Exported by: garry
+;Date:        Sun Aug 06 19:10:51 2006
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\M-42\M-42_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.997637	0	-0.068699
+				0	1	0
+				0.068699	0	0.997637
+				2.42418	0	3.78468
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;Radius=0.4;Support=1;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0.135333	11.6599	2.31603
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;Radius=0.4;Support=1;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	-1	0
+					0.135333	-11.217	2.31603
+				}
+				{VolumeView "wheelr.ply"}
+			}
+			{bone "standl"
+				{parameters "ID=standL;"}
+				{Position -0.691089	7.47167	2.34392}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{parameters "ID=standR;"}
+				{Position -0.653931	-7.47371	2.34392}
+				{VolumeView "standr.ply"}
+			}
+			{bone "turret"
+				{parameters "CommonMesh;ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.8}}
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"}}
+					}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-1.09469	-3.39344	5.73922
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							-12.0611	-2.33931	3.39344
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{Position 2.29978	-0.0755701	0.422795}
+				{VolumeView "pivot_front.ply"}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 6.12528 3.22803}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.152063	-0.0482455	0.314913
+	}
+}
+{Volume "wheelright"
+	{Cylinder 6.20919 3.22803}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.152064	-0.0482445	-0.0368972
+	}
+}

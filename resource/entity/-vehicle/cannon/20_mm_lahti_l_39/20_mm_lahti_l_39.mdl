@@ -1,0 +1,106 @@
+;Exported by: Sergey
+;Date:        Thu Sep 13 17:05:17 2012
+;File:        D:\Documents\3dsmax\scenes\Противотанковое ружье VKT L - 1939 Lahti\20-мм птр Лахти L-39.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone revolute "basis"
+		{speed 0.01}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Position -0.818835	0.62476	6.72943}
+			{VolumeView "body.ply"}
+			{bone "gon_rot"
+				{parameters "ID=body;"}
+				{Position 0.011688	-0.622018	0.969197}
+				{VolumeView "gon_rot.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-7.75871	0.584135	0.433768
+					}
+					{VolumeView "gun.ply"}
+					{bone "visor"
+						{Position 16.8256	0.6258	-0.467693}
+					}
+					{bone revolute "foresight1"
+						{limits -5 10}
+						{Position 33.9353	-0.0754204	0.586869}
+					}
+				}
+			}
+			{bone "lyzhar"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0.0286875	-1.23492	-0.504085
+				}
+				{VolumeView "lyzhar.ply"}
+			}
+			{bone "lyzhal"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	1	0
+					0.0286875	-0.00250387	-0.504086
+				}
+				{VolumeView "lyzhal.ply"}
+			}
+			{bone "bipod"
+				{parameters "ID=body;"}
+				{Position 0.0282347	-0.616039	-0.915428}
+				{VolumeView "bipod.ply"}
+			}
+		}
+		{bone "visor2"
+			{Position 8.34802	-10.0795	8.71614}
+		}
+		{bone "driver1"
+			{Position 19.8922	10.3009	0}
+		}
+		{bone "driver2"
+			{Position 20.1729	-9.88312	0}
+		}
+		{bone "emit1"
+			{Position -45.794	-10.4655	0}
+		}
+		{bone "emit2"
+			{Position -45.5133	14.7985	0}
+		}
+		{bone "commander"
+			{Position -20.8108	-20.2903	0}
+		}
+		{bone "gunner"
+			{Position -22.8993	3.59834	0.0174389}
+		}
+	}
+}
+{Volume "gun"
+	{Box 44.5274 9.81706 4.41768}
+	{Bone "gun"}
+	{Position 11.2509	0.836169	0.824925}
+}
+{Volume "lyzhal"
+	{Box 10.2547 4.89276 5.31496}
+	{Bone "lyzhal"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	-1
+		-0.506336	-3.0089	2.43785
+	}
+}
+{Volume "lyzhar"
+	{Box 10.2547 4.89276 5.31496}
+	{Bone "lyzhar"}
+	{Position -0.506336	-3.0089	2.69226}
+}

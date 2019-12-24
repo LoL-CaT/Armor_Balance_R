@@ -1,0 +1,82 @@
+{game_entity ; неподвижная зентка
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "turret" "turret_rotator" "vision_cannon_low" "muzzle_medium" "round_sandbag2"}
+	{PatherID "cannon.large"}
+        {targetSelector "flak"}
+	("armor_heavy" args 1.1)
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_pak40_gunlayer"}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pak40_charger"}}
+		}
+	}	
+	(define "crew_human"
+		{placer
+			{place "%place"
+				{group "%place"} {linkbone "%bone"} {turnoff {sensor} {shadow}} {openForCrush}
+			}
+		}
+		{boarder
+			{door "emit1"}
+			{door "emit2"}
+			{link "emit1" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+			{link "emit2" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+	("crew_human" place(gunner)		bone(gunner)	door(emit1) animation(gunner))
+	("crew_human" place(commander)	bone(commander)	door(emit2) animation(commander))
+	
+	
+	{sensor
+		{visor "charger"
+			{vision "human"}
+			{bone "turret"}
+		}
+		{visor "main"
+			{vision "cannon_main"}
+			{bone "gun_rot"}
+		}
+	}
+	{volume "gun" 
+		{thickness 6}
+	}
+	{component "gun"
+		{RepairTime 20}
+	}
+	{volume "turret"
+		{thickness 6}
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+		
+	
+  	{mass 1500}
+	
+  	{Extension "cannone7527ck.mdl"}
+	{extender "inventory"
+    		{box
+			{item "bullet75gerIT ap" 40}
+			{item "bullet75gerIT fg" 40}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "75mm_27" filling "bullet75gerIT ap" 1}
+			{foresight "foresight1"}
+			{Rotate}
+			("abm_field_gun")
+		}
+	}
+	
+	{bone "turret"
+		{speed2 35}
+	}
+	{bone "gun_rot"
+		{speed2 20}
+	}
+	
+}

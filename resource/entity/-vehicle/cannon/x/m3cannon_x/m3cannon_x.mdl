@@ -1,0 +1,108 @@
+;Exported by: garry
+;Date:        Thu Nov 08 12:51:39 2007
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\37mm M3\m3_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.6041	-0.0707779	7.49035}
+			{VolumeView "body.ply"}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	-1	0
+					0.0990743	11.8095	0.0454726
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0.0990743	-11.4622	0.0454774
+				}
+				{VolumeView "wheelr.ply"}
+			}
+			{bone "standl"
+				{parameters "ID=standL;"}
+				{Matrix34
+					-0.918708	0.349366	-0.184172
+					-0.352393	-0.935695	-0.0171257
+					-0.178312	0.0491674	0.982745
+					-1.39848	2.75587	0.302372
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{parameters "ID=standR;"}
+				{Matrix34
+					-0.928339	-0.322904	-0.184172
+					-0.331505	0.943298	0.0171257
+					-0.168199	-0.0769523	0.982745
+					-1.39848	-2.60639	0.302372
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position -0.6041	0.0707776	0.932302}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.8}}
+					}
+					{Matrix34
+						-1	0	0
+						0	-0.422618	0.906308
+						0	0.906308	0.422618
+						0.678786	-0.0707766	-0.983056
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0.422618	-0.906308
+							0	0.906308	0.422618
+							8.57986	4.46687	2.37746
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 5.49054 3.22803}
+	{Bone "wheell"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	-1
+		0.0499318	-0.00286948	-2.61998
+	}
+}
+{Volume "wheelright"
+	{Cylinder 5.55666 3.22803}
+	{Bone "wheelr"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		0.066354	0	-2.4471
+	}
+}

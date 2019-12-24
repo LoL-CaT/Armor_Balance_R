@@ -1,0 +1,653 @@
+;Exported by: butyvsky
+;Date:        Fri Aug 03 15:42:03 2007
+;File:        D:\-Projects-\-3D Work-\marine\U-552\U-boat_new.max
+{Skeleton
+	{animation
+		{sequence "drift" {speed 0.1}}
+		{sequence "torpedo1" {speed 0.5}}
+		{sequence "torpedo2" {speed 0.5}}
+		{sequence "open1" {file "cower1.anm"} {speed 0.3}}
+		{sequence "open2" {file "cower2.anm"} {speed 0.3}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "pivot_back"
+			{Position -610.155	0	0}
+		}
+		{bone "pivot_front"
+			{Position 589.443	0	0}
+		}
+		{bone "body"
+			{Position 0	0	61.7205}
+			{VolumeView "body.ply"}
+			{bone "torpedo1"
+				{Matrix34
+					1	0	0
+					0	0.939693	0.34202
+					0	-0.34202	0.939693
+					564.086	12.6744	-60.4848
+				}
+				{VolumeView "torpedo1.ply"}
+				{bone "torpedo_det1"
+					{Matrix34
+						0	0.34202	0.939693
+						0	0.939693	-0.34202
+						-1	0	0
+						-6.14563	0	0
+					}
+					{visibility 0}
+				}
+				{bone "fx_exp_torpedo1"
+					{Matrix34
+						1	0	0
+						0	0.939693	-0.34202
+						0	0.34202	0.939693
+						-66.898	0.351745	0.705461
+					}
+				}
+			}
+			{bone "torpedo2"
+				{Matrix34
+					1	0	0
+					0	0.939693	0.34202
+					0	-0.34202	0.939693
+					564.086	-12.8411	-60.4848
+				}
+				{VolumeView "torpedo2.ply"}
+				{bone "torpedo_det2"
+					{Matrix34
+						0	0.342021	0.939692
+						0	0.939692	-0.342021
+						-1	0	0
+						-6.14563	0.100482	-0.0365691
+					}
+					{visibility 0}
+				}
+				{bone "fx_exp_torpedo2"
+					{Matrix34
+						1	0	0
+						0	0.939693	-0.34202
+						0	0.34202	0.939693
+						-66.898	0.454859	0.667929
+					}
+				}
+			}
+			{bone "body2"
+				{Matrix34
+					0	0	1
+					0	1	0
+					-1	0	0
+					254.758	-48.5232	-55.4117
+				}
+				{visibility 0}
+			}
+			{bone "body3"
+				{Matrix34
+					0	0	1
+					0	1	0
+					-1	0	0
+					254.758	48.481	-56.5303
+				}
+				{visibility 0}
+			}
+			{bone "cower1"
+				{parameters "ID=cabin;"}
+				{Position 269.994	14.0912	-18.5039}
+				{VolumeView "cower1.ply"}
+				{bone "cabin"
+					{Position -7.80188	0	0}
+					{visibility 0}
+				}
+			}
+			{bone "cower2"
+				{Position -90.6938	-0.788753	-18.5041}
+				{VolumeView "cower2.ply"}
+			}
+			{bone "land"
+				{parameters "Land;"}
+				{Position 0	0	-18.6199}
+				{visibility 0}
+				{VolumeView "land.ply"}
+			}
+			{bone revolute "attach_gun1"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-19.7579	0.626752	20.4914
+				}
+			}
+			{bone revolute "attach_gun2"
+				{Position 158.483	0.533754	-18.5655}
+			}
+		}
+		{bone "fx_bulb2"
+			{Matrix34
+				-0.965926	-0.258819	0
+				-0.258819	0.965926	0
+				0	0	1
+				-651.344	-20.2556	0.36821
+			}
+		}
+		{bone "fx_bulb_small_back1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-648.683	21.6756	-6.58858
+			}
+		}
+		{bone "fx_bulb_small_back2"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-648.683	-21.7153	-6.58858
+			}
+		}
+		{bone "fx_bulb1"
+			{Matrix34
+				-0.965926	0.258819	0
+				-0.258819	-0.965926	0
+				0	0	1
+				-651.344	17.8916	0.36821
+			}
+		}
+		{bone "fx_bulb_small_center10"
+			{Matrix34
+				0.00743908	-0.999972	0
+				0.999972	0.00743908	0
+				0	0	1
+				-15.1428	-69.7429	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center2"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-14.5686	69.7447	11.5851
+			}
+		}
+		{bone "fx_bulb_norm_front1"
+			{Matrix34
+				0.422618	0.906308	0
+				-0.906308	0.422618	0
+				0	0	1
+				617.801	9.7575	0.81694
+			}
+		}
+		{bone "fx_bulb_norm_front2"
+			{Matrix34
+				0.5	-0.866025	0
+				0.866025	0.5	0
+				0	0	1
+				618.154	-9.54949	0.81694
+			}
+		}
+		{bone "driver"
+			{Position 58.8085	-0.176269	42.9294}
+		}
+		{bone "gunner"
+			{Position 44.0763	-0.17627	42.7818}
+		}
+		{bone "emit2"
+			{Matrix34
+				0.766044	-0.642788	0
+				0.642788	0.766044	0
+				0	0	1
+				-116.234	16.6007	42.1621
+			}
+			{visibility 0}
+		}
+		{bone "emit1"
+			{Matrix34
+				0.906308	0.422618	0
+				-0.422618	0.906308	0
+				0	0	1
+				-123.257	-12.9871	42.1621
+			}
+			{visibility 0}
+		}
+		{bone revolute "turret"
+			{limits -2 2}
+			{Position 42.8581	1.01145e-005	135.068}
+			{bone revolute "foresight1"
+				{limits -10 10}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					58.3922	0.337946	2.51572
+				}
+			}
+		}
+		{bone "emit3"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				262.46	-3.27609	42.1621
+			}
+			{visibility 0}
+		}
+		{bone "emit4"
+			{Matrix34
+				-0.984808	0.173648	0
+				-0.173648	-0.984808	0
+				0	0	1
+				237.82	13.5131	42.1621
+			}
+			{visibility 0}
+		}
+		{bone "emit5"
+			{Position -73.1045	7.08886	42.1621}
+			{visibility 0}
+		}
+		{bone "emit6"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				190.338	-20.1958	42.1621
+			}
+			{visibility 0}
+		}
+		{bone "emit7"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				185.091	21.5085	42.1621
+			}
+			{visibility 0}
+		}
+		{bone "emit8"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				218.824	-9.69238	42.1621
+			}
+			{visibility 0}
+		}
+		{bone "fx_bulb_small_center14"
+			{Matrix34
+				-0.105068	0.994465	0
+				-0.994465	-0.105068	0
+				0	0	1
+				-227.034	60.1347	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center4"
+			{Matrix34
+				-0.100417	-0.994945	0
+				0.994945	-0.100417	0
+				0	0	1
+				-227.034	-59.9804	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center5"
+			{Matrix34
+				0.0821839	0.996617	0
+				-0.996617	0.0821839	0
+				0	0	1
+				160.855	65.4359	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center13"
+			{Matrix34
+				0.0647773	-0.9979	0
+				0.9979	0.0647773	0
+				0	0	1
+				164.359	-64.8082	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center1"
+			{Matrix34
+				0.0647773	-0.9979	0
+				0.9979	0.0647773	0
+				0	0	1
+				333.577	-36.0803	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center11"
+			{Matrix34
+				0.0427912	-0.999084	0
+				0.999084	0.0427912	0
+				0	0	1
+				482.622	-26.4052	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center3"
+			{Matrix34
+				0.0821839	0.996617	0
+				-0.996617	0.0821839	0
+				0	0	1
+				333.151	35.446	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center9"
+			{Matrix34
+				0.0503948	0.998729	0
+				-0.998729	0.0503948	0
+				0	0	1
+				483.797	25.0562	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center12"
+			{Matrix34
+				-0.0259761	-0.999663	0
+				0.999663	-0.0259761	0
+				0	0	1
+				-352.294	-35.7544	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center6"
+			{Matrix34
+				-0.0259761	-0.999663	0
+				0.999663	-0.0259761	0
+				0	0	1
+				-519.889	-31.3994	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center7"
+			{Matrix34
+				-0.0941734	0.995556	0
+				-0.995556	-0.0941734	0
+				0	0	1
+				-518.315	29.4846	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center8"
+			{Matrix34
+				-0.0468831	0.9989	0
+				-0.9989	-0.0468831	0
+				0	0	1
+				-355.998	36.8896	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center15"
+			{Matrix34
+				-0.0181044	0.999836	0
+				-0.999836	-0.0181044	0
+				0	0	1
+				-113.23	66.634	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center16"
+			{Matrix34
+				-0.0345867	-0.999402	0
+				0.999402	-0.0345867	0
+				0	0	1
+				-118.232	-66.6649	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center17"
+			{Matrix34
+				0.0523957	-0.998626	0
+				0.998626	0.0523957	0
+				0	0	1
+				81.2848	-68.3069	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center18"
+			{Matrix34
+				0.0189949	0.99982	0
+				-0.99982	0.0189949	0
+				0	0	1
+				73.058	68.3774	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center19"
+			{Matrix34
+				0.316084	0.948731	0
+				-0.948731	0.316084	0
+				0	0	1
+				265.9	45.4598	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center20"
+			{Matrix34
+				0.383499	-0.923541	0
+				0.923541	0.383499	0
+				0	0	1
+				260.03	-47.9952	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center21"
+			{Matrix34
+				0.0647773	-0.9979	0
+				0.9979	0.0647773	0
+				0	0	1
+				413.007	-29.2162	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center22"
+			{Matrix34
+				0.0821839	0.996617	0
+				-0.996617	0.0821839	0
+				0	0	1
+				413.461	28.4829	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center23"
+			{Matrix34
+				0.0503948	0.998729	0
+				-0.998729	0.0503948	0
+				0	0	1
+				577.087	16.4568	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center24"
+			{Matrix34
+				0.120918	-0.992662	0
+				0.992662	0.120918	0
+				0	0	1
+				568.148	-18.1933	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center25"
+			{Matrix34
+				-0.0259761	-0.999663	0
+				0.999663	-0.0259761	0
+				0	0	1
+				-437.326	-33.5448	11.5851
+			}
+		}
+		{bone "fx_bulb_small_center26"
+			{Matrix34
+				-0.0468831	0.9989	0
+				-0.9989	-0.0468831	0
+				0	0	1
+				-437.269	33.0752	11.5851
+			}
+		}
+	}
+}
+{Obstacle "rectangle01"
+	{Obb2
+		{Center 453.403 -26.1044}
+		{Extent 77.7854 2.27385}
+		{Axis -0.999848 -0.0174523}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle02"
+	{Obb2
+		{Center 453.634 25.799}
+		{Extent 77.7854 2.27385}
+		{Axis -0.99983 0.0184405}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle03"
+	{Obb2
+		{Center 15.3979 37.8782}
+		{Extent 122.894 2.27385}
+		{Axis -0.998417 -0.056248}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle04"
+	{Obb2
+		{Center 15.7271 -38.3286}
+		{Extent 122.894 2.27385}
+		{Axis -0.998548 0.053868}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle05"
+	{Obb2
+		{Center -359.835 23.1011}
+		{Extent 172.234 2.27385}
+		{Axis -0.999412 -0.0342783}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle06"
+	{Obb2
+		{Center -359.337 -23.6147}
+		{Extent 172.217 2.27385}
+		{Axis -0.999639 0.026855}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle07"
+	{Obb2
+		{Center 227.741 36.2511}
+		{Extent 91.2395 2.27385}
+		{Axis -0.995934 0.0900856}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle08"
+	{Obb2
+		{Center 228.206 -36.5995}
+		{Extent 91.2395 2.27385}
+		{Axis -0.995736 -0.0922506}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle09"
+	{Obb2
+		{Center 528.7 -0.0188446}
+		{Extent 22.4901 2.27385}
+		{Axis -0.000683894 1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle10"
+	{Obb2
+		{Center -528.479 -0.919893}
+		{Extent 16.1261 2.27385}
+		{Axis -0.000685063 1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle11"
+	{Obb2
+		{Center -127.584 30.4789}
+		{Extent 20.7544 2.27385}
+		{Axis -0.999412 -0.0342784}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle12"
+	{Obb2
+		{Center 328.088 -28.2917}
+		{Extent 9.54724 2.27385}
+		{Axis -0.999848 -0.0174524}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle13"
+	{Obb2
+		{Center 327.851 27.7717}
+		{Extent 9.54724 2.27385}
+		{Axis -0.99983 0.0184405}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle14"
+	{Obb2
+		{Center -127.635 -30.6252}
+		{Extent 21.0814 2.27385}
+		{Axis -0.998336 0.0576694}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle15"
+	{Obb2
+		{Center 106.583 -0.179293}
+		{Extent 14.6359 5.40767}
+		{Axis -1 -4.07251e-009}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle16"
+	{Polygon2
+		{Radius 0}
+		{Vertex 91.9557 14.394}
+		{Vertex 67.4368 25.6656}
+		{Vertex -25.6711 14.6872}
+		{Vertex -25.6711 -17.0332}
+		{Vertex 63.8892 -25.7623}
+		{Vertex 91.9557 -16.671}
+	}
+	{Rotate}
+}
+{Volume "ballast1"
+	{Box 520.766 47.1148 122.631}
+	{Bone "body"}
+	{Position 294.629	37.3443	-79.6331}
+}
+{Volume "ballast2"
+	{Box 520.766 47.1148 122.631}
+	{Bone "body"}
+	{Position -226.518	37.3443	-79.6331}
+}
+{Volume "ballast3"
+	{Box 520.766 47.1148 122.631}
+	{Bone "body"}
+	{Position 294.629	-33.2284	-79.6331}
+}
+{Volume "ballast4"
+	{Box 520.766 47.1148 122.631}
+	{Bone "body"}
+	{Position -226.518	-33.2284	-79.6331}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Position 33.3967	0	-18.6793}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Position 13.8916	0	-152.68}
+}
+{Volume "torpedo1"
+	{Cylinder 5.70428 139.965}
+	{Bone "torpedo1"}
+	{Matrix34
+		0	0.34202	0.939693
+		0	0.939693	-0.34202
+		-1	0	0
+		-75.4674	-1.60501e-005	0
+	}
+}
+{Volume "torpedo2"
+	{Cylinder 5.70428 139.965}
+	{Bone "torpedo2"}
+	{Matrix34
+		0	0.342021	0.939692
+		0	0.939692	-0.342021
+		-1	0	0
+		-75.4674	0.100498	-0.0365709
+	}
+}

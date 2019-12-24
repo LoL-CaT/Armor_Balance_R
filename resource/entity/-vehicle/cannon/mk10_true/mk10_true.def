@@ -1,0 +1,44 @@
+﻿{game_entity ; Корабельный автомат
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "turret_rotator" "vision_cannon_low" "muzzle_zenite"}
+        {targetSelector "cannon_shell_flak"}	
+	("armor_heavy")
+
+	("crew_2_human")
+
+	{Boarder
+		{place "gunner"}
+		{place "commander"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "gunner"}
+		{link "emit2" "commander"}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet20_oerlikon zenite" 1300}
+			{item "bullet20_oerlikon fg" 1300}
+			{item "bullet20_oerlikon ap" 1300}			
+		}
+	}
+	{Weaponry
+
+		{place "gun"
+			{weapon "20mm_mk10_true" filling "ammo bullet20_oerlikon zenite" 60}
+			("abm_zenite")
+		}
+	}
+
+	{mass 800}
+	{Extension "mk10.mdl"}
+	{bone "turret"
+		{speed2 35}	
+		{limits -45 45}
+	}		
+	{bone "gun_rot"
+		{limits -25 70}	
+		{speed2 20}
+	}	
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+}

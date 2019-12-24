@@ -1,0 +1,218 @@
+;Exported by: Mauzer
+;Date:        Sat Nov 06 09:43:11 2010
+;File:        E:\Autodesk\Low poly\freelance\DMS\Type 88 75mm AA Gun\Bofors M29_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0	1	0
+				1	0	0
+				0	0	1
+				-3.83123	-0.427527	10.6587
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{speed 0.01}
+				{Matrix34
+					-0.00204133	0.999986	0.004798
+					-0.99693	-0.00241062	0.0782675
+					0.078278	-0.0046235	0.996921
+					0.808355	4.70315	21.0567
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -3 50}
+					{speed 0.006}
+					{Matrix34
+						0.999973	-0.00581321	-0.00437518
+						0.00481733	0.0783612	0.996913
+						-0.00545242	-0.996908	0.0783871
+						-8.12525	0.138081	6.96453
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							26.4792	2.51045	0.251427
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position 0.0353947	31.8429	-1.53703}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "part1"
+					{parameters "ID=wheelleft;Support=1;Radius=0.53;"}
+					{Matrix34
+						0	1	0
+						0	0	-1
+						-1	0	0
+						16.5534	3.70305	1.80214
+					}
+					{VolumeView "part1.ply"}
+				}
+			}
+			{bone "part2"
+				{Matrix34
+					0.956812	-0.289392	0.0276135
+					0.290613	0.94977	-0.116109
+					0.00737469	0.11912	0.992853
+					17.2732	3.85952	-1.43028
+				}
+				{VolumeView "part2.ply"}
+			}
+			{bone "part3"
+				{Position -17.2664	3.85952	-1.43028}
+				{VolumeView "part3.ply"}
+				{bone "reliance1"
+					{Position -21.7107	-0.0527725	-5.69787}
+					{VolumeView "reliance1.ply"}
+				}
+			}
+			{bone "pivot_back"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.997567	-0.0696683	-0.00251932
+					0.0696743	0.997567	0.00234946
+					0.0023495	-0.00251928	0.999994
+					0.0353985	-27.4807	-1.46428
+				}
+				{VolumeView "pivot_back.ply"}
+				{bone "part5"
+					{VolumeView "part5.ply"}
+				}
+			}
+			{bone "reliance2"
+				{Position -0.0298348	36.6961	-7.19063}
+				{VolumeView "reliance2.ply"}
+			}
+			{bone "part4"
+				{Position 7.08504	-2.49786	8.13881}
+				{VolumeView "part4.ply"}
+			}
+		}
+	}
+}
+{Volume "body2"
+	{Box 4.39893 37.9907 4.95959}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		1	0	0
+		0	0	1
+		-0.0420492	3.7144	-1.50609
+	}
+}
+{Volume "body3"
+	{Box 4.39893 68.7632 4.95959}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	1
+		-0.042056	2.67799	-1.50609
+	}
+}
+{Volume "body4"
+	{Cylinder 5.93413 15.3711}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		1	0	0
+		0	0	1
+		0.0997276	3.85134	8.32585
+	}
+}
+{Volume "body"
+	{Cylinder 11.7639 5.08993}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		1	0	0
+		0	0	1
+		0.0997278	3.85133	-1.47962
+	}
+}
+{Volume "gun"
+	{Cylinder 1.9655 78.4926}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		1	0	0
+		26.8592	1.42823	0.0156199
+	}
+}
+{Volume "part1"
+	{Cylinder 9.3098 3.43136}
+	{Bone "part1"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	-1
+		0	0.0707504	0.310348
+	}
+}
+{Volume "part2"
+	{Box 4.96107 26.3693 4.93855}
+	{Bone "part2"}
+	{Matrix34
+		-0.015712	0.998792	0.0465421
+		0.999871	0.0158457	-0.00250439
+		0.00323888	-0.0464968	0.998913
+		9.05014	-0.196283	0.0664837
+	}
+}
+{Volume "part3"
+	{Box 4.96107 26.3693 4.93855}
+	{Bone "part3"}
+	{Matrix34
+		-0.00992613	0.999148	0.0400472
+		0.999951	0.00993977	-0.000141603
+		0.000539525	-0.0400438	0.999198
+		-8.53791	0.0148293	0.0111859
+	}
+}
+{Volume "part4"
+	{Box 7.138 8.47775 4.23558}
+	{Bone "part4"}
+	{Matrix34
+		0.0150255	-0.902585	-0.430249
+		-0.0314985	-0.430511	0.902035
+		0.999391	0	0.0348987
+		0.101249	0.240652	0.467501
+	}
+}
+{Volume "part5"
+	{Box 3.74358 19.4387 14.2544}
+	{Bone "part5"}
+	{Matrix34
+		-0.0462529	0.896644	-0.44033
+		0.996871	0.0697146	0.037247
+		-0.0640946	0.437229	0.897063
+		3.1567	3.56621	5.16673
+	}
+}
+{Volume "turret"
+	{Box 18.3301 12.4391 13.5}
+	{Bone "turret"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	-1	0
+		-0.925152	0.12077	0.592576
+	}
+}

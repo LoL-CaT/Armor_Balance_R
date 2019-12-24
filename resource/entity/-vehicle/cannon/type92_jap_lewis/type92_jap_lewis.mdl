@@ -1,0 +1,163 @@
+;Exported by: skr
+;Date:        Sat Aug 31 20:51:59 2013
+;File:        D:\Documents\3dsmax\scenes\JAPANESE ARMY\Type 32 Lewis tripod\Type 32 Lewis tripod_01.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.5}}
+		{sequence "recoil" {speed 0.5}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0	0	22.5133}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{Position 0	0	1.37455}
+				{VolumeView "turret.ply"}
+				{bone "visor"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						9.88615	0.0464191	6.28733
+					}
+				}
+				{bone "commander"
+					{Position -16.6022	15.3066	-23.8879}
+				}
+				{bone "gunner"
+					{Position -13.1649	1.61772	-23.8879}
+				}
+				{bone revolute "gun_rot"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						4.49668	1.65619	3.38381
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "mgun"
+						{Position -12.2068	-0.595905	1.65619}
+						{bone "ruchka"
+							{Position -2.62708	1.3493	-0.10198}
+							{VolumeView "ruchka.ply"}
+						}
+					}
+				}
+			}
+			{bone revolute "sharnir3"
+				{parameters "ID=body;"}
+				{Matrix34
+					-0.406994	-0.715834	-0.567396
+					-0.325377	-0.466809	0.822326
+					-0.853514	0.519299	-0.0429277
+					0.989873	1.67707	-0.787617
+				}
+				{VolumeView "sharnir3.ply"}
+				{bone revolute "noga3"
+					{parameters "ID=body;"}
+					{Matrix34
+						0	0	1
+						0	1	0
+						-1	0	0
+						-0.272424	-2.85641	-0.0210632
+					}
+					{VolumeView "noga3.ply"}
+				}
+			}
+			{bone revolute "sharnir2"
+				{parameters "ID=body;"}
+				{Matrix34
+					-0.399348	0.717301	-0.570964
+					-0.324382	0.471943	0.819784
+					0.857495	0.51259	0.0442099
+					0.975894	-1.68524	-0.787617
+				}
+				{VolumeView "sharnir2.ply"}
+				{bone revolute "noga2"
+					{parameters "ID=body;"}
+					{Matrix34
+						0	0	1
+						0	1	0
+						-1	0	0
+						-0.272425	-2.85641	-0.0210633
+					}
+					{VolumeView "noga2.ply"}
+				}
+			}
+			{bone revolute "noga1"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.808426	0	-0.588598
+					0.588598	0	0.808426
+					0	-1	0
+					-1.92682	0	-0.773722
+				}
+				{VolumeView "noga1.ply"}
+			}
+		}
+		{bone "driver1"
+			{Position -7.79368	4.93318	0}
+		}
+		{bone "driver2"
+			{Position -7.68632	-3.24376	0}
+		}
+		{bone "emit1"
+			{Position -29.8089	0.241493	0}
+		}
+		{bone "emit2"
+			{Position -29.5408	14.8528	0}
+		}
+	}
+}
+{Volume "body"
+	{Box 4.38387 4.38387 3.54331}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-0.223434	-0.174149	-0.896544
+	}
+}
+{Volume "gun_rot"
+	{Box 14.695 5.61327 3.93701}
+	{Bone "gun_rot"}
+	{Position -3.18428	-1.99636	1.76833}
+}
+{Volume "noga1"
+	{Cylinder 0.533174 25.5906}
+	{Bone "noga1"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		-0.00636578	-12.7674	-0.0322992
+	}
+}
+{Volume "noga2"
+	{Cylinder 0.533174 25.5906}
+	{Bone "noga2"}
+	{Matrix34
+		0.865375	0	0.501124
+		0.501125	0	-0.865375
+		0	1	0
+		0.0389716	-12.1075	-0.286772
+	}
+}
+{Volume "noga3"
+	{Cylinder 0.533174 25.5906}
+	{Bone "noga3"}
+	{Matrix34
+		-0.861178	0	0.508303
+		0.508303	0	0.861179
+		0	1	0
+		0.0195267	-12.2179	-0.284716
+	}
+}

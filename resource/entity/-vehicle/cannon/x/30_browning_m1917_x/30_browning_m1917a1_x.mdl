@@ -1,0 +1,124 @@
+;Exported by: Sergey
+;Date:        Fri Sep 07 14:46:11 2012
+;File:        D:\Documents\3dsmax\scenes\Ckm 7,92 mm wz. 30 Browning\Tripod Browning M1917_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.954594	0	0.297908
+				0	1	0
+				-0.297908	0	0.954594
+				0	0	6.9172
+			}
+			{VolumeView "body.ply"}
+			{bone "support1"
+				{parameters "ID=body;"}
+				{Matrix34
+					-0.913335	-0.0071064	0.407147
+					-0.407209	0.0159395	-0.913196
+					0	0.999848	0.0174519
+					-2.0925	-0.000701641	0.608061
+				}
+				{VolumeView "support1.ply"}
+			}
+			{bone "support2"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.685115	-0.688879	-0.236775
+					-0.154203	0.180523	-0.971408
+					0.711926	0.702038	0.0174519
+					0.972776	-1.01882	0.469015
+				}
+				{VolumeView "support2.ply"}
+			}
+			{bone "support3"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.66861	0.707215	-0.229796
+					-0.170874	-0.154639	-0.973082
+					-0.723714	0.689879	0.0174514
+					1.25736	1.2458	0.472244
+				}
+				{VolumeView "support3.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -40 40}
+				{speed 0.01}
+				{Position 0	0	1.39601}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_root"
+					{parameters "ID=body;"}
+					{limits -5 20}
+					{speed 0.01}
+					{Matrix34
+						0.937097	0	0.349069
+						0.349069	0	-0.937097
+						0	1	0
+						1.28647	0.000358364	4.45201
+					}
+					{VolumeView "gun_root.ply"}
+					{bone "mgun"
+						{Matrix34
+							1	0	0
+							0	-1	0
+							0	0	-1
+							-7.98931	2.09227	-0.000354152
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body_01"
+	{Cylinder 0.762804 14.7792}
+	{Bone "support1"}
+	{Matrix34
+		-0.592597	0.805377	-0.0140023
+		9.2291e-005	0.0174513	0.999847
+		-0.805499	-0.592506	0.0104159
+		5.60121	4.23944	0.0659663
+	}
+}
+{Volume "body_02"
+	{Cylinder 0.762804 14.7792}
+	{Bone "support2"}
+	{Matrix34
+		0.567891	-0.767211	0.298138
+		-0.177348	0.239654	0.954523
+		-0.803771	-0.594939	3.36825e-005
+		5.60207	4.07375	-0.30025
+	}
+}
+{Volume "body_03"
+	{Cylinder 0.762804 14.7792}
+	{Bone "support3"}
+	{Matrix34
+		0.3136	-0.463465	-0.828767
+		0.464941	-0.686066	0.559593
+		-0.827941	-0.560815	0.000332702
+		4.71558	3.72629	0.00179156
+	}
+}
+{Volume "body"
+	{Cylinder 2.07836 3.34646}
+	{Bone "body"}
+	{Position 0.0638225	-0.00324441	1.70751}
+}
+{Volume "gun_root"
+	{Box 10.2212 3.6193 2.3622}
+	{Bone "gun_root"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-4.05655	1.78829	-0.11679
+	}
+}

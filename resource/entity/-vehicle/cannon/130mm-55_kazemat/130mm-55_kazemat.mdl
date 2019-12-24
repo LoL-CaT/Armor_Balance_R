@@ -1,0 +1,96 @@
+;Exported by: Luzhbin_M
+;Date:        Tue Apr 14 12:20:14 2009
+;File:        D:\art\Models\Technics\Корабельные Орудия\Gun_krim\K_Krim_puwka.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.7}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "turret"
+			{Matrix34
+				0.999957	0.00928516	0
+				-0.00928516	0.999957	0
+				0	0	1
+				-0.0622063	0.563903	-1.62048
+			}
+			{VolumeView "turret.ply"}
+			{bone revolute "gun_rot"
+				{parameters "ID=gun_rot;"}
+				{limits -10 3}
+				{speed 0.008}
+				{Matrix34
+					0.999957	-0.00928532	0
+					0	0	-1
+					0.00928532	0.999957	0
+					17.7502	-0.799838	0.990884
+				}
+				{VolumeView "gun_rot.ply"}
+				{bone "gun"
+					{parameters "ID=GUN;"}
+					{Position 22.2819	-1.10692	-1.8178}
+					{VolumeView "gun.ply"}
+					{bone "shooter00"
+						{Matrix34
+							0.999982	-0.00603583	0
+							0	0	-1
+							0.00603584	0.999982	0
+							87.3897	0.678661	1.85435
+						}
+					}
+					{bone "visor"
+						{parameters "Vis;"}
+						{Matrix34
+							0.999982	-0.00603584	0
+							0	0	-1
+							0.00603584	0.999982	0
+							-5.70704	-11.6523	1.76986
+						}
+					}
+					{bone "foresight1"
+						{Matrix34
+							0.999982	-0.00603583	0
+							0	0	-1
+							0.00603584	0.999982	0
+							88.0033	0.678661	1.85435
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "gun_rot"
+	{Polyhedron "gun_rot.vol"}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		-10.285	-1.01142	7.99145
+	}
+}
+{Volume "gun"
+	{Polyhedron "gun.vol"}
+	{Bone "gun"}
+	{Matrix34
+		0	0	-1
+		0	-1	0
+		-1	0	0
+		-44.9549	0.539507	1.79201
+	}
+}
+{Volume "turret"
+	{Cylinder 29.1483 28.7378}
+	{Bone "turret"}
+	{Matrix34
+		0.999957	-0.00928532	0
+		0.00928532	0.999957	0
+		0	0	1
+		1.32787	-0.881415	0.675454
+	}
+}

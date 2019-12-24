@@ -1,0 +1,82 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "vision_cannon_medium" "round_sandbag5" "muzzle_maximum"}
+
+	("armor_heavy")
+	
+	;{collider "cannon_large"}
+	{PatherID  "cannon.large"}
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m5_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pdr25_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	{extender "inventory"
+		{box
+			{item "ammo bullet149ita fg" 4}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "149mm_40" filling "ammo bullet149ita fg" 1}
+			("abm_howitzer")
+		}
+	}
+	
+	{mass 11400}
+	
+	{Extension "obice14940.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{bone "basis"
+	      {limits}
+	      {speed 0.003}
+	}
+	{bone "turret"
+		{limits -10 10}
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -45 5}
+		{speed2 5}
+	}
+	
+		{extender "cannon"
+			{animation
+				{move	"cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+				{aim "cannon_pak40_gunlayer" ""}
+				{fire	"Cannon_gunlayer_fire-alert" "cannon_pdr25_charger_fire"}
+				{reload	"" "Cannon_pdr25_charger"}
+			}
+			{move {obstacle "close"}}
+			{attack {obstacle "open"}}
+			{rotate_ik_Limit 0}				
+		}
+		
+	{Chassis "track"
+		("car_trace" fx("tracewheel05a") step(0.14) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_verybig")
+	}
+}

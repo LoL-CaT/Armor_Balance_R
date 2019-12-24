@@ -1,0 +1,84 @@
+;Exported by: sk
+;Date:        Mon Mar 13 14:40:39 2006
+;File:        D:\-Projects1_5-\-3DWork-\-Model-\Americos\Cannon\M8\M8_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -24.6092	0	5.99949}
+			{VolumeView "body.ply"}
+			{bone "pivot_back"
+				{Position -22.8916	0	-5.99949}
+			}
+			{bone "pivot_front"
+				{Position 28.5747	0	-5.99949}
+				{bone "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.35;"}
+					{Matrix34
+						0.998693	-0.0511141	0
+						0.00136167	0.0266121	-0.999645
+						0.0510959	0.998338	0.0266469
+						-0.867853	11.1522	6.71625
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.35;"}
+					{Matrix34
+						0.996195	-0.087156	0
+						-0.0151348	-0.172987	-0.984808
+						0.0858319	0.98106	-0.173648
+						-0.867856	-10.9549	6.71626
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone "support1"
+				{Position -20.4172	-0.259857	-5.99949}
+			}
+			{bone "turret"
+				{Position 21.6381	0	5.44711}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.144052	0.109496	0.0302935
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							12.8548	2.82672	0.0897888
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 5.3281 2.8948}
+	{Bone "wheell"}
+	{Position 0	0	-0.313754}
+}
+{Volume "wheelright"
+	{Cylinder 5.10592 3.40005}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		0	0	0.338092
+	}
+}

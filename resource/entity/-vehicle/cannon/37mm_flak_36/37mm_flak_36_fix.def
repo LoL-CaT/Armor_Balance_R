@@ -1,0 +1,65 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "turret" "turret_rotator" "vision_cannon_minimum" "muzzle_minimum"}
+        {targetSelector "cannon_shell_flak"}
+
+	("armor_light" args 1.1)
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("crew_2_human")
+
+	{Boarder
+		{place "gunner"}
+		{place "commander"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "gunner"}
+		{link "emit2" "commander"}
+		{anm "gunner"
+			{forward	{end "pose_flak38-1_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38_charger_left" 10}}
+		}
+	}
+	
+	{extender "cannon"
+		{animation
+			{aim	"cannon_flak38-1_gunlayer" ""}
+			{reload	"" "cannon_flak38_charger_left"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet37_flak36 zenite" 60}
+			{item "bullet37_flak36 ap" 60}
+			{item "bullet37_flak36 fg" 60}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "37mm_flak_36" filling "ammo bullet37_flak36 zenite" 6}
+			("abm_zenite")
+		}
+	}  	
+
+	{mass 1550}
+	{Extension "37mm_flak_36.mdl"}
+	{bone "turret"
+		{speed2 40}
+	}	
+	{bone "gun_rot"
+		{speed2 25}
+	}	
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+}
+

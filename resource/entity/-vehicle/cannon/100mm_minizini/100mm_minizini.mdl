@@ -1,0 +1,210 @@
+;Exported by: Luzhbin_M
+;Date:        Tue Apr 21 15:44:35 2009
+;File:        D:\art\Models\Technics\Корабельные Орудия\100-мм Минизини\100mm.max
+{Skeleton
+	{animation
+		{sequence "fire00" {speed 0.8}}
+		{sequence "fire01" {speed 0.8}}
+	}
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.151533	-0.0076783	0.315071}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=Turret;"}
+				{Position 0	0	0.605829}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun_rot;"}
+					{limits -40 8}
+					{speed 0.08}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.446045	-0.0267029	32.3968
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun2"
+						{parameters "ID=Gun2;"}
+						{Position 0	0	0}
+						{VolumeView "gun2.ply"}
+						{bone "shooter01"
+							{parameters "Vis;"}
+							{Matrix34
+								0.999999	0.00152162	0
+								0	0	-1
+								-0.00152162	0.999999	0
+								72.6636	-0.737473	-4.88091
+							}
+						}
+						{bone "fx_invers2"
+							{Matrix34
+								-0.999982	0.00603574	0
+								-0.00603574	-0.999982	0
+								0	0	1
+								-32.5745	-3.15229	-5.28011
+							}
+						}
+					}
+					{bone "gun"
+						{parameters "ID=Gun;"}
+						{Position 0	0	0}
+						{VolumeView "gun.ply"}
+						{bone "shooter00"
+							{parameters "Vis;"}
+							{Matrix34
+								0.999999	0.00152162	0
+								0	0	-1
+								-0.00152162	0.999999	0
+								72.6636	-0.737469	4.90223
+							}
+						}
+						{bone "visor"
+							{parameters "Vis;"}
+							{Matrix34
+								0.999982	-0.00603584	0
+								0	0	-1
+								0.00603584	0.999982	0
+								7.74995	-21.5713	0.217008
+							}
+						}
+						{bone "fx_invers"
+							{Matrix34
+								-0.999982	0.00603574	0
+								-0.00603574	-0.999982	0
+								0	0	1
+								-32.5745	-3.15228	4.72112
+							}
+						}
+					}
+					{bone "foresight1"
+						{parameters "Vis;"}
+						{Matrix34
+							0.999999	0.00152162	0
+							0	0	-1
+							-0.00152162	0.999999	0
+							73.373	-0.732109	0.034318
+						}
+					}
+				}
+				{bone "gunner"
+					{Matrix34
+						0.904472	-0.426534	0
+						0.426534	0.904472	0
+						0	0	1
+						-21.2272	24.7895	0.578765
+					}
+				}
+				{bone "emit1"
+					{Position -44.1038	15.2996	-0.802194}
+					{visibility 0}
+				}
+				{bone "emit2"
+					{Position -44.7579	-18.2554	-0.802194}
+					{visibility 0}
+				}
+				{bone "commander"
+					{Matrix34
+						0.970591	0.240735	0
+						-0.240735	0.970591	0
+						0	0	1
+						-16.7329	-23.8688	0.67139
+					}
+				}
+				{bone "visor2"
+					{parameters "Vis;"}
+					{Matrix34
+						0.999982	0	0.00603567
+						0	-1	0
+						0.00603566	0	-0.999982
+						36.0606	-8.81996	40.7862
+					}
+				}
+			}
+			{bone "obstacle"
+				{Position 0.151533	0.0076783	-0.315071}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Position -0.108549	0.0777054	-0.444351}
+}
+{Volume "gun11"
+	{Polyhedron "gun11.vol"}
+	{Bone "gun"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-27.5526	2.99835	7.45391
+	}
+}
+{Volume "gun1"
+	{Polyhedron "gun1.vol"}
+	{Bone "gun"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		42.012	-0.812286	7.66458
+	}
+}
+{Volume "gun21"
+	{Polyhedron "gun21.vol"}
+	{Bone "gun2"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-27.5526	2.99835	-0.546349
+	}
+}
+{Volume "gun2"
+	{Polyhedron "gun2.vol"}
+	{Bone "gun2"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		42.012	-0.81229	-2.29734
+	}
+}
+{Volume "gun_rot"
+	{Polyhedron "gun_rot.vol"}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-5.49786	2.52777	0.0878029
+	}
+}
+{Volume "turret1"
+	{Polyhedron "turret1.vol"}
+	{Bone "turret"}
+	{Position 0	-0.0479705	0}
+}
+{Volume "turret2"
+	{Polyhedron "turret2.vol"}
+	{Bone "turret"}
+	{Position 28.0011	-0.198035	-0.920905}
+}
+{Volume "turret3"
+	{Polyhedron "turret3.vol"}
+	{Bone "turret"}
+	{Position -25.6666	0.0992401	52.3712}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+}

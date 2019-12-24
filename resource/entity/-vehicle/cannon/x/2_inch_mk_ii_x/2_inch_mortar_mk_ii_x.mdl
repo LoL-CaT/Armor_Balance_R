@@ -1,0 +1,49 @@
+;Exported by: Sergey
+;Date:        Sun Aug 05 22:25:17 2012
+;File:        D:\Documents\3dsmax\scenes\2-inch Mortar Mk II\2_inch_mortar_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "body"
+			{parameters "ID=body;"}
+			{Position 0.359703	-0.0234729	0.42965}
+			{VolumeView "body.ply"}
+			{bone revolute "gun_root"
+				{parameters "ID=gun;"}
+				{limits -45 0}
+				{speed 0.01}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					-0.0653501	0.317548	0.477991
+				}
+				{VolumeView "gun_root.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.294362	1.4202	0.294076
+					}
+					{VolumeView "gun.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 2.26206 4.47386 0.770777}
+	{Bone "body"}
+	{Position -0.224668	0.0203624	-0.191778}
+}
+{Volume "gun"
+	{Cylinder 0.767309 11.9094}
+	{Bone "gun"}
+	{Position 0.00937369	0.0220236	4.19786}
+}

@@ -1,0 +1,39 @@
+;Exported by: sk
+;Date:        Sat Jun 17 12:41:50 2006
+;File:        D:\-Projects1_5-\-3DWork-\Entourage\Light_tower\Fonari.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Position -0.0384827	-0.084074	3.59581}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{speed 0.02}
+				{Matrix34
+					0.999803	-0.00947318	-0.0174268
+					0.00965576	0.999899	0.0104233
+					0.0173263	-0.0105896	0.999794
+					-0.023468	-0.0639658	12.9663
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 1}}
+					}
+					{Matrix34
+						-0.999393	-0.000363604	-0.0348465
+						-0.00036294	-0.999783	0.0208414
+						-0.0348465	0.0208414	0.999175
+						-1.84869	0.354204	4.98996
+					}
+					{VolumeView "gun.ply"}
+				}
+			}
+		}
+	}
+}

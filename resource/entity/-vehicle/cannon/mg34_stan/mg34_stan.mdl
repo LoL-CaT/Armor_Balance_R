@@ -1,0 +1,179 @@
+;Exported by: garry
+;Date:        Tue Aug 26 16:09:30 2008
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\mg_stan\vehicle\cannon\mg34_stan_new02.max
+{Skeleton
+	{animation
+		{sequence "fire" {file "cartridge_belt.anm"} {speed 0.5}}
+		{sequence "close" {speed 0.5}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit1"
+			{parameters "Group=crew;"}
+			{Position -23.4876	-0.0254482	0}
+			{visibility 0}
+		}
+		{bone "emit2"
+			{parameters "Group=crew;"}
+			{Position -26.0708	16.5662	0}
+			{visibility 0}
+		}
+		{bone "body"
+			{parameters "CommonMesh;"}
+			{Position 1.63976	-0.0707399	23.786}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{speed 0.04}
+				{Position -2.00513	0.0707262	0.894108}
+				{bone revolute "gun_rot"
+					{limits -10 10}
+					{speed 0.05}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.0188923	-0.0205545	-0.0983925
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "mgun"
+						{Position -6.23017	2.84372	-0.0327895}
+					}
+					{bone "cartridge_belt"
+						{parameters "CommonMesh;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-2.88245	-18.8112	-3.95389
+						}
+						{VolumeView "cartridge_belt.ply"}
+					}
+					{bone "fxshell"
+						{Matrix34
+							0	0.5	0.866025
+							1	0	0
+							0	0.866025	-0.5
+							-3.15402	3.71604	0.828238
+						}
+					}
+					{bone "shield"
+						{parameters "ID=shield;"}
+						{Matrix34
+							0	0	-1
+							0	1	0
+							1	0	0
+							-0.471746	2.07093	-0.046616
+						}
+						{VolumeView "shield.ply"}
+					}
+				}
+				{bone "commander"
+					{Matrix34
+						0.989743	-0.142855	-0.00134094
+						0.142855	0.989744	5.55931e-005
+						0.00131925	-0.000246584	0.999999
+						-13.9518	12.692	-24.816
+					}
+				}
+				{bone "gunner"
+					{Matrix34
+						0.999999	0	-0.00134094
+						0	1	5.55822e-005
+						0.00134094	-5.55824e-005	0.999999
+						-11.5309	1.41318	-24.816
+					}
+				}
+				{bone "visor"
+					{Position 0.947044	0.00854327	8.54496}
+				}
+			}
+			{bone "support1"
+				{Position 18.2388	1.48391	-23.9218}
+			}
+			{bone "support2"
+				{Position -12.9424	11.794	-18.0155}
+			}
+			{bone "support3"
+				{Position -12.9424	1.48391	-23.9218}
+			}
+		}
+		{bone "driver1"
+			{Position 3.57984	8.51719	0}
+		}
+		{bone "driver2"
+			{Position 3.57984	-8.67394	0}
+		}
+	}
+}
+{Volume "body"
+	{Box 9.5841 11.4726 20.0875}
+	{Bone "body"}
+	{Position -0.430804	0.0198159	-8.53254}
+}
+{Volume "shield"
+	{Box 1.32092 12.1775 8.82957}
+	{Bone "shield"}
+	{Matrix34
+		0	0.171949	0.985106
+		1	0	0
+		0	0.985106	-0.171949
+		-0.0190169	3.85885	0.572144
+	}
+}
+{Volume "touch"
+	{Box 14.6637 17.4162 25.6316}
+	{Bone "body"}
+	{Position -2.53411	0.117706	-5.12803}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin -10.4402	-37.2887	35.0798}
+			{lookat -6.92611	-24.477	25.2891}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 0.363029	17.4733	5.13008}
+			}
+			{"1"
+				{type point}
+				{position -15.6337	-14.9338	35.676}
+			}
+			{"2"
+				{type directional}
+				{direction -0.0672277	0.428076	-0.249462}
+			}
+		}
+	}
+	{"Stuff_primary"
+		{camera
+			{origin -12.3319	-25.017	37.0004}
+			{lookat -10.5652	-20.4777	34.0417}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction 0.00203554	0.4547	-0.207952}
+			}
+			{"1"
+				{type point}
+				{position -22.1683	-4.18772	28.4946}
+			}
+			{"2"
+				{type point}
+				{position 11.206	17.698	22.3527}
+			}
+			{"3"
+				{type point}
+				{position -17.3216	-17.7402	27.9361}
+			}
+		}
+	}
+}

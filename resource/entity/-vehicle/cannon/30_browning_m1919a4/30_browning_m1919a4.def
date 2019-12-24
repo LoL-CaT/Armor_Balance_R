@@ -1,0 +1,52 @@
+{actor
+	(include "/properties/cannon_mgun.ext")
+	{props "vision_cannon_minimum" "cannon" "cannon_small"}
+	{collider "cannon_small"}
+
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "browning_m1919a4" filled}
+		}
+	}
+{boarder
+	{anm "gunner"
+		{forward	{end "lie_fire_pistol"}}
+	}
+	{anm "commander"
+		{forward	{end "lie_take_item_end"}}
+	}
+	{anm "driver1"
+		{forward {end "mgun_browning_driver_r"}}
+	}
+	{anm "driver2"
+		{forward {end "mgun_browning_driver_l"}}
+	}
+	{link "driver1" "gunner"}
+	{link "driver2" "commander"}
+}
+{extender "inventory"
+		{box
+			{clear}
+			{item "ammo mgun" 500}
+;		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}	
+{extender "cannon"
+	{animation
+		{switch "close"}
+		{move "mgun_browning_driver_r" "mgun_browning_driver_l"}
+		{aim "" ""}
+		{fire  "" ""}
+		{reload  "" "lie_take_small end lie_take_item_end"}
+	}
+	{animation
+		{switch close}
+	}
+	{attack {workers "gunner" "commander"}}
+	{rotate_ik_Limit 0}
+}  	
+	{Extension "30_browning_m1919a4.mdl"}
+
+}

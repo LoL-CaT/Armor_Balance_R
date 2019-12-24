@@ -1,0 +1,123 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "vision_cannon_medium" "round_sandbag5" "muzzle_maximum"}
+	("armor_heavy")
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+	}
+
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+	}
+
+	{Volume "gun_rot"
+		{component "gun"}
+	}
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_pak40_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pak40_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet152eng fg" 4}
+;			{item "bullet152eng sm" 2}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "152mm_bl6" filling "bullet152eng fg" 1}
+			{Rotate}
+;			{StationaryFiring}  
+			("abm_howitzer")
+		}
+	}
+	{mass 1250}
+	{Extension "bl6.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+
+	{bone "turret"
+		{limits -4 4}
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -1 46}
+		{speed2 5}
+	}
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "cannon_pak40_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" "Cannon_zis3_charger_fire 0.2"}
+			{reload  "" "cannon_pak40_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		(mod "mp" {rotate_ik_Limit 0})
+	}
+
+	{Chassis "track"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+;	(mod "mp"
+;		{brain
+;			{properties
+;				{fire_mode hold}
+;			}
+;		}
+;	)
+}

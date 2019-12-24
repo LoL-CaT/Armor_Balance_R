@@ -1,0 +1,60 @@
+﻿{game_entity ; Корабельный автомат
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "turret" "turret_rotator" "vision_cannon_minimum" "muzzle_minimum"}
+
+	("armor_heavy" args 1.1)
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("crew_2_human")
+	("crew_human" place(commander1)	bone(commander1)	door(emit3) animation(commander))
+	{placer
+		{place "commander1" {group "crew"}}
+	}
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_mgun_stan" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38_charger_right" 10}}
+		}
+		{anm "commander1"
+			{forward	{end "pose_flak38_charger_left" 10}}
+		}
+	}
+	
+	{extender "cannon"
+		{animation
+			{aim "" "cannon_flak38_gunlayer" "cannon_flak38_gunlayer"}
+			{reload  "mgun_stan_charger" "" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander" "commander1"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet37_flak36 zenite" 2000}
+			{item "bullet37_flak36 ap" 2000}
+			{item "bullet37_flak36 fg" 2000}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "37mm_flak_m42" filling "ammo bullet37_flak36 zenite" 5}
+			("abm_zenite")
+		}
+	}  	
+	{mass 1550}
+	{Extension "37mm_m42.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{bone "turret"	
+		{speed2 35}
+	}	
+	{bone "gun_rot"
+		{speed2 20}
+	}	
+}

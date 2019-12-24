@@ -1,0 +1,204 @@
+;Exported by: Mauzer
+;Date:        Tue Oct 11 15:28:37 2011
+;File:        E:\Autodesk\Low poly\freelance\DMS\Cannon\PaK 43\Pak 43_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.7}}
+			}
+			{Position 2.36339	0.0515518	12.1497}
+			{VolumeView "body.ply"}
+			{bone "part2"
+				{Matrix34
+					0.819152	-0.573576	0
+					0.573576	0.819152	0
+					0	0	1
+					-8.17391	8.38965	1.05855
+				}
+				{VolumeView "part2.ply"}
+				{bone "part5"
+					{Matrix34
+						0.83826	-0.350208	-0.417941
+						0.226851	0.920987	-0.316734
+						0.495841	0.170695	0.851472
+						-51.6284	0.870671	-5.40273
+					}
+					{VolumeView "part5.ply"}
+				}
+			}
+			{bone "part3"
+				{Matrix34
+					0.819152	0.573576	0
+					-0.573576	0.819152	0
+					0	0	1
+					-8.16659	-8.32338	1.05855
+				}
+				{VolumeView "part3.ply"}
+				{bone "part4"
+					{Matrix34
+						0.993572	-0.113203	0
+						0.112102	0.983902	-0.139173
+						0.0157548	0.138278	0.990268
+						-51.6379	-0.865532	-5.38741
+					}
+					{VolumeView "part4.ply"}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.9}}
+				}
+				{limits -28 28}
+				{speed 0.005}
+				{Position -6.02923	0.0142217	3.46032}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.6}}
+					}
+					{limits -5 38}
+					{speed 0.006}
+					{Matrix34
+						0.996917	-0.0136567	-0.0772647
+						0.0784356	0.199183	0.976818
+						0.00204966	-0.979867	0.19964
+						0.300523	0.182596	10.7568
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							42.6617	1.10206	-0.636563
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "part1"
+				{Matrix34
+					0.970296	-0.0189808	0.241176
+					0	0.996917	0.0784591
+					-0.241922	-0.0761286	0.967305
+					8.32304	0.252416	-3.55229
+				}
+				{VolumeView "part1.ply"}
+			}
+			{bone "part6"
+				{Matrix34
+					1	0	0
+					0	0.833886	-0.551937
+					0	0.551937	0.833886
+					8.6909	-0.946021	-2.87853
+				}
+				{VolumeView "part6.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 16.6671 30.8843 7.39426}
+	{Bone "body"}
+	{Position -1.26088	-0.109039	-0.542095}
+}
+{Volume "gun2"
+	{Box 6.38323 4.5588 54.9648}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		4.78558	-4.88478	0.000793355
+	}
+}
+{Volume "gun"
+	{Cylinder 2.28043 124.606}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		42.8974	-0.0240415	0.0336607
+	}
+}
+{Volume "part1"
+	{Box 34.8642 7.04768 0.845645}
+	{Bone "part1"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		-0.338672	-0.0211105	-3.27977
+	}
+}
+{Volume "part2"
+	{Box 61.1831 3.23962 4.72638}
+	{Bone "part2"}
+	{Matrix34
+		0.987689	0	0.156435
+		0	1	0
+		-0.156434	0	0.987688
+		-28.2046	0.0150917	-4.1578
+	}
+}
+{Volume "part3"
+	{Box 61.1831 3.23962 4.72638}
+	{Bone "part3"}
+	{Matrix34
+		0.987688	0	0.156435
+		0	1	0
+		-0.156435	0	0.987688
+		-28.0939	-0.0901409	-4.2811
+	}
+}
+{Volume "part4"
+	{Box 12.8538 14.0389 10.6203}
+	{Bone "part4"}
+	{Matrix34
+		0.987825	0.0546045	0.145671
+		-0.058118	0.99811	0.0199718
+		-0.144306	-0.0281954	0.989131
+		-6.71386	0.922731	-3.53472
+	}
+}
+{Volume "part5"
+	{Box 12.8538 14.0389 10.6203}
+	{Bone "part5"}
+	{Matrix34
+		-0.0234685	0.999721	-0.00255994
+		-0.894189	-0.0221359	-0.447143
+		-0.447075	-0.00820491	0.894459
+		-6.29251	-0.250171	-2.13321
+	}
+}
+{Volume "part6"
+	{Box 12.0452 12.8887 2.90448}
+	{Bone "part6"}
+	{Matrix34
+		1	0	0
+		0	0.999657	-0.0261768
+		0	0.0261768	0.999657
+		5.24874	0.410362	-0.147353
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		13.3258	8.27652	10.8118
+	}
+}

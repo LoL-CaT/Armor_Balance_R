@@ -1,0 +1,37 @@
+{game_entity
+	(include "/properties/cannon_mgun_1.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "vision_cannon_minimum"}
+
+	("armor_mgun")
+
+	{volume "body"
+		{thickness 1}
+		{tags "body"}
+	}
+
+	{component "body"
+		{RepairTime 5}
+	}
+	{extender "inventory"
+		{box
+			{clear}
+			{item "ammo hmgun" 250}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "dshk_stan" filled}
+			{charger "gunner"}
+		}
+	}
+
+	{mass 500}
+	{Extension "dshk_stan.mdl"}
+	(include "/properties/selection/cannon.inc"	scale(0.7))
+	{bone "turret"
+		{limits}
+	}
+}
+

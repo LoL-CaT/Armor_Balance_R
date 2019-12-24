@@ -1,0 +1,190 @@
+;Exported by: sergey
+;Date:        Sun Oct 06 16:41:25 2013
+;File:        D:\Documents\3dsmax\scenes\_entity\-vehicle\cannon\2cm Flak 38\Flak38_fix_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0	1	0
+				-0.998102	0	0.0615832
+				0.0615832	0	0.998102
+				-8.93501	-0.0737228	-0.920097
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -180 180}
+				{speed 0.01}
+				{Matrix34
+					-0.630524	-0.77617	0
+					0.77617	-0.630524	0
+					0	0	1
+					3.80244	-3.44526	3.87333
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -10 60}
+					{speed 0.03}
+					{Matrix34
+						0.979013	-0.159266	-0.127151
+						-0.178293	-0.367138	-0.912919
+						0.0987158	0.91643	-0.387829
+						6.44114	0	10.2502
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0.980289	-0.0826203	0.179465
+							0.0886563	0.995726	-0.0258659
+							-0.176561	0.0412668	0.983424
+							0	0	0
+						}
+						{VolumeView "gun.ply"}
+						{bone "barrel"
+							{parameters "ID=gun;"}
+							{Position 0	0	0}
+							{VolumeView "barrel.ply"}
+						}
+					}
+					{bone "shield3"
+						{parameters "ID=turret;"}
+						{VolumeView "shield3.ply"}
+					}
+				}
+			}
+		}
+		{bone "shield"
+			{parameters "ID=shield;"}
+			{Matrix34
+				0	1	0
+				-0.960516	0	0.278225
+				0.278225	0	0.960516
+				40.2473	-8.33378	2.0064
+			}
+			{VolumeView "shield.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 44.5304 32.9308 4.08712}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		0.126331	-0.407153	2.04793
+	}
+}
+{Volume "gun"
+	{Cylinder 1.42688 42.8248}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	-1	0
+		1	0	0
+		13.6877	0.152726	0.0231556
+	}
+}
+{Volume "shield10"
+	{Box 2.88204 7.97587 0.424048}
+	{Bone "shield"}
+	{Matrix34
+		0	-0.195679	0.980668
+		0	0.980668	0.195679
+		-1	0	0
+		5.55302	-4.73671	1.77222
+	}
+}
+{Volume "shield12"
+	{Box 3.28003 11.5257 0.424048}
+	{Bone "shield"}
+	{Matrix34
+		0	0.520257	0.85401
+		0	0.854009	-0.520258
+		-1	0	0
+		5.55302	4.04705	0.26427
+	}
+}
+{Volume "shield1"
+	{Box 0.402144 7.80831 11.243}
+	{Bone "shield"}
+	{Matrix34
+		0	-0.187518	0.982261
+		0	0.982261	0.187518
+		-1	0	0
+		-0.201998	-4.44276	0.0703901
+	}
+}
+{Volume "shield3"
+	{Box 0.468353 4.17335 4.48832}
+	{Bone "shield3"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		10.0779	2.03874	-0.0123103
+	}
+}
+{Volume "shield4"
+	{Box 0.518795 7.07018 4.48832}
+	{Bone "shield3"}
+	{Matrix34
+		0.853509	-0.521079	0
+		-0.521078	-0.853509	0
+		0	0	-1
+		8.18702	-2.75455	-0.0123103
+	}
+}
+{Volume "shield5"
+	{Box 0.468353 3.08394 4.48832}
+	{Bone "shield3"}
+	{Matrix34
+		0.85288	0.522107	0
+		0.522108	-0.85288	0
+		0	0	-1
+		9.17307	5.23223	-0.0123105
+	}
+}
+{Volume "shield6"
+	{Box 0.506963 10.2149 3.11413}
+	{Bone "shield"}
+	{Matrix34
+		0	0.523946	0.851752
+		0	0.851752	-0.523946
+		-1	0	0
+		3.84053	3.39957	-1.64048
+	}
+}
+{Volume "shield7"
+	{Box 0.506963 6.43359 8.10095}
+	{Bone "shield"}
+	{Matrix34
+		0	0.523946	0.851752
+		0	0.851752	-0.523946
+		-1	0	0
+		-1.80892	1.85765	-0.767576
+	}
+}
+{Volume "turret2"
+	{Box 11.1027 13.3075 16.2506}
+	{Bone "turret"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-7.065	-0.0576439	9.92383
+	}
+}
+{Volume "turret"
+	{Box 26.7878 16.0936 3.67732}
+	{Bone "turret"}
+	{Position -3.04777	-0.765083	2.14955}
+}

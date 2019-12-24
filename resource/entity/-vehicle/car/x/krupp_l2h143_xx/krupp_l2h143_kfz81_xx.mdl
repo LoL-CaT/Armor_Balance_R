@@ -1,0 +1,99 @@
+;Exported by: sergey
+;Date:        Sat Sep 28 23:09:36 2013
+;File:        D:\Documents\3dsmax\scenes\Krupp_L2H143_Kfz_70\krupp_l2h143_kfz70_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Position 0.191404	0	3.36372}
+			{VolumeView "body.ply"}
+			{bone "cabin"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					1.42181	13.7529	11.1797
+				}
+				{VolumeView "cabin.ply"}
+				{bone revolute "kapot"
+					{Matrix34
+						-0.687999	-0.725711	0
+						-0.725711	0.687999	0
+						0	0	-1
+						26.3026	0.781385	13.752
+					}
+					{VolumeView "kapot.ply"}
+				}
+			}
+			{bone "bodyback_kfz70"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					-25.7772	-0.00430584	11.1535
+				}
+				{VolumeView "bodyback_kfz70.ply"}
+			}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					33.0241	0	3.51385
+				}
+				{VolumeView "engine.ply"}
+			}
+			{bone "steerrudder"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.978275	0	-0.207311
+					0.207311	0	0.978275
+					0	-1	0
+					18.9378	7.68637	14.1048
+				}
+				{VolumeView "steerrudder.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 94.5187 4.75624 16.4204}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-4.05268	-0.0217228	-0.339392
+	}
+}
+{Volume "bodyback"
+	{Box 49.9524 19.6208 37.539}
+	{Bone "bodyback_kfz70"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.0647643	1.03074	0.121908
+	}
+}
+{Volume "engine1"
+	{Polyhedron "engine1.vol"}
+	{Bone "engine"}
+	{Position -3.10733	2.4036	0}
+}
+{Volume "engine"
+	{Polyhedron "engine.vol"}
+	{Bone "engine"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-3.46307	-3.51923	-0.0503244
+	}
+}

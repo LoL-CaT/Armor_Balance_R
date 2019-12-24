@@ -1,0 +1,124 @@
+;Exported by: Luzhbin_M
+;Date:        Mon Apr 06 14:12:11 2009
+;File:        D:\art\Models\Technics\Корабельные Орудия\180mm\max\180-мм_xx\180mm_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "body"
+			{parameters "ID=body;"}
+			{Position 2.51496	0.280822	1.80228}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=Turret;"}
+				{VolumeView "turret.ply"}
+				{bone "part1"
+					{parameters "ID=Gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						16.5805	-0.244326	38.2705
+					}
+					{VolumeView "part1.ply"}
+				}
+				{bone revolute "part2"
+					{parameters "ID=gun_rot;"}
+					{limits -20 1}
+					{speed 0.08}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						16.5805	-0.244322	38.2705
+					}
+					{VolumeView "part2.ply"}
+				}
+				{bone "part3"
+					{parameters "ID=Turret;"}
+					{VolumeView "part3.ply"}
+				}
+				{bone "part4"
+					{parameters "ID=Turret;"}
+					{VolumeView "part4.ply"}
+				}
+				{bone "part5"
+					{parameters "ID=Turret;"}
+					{VolumeView "part5.ply"}
+				}
+				{bone "part6"
+					{parameters "ID=Turret;"}
+					{VolumeView "part6.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Position -0.461089	0.205813	-2.68333}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Position 26.5734	1.96644	-4.29897}
+}
+{Volume "part1"
+	{Polyhedron "part1.vol"}
+	{Bone "part1"}
+	{Matrix34
+		0	0	1
+		0	-1	0
+		1	0	0
+		88.4643	1.22096	0.0843936
+	}
+}
+{Volume "part2"
+	{Polyhedron "part2.vol"}
+	{Bone "part2"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-22.1237	22.6482	-0.469281
+	}
+}
+{Volume "part3"
+	{Polyhedron "part3.vol"}
+	{Bone "part3"}
+	{Matrix34
+		0	1	0
+		-0.429816	0	0.902917
+		0.902917	0	0.429816
+		40.2371	-30.1243	39.1795
+	}
+}
+{Volume "part4"
+	{Polyhedron "part4.vol"}
+	{Bone "part4"}
+	{Position 6.39644	-29.3022	52.5284}
+}
+{Volume "part5"
+	{Polyhedron "part5.vol"}
+	{Bone "part5"}
+	{Position 6.27223	15.7794	53.9148}
+}
+{Volume "part6"
+	{Polyhedron "part6.vol"}
+	{Bone "part6"}
+	{Matrix34
+		0	1	0
+		-0.379389	0	0.925237
+		0.925237	0	0.379389
+		31.0404	21.3164	36.1762
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position -13.6532	0.0783464	2.05842}
+}

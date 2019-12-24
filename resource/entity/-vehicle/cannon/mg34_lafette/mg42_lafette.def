@@ -1,0 +1,63 @@
+{actor
+	(include "/properties/cannon_mgun.ext")
+	{props "vision_cannon_minimum" "cannon" "cannon_small" "round_sandbag4"}
+	{collider "cannon_small"}
+
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "mg42_120" filled}
+			{Rotate}
+		}
+	}  
+	{sensor
+		{visor "main"
+			{vision "cannon_mgun"}
+			{bone "turret"}
+		}
+	}  	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 500}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{extender "cannon"
+		{rotate_ik_Limit 0}
+	}
+	{Weaponry
+		{place "mgun"
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			{charger "gunner"}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{reload "" "vicers_mgun_charger"}
+			{move "mortar_driver_l" "mortar_driver_r"}
+		}
+	}
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_kpvt_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_vicers_commander" 10}}
+		}
+	}
+	{Extension "mg34_lafette.mdl"}
+	{bone "turret" 
+		{limits -40 40}
+	}
+		
+	{Volume "body"
+	}
+	{Volume "stan1"
+	}
+	{Volume "stan2"
+	}
+	{Volume "stan3"
+	}
+}

@@ -1,0 +1,114 @@
+;Exported by: ubrashaev
+;Date:        Wed Oct 08 11:12:39 2008
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\japan\_47mmPak_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -5.0395	-0.222649	9.97731}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0.000145048
+					0	1	0
+					-0.000145048	0	1
+					4.99045	0.142876	-3.48982
+				}
+				{VolumeView "pivot_front.ply"}
+				{bone "turret"
+					{parameters "ID=turret;"}
+					{Position -2.775	0.02279	5.69258}
+					{VolumeView "turret.ply"}
+					{bone revolute "gun_rot"
+						{parameters "ID=gun;"}
+						{limits -4 10}
+						{speed 0.001}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							-2.65643	-0.230165	-0.227024
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "gun"
+							{parameters "ID=gun;"}
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								15.6641	-0.41968	-0.200161
+							}
+							{VolumeView "gun.ply"}
+						}
+					}
+				}
+				{bone revolute "part1"
+					{parameters "ID=body;"}
+					{Position -1.16494	8.14803	0.00761986}
+					{VolumeView "part1.ply"}
+				}
+				{bone revolute "part2"
+					{parameters "ID=body;"}
+					{Position -1.1892	-8.19261	0.00762033}
+					{VolumeView "part2.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 7.34161 5.92558 7.9032}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-2.07223	0.0657022	0.152075
+	}
+}
+{Volume "gun"
+	{Cylinder 0.94451 37.7782}
+	{Bone "gun"}
+	{Matrix34
+		-0.0411666	0.999032	-0.0155168
+		0.0321639	0.0168469	0.999341
+		0.998634	0.0406403	-0.0328263
+		-0.111687	0.79681	-0.616319
+	}
+}
+{Volume "part1"
+	{Box 43.6911 2.69022 2.96264}
+	{Bone "part1"}
+	{Matrix34
+		0.943081	-0.303683	0.135552
+		0.29854	0.952677	0.0572784
+		-0.146532	-0.0135504	0.989113
+		-20.6609	6.55388	-2.82557
+	}
+}
+{Volume "part2"
+	{Box 43.6904 3.07454 3.14}
+	{Bone "part2"}
+	{Matrix34
+		0.936401	0.322303	0.138832
+		-0.323759	0.946056	-0.0125933
+		-0.135402	-0.0331559	0.990236
+		-20.6896	-6.39055	-2.76329
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Matrix34
+		0.107371	0.988408	0.107335
+		-0.706989	0	0.707224
+		0.699026	-0.15182	0.698794
+		2.36931	0.0535288	-1.88925
+	}
+}

@@ -1,0 +1,139 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "vision_cannon_low" "muzzle_medium" "round_sandbag4"}
+	
+	("armor_medium")
+	
+	{Volume "body"
+	}
+    {Volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+	} 
+	{Volume "gun"
+	}
+	{Volume "standl"
+	}
+	{Volume "standr"
+	}
+	{Volume "turret"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "wheelleft"
+	}
+	{Volume "wheelright"
+	}
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_pak40_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pak40_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	(mod "mp" 
+		("crew_human" place(commander1)		bone(commander1)		door(emit2) animation(commander1))
+		("crew_human" place(commander2)		bone(commander2)		door(emit3) animation(commander2))
+		("crew_human" place(driver3)		bone(driver3)			door(emit3) animation(driver3))
+		("crew_human" place(driver4)		bone(driver4)			door(emit4) animation(driver4))
+		{boarder
+			{anm "commander1"
+				{forward	{end "pose_squat_watch_binocular" 10}}
+			}
+			{anm "commander2"
+				{forward	{end "pose_m8_charger" 10}}
+			}
+			{anm "driver3"
+				{forward {end "mgun_browning_driver_l" 10}}
+			}
+			{anm "driver4"
+				{forward {end "mgun_browning_driver_r" 10}}
+			}
+		}
+		{placer
+			{place "commander1" {group "crew"}}
+			{place "commander2" {group "crew"}}
+		}
+	)
+	{extender "inventory"
+		{box
+			{item "ammo bullet75_pak97_38 ap" 40}		
+			{item "ammo bullet75_pak97_38 fg" 40}
+			{item "ammo bullet75_pak97_38 heat" 2}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}			
+		}
+	}
+	{Weaponry
+
+		{place "gun"
+			{weapon "75mm_pak97_38" filling "bullet75_pak97_38 ap" 1}
+
+			{Rotate}
+			("abm_field_gun")
+		}
+	}
+	{mass 1500}
+	{Extension "pak97_38.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+	(mod not "mp" 
+		{extender "cannon"
+			{animation
+				{switch "close"}
+				{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+				{aim "cannon_pak40_gunlayer" ""}
+				{fire  "Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire"}
+				{reload  "" "cannon_pak40_charger"}
+			}
+			{move {obstacle "close"}}
+			{attack {obstacle "open"}}
+		}
+	)
+	(mod "mp" 
+		{extender "cannon"
+			{animation
+				{switch "close"}
+				{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right" "mgun_browning_driver_l" "mgun_browning_driver_r"}
+				{aim "cannon_pak40_gunlayer" "" "" ""}
+				{fire  "Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire" "" "Cannon_zis3_charger_fire 0.2"}
+				{reload  "" "cannon_pak40_charger" "" "cannon_pak40_charger"}
+			}
+	    	{move {obstacle "close"}}
+	    	{attack {obstacle "open"}}
+			{rotate_ik_Limit 0}
+		}
+	)
+
+	{Chassis "track"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_medium")
+	}
+	{bone "turret"
+		{limits -30 30}
+		{speed2 5}		
+	}
+	{bone "gun_rot"
+		{limits -8 25}
+		{speed2 5}	
+	}
+		{TexMod "panzergrau"}
+}

@@ -1,0 +1,77 @@
+{game_entity ; корабельный автомат
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "vision_cannon_minimum" "turret" "muzzle_zenite" "round_sandbag2"}
+    {targetSelector "flak"}
+
+	("armor_light")
+	
+	{collider "cannon_small"}
+
+	("crew_2_human")
+
+	{Boarder
+		{anm "gunner"
+			{forward	{end "seat_driver_car"}}
+		}
+		{anm "commander"
+			{forward	{end "seat_driver_car"}}
+		}
+		{place "gunner"}
+		{door "emit1"}
+		{link "emit1" "gunner"	{forward putoff} {reverse puton} {anm "gunner"}}
+		{place "commander"}
+		{door "emit2"}
+		{link "emit2" "commander"	{forward putoff} {reverse puton} {anm "commander"}}
+	}
+
+	{Volume "body"
+		{thickness 10}
+		{tags "body"}
+	}
+	{volume "gun"
+		{thickness 5
+			{front  10}
+		}
+	}
+	{Volume "gun_rot"
+		{thickness 5}
+	}
+	{volume "shield1"
+		{thickness 10}
+	}
+	{volume "shield2"
+		{thickness 10}
+	}
+	{extender "inventory"
+		{box
+			{clear}
+			{size 5 5}
+			{item "ammo bullet25_type96 zenite" 300}
+			{item "ammo bullet25_type96 fg" 300}
+			{item "ammo bullet25_type96 ap" 300}			
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "25mm_type96_x3" filling "ammo bullet25_type96 zenite" 60}
+			{Barrels 3}
+			{foresight "foresight1"}
+			{gunner "gunner"}
+			{charger "commander"}
+			{Rotate}
+			("abm_zenite")
+		}
+	}	
+	
+	{mass 1000}
+	{Extension "type96_3.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+	{bone "gun_rot1"
+		{speed2 35}		
+	}
+	{bone "gun_rot"
+		{speed2 20}
+	{limits -15 60}		
+	}	
+}

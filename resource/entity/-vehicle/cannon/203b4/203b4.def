@@ -1,0 +1,179 @@
+{game_entity
+	(mod "mp"
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "round_sandbag5" "vision_cannon_maximum" "muzzle_maximum"}
+ 	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}   
+	}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}   
+	}
+	{volume "gun"
+		{thickness 3}   
+	}
+	{Volume "trackl"
+		{component "trackleft"}
+	}
+	{Volume "trackr"
+		{component "trackright"}	
+	}
+	("armor_heavy")
+	{boarder
+		{anm "commander"
+			{forward	{begin	"board_tank_right"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_right"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+	}
+ 	{sensor
+		{Visor "commander"
+			{vision "cannon_crew"}
+			{bone "commander"}
+		}	
+	}
+	{placer
+		{place "commander" {group "crew"} {visor "commander"}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "commander" {anm "commander"} {forward putoff} {reverse puton}}
+		{link "emit2" "gunner" {anm "gunner"} {forward putoff} {reverse puton}}
+	}
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+	("crew_human" place(gunner)		door2(emit2))
+	("crew_human" place(commander)		door1(emit1) )
+	{extender "cannon"
+		{animation
+			{switch "close"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "close"}}
+		{rotate_ik_Limit 4}		
+	}
+	{Chassis "track"
+		("tank_trace_ex" fx("tracks_mid") step(0.52) len(0.7) boneleft("wheell4") boneright("wheelr4"))
+        ("loco_verybig")
+;		{DisableMoveWhileFiring}
+	}
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+
+	}
+	)
+	(mod not "mp"
+	(include "/properties/tank.ext")
+	{props "heavy" "-turret" "vision_cannon_maximum"  "muzzle_maximum"}
+ 	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}   
+	}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}   
+	}
+	{volume "gun"
+		{thickness 3}   
+	}
+	{Volume "trackl"
+		{component "trackleft"}
+	}
+	{Volume "trackr"
+		{component "trackright"}	
+	}
+	("armor_medium" turret(10 10) body(10 10 10 10))
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_right"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_right"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+	}
+    	{sensor
+		{Visor "driver"
+			{vision "cannon_crew"}
+			{bone "driver"}
+		}	
+	}
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit2" "gunner" {anm "gunner"} {forward putoff} {reverse puton}}
+	}
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+	("crew_human" place(gunner)		door2(emit2))
+	("crew_human" place(driver)		door1(emit1) )
+	{Chassis
+		("tank_trace_ex" fx("tracks_mid") step(0.52) len(0.7) boneleft("wheell4") boneright("wheelr4"))
+		{Locomotion 
+			{MaxSpeed 	    8}
+			{StartTime 		 7}
+			{BrakeTime 		1}
+			{StopTime		 1}
+			{TurnRadius     5}
+			{TurnTime		15}
+			{TurnStart		 2}
+			{TurnStop	   0.5}
+		}
+		{DisableMoveWhileFiring}
+	}
+	)
+	{mass 17700}
+	{extender "inventory"
+		{box
+			{item "ammo bullet203" 2}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "203mm_gun" filling "bullet203" 1}
+			{charger "gunner"}
+;			{Rotate}
+			("abm_howitzer")
+;			{StationaryFiring}
+		}
+	}
+	{Extension "203b4.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+}
+

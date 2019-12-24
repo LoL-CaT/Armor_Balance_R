@@ -1,0 +1,172 @@
+;SDL
+{Placer
+	{place "driver"
+		{Group "crew"}
+		{LinkBone "driver"}
+		{turnoff {sensor} {shadow}}
+	}
+	{place "gunner"
+		{Group "crew"}
+		{LinkBone "gunner"}
+		{turnoff {sensor} {shadow}}
+	}	
+;---stuff-------------------------------------------------------------------
+	{place "stuff01"
+		{entity "coaster_ship_crate3"}
+		{Linkbone "stuff01"}
+		{obstacle disable}
+	}
+	{place "stuff02"
+		{entity "coaster_ship_crate3"}
+		{Linkbone "stuff02"}
+		{obstacle disable}
+	}
+	{place "stuff03"
+		{entity "coaster_ship_crate1"}
+		{Linkbone "stuff03"}
+		{obstacle disable}
+	}
+	{place "stuff04"
+		{entity "coaster_ship_crate2"}
+		{Linkbone "stuff04"}
+		{obstacle disable}
+	}
+	{place "stuff05"
+		{entity "coaster_ship_willys"}
+		{Linkbone "stuff05"}
+		{obstacle disable}
+	}
+	{place "stuff06"
+		{entity "coaster_ship_willys"}
+		{Linkbone "stuff06"}
+		{obstacle disable}
+	}
+	{place "stuff07"
+		{entity "coaster_ship_cannon"}
+		{Linkbone "stuff07"}
+		{obstacle disable}
+	}
+	{place "stuff08"
+		{entity "coaster_ship_tank"}
+		{Linkbone "stuff08"}
+		{obstacle disable}
+	}
+	{place "stuff09"
+		{entity "coaster_ship_tank"}
+		{Linkbone "stuff09"}
+		{obstacle disable}
+	}
+	{place "stuff10"
+		{entity "coaster_ship_crate1"}
+		{Linkbone "stuff10"}
+		{obstacle disable}
+	}
+
+;----------------------------------------------------------------------
+	
+	{place "lamp19"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach25"}
+		{obstacle disable}
+	}
+	{place "lamp20"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach26"}
+		{obstacle disable}
+	}
+	{place "lamp21"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach27"}
+		{obstacle disable}
+	}
+	{place "lamp22"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach28"}
+		{obstacle disable}
+	}
+	{place "lamp23"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach29"}
+		{obstacle disable}
+	}
+	{place "lamp24"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach30"}
+		{obstacle disable}
+	}
+	{place "lamp25"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach31"}
+		{obstacle disable}
+	}
+	{place "lamp26"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach32"}
+		{obstacle disable}
+	}
+	{place "lamp27"
+		{entity "control_tower_lamp"}
+		{Linkbone "attach33"}
+		{obstacle disable}
+	}
+}
+
+
+(define "define_place"
+	{placer
+		{place "%place"
+			{linkbone "%place"}
+			{attach squat_lie}
+			{turnoff {shadow}}
+			{obstacle disable}
+		}
+	}
+	{Volume "%place"
+		{tags "attach" "attach_%place"}
+		{able clear {bullet 0} {touch 1}}
+	}
+)
+
+{boarder
+	{door "emit1"}
+	{door "emit2"}
+	{node "node_r1"}
+	{node "node_r2"}
+	{node "node_r3"}
+	(define "climb"
+		{anm "climb%0"
+			{forward	{begin	"board_torpedo_boat"} {base "rope%0"}}
+			{reverse 	{begin	"emit_Bk1124"}} ;emit_torpedo_boat
+		}
+	)
+	("climb" args 1)
+	("climb" args 2)
+	("climb" args 3)
+	("climb" args 4)
+	{anm "seat" {forward {end "seat_passenger"}}}
+
+	{link "emit1"	"node_r1"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emit2"	"node_r3"	{anm "climb1"} {forward putoff} {reverse puton}}
+
+	{link "node_r1" "driver" {anm "seat"}}
+	{link "node_r1" "gunner" {anm "seat"}}
+
+	{link "node_r1"	"node_r2"	} ;{anm "walk"}
+	{link "node_r2"	"front"		} ;{anm "walk"}
+	{link "front"	"rear2"		} ;{anm "walk"}
+	{link "front"	"rear1"		} ;{anm "walk"}
+	{link "front"	"rear3"		} ;{anm "walk"}
+	{link "node_r2"	"back"		} ;{anm "walk"}
+	{link "node_r2"	"rear1"		} ;{anm "walk"}
+	{link "node_r2"	"rear2"		} ;{anm "walk"}
+	{link "node_r2"	"rear3"		} ;{anm "walk"}
+	{link "node_r2"	"side1"		} ;{anm "walk"}
+	{link "node_r2"	"side2"		} ;{anm "walk"}
+	{link "node_r3"	"rear1"		} ;{anm "walk"}
+	{link "node_r3"	"rear2"		} ;{anm "walk"}
+
+	{link "side1"	"rear1"		} ;{anm "walk"}
+	{link "side2"	"rear2"		} ;{anm "walk"}
+
+}
+

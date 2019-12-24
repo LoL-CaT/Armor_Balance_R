@@ -1,0 +1,78 @@
+;Exported by: Normand
+;Date:        Thu Nov 29 11:04:56 2018
+;File:        C:\Users\Normand\type41_x.max
+{Skeleton
+	{bone revolute "basis"
+		{parameters "wheelradius=0.45;"}
+		{speed 0.01}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.3}}
+			}
+			{Position 0.119864	-0.330192	9.86152}
+			{VolumeView "body.ply"}
+			{bone revolute "gun_rot"
+				{parameters "ID=gun;"}
+				{limits -18 20}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					2.81264	0.32471	2.71198
+				}
+				{VolumeView "gun_rot.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.3}}
+					}
+					{Matrix34
+						0.996966	0.0778346	0
+						0	0	-1
+						-0.0778346	0.996966	0
+						-6.41646	4.12324	0.19751
+					}
+					{VolumeView "gun.ply"}
+				}
+			}
+			{bone "support"
+				{parameters "ID=body;"}
+				{Position -7.80392	0.514772	-3.17211}
+				{VolumeView "support.ply"}
+			}
+			{bone "shield"
+				{parameters "ID=shield;"}
+				{VolumeView "shield.ply"}
+			}
+		}
+		{bone "pivot_front"
+			{Position 0.0134252	-0.00581552	9.89749}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					0.107254	-10.8828	-0.0396175
+				}
+				{VolumeView "wheelr.ply"}
+			}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					0.107255	10.8834	-0.0396175
+				}
+				{VolumeView "wheell.ply"}
+			}
+		}
+	}
+}

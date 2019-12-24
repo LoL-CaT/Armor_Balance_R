@@ -1,0 +1,174 @@
+;Exported by: Sergey
+;Date:        Mon Jan 07 11:47:51 2013
+;File:        D:\Documents\3dsmax\scenes\Ordnance, ML 3-inch Mortar Mk II\3-inch Mortar Mk II_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.995735	0	-0.0922544
+				0	1	0
+				0.0922544	0	0.995735
+				0	0	0.727936
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=gun;"}
+				{limits -15 15}
+				{speed 0.01}
+				{Matrix34
+					0.995735	0	0.0922545
+					0	1	0
+					-0.0922545	0	0.995735
+					0	0	0.0994595
+				}
+				{VolumeView "turret.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.81279	0	-0.582557
+						0.582557	0	0.81279
+						0	-1	0
+						12.4817	0.569398	15.006
+					}
+					{VolumeView "gun.ply"}
+					{bone revolute "stanok"
+						{parameters "ID=body;"}
+						{Matrix34
+							0.503043	0.864262	0
+							0.864262	-0.503043	0
+							0	0	-1
+							0.000580788	0.0142956	2.21172
+						}
+						{VolumeView "stanok.ply"}
+						{bone "stan"
+							{parameters "ID=body;"}
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								-0.0144062	7.16604	1.72859
+							}
+							{VolumeView "stan.ply"}
+							{bone revolute "noga_l"
+								{parameters "ID=body;"}
+								{Matrix34
+									0	0.97119	0.238308
+									0.00166237	0.238307	-0.971188
+									-0.999999	0.000395885	-0.00161451
+									-0.00186539	1.28614	-0.0533247
+								}
+								{VolumeView "noga_l.ply"}
+								{bone revolute "styazhka1"
+									{parameters "ID=body;"}
+									{Matrix34
+										-0.992795	0.119817	0.00166233
+										0.119817	0.992796	0
+										-0.00165046	0.000198483	-0.999999
+										-0.4293	5.36032	-0.00617218
+									}
+									{VolumeView "styazhka1.ply"}
+								}
+							}
+							{bone revolute "noga_r"
+								{parameters "ID=body;"}
+								{Matrix34
+									0	-0.96119	0.275886
+									0.00166219	-0.275886	-0.961189
+									-0.999999	-0.00045895	-0.00159755
+									-0.00186729	-1.34541	-0.0533242
+								}
+								{VolumeView "noga_r.ply"}
+								{bone revolute "styazhka2"
+									{parameters "ID=body;"}
+									{Matrix34
+										-0.0786938	-0.996899	0
+										0.996897	-0.0786937	-0.00166214
+										-0.00165693	0.000131309	-0.999999
+										-0.425174	5.3687	-0.00615883
+									}
+									{VolumeView "styazhka2.ply"}
+								}
+							}
+							{bone "homut"
+								{parameters "ID=body;"}
+								{Matrix34
+									1	0	0
+									0	0.999999	-0.00166225
+									0	0.00166225	0.999999
+									0.0172768	-0.16363	-5.93724
+								}
+								{VolumeView "homut.ply"}
+							}
+						}
+					}
+					{bone "pricel"
+						{parameters "ID=gun;"}
+						{Matrix34
+							-0.798314	-0.602239	0.00166225
+							-0.60224	0.798315	0
+							-0.00132681	-0.00100133	-0.999999
+							-3.30343	0.0267868	-0.822462
+						}
+						{VolumeView "pricel.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 8.3886 8.34121 1.80094}
+	{Bone "body"}
+	{Matrix34
+		0.995735	0	0.0922544
+		0	1	0
+		-0.0922544	0	0.995735
+		0.0621894	-0.0317787	-0.276601
+	}
+}
+{Volume "gun"
+	{Cylinder 1.2567 29.1339}
+	{Bone "gun"}
+	{Matrix34
+		0.999999	-0.00166228	0
+		0	0	-1
+		0.00166228	0.999999	0
+		-1.4028	-5.04276	0.555049
+	}
+}
+{Volume "noga_l"
+	{Cylinder 0.572744 9.84252}
+	{Bone "noga_l"}
+	{Matrix34
+		-0.108588	0.00120467	-0.994086
+		0.994074	-0.00504784	-0.108593
+		-0.00514888	-0.999987	-0.000649272
+		-0.107546	5.28636	0.0616699
+	}
+}
+{Volume "noga_r"
+	{Cylinder 0.572744 9.84252}
+	{Bone "noga_r"}
+	{Matrix34
+		-0.119261	-0.00324562	-0.992858
+		-0.992823	-0.0085805	0.119285
+		0.00890637	-0.999958	0.00219908
+		-0.0450136	5.38757	0.0758552
+	}
+}
+{Volume "stan"
+	{Cylinder 0.954573 13.7795}
+	{Bone "stan"}
+	{Matrix34
+		0.999923	0	-0.0124376
+		0	1	0
+		0.0124376	0	0.999923
+		0.171994	0.0182072	-0.317578
+	}
+}

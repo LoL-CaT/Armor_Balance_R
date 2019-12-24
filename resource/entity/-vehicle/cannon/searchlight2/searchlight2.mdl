@@ -1,0 +1,128 @@
+;Exported by: gals
+;Date:        Mon Aug 07 15:45:36 2006
+;File:        D:\-Projects1_5-\-3DWork-\_Cannons\searchlight\Fonari.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{speed 0.004}
+				{Position -0.406227	-0.025448	16.9371}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun"
+					{parameters "ID=gun;"}
+					{limits -60 80}
+					{speed 0.005}
+					{Matrix34
+						-1	0	0
+						0	0	1
+						0	1	0
+						-1.62222	-0.00951126	4.92748
+					}
+					{VolumeView "gun.ply"}
+					{bone "lamp_glass1"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							10.9545	0.00704833	-0.0710406
+						}
+						{VolumeView "lamp_glass1.ply"}
+					}
+					{bone "lamp_light_spot1"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							11.2111	0.00706349	-0.0710406
+						}
+						{VolumeView "lamp_light_spot1.ply"}
+					}
+					{bone "foresight3"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							11.0704	0.177886	-0.0611072
+						}
+					}
+				}
+				{bone "gunner"
+					{Matrix34
+						-0.939693	0.34202	0.000406327
+						-0.34202	-0.939692	-0.00127915
+						-5.56763e-005	-0.00134098	0.999999
+						15.2356	-11.0269	-8.76211
+					}
+				}
+				{bone "visor"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						-12.9422	-0.0756185	14.8354
+					}
+				}
+				{bone "emit"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						21.1251	-13.858	-16.9371
+					}
+				}
+			}
+		}
+	}
+}
+{Obstacle "gun"
+	{Obb2
+		{Center -1.37366 0.0285048}
+		{Extent 10.9411 9.60006}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body"
+	{Box 27.1233 25.587 7.19132}
+	{Bone "turret"}
+	{Position -0.285888	-0.595608	-13.5739}
+}
+{Volume "gun"
+	{Cylinder 9.60005 21.8821}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	-1	0
+		1	0	0
+		-0.654794	0.0426963	0.00645312
+	}
+}
+{Volume "lamp1"
+	{Cylinder 8.36614 1.9685}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	-0.999999	0
+		1	0	0
+		10.7367	0.0427134	0.0064584
+	}
+}
+{Volume "turret"
+	{Box 27.1233 25.587 3.64117}
+	{Bone "turret"}
+	{Matrix34
+		0.707107	-0.707107	0
+		0.707107	0.707106	0
+		0	0	1
+		-0.285897	-0.59562	-7.94513
+	}
+}

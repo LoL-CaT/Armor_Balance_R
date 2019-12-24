@@ -1,0 +1,80 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "flak" "barrel1" "wheeled" "round_sandbag2" "vision_cannon_low" "muzzle_zenite"}
+	{placer	{place "gunner" {UseVision 0}}}
+	{collider "cannon_small"}
+        {targetSelector "cannon_shell_flak"}
+
+	("armor_light")
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_flak38-1_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38-1_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_flak38-1_gunlayer" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_flak38-1_charger" 10}}
+		}
+	}
+	{extender "inventory"
+		{box
+			{item "bullet20x138b zenite" 100}
+			{item "bullet20x138b ap" 100}
+			{item "bullet20x138b fg" 100}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_flak38" filling "bullet20x138b zenite" 20}
+			{Rotate}			
+			("abm_zenite")
+		}
+	}  	
+	{mass 500}
+	{Extension "flak38_wheeled.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{bone "basis"
+	      {limits}
+	}
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "cannon_flak38-1_gunlayer" ""}
+			{reload "" "cannon_flak38-1_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		{rotate_ik_Limit 0}		
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel02a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+	{bone "turret"
+	{limits -30 30}		
+		{speed2 35}		
+	}
+	{bone "gun_rot"
+		{speed2 20}
+	{limits -60 40}		
+	}
+	{texmod "q"}
+}

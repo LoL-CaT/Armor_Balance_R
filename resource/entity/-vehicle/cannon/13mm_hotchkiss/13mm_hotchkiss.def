@@ -1,0 +1,66 @@
+{entity
+	(include "/properties/cannon_mgun.ext")
+	{props "cannon_small" "flak" "round_sandbag2" "vehicle" "vision_cannon_minimum" "cannon"}
+	{collider "cannon_small"}
+        {targetSelector "cannon_bullet_h_flak"}
+	("armor_mgun")
+
+	("crew_2_human")
+	("crew_human" place(driver1) bone(driver1)	door(emit1) animation(driver1))
+	("crew_human" place(driver2) bone(driver2)	door(emit2) animation(driver2))
+  
+
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_oerlikon_charger" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_vicers_commander" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_r"}}
+		}
+		{anm "driver2"
+			{forward {end "mgun_browning_driver_l"}}
+		}
+		{link "driver1" "gunner"}
+		{link "driver2" "commander"}
+	}
+	{extender "cannon"
+		{animation
+			{reload  "Cannon_oerlikon_charger"}
+		}
+		{attack {workers "gunner" "commander"}}
+		{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{clear}
+			{item "ammo hmgun" 250}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "type93hmg_x2" filled}
+			{foresight "foresight1"}
+			{charger "gunner"}
+			{Barrels 2}
+		}
+	}
+
+	{mass 400}
+	{Extension "13mm_hotchkiss.mdl"}
+	
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+		{speed2 25}
+	{limits -20 80}			
+	}	
+}
+
+

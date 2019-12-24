@@ -1,0 +1,157 @@
+;Exported by: Martin
+;Date:        Fri May 08 07:43:30 2015
+;File:        D:\work in progress\Call to Arms\Modeling\Rubber raft\rubber_raft_MoW_06.max
+{Skeleton
+	{animation
+		{sequence "drift" {speed 0.6} {resume}}
+		{sequence "move" {speed 0.6} {resume}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "pivot_front001"
+			{Position 25.0519	-1.03762	0.774553}
+			{bone "fx_bulb_small_front2"
+				{Matrix34
+					0.5	-0.866025	0
+					0.866025	0.5	0
+					0	0	1
+					10.7147	-14.2045	3.69206
+				}
+			}
+			{bone "fx_bulb_small_front1"
+				{Matrix34
+					0.5	0.866025	0
+					-0.866026	0.5	0
+					0	0	1
+					11.7087	15.8986	3.69206
+				}
+			}
+		}
+		{bone "pivot_back001"
+			{Position -27.9528	-1.03762	0.774553}
+			{bone "fx_bulb_small_back2"
+				{Matrix34
+					-0.766045	0.642788	0
+					-0.642788	-0.766044	0
+					0	0	1
+					-17.3759	7.98322	3.0489
+				}
+			}
+			{bone "fx_bulb_small_back1"
+				{Matrix34
+					-0.819152	-0.573576	0
+					0.573577	-0.819152	0
+					0	0	1
+					-17.1976	-4.22291	3.0489
+				}
+			}
+		}
+		{bone "body"
+			{VolumeView "body.ply"}
+			{bone "emit2"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					9.91057	29.8167	0
+				}
+				{visibility 0}
+			}
+			{bone "emit1"
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					-24.9121	-29.4963	0
+				}
+				{visibility 0}
+			}
+			{bone "scissor"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					0.525127	0	0.138615
+				}
+				{VolumeView "scissor.ply"
+					{Layer waterscissor}
+				}
+			}
+			{bone "visor"
+				{Position 25.6851	-0.273678	18.594}
+			}
+			{bone "fx_bulb_small_center1"
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					0.0759213	22.4682	4.46661
+				}
+			}
+			{bone "fx_bulb_small_center2"
+				{Matrix34
+					0.0257287	-0.99966	0.00422301
+					0.999653	0.0257517	0.00548574
+					-0.00559262	0.00408041	0.999976
+					0.0733205	-22.9074	4.516
+				}
+			}
+			{bone "emit3"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					-21.9036	29.8167	0
+				}
+				{visibility 0}
+			}
+			{bone "emit4"
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					12.321	-30.0386	0
+				}
+				{visibility 0}
+			}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{VolumeView "engine.ply"}
+				{bone "fx_bulb_small_engine1"
+					{Position -47.9923	-0.00632763	1.20231}
+				}
+				{bone "fx_smoke"
+					{Position -48.496	-0.00632763	16.3219}
+				}
+			}
+			{bone "commander"
+				{Position 10.168	-0.30032	-0.306696}
+			}
+			{bone "passenger1"
+				{Position -15.4827	7.79915	-0.306696}
+			}
+			{bone "driver"
+				{Position -15.4991	-5.6739	-0.306696}
+			}
+		}
+	}
+}
+{Volume "ballast"
+	{Box 92.7 46.08 13.2983}
+	{Bone "body"}
+	{Position -1.38538	0.199902	5.92235}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Position 0.230412	-0.0842352	-0.101379}
+}
+{Volume "engine"
+	{Box 8.11642 4.41609 27.0477}
+	{Bone "engine"}
+	{Position -49.3693	0	4.10272}
+}

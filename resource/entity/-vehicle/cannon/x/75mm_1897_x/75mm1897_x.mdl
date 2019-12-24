@@ -1,0 +1,131 @@
+;Exported by: Karol
+;Date:        Sun Jun 10 09:23:54 2012
+;File:        C:\Users\Karol\Desktop\3D\!!!MODELOWANIE DO MEN OF WAR!!!\75mmShneider\75mmShneider_x.max
+{Skeleton
+	{bone revolute "basis"
+		{parameters "WheelRadius=0.7;speed=0.01;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				1.11132	-0.383666	12.3288
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -15 15}
+				{speed 0.01}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					1.6744	-2.06422	0.216837
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -25 10}
+					{speed 0.08}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						1.62239	0.1303	-0.541092
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							7.59554	-4.82523	0.103055
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{Matrix34
+					0	0	-1
+					-0.999991	-0.00423024	0
+					-0.00423024	0.999991	0
+					0.0294964	0.0388088	0.138691
+				}
+				{bone revolute "wheelleft"
+					{parameters "ID=wheelleft;Support=1;Radius=0.7;"}
+					{Matrix34
+						0	1	0
+						0	0	-1
+						-1	0	0
+						-15.9389	0.233592	-0.0808725
+					}
+					{VolumeView "wheelleft.ply"}
+				}
+				{bone revolute "wheelright"
+					{parameters "ID=wheelright;Support=1;Radius=0.7;"}
+					{Matrix34
+						0	1	0
+						0	0	-1
+						-1	0	0
+						15.4744	0.233832	-0.0808544
+					}
+					{VolumeView "wheelright.ply"}
+				}
+				{bone "fxtracel1"
+					{Matrix34
+						0	1	0
+						1	0	0
+						0	0	-1
+						-15.0266	0.658746	12.7962
+					}
+				}
+				{bone "fxtracer1"
+					{Matrix34
+						0	1	0
+						1	0	0
+						0	0	-1
+						14.5095	0.658952	12.2369
+					}
+				}
+			}
+			{bone "stand"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0	0	-7.99596e-005
+				}
+				{VolumeView "stand.ply"}
+			}
+		}
+	}
+}
+{Volume "leftwheel"
+	{Polyhedron "leftwheel.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	-1
+		-1.11854e-005	-1	0
+		-1.50726	2.21284	-1.9886
+	}
+}
+{Volume "rightwheel"
+	{Polyhedron "rightwheel.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	-1
+		-1.11854e-005	-1	0
+		-1.50729	2.21308	-31.4039
+	}
+}

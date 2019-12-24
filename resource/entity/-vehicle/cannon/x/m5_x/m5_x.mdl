@@ -1,0 +1,159 @@
+;Exported by: butyvsky
+;Date:        Sat Jan 28 16:11:56 2006
+;File:        D:\-Projects-\-3D Work-\canon\m5\M5_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -3.17882	-0.257643	13.1526}
+			{VolumeView "body.ply"}
+			{bone "pivot_back"
+				{Position -74.0337	0.257643	-13.1526}
+				{bone "standr"
+					{parameters "ID=body;"}
+					{Position 71.0972	-6.80723	12.4496}
+					{VolumeView "standr.ply"}
+				}
+				{bone "standl"
+					{parameters "ID=body;"}
+					{Position 71.4498	6.57372	11.9672}
+					{VolumeView "standl.ply"}
+				}
+			}
+			{bone "pivot_front"
+				{Position 3.1847	0.257643	-13.1526}
+				{bone "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.3;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.962258	18.5712	10.8053
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.3;"}
+					{Matrix34
+						1	0	0
+						0	-0.0871559	-0.996195
+						0	0.996195	-0.0871559
+						-0.962258	-19.637	10.8053
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{Position -0.298065	0.22179	0.121489}
+				{VolumeView "turret.ply"}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-1.12595	0.0159565	-0.635471
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{animation
+							{sequence "break" {file "gun_b.anm"}}
+						}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							15.1804	-12.3159	-0.0139847
+						}
+						{VolumeView "gun.ply"}
+					}
+					{bone "shield_left1"
+						{parameters "ID=shield_left1;"}
+						{animation
+							{sequence "break" {file "shield_left1_b.anm"}}
+						}
+						{Position 11.2668	-9.68182	6.69387}
+						{VolumeView "shield_left1.ply"}
+					}
+					{bone "shield_right1"
+						{parameters "ID=shield_right1;"}
+						{animation
+							{sequence "break" {file "shield_right1_b.anm"}}
+						}
+						{Position 11.2668	-9.13986	-6.69387}
+						{VolumeView "shield_right1.ply"}
+					}
+				}
+			}
+			{bone "support1"
+				{Position -69.5242	38.4414	-13.5287}
+			}
+			{bone "support2"
+				{Position -66.369	-44.315	-13.5287}
+			}
+			{bone "shield_right"
+				{parameters "ID=shield_right;"}
+				{animation
+					{sequence "break" {file "shield_right_b.anm"}}
+				}
+				{Position 3.79832	-12.0079	9.50293}
+				{VolumeView "shield_right.ply"}
+			}
+			{bone "shield_left"
+				{parameters "ID=shield_left;"}
+				{animation
+					{sequence "break" {file "shield_left_b.anm"}}
+				}
+				{Position 3.79832	12.4834	9.50293}
+				{VolumeView "shield_left.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 2.29679 31.8787 12.0829}
+	{Bone "body"}
+	{Matrix34
+		0.649972	-0.000423056	-0.759958
+		0.0041982	0.999987	0.00303393
+		0.759947	-0.00516243	0.649965
+		1.98307	0.280409	-3.88577
+	}
+}
+{Volume "shield_left"
+	{Box 1.73432 13.8972 23.9096}
+	{Bone "shield_left"}
+	{Matrix34
+		0.999955	-0.000650854	0.00941597
+		0.000606924	0.999989	0.00466758
+		-0.0094189	-0.00466166	0.999945
+		-0.4563	3.63011	0.850698
+	}
+}
+{Volume "shield_right"
+	{Box 1.73432 13.8972 24.866}
+	{Bone "shield_right"}
+	{Matrix34
+		0.999955	-0.000650854	0.00941597
+		0.000606924	0.999989	0.00466758
+		-0.0094189	-0.00466166	0.999945
+		-0.447267	-3.51435	-0.108152
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 7.19667 4.16256}
+	{Bone "wheell"}
+	{Position 0	0	0.00968683}
+}
+{Volume "wheelright"
+	{Cylinder 7.13838 4.55194}
+	{Bone "wheelr"}
+	{Position -3.28956e-005	0	0.116761}
+}

@@ -1,0 +1,162 @@
+;Exported by: sergey
+;Date:        Sun Oct 20 11:04:35 2013
+;File:        D:\Documents\3dsmax\scenes\122 mm howitzer M1910-30\122 mm howitzer M1910-30_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.2}}
+			}
+			{Position -0.0244656	0	12.8806}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -3 3}
+				{speed 0.004}
+				{Position -2.3281	0.00919223	5.7618}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_rot_b.anm"} {speed 0.2}}
+					}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.0455427	4.68683	0.00784492
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{Matrix34
+							0	0	-1
+							0	1	0
+							1	0	0
+							-4.64538	3.20167	4.69602
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "shield2"
+					{Position 2.07709	12.0611	-3.54757}
+					{VolumeView "shield2.ply"}
+					{bone revolute "cover"
+						{parameters "ID=shield;"}
+						{Matrix34
+							0.594069	0	0.804414
+							0.804414	0	-0.594069
+							0	1	0
+							0.884454	-6.16876	11.3025
+						}
+						{VolumeView "cover.ply"}
+					}
+				}
+			}
+			{bone "shield"
+				{Position -1.1442	12.0703	2.21422}
+				{VolumeView "shield.ply"}
+			}
+			{bone "pricel"
+				{Matrix34
+					-0.999907	0	0.0136249
+					0.0136248	0	0.999907
+					0	1	0
+					-2.97853	6.49225	9.8905
+				}
+				{VolumeView "pricel.ply"}
+			}
+			{bone revolute "soshnik"
+				{parameters "ID=body;"}
+				{Matrix34
+					-0.594488	0	-0.804105
+					0.804105	0	-0.594488
+					0	-1	0
+					-55.3646	2.7836	-13.209
+				}
+				{VolumeView "soshnik.ply"}
+			}
+			{bone revolute "pravilo"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999566	0	-0.0294474
+					0.0294474	0	0.999566
+					0	-1	0
+					-56.0262	0.33492	-9.94035
+				}
+				{VolumeView "pravilo.ply"}
+			}
+			{bone revolute "stoporl"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999998	0	0.00192889
+					-0.00192889	0	0.999998
+					0	1	0
+					-21.5978	5.34879	-4.30216
+				}
+				{VolumeView "stoporl.ply"}
+			}
+			{bone revolute "stoporr"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999998	0	0.00192881
+					-0.00192881	0	0.999998
+					0	-1	0
+					-21.5978	-5.2551	-4.30216
+				}
+				{VolumeView "stoporr.ply"}
+			}
+			{bone "pivot_front"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0	15.493	0
+				}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheelright"
+					{parameters "ID=wheelright;Radius=0.66;support=1;"}
+					{Matrix34
+						-1	0	0
+						0	1	0
+						0	0	-1
+						0	0	31.5102
+					}
+					{VolumeView "wheelright.ply"}
+					{bone "koleso_r2"
+						{Matrix34
+							-1	0	0
+							0	1	0
+							0	0	-1
+							0	0	0.772689
+						}
+						{VolumeView "koleso_r2.ply"}
+					}
+				}
+				{bone revolute "wheelleft"
+					{parameters "ID=wheelleft;Radius=0.66;support=1;"}
+					{Matrix34
+						-1	0	0
+						0	1	0
+						0	0	1
+						0	0	-0.699206
+					}
+					{VolumeView "wheelleft.ply"}
+					{bone "koleso_l2"
+						{Matrix34
+							-1	0	0
+							0	1	0
+							0	0	-1
+							0	0	0.757006
+						}
+						{VolumeView "koleso_l2.ply"}
+					}
+				}
+			}
+		}
+	}
+}

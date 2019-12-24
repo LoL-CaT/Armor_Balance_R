@@ -1,0 +1,117 @@
+;Exported by: butyvsky
+;Date:        Tue May 22 14:43:34 2007
+;File:        D:\-Projects-\-3D Work-\canon\U-boat_gun\20mm_u_boat.max
+{Skeleton
+	{animation
+		{sequence "recoil"}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=Turret;"}
+				{animation
+					{sequence "repair" {speed 0.5}}
+				}
+				{speed 0.01}
+				{Position 0.0014801	0	26.0145}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -10 20}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.019685	-0.00695086	1.17051
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "foresight1"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							25.1476	1.50649	0.0726132
+						}
+					}
+					{bone "visor"
+						{Matrix34
+							0.999998	0.000157144	0.00182441
+							0.00182132	0.0174513	-0.999846
+							-0.000188954	0.999848	0.017451
+							0.30831	9.11855	0.122252
+						}
+					}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							7.48031	1.53473	0.041441
+						}
+						{VolumeView "gun.ply"}
+						{bone "shooter00"
+							{Position 17.0873	0.0712958	-0.0328617}
+						}
+					}
+				}
+				{bone "gunner"
+					{Position -17.1124	0	-26.0145}
+				}
+				{bone "fxshell1"
+					{Matrix34
+						0	-0.958856	0.283892
+						1	0	0
+						0	0.283892	0.958856
+						-7.37952	-1.57071	3.52827
+					}
+				}
+				{bone "emit1"
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						-11.8385	-16.5161	-18.5794
+					}
+					{visibility 0}
+				}
+				{bone "emit2"
+					{Matrix34
+						0	-1	0
+						1	0	0
+						0	0	1
+						-11.8102	17.6579	-18.4874
+					}
+					{visibility 0}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 3.78193 23.1589}
+	{Bone "body"}
+	{Position 0.0287602	0.156698	11.5794}
+}
+{Volume "gun"
+	{Cylinder 0.799046 17.3735}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		8.3297	0.0332043	0.0817018
+	}
+}
+{Volume "turret"
+	{Box 7.09516 3.27469 3.82047}
+	{Bone "turret"}
+	{Position 0.46553	-0.0927385	-0.526597}
+}

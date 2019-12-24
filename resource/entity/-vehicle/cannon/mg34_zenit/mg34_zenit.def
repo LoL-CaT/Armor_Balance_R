@@ -1,0 +1,73 @@
+{actor
+	(include "/properties/cannon_mgun.ext")
+	{props "vision_cannon_minimum" "cannon" "round_sandbag" "cannon_small"}
+	{collider "cannon_small"}
+
+	{props "wheeled"}
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+		{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box		
+			{item "ammo mgun" 500}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{LinkBone "mgun"}
+			{weapon "mg34stan" filled}			
+			{LinkAnimation "off"}
+			{charger "gunner"}
+		}
+	}
+	{Extension "mg34_zenit.mdl"}
+		{extender "cannon"
+		{animation
+			{move "mgun_browning_driver_r" ""}
+                        {reload "" "cannon_kpvt_charger"}
+		}
+		{move {workers "driver"} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+		{rotate_ik_Limit 0}
+
+	}
+
+
+	("crew_inside")
+	("crew_human" place(driver) bone(driver)	door(emit1) animation(driver))
+	("crew_human" place(gunner)	bone(gunner)	door(emit1) animation(gunner))
+	{placer
+		{place "gunner" {UseVision 0}}
+		{place "commander" remove}
+		{place "driver1" remove}
+		{place "driver2" remove}
+	}
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_mgun_stan" 10}}
+		}
+		{anm "driver"
+			{forward {end "mgun_browning_driver_r"}}
+		}
+		{link "driver" "gunner"}
+	}
+	{extender "cannon"
+	{animation
+		{aim ""}
+		{reload  "mgun_stan_charger" ""}
+	}
+}
+ 	{Volume "body"
+	}
+	{Volume "stan1"
+	}
+	{Volume "stan2"
+	}
+	{Volume "stan3"
+	}
+}

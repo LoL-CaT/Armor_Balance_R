@@ -1,0 +1,167 @@
+;Exported by: Пупс
+;Date:        Wed Apr 06 20:09:16 2011
+;File:        C:\Users\Пупс\Документы\3dsmax\scenes\ДШК\дшк_x\станок Колесникова.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				1	-1.57356e-005	0
+				1.53379e-005	0.974722	0.223422
+				0	-0.223422	0.974722
+				-3.16881	0.00223578	3.64862
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -25 25}
+				{speed 0.03}
+				{Position 0.00807238	-0.00209248	0.976954}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{limits -10 15}
+					{speed 0.03}
+					{Matrix34
+						0.999864	-0.0164754	5.38824e-005
+						0	0.00328924	0.999995
+						-0.0164755	-0.999859	0.00328884
+						-1.62443	0.0635896	2.62011
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "barrel"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0.986992	-0.091226	-0.132383
+							-0.133391	-0.00501588	-0.991051
+							0.0897456	0.995818	-0.0171193
+							-0.989483	2.50811	0.250526
+						}
+						{VolumeView "barrel.ply"}
+					}
+				}
+				{bone "shield"
+					{parameters "ID=shield;"}
+					{Matrix34
+						-1.55727e-005	1	0
+						0	0	1
+						-1	-1.55727e-005	0
+						5.71471	-3.998	6.69289
+					}
+					{VolumeView "shield.ply"}
+				}
+			}
+			{bone "stan1"
+				{Matrix34
+					1.55727e-005	-1	0
+					-0.0725989	0	0.997361
+					-0.997361	-1.55326e-005	-0.072599
+					-4.18643	0.00353992	-2.00396
+				}
+				{VolumeView "stan1.ply"}
+			}
+			{bone "stan3"
+				{Matrix34
+					0.0136315	-0.999907	0
+					-0.0725922	-0.000989646	0.997361
+					-0.997269	-0.0135955	-0.072599
+					-2.84058	-1.61927	-1.89784
+				}
+				{VolumeView "stan3.ply"}
+			}
+			{bone "stan2"
+				{Matrix34
+					-0.300666	-0.953729	0
+					-0.0692398	0.0218281	0.997361
+					-0.951213	0.299873	-0.072599
+					-2.84058	1.69889	-1.89784
+				}
+				{VolumeView "stan2.ply"}
+			}
+			{bone revolute "wheel_r1"
+				{parameters "ID=wheelright;Support=1;Radius=0.3;"}
+				{Matrix34
+					0.999987	-0.00502974	0
+					-0.00491974	-0.978117	0.207996
+					0.00104617	0.207994	0.97813
+					3.55235	-6.17131	-2.24754
+				}
+				{VolumeView "wheel_r1.ply"}
+			}
+			{bone revolute "wheel_l1"
+				{parameters "ID=wheelleft;Support=1;Radius=0.3;"}
+				{Matrix34
+					0.999972	0.00750723	0
+					0	0	1
+					0.00750723	-0.999972	0
+					3.55212	8.23538	-0.424997
+				}
+				{VolumeView "wheel_l1.ply"}
+			}
+		}
+	}
+}
+{Volume "barrel"
+	{Polyhedron "barrel.vol"}
+	{Bone "barrel"}
+	{Matrix34
+		0.0160581	-0.975371	0.219985
+		0.0104838	0.220165	0.975406
+		-0.999816	-0.013357	0.013761
+		24.3633	0.0441523	-0.507155
+	}
+}
+{Volume "body"
+	{Box 7.40421 3.76821 6.14814}
+	{Bone "body"}
+	{Matrix34
+		1	1.57356e-005	0
+		0	0	1
+		1.57356e-005	-1	0
+		1.08241	0.0293288	-0.825941
+	}
+}
+{Volume "shield"
+	{Polyhedron "shield.vol"}
+	{Bone "shield"}
+	{Matrix34
+		0	0	-1
+		1	0	0
+		0	1	0
+		4.03372	-6.4405	2.30775
+	}
+}
+{Volume "stan"
+	{Polyhedron "stan.vol"}
+	{Bone "body"}
+	{Matrix34
+		1	1.57356e-005	0
+		0	0	1
+		1.57356e-005	-1	0
+		-15.2449	1.96842	-3.73474
+	}
+}
+{Volume "wheell"
+	{Box 9.94124 2.94555 10.1622}
+	{Bone "wheel_l1"}
+	{Matrix34
+		0.999972	0	0.00749152
+		0.00749152	0	-0.999972
+		0	1	0
+		0.0272141	-0.0470128	0.634884
+	}
+}
+{Volume "wheelr"
+	{Box 10.0885 3.01919 10.3094}
+	{Bone "wheel_r1"}
+	{Matrix34
+		0.999987	0	0.00504548
+		-0.00504548	0	0.999987
+		0	1	0
+		0.0291684	0.0266175	0.555427
+	}
+}

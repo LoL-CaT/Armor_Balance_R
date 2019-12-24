@@ -1,0 +1,114 @@
+;Exported by: Sergey
+;Date:        Thu Jul 19 12:44:16 2012
+;File:        D:\Documents\3dsmax\scenes\50-mm mortar RM-38\rm-38_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "turret"
+			{parameters "ID=turret;"}
+			{limits -20 20}
+			{speed 0.01}
+			{Position -0.0108743	0.023197	0.388411}
+			{VolumeView "turret.ply"}
+			{bone "body"
+				{parameters "ID=body;"}
+				{Position -0.0185266	0.00411877	0.0117384}
+				{VolumeView "body.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{VolumeView "gun.ply"}
+				}
+			}
+			{bone "stanok"
+				{parameters "ID=stanok;"}
+				{Matrix34
+					0	1	0
+					-0.818519	0	0.57448
+					0.57448	0	0.818519
+					7.31488	0.0602428	9.25069
+				}
+				{VolumeView "stanok.ply"}
+				{bone "podem"
+					{parameters "ID=podem;"}
+					{Matrix34
+						1	0	0
+						0	-0.551676	0.834059
+						0	-0.834059	-0.551676
+						0.00286245	-0.643978	0.122526
+					}
+					{VolumeView "podem.ply"}
+					{bone revolute "styazhka"
+						{parameters "ID=styazhka;"}
+						{limits -10 25}
+						{speed 0.01}
+						{Matrix34
+							0.910389	0.00453514	-0.413729
+							-0.410262	0.139516	-0.901233
+							0.0536344	0.990209	0.128874
+							-0.298469	0.0257568	4.11848
+						}
+						{VolumeView "styazhka.ply"}
+					}
+					{bone revolute "noga1"
+						{parameters "ID=noga1;"}
+						{limits -10 25}
+						{speed 0.01}
+						{Matrix34
+							-0.866024	0.00174491	0.499999
+							-0.5	0	-0.866025
+							-0.00151164	-0.999999	0.000872076
+							0.613787	0.00276089	1.38493
+						}
+						{VolumeView "noga1.ply"}
+					}
+					{bone revolute "noga2"
+						{parameters "ID=noga2;"}
+						{limits -10 25}
+						{speed 0.01}
+						{Matrix34
+							0.866025	0	0.5
+							0.5	0	-0.866025
+							0	1	0
+							-0.659649	0.00276184	1.38957
+						}
+						{VolumeView "noga2.ply"}
+					}
+				}
+				{bone "pricel"
+					{parameters "ID=pricel;"}
+					{Matrix34
+						-1	0	0
+						0	-0.818519	0.57448
+						0	0.57448	0.818519
+						-1.62987	-0.967863	-0.226675
+					}
+					{VolumeView "pricel.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 4.33071 1.42946 7.08661}
+	{Bone "turret"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		0.0131288	0.0342195	-0.403878
+	}
+}
+{Volume "gun"
+	{Cylinder 0.984252 15.6334}
+	{Bone "gun"}
+	{Matrix34
+		0.810446	0	-0.585814
+		0	1	0
+		0.585814	0	0.810446
+		4.20136	-0.040961	5.92268
+	}
+}

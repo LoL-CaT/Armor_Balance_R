@@ -1,0 +1,72 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")	
+	{props "wheeled" "cannon" "vision_cannon_minimum" "cannon_small"} 
+	{collider "cannon_small"}
+
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{LinkBone ""}
+			{weapon "rus_maxim_1910_30" filled}
+		}
+	} 
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 500}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	} 	
+	{Extension "maxim_1910_30.mdl"}
+
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_maxim_gunlaeyr" 10}}
+		}
+		{anm "commander"
+			{forward	{end "lie_take_item_end" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_maxim_move" 10}}
+		}
+		{anm "driver2"
+			{forward {end "walk_1hand" 10}}
+		}
+	
+	}
+
+	{sensor 
+		{visor "main" 
+			{vision "cannon_mgun"}
+			{bone "turret"}
+		}
+	}
+	
+	{extender "shield"
+		{on}
+	}
+	
+	{extender "cannon"
+		{animation
+			{move "cannon_maxim_move" "walk_1hand"}
+			{reload  "" "cannon_kpvt_charger end lie_take_item_end"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+
+	{Volume "body"
+		{tags "body"}
+;		{able{obstacle 0}{blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{volume "turret"
+		{thickness 2}
+	}
+	{component "turret"
+		{RepairTime 15}
+	}
+
+}

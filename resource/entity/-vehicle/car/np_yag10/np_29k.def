@@ -1,0 +1,160 @@
+{entity
+	(include "/properties/car.ext")
+    (include "/properties/l_car_mobility.ext")		
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{collider "truck"}
+	{props "vehicle" "car" "truck" "wheeled" "vision_vehicle_minimum" "with_gun" "muzzle_medium"}
+	{able "emit_on_attack"}
+	{targetClass "car" "fg bullet"}	
+        {targetSelector "tank_flak"}
+	("armor_light" args 1.0)
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-midcar_driver)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-midcar)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}
+	{boarder
+		{anm "charger"
+			{forward	{begin	"board_body"}{end "cannon_m8_gunlayer" 10}}
+			;{forward	{begin	"board_body"}{end "seat_armor" 10}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"}{end "pose_61K_gunlayer_left" 10} {base "doorback"}}
+			{reverse 	{end	"emit_body"} {base "doorback" -1}}
+		}
+	}
+
+	("crew_human" place(gunner)		bone(gunner)	door(emit4) animation(gunner))
+	("crew_human" place(charger)		bone(charger)	door(emit3) animation(charger))
+	
+	
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "visor"}
+		}
+		{Visor "driver"
+			{vision "moto_around"}
+			{bone "visor1"}
+		}
+	}
+	
+	{extender "enumerator"}
+                (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+	{Placer
+	          {place "attach01"
+	             {entity "crate_one"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	             {entity "crate_one"}
+	             {Linkbone "attach02"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	}
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+
+	{mass 5400}
+	
+	{Chassis
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility"
+			speed(45)
+			weight(1.2)
+			power(93)
+			fuel(177)	
+		)
+	}
+	
+	{Extension "29k.mdl"}
+
+	{extender "inventory"
+		{box
+			{item "bullet76_zen ap" 30}
+			{item "bullet76_zen fg" 18}
+			)
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "76mm_3k" filling "bullet76_zen ap" 1}
+			("abm_zenite")
+		}
+	} 
+
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 2} 
+	}
+	{Volume "bodyback"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}
+	}
+	{component "cabin"	
+		{RepairTime 12}
+	}
+	{volume "cabin"
+		{thickness 1}
+	}
+	{component "engine"	
+		{RepairTime 20}
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{Volume "gun_rot"
+		{thickness 5}
+	}
+	{Volume "gun"
+		{thickness 5}
+	}
+	{Volume "turret"
+		{thickness 10}
+	}
+	{bone "gun_rot"
+		{speed2 20}
+	}
+	{bone "turret"
+		{speed2 35}
+	}
+}

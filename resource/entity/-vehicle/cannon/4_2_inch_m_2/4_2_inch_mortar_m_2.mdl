@@ -1,0 +1,142 @@
+;Exported by: Sergey
+;Date:        Tue Aug 28 13:36:26 2012
+;File:        D:\Documents\3dsmax\scenes\4.2-inch mortar m2\4.2-inch mortar m2_05.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone revolute "basis"
+		{limits -180 180}
+		{speed 0.001}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0	0	0.462836}
+			{VolumeView "body.ply"}
+			{bone "styzhka1"
+				{Matrix34
+					0	-1	0
+					0.025292	0	0.99968
+					-0.99968	0	0.025292
+					6.03889	-4.87724	0.948972
+				}
+				{VolumeView "styzhka1.ply"}
+			}
+			{bone "styzhka2"
+				{Position 6.07025	4.91348	1.01287}
+				{VolumeView "styzhka2.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=gun;"}
+				{limits -20 20}
+				{speed 0.01}
+				{Position 1.58268	0.0482783	1.07364}
+				{VolumeView "turret.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.840163	0	-0.542333
+						0	1	0
+						0.542333	0	0.840163
+						2.12396	-0.0198508	3.30562
+					}
+					{VolumeView "gun.ply"}
+					{bone "amortizator"
+						{parameters "ID=gun;"}
+						{Matrix34
+							-1	0	0
+							0	-1	0
+							0	0	1
+							0	0	13.1734
+						}
+						{VolumeView "amortizator.ply"}
+						{bone revolute "stoika1"
+							{Matrix34
+								0.882805	0	0.469741
+								-0.469741	0	0.882805
+								0	-1	0
+								-2.36576	-0.00339802	1.06753
+							}
+							{VolumeView "stoika1.ply"}
+							{bone "stoika2"
+								{Matrix34
+									1	0	0
+									0	0	-1
+									0	1	0
+									-6.12797	-0.144066	-0.0362063
+								}
+								{VolumeView "stoika2.ply"}
+								{bone "stoika3"
+									{Position -2.18102	0	0}
+									{VolumeView "stoika3.ply"}
+								}
+							}
+						}
+						{bone "visor"
+							{Matrix34
+								-0.840163	0	0.542334
+								0	-1	0
+								0.542334	0	0.840163
+								-3.28813	-28.0256	7.63566
+							}
+						}
+					}
+					{bone revolute "foresight"
+						{limits -10 25}
+						{Matrix34
+							0.0258892	0	0.999665
+							-0.999665	0	0.0258892
+							0	-1	0
+							0.206963	-0.0284301	23.626
+						}
+					}
+				}
+				{bone "visor2"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						14.4426	-0.0482794	12.4965
+					}
+				}
+			}
+		}
+		{bone "driver1"
+			{Position 18.3704	-2.69981	0}
+		}
+		{bone "driver2"
+			{Position -9.89514	0	0.0699663}
+		}
+		{bone "emit1"
+			{Position -14.9134	15.3457	0}
+		}
+		{bone "emit2"
+			{Position -15.3259	-15.0456	0}
+		}
+		{bone "gunner"
+			{Position 9.97722	12.4578	0}
+		}
+		{bone "commander"
+			{Position 9.8397	-14.2205	0}
+		}
+	}
+}
+{Volume "body"
+	{Box 14.7143 15.2644 3.43793}
+	{Bone "body"}
+	{Position 0.00722999	-0.124971	0.467554}
+}
+{Volume "gun"
+	{Cylinder 2.13484 24.0157}
+	{Bone "gun"}
+	{Matrix34
+		0.999756	0	-0.0220949
+		0	1	0
+		0.0220949	0	0.999756
+		-0.0314516	0.0528763	10.6966
+	}
+}

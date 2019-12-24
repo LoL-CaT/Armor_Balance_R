@@ -1,0 +1,86 @@
+;Exported by: mark
+;Date:        Thu Mar 24 23:08:52 2011
+;File:        C:\Users\mark\Documents\3dsmax\scenes\8_cm_x.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.4}}
+		{sequence "close" {speed 1}}
+	}
+	{bone revolute "basis"
+		{parameters "Wheelradius=0.55;"}
+		{Orientation
+			0.9	0	0
+			0	-0.9	0
+			0	0	0.9
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.999959	1.5886e-005	-0.0089989
+				-1.5748e-005	1	1.54092e-005
+				0.0089989	-1.52668e-005	0.999959
+				0.246042	-3.13666	13.3542
+			}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{Matrix34
+					1.58111e-005	1	-1.53184e-005
+					-0.12603	1.71889e-005	0.992027
+					0.992027	-1.37545e-005	0.12603
+					11.9186	2.28093	9.48217
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -18 3}
+					{Matrix34
+						1.54715e-005	0.117082	-0.993122
+						0	0.993122	0.117082
+						1	0	1.51962e-005
+						0.843774	-8.51053	-0.756896
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1.51113e-005	0	1
+							0.00288415	0.999996	0
+							-0.999996	0.00288419	1.49484e-005
+							11.341	5.36273	-0.344506
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{Matrix34
+					0.999959	-1.5735e-005	0.00899875
+					1.58729e-005	1	-1.52582e-005
+					-0.00899875	1.54004e-005	0.999959
+					17.6005	2.47936	-13.1963
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Wheelradius=0.6;"}
+					{Matrix34
+						-0.999973	7.46726e-005	0.00735566
+						0.00735546	0	0.999973
+						7.62744e-005	1	0
+						-5.29015	15.2822	14.2201
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Wheelradius=0.6;"}
+					{Matrix34
+						-0.999973	7.46726e-005	0.00735566
+						0.00735546	0	0.999973
+						7.62744e-005	1	0
+						-5.29015	-15.791	14.2206
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+		}
+	}
+}

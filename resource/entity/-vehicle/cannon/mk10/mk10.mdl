@@ -1,0 +1,121 @@
+;Exported by: ubrashaev
+;Date:        Wed Oct 19 14:57:44 2005
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\-Пушки\m10\m10.max
+{Skeleton
+	{animation
+		{sequence "recoil"}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.363007	-0.0153275	0}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=Turret;"}
+				{animation
+					{sequence "repair" {speed 0.5}}
+				}
+				{speed 0.01}
+				{Position -0.290283	-0.15139	20.9189}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -40 20}
+					{Matrix34
+						0.965926	0	0.258819
+						-0.258819	0	0.965926
+						0	-1	0
+						-4.5988	0.0569171	6.44628
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "foresight1"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							32.4965	1.50648	0.031664
+						}
+					}
+					{bone "visor"
+						{Matrix34
+							0.999998	0.000157146	0.00182436
+							0.00182128	0.0174514	-0.999846
+							-0.000188929	0.999848	0.0174511
+							3.71354	7.94638	0.107996
+						}
+					}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							4.59878	1.45902	0.0569178
+						}
+						{VolumeView "gun.ply"}
+						{bone "shooter00"
+							{Position 27.2059	0.11224	-0.0328637}
+						}
+					}
+				}
+				{bone "commander"
+					{Position -10.692	16.0181	-16.4325}
+				}
+				{bone "fxshell1"
+					{Matrix34
+						0	-0.958856	0.283892
+						1	0	0
+						0	0.283892	0.958856
+						-5.14984	-2.45023	3.78867
+					}
+				}
+				{bone "gunner"
+					{Position -20.0767	-0.0222932	-16.4585}
+				}
+				{bone "emit1"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						-11.8385	-16.5161	-18.5794
+					}
+					{visibility 0}
+				}
+				{bone "emit2"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						-11.8102	17.6579	-18.4874
+					}
+					{visibility 0}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 5.06825 19.8942}
+	{Bone "body"}
+	{Position -0.142944	-0.528534	9.94711}
+}
+{Volume "gun"
+	{Cylinder 0.973002 38.1476}
+	{Bone "gun"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		8.49181	0.00564623	-0.0116952
+	}
+}
+{Volume "turret"
+	{Box 1.40974 17.4501 13.7385}
+	{Bone "turret"}
+	{Position 6.29375	0.0409241	7.0059}
+}

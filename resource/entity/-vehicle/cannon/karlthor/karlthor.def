@@ -1,0 +1,112 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	{collider "tank.sheavy"}
+	{props "h_light" "-turret"  "vision_vehicle_maximum"  "muzzle_maximum"}
+	
+	("armor_light_shit" turret(10 10) body(10 10 10 10))
+	("wheels_armor" args 20)	
+	("shield" args 10)
+	
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet600" 4}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "600mm_gun" filling "ammo bullet600" 1}
+			{charger "gunner"}
+			("abm_howitzer")
+		}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_thor_driver"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "charger1"
+			{forward	{begin	"board_thor_driver"} {end "pose_thor_charger1"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "charger2"
+			{forward	{begin	"board_thor_driver"} {end "pose_thor_charger2"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_thor_gunner1"} {end "pose_thor_gunlayer"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "gunner1"
+			{forward	{begin	"board_thor_gunner1"} {end "pose_thor_charger2"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+	}
+    
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "driver" 	 {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit1" "charger1" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit1" "charger2" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit2" "gunner"   {anm "gunner"} {forward putoff} {reverse puton}}
+		{link "emit2" "gunner1"  {anm "gunner1"} {forward putoff} {reverse puton}}
+	}
+
+	("crew_human" place(gunner)		door2(emit2))
+	("crew_human" place(gunner1)		door2(emit2))
+	("crew_human" place(driver)		door1(emit1) )
+	("crew_human" place(charger1)		door1(emit1) )
+	("crew_human" place(charger2)		door1(emit1) )
+
+	{ sensor
+		{visor "main"
+			{bone "foresight1"}
+		}
+	}
+
+	{mass 126000}
+	{Chassis
+;		{track_size 0.75 0.7}
+		("tank_trace_ex" fx("tracks_mid") step(0.30) len(0.9) boneleft("wheell4") boneright("wheelr4"))
+		("mobility"
+			speed(10)
+			weight(126.0)
+			power(750)
+			fuel(1200)		
+		)
+	}
+
+;	("tracks_forced")
+	{Extension "karlthor.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(1.2))
+	
+	{bone "turret"
+		{limits -2 2}	
+		{speed2 1}		
+	}	
+	{bone "gun_rot"
+		{limits -1 70}	
+		{speed2 2}
+	}		
+	
+}
+

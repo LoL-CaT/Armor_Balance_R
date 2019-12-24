@@ -1,0 +1,110 @@
+﻿{game_entity ; Спаренная зенитка 128мм. Неподвижная.
+	(include "/properties/cannon.ext")
+	{Extension "flak40-fixed.mdl"}
+        {targetSelector "flak"}
+	{texmod ""}
+	{bone "turret"
+		{limits}
+		{speed2 10}
+	}
+	{bone "gun_rot"
+		{limits -88 3}
+		{speed2 10}
+	}
+	("shield" args 8)
+	{targetClass "tank" "fg"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{props "vehicle" "cannon" "flak" "vision_cannon_medium"  "muzzle_large" "round_sandbag5"}
+    {targetSelector "flak"}
+		
+	("armor_heavy")	
+	
+	{simulation {able 0}}
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 180}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 80}
+	}
+	{volume "mantlet"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 25}
+	}
+	{volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 25}
+	}
+	{volume "gun1"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 25}
+	}
+	{volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 25}
+	}
+
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}	
+
+
+
+	("crew_2_human")
+
+
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_pak40_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pak40_charger" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "cannon_m5_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" "cannon_pdr25_charger_fire"}
+			{reload  "" "Cannon_pdr25_charger"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander" } {obstacle "open"}}
+	}
+	
+	{extender "inventory"
+		{box
+           		{item "ammo bullet128ger ap" 4}
+           		{item "ammo bullet128ger fg" 4}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "128mm_flak40_x2" filling "ammo bullet128ger fg" 2}
+			{Barrels 2}
+			{foresight "foresight1"}
+			{charger "gunner"}
+			{StationaryFiring}{basic}
+		}
+	}  	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+
+	{mass 40000}
+
+}

@@ -1,0 +1,208 @@
+;Exported by: Micha
+;Date:        Sun Feb 07 18:24:40 2010
+;File:        G:\meshes\soldiers_meshes\japan\cannon\AAA\ExporterT2_20AA1_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.974929	-0.222104	0.013527
+				0.221149	0.973876	0.0515633
+				-0.024626	-0.0472791	0.998578
+				-7.39354	-0.0948751	3.70185
+			}
+			{VolumeView "body.ply"}
+			{bone "anchor"
+				{parameters "ID=body;"}
+				{Position -19.5641	-0.11679	-1.19493}
+				{VolumeView "anchor.ply"}
+			}
+			{bone "anchor01"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.901102	0.347013	0.259994
+					-0.26762	0.916865	-0.296205
+					-0.341166	0.197332	0.919057
+					19.7922	-16.2681	-1.19493
+				}
+				{VolumeView "anchor01.ply"}
+			}
+			{bone "anchor04"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.918945	0.327735	-0.219385
+					-0.321805	0.944688	0.0632927
+					0.227993	0.0124366	0.973583
+					19.7733	16.6046	-2.59069
+				}
+				{VolumeView "anchor04.ply"}
+			}
+			{bone revolute "body1"
+				{parameters "ID=body;"}
+				{speed 0.01}
+				{Matrix34
+					0.935108	0.350124	-0.0546517
+					-0.347539	0.936248	0.0515361
+					0.0692116	-0.0291983	0.997175
+					3.15746	0.0592268	2.5887
+				}
+				{VolumeView "body1.ply"}
+				{bone revolute "turret"
+					{parameters "ID=turret;"}
+					{Matrix34
+						0.983411	0.146609	-0.106808
+						-0.141331	0.988408	0.055452
+						0.1137	-0.0394368	0.992732
+						-0.0585356	-0.0212454	0.707209
+					}
+					{VolumeView "turret.ply"}
+					{bone revolute "gun_rot"
+						{parameters "ID=turret;"}
+						{limits -15 95}
+						{speed 0.03}
+						{Matrix34
+							0.940989	-0.00474904	-0.338404
+							0.337707	-0.0524941	0.939786
+							-0.0222274	-0.99861	-0.0477926
+							4.70706	-0.05424	12.3403
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "gun"
+							{parameters "ID=gun;"}
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								19.8238	1.402	0.174421
+							}
+							{VolumeView "gun.ply"}
+						}
+						{bone "clip"
+							{parameters "ID=gun_rot;"}
+							{Matrix34
+								0.941881	-0.324439	-0.0871743
+								0.0497114	0.391232	-0.918949
+								0.332248	0.861207	0.384622
+								-0.131587	4.82783	0.189326
+							}
+							{VolumeView "clip.ply"}
+						}
+					}
+					{bone "chair"
+						{parameters "ID=turret;"}
+						{Matrix34
+							0.973737	0.0338556	0.225146
+							0.0258073	0.966097	-0.256887
+							-0.22621	0.255951	0.93985
+							-11.121	0.0993847	3.60754
+						}
+						{VolumeView "chair.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Area "obb2"
+	{Obb2
+		{Center -7.31231 1.8823}
+		{Extent 24.1435 26.3569}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 20.3147 22.6473 4.6574}
+	{Bone "body"}
+	{Position 3.07082	-0.257292	1.43872}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		0.177865	-4.381	-0.149217
+	}
+}
+{Volume "body3"
+	{Box 9.52019 7.40932 6.19558}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		1.24415	-6.81565	6.86122
+	}
+}
+{Volume "body4"
+	{Box 10.0568 5.60615 6.97559}
+	{Bone "body"}
+	{Position 1.49213	6.99246	7.01983}
+}
+{Volume "body5"
+	{Box 8.21009 9.16352 5.66761}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-6.48317	-0.130624	21.855
+	}
+}
+{Volume "body6"
+	{Box 10.6466 10.064 8.89868}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-7.96629	-0.461354	6.36178
+	}
+}
+{Volume "gun"
+	{Polyhedron "gun.vol"}
+	{Bone "gun"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		9.95849	0.0248289	-0.00418472
+	}
+}
+{Volume "turret1"
+	{Polyhedron "turret1.vol"}
+	{Bone "turret"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		13.5914	13.5316	6.16645
+	}
+}
+{Volume "turret3"
+	{Cylinder 2.03014 11.8154}
+	{Bone "turret"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		13.6019	0.189837	7.17576
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		13.5914	5.19207	6.16645
+	}
+}

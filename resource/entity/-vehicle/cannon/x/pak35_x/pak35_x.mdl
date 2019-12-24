@@ -1,0 +1,93 @@
+;Exported by: ubrashaev
+;Date:        Fri Jun 09 11:42:13 2006
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\-Пушки\pak37\pak37_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Position 11.9135	0.366813	6.74482}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position -3.06773	0.718427	3.68711}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-3.66124	0.180729	3.37366
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	1	0
+							0	0	1
+							1	0	0
+							13.6748	-1.45435	-1.00784
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_back"
+				{Position -40.7814	-0.459514	2.17708}
+			}
+			{bone "standl"
+				{Matrix34
+					0.98106	-0.172987	0.0871557
+					0.173648	0.984808	0
+					-0.0858316	0.0151344	0.996195
+					-3.1355	8.49237	1.44334
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{Matrix34
+					0.98106	0.172987	0.0871557
+					-0.173648	0.984808	0
+					-0.0858316	-0.0151344	0.996195
+					-3.6229	-8.64317	1.44334
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position -1.03589	-0.459516	2.17708}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.45;"}
+					{Matrix34
+						0.969734	-0.198718	-0.141867
+						-0.190748	-0.253877	-0.948241
+						0.152416	0.946603	-0.284098
+						0.163562	17.24	0.50123
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.45;"}
+					{Matrix34
+						1	0	0
+						0	0.14987	-0.988706
+						0	0.988706	0.14987
+						0.16356	-16.5226	-0.395517
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+		}
+	}
+}

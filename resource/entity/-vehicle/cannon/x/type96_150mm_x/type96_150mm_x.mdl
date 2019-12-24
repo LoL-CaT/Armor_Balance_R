@@ -1,0 +1,109 @@
+;Exported by: Matthias
+;Date:        Sun Dec 05 21:01:10 2010
+;File:        C:\Dokumente und Einstellungen\Matthias\scenes\typ96_x.max
+{Skeleton
+	{bone "base"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.7}}
+			}
+			{Position -0.826194	0.0238544	16.0095}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.9}}
+				}
+				{limits -24 24}
+				{speed 0.005}
+				{Position -2.09862	0	-0.0477457}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.6}}
+					}
+					{limits -3 40}
+					{speed 0.006}
+					{Matrix34
+						0.998257	-0.0398476	0.0435258
+						-0.0434942	0.0016603	0.999052
+						-0.0398821	-0.999204	-7.57333e-005
+						-2.7856	0	7.38364
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0.998257	-0.0418245	-0.0416313
+							-0.0416678	0	-0.999132
+							0.0417881	0.999125	-0.00174275
+							0	0	0
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "standl"
+				{Matrix34
+					0.939693	-0.34202	0
+					0.34202	0.939693	0
+					0	0	1
+					-1.34827	9.04362	-3.04296
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{Matrix34
+					0.936117	0.340718	-0.0871553
+					0.34202	-0.939693	0
+					0.0818991	0.0298091	0.996195
+					-1.34827	-9.51015	-3.04296
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0	0	0
+				}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.48;"}
+					{animation
+						{sequence "break" {file "wheelL.anm"}}
+					}
+					{Matrix34
+						1	0	0
+						0	-1	0
+						0	0	-1
+						0.767954	-3.00203	-15.6896
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.48;"}
+					{animation
+						{sequence "break" {file "wheelR.anm"}}
+					}
+					{Matrix34
+						1	0	0
+						0	-1	0
+						0	0	-1
+						0.767954	-3.00203	15.6196
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,194 @@
+;Exported by: Luzhbin_M
+;Date:        Mon Apr 20 11:14:41 2009
+;File:        D:\art\Models\Technics\Корабельные Орудия\76-мм 34-К\76_34К.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.7}}
+	}
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "obstacle"
+			{Position -4.34605	-0.275242	0}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.342133	0.00986308	3.02473}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=Turret;"}
+				{Position 0	0	0}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun_rot;"}
+					{limits -20 5}
+					{speed 0.08}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-7.00144	0.202877	29.8221
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=Gun;"}
+						{Position 15.4782	-0.741901	-1.25069}
+						{VolumeView "gun.ply"}
+						{bone "shooter00"
+							{parameters "Vis;"}
+							{Matrix34
+								0.999982	-0.00603584	0
+								0	0	-1
+								0.00603584	0.999982	0
+								61.4064	0.240826	1.28227
+							}
+						}
+						{bone "foresight1"
+							{Matrix34
+								0.999982	-0.00603584	0
+								0	0	-1
+								0.00603584	0.999982	0
+								62.1158	0.240826	1.28227
+							}
+						}
+						{bone "fx_invers"
+							{Matrix34
+								-0.999982	0.00603574	0
+								-0.00603574	-0.999982	0
+								0	0	1
+								-36.7388	-1.78622	1.14329
+							}
+						}
+						{bone "visor"
+							{parameters "Vis;"}
+							{Matrix34
+								0.999982	-0.00603584	0
+								0	0	-1
+								0.00603584	0.999982	0
+								0.237239	-4.96519	1.24382
+							}
+						}
+					}
+				}
+				{bone "emit1"
+					{parameters "Group=crew;"}
+					{Position -32.5383	15.1282	-2.90604}
+					{visibility 0}
+				}
+				{bone "emit2"
+					{parameters "Group=crew;"}
+					{Position -32.5456	-15.9954	-2.90604}
+					{visibility 0}
+				}
+				{bone "commander"
+					{Matrix34
+						0.981888	0.189461	0
+						-0.189461	0.981888	0
+						0	0	1
+						-8.14054	-12.7334	-4.51954
+					}
+				}
+				{bone "gunner"
+					{Matrix34
+						0.999791	-0.0204243	0
+						0.0204245	0.999791	0
+						0	0	1
+						-8.00217	13.7671	-4.43213
+					}
+				}
+				{bone "visor2"
+					{parameters "Vis;"}
+					{Matrix34
+						0.999982	0	0.00603584
+						0	-1	0
+						0.00603584	0	-0.999982
+						12.2505	-12.4241	28.1228
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 10.778 5.87353}
+	{Bone "body"}
+	{Position 0.0170858	0.0983671	0.571395}
+}
+{Volume "gun1"
+	{Polyhedron "gun1.vol"}
+	{Bone "gun"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-31.1051	5.62676	1.20576
+	}
+}
+{Volume "gun_rot"
+	{Polyhedron "gun_rot.vol"}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-2.25611	9.44561	-0.214802
+	}
+}
+{Volume "gun"
+	{Polyhedron "gun.vol"}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	-1	0
+		1	0	0
+		25.1452	0.379696	1.28932
+	}
+}
+{Volume "turret1"
+	{Polyhedron "turret1.vol"}
+	{Bone "turret"}
+	{Position -12.8327	-22.1319	-3.02473}
+}
+{Volume "turret2"
+	{Polyhedron "turret2.vol"}
+	{Bone "turret"}
+	{Position -12.8327	22.3682	-3.02473}
+}
+{Volume "turret3"
+	{Polyhedron "turret3.vol"}
+	{Bone "turret"}
+	{Position 16.809	-0.0650105	2.67388}
+}
+{Volume "turret4"
+	{Polyhedron "turret4.vol"}
+	{Bone "turret"}
+	{Position 9.19706	-19.9435	-3.02473}
+}
+{Volume "turret5"
+	{Polyhedron "turret5.vol"}
+	{Bone "turret"}
+	{Position 9.19706	21.2289	-3.02473}
+}
+{Volume "turret6"
+	{Polyhedron "turret6.vol"}
+	{Bone "turret"}
+	{Matrix34
+		0.7737	0	-0.633552
+		0	1	0
+		0.633552	0	0.7737
+		4.06622	0.482048	30.8425
+	}
+}
+{Volume "turret7"
+	{Polyhedron "turret7.vol"}
+	{Bone "turret"}
+	{Position 0.703876	1.8867	3.53156}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position -13.6288	0.482048	38.4334}
+}

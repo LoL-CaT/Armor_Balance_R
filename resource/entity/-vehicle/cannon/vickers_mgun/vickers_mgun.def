@@ -1,0 +1,69 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	{collider "cannon_small"}
+	{props "round_sandbag2" "vision_cannon_minimum" "cannon" "cannon_small"}
+
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{LinkBone ""}
+			{weapon "vickers_mgun" filled}
+		}
+	} 
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 500}
+		}
+	} 	
+	{Extension "vickers_mgun.mdl"}
+
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_vicers_gunner" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_vicers_commander" 10}}
+		}
+	
+	}
+
+	{sensor 
+		{visor "main" 
+			{vision "cannon_mgun"}
+			{bone "turret"}
+		}
+	}
+	
+	{extender "inventory"
+		{box
+		}	
+	}
+
+	{extender "cannon"
+		{animation
+			{reload  "" "vicers_mgun_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+
+	{Volume "body1"
+		{tags "body"}
+		{able{obstacle 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{able{obstacle 0}{blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{able{obstacle 0}{blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+}

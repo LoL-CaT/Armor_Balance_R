@@ -1,0 +1,76 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "wheeled" "vision_cannon_minimum" "muzzle_zenite"}
+	{collider "cannon_small"}
+	("armor_light")
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "lie_fire_mgun" 10}}
+		}
+		{anm "commander"
+			{forward	{end "lie_take_item_end" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mgun_browning_driver_l" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet20x138b ap" 100}
+			{item "bullet20x138b fg" 100}
+            {item "plant" 5}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_s18_1100" filling "ammo bullet20x138b ap" 10}
+			{Rotate}
+			("abm_zenite")
+		}
+	}
+	
+	{mass 80}
+	
+	{Extension "20_mm_solothurn_s18_1000_wheel.mdl"}
+	
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+	{bone "basis"
+	      {limits}
+	}
+	
+	{extender "cannon"
+		{animation
+			{move "mgun_browning_driver_r" "mgun_browning_driver_l"}
+			{fire  "lie_fire_mgun" ""}
+			{reload  "" "lie_take_small end lie_take_item_end"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+
+	{Chassis "track"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+	
+	{Volume "gun"
+		{tags "gun"}
+		{able{obstacle 0}}
+		{thickness 1}
+		{component "gun"}
+	}
+}
+
+

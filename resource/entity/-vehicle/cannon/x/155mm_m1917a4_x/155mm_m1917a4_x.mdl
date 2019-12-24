@@ -1,0 +1,125 @@
+;Exported by: skr
+;Date:        Wed May 08 12:08:25 2013
+;File:        E:\Documents\3dsmax\scenes\152-mm howitzer 1909-30\M1917A4 Schneider 155mm Howitzer_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.0942955	0.280909	15.027}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{Position -0.251556	-0.293107	-3.15065}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Radius=0.61;support=1;"}
+					{Matrix34
+						-1	0	0
+						0	0	1
+						0	1	0
+						0.0586474	-19.2444	0.0650873
+					}
+					{VolumeView "wheelr3.ply"}
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Radius=0.61;support=1;"}
+					{Matrix34
+						-1	0	0
+						0	0	1
+						0	-1	0
+						0.0586472	19.6874	0.0650864
+					}
+					{VolumeView "wheell3.ply"}
+				}
+				{bone revolute "turret"
+					{parameters "ID=body;"}
+					{limits -3 3}
+					{speed 0.001}
+					{Position 0.0180511	0.0121775	0.00481796}
+					{VolumeView "turret.ply"}
+					{bone "shield"
+						{parameters "ID=shield;"}
+						{Matrix34
+							0	1	0
+							0	0	1
+							1	0	0
+							13.8488	0.136124	13.6996
+						}
+						{VolumeView "shield.ply"}
+						{bone revolute "covershield"
+							{Matrix34
+								-0.439881	0.365645	0.820249
+								0.898056	0.179098	0.40177
+								0	0.913361	-0.407152
+								10.834	2.42107	-8.89942
+							}
+							{VolumeView "covershield.ply"}
+						}
+					}
+					{bone revolute "gun_rot"
+						{parameters "ID=gun;"}
+						{limits 0 42}
+						{speed 0.003}
+						{Matrix34
+							0.813618	0	0.5814
+							-0.5814	0	0.813618
+							0	-1	0
+							-1.08058	0.00582115	13.2714
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "gun"
+							{parameters "ID=gun;"}
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								-13.2012	0.70595	0.00580215
+							}
+							{VolumeView "gun.ply"}
+						}
+						{bone "pricel"
+							{Matrix34
+								-1	0	0
+								0	1	0
+								0	0	-1
+								0.00209904	0.00219345	-8.54527
+							}
+							{VolumeView "pricel.ply"}
+						}
+					}
+					{bone revolute "soshnik"
+						{Matrix34
+							-0.984048	-0.00901573	-0.177672
+							-0.177664	-0.0017469	0.98409
+							-0.00918267	0.999958	0.00011727
+							-81.7268	2.49592	-7.83878
+						}
+						{VolumeView "soshnik.ply"}
+					}
+					{bone revolute "stoporl"
+						{Matrix34
+							-1	0	0
+							0	0	1
+							0	1	0
+							-26.5826	4.97742	2.01154
+						}
+						{VolumeView "stoporl.ply"}
+					}
+					{bone revolute "stoporr"
+						{Matrix34
+							-1	0	0
+							0	0	1
+							0	-1	0
+							-26.5826	-4.94891	2.01153
+						}
+						{VolumeView "stoporr.ply"}
+					}
+				}
+			}
+		}
+	}
+}

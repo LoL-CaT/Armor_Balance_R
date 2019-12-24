@@ -1,0 +1,101 @@
+;Exported by: sk
+;Date:        Thu Jan 05 15:56:22 2006
+;File:        D:\-Projects1_5-\-3DWork-\-Model-\Germany\Cannon\K 18\k18_xx.max
+{Skeleton
+	{animation
+		{sequence "death"}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -45.3541	0.0324554	29.1949}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{Position -15.8664	-0.0324583	-4.57152}
+				{VolumeView "turret.ply"}
+				{bone "part1"
+					{Position 80.2088	27.6005	15.9584}
+					{VolumeView "part1.ply"}
+				}
+				{bone "part2"
+					{Matrix34
+						0	1	0
+						-0.0520494	0	0.998645
+						0.998645	0	0.0520494
+						83.1281	-13.3019	16.4311
+					}
+					{VolumeView "part2.ply"}
+				}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						62.6936	0	-3.644
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Position 74.5046	6.67454	0}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Obstacle "turret"
+	{Obb2
+		{Center 19.1051 -0.00357819}
+		{Extent 8.98062 35.4264}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Volume "gun_rot"
+	{Cylinder 4.79105 79.3571}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	-1	0
+		0	0	-1
+		1	0	0
+		27.7184	6.67453	0.00015654
+	}
+}
+{Volume "gun"
+	{Cylinder 4.06022 88.6425}
+	{Bone "gun"}
+	{Matrix34
+		0	-1	0
+		0	0	-1
+		1	0	0
+		36.6581	2.43524e-005	-0.000172418
+	}
+}
+{Volume "part1"
+	{Polyhedron "part1.vol"}
+	{Bone "part1"}
+	{Position -0.341503	1.20587	2.38507}
+}
+{Volume "part2"
+	{Box 14.836 9.89066 2.51914}
+	{Bone "part2"}
+	{Position 0	0	0}
+}
+{Volume "turret"
+	{Box 11.4334 70.8527 45.6488}
+	{Bone "turret"}
+	{Matrix34
+		0.989333	0	0.145674
+		0	1	0
+		-0.145674	0	0.989333
+		80.3256	0.00358172	0.875379
+	}
+}

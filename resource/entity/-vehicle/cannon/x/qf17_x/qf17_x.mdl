@@ -1,0 +1,96 @@
+;Exported by: garry
+;Date:        Mon May 26 10:12:03 2008
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\76mm QF17Pounder MkIIL55\QF17_2_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Position -1.93953	0	11.187}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "CommonMesh;ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position 0.169246	0	2.1758}
+				{VolumeView "turret.ply"}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.8}}
+					}
+					{Matrix34
+						0	0	-1
+						0	1	0
+						1	0	0
+						6.40971	0.424654	6.02872
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	0	1
+							0	1	0
+							-1	0	0
+							-3.47415	0	-10.9009
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "standr"
+				{parameters "ID=body;"}
+				{Position 0.355115	-9.1049	-5.07601}
+				{VolumeView "standr.ply"}
+			}
+			{bone "standl"
+				{parameters "ID=body;"}
+				{Position 0.709985	9.1007	-5.07601}
+				{VolumeView "standl.ply"}
+			}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;Support;Radius=0.5;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					2.17951	16.1417	-1.62755
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;Support;Radius=0.5;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					2.17436	-15.7899	-1.61797
+				}
+				{VolumeView "wheelr.ply"}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 6.89333 4.88207}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0	0	-0.0339897
+	}
+}
+{Volume "wheelright"
+	{Cylinder 6.80315 4.88189}
+	{Bone "wheelr"}
+	{Position 0	0	0.173086}
+}

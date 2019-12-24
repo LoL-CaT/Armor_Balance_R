@@ -1,0 +1,84 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "wheeled" "round_sandbag2" "vision_cannon_low" "muzzle_medium"}
+	{PatherID "cannon.small"}
+	("armor_medium")
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m5_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_m5_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+		
+	{extender "inventory"
+		{box
+			{item "bullet75gerIT ap" 40}
+			{item "bullet75gerIT fg" 40}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{weapon "75mm_27_noaa" filling "bullet75gerIT ap" 1}
+			{Rotate}
+			("abm_field_gun")
+		}
+	}
+	
+	{mass 1100}
+	
+	{Extension "cannone7527.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{bone "basis"
+	      {limits}
+		  {speed 0.004}
+	}
+	
+	{extender "cannon"
+			{animation
+				{switch "close"}
+				{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+				{aim "cannon_zis3_gunlayer" ""}
+				{fire  "Cannon_gunlayer_fire-alert" "cannon_m42_charger_fire"}
+				{reload  "" "cannon_zis3_charger"}
+			}
+			{move {obstacle "close"}}
+			{attack {obstacle "open"}}
+			{rotate_ik_Limit 0}			
+	}
+		
+	{Chassis "track"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_medium")
+	}
+	
+	{bone "turret"
+		{speed2 5}
+		{limits -7 7}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	
+}

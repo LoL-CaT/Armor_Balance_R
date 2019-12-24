@@ -1,0 +1,47 @@
+﻿{game_entity ; Корабельная зенитка
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "turret_rotator" "vision_cannon_minimum" "muzzle_zenite"}
+    {targetSelector "cannon_shell_flak"}
+	
+    ("armor_heavy")
+
+	("crew_2_human")
+
+	{Boarder
+	{anm "gunner"
+		{forward	{end "pose_mgun_stan"}}
+	}
+		{place "gunner"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "gunner"}
+		{link "emit2" "gunner"}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet20x138b zenite" 1000}
+			{item "bullet20x138b ap" 1000}
+			{item "bullet20x138b fg" 1000}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_mg_c30" filling "ammo bullet20x138b zenite" 20}
+			("abm_zenite")
+		}
+	}
+
+	{mass 850}
+	{Extension "20mm_mg_c30.mdl"}
+
+	{bone "turret"
+		{speed2 35}
+		{limits -60 60}		
+	}	
+	{bone "gun_rot"
+		{speed2 20}
+	}
+	(include "/properties/selection/cannon.inc"  scale(0.5))
+
+}

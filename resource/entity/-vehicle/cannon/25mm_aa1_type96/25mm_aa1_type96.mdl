@@ -1,0 +1,225 @@
+;Exported by: skr
+;Date:        Sat Sep 07 16:38:10 2013
+;File:        D:\Documents\3dsmax\scenes\25 mm Type 96 Single\Type_96_Single.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.7}}
+		{sequence "recoil" {speed 0.7}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Orientation
+				1	0	0
+				0	0	1
+				0	-1	0
+			}
+			{VolumeView "body.ply"}
+			{bone "tros"
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-16.2317	4.4941	-0.0314588
+				}
+				{VolumeView "tros.ply"}
+				{bone "link1"
+					{Position -22.7113	0.00502094	-4.49411}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+;				{limits -180 180}
+				{speed 0.005}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0	18.8245	0
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -10 85}
+					{speed 0.008}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-5.88713	3.87363	7.03541
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	0	1
+							0	1	0
+							-1	0	0
+							-20.9095	1.30021	3.87363
+						}
+						{VolumeView "gun.ply"}
+						{bone "barrel"
+							{parameters "ID=gun;"}
+							{Position -0.115423	-0.609322	-36.0904}
+							{VolumeView "barrel.ply"}
+							{bone "foresight1"
+								{Matrix34
+									0	0	-1
+									0	1	0
+									1	0	0
+									0.115422	-0.00672913	-17.7086
+								}
+							}
+							{bone "shooter00"
+								{Matrix34
+									0	0	-1
+									0	1	0
+									1	0	0
+									0.115422	-0.00672913	-17.8822
+								}
+							}
+						}
+						{bone "fxshell1"
+							{Matrix34
+								0	-0.997356	-0.0726654
+								0	0.0726654	-0.997356
+								1	0	0
+								0	-3.94037	-20.2374
+							}
+						}
+					}
+				}
+				{bone "visor"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.708977	7.34439	11.5318
+					}
+				}
+				{bone "visor2"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.708977	-10.9974	11.5318
+					}
+				}
+				{bone "gunner"
+					{Position -17.545	7.10698	-18.8245}
+				}
+				{bone "commander"
+					{Position -8.75972	-10.1635	-15.9108}
+				}
+				{bone "seat1"
+					{Position -17.545	7.10698	-18.8245}
+				}
+				{bone "seat2"
+					{Position -8.75972	-10.1635	-15.9108}
+				}				
+			}
+		}
+		{bone "emit1"
+			{Position -34.8712	14.8997	0}
+		}
+		{bone "emit2"
+			{Position -34.8712	-14.9284	0}
+		}
+				{bone "driver1"
+					{Position -17.545	7.10698	-18.8245}
+				}
+				{bone "driver2"
+					{Position -8.75972	-10.1635	-15.9108}
+				}			
+	}
+}
+{Volume "body1"
+	{Box 30.4475 3.24011 30.728}
+	{Bone "body"}
+	{Position 0.168468	1.57162	-0.281945}
+}
+{Volume "body2"
+	{Cylinder 9.39516 43.5212}
+	{Bone "body"}
+	{Matrix34
+		0.380068	0	0
+		0	0	-0.380068
+		0	0.380068	0
+		0.0461913	11.3385	-0.177367
+	}
+}
+{Volume "gun1"
+	{Box 41.4209 12.6005 13.2714}
+	{Bone "gun"}
+	{Matrix34
+		0	0	-0.380068
+		0	0.380068	0
+		0.380068	0	0
+		-0.118655	-1.58356	-17.7487
+	}
+}
+{Volume "gun2"
+	{Box 15.4155 18.3628 5.41697}
+	{Bone "gun"}
+	{Matrix34
+		0	0	-0.380068
+		0	0.380068	0
+		0.380068	0	0
+		-0.0891267	4.20131	-20.0301
+	}
+}
+{Volume "gun3"
+	{Cylinder 3.70759 74.6394}
+	{Bone "barrel"}
+	{Matrix34
+		-0.380068	0	0
+		0	0.380068	0
+		0	0	-0.380068
+		0.0412998	0.0078136	-3.61385
+	}
+}
+{Volume "tros1"
+	{Box 3.8874 3.21716 69.3588}
+	{Bone "tros"}
+	{Matrix34
+		-0.133963	-0.354781	-0.0252142
+		-0.0703006	0	0.37351
+		-0.348659	0.136316	-0.0656234
+		-12.1482	-4.77827	-2.14402
+	}
+}
+{Volume "tros2"
+	{Box 3.8874 3.21716 69.3588}
+	{Bone "tros"}
+	{Matrix34
+		0.134767	-0.354477	-0.0252141
+		-0.0526502	-0.0465847	0.37351
+		-0.351451	-0.128949	-0.0656233
+		-12.245	4.89463	-2.14402
+	}
+}
+{Volume "turret1"
+	{Box 3.08311 18.6327 20.7327}
+	{Bone "turret"}
+	{Matrix34
+		0	0.380068	0
+		0	0	0.380068
+		0.380068	0	0
+		-2.73702	-2.77662	4.29505
+	}
+}
+{Volume "turret2"
+	{Box 3.08311 18.6327 20.7327}
+	{Bone "turret"}
+	{Matrix34
+		0	0.380068	0
+		0	0	0.380068
+		0.380068	0	0
+		-2.73702	3.05814	4.29504
+	}
+}

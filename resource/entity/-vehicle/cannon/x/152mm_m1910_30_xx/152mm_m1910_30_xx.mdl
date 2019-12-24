@@ -1,0 +1,212 @@
+;Exported by: skr
+;Date:        Thu May 09 00:27:52 2013
+;File:        E:\Documents\3dsmax\scenes\152-mm canon 1910-30\152-mm_canon_1910-30_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				1	0	0
+				0	0.999565	-0.0295039
+				0	0.0295039	0.999565
+				0	-0.0584459	-1.98009
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -3 3}
+				{speed 0.001}
+				{Position 0.201784	-0.0062604	14.8471}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -5 40}
+					{speed 0.003}
+					{Matrix34
+						0.950245	0.00369363	-0.311481
+						0.31148	0.000950569	0.950252
+						0.00380596	-0.999993	-0.000247216
+						-1.40864	0.0120589	15.3329
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							19.3429	0.70595	0.00580215
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone revolute "stoporl"
+					{Matrix34
+						-0.999971	0	-0.00755742
+						-0.00755742	0	0.999971
+						0	1	0
+						-26.635	4.98367	0.907692
+					}
+					{VolumeView "stoporl.ply"}
+				}
+				{bone revolute "stoporr"
+					{Matrix34
+						-0.999971	0	-0.00755732
+						-0.00755732	0	0.999971
+						0	-1	0
+						-26.635	-4.94267	0.907688
+					}
+					{VolumeView "stoporr.ply"}
+				}
+				{bone "shield"
+					{parameters "ID=shield;"}
+					{Matrix34
+						1	0	0
+						0	1	0
+						0	0	1
+						8.89299	-0.0575007	11.5457
+					}
+					{VolumeView "shield.ply"}
+					{bone revolute "covershield"
+						{parameters "ID=shield;"}
+						{Matrix34
+							-0.754532	0	-0.656263
+							0.656263	0	-0.754532
+							0	-1	0
+							-1.07838	10.5876	4.70295
+						}
+						{VolumeView "covershield.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{Position 0	0	14.8658}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Radius=0.75;support=1;"}
+					{Matrix34
+						-1	0	0
+						0	0	1
+						0	1	0
+						-0.00336861	-18.4224	0
+					}
+					{VolumeView "wheelr.ply"}
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Radius=0.75;support=1;"}
+					{Matrix34
+						-1	0	0
+						0	-0.367646	0.929966
+						0	-0.929966	-0.367646
+						-0.0033641	18.3971	-0.0171747
+					}
+					{VolumeView "wheell.ply"}
+				}
+			}
+		}
+		{bone "part1"
+			{parameters "ID=perdok;"}
+			{Matrix34
+				1	0	0
+				0	0.950513	0.310685
+				0	-0.310685	0.950513
+				-122.732	-0.520083	4.50068
+			}
+			{VolumeView "part1.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 9.05512 0.787402 0.787402}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		7.58047	-0.0430776	13.2962
+	}
+}
+{Volume "gun_rot"
+	{Box 65.1474 4.15549 8.07087}
+	{Bone "gun_rot"}
+	{Position -2.63978	-4.42104	-0.233134}
+}
+{Volume "gun"
+	{Cylinder 2.86372 96.4567}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		25.8401	0.129038	-0.0183287
+	}
+}
+{Volume "peredok"
+	{Box 24.2627 15.0134 3.54331}
+	{Bone "part1"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		-0.638916	0.110309	-1.83767
+	}
+}
+{Volume "shield"
+	{Box 41.3386 37.4016 2.68096}
+	{Bone "shield"}
+	{Matrix34
+		0	1	0
+		-0.472465	0	0.88135
+		0.881349	0	0.472466
+		1.16056	0.0124649	1.68677
+	}
+}
+{Volume "turret1"
+	{Box 16.565 19.685 18.0295}
+	{Bone "turret"}
+	{Matrix34
+		-0.999465	0	-0.0327012
+		-0.0327012	0	0.999465
+		0	1	0
+		-5.48814	0.578499	4.27346
+	}
+}
+{Volume "turret2"
+	{Box 72.8346 8.81514 18.0118}
+	{Bone "turret"}
+	{Matrix34
+		-0.992136	0	-0.125168
+		-0.125168	0	0.992136
+		0	1	0
+		-50.0153	0.15175	-7.10309
+	}
+}
+{Volume "wheell1"
+	{Cylinder 9.25197 2.95276}
+	{Bone "part1"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-0.083831	14.9095	-1.78009
+	}
+}
+{Volume "wheell"
+	{Cylinder 14.9606 3.34646}
+	{Bone "wheell"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	-1
+		0.0471716	-0.015434	-0.299013
+	}
+}
+{Volume "wheelr"
+	{Cylinder 14.9606 3.34646}
+	{Bone "wheelr"}
+	{Position 0.0471675	-0.0154333	-0.136126}
+}

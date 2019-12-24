@@ -1,0 +1,113 @@
+;Exported by: dementor
+;Date:        Mon Apr 21 17:13:06 2008
+;File:        D:\ASL7000\-Model-\QF6\QF_6_6_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "CommonMesh;ID=body;"}
+			{Matrix34
+				0.996195	0	0.0871557
+				0	1	0
+				-0.0871557	0	0.996195
+				-2.92309	-1.73515	9.51601
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position 0.0432925	0.182825	-0.217317}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.8}}
+					}
+					{Matrix34
+						0.0871564	0	0.996195
+						-0.996195	0	0.0871564
+						0	-1	0
+						0.972896	0.156866	7.93874
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	1	0
+							-1	0	0
+							0	0	1
+							-6.64175	-13.2068	0.172647
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;Radius=0.4;"}
+				{Matrix34
+					-0.984808	0	0.173648
+					0.173648	0	0.984808
+					0	1	0
+					2.89137	-14.937	-2.02086
+				}
+				{VolumeView "wheelr.ply"}
+			}
+			{bone "standl"
+				{parameters "ID=standL;"}
+				{Matrix34
+					0.5	0.866026	0
+					-0.866026	0.5	0
+					0	0	1
+					0.043293	0.182825	-0.217317
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{parameters "ID=standR;"}
+				{Matrix34
+					-0.5	0.866025	0
+					-0.866025	-0.5	0
+					0	0	1
+					0.043293	0.182825	-0.217317
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;Radius=0.4;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					2.89138	15.079	-2.02086
+				}
+				{VolumeView "wheell.ply"}
+			}
+		}
+	}
+}
+{Volume "wheell"
+	{Polyhedron "wheell.vol"}
+	{Bone "wheell"}
+	{Matrix34
+		0	0	1
+		-1	0	0
+		0	-1	0
+		46.7742	7.49517	-44.4127
+	}
+}
+{Volume "wheelr"
+	{Polyhedron "wheelr.vol"}
+	{Bone "wheelr"}
+	{Matrix34
+		0	0	1
+		0.984808	-0.173647	0
+		0.173647	0.984808	0
+		-47.3651	0.740932	-14.3968
+	}
+}

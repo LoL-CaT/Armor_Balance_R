@@ -1,0 +1,87 @@
+{entity
+	(include "/properties/cannon.ext")
+;	(include "/properties/shadow/tank.inc"  scale(0.6))
+	{props "vehicle" "cannon" "flak" "barrel1"}
+	{targetSelector "cannon_bullet"}
+	
+	("armor_medium")
+
+;	("crew_inside")
+	("crew_human" place(gunner)		bone(gunner)		door(emit1) 	animation(gunner))
+	("crew_human" place(commander)		bone(driver)		door(emit2) 	animation(driver))
+	("crew_human" place(seat1)		bone(seat1)		door(emit2) 	animation(seat1))
+	("crew_human" place(seat2)		bone(seat2)		door(emit1) 	animation(seat2))
+
+	{placer
+		{place "gunner" 	{UseVision 0}}
+		{place "commander"	{UseVision 0}}
+		{place "seat1"		{UseVision 0}}
+		{place "seat2"		{UseVision 0}}
+	}
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_dodge_sg2" 10}}
+		}
+		{anm "seat1"
+			{forward {end "seat_passenger" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_dodge_sg1" 10}}
+		}
+		{anm "driver"
+			{forward {end "seat_driver_car" 10}}
+		}
+
+	}
+
+	{Volume "Body"
+		{tags "body"}
+		{thickness 12}
+		{able {obstacle 1}}	
+	}
+	{component "body"}
+	{Volume "WheelL1"
+		{tags "WheelLeft1"}
+		{thickness 12}
+	}
+	{component "WheelLeft1"}
+	{Volume "WheelL2"
+		{tags "WheelLeft2"}
+		{thickness 12}
+	}
+	{component "WheelLeft2"}
+	{Volume "WheelR1"
+		{tags "WheelRight1"}
+		{thickness 12}
+	}
+	{component "WheelRight1"}
+	{Volume "WheelR2"
+		{tags "WheelRight2"}
+		{thickness 12}
+	}
+	{component "WheelRight2"}
+	{Volume "Engine"
+		{tags "engine"}
+		{thickness 12}
+	}
+	{component "engine"}
+	{extender "inventory"
+		{box
+			{item "ammo hmgun" 2500}
+			{item  "uber_bazooka ammo" 120}
+		}
+	}	
+	{Weaponry
+		{place "mgun"
+			{charger "gunner"}
+			{weapon "uber_browning" filled}
+			{basic}
+		}
+		{place "gun"
+			{charger "gunner"}
+			{weapon "uber_bazooka weapon" filled}
+		}
+	}
+	{mass 500}
+	{Extension "sg_small.mdl"}
+}

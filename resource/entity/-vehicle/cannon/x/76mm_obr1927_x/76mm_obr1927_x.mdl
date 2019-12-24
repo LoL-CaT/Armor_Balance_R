@@ -1,0 +1,93 @@
+;Exported by: Kislov_A
+;Date:        Tue Jan 13 11:10:39 2009
+;File:        E:\Black\DESIGN~1\Art\Models\Technics\ARTILL~1\76-MM_~1\001_76~2\76-MM_~1.MAX
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 3.75654	-0.695591	11.7382}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position -0.285732	0	-0.0710793}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Radius=0.6;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.0829432	-14.3727	0.274479
+					}
+					{VolumeView "wheelr.ply"}
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Radius=0.6;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.0829367	14.3727	-0.0391607
+					}
+					{VolumeView "wheell.ply"}
+				}
+			}
+			{bone "turret"
+				{parameters "id=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.2}}
+				}
+				{Position 2.29233	0	5.55416}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-3.00771	0.574423	-0.453079
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	1	0
+							0	0	1
+							1	0	0
+							2.46994	-2.59804	-0.804212
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_back"
+				{Matrix34
+					0.999982	0	-0.00603561
+					0	1	0
+					0.00603561	0	0.999982
+					-27.6639	0	0.095891
+				}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Polyhedron "wheelleft.vol"}
+	{Bone "wheell"}
+	{Position 0.0497983	0.327526	1.21859}
+}
+{Volume "wheelright"
+	{Polyhedron "wheelright.vol"}
+	{Bone "wheelr"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		0.0498042	-0.338641	-1.1907
+	}
+}

@@ -1,0 +1,220 @@
+;Exported by: Sergey
+;Date:        Fri Oct 12 01:58:23 2012
+;File:        D:\Documents\3dsmax\scenes\Solothurn S18-1000\Solothurn S18-1000.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone revolute "basis"
+		{speed 0.001}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.0157753	0.00336691	6.35778}
+			{VolumeView "body.ply"}
+			{bone "noga2"
+				{parameters "ID=support2;"}
+				{Matrix34
+					1	0	0
+					0	0.368442	0.929651
+					0	-0.929651	0.368442
+					-0.00391173	-0.888523	-0.201289
+				}
+				{VolumeView "noga2.ply"}
+				{bone "noga21"
+					{parameters "ID=support2;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0	-3.20102	0.00637555
+					}
+					{VolumeView "noga21.ply"}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -20 20}
+				{speed 0.01}
+				{Position 0	0	-0.31015}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -5 10}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0	0	1.54781
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-0.535812	0	0
+						}
+						{VolumeView "gun.ply"}
+						{bone "foresight1"
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								24.1973	-9.53607e-005	0.00385189
+							}
+						}
+						{bone "visor"
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								-7.31921	1.37247	1.42565
+							}
+						}
+						{bone "noga"
+							{parameters "ID=zatvor;"}
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								-16.9004	0.106194	-1.62112
+							}
+							{VolumeView "noga.ply"}
+							{bone "noga1"
+								{Matrix34
+									1	0	0
+									0	0	-1
+									0	1	0
+									-0.00325394	-6.11936	0.0953032
+								}
+								{VolumeView "noga1.ply"}
+							}
+							{bone "mufta"
+								{Matrix34
+									1	0	0
+									0	0	-1
+									0	1	0
+									-0.00325394	-3.87483	0.0953028
+								}
+								{VolumeView "mufta.ply"}
+							}
+						}
+						{bone "magazin"
+							{parameters "ID=magazin;"}
+							{Position -1.55338	0.543959	0}
+							{VolumeView "magazin.ply"}
+						}
+					}
+				}
+				{bone "commander"
+					{Position -24.7544	25.5788	-6.04763}
+				}
+				{bone "gunner"
+					{Position -23.2177	4.17823	-6.04763}
+				}
+			}
+			{bone "noga3"
+				{parameters "ID=support3;"}
+				{Matrix34
+					1	0	0
+					0	-0.379246	0.925296
+					0	0.925296	0.379246
+					-0.00391173	0.880011	-0.201289
+				}
+				{VolumeView "noga3.ply"}
+				{bone "noga31"
+					{parameters "ID=support3;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0	-3.20102	0.00637579
+					}
+					{VolumeView "noga31.ply"}
+				}
+			}
+		}
+		{bone "driver1"
+			{Position 4.2568	2.94597	0}
+		}
+		{bone "driver2"
+			{Position -11.1444	-3.17781	0}
+		}
+		{bone "emit1"
+			{Position -41.7792	15.1774	0}
+		}
+		{bone "emit2"
+			{Position -35.0703	15.1774	0}
+		}
+		{bone "visor2"
+			{Position -0.0941601	25.5821	10.1886}
+		}
+	}
+}
+{Volume "body"
+	{Box 2.4289 0.876775 0.688976}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		0.00864226	-0.0194928	-0.0700112
+	}
+}
+{Volume "gun1"
+	{Box 16.0858 5.63003 2.95276}
+	{Bone "gun"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-11.3622	0.158396	-0.412173
+	}
+}
+{Volume "gun"
+	{Cylinder 0.989599 27.1654}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		10.2593	0.0224142	0.00592678
+	}
+}
+{Volume "magazin"
+	{Box 7.30563 7.00402 1.54155}
+	{Bone "magazin"}
+	{Matrix34
+		0	0.9	0
+		-0.9	0	0
+		0	0	0.9
+		-9.05587	3.88034	-0.133514
+	}
+}
+{Volume "support2"
+	{Cylinder 0.592178 6.92024}
+	{Bone "noga2"}
+	{Matrix34
+		0	0.0193935	-0.999812
+		-1	0	0
+		0	0.999812	0.0193935
+		-0.0117223	-3.2172	-0.0252842
+	}
+}
+{Volume "support3"
+	{Cylinder 0.393701 6.88976}
+	{Bone "noga3"}
+	{Matrix34
+		1	0	0
+		0	0.0157405	0.999876
+		0	0.999876	-0.0157405
+		0.028963	-3.21847	0.0486813
+	}
+}

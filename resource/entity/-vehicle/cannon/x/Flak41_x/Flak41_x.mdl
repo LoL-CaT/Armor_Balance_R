@@ -1,0 +1,69 @@
+;Exported by: ubrashaev
+;Date:        Wed Jul 20 11:59:06 2005
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\-Пушки\Flak41\Flak41_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.0982327	-0.17843	4.34689}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "CommonMesh;ID=Turret;"}
+				{animation
+					{sequence "break" {file "turret.anm"} {speed 0.5}}
+				}
+				{Position 0	0	4.14661}
+				{VolumeView "turret.ply"}
+				{bone "shield_front"
+					{parameters "ID=shield_front;"}
+					{animation
+						{sequence "break" {file "shield_front.anm"} {speed 0.6}}
+					}
+					{Position 0.00127411	0.0585468	0.569885}
+					{VolumeView "shield_front.ply"}
+				}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.715673	0	0.698435
+						-0.698329	0.0174524	0.715564
+						-0.0121894	-0.999848	0.0124902
+						-16.7791	-0.181554	24.2348
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0.000120452	0
+							0	0.0174521	-0.999848
+							-0.000120507	0.999848	0.0174521
+							-6.61003	1.0411	-0.159114
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Obstacle "obstacle1"
+	{Obb2
+		{Center -0.549115 0.885611}
+		{Extent 22.8781 5.77615}
+		{Axis 4.42904e-008 1}
+	}
+	{Rotate}
+}
+{Obstacle "obstacle"
+	{Obb2
+		{Center -0.549114 0.0726511}
+		{Extent 22.8781 5.77615}
+		{Axis -1 0}
+	}
+	{Rotate}
+}

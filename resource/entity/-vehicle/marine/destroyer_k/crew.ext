@@ -1,0 +1,57 @@
+;SDL
+{Placer
+	{place "driver"
+		{Group "crew"}
+		{LinkBone "driver"}
+		{turnoff {sensor} {shadow}}
+	}
+	{place "front"
+		{entity "mk10"}
+		{Linkbone "attach_gun1"}
+		{handlebone "basis"}
+		{obstacle disable}
+	}
+	{place "back"
+		{entity "mk10"}
+		{Linkbone "attach_gun2"}
+		{handlebone "basis"}
+		{obstacle disable}
+	}
+}
+
+{boarder
+	{door "emit1"}
+	{door "emit2"}
+	{door "emit3"}
+	{door "emit4"}
+	{node "node_r1"}
+	{node "node_r2"}
+	{node "node_L1"}
+	{node "node_L2"}
+	(define "climb"
+		{anm "climb%0"
+			{forward	{begin	"board_torpedo_boat"} {base "rope%0"}}
+			{reverse 	{begin	"emit_Bk1124"}} ;emit_torpedo_boat
+		}
+	)
+	("climb" args 1)
+	("climb" args 2)
+	("climb" args 3)
+	("climb" args 4)
+	{anm "seat" {forward {end "seat_passenger"}}}
+
+	{link "emit1"	"node_r1"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emit2"	"node_L1"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emit3"	"node_r2"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emit4"	"node_L2"	{anm "climb1"} {forward putoff} {reverse puton}}
+
+	{link "node_r1" "driver" {anm "seat"}}
+	{link "node_L1" "driver" {anm "seat"}}
+
+	{link "node_r1"	"front"	} ;{anm "walk"}
+	{link "node_L1"	"front"	} ;{anm "walk"}
+	{link "node_r2"	"back"	} ;{anm "walk"}
+	{link "node_L2"	"back"	} ;{anm "walk"}
+}
+
+        	

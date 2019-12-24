@@ -1,0 +1,76 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "flak" "barrel1" "round_sandbag2" "vision_cannon_minimum"}
+	{collider "cannon_small"}
+        {targetSelector "cannon_shell_flak"}
+	
+	("wheel" args "wheelright")	
+	("wheel" args "wheelleft")
+	
+	("armor_light")
+
+	("crew_inside")
+	("crew_human" place(driver) bone(driver)	door(emit1) animation(driver))
+	("crew_human" place(gunner)	bone(gunner)	door(emit1) animation(gunner))
+	("crew_human" place(seat1) bone(seat1)		door(emit1) animation(seat1))
+	{placer
+		{place "gunner" {UseVision 0}}
+		{place "commander" remove}
+	}
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_oerlikon_charger" 10}}
+		}
+		{anm "driver"
+			{forward	{end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "seat1"
+			{forward 	{end "pose_oerlikon_charger" 10}}
+		}
+		{link "driver" "gunner"}
+		{link "seat1" "gunner"}
+	}
+	
+	{mass 300}
+	{Extension "oerlikon.mdl"}
+	(include "/properties/selection/vehicle.inc"  scale(0.7))
+	
+	{extender "cannon"
+		{animation
+			{move "cannon_pak40_pusher_left"}
+			{reload "Cannon_oerlikon_charger"}
+		}
+		{move {workers "driver"} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+	}
+	{extender "inventory"
+		{box
+			{size 8 6}
+			{item "bullet20_oerlikon zenite" 100}
+			{item "bullet20_oerlikon ap" 100}
+			{item "bullet20_oerlikon fg" 100}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_oerlikon" filling "bullet20_oerlikon zenite" 60}
+			("abm_zenite")
+		}
+	}
+
+	{Chassis "track"
+		("car_trace" fx("tracewheel01a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+	
+	{bone "turret"
+		{speed2 35}	
+	}		
+	{bone "gun_rot"
+		{speed2 20}
+	}	
+	
+}

@@ -1,0 +1,59 @@
+;Exported by: Sergey
+;Date:        Fri Aug 03 11:30:29 2012
+;File:        D:\Documents\3dsmax\scenes\5 cm le Gr W 36\x\5cm-legrw-36_x_01.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.00497291	-0.0041885	0.00135341}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -17 17}
+				{speed 0.01}
+				{Position 0	0	0.423952}
+				{VolumeView "turret.ply"}
+				{bone revolute "goon"
+					{parameters "ID=goon;"}
+					{Matrix34
+						0.485169	0	-0.874421
+						-0.874421	0	-0.485169
+						0	1	0
+						0.00496793	0.00418393	0.225968
+					}
+					{VolumeView "goon.ply"}
+				}
+			}
+			{bone revolute "tyaga"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.105939	0	0.994373
+					0.994373	0	-0.105939
+					0	1	0
+					3.13843	-0.0151652	0.96471
+				}
+				{VolumeView "tyaga.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 8.1241 4.12161 1.6677}
+	{Bone "body"}
+	{Position -0.433957	0.0112519	0.417982}
+}
+{Volume "goon"
+	{Cylinder 0.791958 11.388}
+	{Bone "goon"}
+	{Matrix34
+		0.999902	0.0140062	0
+		0	0	1
+		0.0140062	-0.999902	0
+		0.0788174	-5.50912	-0.00484512
+	}
+}

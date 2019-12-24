@@ -1,0 +1,77 @@
+{entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "flak" "barrel1" "wheeled" "vision_cannon_minimum" "muzzle_zenite" "turret" "turret_rotator" "round_sandbag2"}
+	{collider "cannon_small"}
+        {targetSelector "cannon_shell_flak"}
+	
+	("wheel" args "wheelright")	
+	("wheel" args "wheelleft")
+
+	("armor_light")
+
+	("crew_inside")
+	("crew_human" place(driver1) bone(driver1)	door(emit1) animation(driver1))
+	("crew_human" place(gunner)	bone(gunner)	door(emit1) animation(gunner))
+	("crew_human" place(seat1) bone(seat1)		door(emit1) animation(seat1))
+	{placer
+		{place "gunner" {UseVision 0}}
+		{place "commander" remove}
+	}
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_oerlikon_charger" 10}}
+		}
+		{anm "driver"
+			{forward	{end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "seat1"
+;			{forward 	{end "seat_driver_car" 10}}
+			{forward 	{end "cannon_pak40_pusher_left" 10}}
+		}
+		{link "driver1" "gunner"}
+		{link "seat1" "driver1"}
+		{link "seat1" "gunner"}
+	}
+	
+	{mass 307}
+	
+	{Extension "20_mm_breda_1935.mdl"}
+	{bone "turret"
+		{speed2 40}
+	}	
+	{bone "gun_rot"
+		{speed2 25}
+	}	
+	(include "/properties/selection/vehicle.inc"  scale(0.7))
+	
+	{extender "cannon"
+		{animation
+			{move "cannon_pak40_pusher_left"}
+			{reload "Cannon_oerlikon_charger"}
+		}
+		{move {workers "driver1"} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet20x138b_ita zenite" 100}
+			{item "bullet20x138b_ita ap" 100}
+			{item "bullet20x138b_ita fg" 100}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_breda_m35" filling "ammo bullet20x138b_ita zenite" 8}
+			("abm_zenite")
+		}
+	}
+
+	{Chassis "track"
+		("car_trace" fx("tracewheel01a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+}

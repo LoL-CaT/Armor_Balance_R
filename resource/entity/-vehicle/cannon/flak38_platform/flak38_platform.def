@@ -1,0 +1,87 @@
+﻿{game_entity ; Неподвижная зентка в башне
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "armored_locomotive" "vision_cannon_low" "muzzle_zenite"}
+	{targetClass "tank" "fg bullet"}
+        {targetSelector "cannon_shell_flak"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"			
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"		
+		{tags "body"}
+		{component "body"}
+	}
+
+	{volume "body5"		
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body6"		
+		{tags "body"}
+		{component "body"}
+	}
+
+	("armor_heavy")
+
+	{simulation {able 0}}
+
+	("crew_2_human")
+	("crew_human" place(commander1)	bone(commander1)	door(emit3) animation(commander))
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_flak38_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38_charger_right" 10}}
+		}
+		{anm "commander1"
+			{forward	{end "pose_flak38_charger_left" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{aim "cannon_flak38_gunlayer" "" ""}
+			{reload  "" "cannon_flak38_charger_right" "cannon_flak38_charger_left"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander" "commander1"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet20x138b zenite" 4000}
+			{item "bullet20x138b ap" 4000}
+			{item "bullet20x138b fg" 4000}			
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_flak38_x4" filling "bullet20x138b zenite" 80}
+			{Barrels 4}
+			("abm_zenite")
+		}
+	}
+	{extender "shield"}
+
+	{mass 3000}
+	{Extension "Flak38_platform.mdl"}
+	
+	{bone "turret_rotator"
+		{speed2 35}		
+	}
+	{bone "gun_rot"
+		{speed2 20}
+	{limits -10 90}		
+	}	
+
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+}

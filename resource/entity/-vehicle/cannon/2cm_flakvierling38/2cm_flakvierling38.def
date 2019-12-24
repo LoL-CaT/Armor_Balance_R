@@ -1,0 +1,119 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "vision_cannon_minimum"  "muzzle_zenite" "round_sandbag2"}
+        {targetSelector "cannon_shell_flak"}
+
+	("armor_light")
+
+	{volume "body1"
+		{tags "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+	}
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+
+;	("crew_wheeled_flakvierling")
+	("crew_inside")
+	("crew_human" place(gunner)	bone(gunner)	door(emit1) animation(gunner))
+	("crew_human" place(commander)	bone(commander)	door(emit2) animation(commander))
+	("crew_human" place(commander1)	bone(commander1)	door(emit3) animation(commander))
+	
+	{placer
+		{place "gunner" {group "crew"}}
+		{place "commander" {group "crew"}}
+		{place "commander1" {group "crew"}}
+	}
+	
+	("crew_human" place(driver1)   bone(driver1)   door(emit1) animation(driver1))
+	("crew_human" place(driver2)   bone(driver2)   door(emit2) animation(driver2))
+	("crew_human" place(driver3)   bone(driver3)   door(emit3) animation(driver3))
+	{placer
+		{place "driver1" {visor "commander"}}
+		{place "driver2" {visor "commander"}}
+		{place "driver3" {visor "commander"}}
+	}
+	{boarder
+		{link "driver1" "gunner"}
+		{link "driver2" "commander"}
+		{link "driver3" "commander1"}
+	}
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_flak38_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38_charger_right" 10}}
+		}
+		{anm "commander1"
+			{forward	{end "pose_flak38_charger_left" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mgun_browning_driver_l" 10}}
+		}
+		{anm "driver3"
+			{forward {end "mortar_driver_l" 10}}
+		}
+;		{link "driver1" "gunner"}
+;		{link "driver2" "commander"}
+;		{link "driver3" "commander1"}
+	}
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mgun_browning_driver_r" "mgun_browning_driver_l" "mgun_browning_driver_l"}
+			{aim "cannon_flak38_gunlayer" "" ""}
+			{reload  "" "cannon_flak38_charger_right" "cannon_flak38_charger_left"}
+		}
+;		{move {workers "gunner" "commander" "commander1"} {obstacle "close"}}
+;		{move {workers "gunner" "commander"} {obstacle "close"}}
+;		{move {workers clear} {obstacle "close"}}
+		{move {obstacle "close"}}
+		{attack {workers "gunner" "commander" "commander1"} {obstacle "open"}}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel02a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+	{extender "inventory"
+		{box
+			{item "bullet20x138b zenite" 400}
+			{item "bullet20x138b ap" 400}
+			{item "bullet20x138b fg" 400}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_flak38_x4" filling "bullet20x138b zenite" 80}
+			{Barrels 4}
+			("abm_zenite")
+		}
+	}
+	
+	{mass 1500}
+	{Extension "2cm_flakvierling38.mdl"}
+	{bone "turret"
+		{speed2 40}		
+	}
+	{bone "gun_rot"
+		{speed2 22}
+	{limits -25 70}			
+	}	
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{Texmod "panzergrau"}
+}

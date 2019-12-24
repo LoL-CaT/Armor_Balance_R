@@ -1,0 +1,170 @@
+;Exported by: garry
+;Date:        Sun Aug 06 19:18:17 2006
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\M-42\M-42_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.997637	0	-0.068699
+				0	1	0
+				0.068699	0	0.997637
+				2.42418	0	3.78468
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;Radius=0.4;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0.135333	13.6599	2.31603
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;Radius=0.4;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0.135333	-13.617	2.31603
+				}
+				{VolumeView "wheelr.ply"}
+			}
+			{bone "standl"
+				{parameters "ID=standL;"}
+				{Position -0.691089	7.47167	2.34392}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{parameters "ID=standR;"}
+				{Position -0.653931	-7.47371	2.34392}
+				{VolumeView "standr.ply"}
+			}
+			{bone "turret"
+				{parameters "CommonMesh;ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.8}}
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"}}
+					}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-1.09469	-3.39344	5.73922
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							-12.0611	-2.33931	3.39344
+						}
+						{VolumeView "gun_m42.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{Position 2.29978	-0.0755701	0.422795}
+				{VolumeView "pivot_front.ply"}
+			}
+			{bone "part1"
+				{Matrix34
+					0.978411	-0.0968887	-0.18255
+					0.132974	0.971308	0.197175
+					0.158208	-0.217192	0.963223
+					-1.53099	3.07755	8.06815
+				}
+				{VolumeView "part1.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 7.44664 23.2465 7.56862}
+	{Bone "body"}
+	{Position -0.65804	0.00429482	-1.75544}
+}
+{Volume "gun"
+	{Cylinder 1.4155 42.3972}
+	{Bone "gun"}
+	{Matrix34
+		0.00323597	0	-0.999995
+		0	1	0
+		0.999995	0	0.00323644
+		20.2173	-8.40273e-005	0.0686091
+	}
+}
+{Volume "part1"
+	{Cylinder 1.34711 12.8229}
+	{Bone "part1"}
+	{Matrix34
+		0.12307	0.963571	-0.237455
+		0.0972436	0.226413	0.969165
+		0.987622	-0.142366	-0.0658363
+		-0.905191	-0.539774	-0.593161
+	}
+}
+{Volume "standl"
+	{Cylinder 1.41791 44.6594}
+	{Bone "standl"}
+	{Matrix34
+		0.428429	0.902911	-0.0346428
+		-0.11881	0.0942989	0.988429
+		0.89573	-0.419356	0.147675
+		-20.0014	9.36408	-3.29754
+	}
+}
+{Volume "standr"
+	{Cylinder 1.41791 44.6594}
+	{Bone "standr"}
+	{Matrix34
+		-0.416281	0.908576	-0.0346429
+		-0.148607	-0.0303993	0.988429
+		0.897009	0.416613	0.147675
+		-20.0671	-8.92021	-3.29754
+	}
+}
+{Volume "turret"
+	{Box 3.95085 15.8273 9.72216}
+	{Bone "turret"}
+	{Matrix34
+		0.757339	0.15033	0.635483
+		-0.115159	0.988636	-0.0966304
+		-0.642787	0	0.766045
+		1.49995	2.15528	5.1988
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 6.12528 3.22803}
+	{Bone "wheell"}
+	{Matrix34
+		-0.978713	-0.0557016	0.197528
+		0	-0.962464	-0.271411
+		0.205232	-0.265633	0.941976
+		0.483311	-0.47698	-1.06503
+	}
+}
+{Volume "wheelright"
+	{Cylinder 6.20919 3.22803}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	-0.994526	-0.104491
+		0	-0.104491	0.994526
+		0.152064	-0.216893	-0.0457326
+	}
+}

@@ -1,0 +1,166 @@
+{entity
+	(include "/properties/cannon.ext")
+	
+	{props "vehicle" "cannon" "round_sandbag5" "vision_cannon_maximum" "muzzle_maximum"}
+	{PatherID  "cannon.large"}
+
+	("armor_heavy")	
+
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{Volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{Volume "body6"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{Volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_rot"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gunback"
+		{tags "gun"}
+		{component "gun"}
+	}
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_155gpf_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_155gpf_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	(mod "mp" 
+		("crew_human" place(commander1)		bone(commander1)		door(emit2) animation(commander1))
+		("crew_human" place(commander2)		bone(commander2)		door(emit3) animation(commander2))
+		("crew_human" place(driver3)		bone(driver3)			door(emit3) animation(driver3))
+		("crew_human" place(driver4)		bone(driver4)			door(emit4) animation(driver4))
+		{boarder
+			{anm "commander1"
+				{forward	{end "pose_squat_watch_binocular" 10}}
+			}
+			{anm "commander2"
+				{forward	{end "pose_m8_charger" 10}}
+			}
+			{anm "driver3"
+				{forward {end "mgun_browning_driver_l" 10}}
+			}
+			{anm "driver4"
+				{forward {end "mgun_browning_driver_r" 10}}
+			}
+		}
+		{placer
+			{place "commander1" {group "crew"}}
+			{place "commander2" {group "crew"}}
+		}
+	)
+	{extender "inventory"
+		{box
+			{item "ammo bullet210ger fg" 2}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+			)
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "210mm_gun" filling "bullet210ger fg" 1}
+			{charger "gunner"}
+	    	{Rotate}			
+			("abm_howitzer")
+		}
+	}
+
+	{mass 16700}
+	
+
+
+		{extender "cannon"
+			{animation
+				{switch "close"}
+				{move	"cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+				{aim	"cannon_155gpf_gunlayer" ""}
+				{fire	"Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire"}
+				{reload	"" "Cannon_155gpf_charger"}
+			}
+			{move {obstacle "close"}}
+			{attack {obstacle "open"}}
+			{rotate_ik_Limit 180}			
+		}
+		
+	{Chassis "track"
+		("car_trace" fx("tracks_sm") step(0.4) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_verybig")
+	}
+	{sensor
+		{Visor "commander"
+			{vision "cannon_crew"}
+			{bone "commander"}
+		}	
+	}
+	{Extension "morser.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+;	{bone "turret"
+;		{limits -8 8}	
+;		{speed2 4}
+;	}
+	{bone "gun_rot"
+		{limits -6 70}
+		{speed2 2}
+	}
+}

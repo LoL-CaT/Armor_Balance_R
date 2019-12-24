@@ -1,0 +1,150 @@
+;Exported by: sergey
+;Date:        Sun Sep 29 12:12:22 2013
+;File:        D:\Documents\3dsmax\scenes\m.gl.Einheits-Pkw.Horch 901\Horch_901_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.902472	0.00127602	1.58742}
+			{VolumeView "body.ply"}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{Matrix34
+					0	1	0
+					0	0	1
+					1	0	0
+					21.1015	-0.143677	8.25225
+				}
+				{VolumeView "engine.ply"}
+			}
+			{bone revolute "rama_window"
+				{Matrix34
+					0.725376	0	-0.688353
+					0.688353	0	0.725375
+					0	-1	0
+					15.8303	0.0081397	20.0426
+				}
+				{VolumeView "rama_window.ply"}
+				{bone "glass"
+					{parameters "ID=glass;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-16.7897	-9.72174	1.29584e-005
+					}
+					{VolumeView "glass.ply"}
+				}
+			}
+			{bone "seats_front"
+				{parameters "ID=body;"}
+				{Position -0.959327	0.00812612	15.5262}
+				{VolumeView "seats_front.ply"}
+			}
+			{bone "kfz15"
+				{parameters "ID=body;"}
+				{Position 0	0.00747322	0}
+				{VolumeView "kfz15.ply"}
+				{bone revolute "kapot_r"
+					{parameters "ID=engine;"}
+					{Matrix34
+						-0.0176039	0.203609	-0.978894
+						0.00366074	0.979052	0.203576
+						0.999838	0	-0.0179805
+						20.4581	-0.146253	17.6251
+					}
+					{VolumeView "kapot_r.ply"}
+					{bone revolute "kapot_r1"
+						{parameters "ID=engine;"}
+						{Matrix34
+							0.625074	0.765942	-0.150383
+							-0.744855	0.64291	0.178487
+							0.233393	0.000446223	0.972382
+							-11.0532	-4.13196	-1.01257
+						}
+						{VolumeView "kapot_r1.ply"}
+					}
+				}
+				{bone "kapotl1"
+					{parameters "ID=engine;"}
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						31.0883	-0.154133	2.08131
+					}
+					{VolumeView "kapotl1.ply"}
+					{bone "kapotl2"
+						{parameters "ID=engine;"}
+						{Position 0	0	0}
+						{VolumeView "kapotl2.ply"}
+					}
+				}
+			}
+			{bone "kfz15_body"
+				{parameters "ID=body;"}
+				{VolumeView "kfz15_body.ply"}
+			}
+		}
+		{bone "part1"
+			{parameters "CommonMesh;ID=shield;"}
+			{Position -0.0568596	0.00939845	13.1207}
+			{VolumeView "part1.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 64.5496 19.9051 31.2619}
+	{Bone "kfz15"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-12.1809	0.4519	9.03899
+	}
+}
+{Volume "engine"
+	{Polyhedron "engine.vol"}
+	{Bone "engine"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		12.675	3.05042	11.4216
+	}
+}
+{Volume "glass"
+	{Box 0.80429 9.7844 29.3212}
+	{Bone "glass"}
+	{Matrix34
+		0.955238	0	0.295839
+		-0.295839	0	0.955238
+		0	-1	0
+		15.4495	-0.0695658	14.0394
+	}
+}
+{Volume "shield1"
+	{Polyhedron "shield1.vol"}
+	{Bone "part1"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-29.1767	-0.563432	12.3161
+	}
+}
+{Volume "shield"
+	{Polyhedron "shield.vol"}
+	{Bone "part1"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-10.7042	-0.00939822	12.5488
+	}
+}

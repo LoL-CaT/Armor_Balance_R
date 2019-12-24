@@ -1,0 +1,68 @@
+{game_entity ; 130-мм корабельная пушка образца 1913 года
+	(include "/properties/cannon.ext")
+	{Extension "130mm-55.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{props "vehicle" "cannon" "armored_locomotive" "vision_cannon_medium" "muzzle_large"}
+	{simulation {able 0}}
+	{targetClass "tank" "ap fg bullet"}
+	("armor_heavy")
+	
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{able {visible 0}}
+	}
+
+	("crew_2_human")
+	{placer	{place "gunner" {visor "main"} {useVision 0}}}	
+	
+	{boarder
+		{place "gunner"}
+		{place "commander"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "gunner"}
+		{link "emit2" "commander"}
+                {anm "gunner"
+			{forward	{end "pose_flak38_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38_charger_right" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{aim "cannon_flak38_gunlayer" ""}
+			{fire	"" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet130 fg" 800}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "130mm_55" filling "bullet130 fg" 1}
+			("abm_field_gun")
+		}
+	}  	
+	{bone "turret"
+		{limits -179 0}
+		{speed2 5}		
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}		
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+	{mass 9000}
+}

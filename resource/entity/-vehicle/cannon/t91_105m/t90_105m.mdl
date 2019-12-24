@@ -1,0 +1,330 @@
+;Exported by: sasha
+;Date:        Wed Nov 12 14:38:47 2008
+;File:        D:\-Projects-\-3DWork-\-Vehicles-\japan\Type 90\Type 90_105m.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.7}}
+		{sequence "close" {speed 0.6}}
+	}
+	{bone revolute "basis"
+		{speed 0.01}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "commander"
+			{Position -24.2616	-5.91145	1.47635}
+		}
+		{bone "driver1"
+			{Position -15.6437	-7.68709	1.9495}
+		}
+		{bone "driver2"
+			{Position -15.7338	9.37868	1.9495}
+		}
+		{bone "emit1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-9.04385	-19.554	1.15672
+			}
+		}
+		{bone "emit2"
+			{Matrix34
+				0	-1	0
+				-1	0	0
+				0	0	1
+				-9.04385	22.6159	1.15672
+			}
+		}
+		{bone "gunner"
+			{Position -14.8729	7.2201	1.47635}
+		}
+		{bone "loader"
+			{Matrix34
+				0.715608	0.698503	0
+				-0.698503	0.715608	0
+				0	0	1
+				-20.1327	-9.59109	1.9495
+			}
+		}
+		{bone "seat2"
+			{Matrix34
+				0.59861	0.799833	0.0439707
+				-0.800582	0.595509	0.0666098
+				0.0270917	-0.0750755	0.99681
+				-26.3743	3.6997	0.987821
+			}
+		}
+		{bone "seat1"
+			{Matrix34
+				0.47532	-0.879659	-0.0164543
+				0.878364	0.475527	-0.048485
+				0.0504747	0.00859301	0.998688
+				-15.3316	-1.06334	0.987821
+			}
+		}
+		{bone "link1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-44.569	0.0643066	16.8912
+			}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 7.0233	0.253743	7.7322}
+			{VolumeView "body.ply"}
+			{bone "pivot_back"
+				{Position -43.481	-0.168274	-4.9647}
+			}
+			{bone revolute "standl"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999242	0	0.0389273
+					0	1	0
+					-0.0389273	0	0.999242
+					-0.00756216	8.01269	-0.0922451
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone revolute "standr"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999242	0	0.0389275
+					0	1	0
+					-0.0389274	0	0.999242
+					-0.00756216	-8.18383	-0.0922451
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{VolumeView "pivot_front.ply"}
+				{bone "fxtracel1"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						0.706169	11.9491	-8.02087
+					}
+				}
+				{bone "fxtracer1"
+					{Matrix34
+						-1	0	0
+						0	-1	0
+						0	0	1
+						0.706169	-12.7211	-8.02087
+					}
+				}
+				{bone "support1"
+					{Position -17.7464	-6.81739	-7.11991}
+				}
+				{bone "support2"
+					{Position -17.7464	6.22901	-7.11991}
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=2;Radius=0.4;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.0105305	12.4314	-0.0712085
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.4;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.01053	-12.4379	-0.0712085
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "repair" {file "turret_r.anm"}}
+				}
+				{limits -10 10}
+				{speed 0.1}
+				{Position -2.91623	-0.234628	9.88007}
+				{VolumeView "turret.ply"}
+				{bone "visor"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.132628	6.96209	4.29317
+					}
+				}
+				{bone "visor1"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.132628	-0.360642	2.79023
+					}
+				}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "repair" {file "gun_r.anm"} {speed 0.2}}
+					}
+					{limits -8 26}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.45155	0.0784806	-2.47884
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	1	0
+							0	0	1
+							15.6472	-0.627243	-0.153188
+						}
+						{VolumeView "gun.ply"}
+						{bone "foresight1"
+							{Matrix34
+								1	0	0
+								0	-1	0
+								0	0	-1
+								18.1416	0.0117846	-0.0120903
+							}
+						}
+					}
+					{bone "fx_invers"
+						{Matrix34
+							-1	0	0
+							0	-1	0
+							0	0	1
+							-10.56	-1.35017	-0.0975948
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Obstacle "close"
+	{Obb2
+		{Center -22.9655 -0.0417061}
+		{Extent 20.911 7.04827}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "obstacle"
+	{Obb2
+		{Center 6.90856 -0.38883}
+		{Extent 8.83257 16.3944}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "openl"
+	{Obb2
+		{Center -18.0594 -16.4198}
+		{Extent 27.6192 2.97193}
+		{Axis 0.970326 0.241802}
+	}
+	{Rotate}
+}
+{Obstacle "openr"
+	{Obb2
+		{Center -17.6197 15.8009}
+		{Extent 2.83994 27.6069}
+		{Axis 0.25946 0.965754}
+	}
+	{Rotate}
+}
+{Volume "body"
+	{Box 27.2507 6.25017 5.55015}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		1.33646	-0.714757	-0.0230414
+	}
+}
+{Volume "gun_rot"
+	{Box 13.9501 8.13191 9.07073}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	-0.999999	0
+		0	0	-1
+		-4.20703	-0.931518	-0.0749817
+	}
+}
+{Volume "gun"
+	{Cylinder 1.94098 33.453}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	-1
+		0.00690129	-0.999975	1.17728e-005
+		-0.999976	-0.00690905	0
+		17.0548	-0.614538	-0.222099
+	}
+}
+{Volume "standl"
+	{Box 46.4399 4.30162 3.62484}
+	{Bone "standl"}
+	{Matrix34
+		0.969231	-0.241236	0.048963
+		-0.0395793	0.0435948	0.998265
+		-0.242952	-0.969487	0.0327054
+		-25.1602	7.28599	-1.84457
+	}
+}
+{Volume "standr"
+	{Box 48.0413 4.30162 3.62484}
+	{Bone "standr"}
+	{Matrix34
+		0.964664	0.258859	0.0491414
+		-0.050875	0	0.998705
+		0.258524	-0.965915	0.0131696
+		-25.0385	-7.08874	-1.84932
+	}
+}
+{Volume "turret"
+	{Box 2.12521 20.2964 24.7223}
+	{Bone "turret"}
+	{Matrix34
+		0.881819	0	0.471588
+		-0.471589	0	0.881818
+		0	-1	0
+		1.69099	0.142758	-1.10284
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 7.14567 3.23795}
+	{Bone "wheell"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		0.0136491	0.02318	-0.287064
+	}
+}
+{Volume "wheelright"
+	{Cylinder 7.14567 3.23795}
+	{Bone "wheelr"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		0.0136482	0.0231819	0.0653598
+	}
+}

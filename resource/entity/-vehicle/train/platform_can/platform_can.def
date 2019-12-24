@@ -1,0 +1,58 @@
+{actor
+	(include "/properties/railway.ext")
+    {mass 10000}
+    {props "platform" "train_part" "no_minimap_view"}
+	
+	{Placer
+		{place "1"
+			{Linkbone "attach_vehicle1"}
+			{handlebone "basis"}
+			{attach}
+		}
+	}
+	{Placer
+		{place "2"
+			{Linkbone "attach_vehicle2"}
+			{handlebone "basis"}
+			{attach}
+		}
+	}
+	{Placer
+		{place "3"
+			{Linkbone "attach_vehicle3"}
+			{handlebone "basis"}
+			{attach}
+		}
+	}
+	{Placer
+		{place "4"
+			{Linkbone "attach_vehicle4"}
+			{handlebone "basis"}
+			{attach}
+		}
+	}
+	{Extension "platform_can.mdl"}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	{Volume "body2"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{thickness 10}
+		{component "body"}
+	}
+	{component "body"
+	}
+}

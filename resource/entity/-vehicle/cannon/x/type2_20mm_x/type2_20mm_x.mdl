@@ -1,0 +1,109 @@
+;Exported by: ubrashaev
+;Date:        Mon Oct 20 15:27:20 2008
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\japan\20mm_AA_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-1.54071	-0.209645	8.51474
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Matrix34
+					-0.984648	0.17455	0
+					0	0	1
+					0.17455	0.984648	0
+					0.853321	4.16087	0.0161943
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						4.27192	-0.0492261	11.1996
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{animation
+							{sequence "break" {file "gun_b.anm"}}
+						}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							17.3369	1.27239	0.158296
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+		{bone "pivot_back"
+			{Position -50.597	-0.297322	-0.385774}
+		}
+		{bone "pivot_front"
+			{parameters "ID=body;"}
+			{Position -1.54071	-0.209645	8.51474}
+			{VolumeView "pivot_front.ply"}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;"}
+				{Matrix34
+					-1	0	0
+					0	0.102278	0.994756
+					0	0.994756	-0.102278
+					0	16.7289	0
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					0	-16.5154	0
+				}
+				{VolumeView "wheelr.ply"}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 6.82087 4.11417}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.432905	-0.15184	-0.852153
+	}
+}
+{Volume "wheelright"
+	{Cylinder 7.51977 4.1044}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0	-0.368125	0.787782
+	}
+}

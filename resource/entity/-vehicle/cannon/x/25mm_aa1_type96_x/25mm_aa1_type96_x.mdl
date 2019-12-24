@@ -1,0 +1,74 @@
+;Exported by: skr
+;Date:        Sat Sep 07 16:55:38 2013
+;File:        D:\Documents\3dsmax\scenes\25 mm Type 96 Single\Type_96_Single_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Orientation
+				1	0	0
+				0	0	1
+				0	-1	0
+			}
+			{VolumeView "body.ply"}
+			{bone "tros"
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-16.2317	4.4941	-0.0314588
+				}
+				{VolumeView "tros.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -180 180}
+				{speed 0.005}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0	18.8245	0
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -10 80}
+					{speed 0.008}
+					{Matrix34
+						0.877468	0	-0.479635
+						0.479635	0	0.877468
+						0	-1	0
+						-5.88713	3.87363	7.03541
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	0	1
+							0	1	0
+							-1	0	0
+							-20.9095	1.30022	3.87363
+						}
+						{VolumeView "gun.ply"}
+						{bone "barrel"
+							{parameters "ID=gun;"}
+							{Position -0.115423	-0.609325	-36.0904}
+							{VolumeView "barrel.ply"}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Box 30.4475 3.24011 30.728}
+	{Bone "body"}
+	{Position 0.168468	1.57162	-0.281945}
+}

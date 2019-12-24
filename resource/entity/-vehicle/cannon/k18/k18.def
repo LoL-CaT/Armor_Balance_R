@@ -1,0 +1,74 @@
+{game_entity ; Орудие к18 для бункера.
+	(include "/properties/cannon.ext")
+	{props "vehicle" "mortar" "cannon" "turret_rotator" "explosion_throw_crew" "vision_cannon_maximum"  "muzzle_maximum"}
+	{simulation {able 0}}
+
+	("armor_heavy")
+
+	("crew_human" place(commander)		bone(commander)			door(emit1) animation(gunner))
+	("crew_human" place(commander1)		bone(commander1)		door(emit2) animation(gunner))
+	("crew_human" place(commander2)		bone(commander2)		door(emit3) animation(gunner))
+	("crew_human" place(gunner)			bone(gunner)		door(emit4) animation(gunner))
+
+	{Volume "Gun_rot"
+		{able {obstacle 0}}
+	}
+	{Volume "Gun"
+		{able {obstacle 0}}
+	}
+	{boarder
+		{anm "commander"
+			{forward	{end "pose_k18_gunlayer_l1" 10}}
+		}
+		{anm "commander1"
+			{forward	{end "pose_k18_gunlayer_r2" 10}}
+		}
+		{anm "commander2"
+			{forward	{end "pose_k18_gunlayer_r1" 10}}
+		}
+		{anm "gunner"
+			{forward	{end "pose_k18_gunlayer_l2" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{aim "cannon_k18_gunlayer_l1" "cannon_k18_gunlayer_l2" "cannon_k18_gunlayer_r2" "cannon_k18_gunlayer_r1"}
+			{fire  "" "" "cannon_pdr25_charger_fire" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "commander" "commander1" "commander2" "gunner"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{size 8 6}
+			{item "bullet174ger fg" 500}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "170mm_gun" filling "ammo bullet174ger fg" 1}
+			("abm_field_gun")
+		}
+	}  	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+
+	{mass 20000}
+
+	{Extension "k18.mdl"}
+	
+	{bone "turret"
+		{limits -30 30}	
+		{speed2 2}		
+	}	
+	{bone "gun_rot"
+		{limits -6 25}	
+		{speed2 5}
+	}	
+	
+	(include "/properties/selection/cannon.inc"  scale(1.2))
+}

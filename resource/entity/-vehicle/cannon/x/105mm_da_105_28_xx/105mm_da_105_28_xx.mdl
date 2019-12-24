@@ -1,0 +1,219 @@
+;Exported by: skr
+;Date:        Wed May 15 23:11:11 2013
+;File:        E:\Documents\3dsmax\scenes\Cannone da 105-28 modello 1913\Cannone da 105-28_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.000237388	-0.0186728	10.5877}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -7 7}
+				{speed 0.001}
+				{Matrix34
+					0.988285	0	-0.152619
+					0	1	0
+					0.152619	0	0.988285
+					-0.000237404	0.0186729	-0.109519
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "soshnik"
+					{parameters "ID=turret;"}
+					{Matrix34
+						-0.109387	0	-0.993999
+						0.993999	0	-0.109387
+						0	-1	0
+						-67.0591	0.00585178	-12.0405
+					}
+					{VolumeView "soshnik.ply"}
+				}
+				{bone "shield"
+					{parameters "ID=shield;"}
+					{Matrix34
+						-0.997424	0	-0.071728
+						-0.071728	0	0.997424
+						0	1	0
+						4.71307	0	10.7927
+					}
+					{VolumeView "shield.ply"}
+				}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -5 37}
+					{speed 0.003}
+					{Matrix34
+						0.975659	0	-0.219294
+						0.219294	0	0.975659
+						0	-1	0
+						-0.385452	0.00147874	8.96437
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-5.09064	0.665314	0.00146387
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "stoiki"
+					{Matrix34
+						-0.0626789	0	0.998034
+						0	1	0
+						-0.998034	0	-0.0626789
+						-73.9964	-0.0411642	-10.4597
+					}
+					{VolumeView "stoiki.ply"}
+					{bone "dyshlo"
+						{Matrix34
+							0.858808	0	-0.512298
+							0	1	0
+							0.512298	0	0.858808
+							-11.1305	0.0610754	9.27701
+						}
+						{VolumeView "dyshlo.ply"}
+					}
+				}
+			}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;Radius=0.625;support=1;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	-1	0
+					0.045054	14.8312	-0.130672
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;Radius=0.625;support=1;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					0.0450534	-16.2762	-0.130664
+				}
+				{VolumeView "wheelr.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 11.811 9.84252 13.7795}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-1.96577	0.116404	-0.871867
+	}
+}
+{Volume "gun_rot"
+	{Box 6.54026 4.92889 63.9764}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		-3.42113	-3.06791	-0.0728479
+	}
+}
+{Volume "gun"
+	{Cylinder 2.67225 61.0236}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		29.2098	0.11315	-0.0492819
+	}
+}
+{Volume "shield2"
+	{Box 0.787402 13.7795 32.4803}
+	{Bone "shield"}
+	{Matrix34
+		-0.827789	0.561039	0
+		0.561039	0.827789	0
+		0	0	-1
+		6.71465	9.14593	0.0314026
+	}
+}
+{Volume "shield3"
+	{Box 0.787402 3.93701 22.6378}
+	{Bone "shield"}
+	{Matrix34
+		-0.754337	0.656488	0
+		0.656488	0.754337	0
+		0	0	-1
+		-5.91032	-1.31576	0.0342398
+	}
+}
+{Volume "shield4"
+	{Box 0.787402 3.93701 22.6378}
+	{Bone "shield"}
+	{Matrix34
+		-0.565724	0.824595	0
+		0.824595	0.565724	0
+		0	0	-1
+		-2.89045	1.0845	0.0342369
+	}
+}
+{Volume "shield5"
+	{Box 0.787402 3.93701 22.6378}
+	{Bone "shield"}
+	{Matrix34
+		-0.41747	0.908691	0
+		0.908691	0.41747	0
+		0	0	-1
+		0.717842	2.83382	0.034234
+	}
+}
+{Volume "shield"
+	{Box 0.787402 6.01894 22.6378}
+	{Bone "shield"}
+	{Matrix34
+		-0.927143	0.374709	0
+		0.374709	0.927143	0
+		0	0	-1
+		-8.44096	-5.63398	0.0342426
+	}
+}
+{Volume "turret"
+	{Box 68.4316 8.31099 11.811}
+	{Bone "turret"}
+	{Matrix34
+		0.993566	0	0.113253
+		-0.113253	0	0.993566
+		0	-1	0
+		-42.2765	-0.12292	-7.0328
+	}
+}
+{Volume "wheell"
+	{Cylinder 12.7953 2.55906}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	1
+		0	1.05382e-005	-1.12392
+	}
+}
+{Volume "wheelr"
+	{Cylinder 12.7953 2.55906}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		0	-0.00967986	-0.065834
+	}
+}

@@ -1,0 +1,69 @@
+;Exported by: Kislov_A
+;Date:        Thu Dec 18 11:18:13 2008
+;File:        E:\Black\DESIGN~1\EXPORT~1\A2FD~1\models\13MMHO~1\001_13~2\13mm_Hotchkiss_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				1.44351	0.0705922	1.9297
+			}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "id=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.5}}
+				}
+				{Position 0	0	9.42448}
+				{VolumeView "turret.ply"}
+				{bone "gun_rot"
+					{parameters "id=gun;"}
+					{animation
+						{sequence "break" {file "Gun_rot_b.anm"} {speed 0.2}}
+					}
+					{Matrix34
+						0	-0.422756	-0.906243
+						0	0.906243	-0.422756
+						1	0	0
+						0	-1.41915	5.06881
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun2"
+						{parameters "id=gun2;"}
+						{animation
+							{sequence "break" {file "Gun2_b.anm"} {speed 0.2}}
+						}
+						{Matrix34
+							-0.422756	0.906243	0
+							0.906243	0.422756	0
+							0	0	-1
+							-2.85363	7.2933	2.0649
+						}
+						{VolumeView "gun2.ply"}
+					}
+					{bone "gun1"
+						{parameters "id=gun1;"}
+						{animation
+							{sequence "break" {file "Gun1_b.anm"} {speed 0.2}}
+						}
+						{Matrix34
+							-0.422756	0.906243	0
+							0.906243	0.422756	0
+							0	0	-1
+							-2.85363	7.2933	-2.11648
+						}
+						{VolumeView "gun1.ply"}
+					}
+				}
+			}
+		}
+	}
+}

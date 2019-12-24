@@ -1,0 +1,41 @@
+;SDL
+(define "define_place"
+	{placer
+		{place "%place"
+			{Group "crew"}
+			{LinkBone "%place"}
+			{turnoff {sensor} {shadow}}
+		}
+	}
+)
+
+("define_place" place(driver))
+("define_place" place(gunner))
+("define_place" place(commander))
+("define_place" place(place))
+("define_place" place(place1))
+("define_place" place(place2))
+("define_place" place(place3))
+("define_place" place(place4))
+("define_place" place(place5))
+
+{boarder
+	{door "emit1"}
+	{door "emit2"}
+	{door "emit3"}
+	{door "emit4"}
+	{door "emit5"}
+	{door "emit6"}
+	{link "emit4"	"driver"	{forward putoff} {reverse puton} {anm "passenger"}}
+	{link "emit1"	"commander"	{forward putoff} {reverse puton} {anm "passenger"}}
+	{link "emit5"	"gunner"	{forward putoff} {reverse puton} {anm "passenger"}}
+	{link "emit1"	"place"		{forward putoff} {reverse puton} {anm "passenger"}}
+	{link "emit2"	"place1"	{forward putoff} {reverse puton} {anm "passenger"}}
+	{link "emit3"	"place2"	{forward putoff} {reverse puton} {anm "passenger"}}
+	{link "emit4"	"place3"	{forward putoff} {reverse puton} {anm "passenger"}}
+	{link "emit5"	"place4"	{forward putoff} {reverse puton} {anm "passenger"}}
+	{link "emit6"	"place5"	{forward putoff} {reverse puton} {anm "passenger"}}
+	{anm "passenger"
+		{forward {begin "board_rubber_boat"} {end "seat_passenger"}}
+	}
+}

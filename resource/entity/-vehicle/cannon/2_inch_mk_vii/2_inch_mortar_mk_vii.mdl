@@ -1,0 +1,112 @@
+;Exported by: Sergey
+;Date:        Mon Sep 24 02:37:38 2012
+;File:        D:\Documents\3dsmax\scenes\Ordnance, SBML 2-inch Mortar Mk VII\2-inch mortar Mk VII.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone revolute "basis"
+		{limits -180 180}
+		{speed 0.001}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -1.69382	-0.0167586	0.244967}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{limits -2 2}
+				{Position 1.73168	-0.0145119	0.0960858}
+				{VolumeView "turret.ply"}
+				{bone "gun_root"
+					{parameters "ID=gun;"}
+					{Position 0.102785	0.325345	1.09812}
+					{VolumeView "gun_root.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Position 0.702138	-0.294076	0.901056}
+						{VolumeView "gun.ply"}
+						{bone revolute "foresight"
+							{limits -10 25}
+							{Matrix34
+								0.707107	0	0.707107
+								-0.707107	0	0.707107
+								0	-1	0
+								7.29378	0	7.23499
+							}
+						}
+						{bone "ruchka"
+							{Matrix34
+								0	-1	0
+								-0.0146742	0	0.999892
+								-0.999892	0	-0.0146742
+								2.73602	-0.022697	3.86544
+							}
+							{VolumeView "ruchka.ply"}
+							{bone "handle1"
+								{Matrix34
+									0	-0.0146742	-0.999892
+									0	0.999892	-0.0146742
+									1	0	0
+									-0.0226984	0.585335	1.25461
+								}
+							}
+						}
+						{bone "support"
+							{Matrix34
+								0.991184	0	0.132494
+								0	1	0
+								-0.132494	0	0.991184
+								4.3547	-0.00467311	3.33324
+							}
+							{VolumeView "support.ply"}
+						}
+						{bone "visor"
+							{Matrix34
+								1	0	0
+								0	0	1
+								0	-1	0
+								6.25967	0	6.32803
+							}
+						}
+					}
+				}
+			}
+			{bone "visor2"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					11.7227	0.0167586	9.50898
+				}
+			}
+		}
+		{bone "driver"
+			{Position -0.0018872	6.75972	0}
+		}
+		{bone "emit1"
+			{Position -9.92356	15.0071	0}
+		}
+		{bone "gunner"
+			{Position -6.03472	-0.0240936	0}
+		}
+	}
+}
+{Volume "body"
+	{Box 5.98157 2.0525 1.46607}
+	{Bone "body"}
+	{Position 0.00432515	-0.0293213	-0.202351}
+}
+{Volume "gun"
+	{Cylinder 0.767309 11.9094}
+	{Bone "gun"}
+	{Matrix34
+		0.707107	0	-0.707107
+		0	1	0
+		0.707107	0	0.707107
+		2.97496	0.022023	2.96171
+	}
+}

@@ -1,0 +1,137 @@
+;Exported by: Sergey
+;Date:        Sat Aug 04 17:30:49 2012
+;File:        D:\Documents\3dsmax\scenes\60-мм миномет М2\x\60mm_mortar_M2_final_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.988082	0	-0.15393
+				0	1	0
+				0.15393	0	0.988082
+				0	0	0.606053
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=gun;"}
+				{limits -3 3}
+				{speed 0.01}
+				{Matrix34
+					0.988082	0	0.15393
+					0	1	0
+					-0.15393	0	0.988082
+					0.0148777	0.00480116	0.592836
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_root"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.819354	0	-0.573289
+						-0.573288	0	-0.819354
+						0	1	0
+						-0.0172743	-0.0034703	-0.0217432
+					}
+					{VolumeView "gun_root.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							-0.0869059	-0.913315	0.0159385
+						}
+						{VolumeView "gun.ply"}
+						{bone "stanok"
+							{Matrix34
+								0	1	0
+								-1	0	0
+								0	0	1
+								1.0072	-0.0474211	11.108
+							}
+							{VolumeView "stanok.ply"}
+							{bone revolute "stoika"
+								{Matrix34
+									0	-0.842996	-0.537919
+									0	-0.537919	0.842996
+									-1	0	0
+									0.638386	-0.563919	1.0653
+								}
+								{VolumeView "stoika.ply"}
+								{bone "support3"
+									{Matrix34
+										1	0	0
+										0	0	-1
+										0	1	0
+										2.88905	-0.111171	0.582019
+									}
+									{VolumeView "support3.ply"}
+									{bone revolute "support1"
+										{Matrix34
+											0.94454	-0.327334	0.0263912
+											0.327206	0.944909	0.00914254
+											-0.0279302	0	0.99961
+											0.171769	-0.740445	0.265324
+										}
+										{VolumeView "support1.ply"}
+									}
+									{bone revolute "support2"
+										{Matrix34
+											0.964305	0.264793	0
+											0.264793	-0.964305	0
+											0	0	-1
+											0.0901964	0.745604	0.38143
+										}
+										{VolumeView "support2.ply"}
+										{bone revolute "tyaga"
+											{Matrix34
+												0.626948	0.779061	0
+												-0.779061	0.626948	0
+												0	0	1
+												5.31434	0.541604	0.00995541
+											}
+											{VolumeView "tyaga.ply"}
+										}
+									}
+								}
+							}
+							{bone "pricel"
+								{Matrix34
+									0	0.808015	-0.589162
+									0	0.540483	0.841355
+									1	0	0
+									2.0178	-0.441081	1.76396
+								}
+								{VolumeView "pricel.ply"}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 7.87402 7.87402 1.9685}
+	{Bone "body"}
+	{Matrix34
+		0.988082	0	0.15393
+		0	1	0
+		-0.15393	0	0.988082
+		-0.0955751	0.0343492	0.367871
+	}
+}
+{Volume "gun"
+	{Cylinder 1.42495 15.748}
+	{Bone "gun"}
+	{Matrix34
+		0.999973	0	0.00729495
+		0	1	0
+		-0.00729513	0	0.999973
+		0.251546	0.0647412	6.65627
+	}
+}

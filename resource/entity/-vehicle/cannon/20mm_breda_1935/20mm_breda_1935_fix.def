@@ -1,0 +1,76 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "turret_rotator" "vision_cannon_minimum" "muzzle_zenite"}
+        {targetSelector "cannon_shell_flak"}
+	
+	("armor_light")
+	
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_rot"
+		{tags "gun"}
+		{component "gun_rot"}
+	}
+	{Volume "turret1_1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret1_2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret1_3"
+		{tags "turret"}
+		{component "turret"}
+	}
+	
+	("crew_2_human")
+
+	{boarder
+		{place "gunner"}
+		{door "emit1"}
+		{link "emit1" "gunner"}
+		{anm "gunner"
+			{forward	{end "pose_oerlikon_charger" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{reload "Cannon_oerlikon_charger"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet20x138b_ita zenite" 100}
+			{item "bullet20x138b_ita ap" 100}
+			{item "bullet20x138b_ita fg" 100}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_breda_m35" filling "ammo bullet20x138b_ita zenite" 8}
+			("abm_zenite")
+		}
+	}
+	{mass 307}
+	{Extension "20mm_breda_1935.mdl"}
+	{bone "turret"
+		{speed2 40}
+	}	
+	{bone "gun_rot"
+		{speed2 25}
+	}	
+	(include "/properties/selection/cannon.inc"  scale(0.5))
+}

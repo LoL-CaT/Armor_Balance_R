@@ -1,0 +1,75 @@
+﻿{game_entity ; Неподвижная 88ммм зенитка.
+	(include "/properties/cannon.ext")
+	{Extension "Flak41.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{props "vehicle" "cannon" "wheeled" "vision_cannon_medium" "muzzle_medium" "round_sandbag5"}
+	{PatherID "cannon.large"}
+        {targetSelector "flak"}
+	("armor_heavy" args 1.1)
+
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}	
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	{extender "shield"
+			{on}
+	}
+	("crew_2_human")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_flak41_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak41_gunlayer_1" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{aim "Cannon_flak41_gunlayer" ""}
+			{fire	"Cannon_flak41_gunlayer_fire-alert" "Cannon_flak41_gunlayer_fire-alert_1"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet88gerl ap" 20}
+			{item "bullet88gerl fg" 20}
+;			{item "bullet88gerl apcr" 3}
+			{item "bullet88gerl heat" 5}
+		    {item "sandbag_kit2" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "88mm_flak41" filling "ammo bullet88gerl ap" 1}
+			("abm_field_gun")
+		}
+	}  	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+
+	{mass 11200}
+	
+	{bone "turret"
+		{speed2 35}
+	}	
+	{bone "gun_rot"
+		{speed2 20}
+	}	
+	
+}

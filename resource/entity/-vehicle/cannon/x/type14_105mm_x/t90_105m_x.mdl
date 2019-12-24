@@ -1,0 +1,95 @@
+;Exported by: sasha
+;Date:        Wed Nov 12 13:02:03 2008
+;File:        D:\-Projects-\-3DWork-\-Vehicles-\japan\Type 90\Type 90_105_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Position 7.0233	0.253743	7.7322}
+			{VolumeView "body.ply"}
+			{bone revolute "standl"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999242	0	0.0389273
+					0	1	0
+					-0.0389273	0	0.999242
+					-0.00816107	8.64709	-0.0995488
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone revolute "standr"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999242	0	0.0389275
+					0	1	0
+					-0.0389274	0	0.999242
+					-0.00816107	-8.83179	-0.0995488
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "turret"
+					{parameters "ID=turret;"}
+					{animation
+						{sequence "break" {file "turret_b.anm"}}
+					}
+					{Position -2.91623	-0.234628	9.88007}
+					{VolumeView "turret.ply"}
+					{bone revolute "gun_rot"
+						{parameters "ID=gun;"}
+						{animation
+							{sequence "break" {file "gun_b.anm"}}
+						}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							0.45155	0.0784806	-2.47884
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "gun"
+							{parameters "ID=gun;"}
+							{Matrix34
+								1	0	0
+								0	1	0
+								0	0	1
+								16.886	0.165338	-0.676924
+							}
+							{VolumeView "gun.ply"}
+						}
+					}
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=2;Radius=0.4;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.0113645	13.4157	-0.0768466
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.4;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.0113635	-13.4227	-0.0768466
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+		}
+	}
+}

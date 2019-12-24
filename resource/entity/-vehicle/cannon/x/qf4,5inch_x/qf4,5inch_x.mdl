@@ -1,0 +1,90 @@
+;Exported by: mark
+;Date:        Sun May 15 17:33:34 2011
+;File:        C:\Users\mark\Documents\3dsmax\scenes\qf4and5inch_x.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 1}}
+		{sequence "close" {speed 0.5}}
+	}
+	{bone revolute "basis"
+		{parameters "Wheelradius=0.65;"}
+		{speed 0.003}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.984808	0	0.173648
+				0	1	0
+				-0.173648	0	0.984808
+				20.282	-2.73663	4.41059
+			}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{Matrix34
+					0.988904	0	-0.148558
+					0	1	0
+					0.148558	0	0.988904
+					-1.84646	4.4329	16.3805
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Wheelradius=0.6;"}
+					{Matrix34
+						-0.999973	0.000114863	0.0073558
+						0.00735545	0	0.999973
+						3.61142e-005	1	0
+						0.963339	16.5255	-5.18741
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Wheelradius=0.6;"}
+					{Matrix34
+						-0.999973	0.000114255	0.00735577
+						0.00735545	0	0.999973
+						3.86786e-005	1	0
+						0.963341	-20.7885	-5.18688
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -2 2}
+				{speed 0.003}
+				{Matrix34
+					0.984808	0	-0.173648
+					0	1	0
+					0.173648	0	0.984808
+					-9.01999	5.60106	31.4622
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -20 20}
+					{speed 0.004}
+					{Matrix34
+						0.258819	0	-0.965926
+						-0.965926	0	-0.258819
+						0	1	0
+						11.7314	-3.08713	-19.4496
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	-1	0
+							0	0	1
+							-1	0	0
+							-6.16902	-1.60992	0.313614
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}

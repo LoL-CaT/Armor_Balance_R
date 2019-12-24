@@ -1,0 +1,153 @@
+;Exported by: skr
+;Date:        Wed May 08 12:48:48 2013
+;File:        E:\Documents\3dsmax\scenes\152-mm howitzer 1909-30\M1917A4 Schneider 155mm Howitzer_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.0942955	0.280909	5.23505}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{Position -0.251556	-0.293107	-3.15065}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "turret"
+					{parameters "ID=body;"}
+					{limits -3 3}
+					{speed 0.001}
+					{Matrix34
+						0.993761	0	-0.11153
+						0	1	0
+						0.11153	0	0.993761
+						0.0180511	0.0121775	0.00481796
+					}
+					{VolumeView "turret.ply"}
+					{bone "shield"
+						{parameters "ID=shield;"}
+						{Matrix34
+							0	1	0
+							0	0	1
+							1	0	0
+							13.8488	0.136124	13.6996
+						}
+						{VolumeView "shield.ply"}
+					}
+					{bone revolute "gun_rot"
+						{parameters "ID=gun;"}
+						{limits 0 42}
+						{speed 0.003}
+						{Matrix34
+							0.968041	0	-0.250791
+							0.250791	0	0.968041
+							0	-1	0
+							-1.08058	0.00582115	13.2714
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "gun"
+							{parameters "ID=gun;"}
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								9.84725	0.70595	0.00580215
+							}
+							{VolumeView "gun.ply"}
+							{bone "fx_invers"
+								{Matrix34
+									-0.999996	-0.00276192	0
+									0	0	1
+									-0.00276192	0.999996	0
+									-23.1546	-1.20338e-005	-0.126766
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		{bone revolute "part2"
+			{parameters "ID=wheelright;Radius=0.61;support=1;"}
+			{Matrix34
+				-1	0	0
+				0	-0.999991	0.0041747
+				0	0.0041747	0.999991
+				-39.2443	-35.2672	1.74918
+			}
+			{VolumeView "part3.ply"}
+		}
+		{bone revolute "part1"
+			{parameters "ID=wheelleft;Radius=0.61;support=1;"}
+			{Matrix34
+				-1	0	0
+				0	0.99996	0.00896743
+				0	-0.00896743	0.99996
+				-115.797	46.5575	1.76917
+			}
+			{VolumeView "part3.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 9.84252 20.853 13.7795}
+	{Bone "body"}
+	{Position 0.58098	-0.163879	-0.291591}
+}
+{Volume "gun_rot"
+	{Box 65.1474 4.15549 8.07087}
+	{Bone "gun_rot"}
+	{Position -2.63979	-3.61624	-0.233134}
+}
+{Volume "gun"
+	{Cylinder 2.86372 46.2598}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		0.741629	0.12904	-0.0183264
+	}
+}
+{Volume "shield"
+	{Box 34.3164 30.2949 2.68096}
+	{Bone "shield"}
+	{Matrix34
+		1	0	0
+		0	0.884895	-0.465791
+		0	0.465791	0.884895
+		-0.187399	-1.39784	-5.75561
+	}
+}
+{Volume "turret"
+	{Box 69.3765 11.8169 19.685}
+	{Bone "turret"}
+	{Matrix34
+		0.993065	0	0.117564
+		-0.117564	0	0.993065
+		0	-1	0
+		-50.1579	-0.361832	-4.12574
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 12.4016 2.85433}
+	{Bone "part1"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	1
+		0	0	-0.18187
+	}
+}
+{Volume "wheelright"
+	{Cylinder 12.4016 2.85433}
+	{Bone "part2"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		0	0	0.040713
+	}
+}

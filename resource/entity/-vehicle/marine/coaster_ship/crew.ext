@@ -1,0 +1,105 @@
+;SDL
+{Placer
+	{place "driver"
+		{LinkBone "driver"}
+		{turnoff {sensor} {shadow}}
+		{obstacle disable}
+	}
+
+	{place "place01"
+		{LinkBone "place01"}
+		{turnoff {sensor} {shadow}}
+		{obstacle disable}
+	}
+	{place "place02"
+		{LinkBone "place02"}
+		{turnoff {sensor} {shadow}}
+		{obstacle disable}
+	}
+	{place "place03"
+		{LinkBone "place03"}
+		{turnoff {sensor} {shadow}}
+		{obstacle disable}
+	}
+	{place "place04"
+		{LinkBone "place04"}
+		{turnoff {sensor} {shadow}}
+		{obstacle disable}
+	}
+	{place "place05"
+		{LinkBone "place05"}
+		{turnoff {sensor} {shadow}}
+		{obstacle disable}
+	}
+	{place "place06"
+		{LinkBone "place06"}
+		{turnoff {sensor} {shadow}}
+		{obstacle disable}
+	}
+	{place "place07"
+		{LinkBone "place07"}
+		{turnoff {sensor} {shadow}}
+		{obstacle disable}
+	}
+
+	{place "stuff01"
+		{Linkbone "stuff01"}
+		{obstacle disable}
+		{entity "coaster_ship_tank"}
+	}
+	{place "stuff02"
+		{Linkbone "stuff02"}
+		{obstacle disable}
+		{entity "coaster_ship_crate2"}
+	}
+	{place "stuff03"
+		{Linkbone "stuff03"}
+		{obstacle disable}
+		{entity "coaster_ship_willys"}
+	}
+	{place "stuff04"
+		{Linkbone "stuff04"}
+		{obstacle disable}
+		{entity "coaster_ship_cannon"}
+	}
+	{place "stuff05"
+		{Linkbone "stuff05"}
+		{obstacle disable}
+		{entity "coaster_ship_crate3"}
+	}
+	{place "stuff06"
+		{Linkbone "stuff06"}
+		{obstacle disable}
+		{entity "coaster_ship_crate1"}
+	}
+}
+
+{Boarder
+	{anm "driver"
+		{forward {end "Stand_on_LCI"}}
+	}
+	{anm "seat"
+		{forward {end "seat_passenger"}}
+	}
+
+	{door "emit01"}
+	{door "emit02"}
+
+	{link "emit01" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	{link "emit01" "place01" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit01" "place02" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit01" "place03" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit01" "place04" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit01" "place05" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit01" "place06" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit01" "place07" {anm "seat"} {forward putoff} {reverse puton}}
+
+	{link "emit02" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	{link "emit02" "place01" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit02" "place02" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit02" "place03" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit02" "place04" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit02" "place05" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit02" "place06" {anm "seat"} {forward putoff} {reverse puton}}
+	{link "emit02" "place07" {anm "seat"} {forward putoff} {reverse puton}}
+}

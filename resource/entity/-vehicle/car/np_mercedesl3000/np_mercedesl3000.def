@@ -1,0 +1,84 @@
+{entity
+	(include "/properties/car.ext")
+    (include "/properties/l_car_mobility.ext")		
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{collider "truck"}
+	{props "vehicle" "car" "truck" "wheeled" "vision_vehicle_minimum"}
+	{able "emit_on_attack"}
+	{targetClass "car" "fg bullet"}	
+	("armor_medium" args 1.0)
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-midcar_driver)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-midcar)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+
+	;{extender "enumerator"}
+	("passenger_10_human")
+	{boarder
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_passenger"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	
+	{Volume "bodyback"
+		{thickness 2}
+	}
+	
+	{mass 2600}
+	
+	{Chassis
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
+		("mobility"
+			speed(70)
+			weight(2.6)
+			power(74)
+			fuel(90)	
+		)
+	}
+	
+	{Extension "mercedesl3000.mdl"}
+	{extender "shield"
+		(mod "mp"
+			{on}
+		)
+	}
+	{component "shield"	
+		{RepairTime 10}
+	}
+	{volume "shield"
+		{thickness 0.3}
+	}
+	{component "cabin"	
+		{RepairTime 12}
+	}
+	{volume "cabin"
+		{thickness 2}
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{Volume "Body"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}   
+	}
+	(include "/properties/resupply_generic.inc")
+	("truck_ammo_art")	
+}

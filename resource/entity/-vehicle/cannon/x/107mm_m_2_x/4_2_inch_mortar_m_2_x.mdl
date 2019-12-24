@@ -1,0 +1,104 @@
+;Exported by: Sergey
+;Date:        Tue Aug 28 14:43:08 2012
+;File:        D:\Documents\3dsmax\scenes\4.2-inch mortar m2\4.2-inch mortar m2_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0	0	0.462836}
+			{VolumeView "body.ply"}
+			{bone "styzhka1"
+				{Matrix34
+					-0.685833	-0.719317	0.11053
+					0.177019	-0.0175699	0.984051
+					-0.705902	0.69446	0.139382
+					6.03889	-4.87724	0.948972
+				}
+				{VolumeView "styzhka1.ply"}
+			}
+			{bone "styzhka2"
+				{Matrix34
+					0.807026	0.575274	-0.133301
+					-0.567583	0.817961	0.0937511
+					0.162967	0	0.986631
+					6.07025	4.91348	1.01287
+				}
+				{VolumeView "styzhka2.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=gun;"}
+				{limits -20 20}
+				{speed 0.01}
+				{Matrix34
+					0.949903	0	-0.312543
+					0	1	0
+					0.312543	0	0.949903
+					1.58268	0.0482783	1.07364
+				}
+				{VolumeView "turret.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.840163	0	-0.542333
+						0	1	0
+						0.542333	0	0.840163
+						2.12396	-0.0198508	3.30562
+					}
+					{VolumeView "gun.ply"}
+					{bone "amortizator"
+						{parameters "ID=gun;"}
+						{Matrix34
+							-1	0	0
+							0	-1	0
+							0	0	1
+							0	0	13.1734
+						}
+						{VolumeView "amortizator.ply"}
+						{bone revolute "stoika1"
+							{Matrix34
+								0.968599	0	-0.248628
+								0.248628	0	0.968599
+								0	-1	0
+								-2.36576	-0.00339802	1.06753
+							}
+							{VolumeView "stoika1.ply"}
+							{bone "stoika2"
+								{Matrix34
+									1	0	0
+									0	0	-1
+									0	1	0
+									-6.12797	-0.144066	-0.0362063
+								}
+								{VolumeView "stoika2.ply"}
+								{bone "stoika3"
+									{Position -2.18102	0	0}
+									{VolumeView "stoika3.ply"}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 14.7143 15.2644 3.43793}
+	{Bone "body"}
+	{Position 0.00722999	-0.124971	0.467554}
+}
+{Volume "gun"
+	{Cylinder 2.13484 24.0157}
+	{Bone "gun"}
+	{Matrix34
+		0.999756	0	-0.0220949
+		0	1	0
+		0.0220949	0	0.999756
+		-0.0314521	0.0528763	10.6966
+	}
+}

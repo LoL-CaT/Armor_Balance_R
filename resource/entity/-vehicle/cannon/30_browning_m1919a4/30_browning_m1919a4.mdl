@@ -1,0 +1,182 @@
+;Exported by: Sergey
+;Date:        Wed Oct 03 12:28:53 2012
+;File:        D:\Documents\3dsmax\scenes\ѕулемЄты Browning\Browning M1919A4_01.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit1"
+			{Position -39.7547	14.8377	0}
+		}
+		{bone "emit2"
+			{Position -40.559	-20.1489	0}
+		}
+		{bone "driver1"
+			{Position -4.76816	5.32023	0}
+		}
+		{bone "driver2"
+			{Position -4.9022	-4.86744	0}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.00105939	0.000869713	5.77377}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -15 15}
+				{Position 0	0	0.749517}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=body;"}
+					{limits -5 10}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.00654558	-0.00686208	0.96923
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "mgun"
+						{Position -6.42962	-0.72892	-0.00599163}
+						{bone "visor"
+							{Position 23.7601	4.09501	0}
+						}
+						{bone "tyaga"
+							{parameters "ID=tyaga;"}
+							{Matrix34
+								0.998863	-0.0476652	0
+								0.0476652	0.998863	0
+								0	0	1
+								-0.402424	-0.120443	-1.18261
+							}
+							{VolumeView "tyaga.ply"}
+						}
+					}
+				}
+				{bone "visor2"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.0921534	-0.000870581	-3.3809
+					}
+				}
+				{bone "ammobox"
+					{Position -0.0390631	2.09946	0.876412}
+					{VolumeView "ammobox.ply"}
+				}
+				{bone "gunner"
+					{Position -22.9512	3.25058	-6.46908}
+				}
+				{bone "commander"
+					{Position -14.767	15.231	-6.52328}
+				}
+			}
+			{bone "support2"
+				{parameters "ID=support2;"}
+				{Matrix34
+					-0.798005	-0.327009	-0.506215
+					-0.468412	-0.191947	0.862407
+					-0.379181	0.925322	0
+					-2.02951	-0.581837	-0.214664
+				}
+				{VolumeView "support2.ply"}
+				{bone "vtulka2"
+					{parameters "ID=support2;"}
+					{Position 6.01725	0	0}
+					{VolumeView "vtulka2.ply"}
+					{bone "rasporka"
+						{Matrix34
+							-0.798005	-0.468412	-0.379181
+							-0.506214	0.862408	0
+							0.327009	0.191947	-0.925322
+							-0.0172415	-0.00832462	0.659112
+						}
+						{VolumeView "rasporka.ply"}
+					}
+				}
+			}
+			{bone "support1"
+				{parameters "ID=support1;"}
+				{Matrix34
+					0.621469	0	-0.783438
+					0.783438	0	0.621469
+					0	-1	0
+					1.72466	0.212449	-0.322922
+				}
+				{VolumeView "support1.ply"}
+			}
+			{bone "support3"
+				{parameters "ID=support3;"}
+				{Matrix34
+					-0.808652	0.297164	-0.507716
+					-0.476557	0.175126	0.861524
+					0.344929	0.938629	0
+					-2.0393	0.577913	-0.220373
+				}
+				{VolumeView "support3.ply"}
+				{bone "vtulka3"
+					{parameters "ID=support3;"}
+					{Position 5.97557	0	0}
+					{VolumeView "vtulka3.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 5.58055 2.98577 3.93701}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-0.189816	-0.0271022	0.550346
+	}
+}
+{Volume "support1"
+	{Cylinder 0.341757 7.08661}
+	{Bone "support1"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		3.54331	0	0
+	}
+}
+{Volume "support2"
+	{Cylinder 0.341757 11.811}
+	{Bone "support2"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		5.43158	0	0.00846859
+	}
+}
+{Volume "support3"
+	{Cylinder 0.341757 11.811}
+	{Bone "support3"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		5.43158	0	0.00580602
+	}
+}
+{Volume "tyaga"
+	{Box 2.39336 4.60899 2.3622}
+	{Bone "tyaga"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		0.295227	-1.91333	1.17024
+	}
+}

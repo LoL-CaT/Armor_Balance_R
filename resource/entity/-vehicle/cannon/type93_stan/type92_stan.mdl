@@ -1,0 +1,149 @@
+;Exported by: skr
+;Date:        Sun Aug 18 20:56:41 2013
+;File:        D:\Documents\3dsmax\scenes\_infantry weapon\type92_07.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.5}}
+		{sequence "recoil" {speed 0.5}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Position 1.41274	-0.00300169	4.04943}
+			{VolumeView "body.ply"}
+			{bone "stoika"
+				{parameters "ID=body;"}
+				{Position 0	0	6.90129}
+				{VolumeView "stoika.ply"}
+				{bone revolute "turret"
+					{parameters "ID=body;"}
+					{limits -30 30}
+					{speed 0.04}
+					{Position 0	0	0.797642}
+					{VolumeView "turret.ply"}
+					{bone revolute "gun_rot"
+						{parameters "ID=mgun;"}
+						{limits -5 10}
+						{speed 0.05}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							0.136504	1.02165	3.08232
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "mgun"
+							{Position -8.22675	-1.40161	1.01865}
+							{bone "ammobelt"
+								{parameters "ID=mgun;"}
+								{Matrix34
+									1	0	0
+									0	0.00443083	-0.99999
+									0	0.99999	0.00443083
+									5.49215	1.90942	-2.28123
+								}
+								{VolumeView "ammobelt.ply"}
+							}
+							{bone "sector"
+								{Matrix34
+									-0.0888076	0.996049	0
+									-0.996049	-0.0888076	0
+									0	0	1
+									8.22288	1.38307	-0.227666
+								}
+								{VolumeView "sector.ply"}
+							}
+						}
+					}
+					{bone "visor"
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							8.35973	0.00299981	6.26447
+						}
+					}
+					{bone "gunner"
+						{Position -14.7058	-0.0107799	-11.7647}
+					}
+					{bone "commander"
+						{Position -21.7003	15.1835	-11.7258}
+					}
+				}
+			}
+			{bone "ruchka_back"
+				{Position 10.2496	-0.0144286	-3.75453}
+				{VolumeView "ruchka_back.ply"}
+			}
+			{bone "ruchka_front_r"
+				{Position 9.60241	-5.33225	-3.65612}
+				{VolumeView "ruchka_front_r.ply"}
+			}
+			{bone "ruchka_front_l"
+				{Position 7.44897	5.25191	-3.63344}
+				{VolumeView "ruchka_front_l.ply"}
+			}
+		}
+		{bone "driver1"
+			{Position 14.7093	-2.96928	-0.0140727}
+		}
+		{bone "driver2"
+			{Position -27.543	0.0613191	-0.0964165}
+		}
+		{bone "emit1"
+			{Position -43.3781	5.09307	-0.0964165}
+		}
+		{bone "emit2"
+			{Position -55.3596	15.1566	-0.0964165}
+		}
+	}
+}
+{Volume "body1"
+	{Cylinder 1.84952 9.55876}
+	{Bone "body"}
+	{Position 0.143806	0.117224	1.39573}
+}
+{Volume "body2"
+	{Cylinder 0.874065 15.748}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		-0.304118	0	0.952634
+		0.952634	0	0.304119
+		-8.98636	0.00115482	-1.23374
+	}
+}
+{Volume "body3"
+	{Cylinder 1.1811 10.8268}
+	{Bone "body"}
+	{Matrix34
+		0.806273	0.586009	-0.0807374
+		0.363557	-0.383223	0.849098
+		0.466638	-0.713956	-0.52203
+		2.55286	-4.21261	-1.23277
+	}
+}
+{Volume "body4"
+	{Cylinder 1.1811 10.8268}
+	{Bone "body"}
+	{Matrix34
+		0.88222	-0.463862	-0.0807374
+		0.304615	0.431559	0.849097
+		0.359021	0.773685	-0.522029
+		1.97029	3.84057	-1.23277
+	}
+}
+{Volume "turret"
+	{Box 6.33728 6.19433 3.90719}
+	{Bone "turret"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-2.07533	0.28818	0.713393
+	}
+}

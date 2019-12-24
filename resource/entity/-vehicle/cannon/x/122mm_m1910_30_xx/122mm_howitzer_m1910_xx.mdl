@@ -1,0 +1,172 @@
+;Exported by: sergey
+;Date:        Sun Oct 20 11:27:33 2013
+;File:        D:\Documents\3dsmax\scenes\122 mm howitzer M1910-30\122 mm howitzer M1910_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "repair" {file "body_r.anm"} {speed 0.2}}
+			}
+			{Matrix34
+				0.979125	0	-0.203257
+				0	1	0
+				0.203257	0	0.979125
+				-0.0244656	0	6.81598
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -3 3}
+				{speed 0.004}
+				{Position -2.3281	0.00919223	5.7618}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "repair" {file "gun_rot_r.anm"} {speed 0.2}}
+					}
+					{limits -3 44}
+					{speed 0.004}
+					{Matrix34
+						0.965666	0	-0.259786
+						0.259786	0	0.965666
+						0	-1	0
+						-0.0455427	4.68683	0.00784492
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{Matrix34
+							0	0	-1
+							0	1	0
+							1	0	0
+							-4.64538	3.20167	4.69602
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "shield"
+				{Position -1.1442	12.0703	2.21422}
+				{VolumeView "shield.ply"}
+			}
+			{bone revolute "soshnik"
+				{parameters "ID=body;"}
+				{Matrix34
+					-0.594488	0	-0.804105
+					0.804105	0	-0.594488
+					0	-1	0
+					-55.3646	2.7836	-13.209
+				}
+				{VolumeView "soshnik.ply"}
+			}
+			{bone "pivot_front"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0	15.493	0
+				}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheelright"
+					{parameters "ID=wheelright;Radius=0.66;support=1;"}
+					{Matrix34
+						-1	0	0
+						0	1	0
+						0	0	-1
+						0	0	31.1598
+					}
+					{VolumeView "wheelright.ply"}
+				}
+				{bone revolute "wheelleft"
+					{parameters "ID=wheelleft;Radius=0.66;support=1;"}
+					{Matrix34
+						-1	0	0
+						0	1	0
+						0	0	1
+						0	0	-0.699207
+					}
+					{VolumeView "wheelleft.ply"}
+				}
+			}
+		}
+		{bone "part1"
+			{Matrix34
+				0.320726	0	0.947172
+				0	1	0
+				-0.947172	0	0.320726
+				33.1574	30.8225	-4.0737
+			}
+			{VolumeView "part1.ply"}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Position -29.8526	0.285598	-12.8806}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-4.88189	8.64827	-1.49826
+	}
+}
+{Volume "gun_rot"
+	{Box 49.7989 5.29491 6.24167}
+	{Bone "gun_rot"}
+	{Position 1.13273	-1.19556	4.69151}
+}
+{Volume "gun"
+	{Cylinder 2.16146 31.8071}
+	{Bone "gun"}
+	{Position -0.0160605	0.00253392	14.8941}
+}
+{Volume "shield1"
+	{Box 0.636729 10.6233 28.9182}
+	{Bone "shield"}
+	{Matrix34
+		0.997624	0	-0.068896
+		0.068896	0	0.997624
+		0	-1	0
+		5.20227	-12.1132	-4.91954
+	}
+}
+{Volume "shield2"
+	{Box 0.80429 24.5643 31.9994}
+	{Bone "shield"}
+	{Matrix34
+		0.920079	0	0.391733
+		-0.391733	0	0.920079
+		0	-1	0
+		0.804416	-12.1392	11.6021
+	}
+}
+{Volume "shield3"
+	{Box 0.905828 3.81473 25.0632}
+	{Bone "part1"}
+	{Matrix34
+		0.981646	0	-0.190713
+		0.190713	0	0.981646
+		0	-1	0
+		5.75792	-12.241	-1.45251
+	}
+}
+{Volume "shield4"
+	{Box 0.635646 19.2465 27.3089}
+	{Bone "part1"}
+	{Matrix34
+		0.896667	0	0.442706
+		-0.442706	0	0.896667
+		0	-1	0
+		2.1628	-12.1224	9.1435
+	}
+}

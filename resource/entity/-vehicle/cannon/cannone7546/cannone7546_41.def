@@ -1,0 +1,99 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "turret" "turret_rotator" "vision_cannon_low" "muzzle_medium" "round_sandbag2"}
+	{PatherID "cannon.large"}
+        {targetSelector "flak"}
+	("armor_heavy" args 1.1)
+	
+	{Extension "cannone7546.mdl"}	
+
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}	
+
+	{Volume "body1"
+		{thickness 6}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{thickness 6}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "turret"
+		{thickness 6}
+	}
+	{Volume "gun"
+		{thickness 6}
+	}
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_flak41_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak41_gunlayer_1" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet75gerITaa ap" 40}
+			{item "bullet75gerITaa fg" 40}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "75mm_46_er" filling "bullet75gerITaa ap" 1}
+			{RestoreIKAfterAim}
+			("abm_field_gun")
+		}
+	}  	
+	
+	{extender "cannon"
+		{animation
+			{aim "Cannon_flak41_gunlayer" ""}
+			{fire	"Cannon_flak41_gunlayer_fire-alert" "Cannon_flak41_gunlayer_fire-alert_1"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+;			{reload  "" "cannon_flak41_charger"}
+			{switch "close"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel02") step(0.1) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_massive")
+	}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+	{mass 4400}	
+	
+	{bone "turret"
+		{speed2 35}
+	}
+	{bone "gun_rot"
+		{speed2 20}
+	}	
+	
+}

@@ -1,0 +1,52 @@
+{actor
+	(include "/properties/cannon_mgun.ext")
+	{props "vision_cannon_minimum" "cannon_small" "round_sandbag4"}
+	{collider "cannon_small"}
+
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "brenstan" filled}
+		}
+	}
+{boarder
+	{anm "gunner"
+		{forward	{end "pose_kpvt_gunlayer"}}
+	}
+	{anm "commander"
+		{forward	{end "lie_take_item_end"}}
+	}
+	{anm "driver1"
+		{forward {end "walk_1hand"}}
+	}
+	{anm "driver2"
+		{forward {end "walk_1hand"}}
+	}
+	{link "driver1" "gunner"}
+	{link "driver2" "commander"}
+}
+{extender "inventory"
+		{box
+			{clear}
+			{item "ammo mgun" 500}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}	
+{extender "cannon"
+	{animation
+		{switch "close"}
+		{move "walk_1hand" "walk_1hand"}
+		{aim "" ""}
+		{fire  "" ""}
+		{reload  "" "lie_take_small end lie_take_item_end"}
+	}
+	{animation
+		{switch close}
+	}
+	{attack {workers "gunner" "commander"}}
+	{rotate_ik_Limit 0}
+}  	
+	{Extension "303_bren_tripod.mdl"}
+
+}

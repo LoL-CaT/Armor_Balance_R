@@ -1,0 +1,61 @@
+{entity
+	(include "/properties/railway.ext")
+	{lodclass "vehicle_large"}
+    {mass 25000}
+	{props "vehicle" "steel" "turret_rotator" "train_part" "platform" "crane_m" "carriage" "no_minimap_view"}
+
+	{extension "crew.ext"}
+
+	{component "body"
+		{RepairTime 25}
+	}
+	{component "turret"
+		{RepairTime 25}
+	}
+	{component "engine"
+		{RepairTime 25}
+	}
+
+	{volume "body"
+		{tags "body"}
+		{thickness 8}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{thickness 8}
+		{able {obstacle 0}}
+		{component "body"}
+	}
+	{volume "engine"
+		{tags "body"}
+		{thickness 8}
+		{able {visible 0}}		
+	}
+
+	{volume "turret"
+		{tags "body"}
+		{thickness 8}
+		{component "turret"}
+	}
+
+	{volume "wheelleft1"
+		{thickness 40}
+	}
+	{volume "wheelleft2"
+		{thickness 40}
+	}
+	{volume "wheelright1"
+		{thickness 40}
+	}
+	{volume "wheelright2"
+		{thickness 40}
+	}
+	{Placer
+		{place "vehicle"
+			{Linkbone "hook"}
+			{handlebone "handle"}
+		}
+	}
+	{Extension "crane_m.mdl"}
+}

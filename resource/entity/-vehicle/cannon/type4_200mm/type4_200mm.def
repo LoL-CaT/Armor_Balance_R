@@ -1,0 +1,91 @@
+{game_entity
+	(include "/properties/cannon.ext")	
+	{props "vehicle" "cannon" "cannon_small" "nebelwerfer" "no_exp_blast"  "round_sandbag5" "vision_cannon_medium"}
+	{collider "cannon_small"}
+	{targetSelector "cannon_rocket"}
+	{patherId "cannon.carried"}
+	
+	("armor_mortar")
+	
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m42_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_m42_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mortar_driver_l" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mortar_driver_l" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo 20cm_rocket" 2}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mortar_driver_l" "mortar_driver_l"}
+			{aim "" ""}
+			{fire  "Squat_load_mortar_end" ""}
+			{reload  "" ""}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+
+	{Chassis "human_carrier"
+		{carrierPlace "driver1" "driver2"}
+		{carrierBone  "handle1" "handle2"}
+		("loco_carrier_big")
+	}
+
+	{Weaponry
+		{place "gun"
+			{Barrels 1}
+			{weapon "weapon t4_20cm" filling "ammo 20cm_rocket" 1}
+			{Rotate}
+		}
+	}
+	{mass 150}
+	{Extension "type4_200mm.mdl"}
+	{bone "basis"
+		{speed2 5}
+	}
+	{bone "foresight"          
+		{limits -65 40}
+		{speed2 5}
+	}               	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+	(include "/properties/selection/cannon.inc"  scale(0.7))	
+;	(mod "mp"
+;		{brain
+;			{properties
+;				{fire_mode hold}
+;			}
+;		}
+;	)
+}

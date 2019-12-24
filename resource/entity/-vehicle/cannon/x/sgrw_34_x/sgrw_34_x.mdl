@@ -1,0 +1,133 @@
+;Exported by: Sergey
+;Date:        Sun Jan 06 17:56:11 2013
+;File:        D:\Documents\3dsmax\scenes\8-cm s.GR.W.34\8 cm s.Gr.W.34_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "CommonMesh;ID=body;"}
+			{Position 0	0	1.22705}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=gun;"}
+				{limits -30 30}
+				{speed 0.01}
+				{Position 0.0135478	0.0686445	0.376197}
+				{VolumeView "turret.ply"}
+				{bone "gun"
+					{parameters "CommonMesh;ID=gun;"}
+					{Position 1.15309	0	1.91529}
+					{VolumeView "gun.ply"}
+					{bone "stanok"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0.856719	0	-0.515784
+							0	1	0
+							0.515784	0	0.856719
+							8.22944	0.00918967	9.43081
+						}
+						{VolumeView "stanok.ply"}
+						{bone revolute "povorot"
+							{parameters "ID=body;"}
+							{Matrix34
+								0.73341	0	0.679786
+								-0.679786	0	0.73341
+								0	-1	0
+								1.31798	0.518897	0.00871181
+							}
+							{VolumeView "povorot.ply"}
+							{bone "stoika"
+								{parameters "ID=body;"}
+								{Matrix34
+									1	0	0
+									0	0	-1
+									0	1	0
+									-0.0124855	-3.62505	0.580644
+								}
+								{VolumeView "stoika.ply"}
+								{bone revolute "noga_l"
+									{parameters "ID=body;"}
+									{Matrix34
+										0	0.800744	0.599007
+										0	0.599007	-0.800744
+										-1	0	0
+										0.00353146	1.13215	-0.402001
+									}
+									{VolumeView "noga_l.ply"}
+								}
+								{bone revolute "noga_r"
+									{parameters "ID=body;"}
+									{Matrix34
+										0	-0.824257	0.566215
+										0	-0.566215	-0.824258
+										1	0	0
+										0.00353241	-1.18338	-0.401999
+									}
+									{VolumeView "noga_r.ply"}
+								}
+							}
+						}
+						{bone "pricel"
+							{Matrix34
+								0	-1	0
+								-0.514732	0	0.857351
+								-0.857351	0	-0.514732
+								-1.00261	1.25969	2.15273
+							}
+							{VolumeView "pricel.ply"}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 10.3117 12.1991 1.9685}
+	{Bone "body"}
+	{Position 0.0112366	0.030801	-0.2428}
+}
+{Volume "gun"
+	{Cylinder 1.21534 22.2651}
+	{Bone "gun"}
+	{Matrix34
+		0.857608	0	-0.514303
+		0	1	0
+		0.514303	0	0.857608
+		4.91199	-0.0148258	8.06751
+	}
+}
+{Volume "noga_l"
+	{Cylinder 0.556465 9.84252}
+	{Bone "noga_l"}
+	{Matrix34
+		-0.0181162	0.0106471	-0.999779
+		0.999827	0.00441831	-0.01807
+		0.00422585	-0.999934	-0.0107254
+		0.187551	4.9452	-0.106603
+	}
+}
+{Volume "noga_r"
+	{Cylinder 0.526897 9.84252}
+	{Bone "noga_r"}
+	{Matrix34
+		-0.342243	-0.00931484	0.939565
+		-0.9393	-0.0223598	-0.342368
+		0.0241971	-0.999706	-0.00109718
+		-0.0938068	5.25615	-0.0243185
+	}
+}
+{Volume "stoika"
+	{Cylinder 0.852106 9.84252}
+	{Bone "stoika"}
+	{Matrix34
+		0.999345	0	-0.0361874
+		0	1	0
+		0.0361874	0	0.999345
+		-0.0564191	0.0917199	-0.523362
+	}
+}

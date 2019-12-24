@@ -1,0 +1,82 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "round_sandbag2" "vision_cannon_low" "muzzle_medium"} 
+	{PatherID "cannon.small"}
+	("armor_light")
+	{collider "cannon_small"}
+
+	{volume "body1"
+		{tags "body"}
+	}
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m8_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_m8_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon1_right" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon1_left" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet75usaP fg" 40}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+
+		{place "gun"
+			{weapon "75mm_m2a" filling "bullet75usaP fg" 1}
+			{Rotate}
+			("abm_field_gun")
+		}
+	}
+	{mass 600}
+	{Extension "m8_howitzer.mdl"}
+	{bone "turret"             					
+		{limits -3 3}
+		{speed2 5}
+	}
+	{bone "gun_rot"             					
+        {limits 5 48}
+		{speed2 5}
+	}	
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{bone "basis"
+	      {limits}
+	}
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "cannon_m8_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" "cannon_m8_charger_fire"}
+			{reload  "" "Cannon_m8_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		(mod "mp" {rotate_ik_Limit 0})
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel01a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+}

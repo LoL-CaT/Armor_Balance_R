@@ -1,0 +1,94 @@
+{(include "/properties/cannon.ext")
+ {props "vehicle" "cannon" "cannon_small" "truck_mortar" "round_sandbag" "wheeled" "vision_lev01_can"}
+ {collider "cannon_small"}
+ {targetSelector "cannon_rocket"}
+ {patherId "cannon.carried"}
+
+ ("armor_mortar")
+ ("crew_gun")
+ 	("crew_2_human")
+	("crew_human" place(driver1) bone(driver1)	door(emit1) animation(driver1))
+	("crew_human" place(driver2) bone(driver2)	door(emit2) animation(driver2))
+	("crew_human" place(seat1) bone(seat1)		door(emit1) animation(seat1))
+	("crew_human" place(seat2) bone(seat2)		door(emit2) animation(seat2))
+ {boarder
+	{anm "gunner"
+		{forward	{end "pose_pak40_gunlayer" 10}}
+	}
+	{anm "commander"
+		{forward	{end "pose_pak40_charger" 10}}
+	}
+	{anm "driver1"
+		{forward {end "cannon_pak40_pusher_left" 10}}
+	}
+	{anm "driver2"
+		{forward {end "cannon_pak40_pusher_right" 10}}
+	}
+	{anm "seat1"
+		{forward {end "pose_flak38-1_gunlayer" 10}}
+	}
+	{anm "seat2"
+		{forward {end "pose_flak38-1_charger" 10}}
+	}
+	{link "driver1" "gunner"}
+	{link "driver2" "commander"}
+	{link "seat1" "driver1"}
+	{link "seat2" "driver2"}
+}
+
+{extender "inventory"
+	{box
+		{item "ammo mortar120 wgr42" 4}
+		{item "sandbag_kit2" 4}
+        {item "plant" 5}		
+	}
+}
+
+{extender "cannon"
+	{animation
+		{switch "close"}
+		{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+		{aim "" ""}
+		{fire  "Squat_load_mortar_end" ""}
+		{reload  "" ""}
+	}
+	{move {obstacle "close"}}
+	{attack {obstacle "open"}}
+}
+
+{Chassis "human_carrier"
+	{carrierPlace "driver1" "driver2"}
+	{carrierBone  "handle1" "handle2"}
+	("loco_carrier_big")
+}
+
+{Weaponry
+	{place "gun"
+		{Barrels 1}
+		{weapon "weapon 120mm_resita" filling "ammo mortar120 wgr42" 1}
+		{Rotate}
+	}
+}
+{mass 250}
+{Extension "pm_38.mdl"}
+{sensor
+	{visor "main"
+		{vision "cannon_main"}
+	}
+}
+	
+	{texmod "rom"}
+	
+
+{Volume "body"
+}
+{Volume "gun"
+}
+{Volume "telega"
+}
+{Volume "wheelleft"
+}
+{Volume "wheelright"
+}
+(include "/properties/selection/cannon.inc"  scale(0.7))
+}

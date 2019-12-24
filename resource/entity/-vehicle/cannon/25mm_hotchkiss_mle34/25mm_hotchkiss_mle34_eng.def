@@ -1,0 +1,77 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "wheeled" "vision_cannon_minimum" "muzzle_zenite" "round_sandbag4"}
+	("armor_light")
+	{collider "cannon_small"}
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m42_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_m42_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_l" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet25_hotchkissEN ap" 100}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "25mm_mle34_eng" filling "ammo bullet25_hotchkissEN ap" 1}
+			{Rotate}
+			("abm_field_gun")
+		}
+	}
+	{mass 480}
+	{Extension "25mm_hotchkiss_mle34.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{bone "basis"
+	      {limits}
+	}
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "mgun_browning_driver_l" "mgun_browning_driver_r"}
+			{aim "cannon_m42_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert and pose_m42_gunlayer" "cannon_m42_charger_fire"}
+			{reload  "" "cannon_m42_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		(mod "mp" {rotate_ik_Limit 0})
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+	{bone "turret"
+		{limits -30 30}
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -5 15}
+	}
+	{Texmod "middle_bronze_green"}
+
+}

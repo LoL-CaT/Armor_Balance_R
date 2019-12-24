@@ -1,0 +1,170 @@
+;Exported by: garry
+;Date:        Mon May 26 10:47:15 2008
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\76mm QF17Pounder MkIIL55\QF17_2_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.991179	0.00730933	-0.132328
+				0.0171231	0.983046	0.182558
+				0.131418	-0.183214	0.974249
+				-1.93953	0	8.18599
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Position 0.169246	0	2.1758}
+				{VolumeView "turret.ply"}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						-0.108518	-0.186371	-0.976468
+						0.0754454	0.977892	-0.195027
+						0.991227	-0.094834	-0.0920582
+						6.40971	0.424654	6.02872
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							-0.0120588	0.0468592	0.998829
+							0.426674	0.903638	-0.0372422
+							-0.904325	0.425725	-0.0308904
+							-3.47415	0	-17.4217
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "standr"
+				{parameters "ID=body;"}
+				{Position 0.355115	-9.1049	-5.07601}
+				{VolumeView "standr.ply"}
+			}
+			{bone "standl"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.939749	0.341865	0
+					-0.341865	0.939749	0
+					0	0	1
+					0.709985	9.1007	-5.07601
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;Support;Radius=0.5;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					2.17951	16.1417	-1.62755
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;Support;Radius=0.5;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					2.17436	-15.7899	-1.61797
+				}
+				{VolumeView "wheelr.ply"}
+			}
+			{bone "part2"
+				{Position -57.0921	-34.186	-5.07601}
+				{VolumeView "part2.ply"}
+			}
+			{bone "part1"
+				{Position 13.5394	-10.2039	10.5136}
+				{VolumeView "part1.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Position 3.20221	0.573823	-3.41185}
+}
+{Volume "gun"
+	{Cylinder 2.03183 54.8592}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	-1	0
+		1	0	0
+		26.5987	-0.0334972	-0.221541
+	}
+}
+{Volume "part1"
+	{Box 3.75662 16.051 31.6119}
+	{Bone "part1"}
+	{Matrix34
+		0.961989	0.0431059	0.269666
+		-0.0112821	0.992894	-0.118466
+		-0.272856	0.110921	0.955639
+		-0.611977	-1.18333	-0.503808
+	}
+}
+{Volume "part2"
+	{Box 37.2247 5.97644 5.29341}
+	{Bone "part2"}
+	{Matrix34
+		0.898743	0.399881	0.179879
+		-0.359766	0.907019	-0.218826
+		-0.250658	0.131953	0.959041
+		-0.663412	0.349248	2.5383
+	}
+}
+{Volume "standl"
+	{Box 86.7126 4.13386 6.92913}
+	{Bone "standl"}
+	{Matrix34
+		0.924428	-0.380566	0.0245679
+		0.381004	0.924425	-0.0165501
+		-0.0164129	0.0246598	0.999561
+		-29.1938	11.3818	3.40598
+	}
+}
+{Volume "standr"
+	{Box 40.757 4.12938 6.92913}
+	{Bone "standr"}
+	{Matrix34
+		0.922522	0.384721	0.0306843
+		-0.385273	0.922688	0.0144945
+		-0.0227359	-0.0251933	0.999424
+		-12.8458	-5.23052	4.52451
+	}
+}
+{Volume "turret"
+	{Box 3.47675 19.9911 33.3148}
+	{Bone "turret"}
+	{Matrix34
+		0.952889	0	0.303321
+		0	1	0
+		-0.303321	0	0.952889
+		14.7508	8.49081	6.72242
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 6.89333 4.88207}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0	0	-0.0339904
+	}
+}
+{Volume "wheelright"
+	{Cylinder 6.80315 4.88189}
+	{Bone "wheelr"}
+	{Position 0	0	0.173085}
+}

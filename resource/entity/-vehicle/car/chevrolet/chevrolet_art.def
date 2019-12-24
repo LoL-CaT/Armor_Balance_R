@@ -1,0 +1,187 @@
+{game_entity
+	(include "/properties/car.ext")
+    (include "/properties/l_car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{collider "truck"}
+	{props "vehicle" "car" "truck" "wheeled" "vision_vehicle_minimum"}
+	{able "emit_on_attack"}
+	{targetClass "car" "fg bullet"}	
+	("armor_medium" args 1.0)
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-midcar_driver)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-midcar)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	{Placer
+	          {place "attach01"
+	             {entity "crate4"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "crate4"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	          {place "attach03"
+	                   {entity "crate4"}
+	                   {Linkbone "attach03"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	          {place "attach04"
+	                   {entity "crate4"}
+	                   {Linkbone "attach04"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	         {place "attach05"
+	                   {entity "crate4"}
+	                   {Linkbone "attach05"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	        {place "attach06"
+	                   {entity "crate4"}
+	                   {Linkbone "attach06"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	      {place "attach07"
+	                   {entity "crate4"}
+	                   {Linkbone "attach07"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	      {place "attach08"
+	             {entity "crate4"}
+	             {Linkbone "attach08"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach09"
+	                  {entity "crate4"}
+	                   {Linkbone "attach09"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	          {place "attach10"
+	                   {entity "crate4"}
+	                   {Linkbone "attach10"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	          {place "attach11"
+	                   {entity "crate4"}
+	                   {Linkbone "attach11"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	         {place "attach12"
+	                   {entity "crate4"}
+	                   {Linkbone "attach12"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	        {place "attach13"
+	                   {entity "crate4"}
+	                   {Linkbone "attach13"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	      {place "attach14"
+	                   {entity "crate4"}
+	                   {Linkbone "attach14"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }	
+	}
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+	{extender "inventory"
+		{box
+			{size 6 10}
+                        {clear}
+			{item "mgun" "ammo" 10000}
+			{item "hmgun" "ammo" 6000}
+		}
+	}
+	{mass 3600}
+	{Chassis
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
+		("mobility"
+			speed(72)
+			weight(3.6)
+			power(91)
+			fuel(150)	
+		)
+	}
+	{extender "shield"
+			{off}
+	}
+	{component "shield"	
+		{RepairTime 10}
+	}
+	{volume "shield"
+		{thickness 0.3}
+	}
+	{component "cabin"	
+		{RepairTime 12}
+	}
+	{volume "cabin"
+		{thickness 1}
+	}
+	{component "engine"	
+		{RepairTime 12}
+	}
+	{volume "engine"
+		{thickness 2}
+	}
+	{Volume "fuel"
+		{thickness 1}
+	}
+  	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}   
+	}
+ 	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}   
+	}
+	{Extension "chevrolet_art.mdl"}
+	(include "/properties/resupply_generic.inc")
+	("truck_ammo_art_us")	
+}
+

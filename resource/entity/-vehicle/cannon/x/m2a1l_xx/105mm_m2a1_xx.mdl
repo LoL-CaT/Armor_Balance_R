@@ -1,0 +1,201 @@
+;Exported by: Mauzer
+;Date:        Tue May 11 18:19:11 2010
+;File:        E:\Autodesk\Low poly\freelance\DMS\105mm M2A1 L22.5\105mm M2A1_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				1	0	0
+				0	-1	0
+				0	0	1
+				-1.52023	0.0425254	9.78016
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -24 24}
+				{speed 0.005}
+				{Matrix34
+					0.998477	-0.0516755	0.0193137
+					-0.0507758	-0.997719	-0.0444799
+					-0.0215682	-0.0434315	0.998824
+					-0.0820701	0.00579368	2.54207
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -3 50}
+					{speed 0.006}
+					{Matrix34
+						0.983598	0.0637153	-0.168746
+						0.159215	0.132969	0.978248
+						0.0847674	-0.98907	0.120643
+						-10.8961	-1.11197	6.28864
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							22.1462	4.9863	0.0681295
+						}
+						{VolumeView "gun.ply"}
+					}
+					{bone "part5"
+						{parameters "ID=gun;"}
+						{animation
+							{sequence "break" {file "gun_b.anm"} {speed 0.6}}
+						}
+						{Position -11.1087	-3.22371	-0.0465508}
+						{VolumeView "part5.ply"}
+					}
+				}
+				{bone "dt1"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-7.04833	0.0702669	6.3401
+					}
+					{VolumeView "dt1.ply"}
+				}
+				{bone "part4"
+					{parameters "ID=turret;"}
+					{animation
+						{sequence "break" {file "turret_b.anm"} {speed 0.9}}
+					}
+					{Position 8.46898	7.99624	7.99689}
+					{VolumeView "part4.ply"}
+				}
+			}
+			{bone "part2"
+				{Matrix34
+					0.890871	0.45399	0.0155502
+					0.453921	-0.891007	0.00792337
+					-0.0174525	0	0.999848
+					-2.94037	-8.13208	1.90341
+				}
+				{VolumeView "part2.ply"}
+			}
+			{bone "part1"
+				{Matrix34
+					0.890871	-0.45399	0.01555
+					0.453921	0.891007	0.00792322
+					-0.0174522	0	0.999848
+					-2.94498	8.18239	2.05354
+				}
+				{VolumeView "part1.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{VolumeView "pivot_front.ply"}
+			}
+			{bone "part3"
+				{parameters "ID=body;"}
+				{animation
+					{sequence "break" {file "body_b.anm"} {speed 0.7}}
+				}
+				{Position -4.52556	-10.8209	7.08571}
+				{VolumeView "part3.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 11.9841 31.6765 5.02228}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	1
+		-2.93375	-0.00166282	1.13862
+	}
+}
+{Volume "gun2"
+	{Box 55.9294 6.1441 2.96854}
+	{Bone "gun_rot"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		7.85487	0.0799096	0.0356358
+	}
+}
+{Volume "gun"
+	{Cylinder 1.90141 53.6337}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		22.4368	3.73534	0.0631836
+	}
+}
+{Volume "part1"
+	{Box 68.0295 4.23622 3.87992}
+	{Bone "part1"}
+	{Matrix34
+		0.986775	-0.00676203	0.161956
+		0.0068812	-0.996481	-0.0835339
+		-0.161951	-0.0835436	0.983256
+		-31.6887	-0.227679	-4.79433
+	}
+}
+{Volume "part2"
+	{Box 68.0295 4.23619 3.87992}
+	{Bone "part2"}
+	{Matrix34
+		0.986775	-0.00676269	0.161956
+		-0.00688109	0.996481	0.0835338
+		-0.161951	-0.0835434	0.983256
+		-32.3042	0.00932871	-4.74381
+	}
+}
+{Volume "part3"
+	{Cylinder 1.7684 11.103}
+	{Bone "part3"}
+	{Matrix34
+		0.0871555	-0.996195	0
+		0	0	1
+		0.996195	0.0871555	0
+		0.328345	0.545714	-0.0972233
+	}
+}
+{Volume "part4"
+	{Box 4.91267 6.7226 2.78236}
+	{Bone "part4"}
+	{Matrix34
+		0.00739411	0.999929	0.00944555
+		0.0195841	-0.00958876	0.999762
+		0.999781	-0.00720737	-0.0196536
+		-0.0572559	0.0280411	0.00531977
+	}
+}
+{Volume "part5"
+	{Cylinder 1.14368 15.1303}
+	{Bone "part5"}
+	{Matrix34
+		0.0210305	0.171254	-0.985003
+		0.169018	0.970431	0.172329
+		0.985389	-0.170107	-0.0085364
+		0.387896	0.423163	0.135055
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		7.02657	0.0566034	7.17096
+	}
+}

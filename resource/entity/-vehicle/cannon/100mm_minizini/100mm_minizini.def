@@ -1,0 +1,89 @@
+﻿{game_entity ; 100-мм спаренная универсальная установка системы "Минизини"
+	(include "/properties/cannon.ext")
+	{Extension "100mm_minizini.mdl"}
+    (include "/properties/selection/cannon.inc" scale(0.7))
+	{props "vehicle" "cannon" "vision_cannon_medium" "muzzle_large"}
+	{simulation {able 0}}
+        {targetSelector "flak"}
+	{targetClass "tank" "ap fg bullet"}
+	
+	("armor_heavy")
+	
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret3"
+		{tags "turret"}
+		{component "turret"}
+	}
+	
+	{Volume "gun"
+		{able {visible 0}}
+	}
+
+	("crew_2_human")
+	{placer	{place "gunner" {visor "main"} {useVision 0}}}	
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m5_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_m5_charger" 10}}
+		}}
+		
+		
+		
+	
+	{extender "cannon"
+		{ animation
+
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "cannon_pak40_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" ""}
+			{reload  "" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet100 fg" 800}
+		}
+	}
+	{Weaponry
+		{place "gun"
+		{weapon "100mm_minizini" filling "ammo bullet100 fg" 2}
+             {Barrels 2}
+			 ("abm_field_gun")         
+		}
+	}
+	
+	{bone "basis"
+		{speed2 35}		
+	}
+	{bone "gun_rot"
+		{speed2 20}	
+	}
+	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+	{mass 12800}
+}

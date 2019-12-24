@@ -1,0 +1,58 @@
+{game_entity ; Башня PZ 3j
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "turret_rotator" "vision_cannon_medium" "muzzle_small"}
+
+	{simulation {able 0}}
+
+	{volume "turret"
+		{thickness 45 0.3
+			{front  50}
+			{rear   30}
+			{top    30}
+		}
+	}
+
+	("crew_2_human")
+	{placer	{place "gunner"		{UseVision 0}}}
+	{placer	{place "commander"	{UseVision 0}}}
+	{boarder
+		{anm "gunner"
+			{forward	{end "seat_tankturret_gunner_1" 10}}
+		}
+		{anm "commander"
+			{forward	{end "seat_tankturret_gunner_2" 10}}
+		}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet50ger ap" 400}
+			{item "ammo bullet50ger fg" 400}
+;			{item "ammo bullet50ger apcr" 2}
+			{item "ammo mgun" 50000}
+		}
+	}
+	{Weaponry
+
+		{place "gun"
+			{weapon "50mm_kwk38" filling "ammo bullet50ger ap" 1}
+			("abm_field_gun")
+		}
+		{place "mgun"
+			{weapon "mg34" filled}
+			{basic}
+		}
+
+	}	
+	
+	{mass 10000}
+	{Extension "pz_turret.mdl"}
+	
+	{bone "turret"
+		{speed2 15}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}	
+	
+}

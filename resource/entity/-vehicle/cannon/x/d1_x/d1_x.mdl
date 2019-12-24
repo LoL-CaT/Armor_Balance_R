@@ -1,0 +1,142 @@
+;Exported by: garry
+;Date:        Tue Sep 25 11:30:06 2007
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\Д-1_152мм\D-1_(152m)_01_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Position 0	0	0.789459}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position 4.73332	-0.0716991	8.73751}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.3;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.0912695	16.3904	0.150265
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.3;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.0854177	-16.2263	0.135529
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position -0.292112	0	20.8944}
+				{VolumeView "turret.ply"}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"}}
+					}
+					{Matrix34
+						0.998155	0.0607145	0
+						0	0	1
+						0.0607145	-0.998155	0
+						-1.80935	0.0255491	0.492832
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							0.17186	0.00405884	0.0922966
+						}
+						{VolumeView "gun.ply"}
+					}
+					{bone "bolt"
+						{parameters "ID=gun;"}
+						{Position -10.439	2.35088	4.32276}
+						{VolumeView "bolt.ply"}
+					}
+				}
+				{bone "plate"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.626623	0	-0.779323
+						0.779323	0	0.626623
+						0	-1	0
+						3.8431	-0.0717583	7.67201
+					}
+					{VolumeView "plate.ply"}
+				}
+			}
+			{bone "standl"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.865492	-0.499692	-0.0350897
+					0.5	0.866025	0
+					0.0303886	-0.0175449	0.999384
+					2.03352	7.49548	8.42366
+				}
+				{VolumeView "standl.ply"}
+				{bone "shankl"
+					{Position -55.4821	0	-3.42886}
+					{VolumeView "shankl.ply"}
+				}
+			}
+			{bone "standr"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.864483	0.502141	-0.0229038
+					-0.49806	0.861829	0.0958448
+					0.0678668	-0.0714487	0.995133
+					1.9106	-7.61812	8.61177
+				}
+				{VolumeView "standr.ply"}
+				{bone "shankr"
+					{Position -55.3852	0.627439	-3.57662}
+					{VolumeView "shankr.ply"}
+				}
+			}
+			{bone "pivot_back"
+				{Position -54.7222	-0.0812755	0}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 5.0805 3.63658}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-0.0410171	-0.228433	-0.00338006
+	}
+}
+{Volume "wheelright"
+	{Cylinder 5.99735 3.6847}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-0.041017	-0.228435	0.0431594
+	}
+}

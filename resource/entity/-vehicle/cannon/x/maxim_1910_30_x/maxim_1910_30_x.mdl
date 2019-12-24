@@ -1,0 +1,159 @@
+;Exported by: skr
+;Date:        Mon Feb 11 04:00:38 2013
+;File:        E:\Documents\3dsmax\scenes\7_62_mm_maxim_1910_30\7_62_mm_maxim_1910_30_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "body_b" {speed 0.5}}
+			}
+			{Position -2.8883	-0.0174078	3.31391}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					2.89227	0.011756	-0.338238
+				}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheelright"
+					{parameters "ID=wheelright;Support=1;Radius=0.19;"}
+					{Position 0	0	4.91663}
+					{VolumeView "wheelright.ply"}
+				}
+				{bone revolute "wheelleft"
+					{parameters "ID=wheelleft;Support=1;Radius=0.19;"}
+					{Matrix34
+						1	0	0
+						0	1	0
+						0	0	-1
+						0	0	-4.90676
+					}
+					{VolumeView "wheelleft.ply"}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -30 30}
+				{speed 0.01}
+				{Position -0.0373545	0.0204689	2.37061}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=mgun;"}
+					{limits -10 35}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0.00513077	1.25341	1.95363
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-9.57364	-0.468819	1.25648
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "shield"
+					{parameters "ID=shield;"}
+					{Matrix34
+						0	1	0
+						0	0	1
+						1	0	0
+						0.606234	-0.0122923	5.04811
+					}
+					{VolumeView "shield.ply"}
+				}
+				{bone "ammo_box"
+					{parameters "CommonMesh;ID=ammo_box;"}
+					{Matrix34
+						1.55727e-005	-1	0
+						0	0	1
+						-1	-1.55727e-005	0
+						-0.889462	-8.98209	-2.81457
+					}
+					{VolumeView "ammo_box.ply"}
+					{bone "cover_box"
+						{parameters "ID=ammo_box;"}
+						{Matrix34
+							-0.644952	-0.764223	0
+							0.764223	-0.644952	0
+							0	0	1
+							2.24148	2.22028	0.366643
+						}
+						{VolumeView "cover_box.ply"}
+					}
+					{bone "ammo1"
+						{Matrix34
+							0.9998	-0.0199952	1.55846e-005
+							-0.0199952	-0.9998	0
+							1.5572e-005	0	-1
+							-8.97473	6.6287	1.43678
+						}
+						{VolumeView "ammo1.ply"}
+					}
+					{bone "ammo2"
+						{Matrix34
+							0.011871	-0.99993	0
+							-0.99993	-0.011871	-1.57356e-005
+							1.57384e-005	0	-1
+							-5.42656	4.3283	1.43683
+						}
+						{VolumeView "ammo2.ply"}
+					}
+					{bone "ammo3"
+						{Matrix34
+							-0.611523	0.791226	-1.00136e-005
+							0.791226	0.611523	1.23103e-005
+							1.58638e-005	0	-1
+							-1.81294	2.85529	1.43689
+						}
+						{VolumeView "ammo3.ply"}
+					}
+					{bone "ammo4"
+						{Matrix34
+							0.455643	-0.890162	0
+							-0.890162	-0.455643	-1.58866e-005
+							1.33659e-005	0	-1
+							-6.91915	4.36906	1.43681
+						}
+						{VolumeView "ammo4.ply"}
+					}
+				}
+				{bone "ammo_box01"
+					{parameters "CommonMesh;ID=ammo_box;"}
+					{Matrix34
+						-0.999796	-0.02018	0
+						0	0	1
+						-0.02018	0.999796	0
+						-7.53823	-8.74165	-2.80826
+					}
+					{VolumeView "ammo_box01.ply"}
+				}
+			}
+			{bone "stanina"
+				{parameters "ID=stanina;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					-3.59069	-0.109528	-1.65346
+				}
+				{VolumeView "stanina.ply"}
+			}
+		}
+	}
+}

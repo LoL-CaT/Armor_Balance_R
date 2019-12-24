@@ -1,0 +1,115 @@
+;Exported by: gals
+;Date:        Mon Aug 07 15:45:53 2006
+;File:        D:\-Projects1_5-\-3DWork-\_Cannons\searchlight\searchlight.max
+{Skeleton
+	{bone "body"
+		{parameters "ID=body;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "body.ply"}
+		{bone revolute "turret"
+			{speed 0.004}
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				0	0.33628	3.09784
+			}
+			{VolumeView "turret.ply"}
+			{bone revolute "gun"
+				{parameters "ID=gun;"}
+				{limits -30 80}
+				{speed 0.005}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-0.319763	0.0163727	16.5808
+				}
+				{VolumeView "gun.ply"}
+				{bone "foresight3"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						11.6959	0.010134	-0.0163718
+					}
+				}
+				{bone "lamp_glass1"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						11.2011	0	0
+					}
+					{VolumeView "lamp_glass1.ply"}
+				}
+				{bone "lamp_light_spot1"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						11.8881	0	0
+					}
+					{VolumeView "lamp_light_spot1.ply"}
+				}
+			}
+			{bone "emit"
+				{Matrix34
+					-0.939693	0.34202	0
+					-0.34202	-0.939693	0
+					0	0	1
+					18.145	-14.814	-1.89641
+				}
+			}
+			{bone "gunner"
+				{Matrix34
+					-0.939693	0.34202	0.000406402
+					-0.34202	-0.939692	-0.00127909
+					-5.55847e-005	-0.00134095	0.999999
+					14.0372	-13.0532	-3.09783
+				}
+			}
+			{bone "visor"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-12.0157	0	27.9965
+				}
+			}
+		}
+	}
+}
+{Obstacle "gun"
+	{Obb2
+		{Center 0.0129366 -0.208174}
+		{Extent 11.4286 10.941}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "gun"
+	{Cylinder 11.4286 21.8821}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	-1	0
+		1	0	0
+		-0.191657	0.0173308	-0.0293095
+	}
+}
+{Volume "lamp1"
+	{Cylinder 9.84252 1.9685}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		0	-0.999999	0
+		1	0	0
+		11.1999	0.0173256	-0.0293073
+	}
+}

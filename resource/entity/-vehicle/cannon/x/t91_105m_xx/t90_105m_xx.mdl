@@ -1,0 +1,140 @@
+;Exported by: sasha
+;Date:        Wed Nov 12 14:29:03 2008
+;File:        D:\-Projects-\-3DWork-\-Vehicles-\japan\Type 90\Type 90_105m_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 7.0233	0.253743	7.7322}
+			{VolumeView "body.ply"}
+			{bone "part1"
+				{parameters "ID=body;"}
+				{Position 0.244678	-12.9907	3.85131}
+				{VolumeView "part1.ply"}
+			}
+			{bone "part2"
+				{parameters "ID=body;"}
+				{Position 0.0897112	13.1716	3.93771}
+				{VolumeView "part2.ply"}
+			}
+			{bone revolute "part3"
+				{Position -25.7103	15.7274	-3.22426}
+				{VolumeView "part3.ply"}
+			}
+			{bone revolute "part4"
+				{Position -25.7103	-15.8232	-3.22426}
+				{VolumeView "part4.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Matrix34
+					0.989129	-0.0992929	-0.108463
+					0.0875362	0.990262	-0.108252
+					0.118156	0.0975804	0.988189
+					-2.91623	-0.234628	9.88007
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.978377	-0.0315713	0.204406
+						0.204741	0.00766225	-0.978786
+						0.0293348	0.999472	0.0139607
+						0.45155	0.0784805	-2.47884
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	1	0
+							0	0	1
+							15.6471	0.153241	-0.627262
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position 0	0	0}
+				{VolumeView "pivot_front.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 27.2507 6.25017 5.55015}
+	{Bone "body"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		1.662	-0.771348	-0.0248653
+	}
+}
+{Volume "gun_rot"
+	{Box 13.9501 8.13191 9.07073}
+	{Bone "gun_rot"}
+	{Matrix34
+		0.978376	0.204743	0.0293353
+		0.204403	-0.978786	0.0139631
+		0.0315732	-0.00765955	-0.999473
+		-3.92328	-1.7737	-0.185354
+	}
+}
+{Volume "gun"
+	{Cylinder 1.50464 41.958}
+	{Bone "gun_rot"}
+	{Matrix34
+		-0.0167396	0.114297	-0.993306
+		0.0566061	-0.991743	-0.115068
+		-0.998256	-0.0581615	0.0101379
+		13.0368	-0.394886	0.120877
+	}
+}
+{Volume "part1"
+	{Box 11.9164 4.24918 8.70292}
+	{Bone "part1"}
+	{Matrix34
+		0.962081	0.272762	0
+		-0.272762	0.962081	0
+		0	0	1
+		0	0	0
+	}
+}
+{Volume "part2"
+	{Box 11.3162 4.23095 8.87572}
+	{Bone "part2"}
+	{Matrix34
+		0.864788	-0.228895	-0.446933
+		0.255872	0.966711	0
+		0.432054	-0.114358	0.894568
+		0	0	0
+	}
+}
+{Volume "part3"
+	{Polyhedron "part3.vol"}
+	{Bone "part3"}
+	{Position -0.467649	-0.127125	0.198169}
+}
+{Volume "part4"
+	{Polyhedron "part4.vol"}
+	{Bone "part4"}
+	{Position 0.124643	0.444225	0.426312}
+}
+{Volume "turret"
+	{Box 2.12521 20.2964 24.7223}
+	{Bone "turret"}
+	{Matrix34
+		0.881819	0	0.471588
+		-0.471589	0	0.881818
+		0	-1	0
+		1.47089	0.709468	-0.691286
+	}
+}

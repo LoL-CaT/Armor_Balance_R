@@ -1,0 +1,116 @@
+;Exported by: dementor
+;Date:        Fri Nov 07 10:16:31 2008
+;File:        D:\ASL7000\-Model-\-Cannon\japmin\exporter_t4_200_1xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 10.3151	0.0057523	3.2115}
+			{VolumeView "body.ply"}
+			{bone "gun"
+				{parameters "ID=gun;"}
+				{animation
+					{sequence "repair" {file "gun_r.anm"}}
+				}
+				{Matrix34
+					0.852195	0	-0.523224
+					0.523224	0	0.852195
+					0	-1	0
+					-0.00128841	0	1.58331
+				}
+				{VolumeView "gun.ply"}
+				{bone "mount"
+					{Matrix34
+						0.850613	0.525792	0
+						-0.525792	0.850613	0
+						0	0	1
+						-21.9149	0.871983	-0.934641
+					}
+					{VolumeView "mount.ply"}
+					{bone "stand"
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							0.0659356	-4.15366	0.952624
+						}
+						{VolumeView "stand.ply"}
+						{bone revolute "standr"
+							{Matrix34
+								0	0	-1
+								0	-1	0
+								-1	0	0
+								0.0247788	2.00124	0.0284891
+							}
+							{VolumeView "standr.ply"}
+						}
+					}
+				}
+				{bone "gun_rot"
+					{Matrix34
+						-0.999972	-0.00748831	0
+						-0.00748831	0.999972	0
+						0	0	-1
+						-12.8564	-4.73213	13.3485
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone revolute "wheell"
+						{parameters "ID=wheelleft;Radius=0.4;"}
+						{Matrix34
+							-1	0	0
+							0	-1	0
+							0	0	1
+							-0.0224285	0.00191593	-1.73619
+						}
+						{VolumeView "wheell.ply"}
+					}
+					{bone "stam"
+						{parameters "ID=body;"}
+						{Matrix34
+							0.997126	0.0757616	0
+							-0.0757616	0.997126	0
+							0	0	1
+							0	0	0
+						}
+						{VolumeView "stam.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 16.0415 4.98311 13.1291}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		0.0356808	0.0696052	-1.02675
+	}
+}
+{Volume "gun"
+	{Cylinder 3.06919 41.4908}
+	{Bone "gun"}
+	{Matrix34
+		0	0	1
+		-0.0186168	0.999827	0
+		-0.999827	-0.0186168	0
+		-14.1876	4.22371	0.019421
+	}
+}
+{Volume "wheell"
+	{Cylinder 6.71019 3.22878}
+	{Bone "wheell"}
+	{Matrix34
+		-0.996194	0.0871556	0
+		-0.0871556	-0.996194	0
+		0	0	0.999999
+		-0.01826	-0.0477466	0.145545
+	}
+}

@@ -1,0 +1,110 @@
+;Exported by: skr
+;Date:        Sat Sep 07 16:53:07 2013
+;File:        D:\Documents\3dsmax\scenes\25 mm Type 96 Single\Type_96_Single_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Orientation
+				1	0	0
+				0	0	1
+				0	-1	0
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -180 180}
+				{speed 0.005}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0	18.8245	0
+				}
+				{VolumeView "turret.ply"}
+			}
+		}
+		{bone revolute "part1"
+			{parameters "ID=gun;"}
+			{limits -10 80}
+			{speed 0.008}
+			{Matrix34
+				1	0	0
+				0	-0.998135	-0.0610485
+				0	0.0610485	-0.998135
+				33.408	3.87363	4.44315
+			}
+			{VolumeView "part1.ply"}
+		}
+	}
+}
+{Volume "body1"
+	{Box 30.4475 3.24011 30.728}
+	{Bone "body"}
+	{Position 0.168468	1.57162	-0.281945}
+}
+{Volume "body2"
+	{Cylinder 9.39516 43.5212}
+	{Bone "body"}
+	{Matrix34
+		0.380068	0	0
+		0	0	-0.380068
+		0	0.380068	0
+		0.0461913	11.3385	-0.177367
+	}
+}
+{Volume "gun1"
+	{Box 41.4209 12.6005 13.2714}
+	{Bone "part1"}
+	{Matrix34
+		0.380068	0	0
+		0	0.380068	0
+		0	0	0.380068
+		-3.1608	-0.283353	3.75497
+	}
+}
+{Volume "gun2"
+	{Box 15.4155 18.3628 5.41697}
+	{Bone "part1"}
+	{Matrix34
+		0.380068	0	0
+		0	0.380068	0
+		0	0	0.380068
+		-0.879387	5.50153	3.7845
+	}
+}
+{Volume "gun3"
+	{Cylinder 3.70759 74.6394}
+	{Bone "part1"}
+	{Matrix34
+		0	0	-0.380068
+		0	0.380068	0
+		0.380068	0	0
+		18.7947	0.698703	3.7995
+	}
+}
+{Volume "turret1"
+	{Box 3.08311 18.6327 20.7327}
+	{Bone "turret"}
+	{Matrix34
+		0	0.380068	0
+		0	0	0.380068
+		0.380068	0	0
+		-2.73702	-2.77662	4.29505
+	}
+}
+{Volume "turret2"
+	{Box 3.08311 18.6327 20.7327}
+	{Bone "turret"}
+	{Matrix34
+		0	0.380068	0
+		0	0	0.380068
+		0.380068	0	0
+		-2.73702	3.05814	4.29504
+	}
+}

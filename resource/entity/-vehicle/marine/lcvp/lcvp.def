@@ -1,0 +1,101 @@
+{game_entity
+	(include "/properties/marine.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.5))
+	{mass 15000}
+	{props "vehicle" "marine" "emit_on_sink" "open_with_land" "explosion_throw_crew" "car"  }
+ 	{targetSelector "tank_bullet"}
+	{patherid "shallow_water_0"}
+
+	{extension "lcvp.mdl"}
+	{extension "crew.ext"}
+
+	{Volume "ballast1"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast2"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast3"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast4"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{volume "body_rear"
+		{tags "body"}
+		{thickness 50}
+	}
+	{Volume "body_B"
+		{tags "body"}
+		{thickness 50}
+		{able {touch 0}}
+	}
+	{Volume "body_L"
+		{tags "body"}
+		{thickness 50}
+		{able {touch 0}}
+	}
+	{Volume "body_R"
+		{tags "body"}
+		{thickness 50}
+		{able {touch 0}}
+	}
+	{Volume "door"
+		{tags "body"}
+		{thickness 50}
+		{able {touch 0}}
+	}
+
+	{component "body_front"} ;to _x view
+	{component "body_rear"}
+
+	{extender "inventory"
+		{box
+			{size 5 6}
+			{item  "ammo hmgun" 600}
+		}
+	}
+	{Weaponry
+		{place "mgun1"
+			{LinkBone "mgun1"}
+			{LinkAnimation "off"}
+			{weapon "browning" filled}
+			{gunner "gunner1"}
+			{charger "gunner1"}
+			{foresight "foresight4"}
+			{basic}
+		}
+		{place "mgun2"
+			{LinkBone "mgun2"}
+			{LinkAnimation "off"}
+			{weapon "browning" filled}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{foresight "foresight5"}
+			{basic}
+		}
+	}
+	
+	{extender "enumerator"
+	}
+
+	{Extender "land_patch"
+		{on 0}
+		{updateEntities 0}
+		{noNormals}
+	}
+
+	{chassis
+		{Locomotion ("locomotion")
+			{TurnRadius	4}
+			{MaxSpeed	18	}		; максимальная скорость, kmph
+			{StartTime	18	}		; время разгона до макс. скорости с 0, seconds
+			{BrakeTime	6	}		; время торможения с макс. скорости до 0, seconds
+			{TurnTime		45} ; время на разворот на 360 градусов при макс. скорости разворота, seconds
+		}
+	}
+}

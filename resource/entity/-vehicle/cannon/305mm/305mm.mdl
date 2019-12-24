@@ -1,0 +1,175 @@
+;Exported by: butyvsky
+;Date:        Wed Nov 14 16:18:52 2007
+;File:        D:\-Projects-\-3D Work-\canon\305mm\305mm_.max
+{Skeleton
+	{animation
+		{sequence "fire00"}
+		{sequence "fire01"}
+		{sequence "fire02"}
+	}
+	{bone revolute "basis"
+		{speed 0.001}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "turret"
+			{parameters "ID=turret;"}
+			{Position 1.29858	0.498436	22.8293}
+			{VolumeView "turret.ply"}
+			{bone "visor"
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	1
+					102.004	1.82471	16.5312
+				}
+			}
+			{bone "gunner"
+				{Matrix34
+					-1	0	0
+					0	-1	0
+					0	0	1
+					-66.0404	-24.928	-18.9994
+				}
+			}
+			{bone revolute "gun_rot"
+				{limits -8 25}
+				{speed 0.005}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					84.8756	-4.66731	-12.738
+				}
+				{bone "foresight1"
+					{Matrix34
+						0.999962	-0.00586104	-0.00638383
+						0.00647421	0.0155343	0.999858
+						0.00576105	0.999862	-0.0155714
+						216.462	0.0154257	-6.09131
+					}
+				}
+				{bone "gun1"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-17.0821	4.55224	-50.0986
+					}
+					{VolumeView "gun1.ply"}
+					{bone "shooter00"
+						{Matrix34
+							0.99996	0.00766037	-0.00458507
+							0.00773076	-0.999849	0.0155446
+							0.0044653	0.0155795	0.999869
+							223.713	-0.00798416	0.17952
+						}
+					}
+				}
+				{bone "gun2"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-17.0821	4.55224	-6.53079
+					}
+					{VolumeView "gun2.ply"}
+					{bone "shooter01"
+						{Matrix34
+							0.99996	0.00766036	-0.00458522
+							0.00773079	-0.999849	0.0155444
+							0.00446546	0.0155793	0.999869
+							223.699	-0.484374	0.195898
+						}
+					}
+				}
+				{bone "gun3"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-17.0821	4.55223	39.0508
+					}
+					{VolumeView "gun3.ply"}
+					{bone "shooter02"
+						{Matrix34
+							0.99996	0.00766036	-0.00458522
+							0.00773079	-0.999849	0.0155444
+							0.00446546	0.0155793	0.999869
+							223.699	-0.0310669	0.195898
+						}
+					}
+				}
+			}
+		}
+		{bone "commander"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-63.6255	24.4904	1.45219
+			}
+		}
+		{bone "emit1"
+			{Position -113.726	-39.6358	1.45219}
+			{visibility 0}
+		}
+		{bone "emit2"
+			{Position -112.445	42.443	1.45219}
+			{visibility 0}
+		}
+	}
+}
+{Obstacle "obstacle"
+	{Obb2
+		{Center 3.37326 -0.791977}
+		{Extent 103.864 106.455}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "gun1"
+	{Cylinder 5.38482 226.19}
+	{Bone "gun1"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		107.481	0.00433639	3.8928e-005
+	}
+}
+{Volume "gun2"
+	{Cylinder 5.38482 226.19}
+	{Bone "gun2"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		109.749	0	0.000118926
+	}
+}
+{Volume "gun3"
+	{Cylinder 5.38482 226.19}
+	{Bone "gun3"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		109.832	0	0.000117972
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		4.67288	-0.585106	-18.9994
+	}
+}

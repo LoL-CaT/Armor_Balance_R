@@ -1,0 +1,115 @@
+;Exported by: Sergey
+;Date:        Tue Sep 25 19:28:24 2012
+;File:        D:\Documents\3dsmax\scenes\Solothurn S18-1000\Solothurn S18-1000_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				-0.0270497	0	-0.999634
+				0	1	0
+				0.999634	0	-0.0270497
+				0.0157753	0.00336691	-0.326227
+			}
+			{VolumeView "body.ply"}
+			{bone "support2"
+				{parameters "ID=support2;"}
+				{Matrix34
+					1	0	0
+					0	0.368442	0.929651
+					0	-0.929651	0.368442
+					-0.00391176	-0.888523	-0.201289
+				}
+				{VolumeView "support2.ply"}
+				{bone "support21"
+					{parameters "ID=support2;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0	-3.20102	0.00637573
+					}
+					{VolumeView "support21.ply"}
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -20 20}
+				{speed 0.01}
+				{Position 0	0	-0.31015}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -5 15}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						0	0	1.54781
+					}
+					{VolumeView "gun_rot.ply"}
+				}
+			}
+		}
+		{bone "magazin"
+			{parameters "ID=magazin;"}
+			{Position -0.47635	8.52809	0.709818}
+			{VolumeView "magazin.ply"}
+		}
+		{bone "gun"
+			{parameters "ID=gun;"}
+			{Matrix34
+				1	0	0
+				0	-0.00595785	0.999982
+				0	-0.999982	-0.00595785
+				-0.476351	21.5624	0.0438728
+			}
+			{VolumeView "gun.ply"}
+			{bone "zatvor"
+				{parameters "ID=zatvor;"}
+				{VolumeView "zatvor.ply"}
+			}
+		}
+	}
+}
+{Volume "gun"
+	{Cylinder 1.02308 27.1654}
+	{Bone "gun"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		10.2167	-0.0219819	-0.0453819
+	}
+}
+{Volume "magazin"
+	{Box 7.30563 7.00402 1.54155}
+	{Bone "magazin"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		-10.0621	4.31149	-0.148349
+	}
+}
+{Volume "support2"
+	{Cylinder 0.393701 6.88976}
+	{Bone "support2"}
+	{Matrix34
+		1	0	0
+		0	0.0157405	0.999876
+		0	0.999876	-0.0157406
+		0.028963	-3.21356	0.0362882
+	}
+}
+{Volume "zatvor"
+	{Box 16.4209 3.6193 6.88976}
+	{Bone "zatvor"}
+	{Position -11.3386	-0.0104532	-0.55232}
+}

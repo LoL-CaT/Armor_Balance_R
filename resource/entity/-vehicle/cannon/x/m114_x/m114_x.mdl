@@ -1,0 +1,150 @@
+;Exported by: sergienko
+;Date:        Sat Aug 05 15:04:14 2006
+;File:        D:\-projets1_5\3dwork\anima\vehicle\M114\m114_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.8}}
+			}
+			{Position 0.161062	-0.0236884	10.2887}
+			{VolumeView "body.ply"}
+			{bone "standr"
+				{parameters "ID=body;"}
+				{Position -4.2415	-8.43877	-0.148945}
+				{VolumeView "standr.ply"}
+			}
+			{bone "standl"
+				{Position -4.14566	8.34686	-0.366554}
+				{VolumeView "standl.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position -0.174065	0.0171741	3.89218}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.5}}
+					}
+					{Matrix34
+						0.946347	0	0.323152
+						-0.323152	0	0.946347
+						0	-1	0
+						-13.5833	-0.0171707	14.0263
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							26.803	1.97026	-0.0297425
+						}
+						{VolumeView "gun.ply"}
+					}
+					{bone "spring_1l"
+						{Position 28.1713	-2.75005	-4.82296}
+						{VolumeView "spring_1l.ply"}
+					}
+					{bone "spring_1r"
+						{Position 28.1735	-2.75005	4.81498}
+						{VolumeView "spring_1r.ply"}
+					}
+					{bone "spring_2l"
+						{Matrix34
+							0.969939	-0.243349	0
+							0.243349	0.969939	0
+							0	0	1
+							0.929304	3.75718	-4.82169
+						}
+						{VolumeView "spring_2l.ply"}
+					}
+					{bone "spring_2r"
+						{Matrix34
+							0.969272	-0.24599	0
+							0.24599	0.969272	0
+							0	0	1
+							0.931486	3.75718	4.81624
+						}
+						{VolumeView "spring_2r.ply"}
+					}
+					{bone "spring_3r"
+						{Position -0.129762	2.68445	4.75978}
+						{VolumeView "spring_3r.ply"}
+					}
+					{bone "spring_3l"
+						{Position -0.123983	2.68174	-4.74618}
+						{VolumeView "spring_3l.ply"}
+					}
+				}
+				{bone "shield_right"
+					{parameters "ID=shield_right;"}
+					{animation
+						{sequence "break" {file "shield_right_b.anm"}}
+					}
+					{Position 3.45243	-11.0678	10.643}
+					{VolumeView "shield_right.ply"}
+				}
+				{bone "shield_left"
+					{parameters "ID=shield_left;"}
+					{animation
+						{sequence "break" {file "shield_left_b.anm"}}
+					}
+					{Position 1.76091	11.0334	10.643}
+					{VolumeView "shield_left.ply"}
+				}
+			}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;Support=1;Radius=0.4;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-0.106728	19.7441	0.26729
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;Support=1;Radius=0.4;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-0.106725	-19.7441	0.26729
+				}
+				{VolumeView "wheelr.ply"}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 7.87402 7.10478}
+	{Bone "wheell"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		0	0	-0.0940626
+	}
+}
+{Volume "wheelright"
+	{Cylinder 7.88178 7.10478}
+	{Bone "wheelr"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		0	0	0.1089
+	}
+}

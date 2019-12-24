@@ -1,0 +1,129 @@
+;Exported by: sergienko
+;Date:        Thu May 24 15:55:28 2007
+;File:        D:\-projets1_5\3dwork\anima\gun\maxim\maxim_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				1.24674	-0.0131152	3.10591
+			}
+			{VolumeView "body.ply"}
+			{bone "pivot_back"
+				{Position -15.4835	-0.00348195	-2.95809}
+			}
+			{bone "pivot_front"
+				{Position 3.21958	-0.00348195	-2.95809}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Matrix34
+					0.766044	0.642788	0
+					-0.642788	0.766044	0
+					0	0	1
+					-0.698446	0.0601289	2.1456
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{limits -20 20}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.242714	0	2.13589
+					}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0.484809	0.87462	0
+							0	0	1
+							0.87462	-0.48481	0
+							0.016753	-0.338313	-0.0559833
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone revolute "part2"
+				{Matrix34
+					-1	0	0
+					0	0	-1
+					0	-1	0
+					3.34462	5.33696	0.264253
+				}
+				{VolumeView "part2.ply"}
+			}
+			{bone revolute "part1"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					3.34432	-5.15882	0.267411
+				}
+				{VolumeView "part1.ply"}
+			}
+			{bone "part3"
+				{Position -10.6324	0.0890335	-1.94409}
+				{VolumeView "part3.ply"}
+			}
+			{bone "part4"
+				{Matrix34
+					0.669998	0.562195	0.48481
+					-0.642787	0.766045	0
+					-0.371386	-0.31163	0.87462
+					0.0358647	0.499088	4.62501
+				}
+				{VolumeView "part4.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 8.72248 7.4805 2.55633}
+	{Bone "body"}
+	{Matrix34
+		0.93358	0	0.358368
+		0	1	0
+		-0.358368	0	0.93358
+		0.225608	0	0.463273
+	}
+}
+{Volume "gun"
+	{Cylinder 1.37499 25.105}
+	{Bone "gun"}
+	{Position -1.85826	0.0958459	1.77654}
+}
+{Volume "part1"
+	{Cylinder 3.60555 0.962156}
+	{Bone "part1"}
+	{Position 0.000115991	-4.673e-005	-0.00244069}
+}
+{Volume "part2"
+	{Cylinder 3.60555 0.97085}
+	{Bone "part2"}
+	{Position -0.000116467	4.673e-005	-0.00160575}
+}
+{Volume "part3"
+	{Box 14.9138 5.99983 1.55739}
+	{Bone "part3"}
+	{Matrix34
+		0.996195	0	0.0871557
+		0	1	0
+		-0.0871557	0	0.996195
+		0.0452462	0	0.703248
+	}
+}
+{Volume "part4"
+	{Box 0.595725 11.4464 9.20693}
+	{Bone "part4"}
+	{Position 0.301072	0.00122062	2.99859}
+}

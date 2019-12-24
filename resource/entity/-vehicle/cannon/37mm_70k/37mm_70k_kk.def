@@ -1,0 +1,81 @@
+﻿{game_entity ; Корабельный автомат
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "barrel1" "turret" "turret_rotator" "vision_cannon_minimum" "muzzle_minimum"}
+        {targetSelector "cannon_shell_flak"}
+
+	("armor_light" args 1.1)
+
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}
+
+	{Volume "body"
+		{thickness 10}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "turret"
+		{thickness 10}
+	}
+	{Volume "turret1"
+		{thickness 10}
+	}
+	{Volume "gun"
+		{thickness 10}
+	}
+
+	("crew_2_human")
+
+	{Boarder	
+		{anm "gunner"
+			{forward	{end "pose_61K_gunlayer_left" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_61K_gunlayer_right" 10}}
+		}
+
+		{place "gunner"}
+		{place "commander"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "gunner"}
+		{link "emit2" "commander"}
+
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet37_61k ap" 2000}
+			{item "bullet37_61k fg" 2000}			
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "37mm_70-k" filling "ammo bullet37_61k fg" 5}
+			("abm_zenite")
+		}
+	}  	
+
+	{extender "cannon"
+		{animation
+			{aim "Cannon_61K_gunlayer_left" "Cannon_61K_gunlayer_right"}
+;			{fire	"" ""}
+;			{reload  "" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+	
+	
+	{mass 1350}
+	{Extension "37mm_70k.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{bone "turret"
+		{limits -130 130}	
+		{speed2 35}
+	}	
+	{bone "gun_rot"
+		{speed2 20}
+	}	
+}

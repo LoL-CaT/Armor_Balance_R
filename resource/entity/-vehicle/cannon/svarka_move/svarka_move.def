@@ -1,0 +1,49 @@
+{game_entity ; Сварочный аппарат для сюжетки
+	(include "/properties/cannon_mgun.ext")
+	{props "wheeled" "turret"}
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	{Extension "svarka_move.mdl"}
+	{PatherId "cannon.micro"}
+
+	{extender "cannon"
+		{animation
+			{move "cannon_maxim_move" ""}
+			{reload "" "cannon_kpvt_charger"}
+		}
+		{move {workers "driver"} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+	}
+	{Chassis "track"
+;		("car_trace" fx("tracewheel05") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+
+
+	("crew_inside")
+	("crew_human" place(driver) bone(driver)	door(emit1) animation(driver))
+	("crew_human" place(gunner)	bone(gunner)	door(emit1) animation(gunner))
+	{placer
+		{place "gunner" {UseVision 0}}
+		{place "commander" remove}
+		{place "driver1" remove}
+		{place "driver2" remove}
+	}
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_stand_empty_1" 10}}
+		}
+		{anm "driver"
+			{forward {end "pose_maxim_driver" -10}}
+		}
+		{link "driver" "gunner"}
+	}
+
+	{Volume "body"
+		{tags "body"}
+		{able{obstacle 0}{blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+}

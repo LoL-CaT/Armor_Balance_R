@@ -1,0 +1,118 @@
+{game_entity
+	(include "/properties/marine.ext")
+	(include "/properties/selection/vehicle_elongate.inc" scalex(1.8) scaley(1.0))
+	{lodclass "vehicle_large"}
+	{Extension "afp.mdl"}
+	{mass 400000}
+	{props "vehicle" "marine" "flag" "emit_on_sink" "explosion_throw_crew" "boat" "big" "cabin"}
+
+	{extension "crew.ext"}
+
+	("armor_medium" args 1)
+
+	{Volume "ballast1"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast2"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast3"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast4"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{volume "body_front"
+		{tags "body"}
+		{able {touch 0}}
+		{thickness 20}
+	}
+	{volume "body"
+		{tags "body"}
+		{able {touch 0}}
+		{thickness 20}
+	}
+	{volume "body1"
+		{tags "body"}
+		{able {touch 0}}
+		{thickness 20}
+	}
+	{volume "body2"
+		{tags "body"}
+		{able {touch 0}}
+		{thickness 20}
+	}
+	{volume "body_rear"
+		{tags "body"}
+		{able {touch 0}}
+		{thickness 20}
+	}
+	{volume "cabin"
+		{thickness hollow 10}
+	}
+	{Volume "body1_1"
+		{thickness 10}
+	}
+	{Volume "body1_2"
+		{thickness 10}
+	}
+	{Volume "body1_3"
+		{thickness 10}
+	}
+	{Volume "body1_4"
+		{thickness 10}
+	}
+	{Volume "body1_5"
+		{thickness 10}
+	}
+	{Volume "body_rear1"
+		{thickness 10}
+	}
+	{Volume "body_rear2"
+		{thickness 10}
+	}
+	{Volume "body_rear3"
+		{thickness 10}
+	}
+	{Volume "cabin1"
+		{thickness 10}
+	}
+	{Volume "cabin2"
+		{thickness 10}
+	}
+	{Volume "cabin3"
+		{thickness 10}
+	}
+	{Volume "cabin4"
+		{thickness 10}
+	}
+	{Volume "cabin5"
+		{thickness 10}
+	}
+	
+	{component "body_front"} ;to _x view
+	{component "body_rear"}
+	{component "body"}
+	{component "cabin"
+		{RepairTime 15}
+	}
+
+	{patherID "water"}
+;	{Sensor
+;		{Visor "main"
+;			{bone	 "foresight1"}
+;		}
+;	}
+	{chassis
+		{Locomotion ("locomotion")
+			{TurnRadius	20}
+			{MaxSpeed	8}
+			{StartTime	15}	
+		}
+	}
+
+}

@@ -1,0 +1,48 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "flak" "vision_cannon_minimum"  "muzzle_zenite" "round_sandbag4"}		
+        {targetSelector "cannon_shell_flak"}
+
+	("armor_light")
+
+	{placer	{place "gunner" {UseVision 0}}}	
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_2_human")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_flak38-1_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38_charger_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet20x138b_ita zenite" 200}
+			{item "bullet20x138b_ita ap" 200}
+			{item "bullet20x138b_ita fg" 200}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_Scotti" filling "ammo bullet20x138b_ita zenite" 12}
+		}
+	}  	
+	{mass 502}
+	{Extension "20mmScotti.mdl"}
+	
+	{bone "turret"
+		{speed2 35}		
+	}	
+	{bone "gun_rot"
+	    {limits -10 85}
+	    {speed2 20}
+	}
+	
+}

@@ -1,0 +1,42 @@
+;Exported by: Luzhbin_M
+;Date:        Fri Mar 06 16:53:13 2009
+;File:        D:\Black\Art\Models\Technics\Корабельные Орудия\130mm_55\130mm-55_x\130-55_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -1.07721	0.249457	1.26726}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{Position -1.23033	0.116839	2.46316}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "repair" {file "gunrot_r.anm"} {speed 0.3}}
+					}
+					{limits -30 5}
+					{speed 0.008}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-2.43299	-0.0636552	27.8781
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=GUN;"}
+						{Position 22.2819	-1.10692	-1.79382}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}

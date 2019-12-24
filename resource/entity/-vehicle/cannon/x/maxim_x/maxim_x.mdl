@@ -1,0 +1,100 @@
+;Exported by: sergienko
+;Date:        Thu May 24 12:44:35 2007
+;File:        D:\-projets1_5\3dwork\anima\gun\maxim\maxim_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				1.24674	-0.0131152	3.10591
+			}
+			{VolumeView "body.ply"}
+			{bone "pivot_back"
+				{Position -15.4835	-0.00348195	-2.95809}
+			}
+			{bone "pivot_front"
+				{Position 3.21958	-0.00348195	-2.95809}
+			}
+			{bone "support1"
+				{Position -15.9794	3.19159	-2.95809}
+			}
+			{bone "support2"
+				{Position -15.9794	-2.96226	-2.95809}
+			}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position -0.698446	0.0601289	2.1456}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{limits -20 20}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0.242714	0	2.13589
+					}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	1	0
+							0	0	1
+							1	0	0
+							0.0167513	-0.338312	-0.0559821
+						}
+						{VolumeView "gun.ply"}
+						{bone "shield"
+							{parameters "ID=shield;"}
+							{Matrix34
+								0	0	1
+								0	1	0
+								-1	0	0
+								0.279157	-0.0797598	0.514359
+							}
+							{VolumeView "shield.ply"}
+						}
+					}
+				}
+			}
+			{bone revolute "wheelleft"
+				{parameters "ID=wheelleft;Support=1;Radius=0.19;"}
+				{Matrix34
+					-1	0	0
+					0	0	-1
+					0	-1	0
+					3.34462	5.33696	0.264254
+				}
+				{VolumeView "wheelleft.ply"}
+			}
+			{bone revolute "wheelright"
+				{parameters "ID=wheelright;Support=1;Radius=0.19;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					3.34432	-5.15882	0.267411
+				}
+				{VolumeView "wheelright.ply"}
+			}
+			{bone "stan"
+				{parameters "ID=stan;"}
+				{Position -10.6324	0.0890335	-1.94409}
+				{VolumeView "stan.ply"}
+			}
+		}
+	}
+}

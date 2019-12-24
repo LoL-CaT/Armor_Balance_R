@@ -1,0 +1,222 @@
+;SDL
+
+{Placer
+	{place "driver"
+		{Group "crew"}
+		{LinkBone "driver"}
+		{turnoff {sensor} {shadow}}
+	}
+	{place "gunner"
+		{Group "crew"}
+		{LinkBone "gunner"}
+		{turnoff {sensor} {shadow}}
+	}	
+	{place "gun1"
+		{entity "flak38"}
+		{Linkbone "attach_gun1"}
+		{obstacle disable}
+	}
+	{place "gun2"
+		{entity "flak41_platform_1"}
+		{Linkbone "attach_gun2"}
+		{obstacle disable}
+	}
+	{place "gun3"
+		{entity "37mm_m42_1"}
+		{Linkbone "attach_gun3"}
+		{obstacle disable}
+	}
+	{place "gun4"
+		{entity "flak41_platform_1"}
+		{Linkbone "attach_gun4"}
+		{obstacle disable}
+	}
+	{place "gun5"
+		{entity "flak38"}
+		{Linkbone "attach_gun5"}
+		{obstacle disable}
+	}
+	{place "gun6"
+		{entity "20mm_mg_c30_1"}
+		{Linkbone "attach_gun6"}
+		{obstacle disable}
+	}
+	{place "gun7"
+		{entity "20mm_mg_c30_1"}
+		{Linkbone "attach_gun7"}
+		{obstacle disable}
+	}
+}
+
+
+(define "define_place"
+	{placer
+		{place "%place" {linkbone "%place"} {attach squat_lie} {turnoff {shadow}}}
+	}
+	{Volume "%place"
+		{tags "attach" "attach_%place"}
+		{able clear {bullet 0} {touch 1}}
+	}
+)
+
+("define_place" place(place1))
+("define_place" place(place2))
+("define_place" place(place3))
+("define_place" place(place4))
+("define_place" place(place5))
+("define_place" place(place6))
+("define_place" place(place7))
+("define_place" place(place8))
+("define_place" place(place9))
+("define_place" place(place10))
+("define_place" place(place11))
+("define_place" place(place12))
+("define_place" place(place13))
+("define_place" place(place14))
+("define_place" place(place15))
+("define_place" place(place16))
+("define_place" place(place17))
+("define_place" place(place18))
+("define_place" place(place19))
+("define_place" place(place20))
+("define_place" place(place21))
+("define_place" place(place22))
+("define_place" place(place23))
+("define_place" place(place24))
+
+
+
+{boarder
+;	{door "emitx"}
+	{door "emitx1"}
+	{door "emitx2"}
+	{door "emitx3"}
+	{door "emitx4"}
+	{door "emitx5"}
+	{door "emitx6"}
+	{door "emitx7"}
+	{door "emitx8"}
+	{door "emitx9"}
+	{door "emitx10"}
+	{door "emitx11"}
+	{door "emitx12"}
+
+
+	{node "node_l1"}
+	{node "node_l2"}
+	{node "node_l3"}
+	{node "node_l4"}
+	{node "node_l5"}
+	{node "node_l6"}
+
+	{node "node_r1"}
+	{node "node_r2"}
+	{node "node_r3"}
+	{node "node_r4"}
+	{node "node_r5"}
+	{node "node_r6"}
+
+	(define "climb"
+		{anm "climb%0"
+			{forward	{begin	"board_torpedo_boat"} {base "rope%0"}}
+			{reverse 	{begin	"emit_Bk1124"}} ;emit_torpedo_boat
+		}
+	)
+	("climb" args 1)
+	("climb" args 2)
+	("climb" args 3)
+	("climb" args 4)
+	{anm "seat" {forward {end "seat_passenger"}}}
+
+;	{anm "walk"
+;		{forward {speed 3} {loop "run_strap" +3}}
+;		{reverse {speed 3} {loop "run_strap" +3}}
+;	}
+
+
+	{link "emitx1"	"node_l1"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx2"	"node_l2"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx3"	"node_l3"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx4"	"node_l4"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx5"	"node_l5"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx6"	"node_l6"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx7"	"node_r1"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx8"	"node_r2"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx9"	"node_r3"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx10"	"node_r4"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx11"	"node_r5"	{anm "climb1"} {forward putoff} {reverse puton}}
+	{link "emitx12"	"node_r6"	{anm "climb1"} {forward putoff} {reverse puton}}
+
+
+	{link "node_l1"	"place1"	} ;{anm "walk"}
+	{link "place1"	"place2"	} ;{anm "walk"}
+	{link "place2"	"node_l1"	} ;{anm "walk"}
+	{link "node_l1"	"place3"	} ;{anm "walk"}
+	{link "place3"	"place4"	} ;{anm "walk"}
+	{link "place4"	"node_l2"	} ;{anm "walk"}
+	{link "node_l2"	"place5"	} ;{anm "walk"}
+	{link "place5"	"node_l2"	} ;{anm "walk"}
+	{link "node_l3"	"place6"	} ;{anm "walk"}
+	{link "place6"	"place7"	} ;{anm "walk"}
+	{link "node_l4"	"place7"	} ;{anm "walk"}
+	{link "place7"	"place8"	} ;{anm "walk"}
+	{link "place8"	"node_l4"	} ;{anm "walk"}
+	{link "node_l5"	"place9"	} ;{anm "walk"}
+	{link "place9"	"place10"	} ;{anm "walk"}
+	{link "place10"	"node_l5"	} ;{anm "walk"}
+	{link "node_l6"	"place11"	} ;{anm "walk"}
+	{link "place12"	"node_l6"	} ;{anm "walk"}
+	{link "node_l6"	"place12"	} ;{anm "walk"}
+	{link "node_r1"	"place13"	} ;{anm "walk"}
+	{link "place13"	"place14"	} ;{anm "walk"}
+	{link "place14"	"node_r1"	} ;{anm "walk"}
+	{link "node_r1"	"place15"	} ;{anm "walk"}
+	{link "place15"	"place16"	} ;{anm "walk"}
+	{link "place16"	"node_r2"	} ;{anm "walk"}
+	{link "node_r2"	"place17"	} ;{anm "walk"}
+	{link "place17"	"node_r2"	} ;{anm "walk"}
+	{link "node_r3"	"place18"	} ;{anm "walk"}
+	{link "place18"	"place19"	} ;{anm "walk"}
+	{link "node_r4"	"place19"	} ;{anm "walk"}
+	{link "place19"	"place20"	} ;{anm "walk"}
+	{link "place20"	"node_r4"	} ;{anm "walk"}
+	{link "node_r5"	"place21"	} ;{anm "walk"}
+	{link "place21"	"place22"	} ;{anm "walk"}
+	{link "place22"	"node_r5"	} ;{anm "walk"}
+	{link "node_r5"	"place22"	} ;{anm "walk"}
+	{link "node_r6"	"place23"	} ;{anm "walk"}
+	{link "place23"	"place24"	} ;{anm "walk"}
+	{link "place24"	"node_r6"	} ;{anm "walk"}
+	{link "node_r6"	"place24"	} ;{anm "walk"}
+	{link "node_r1"	"node_l1"	} ;{anm "walk"}
+
+
+
+	{link "node_r4" "driver" {anm "seat"}}
+	{link "node_l4" "driver" {anm "seat"}}
+
+	{link "node_r4" "gunner" {anm "seat"}}
+	{link "node_l4" "gunner" {anm "seat"}}
+	                                          
+	{link "node_r2"	"gun1"} ;{anm "walk"}
+	{link "node_l2" "gun1"} ;{anm "walk"}
+
+	{link "node_r3"	"gun2"} ;{anm "walk"}
+	{link "node_l3" "gun2"} ;{anm "walk"}
+
+	{link "node_r3"	"gun3"} ;{anm "walk"}
+	{link "node_l3" "gun3"} ;{anm "walk"}
+	                                          
+	{link "node_r5"	"gun4"} ;{anm "walk"}
+	{link "node_l5" "gun4"} ;{anm "walk"}
+
+	{link "node_r6"	"gun5"} ;{anm "walk"}
+	{link "node_l6" "gun5"} ;{anm "walk"}
+
+	{link "node_r5"	"gun6"} ;{anm "walk"}
+	{link "node_l4" "gun6"} ;{anm "walk"}
+
+	{link "node_r5"	"gun7"} ;{anm "walk"}
+	{link "node_l4" "gun7"} ;{anm "walk"}
+
+}

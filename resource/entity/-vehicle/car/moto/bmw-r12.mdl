@@ -1,0 +1,221 @@
+;Exported by: sk
+;Date:        Wed Dec 21 15:44:00 2005
+;File:        D:\-Projects1_5-\-3DWork-\-Model-\Germany\Moto\BMW-R12.max
+{Skeleton
+	{animation
+		{sequence "start"}
+		{sequence "stop"}
+	}
+	{bone "basis"
+		{parameters "SteerMax=30;WheelRadius=0.35;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-4.93939	0.689838	11.0629
+			}
+			{VolumeView "body.ply"}
+			{bone "driver"
+				{Matrix34
+					-0.994583	-0.103943	0
+					0	0	1
+					-0.103943	0.994583	0
+					0.379592	-11.9135	5.76877
+				}
+			}
+			{bone "fxsmoke1"
+				{Position 19.9434	-7.59443	5.88828}
+			}
+			{bone "fxstop1"
+				{Position 19.1911	1.0742	6.04382}
+			}
+			{bone "fxstop2"
+				{Position 17.2124	0.798867	-18.2327}
+			}
+			{bone "fxtrace2"
+				{Position 11.4505	-7.95813	5.73554}
+			}
+			{bone "fxtrace3"
+				{Position 9.93484	-7.53121	-18.3483}
+			}
+			{bone revolute "gun_rot"
+				{limits -40 20}
+				{speed 0.05}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-7.85954	4.65735	-11.2211
+				}
+				{bone revolute "mgun"
+					{limits -30 10}
+					{speed 0.05}
+					{Matrix34
+						0.970683	0	0.240364
+						-0.240364	0	0.970683
+						0	-1	0
+						-2.16386	-0.036329	0.253967
+					}
+				}
+			}
+			{bone "gunner"
+				{Matrix34
+					-0.999999	-0.00134085	0
+					0	5.55495e-005	1
+					-0.00134085	0.999999	-5.55241e-005
+					3.58635	-10.7505	-8.86039
+				}
+			}
+			{bone "passenger"
+				{Matrix34
+					-0.984808	0.173648	0
+					0	0	1
+					0.173648	0.984808	0
+					8.6095	-4.10989	5.76877
+				}
+			}
+			{bone "visor1"
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-10.2045	15.0064	5.63629
+				}
+			}
+			{bone "visor2"
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-8.51552	8.30349	-10.9434
+				}
+			}
+			{bone revolute "wheel3"
+				{parameters "ID=Wheel3;"}
+				{Position 8.94139	-3.98209	-18.153}
+				{VolumeView "wheel3.ply"}
+			}
+			{bone revolute "wheel2"
+				{parameters "ID=Wheel2;"}
+				{Position 10.5215	-3.9821	5.74224}
+				{VolumeView "wheel2.ply"}
+			}
+		}
+		{bone "emit1"
+			{parameters "Group=driver;"}
+			{Matrix34
+				-0.040896	-0.999163	0
+				0.999163	-0.040896	0
+				0	0	1
+				-3.82716	23.287	0.240161
+			}
+			{visibility 0}
+		}
+		{bone "emit2"
+			{parameters "Group=passenger;"}
+			{Matrix34
+				0.615843	-0.787869	0
+				0.787869	0.615843	0
+				0	0	1
+				-28.761	19.4677	0.240161
+			}
+			{visibility 0}
+		}
+		{bone "emit3"
+			{parameters "Group=gunner;"}
+			{Matrix34
+				-0.091032	0.995848	0
+				-0.995848	-0.091032	0
+				0	0	1
+				2.73109	-28.7496	0.240161
+			}
+			{visibility 0}
+		}
+		{bone "pivot_back"
+			{Position -17.3761	6.59129	7.42384}
+		}
+		{bone "pivot_front"
+			{Position 17.1876	6.59129	7.42384}
+		}
+		{bone revolute "steer"
+			{parameters "ID=body;"}
+			{Matrix34
+				-0.835325	0	-0.549756
+				0	1	0
+				0.549756	0	-0.835325
+				12.8761	6.37626	11.0629
+			}
+			{VolumeView "steer.ply"}
+			{bone "fxtrace1"
+				{Matrix34
+					0.835325	0	-0.549756
+					-0.549756	0	-0.835325
+					0	1	0
+					1.25006	0.201861	9.01064
+				}
+			}
+			{bone revolute "wheel1"
+				{parameters "ID=Wheel1;"}
+				{Matrix34
+					0.835325	0	-0.549756
+					-0.549756	0	-0.835325
+					0	1	0
+					0.309003	0.0183375	4.56376
+				}
+				{VolumeView "wheel1.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 28.3974 10.6535 10.4267}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		1.28622	-1.52756	-9.12883
+	}
+}
+{Volume "engine"
+	{Box 11.5218 6.61592 10.5443}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-5.18132	-3.82666	5.73624
+	}
+}
+{Volume "fuel"
+	{Box 10.0697 5.47182 4.05447}
+	{Bone "body"}
+	{Matrix34
+		-0.993336	0.115259	0
+		0	0	1
+		0.115259	0.993336	0
+		-6.31144	3.88135	5.85563
+	}
+}
+{Volume "wheel1"
+	{Cylinder 7.32283 2.64797}
+	{Bone "wheel1"}
+	{Position 0.0916452	0.309866	0.0626891}
+}
+{Volume "wheel2"
+	{Cylinder 7.28346 2.64797}
+	{Bone "wheel2"}
+	{Position 0.0667763	0.0280821	0.0119202}
+}
+{Volume "wheel3"
+	{Cylinder 7.28346 2.64796}
+	{Bone "wheel3"}
+	{Position -0.0343094	0.0280784	0.00816751}
+}

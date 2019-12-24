@@ -1,0 +1,113 @@
+;Exported by: Kislov_A
+;Date:        Fri Dec 05 14:23:07 2008
+;File:        E:\Black\DESIGN~1\EXPORT~1\A2FD~1\models\37-BOF~1\001_37~2\37-BOF~1.MAX
+{Skeleton
+	{bone revolute "basis"
+		{parameters "wheelradius=0.35;"}
+		{speed 0.01}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.37731	-0.642588	7.17915}
+			{VolumeView "body.ply"}
+			{bone revolute "standr"
+				{Matrix34
+					0.990268	0	0.139173
+					0	1	0
+					-0.139173	0	0.990268
+					-2.54723	-2.931	-0.148011
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone revolute "standl"
+				{Matrix34
+					0.990268	0	0.139173
+					0	1	0
+					-0.139173	0	0.990268
+					-2.54723	5.1086	-0.148011
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position -6.53887	1.05786	2.74921}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.35;"}
+					{Matrix34
+						0.996195	-0.0871557	0
+						0	0	-1
+						0.0871557	0.996195	0
+						6.59304	0	-2.87602
+					}
+					{VolumeView "wheelr.ply"}
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.35;"}
+					{Matrix34
+						0.996195	0.0871557	0
+						0	0	-1
+						-0.0871557	0.996195	0
+						6.59304	0	-2.87602
+					}
+					{VolumeView "wheell.ply"}
+				}
+			}
+			{bone "turret"
+				{parameters "id=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.6}}
+				}
+				{Position -0.587221	0.853107	1.03998}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "id=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-1.24568	0.0335753	5.10275
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Matrix34
+							0	1	0
+							0	0	1
+							1	0	0
+							8.85502	0.65497	-0.496305
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_back"
+				{Position -22.6704	0.644898	-2.0124}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Polyhedron "wheelleft.vol"}
+	{Bone "wheell"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		-0.145793	0.0698101	10.256
+	}
+}
+{Volume "wheelright"
+	{Polyhedron "wheelright.vol"}
+	{Bone "wheelr"}
+	{Matrix34
+		1	0	0
+		0	-1	0
+		0	0	-1
+		-0.145794	0.0698117	-8.46108
+	}
+}

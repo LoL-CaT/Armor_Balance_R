@@ -1,0 +1,113 @@
+;Exported by: ubrashaev
+;Date:        Tue Oct 07 17:31:17 2008
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\japan\_47mmPak_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -5.0395	-0.222649	9.97731}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0.000145048
+					0	1	0
+					-0.000145048	0	1
+					4.99045	0.142876	-3.48982
+				}
+				{VolumeView "pivot_front.ply"}
+				{bone "turret"
+					{parameters "ID=turret;"}
+					{animation
+						{sequence "break" {file "turret_b.anm"}}
+					}
+					{Position -2.775	0.02279	5.69258}
+					{VolumeView "turret.ply"}
+					{bone revolute "gun_rot"
+						{parameters "ID=gun;"}
+						{limits -4 10}
+						{speed 0.001}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							-2.65643	-0.230165	-0.227024
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "gun"
+							{parameters "ID=gun;"}
+							{animation
+								{sequence "break" {file "gun_b.anm"}}
+							}
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								15.6641	-0.41968	-0.200161
+							}
+							{VolumeView "gun.ply"}
+						}
+					}
+				}
+				{bone revolute "standl"
+					{parameters "ID=body;"}
+					{Position -1.16494	8.14803	0.00761986}
+					{VolumeView "standl.ply"}
+				}
+				{bone revolute "standr"
+					{parameters "ID=body;"}
+					{Position -1.1892	-8.19261	0.00761986}
+					{VolumeView "standr.ply"}
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;"}
+					{Matrix34
+						-1	0	0
+						0	0.258819	0.965926
+						0	0.965926	-0.258819
+						0.00309959	12.3355	1.25603
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;"}
+					{Matrix34
+						-1	0	0
+						0	-0.0871557	0.996195
+						0	0.996195	0.0871557
+						0.00300254	-12.2413	0.558746
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone "pivot_back"
+				{Position -43.481	-0.168274	-9.97731}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 4.7287 3.56638}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	0.996195	0.0871554
+		0	0.0871554	-0.996195
+		0.264448	-1.11799	-0.0806603
+	}
+}
+{Volume "wheelright"
+	{Cylinder 4.5152 3.17408}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		0.0813484	-0.736684	-0.205912
+	}
+}

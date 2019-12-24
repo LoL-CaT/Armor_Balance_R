@@ -1,0 +1,67 @@
+{game_entity ; 180-мм корабельная пушка Б-1-К в установке МК1-180
+	(include "/properties/cannon.ext")
+	{Extension "180mm.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{props "vehicle" "cannon" "flak" "mortar" "vision_cannon_maximum" "muzzle_maximum"}
+
+	("armor_heavy")
+	{obstacleId "unbreakable"}
+	{collider "tank.heavy"}
+	{simulation {able 0}}
+		
+
+	{Volume "turret"
+		
+		{component "turret"}
+	}
+	{Volume "gun"
+		
+		{component "gun"}
+	}
+	
+	
+	{autooperatable 1}
+	
+	{placer
+		{crew 0}
+		{place "gunner" remove}
+		{place "commander" remove}
+	}	
+
+	{extender "cannon"
+		{## animation
+			{switch "close"}
+			{move "" ""}
+			{aim "" ""}
+			{fire  "" ""}
+			{reload  "" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers clear} {obstacle "open"}}
+		
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet180" 500}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "180mm_gun" filling "bullet180" 1}
+		}
+	}  	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+	{bone "turret"
+	   {speed2 8}
+	}
+	{bone "gun_rot"
+	   {speed2 8}
+	   {limits -60 5}	   
+	}	
+	{mass 125000}
+}

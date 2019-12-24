@@ -1,0 +1,143 @@
+;Exported by: Sergey
+;Date:        Fri Sep 07 14:25:18 2012
+;File:        D:\Documents\3dsmax\scenes\Ckm 7,92 mm wz. 30 Browning\Tripod Browning M1917.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0	0	9.54475}
+			{VolumeView "body.ply"}
+			{bone "support1"
+				{parameters "ID=body;"}
+				{Matrix34
+					-0.986912	0.00281417	-0.161232
+					0.161257	0.0172234	-0.986762
+					0	0.999848	0.0174517
+					-2.0925	-0.000701641	0.608061
+				}
+				{VolumeView "support1.ply"}
+			}
+			{bone "support2"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.685115	-0.688879	-0.236775
+					-0.154203	0.180523	-0.971408
+					0.711926	0.702038	0.0174519
+					0.972776	-1.01882	0.469015
+				}
+				{VolumeView "support2.ply"}
+			}
+			{bone "support3"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.66861	0.707215	-0.229796
+					-0.170874	-0.154639	-0.973082
+					-0.723714	0.689879	0.0174514
+					1.25736	1.2458	0.472244
+				}
+				{VolumeView "support3.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -40 40}
+				{speed 0.01}
+				{Position 0	0	1.39601}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_root"
+					{parameters "ID=body;"}
+					{limits -5 20}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						1.28647	0.000358364	4.45201
+					}
+					{VolumeView "gun_root.ply"}
+					{bone "mgun"
+						{Matrix34
+							1	0	0
+							0	-1	0
+							0	0	-1
+							-7.98931	2.09227	-0.000354152
+						}
+						{bone "visor"
+							{Position 25.1312	4.883	0}
+						}
+					}
+				}
+				{bone "commander"
+					{Position -20.0123	14.9215	-10.8564}
+				}
+				{bone "gunner"
+					{Position -15.8235	0.150654	-10.8955}
+				}
+			}
+		}
+		{bone "emit1"
+			{Position -40.2019	-0.015311	0}
+		}
+		{bone "emit2"
+			{Position -50.3258	5.29555	0}
+		}
+		{bone "driver1"
+			{Position 5.77017	3.46994	0}
+		}
+		{bone "driver2"
+			{Position -11.8464	-4.53873	0}
+		}
+	}
+}
+{Volume "body_01"
+	{Cylinder 0.762804 14.7792}
+	{Bone "support1"}
+	{Matrix34
+		-0.592597	0.805377	-0.0140023
+		9.22881e-005	0.0174513	0.999848
+		-0.805499	-0.592506	0.0104159
+		5.60121	4.23944	0.0659663
+	}
+}
+{Volume "body_02"
+	{Cylinder 0.762804 14.7792}
+	{Bone "support2"}
+	{Matrix34
+		0.567891	-0.767212	0.298138
+		-0.177348	0.239654	0.954522
+		-0.803771	-0.59494	3.38455e-005
+		5.60208	4.07375	-0.300249
+	}
+}
+{Volume "body_03"
+	{Cylinder 0.762804 14.7792}
+	{Bone "support3"}
+	{Matrix34
+		0.3136	-0.463465	-0.828767
+		0.464941	-0.686066	0.559593
+		-0.827941	-0.560816	0.000332623
+		4.71558	3.72628	0.00179089
+	}
+}
+{Volume "body"
+	{Cylinder 2.07836 3.34646}
+	{Bone "body"}
+	{Position 0.0638225	-0.00324441	1.70751}
+}
+{Volume "gun_root"
+	{Box 10.2212 3.6193 2.3622}
+	{Bone "gun_root"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-4.05655	1.78829	-0.11679
+	}
+}

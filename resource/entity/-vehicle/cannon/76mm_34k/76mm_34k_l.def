@@ -1,0 +1,71 @@
+﻿{game_entity ; Корабельное орудие
+	(include "/properties/cannon.ext")
+	{Extension "76mm_34k.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{props "vehicle" "cannon" "vision_cannon_low" "muzzle_medium"}
+	{simulation {able 0}}
+	{targetClass "tank" "ap fg bullet"}
+
+	("armor_medium")
+	
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{able {visible 0}}
+	}
+
+	("crew_2_human")
+	{placer	{place "gunner" {visor "main"} {useVision 0}}}	
+	
+	{boarder
+		{place "gunner"}
+		{place "commander"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "gunner"}
+		{link "emit2" "commander"}
+                {anm "gunner"
+			{forward	{end "pose_flak38_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_flak38_charger_right" 10}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{aim "cannon_flak38_gunlayer" ""}
+			{fire	"" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet76_zen ap" 400}
+			{item "bullet76_zen fg" 400}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "76mm_34k" filling "ammo bullet76_zen ap" 1} 
+			("abm_field_gun")
+		}
+	} 	
+	
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+	{bone "turret"
+		{speed2 8}
+		{limits -170 50}		
+	}
+	{bone "gun_rot"
+		{speed2 12}
+	}	
+	{mass 5000}
+}

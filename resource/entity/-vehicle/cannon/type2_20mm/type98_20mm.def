@@ -1,0 +1,75 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "wheeled" "flak" "barrel1" "wheeled" "vision_cannon_minimum" "muzzle_zenite" "round_sandbag5"}
+        {targetSelector "cannon_shell_flak"}
+	{collider "cannon_small"}
+
+	("armor_medium")
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_inside")
+	("crew_human" place(driver) bone(driver)	door(emit1) animation(driver))
+	("crew_human" place(gunner)	bone(gunner)	door(emit1) animation(gunner))
+	("crew_human" place(seat1) bone(seat1)		door(emit1) animation(seat1))
+	{placer
+		{place "gunner" {UseVision 0}}
+		{place "commander" remove}
+	}
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_oerlikon_charger" 10}}
+		}
+		{anm "driver"
+			{forward	{end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "seat1"
+			{forward 	{end "pose_oerlikon_charger" 10}}
+		}
+		{link "driver" "gunner"}
+		{link "seat1" "gunner"}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet20x125 zenite" 100}
+			{item "ammo bullet20x125 ap" 100}
+			{item "ammo bullet20x125 fg" 100}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_type98" filling "ammo bullet20x125 zenite" 30}
+			{Rotate}
+		}
+	}   	
+	{mass 1500}
+	{Extension "type2_20mm.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left"}
+			{reload "Cannon_oerlikon_charger"}
+		}
+		{move {workers "driver"} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+		(mod "mp" {rotate_ik_Limit 0})
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel02a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_medium")
+	}	
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+	    {limits -15 65}	
+		{speed2 25}
+	}
+}

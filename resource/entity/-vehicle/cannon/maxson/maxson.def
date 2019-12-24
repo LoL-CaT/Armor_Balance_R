@@ -1,0 +1,68 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "flak" "turret_rotator" "round_sandbag2" "vision_cannon_minimum"}
+	{collider "cannon_small"}
+        {targetSelector "cannon_bullet_h_flak"}
+	
+	("armor_light")
+
+	("crew_inside")
+	("crew_human" place(driver) bone(driver)	door(emit1) animation(driver))
+	("crew_human" place(gunner)	bone(gunner)	door(emit1) animation(gunner))
+	("crew_human" place(seat1) bone(seat1)		door(emit1) animation(seat1))
+	{placer
+		{place "gunner" {UseVision 0}}
+		{place "commander" remove}
+	}
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_maxson" 10}}
+		}
+		{anm "driver"
+			{forward	{end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_maxson" 10}}
+		}
+		{link "seat1" "driver"}
+	}
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left"}
+			{reload  "Cannon_maxson_charger"}
+		}
+		{move {workers "driver"} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun" 500}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}	
+	{Weaponry
+
+		{place "gun"
+			{weapon "browning_x4" filled}
+			{Barrels 4}
+		}
+	}
+	
+	{mass 500}
+	{Extension "maxson.mdl"}
+	{bone "turret"
+		{speed2 35}
+	}
+	{bone "gun_rot"
+		{limits -5 80}	
+		{speed2 20}
+	}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{Chassis "track"
+		("car_trace" fx("tracewheel01a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+}

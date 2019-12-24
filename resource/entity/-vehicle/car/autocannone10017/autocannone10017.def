@@ -1,0 +1,135 @@
+{game_entity
+	(include "/properties/car.ext")
+    (include "/properties/l_car_mobility.ext")		
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{collider "truck"}
+	{props "vehicle" "armored_car" "tractor" "tank" "explosion_throw_crew" "with_gun" "vision_vehicle_maximum" "muzzle_large" "windowed"}
+	{targetClass "car" "fg bullet"}	
+	{able "emit_on_attack"}
+	("armor_light" args 1.0)
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-midcar)
+		board_end(seat_driver_car)
+		base(doorright)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-midcar_driver)
+		board_end(seat_passenger)
+		base(doorleft)
+	)
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}
+	{boarder
+		{anm "charger"
+			{forward	{begin	"board_body"}{end "pose_pak40_gunlayer" 10}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"}{end "pose_pak40_charger" 10}}
+			{reverse 	{end	"emit_body"} {base "doorback" -1}}
+		}
+	}
+
+	("crew_human" place(gunner)		bone(gunner)	door(emit4) animation(charger))
+	("crew_human" place(charger)		bone(charger)	door(emit3) animation(charger))
+	
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "visor1"}
+		}
+		{Visor "driver"
+			{vision "moto_around"}
+			{bone "visor2"}
+		}
+	}
+	
+                	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	{extender "inventory"
+		{box
+			{item "bullet100ita fg" 15}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "100mm_17" filling "bullet100ita fg" 1 }
+			{Rotate}
+			("abm_howitzer")
+		}
+	}
+
+	{mass 6100}
+	
+	{Chassis
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))	
+		("mobility"
+			speed(40)
+			weight(6.1)
+			power(64)
+			fuel(177)	
+		)
+	}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 15} 
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{component "cabin"	
+		{RepairTime 12}
+	}
+	{volume "cabin"
+		{thickness 3}
+	}
+	{component "engine"	
+		{RepairTime 10}
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{Volume "gun_rot"
+		{thickness 5}
+	}
+	{Volume "gun"
+		{thickness 5}
+	}
+	{volume "sheld"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 15}
+	}
+	{Volume "turret"
+		{thickness 10}
+	}
+	{Extension "autocannone10017.mdl"}
+	{sensor
+		{visor "main"
+			{vision "moto_around"}
+			{bone "visor2						"}
+		}
+	}
+
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 5}
+	}	
+	
+}

@@ -1,0 +1,94 @@
+;Exported by: Micha
+;Date:        Thu May 29 17:49:19 2008
+;File:        \\192.168.0.150\meshes\soldiers_meshes\japan\cannon\AAA\ExporterT2_20AA1_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.8}}
+			}
+			{Position -7.58982	-0.0621822	4.27552}
+			{VolumeView "body.ply"}
+			{bone "anchor"
+				{parameters "ID=body;"}
+				{Position -19.5641	-0.116791	-1.19493}
+				{VolumeView "anchor.ply"}
+			}
+			{bone "anchor01"
+				{parameters "ID=body;"}
+				{Position 19.7922	-16.2681	-1.19493}
+				{VolumeView "anchor01.ply"}
+			}
+			{bone "anchor04"
+				{parameters "ID=body;"}
+				{Position 19.7922	16.6767	-1.19493}
+				{VolumeView "anchor04.ply"}
+			}
+			{bone revolute "body1"
+				{parameters "ID=body;"}
+				{speed 0.01}
+				{Position 3.15746	0.0592271	2.5887}
+				{VolumeView "body1.ply"}
+				{bone revolute "turret"
+					{parameters "CommonMesh;ID=turret;"}
+					{animation
+						{sequence "break" {file "turret_b.anm"} {speed 0.7}}
+					}
+					{Position -0.0585356	-0.0212455	0.0961289}
+					{VolumeView "turret.ply"}
+					{bone revolute "gun_rot"
+						{parameters "ID=turret;"}
+						{limits -15 95}
+						{speed 0.03}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							4.70706	-0.0542402	12.3403
+						}
+						{VolumeView "gun_rot.ply"}
+						{bone "gun"
+							{parameters "ID=gun;"}
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								19.8238	1.402	0.174421
+							}
+							{VolumeView "gun.ply"}
+						}
+						{bone "clip"
+							{parameters "ID=gun_rot;"}
+							{Matrix34
+								1	0	0
+								0	0	-1
+								0	1	0
+								-0.208876	5.5462	0.149199
+							}
+							{VolumeView "clip.ply"}
+						}
+					}
+					{bone "chair"
+						{parameters "ID=turret;"}
+						{Position -11.121	0.0993848	3.60754}
+						{VolumeView "chair.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Area "obb2"
+	{Obb2
+		{Center -7.50858 1.84961}
+		{Extent 24.1435 26.3569}
+		{Axis 1 0}
+	}
+	{Rotate}
+}

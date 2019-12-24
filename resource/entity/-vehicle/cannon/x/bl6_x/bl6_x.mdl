@@ -1,0 +1,105 @@
+;Exported by: ubrashaev
+;Date:        Mon Jul 31 16:03:28 2006
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\-Пушки\bl6\bl6_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.7}}
+			}
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				2.07819	-0.622126	10.8455
+			}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0	-2.77043	0
+				}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-2.51578	0	5.67766
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{animation
+							{sequence "break" {file "gun_b.anm"}}
+						}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-1.22056	4.07667	0.461615
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{parameters "ID=turret;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0	3.12494	0
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.55;"}
+					{Matrix34
+						-1	0	0
+						0	-0.19819	0.980164
+						0	0.980164	0.19819
+						-0.0347341	21.1179	3.11134
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.55;"}
+					{Matrix34
+						1	0	0
+						0	-0.201405	-0.979508
+						0	0.979508	-0.201405
+						-0.0347329	-23.0368	3.11134
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone "pivot_back"
+				{parameters "ID=turret;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					-52.0503	3.12494	0
+				}
+				{bone "scoop"
+					{parameters "ID=body;"}
+					{Matrix34
+						0.709637	-0.505307	-0.490999
+						-0.637741	-0.164436	-0.752494
+						0.299503	0.847128	-0.438945
+						-37.5852	1.32266	2.09211
+					}
+					{VolumeView "scoop.ply"}
+				}
+			}
+		}
+	}
+}

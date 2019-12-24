@@ -1,0 +1,64 @@
+;Exported by: Richtofen
+;Date:        Tue Oct  3 22:18:44 2017
+;File:        D:\240mm ??45?240\plugin_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -7.83929	0	4.20173}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Position 0	0	5.38169}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -15 15}
+					{speed 0.01}
+					{Matrix34
+						0.943985	-0.25883	-0.204693
+						-0.257631	-0.190458	-0.947287
+						0.206201	0.94696	-0.246472
+						22.5246	1.08594	22.8083
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							-15.0611	0.727703	-0.0513515
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "shieldl1"
+					{parameters "ID=shieldL1;"}
+					{Matrix34
+						0.975316	-0.178567	0.129896
+						0.206201	0.94696	-0.246472
+						-0.0789944	0.267172	0.960406
+						49.2638	-5.02258	21.9176
+					}
+					{VolumeView "shieldl1.ply"}
+				}
+				{bone "shieldr1"
+					{parameters "ID=shieldR1;"}
+					{Matrix34
+						0.975316	-0.178567	0.129896
+						0.206201	0.94696	-0.246472
+						-0.0789945	0.267172	0.960406
+						11.5918	5.66324	31.0176
+					}
+					{VolumeView "shieldr1.ply"}
+				}
+			}
+		}
+	}
+}

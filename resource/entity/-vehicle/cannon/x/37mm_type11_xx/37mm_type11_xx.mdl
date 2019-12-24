@@ -1,0 +1,138 @@
+;Exported by: skr
+;Date:        Sat Aug 31 19:36:57 2013
+;File:        D:\Documents\3dsmax\scenes\Type 11 37 mm Gun\Type 11_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.650617	0	0.759406
+				0	1	0
+				-0.759406	0	0.650617
+				0	-7.68258	1.20375
+			}
+			{VolumeView "body.ply"}
+		}
+		{bone "detail1"
+			{parameters "ID=shield;"}
+			{Matrix34
+				0	1	0
+				0.999969	0	0.00789959
+				0.00789959	0	-0.999969
+				21.5072	0	0.132895
+			}
+			{VolumeView "detail1.ply"}
+		}
+		{bone "part1"
+			{Matrix34
+				0.978408	0	0.206683
+				-0.00901506	-0.999048	0.0426775
+				0.206486	-0.0436192	-0.977477
+				0	0	0.385972
+			}
+			{VolumeView "part1.ply"}
+		}
+		{bone revolute "part2"
+			{parameters "ID=gun;"}
+			{limits -9 15}
+			{speed 0.005}
+			{Matrix34
+				1	0	0
+				0	0.996195	-0.0871557
+				0	0.0871557	0.996195
+				-0.312136	11.3138	0.571855
+			}
+			{VolumeView "part2.ply"}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		0.203674	1.37458	-0.0303582
+	}
+}
+{Volume "body2"
+	{Box 2.05445 7.6777 0.521325}
+	{Bone "body"}
+	{Matrix34
+		0.905121	0	0.425154
+		-0.425154	0	0.905121
+		0	-1	0
+		3.78997	0.0429206	-4.87475
+	}
+}
+{Volume "body3"
+	{Cylinder 0.807078 35.4781}
+	{Bone "part1"}
+	{Matrix34
+		0.172231	-0.984452	0.0344971
+		-0.196395	0	0.980525
+		-0.96528	-0.175651	-0.193342
+		-18.5627	-3.98391	-4.02742
+	}
+}
+{Volume "body4"
+	{Cylinder 0.807078 35.4781}
+	{Bone "part1"}
+	{Matrix34
+		-0.167632	-0.985278	-0.0335661
+		-0.19634	0	0.980536
+		-0.9661	0.17096	-0.193449
+		-18.5773	3.97761	-4.02933
+	}
+}
+{Volume "body5"
+	{Cylinder 2.26262 5.67978}
+	{Bone "part1"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	1
+		-8.42642	-0.00593619	-4.02655
+	}
+}
+{Volume "gun_rot"
+	{Box 20.7819 1.56398 1.53377}
+	{Bone "part2"}
+	{Position 1.63419	-0.129871	0.00709879}
+}
+{Volume "gun"
+	{Cylinder 0.749903 23.4388}
+	{Bone "part2"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		0.890964	1.45763	-0.0266562
+	}
+}
+{Volume "shield1"
+	{Box 0.335121 6.65214 17.6325}
+	{Bone "detail1"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		0.0464039	-1.52323	0.0406374
+	}
+}
+{Volume "shield2"
+	{Box 0.335121 5.82573 17.6325}
+	{Bone "detail1"}
+	{Matrix34
+		0	0.512783	0.858519
+		0	0.858519	-0.512783
+		-1	0	0
+		0.0464029	4.2808	-1.40871
+	}
+}

@@ -1,0 +1,90 @@
+;Exported by: garry
+;Date:        Wed Jul 23 16:09:15 2008
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\mg_stan\vehicle\cannon\mg34_tower_new.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit"
+			{Position -23.4876	-0.0254482	0}
+			{visibility 0}
+		}
+		{bone "stan"
+			{Position -0.11234	1.7784	9.83065}
+			{LODView
+				{VolumeView "stan.ply"}
+				{VolumeView "stan_lod1.ply"}
+			}
+			{bone revolute "turret"
+				{speed 0.04}
+				{Position -0.253028	-1.77841	12.4667}
+				{bone "visor"
+					{Position 2.84706	0.00854287	10.1588}
+				}
+				{bone "gunner"
+					{Matrix34
+						0.996194	0.0871556	-0.00134094
+						-0.0871556	0.996195	5.55822e-005
+						0.00134068	6.14999e-005	0.999999
+						-9.41001	0.945859	-21.729
+					}
+				}
+				{bone revolute "gun_rot"
+					{limits -40 15}
+					{speed 0.05}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.0188922	-0.00703049	-0.105974
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "mgun"
+						{Position -1.94091	2.36691	-0.0192645}
+					}
+					{bone "shield"
+						{parameters "ID=shield;"}
+						{Matrix34
+							0	0	-1
+							0	1	0
+							1	0	0
+							1.59719	5.88747	-0.0458867
+						}
+						{VolumeView "shield.ply"}
+					}
+					{bone "fxshell"
+						{Matrix34
+							0	0.5	0.866025
+							1	0	0
+							0	0.866025	-0.5
+							-3.15402	3.71604	0.828238
+						}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 4.17742 3.36232 19.9905}
+	{Bone "stan"}
+	{Position -0.12111	-1.94352	0.1646}
+}
+{Volume "shield"
+	{Box 1.32092 14.0943 9.77804}
+	{Bone "shield"}
+	{Matrix34
+		0	0.171949	0.985106
+		1	0	0
+		0	0.985106	-0.171949
+		-0.0182885	0.516186	-0.443174
+	}
+}
+{Volume "touch"
+	{Box 14.6637 12.7125 25.6316}
+	{Bone "stan"}
+	{Position 1.8832	-1.38961	2.98515}
+}

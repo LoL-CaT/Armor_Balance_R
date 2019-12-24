@@ -1,0 +1,101 @@
+;Exported by: sergey
+;Date:        Sun Oct 06 16:40:28 2013
+;File:        D:\Documents\3dsmax\scenes\_entity\-vehicle\cannon\2cm Flak 38\Flak38_fix_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-8.93501	-0.0737228	-0.0659838
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{limits -180 180}
+				{speed 0.01}
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					0	-3.44526	3.87333
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -10 60}
+					{speed 0.03}
+					{Matrix34
+						0.955054	0	-0.296432
+						-0.296432	0	-0.955054
+						0	1	0
+						6.44113	0	10.2502
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Position 0	0	0}
+						{VolumeView "gun.ply"}
+						{bone "magazine1_00"
+							{Position -0.159526	0	-0.357265}
+							{VolumeView "magazine1_00.ply"}
+						}
+						{bone "barrel"
+							{parameters "ID=gun;"}
+							{Position 0	0	0}
+							{VolumeView "barrel.ply"}
+						}
+					}
+					{bone "shield3"
+						{parameters "ID=turret;"}
+						{VolumeView "shield3.ply"}
+					}
+				}
+				{bone "shield2"
+					{parameters "ID=shield;"}
+					{Matrix34
+						0	1	0
+						0.322962	0	0.946412
+						0.946412	0	-0.322962
+						-0.252692	-8.98763	14.8287
+					}
+					{VolumeView "shield2.ply"}
+				}
+				{bone "shield"
+					{parameters "ID=shield;"}
+					{Orientation
+						0	1	0
+						0	0	1
+						1	0	0
+					}
+					{VolumeView "shield.ply"}
+					{bone "regiment_ger_01"
+						{Matrix34
+							1	0	0
+							0	0.228367	-0.973575
+							0	0.973575	0.228367
+							11.8218	14.7984	11.0687
+						}
+						{VolumeView "regiment_ger_01.ply"}
+					}
+				}
+				{bone "magazine2_00"
+					{Matrix34
+						0	1	0
+						0	0	1
+						1	0	0
+						-1.81669	5.7281	8.48177
+					}
+					{VolumeView "magazine2_00.ply"}
+				}
+			}
+		}
+	}
+}

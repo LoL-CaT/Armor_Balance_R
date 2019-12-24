@@ -1,0 +1,39 @@
+;Exported by: Loskutov_K
+;Date:        Fri Feb 06 16:59:04 2009
+;File:        D:\_Bushlaty\gun\20mm_Breda_1935\20mm_Breda_1935_x\20mm_Breda_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.57712	0.191671	0.666134}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=Turret;"}
+				{Position -0.0124154	-0.0715079	1.26109}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=Gun;"}
+					{limits -45 20}
+					{speed 0.08}
+					{Matrix34
+						0.703586	0	-0.710611
+						-0.710611	0	-0.703586
+						0	1	0
+						1.28096	-0.0953164	9.1868
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=Gun;"}
+						{Position 0	0	0}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}

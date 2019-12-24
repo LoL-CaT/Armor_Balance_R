@@ -1,0 +1,104 @@
+;Exported by: ubrashaev
+;Date:        Mon Aug 01 16:42:22 2005
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\-Пушки\pak40\new_light\Pak-40_l_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "CommonMesh;ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Position -22.09	-0.453598	4.98524}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position 25.0256	0.152969	7.47894}
+				{VolumeView "turret.ply"}
+				{bone "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.401307	0.20829	4.79502
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							0	1	0
+							0	0	1
+							1	0	0
+							25.6856	-3.92136	0.356883
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "standl"
+				{Position 20.2049	7.90347	0}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{Position 20.5819	-7.55364	0}
+				{VolumeView "standr.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position 32.7687	0.285528	3.86713}
+				{VolumeView "pivot_front.ply"}
+				{bone "wheell"
+					{parameters "ID=wheelleft;"}
+					{Matrix34
+						1	0	0
+						0	0.173648	-0.984808
+						0	0.984808	0.173648
+						0	17.7718	0
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone "wheelr"
+					{parameters "ID=wheelright;"}
+					{Matrix34
+						1	0	0
+						0	0.34202	0.939693
+						0	-0.939693	0.34202
+						0	-19.917	0
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone "pivot_back"
+				{Position -14.5594	0.285528	3.86713}
+			}
+		}
+	}
+}
+{Volume "wheelright"
+	{Cylinder 6.74912 3.22803}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.315004	0.515316	-0.140091
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 6.98396 3.22803}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.17451	0.218155	0.288682
+	}
+}

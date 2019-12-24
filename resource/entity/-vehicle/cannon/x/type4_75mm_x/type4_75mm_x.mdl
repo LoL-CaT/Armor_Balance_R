@@ -1,0 +1,147 @@
+;Exported by: Mauzer
+;Date:        Sat Nov 06 09:42:49 2010
+;File:        E:\Autodesk\Low poly\freelance\DMS\Type 88 75mm AA Gun\Bofors M29_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.7}}
+			}
+			{Matrix34
+				0	1	0
+				1	0	0
+				0	0	1
+				-3.83123	-0.427527	10.6587
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.9}}
+				}
+				{speed 0.01}
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					0.0853598	3.68838	20.996
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.6}}
+					}
+					{limits -3 50}
+					{speed 0.006}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-8.12525	0.138081	6.96453
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							26.4792	2.51045	0.251427
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Position 0.0353947	31.8429	-1.53703}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheell1"
+					{parameters "ID=wheelleft;Support=1;Radius=0.53;"}
+					{Matrix34
+						0	1	0
+						0	0	-1
+						-1	0	0
+						16.5534	3.70305	1.80214
+					}
+					{VolumeView "wheell1.ply"}
+				}
+				{bone revolute "wheelr1"
+					{parameters "ID=wheelright;Support=1;Radius=0.53;"}
+					{Matrix34
+						0	1	0
+						0	0	-1
+						-1	0	0
+						-16.6174	3.70305	1.80216
+					}
+					{VolumeView "wheelr1.ply"}
+				}
+			}
+			{bone "reliance4"
+				{Position -0.0298386	-32.5256	-7.18385}
+				{VolumeView "reliance4.ply"}
+			}
+			{bone "standl"
+				{Position 17.2732	3.85952	-1.43028}
+				{VolumeView "standl.ply"}
+				{bone "reliance3"
+					{Position 21.6184	-0.0177307	-5.69972}
+					{VolumeView "reliance3.ply"}
+				}
+			}
+			{bone "standr"
+				{Position -17.2664	3.85952	-1.43028}
+				{VolumeView "standr.ply"}
+				{bone "reliance1"
+					{Position -21.7107	-0.0527725	-5.69787}
+					{VolumeView "reliance1.ply"}
+				}
+			}
+			{bone "pivot_back"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	1	0
+					0	0	1
+					0.0353985	-27.4807	-1.46428
+				}
+				{VolumeView "pivot_back.ply"}
+				{bone "dt"
+					{Position -0.0439247	7.27291	11.5238}
+					{VolumeView "dt.ply"}
+				}
+				{bone revolute "wheell2"
+					{parameters "ID=wheelleft;Support=1;Radius=0.53;"}
+					{Matrix34
+						0	1	0
+						0	0	-1
+						-1	0	0
+						16.5534	-3.76083	1.6783
+					}
+					{VolumeView "wheell2.ply"}
+				}
+				{bone revolute "wheelr2"
+					{parameters "ID=wheelright;Support=1;Radius=0.53;"}
+					{Matrix34
+						0	1	0
+						0	0	-1
+						-1	0	0
+						-16.6174	-3.76464	1.7294
+					}
+					{VolumeView "wheelr2.ply"}
+				}
+			}
+			{bone "reliance2"
+				{Position -0.0298348	36.6961	-7.19063}
+				{VolumeView "reliance2.ply"}
+			}
+		}
+	}
+}

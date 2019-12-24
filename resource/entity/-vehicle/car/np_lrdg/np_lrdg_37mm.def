@@ -1,0 +1,158 @@
+{game_entity
+	(include "/properties/car.ext")
+    (include "/properties/l_car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{props "vehicle" "car" "wheeled"  "turn_over" "turret" "with_gun" "vision_vehicle_minimum" "muzzle_minimum" "windowed"}
+	{PatherId "vehicle.small"}
+	{targetClass "car" "fg bullet"}	
+	("armor_light" args 1.0)
+	
+	{extender "enumerator"
+		{digit_folder "eng"}
+	}
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}
+	}
+	{Volume "bodyback"
+		{tags "bodyback"}
+		{component "bodyback"}
+		{thickness 2}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 3}
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window2"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	("crew_2_human")
+	("crew_human" place(gunner) bone(gunner) door(emit5) animation(gunner))
+	("crew_human" place(charger) bone(charger) door(emit6) animation(gunner))
+	{placer
+		{place "driver"		{group "driver"} {visor "driver"}}
+		{place "commander"		{group "driver"} {visor "driver"}}
+;		{place "gunner"		{group "crew"} {visor "main"} {turnoff {targetable 0}}}
+;		{place "chager"	{group "crew"} {visor "main"}}
+	}
+
+	("board_animation" place(driver) board_begin(board_LowTank_left) board_end(seat_Willis_driver))
+	("board_animation" place(commander) board_begin(board_LowTank_left) board_end(pose_mgun_sherman))
+	{boarder
+		{anm "gunner"
+			{forward {begin "board_LowTank_stand"} {end "seat_armor"}}
+			{reverse {end "emit_tank_1_hold" 1}}
+		}
+	}
+
+	{sensor
+		{visor "driver"
+			{bone "visor2"}
+			{vision "moto_crew"}
+		}
+		{visor "main"
+			{bone "visor"}
+			{vision "vehicle_top_mgun"}
+		}
+		{visor "mgun"
+              			{vision "mp_soldier"}
+		 	{bone "mgun"}
+		}
+	}
+		(define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+	{Placer
+	          {place "attach01"
+	             {entity "spade"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "spade"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	}
+	{extender "inventory"
+		{box
+			{item "bullet37_bofors_eng ap" 52}
+			{item "bullet37_bofors_eng fg" 48}
+			{item  "ammo mgun" 1500}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "37mm_bofors_eng" filling "ammo bullet37_bofors_eng ap" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			{Rotate}
+			("abm_high")
+		}
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "vickers_k_stan" filled}
+			{LinkBone "mgun"}
+			{gunner "commander"}
+			{charger "commander"}
+			;{foresight "foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	
+	{mass 3500}
+	
+	{Chassis
+		("car_trace" fx("tracewheel01a") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel01a") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
+		("mobility"
+			speed(85)
+			weight(3.5)
+			power(80)
+			fuel(90)	
+		)
+	}
+	
+	{Extension "lrdg_37mm.mdl"}
+	{bone "turret"
+        {speed2 6}
+	}
+	{bone "gun_rot"
+        {speed2 6}
+	}	
+
+
+	
+}

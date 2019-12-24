@@ -1,0 +1,20 @@
+{game_entity
+	(include "/properties/marine.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+ 	{targetSelector "tank_bullet"}
+	{Extension "air-bag.mdl"}
+	{mass 300}
+	{patherid "shallow_water"}
+	{props "vehicle" "car" "marine" "flag" "emit_on_sink" "explosion_throw_crew"}
+
+	{extension "crew.ext"}
+	{Volume "ballast"
+		{Tags  "float"}
+		{able clear {float}}
+	}
+	{Volume "body"
+	}
+	{Volume "engine"
+		{thickness 1}
+	}
+}

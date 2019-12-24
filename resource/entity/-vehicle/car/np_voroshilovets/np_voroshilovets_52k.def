@@ -1,0 +1,145 @@
+{entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/l_tank_mobility.ext")	
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "vehicle" "armored_car" "tractor" "tank" "explosion_throw_crew" "with_gun" "vision_vehicle_minimum" "muzzle_medium" "windowed"}
+	{targetClass "car" "fg bullet"}	
+	{targetSelector "tank_flak"}
+	{patherId "tank.light"}	
+	
+	("armor_light" turret(0) body(1 1 1 1))
+	("armor_engine"  t(3 3 3 3))
+	
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_passenger"} {base "doorleft"}}
+			{reverse 	{end	"board_big-highcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_big-highcar"} {end "seat_passenger"} {base "doorright"}}
+			{reverse 	{end	"board_big-highcar" -1} {base "doorright" -1}}
+		}
+		{anm "charger"
+			;{forward	{begin	"board_body"}{end "cannon_m8_gunlayer" 10}}
+			{forward	{begin	"board_body"}{end "seat_armor" 10}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"}{end "pose_61K_gunlayer_left" 10}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("crew_human_visible_anm" place(driver) door1(emit1) door2(emit1) visor(driver) anm_left(left) anm_right(left)) 
+	("crew_human_visible_anm" place(commander) door1(emit2) door2(emit2) visor(driver) anm_left(right) anm_right(right))
+	("seat_human" place(gunner) bone(gunner) door(emit4) animation(gunner))
+	("seat_human" place(charger) bone(charger) door(emit3) animation(charger))
+	
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "visor"}
+		}
+		{Visor "driver"
+			{vision "moto_around"}
+			{bone "visor1"}
+		}
+	}
+
+	{mass 15500}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.45))
+		("mobility"
+			speed(40)
+			weight(15.5)
+			power(375)
+			fuel(550)	
+		)
+	}
+	
+ 	{Extension "voroshilovets_52k.mdl"}
+	
+	{extender "inventory"
+		{box
+			{item "bullet85rus ap" 30}
+			{item "bullet85rus fg" 20}
+			)
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "85mm_52k" filling "bullet85rus ap" 1}
+			("abm_zenite")
+		}
+	}  
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 1}
+	}
+	{volume "bodyback"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 1}
+	}
+	{Volume "cabin"
+		{tags "body"}
+		{component "cabin"}
+		{thickness 1}	
+	}
+	{Volume "engine"
+		{component "engine"}
+	}
+	{Volume "fuel"
+		{component "fuel"}
+	}
+	{Volume "trackleft"
+		{thickness 5}
+	}
+	{Volume "trackright"
+		{thickness 5}
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window2"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window3"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window4"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{component "cabin"}
+	{component "bodyback"}
+	{component "shield"}
+		
+	
+;	{Volume "turret"
+;		{thickness 5}
+;	}
+	{volume "shield"	
+		{thickness 5}
+	}
+	{Volume "gun"
+		{thickness 5}
+	}
+	{bone "gun_rot"
+		{limits -10 85}
+		{speed2 20}
+	}
+	{bone "turret"
+		{speed2 35}
+	}
+}

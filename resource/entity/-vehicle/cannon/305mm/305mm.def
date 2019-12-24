@@ -1,0 +1,65 @@
+{game_entity ; Бронебашенная батарея-30 МБ-3-12-Ф 12"/52 морская пушка
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "turret_rotator" "flak" "mortar" "vision_cannon_maximum"}
+
+	("armor_sheavy")
+	{obstacleId "unbreakable"}
+	{collider "tank.heavy"}
+	{simulation {able 0}}
+
+	{Volume "turret"
+		{component "turret"}
+	}
+	{Volume "gun1"
+		{component "gun"}
+	}
+
+	{Volume "gun2"
+		{component "gun"}
+	}
+	{Volume "gun3"
+		{component "gun"}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet305" 400}
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{weapon "305mm_gun" filling "ammo bullet305" 3}
+			{Barrels 3}
+		}
+	}
+
+	{autooperatable 1}
+	{placer
+		{crew 0}
+		{place "gunner" remove}
+		{place "commander" remove}
+	}
+
+	{mass 150000}
+	{Extension "305mm.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(3.0))
+
+	{bone "basis"
+	   {speed2 3}
+	}
+	{bone "gun_rot"
+	   {speed2 4}
+	   {limits -5 35}	   
+	}	
+	{extender "cannon"
+		{## animation
+			{switch "close"}
+			{move "" ""}
+			{aim "" ""}
+			{fire  "" ""}
+			{reload  "" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers clear} {obstacle "open"}}
+	}
+}

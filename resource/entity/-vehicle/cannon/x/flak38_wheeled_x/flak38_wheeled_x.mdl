@@ -1,0 +1,133 @@
+;Exported by: garry
+;Date:        Sun Aug 06 12:23:03 2006
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\flak38-1\flak38stan1_x.max
+{Skeleton
+	{bone revolute "basis"
+		{parameters "WheelRadius=0.3;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "pivot_front"
+			{parameters "ID=body;"}
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				-1.17914	-0.597712	8.90051
+			}
+			{VolumeView "pivot_front.ply"}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;"}
+				{Matrix34
+					-1	0	0
+					0	1	0
+					0	0	1
+					-0.0598724	-0.00594418	16.0683
+				}
+				{VolumeView "wheelr.ply"}
+			}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;"}
+				{Matrix34
+					-1	0	0
+					0	1	0
+					0	0	-1
+					-0.0598696	-0.00592941	-15.7031
+				}
+				{VolumeView "wheell.ply"}
+			}
+		}
+		{bone "body"
+			{parameters "CommonMesh;ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-1.17913	-0.277481	8.90051
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_r.anm"}}
+				}
+				{Matrix34
+					-0.984808	0.173648	0
+					0	0	1
+					0.173648	0.984808	0
+					-2.84008	5.33804	0.709589
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=body;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"}}
+					}
+					{Matrix34
+						0.965926	0	0.258819
+						0.258819	0	-0.965926
+						0	1	0
+						7.25904	-5.5516	10.4733
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Position 23.1421	-0.0101847	5.63634}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "shield_right"
+					{parameters "ID=shield_right;"}
+					{animation
+						{sequence "break" {file "shield_right_b.anm"}}
+					}
+					{Matrix34
+						0.939693	0	0.34202
+						0.34202	0	-0.939693
+						0	1	0
+						12.6451	-2.27766	9.73696
+					}
+					{VolumeView "shield_right.ply"}
+				}
+				{bone "shield_left"
+					{parameters "ID=shield_left;"}
+					{animation
+						{sequence "break" {file "shield_left_r.anm"}}
+					}
+					{Matrix34
+						0.965926	0	0.258819
+						0.258819	0	-0.965926
+						0	1	0
+						12.6586	2.1485	9.7571
+					}
+					{VolumeView "shield_left.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "wheell"
+	{Cylinder 6.2752 4.11417}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.0363099	0	0.049804
+	}
+}
+{Volume "wheelr"
+	{Cylinder 6.09367 4.1044}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	1
+		0	0	0.0374436
+	}
+}

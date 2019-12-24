@@ -1,0 +1,116 @@
+;Exported by: Mauzer
+;Date:        Tue May 11 18:17:39 2010
+;File:        E:\Autodesk\Low poly\freelance\DMS\105mm M2A1 L22.5\105mm M2A1_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.7}}
+			}
+			{Matrix34
+				1	0	0
+				0	-1	0
+				0	0	1
+				-1.52023	0.0425254	9.78016
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"} {speed 0.9}}
+				}
+				{limits -24 24}
+				{speed 0.005}
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	1
+					-0.0039928	0.00579367	2.54207
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{animation
+						{sequence "break" {file "gun_b.anm"} {speed 0.6}}
+					}
+					{limits -3 50}
+					{speed 0.006}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-7.04833	0.0702669	6.3401
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							22.1462	4.9863	0.0681286
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "dt1"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-7.04833	0.0702669	6.3401
+					}
+					{VolumeView "dt1.ply"}
+				}
+			}
+			{bone "standl"
+				{Matrix34
+					0.891007	0.45399	0
+					0.45399	-0.891007	0
+					0	0	1
+					-2.94037	-8.13208	1.90341
+				}
+				{VolumeView "standl.ply"}
+			}
+			{bone "standr"
+				{Matrix34
+					0.891007	-0.45399	0
+					0.45399	0.891007	0
+					0	0	1
+					-2.94498	8.18239	2.05354
+				}
+				{VolumeView "standr.ply"}
+			}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Support=1;Radius=0.48;"}
+					{Matrix34
+						0.731354	0	0.681998
+						0.681998	0	-0.731354
+						0	-1	0
+						1.68794	19.1455	0.0526323
+					}
+					{VolumeView "wheelr.ply"}
+				}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Support=1;Radius=0.48;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	-1	0
+						1.68794	-19.1693	0.0526285
+					}
+					{VolumeView "wheell.ply"}
+				}
+			}
+		}
+	}
+}

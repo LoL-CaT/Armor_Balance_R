@@ -1,0 +1,112 @@
+;Exported by: garry
+;Date:        Fri Feb 22 14:49:18 2008
+;File:        D:\-Projects-\-3DWork-\Model\Корабли\Antonio Da Noli\turret.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.7}}
+	}
+	{bone revolute "basis"
+		{speed 0.01}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone revolute "body"
+			{parameters "ID=body;"}
+			{speed 0.01}
+			{Position 0	0	-2.69449}
+			{VolumeView "body.ply"}
+			{bone revolute "gun_rot1"
+				{parameters "ID=turret;"}
+				{limits -10 30}
+				{Matrix34
+					0.996195	0	0.0871557
+					-0.0871557	0	0.996195
+					0	-1	0
+					-2.21103	0.00345221	31.8779
+				}
+				{VolumeView "gun_rot1.ply"}
+				{bone "gun2"
+					{parameters "ID=gun2;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-20.1098	-0.0528358	6.49298
+					}
+					{VolumeView "gun2.ply"}
+				}
+				{bone "gun1"
+					{parameters "ID=gun1;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-19.9314	-0.0528318	-4.92945
+					}
+					{VolumeView "gun1.ply"}
+				}
+				{bone "foresight1"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						81.3343	0.214045	5.77331
+					}
+				}
+				{bone "shooter00"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						80.5975	0.214043	-5.79898
+					}
+				}
+			}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{VolumeView "turret.ply"}
+			}
+			{bone "commander"
+				{Position -20.0168	-18.7977	2.69448}
+			}
+			{bone "gunner"
+				{Position -20.0168	18.1597	2.69448}
+			}
+		}
+		{bone "emit2"
+			{Position -34.9094	20.1949	0.463551}
+			{visibility 0}
+		}
+		{bone "emit1"
+			{Position -34.9094	-18.5884	0.463551}
+			{visibility 0}
+		}
+	}
+}
+{Volume "gun1"
+	{Cylinder 2.57768 77.6751}
+	{Bone "gun1"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		60.9799	0.66836	-0.0139315
+	}
+}
+{Volume "gun2"
+	{Cylinder 2.57768 77.6751}
+	{Bone "gun2"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		61.1584	0.854042	-0.0139218
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position -0.0431248	0.101931	2.69449}
+}

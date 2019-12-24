@@ -1,0 +1,181 @@
+;Exported by: Administrator
+;Date:        Sun Mar 15 00:38:32 2015
+;File:        C:\Program Files (x86)\Autodesk\3dsMax8\scenes\75mm_krupp.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.4}}
+		{sequence "recoil" {speed 0.7}}
+	}
+	{bone revolute "basis"
+		{speed 0.002}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "gunner"
+			{Position -22.6441	10.293	-1.048}
+		}
+		{bone "commander"
+			{Position -14.644	-12.293	-7.848}
+		}
+		{bone "emit1"
+			{Position -29.5229	-14.1952	0}
+		}
+		{bone "emit2"
+			{Position -29.5229	15.102	0}
+		}
+		{bone "driver1"
+			{Position -13.8609	15.102	0}
+		}
+		{bone "driver2"
+			{Position -13.8609	-14.1952	0}
+		}
+		{bone "seat1"
+			{Matrix34
+				-0.0871558	0.996195	0
+				-0.996195	-0.0871558	0
+				0	0	1
+				-28.1716	4.22016	0
+			}
+		}
+		{bone "seat2"
+			{Matrix34
+				-0.0871557	-0.996195	0
+				0.996195	-0.0871557	0
+				0	0	1
+				-47.6005	-4.29375	0
+			}
+		}		
+		{bone "body"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				0	0	15.1193
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "gun_rot"
+		{limits -8 17}
+		{speed 0.004}
+				{Matrix34
+					0	1	0
+					0	0	1
+					1	0	0
+					-0.0766311	0.0526619	-0.0264339
+				}
+				{bone "gun"
+					{Matrix34
+						0	0	1
+						1	0	0
+						0	1	0
+						-0.0526619	0.0264368	0.0766334
+					}
+					{VolumeView "gun.ply"}
+					{bone "foresight1"
+						{Matrix34
+							0	1	0
+							-1	0	0
+							0	0	1
+							-0.124158	34.9048	5.11762
+						}
+					}
+					{bone "fx_invers"
+						{Matrix34
+							0	1	0
+							-1	0	0
+							0	0	1
+							-0.12413	-10.1268	4.69461
+						}
+					}
+					{bone "visor"
+						{Matrix34
+							0	1	0
+							-1	0	0
+							0	0	1
+							-6.75777	-2.76101	11.7184
+						}
+					}
+				}
+			}
+			{bone revolute "pivot_front"
+				{Matrix34
+					0	1	0
+					0	0	1
+					1	0	0
+					-0.0766302	4.25257	-1.39911
+				}
+				{bone revolute "wheelright"
+					{parameters "Radius=0.6;Support=1;"}
+					{Matrix34
+						-1	0	0
+						0	1	0
+						0	0	-1
+						0.0465275	-0.00980781	16.8296
+					}
+					{bone "wheelr"
+						{Matrix34
+							0	0	-1
+							-1	0	0
+							0	1	0
+							0.00420289	-0.0975115	0.130221
+						}
+						{VolumeView "wheelr.ply"}
+						{bone "fxtracer1"
+							{Matrix34
+								0	1	0
+								-1	0	0
+								0	0	1
+								-32.7864	0.034908	-13.6129
+							}
+						}
+					}
+				}
+				{bone revolute "wheelleft"
+					{parameters "Radius=0.6;Support=1;"}
+					{Matrix34
+						-0.999998	0	-0.0017449
+						0	1	0
+						0.0017449	0	-0.999998
+						-0.0107827	-0.0319211	-16.0914
+					}
+					{bone "wheell"
+						{Matrix34
+							-0.00174482	0	-0.999998
+							-0.999998	0	0.00174482
+							0	1	0
+							-0.0523072	-0.0754011	0.454708
+						}
+						{VolumeView "wheell.ply"}
+						{bone "fxtracel1"
+							{Matrix34
+								0	1	0
+								-1	0	0
+								0	0	1
+								33.3485	0.0367307	-13.6129
+							}
+						}
+					}
+				}
+			}
+			{bone "link1"
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					0.736656	-47.1166	-12.4633
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		0.953592	-19.4679	-15.1193
+	}
+}

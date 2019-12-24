@@ -1,0 +1,25 @@
+;SDL
+
+	{placer
+		{place "driver" {group "driver"} {linkbone "driver"} {turnoff {sensor} {shadow}} }
+
+	{place "front"
+		{entity "cargo_explosive"}
+		{Linkbone "link"}
+		{handlebone "basis"}
+		{obstacle disable}
+	}
+
+	}
+	{boarder
+		{anm "driver_left"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_steam_locomotive" -1} {base "doorleft" -1}}
+		}
+		{anm "driver_right"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_driver_car"} {base "doorright"}}
+			{reverse 	{end	"board_steam_locomotive" -1} {base "doorright" -1}}
+		}
+		{door "emit"}
+		{link "emit" "driver" {anm "driver_left"} {forward putoff} {reverse puton}}
+	}

@@ -1,0 +1,64 @@
+;Exported by: Mark
+;Date:        Sat Feb 27 21:45:09 2016
+;File:        C:\Users\Mark\WW1\models\austria-hungary\15cmfeldhaubitze\x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			0.9	0	0
+			0	-0.9	0
+			0	0	0.9
+		}
+		{bone "body"
+			{Matrix34
+				1	0	0
+				0	1	0
+				0	0	1
+				14.4908	0.287485	17.7486
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "gun_rot"
+				{limits -10 45}
+				{speed 0.002}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					-3.01232	0	4.68893
+				}
+				{VolumeView "gun_rot.ply"}
+				{bone "gun"
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						8.98333	4.98385	0.476595
+					}
+					{VolumeView "gun.ply"}
+				}
+			}
+			{bone "pivot_front"
+				{Position 19.817	-0.149224	-17.5478}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;Wheelradius=0.6;"}
+					{Matrix34
+						-0.999973	0.000120448	0.00737164
+						0.00737122	0	0.999973
+						0.000122049	1	0
+						-13.3745	18.8908	14.7679
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;Wheelradius=0.6;"}
+					{Matrix34
+						-0.999973	0.000120448	0.00737164
+						0.00737122	0	0.999973
+						0.000122049	1	0
+						-13.3745	-18.7014	14.7679
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+		}
+	}
+}

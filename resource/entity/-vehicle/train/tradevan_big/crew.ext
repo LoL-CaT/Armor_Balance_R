@@ -1,0 +1,136 @@
+;SDL
+{Placer
+	{place "crate1"
+		{entity "crate4"}
+		{Linkbone "attach_crate_1"}
+		{obstacle disable}
+	}
+	{place "crate2"
+		{entity "metall_lathe1"}
+		{Linkbone "attach_crate_2"}
+		{obstacle disable}
+	}
+	{place "crate3"
+		{entity "crate_one"}
+		{Linkbone "attach_crate_3"}
+		{obstacle disable}
+	}
+	{place "crate4"
+		{entity "crate4"}
+		{Linkbone "attach_crate_4"}
+		{obstacle disable}
+	}
+	{place "crate5"
+		{entity "box_wood3"}
+		{Linkbone "attach_crate_5"}
+		{obstacle disable}
+	}
+	{place "crate6"
+		{entity "metall_lathe2"}
+		{Linkbone "attach_crate_6"}
+		{obstacle disable}
+	}
+	{place "crate7"
+		{entity "box_wood2"}
+		{Linkbone "attach_crate_7"}
+		{obstacle disable}
+	}
+	{place "crate8"
+		{entity "crate4"}
+		{Linkbone "attach_crate_8"}
+		{obstacle disable}
+	}
+	{place "crate9"
+		{entity "box_wood5"}
+		{Linkbone "attach_crate_9"}
+		{obstacle disable}
+	}
+	{place "crate10"
+		{entity "box_wood2"}
+		{Linkbone "attach_crate_10"}
+		{obstacle disable}
+	}
+	{place "crate11"
+		{entity "box_wood3"}
+		{Linkbone "attach_crate_11"}
+		{obstacle disable}
+	}
+	{place "crate12"
+		{entity "crate_one"}
+		{Linkbone "attach_crate_12"}
+		{obstacle disable}
+	}
+	{place "crate13"
+		{entity "box_engine_wood"}
+		{Linkbone "attach_crate_13"}
+		{obstacle disable}
+	}
+	{place "crate14"
+		{entity "crate7"}
+		{Linkbone "attach_crate_14"}
+		{obstacle disable}
+	}
+	{place "crate15"
+		{entity "crate7"}
+		{Linkbone "attach_crate_15"}
+		{obstacle disable}
+	}
+	{place "crate16"
+		{entity "crate7"}
+		{Linkbone "attach_crate_16"}
+		{obstacle disable}
+	}
+	{place "crate17"
+		{entity "box_wood2"}
+		{Linkbone "attach_crate_17"}
+		{obstacle disable}
+	}
+}
+
+(define "board_animation"
+	{boarder
+		{anm "%name"
+			{forward	{begin	"board_bigcar"} {end "stand_idle_empty_1"} };{base "%name"}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+)
+
+(define "link"
+	{link "%door"	"%place"	{anm "%animation"} {forward putoff} {reverse puton}}
+)
+
+("board_animation"	name(doorright))
+("board_animation"	name(doorleft))
+
+{placer
+	{place "seat03" {group "passanger"} {linkbone "seat03"} {turnoff {sensor} {shadow}}}
+	{place "seat08" {group "passanger"} {linkbone "seat08"} {turnoff {sensor} {shadow}}}
+	{place "seat12" {group "passanger"} {linkbone "seat12"} {turnoff {sensor} {shadow}}}
+	{place "seat20" {group "passanger"} {linkbone "seat20"} {turnoff {sensor} {shadow}}}
+}
+{boarder
+	{door "emit2"}
+	{door "emit3"}
+	{door "emit6"}
+	{door "emit7"}
+	("link" door(emit2) place(seat03) animation(doorright))
+	("link" door(emit2) place(seat08) animation(doorright))
+	("link" door(emit2) place(seat12) animation(doorright))
+	("link" door(emit2) place(seat20) animation(doorright))
+
+	("link" door(emit3) place(seat03) animation(doorright))
+	("link" door(emit3) place(seat08) animation(doorright))
+	("link" door(emit3) place(seat12) animation(doorright))
+	("link" door(emit3) place(seat20) animation(doorright))
+
+	("link" door(emit6) place(seat03) animation(doorleft))
+	("link" door(emit6) place(seat08) animation(doorleft))
+	("link" door(emit6) place(seat12) animation(doorleft))
+	("link" door(emit6) place(seat20) animation(doorleft))
+
+	("link" door(emit7) place(seat03) animation(doorleft))
+	("link" door(emit7) place(seat08) animation(doorleft))
+	("link" door(emit7) place(seat12) animation(doorleft))
+	("link" door(emit7) place(seat20) animation(doorleft))
+}

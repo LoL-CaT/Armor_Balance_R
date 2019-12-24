@@ -1,0 +1,86 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "round_sandbag5" "vision_cannon_medium" "muzzle_large"}
+	{PatherID  "cannon.large"}
+	("armor_heavy")
+
+	{Volume "Gun_rot"
+		{tags "gun"}
+		{component "gun"}
+	}
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m5_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pdr25_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	{extender "inventory"
+		{box
+			{item "bullet105gerK fg" 6}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "105mm_K18" filling "bullet105gerK fg" 1}
+			{Rotate}
+;			{StationaryFiring} 			
+			("abm_howitzer")
+		}
+	}  	
+	{mass 5624}
+	{Extension "10cm_k18.mdl"}
+	
+	{bone "turret"
+		{limits -28 28}
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -45 3}		
+		{speed2 5}
+	}	
+	
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "cannon_m5_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" "cannon_pdr25_charger_fire"}
+			{reload  "" "Cannon_pdr25_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+		(mod "mp" {rotate_ik_Limit 0})		
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05a") step(0.14) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_massive")
+	}
+	{sensor
+		{visor "main"
+			{vision "cannon_main"}
+		}
+	}
+}

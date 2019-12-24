@@ -1,0 +1,105 @@
+;SDL
+{Placer
+	{place "gun1"
+		{entity "20mm_u_boat"}
+		{Linkbone "attach_gun1"}
+		{obstacle disable}
+	}
+	{place "gun2"
+		{entity "88mm_u_boat"}
+		{Linkbone "attach_gun2"}
+		{obstacle disable}
+	}
+}
+
+{boarder
+	{anm "open1"
+		{forward	{end "seat_passenger"} {base "open1"}}
+	}
+	{anm "open_driver"
+		{forward	{end "seat_passenger"} {base "open1"}}
+	}
+	{anm "open2"
+		{forward	{end "seat_passenger"} {base "open2"}}
+	}
+}
+
+{placer
+	{place "driver"}
+	{place "gunner"}
+	{place "seat1"  {group "crew"}}
+	{place "seat2"  {group "crew"}}
+	{place "seat3"  {group "crew"}}
+	{place "seat4"  {group "crew"}}
+	{place "seat5"  {group "crew"}}
+	{place "seat6"  {group "crew"}}
+	{place "seat7"  {group "crew"}}
+	{place "seat8"  {group "crew"}}
+	{place "seat9"  {group "crew"}}
+	{place "seat10" {group "crew"}}
+	{place "seat11" {group "crew"}}
+	{place "seat12" {group "crew"}}
+	{place "seat13" {group "crew"}}
+	{place "seat14" {group "crew"}}
+	{place "seat15" {group "crew"}}
+	{place "seat16" {group "crew"}}
+	{place "seat17" {group "crew"}}
+	{place "seat18" {group "crew"}}
+}
+{boarder
+	{door "emit1"}
+	{door "emit2"}
+	{door "emit3"}
+	{door "emit4"}
+	{door "emit5"}
+	{door "emit6"}
+	{door "emit7"}
+	{door "emit8"}
+
+	{link "emit5" "gun1"}
+	{link "emit6" "gun2"}
+	{link "emit7" "gun2"}
+	{link "emit8" "driver"}
+	{link "emit5" "driver"}
+	{link "emit8" "gunner"}
+	{link "emit5" "gunner"}
+
+	{link "emit1" "seat1" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat1" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit1" "seat2" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat2" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit1" "seat5" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat5" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit1" "seat6" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat6" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit1" "seat7" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat7" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit1" "seat8" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat8" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat15" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit1" "seat15" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat16" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit1" "seat16" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat17" {anm "open2"} {forward putoff} {reverse puton}}
+	{link "emit2" "seat17" {anm "open2"} {forward putoff} {reverse puton}}
+
+	{link "emit3" "seat3" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat3" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit3" "seat4" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat4" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit3" "seat9" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat9" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit3" "seat10" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat10" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit3" "seat11" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat11" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit3" "seat12" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat12" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit3" "seat13" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat13" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit3" "seat14" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat14" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit3" "seat18" {anm "open1"} {forward putoff} {reverse puton}}
+	{link "emit4" "seat18" {anm "open1"} {forward putoff} {reverse puton}}
+}
+        	

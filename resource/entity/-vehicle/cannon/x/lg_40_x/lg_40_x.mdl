@@ -1,0 +1,104 @@
+;Exported by: butyvsky
+;Date:        Tue Jan 15 15:34:35 2008
+;File:        D:\-Projects-\-3D Work-\canon\LG40\LG_40(no_rocket)_x.max
+{Skeleton
+	{bone revolute "basis"
+		{parameters "WheelRadius=0.18;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				1.4713	0	6.59449
+			}
+			{VolumeView "body.ply"}
+			{bone "pivot_front"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					0.240343	-2.19716	-0.0297565
+				}
+				{VolumeView "pivot_front.ply"}
+				{bone revolute "wheell"
+					{parameters "ID=wheelleft;"}
+					{Matrix34
+						-1	0	0
+						0	0	-1
+						0	-1	0
+						-1.24063	10.5859	-0.936054
+					}
+					{VolumeView "wheell.ply"}
+				}
+				{bone revolute "wheelr"
+					{parameters "ID=wheelright;"}
+					{Matrix34
+						-1	0	0
+						0	0	-1
+						0	-1	0
+						-1.2406	-10.425	-0.93605
+					}
+					{VolumeView "wheelr.ply"}
+				}
+			}
+			{bone "pivot_back"
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					-20.4058	-6.54694	0
+				}
+			}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position -2.52327	6.11135	0}
+				{VolumeView "turret.ply"}
+				{bone "gun"
+					{parameters "ID=gun;"}
+					{Position 0.444129	0.841147	0}
+					{VolumeView "gun.ply"}
+				}
+			}
+			{bone "standr"
+				{Position 0.753473	-3.62204	1.82987}
+				{VolumeView "standr.ply"}
+			}
+			{bone "standl"
+				{Position 0.91579	-3.59342	-1.86277}
+				{VolumeView "standl.ply"}
+				{bone "torus"
+					{Matrix34
+						0.866025	0	0.5
+						0.5	0	-0.866025
+						0	1	0
+						-18.4509	-2.36141	-9.47566
+					}
+					{VolumeView "torus.ply"}
+				}
+			}
+			{bone "standf"
+				{Position 1.52557	-1.24463	-0.0118752}
+				{VolumeView "standf.ply"}
+			}
+			{bone "support1"
+				{Position -15.9794	-6.5485	-11.4594}
+			}
+			{bone "support2"
+				{Position -15.9794	-6.55174	11.4415}
+			}
+		}
+	}
+}

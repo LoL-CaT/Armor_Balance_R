@@ -1,0 +1,133 @@
+{game_entity
+	(include "/properties/marine.ext")
+	(include "/properties/selection/vehicle_elongate.inc" scalex(1.6) scaley(1.6))
+	{mass 100000}
+	{props "vehicle" "marine" "emit_on_sink" "boat" "big" "explosion_throw_crew" "windowed"}
+	{lodclass "vehicle_large"}
+	("armor_medium" args 0.9)
+
+	{Extension "coaster_ship.mdl"}
+	{extender "enumerator"}
+	{extension "crew.ext"}
+
+	{Volume "ballast1"
+		{Tags  "float"}
+		{able clear {float}}
+	}
+	{Volume "ballast2"
+		{Tags  "float"}
+		{able clear {float}}
+	}
+	{Volume "ballast3"
+		{Tags  "float"}
+		{able clear {float}}
+	}
+	{Volume "ballast4"
+		{Tags  "float"}
+		{able clear {float}}
+	}
+	{Volume "body_10"
+		{component "body"}
+	}
+	{Volume "body_11"
+		{component "body"}
+	}
+	{Volume "body_1"
+		{Tags  "body"}
+		{component "body"}
+		{Thickness 100}
+	}
+	{Volume "body_2"
+		{component "body"}
+	}
+	{Volume "body_3"
+		{component "body"}
+	}
+	{Volume "body_4"
+		{Tags  "body"}
+		{component "body"}
+		{Thickness 100}
+	}
+	{Volume "body_5"
+		{Tags  "body"}
+		{component "body"}
+		{Thickness 100}
+	}
+	{Volume "body_6"
+		{Tags  "body"}
+		{component "body"}
+		{Thickness 100}
+	}
+	{Volume "body_7"
+		{Tags  "body"}
+		{component "body"}
+		{Thickness 100}
+	}
+	{Volume "body_8"
+		{Tags  "body"}
+		{component "body"}
+		{Thickness 100}
+	}
+	{Volume "body_9"
+		{Tags  "body"}
+		{component "body"}
+		{Thickness 100}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body_front_1"
+		{Tags  "body"}
+		{component "body_front"}
+		{Thickness 50}
+	}
+	{Volume "body_front_2"
+		{component "body_front"}
+	}
+	{Volume "body_front"
+		{Tags  "body"}
+		{Thickness 50}
+	}
+	{Volume "body_rear_2"
+		{Tags  "body"}
+		{component "body_rear"}
+		{Thickness 50}
+	}
+	{Volume "body_rear_3"
+		{component "body_rear"}
+	}
+	{Volume "body_rear"
+		{Tags  "body"}
+		{Thickness 50}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 50}
+	}
+	{Volume "window1"
+		{Thickness 0.1}
+		{able {window}}
+	}
+	{Volume "window2"
+		{Thickness 0.1}
+		{able {window}}
+	}
+	{Volume "window3"
+		{Thickness 0.1}
+		{able {window}}
+	}
+
+	{component "body"}
+	{component "body_rear"}
+	{component "body_front"}
+
+	{patherid "deep_water"}
+	{chassis
+		{Locomotion ("locomotion")
+			{TurnRadius	20}
+			{MaxSpeed	18}
+			{StartTime	15}	
+			{BrakeTime	15}
+			{TurnTime	45}
+		}
+	}
+
+}

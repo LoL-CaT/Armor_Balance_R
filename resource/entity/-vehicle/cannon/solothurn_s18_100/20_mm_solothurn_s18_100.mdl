@@ -1,0 +1,113 @@
+;Exported by: Sergey
+;Date:        Thu Oct 11 01:40:09 2012
+;File:        D:\Documents\3dsmax\scenes\Solothurn S18-1000\Solothurn S18-100.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+	{bone revolute "basis"
+		{speed 0.005}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0	0	8.56655}
+			{bone revolute "turret"
+				{limits -20 20}
+				{speed 0.01}
+				{Position 4.99376	0	-7.27721}
+				{bone revolute "gun_rut"
+					{limits -5 15}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						1.75938	0	1.34048
+					}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							-1	0	0
+							0	1	0
+							0	0	-1
+							-10.6788	3.58429	0
+						}
+						{bone "foresight1"
+							{Matrix34
+								-1	0	0
+								0	0	1
+								0	1	0
+								-27.223	2.42447	0
+							}
+						}
+						{bone "visor"
+							{Matrix34
+								-1	0	0
+								0	0	1
+								0	1	0
+								-5.91764	2.53869	1.4172
+							}
+						}
+						{bone "nogi"
+							{Matrix34
+								-1	0	0
+								0	0	1
+								0	1	0
+								-10.2549	-1.99586	0.0172484
+							}
+							{VolumeView "nogi.ply"}
+						}
+						{VolumeView "soloturn.ply"}
+					}
+				}
+				{bone "visor2"
+					{Position 6.18297	0	1.34048}
+				}
+				{bone "commander"
+					{Position -19.7805	19.5756	-1.28933}
+				}
+				{bone "gunner"
+					{Position -20.0486	4.29192	-1.28933}
+				}
+			}
+		}
+		{bone revolute "driver1"
+			{Position 15.8189	3.05397	0}
+		}
+		{bone "driver2"
+			{Position -4.86716	-3.3794	0}
+		}
+		{bone "emit1"
+			{parameters "Group=crew;"}
+			{Position -31.0066	9.65605	0}
+		}
+		{bone "emit2"
+			{parameters "Group=crew;"}
+			{Position -30.0682	-15.1429	0}
+		}
+	}
+}
+{Volume "body"
+	{Box 31.4961 1.77165 1.5748}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		6.25701	-0.0315177	-0.197494
+	}
+}
+{Volume "gun"
+	{Box 35.0787 2.44638 3.41823}
+	{Bone "gun"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-9.4674	1.79292	-0.0549459
+	}
+}

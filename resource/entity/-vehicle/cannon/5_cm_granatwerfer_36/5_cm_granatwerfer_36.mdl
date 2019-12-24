@@ -1,0 +1,104 @@
+;Exported by: Sergey
+;Date:        Sun Aug 12 00:42:35 2012
+;File:        D:\Documents\3dsmax\scenes\5 cm le Gr W 36\5cm-legrw-36.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.6}}
+	}
+    {bone revolute "basis"
+        {limits -180 180}
+        {speed 0.01}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.00497291	-0.0041885	0.317632}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -17 17}
+				{speed 0.01}
+				{Position 0	0	0.423952}
+				{VolumeView "turret.ply"}
+				{bone revolute "goon"
+				{limits -17 17}
+				{speed 0.01}
+					{parameters "ID=goon;"}
+					{Matrix34
+						0.872945	0	-0.487818
+						-0.487818	0	-0.872945
+						0	1	0
+						0.00496793	0.00418393	0.225968
+					}
+					{VolumeView "goon.ply"}
+					{bone "handle1"
+						{Matrix34
+							0.872945	-0.487818	0
+							0	0	1
+							-0.487818	-0.872945	0
+							-2.40143	-1.91848	-0.163486
+						}
+					}
+					{bone "foresight"
+;						{limits -30 30}
+;						{speed 0.01}
+						{Matrix34
+							-0.0836582	-0.996495	0
+							-0.996495	0.0836582	0
+							0	0	-1
+							0.0983043	-10.9125	0
+						}
+					}
+				}
+				{bone "visor"
+					{Position 0.221213	0.857016	2.78148}
+				}
+				{bone "visor2"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						4.88996	0.00418771	6.13036
+					}
+				}
+				{bone revolute "tyaga"
+					{parameters "ID=body;"}
+					{Matrix34
+						-0.964192	0	0.265204
+						0.265204	0	0.964192
+						0	1	0
+						3.13843	-0.0151652	0.540757
+					}
+					{VolumeView "tyaga.ply"}
+				}
+			}
+		}
+		{bone "driver"
+			{Position -2.51041	7.1122	0}
+		}
+		{bone "emit1"
+			{Position -15.0546	0.116727	0}
+		}
+		{bone "gunner"
+			{Position -8.53213	3.35787	0.316278}
+		}
+	}
+}
+{Volume "body"
+	{Box 8.1241 4.12161 1.6677}
+	{Bone "body"}
+	{Position -0.433957	0.0112519	0.417982}
+}
+{Volume "goon"
+	{Cylinder 0.791958 11.388}
+	{Bone "goon"}
+	{Matrix34
+		0.999902	0.0140062	0
+		0	0	1
+		0.0140062	-0.999902	0
+		0.0788173	-5.50912	-0.00484512
+	}
+}

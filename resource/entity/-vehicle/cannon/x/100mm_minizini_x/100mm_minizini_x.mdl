@@ -1,0 +1,47 @@
+;Exported by: Luzhbin_M
+;Date:        Mon Mar 02 13:43:19 2009
+;File:        D:\Black\Art\Models\Technics\Корабельные Орудия\100-мм Минизини\100-мм Минизини_x\100mm_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -0.151533	-0.0076783	0.315071}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=Turret;"}
+				{Position 0	0	0.605829}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun_rot;"}
+					{limits -40 8}
+					{speed 0.08}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.446045	-0.0267029	32.3968
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun2"
+						{parameters "ID=Gun2;"}
+						{Position 0	0	0}
+						{VolumeView "gun2.ply"}
+					}
+					{bone "gun1"
+						{parameters "ID=Gun1;"}
+						{Position 0	0	0}
+						{VolumeView "gun1.ply"}
+					}
+				}
+			}
+			{bone "obstacle"
+				{Position 0.151533	0.0076783	-0.315071}
+			}
+		}
+	}
+}

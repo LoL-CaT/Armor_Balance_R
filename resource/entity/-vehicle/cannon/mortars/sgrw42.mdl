@@ -1,0 +1,140 @@
+;Exported by: sergienko
+;Date:        Fri Aug 04 11:03:03 2006
+;File:        D:\-projets1_5\3dwork\anima\vehicle\cannon\120mm_1.max
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.5}}
+		{sequence "close" {speed 0.5}}
+	}
+	{bone revolute "turret"
+		{limits -180 180}
+		{speed 0.01}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "CommonMesh;"}
+			{Matrix34
+				0.984808	0	-0.173648
+				0.173648	0	0.984808
+				0	-1	0
+				-1.92974	-0.0187757	1.67808
+			}
+			{VolumeView "body.ply"}
+			{bone "gun"
+				{parameters "CommonMesh;"}
+				{Matrix34
+					0.986556	0.163422	0
+					-0.163422	0.986556	0
+					0	0	1
+					0.737368	-0.959682	0
+				}
+				{VolumeView "gun.ply"}
+				{bone revolute "foresight"
+					{limits -20 25}
+					{Matrix34
+						0.548555	0.836115	-1.00139e-005
+						-0.836115	0.548555	0
+						0	1.04656e-005	1
+						18.399	28.1879	-0.0955906
+					}
+				}
+			}
+			{bone "handle1"
+				{Matrix34
+					0	0	1
+					0.984808	0.173648	0
+					-0.173648	0.984808	0
+					22.6812	21.3328	1.1821
+				}
+			}
+			{bone "handle2"
+				{Matrix34
+					0	0	-1
+					-0.984808	-0.173648	0
+					-0.173648	0.984808	0
+					-8.35445	10.9505	0.0470104
+				}
+			}
+			{bone "stan"
+				{parameters "CommonMesh;"}
+				{Matrix34
+					0.984808	0.173648	0
+					0	0	-1
+					-0.173648	0.984808	0
+					18.9851	11.609	-0.370668
+				}
+				{VolumeView "stan.ply"}
+			}
+		}
+		{bone "commander"
+			{Position 10.5236	-12.4086	0}
+		}
+		{bone "driver1"
+			{Position 18.8453	-3.48438	0}
+		}
+		{bone "driver2"
+			{Position -10.6804	-0.0610984	0}
+		}
+		{bone "emit1"
+			{parameters "Group=crew;"}
+			{Position 13.3593	18.3529	0}
+			{visibility 0}
+		}
+		{bone "emit2"
+			{parameters "Group=crew;"}
+			{Position 4.04275	-17.8928	0.428903}
+			{visibility 0}
+		}
+		{bone "gunner"
+			{Position 8.53668	13.3389	0}
+		}
+		{bone "support1"
+			{Position -1.18594	-0.0320482	0}
+		}
+		{bone "support2"
+			{Position 23.0134	9.0458	0}
+		}
+		{bone "support3"
+			{Position 22.8549	-8.37793	0}
+		}
+		{bone "visor"
+			{Matrix34
+				0.999561	1.0001e-005	-0.0296197
+				-1.01325e-005	1	0
+				0.0296197	0	0.999561
+				17.7387	6.50212	23.9883
+			}
+		}
+		{bone "visor2"
+			{Matrix34
+				0.999561	1.0001e-005	-0.0296197
+				-1.01325e-005	1	0
+				0.0296197	0	0.999561
+				17.7387	-6.41966	23.9883
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 7.62659 5}
+	{Bone "body"}
+	{Matrix34
+		0.984808	0.173648	0
+		0	0	-1
+		-0.173648	0.984808	0
+		0.12152	0.817268	0
+	}
+}
+{Volume "gun"
+	{Cylinder 1.18918 30.6}
+	{Bone "gun"}
+	{Matrix34
+		0.835109	-0.550085	0
+		0	0	-1
+		0.550085	0.835109	0
+		9.9	15.1846	0
+	}
+}

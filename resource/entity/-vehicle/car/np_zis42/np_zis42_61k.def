@@ -1,0 +1,157 @@
+{game_entity
+	(include "/properties/car.ext")
+    (include "/properties/l_car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{props "vehicle" "car" "wheeled" "flak" "barrel1" "vision_vehicle_minimum" "muzzle_minimum"}
+	{collider "truck"}
+	{targetClass "car" "fg bullet"}
+        {targetSelector "tank_flak"}	
+	("armor_medium" args 1.0)
+
+	("crew_2_human")
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_big-midcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar"} {end "seat_passenger"} {base "doorright"}}
+			{reverse 	{end	"board_big-midcar" -1} {base "doorright" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_body"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_body"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+	}
+
+	("crew_human" place(gunner)		bone(gunner)	door(emit4) animation(gunner))
+	("crew_human" place(charger)		bone(charger)	door(emit3) animation(gunner))
+
+	{placer
+		{place "driver" {visor "driver"}}
+		{place "gunner" {visor "main"}}
+		{place "commander" {visor "main"}}
+		{place "charger" {visor "driver"}}
+	}
+
+	{placer
+		{place "driver" 	{group "crew"}}
+		{place "gunner" 	{group "crew"}}
+		{place "commander"	{group "crew"}}
+		{place "charger"	{group "crew"}}
+	}
+
+	{sensor
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor1"}
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+	{extender "inventory"
+		{box
+			{item "bullet37_61k zenite" 200}
+			{item "bullet37_61k ap" 200}
+			{item "bullet37_61k fg" 200}
+			{item "bullet37_61k apcr" 20}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "37mm_61-k" filling "bullet37_61k zenite" 5} 
+			{RestoreIKAfterAim} 
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+	} 
+
+	{mass 5268}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(1.0) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(42)
+			weight(5.2)
+			power(73)
+			fuel(180)	
+		)
+	}
+ 
+	(define "tank_trace"
+   		{Track "left"
+	    		{Tracer
+    				{View %fx} ; "tracks"
+    				{Bone %boneleft}
+	    			{Step %step}			; 0.7 meters
+    			}
+			{TextureScroller
+	    			{Bone "TrackL"}
+    				{Length %len}		; 0.6 meters per animation
+    			}
+    		}
+    		{Track "right"
+    			{Tracer 
+	    			{View %fx}
+    				{Bone %boneright}
+    				{Step %step}			; in meters
+	    		}
+			{TextureScroller
+	    			{Bone "TrackR"}
+    				{Length %len}		; meters per animation
+    			}
+    		}
+	)
+
+	{Extension "np_zis42_61k.mdl"}
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+		{speed2 25}	
+		{limits -10 85}
+	}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}   
+	}
+	{volume "bodyback"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}   
+	}
+	{volume "turret"
+		{thickness 8}
+	}
+	{component "turret"
+		{RepairTime 15}
+	}
+	{volume "gun"
+		{thickness 5}
+	}
+	{component "gun"
+		{RepairTime 10}
+	}
+	{volume "cabin"
+		{thickness 1}
+	}
+	{component "cabin"	
+		{RepairTime 5}
+	}
+	{component "engine"	
+		{RepairTime 5}
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+}
+

@@ -1,0 +1,206 @@
+;Exported by: garry
+;Date:        Sun Aug 06 15:54:50 2006
+;File:        \\SERGIENKO\-projets1_5\3dwork\anima\vehicle\stan_new\mg34_stan_new02.max
+{Skeleton
+	{animation
+		{sequence "fire" {file "cartridge_belt.anm"} {speed 0.5}}
+		{sequence "close" {speed 0.5}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit1"
+			{parameters "Group=crew;"}
+			{Position -23.4876	-0.0254482	0}
+			{visibility 0}
+		}
+		{bone "emit2"
+			{parameters "Group=crew;"}
+			{Position -26.0708	16.5662	0}
+			{visibility 0}
+		}
+		{bone "body"
+			{parameters "CommonMesh;"}
+			{Position 1.63976	-0.0707399	24.0138}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{speed 0.04}
+				{Position -2.00513	0.0707262	0.894108}
+				{bone "visor"
+					{Position -1.05809	0.0792697	9.43906}
+				}
+				{bone revolute "gun_rot"
+					{limits -10 10}
+					{speed 0.05}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.0188923	-0.0205545	-0.0983925
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "mgun"
+						{Position -6.23017	2.35933	-0.0327894}
+					}
+					{bone "cartridge_belt"
+						{parameters "CommonMesh;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							-2.88245	-18.8112	-3.95389
+						}
+						{VolumeView "cartridge_belt.ply"}
+					}
+					{bone "fxshell"
+						{Matrix34
+							0	0.5	0.866025
+							1	0	0
+							0	0.866025	-0.5
+							-3.15402	3.71604	0.828238
+						}
+					}
+				}
+				{bone "commander"
+					{Matrix34
+						0.999999	0	-0.00134094
+						0	1	5.55931e-005
+						0.00134094	-5.55933e-005	0.999999
+						-14.6161	13.1965	-24.9079
+					}
+				}
+				{bone "gunner"
+					{Matrix34
+						0.999999	0	-0.00134094
+						0	1	5.55822e-005
+						0.00134094	-5.55824e-005	0.999999
+						-11.5309	1.32955	-24.9079
+					}
+				}
+			}
+			{bone "stan1"
+				{parameters "CommonMesh;"}
+				{Position 4.56498	-0.0784214	0.512165}
+				{VolumeView "stan1.ply"}
+			}
+			{bone "stan2"
+				{parameters "CommonMesh;"}
+				{Position -5.04287	-4.66539	-1.54655}
+				{VolumeView "stan2.ply"}
+			}
+			{bone "stan3"
+				{parameters "CommonMesh;"}
+				{Position -5.08086	4.66662	-1.63263}
+				{VolumeView "stan3.ply"}
+			}
+		}
+		{bone "driver1"
+			{Position 3.57984	8.51719	0}
+		}
+		{bone "driver2"
+			{Position 3.57984	-8.67394	0}
+		}
+		{bone "support1"
+			{Position 19.8785	-0.108483	0}
+		}
+		{bone "support3"
+			{Position -11.3027	-12.1956	0}
+		}
+		{bone "support2"
+			{Position -11.3027	11.7233	0}
+		}
+	}
+}
+{Obstacle "obstacle"
+	{Circle2
+		{Radius 13.7795}
+		{Center 0 1.19209e-007}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 2.41519 1.89297 28.9079}
+	{Bone "stan1"}
+	{Matrix34
+		0.868166	-0.0243012	0.495679
+		0.0200596	0.999702	0.0138779
+		-0.495869	-0.00210518	0.868395
+		7.47054	0.0678056	-12.4715
+	}
+}
+{Volume "body2"
+	{Box 1.78724 1.89297 26.3062}
+	{Bone "stan2"}
+	{Matrix34
+		0.936937	-0.187635	-0.29486
+		0.0666356	0.924094	-0.376312
+		0.343087	0.332932	0.878321
+		-4.19913	-4.02445	-10.9652
+	}
+}
+{Volume "touch"
+	{Box 14.6637 17.4162 25.6316}
+	{Bone "body"}
+	{Position -2.53411	0.117706	-5.12803}
+}
+{Volume "body3"
+	{Box 1.73416 1.89297 26.7109}
+	{Bone "stan3"}
+	{Matrix34
+		0.94083	0.141839	-0.307769
+		-0.0255192	0.935268	0.353019
+		0.337919	-0.324276	0.883547
+		-4.16076	3.82023	-10.5082
+	}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin -10.4402	-37.2887	35.0798}
+			{lookat -6.92611	-24.477	25.2891}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 0.363029	17.4733	5.13008}
+			}
+			{"1"
+				{type point}
+				{position -15.6337	-14.9338	35.676}
+			}
+			{"2"
+				{type directional}
+				{direction -0.0672278	0.428076	-0.249462}
+			}
+		}
+	}
+	{"Stuff_primary"
+		{camera
+			{origin -12.3319	-25.017	37.0004}
+			{lookat -10.5652	-20.4777	34.0417}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction 0.00203554	0.4547	-0.207952}
+			}
+			{"1"
+				{type point}
+				{position -22.1683	-4.18772	28.4946}
+			}
+			{"2"
+				{type point}
+				{position 11.206	17.698	22.3527}
+			}
+			{"3"
+				{type point}
+				{position -17.3216	-17.7402	27.9361}
+			}
+		}
+	}
+}

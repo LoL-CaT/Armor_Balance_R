@@ -1,0 +1,91 @@
+{entity
+	(include "/properties/cannon.ext")
+	
+	{props "vehicle" "cannon" "round_sandbag5" "vision_cannon_maximum" "muzzle_maximum"}
+	{PatherID  "cannon.large"}
+
+	("armor_heavy")	
+	
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_155gpf_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_155gpf_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	{extender "inventory"
+		{box
+			{item "ammo bullet210ita" 2}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "210mm_22" filling "bullet210ita" 1}
+			{charger "gunner"}
+			{Rotate}
+			("abm_howitzer")
+		}
+	}
+
+	{mass 15800}
+	
+
+		{extender "cannon"
+			{animation
+				{switch "close"}
+				{move	"cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+				{aim	"cannon_155gpf_gunlayer" ""}
+				{fire	"Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire"}
+				{reload	"" "Cannon_155gpf_charger"}
+			}
+			{move {obstacle "close"}}
+			{attack {obstacle "open"}}
+		}
+		
+	{Chassis "track"
+		("car_trace" fx("tracks_sm") step(0.4) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_verybig")
+	}
+	
+	{sensor
+		{Visor "commander"
+			{vision "cannon_crew"}
+			{bone "commander"}
+		}	
+	}
+	{Extension "obice210.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+	{bone "turret"
+		{speed2 4}
+	}
+	{bone "gun_rot"
+		{speed2 2}
+	}	
+	
+}

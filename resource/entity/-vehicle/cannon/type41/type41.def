@@ -1,0 +1,124 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "wheeled" "vision_cannon_low" "muzzle_medium" "round_sandbag2"}
+	
+	("armor_medium")
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 11}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 11}
+	}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 11}
+	}
+	{extender "shield"
+			{on}
+	}
+	{component "shield"	
+		{RepairTime 10}
+	}
+	{volume "shield"
+		{thickness 11}
+	}
+	{Volume "gun"
+		{thickness 13}
+	}
+	{Volume "gunrot"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 13}
+	}
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+         	{placer	
+		{place "commander" {visor "commander"} {useVision 0}}
+        	}	
+	
+;	{sensor
+;		{Visor "commander"
+;			{vision "cannon_crew"}
+;			{bone "visor1"}
+;		}
+;	}
+	
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_pak40_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_pak40_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	{extender "inventory"
+		{box
+			{item "bullet75 fg" 40}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "75mm_type41" filling "ammo bullet75 fg" 1}
+			{Rotate}
+			("abm_howitzer")
+		}
+	}
+	{mass 1100}
+
+	{Extension "type41.mdl"}
+
+       	(include "/properties/selection/cannon.inc"  scale(0.7))
+		
+		{extender "cannon"
+			{animation
+				{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+				{aim "cannon_pak40_gunlayer" ""}
+				{fire  "Cannon_gunlayer_fire-alert" "Cannon_zis3_charger_fire 0.2"}
+				{reload  "" "cannon_pak40_charger"}
+			}
+			{move {obstacle "close"}}
+			{attack {obstacle "open"}}
+			{rotate_ik_Limit 2}			
+		}
+		
+	{bone "basis"
+		{limits -2 2}
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -3 45}	
+		{speed2 5}
+	}
+
+	{Chassis "track"
+;		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+}

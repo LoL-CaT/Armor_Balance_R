@@ -1,0 +1,170 @@
+;Exported by: skr
+;Date:        Fri Sep 06 20:53:57 2013
+;File:        D:\Documents\3dsmax\scenes\de 25 mm antichar Mle 1934 Hotchkiss\Mle 1934 Hotchkiss_xx.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Matrix34
+				0.986668	0	-0.162746
+				0	1	0
+				0.162746	0	0.986668
+				0	0	0.945436
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turren"
+				{parameters "ID=body;"}
+				{limits -30 30}
+				{speed 0.005}
+				{Position -2.02109	0.0455275	0.967606}
+				{VolumeView "turren.ply"}
+				{bone "shield2"
+					{parameters "ID=shield;"}
+					{Matrix34
+						0.998475	0	0.0552125
+						-0.0552125	0	0.998475
+						0	-1	0
+						-0.577542	0.124497	7.92538
+					}
+					{VolumeView "shield2.ply"}
+				}
+			}
+			{bone "nogal"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.875682	-0.482889	0
+					0.482889	0.875682	0
+					0	0	1
+					-3.18783	3.79778	-0.565687
+				}
+				{VolumeView "nogal.ply"}
+			}
+		}
+		{bone revolute "wheelr"
+			{parameters "ID=wheelright;Radius=0.345;support=1;"}
+			{Matrix34
+				-1	0	0
+				0	-0.999848	0.0174524
+				0	0.0174524	0.999848
+				56.5548	-32.2721	0.874706
+			}
+			{VolumeView "wheelr.ply"}
+		}
+		{bone revolute "gun_rot"
+			{parameters "ID=gun;"}
+			{limits -5 15}
+			{speed 0.005}
+			{Matrix34
+				0.573576	0.819152	0
+				0.69468	-0.48642	0.529919
+				0.434084	-0.303949	-0.848048
+				27.8631	-0.119855	0.432712
+			}
+			{VolumeView "gun_rot.ply"}
+		}
+		{bone "shield1"
+			{parameters "ID=shield;"}
+			{Matrix34
+				0.204205	0	0.978928
+				-0.978928	0	0.204205
+				0	-1	0
+				13.2824	0.306708	-0.151301
+			}
+			{VolumeView "shield1.ply"}
+		}
+		{bone "nogar"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.844048	0.517881	-0.139222
+				-0.510977	0.855452	0.0842832
+				0.162746	0	0.986668
+				-20.669	-3.78785	0.631676
+			}
+			{VolumeView "nogar.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 6.06469 17.3854 3.36927}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-1.02528	-0.0292096	-1.049
+	}
+}
+{Volume "gun"
+	{Cylinder 0.950919 41.3386}
+	{Bone "gun_rot"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		12.173	1.14841	-0.128689
+	}
+}
+{Volume "noga_l"
+	{Box 35.3553 4.28838 2.19184}
+	{Bone "nogal"}
+	{Matrix34
+		-0.990064	-0.0124376	-0.140065
+		0.0142325	-0.999829	-0.0118201
+		-0.139894	-0.0136961	0.990072
+		-19.4108	0.173102	-2.4587
+	}
+}
+{Volume "noga_r"
+	{Box 35.3553 4.28838 2.19184}
+	{Bone "nogar"}
+	{Matrix34
+		-0.990046	-0.0138143	-0.140065
+		0.015623	-0.999808	-0.0118201
+		-0.139875	-0.0138907	0.990072
+		-19.2495	0.000827521	-2.18057
+	}
+}
+{Volume "shield1"
+	{Box 2.00125 15.057 21.4436}
+	{Bone "shield1"}
+	{Matrix34
+		0.96902	0.246983	0
+		-0.246983	0.96902	0
+		0	0	1
+		0.21525	0.0429344	0.170692
+	}
+}
+{Volume "shield2"
+	{Box 6.94168 17.2984 20.1561}
+	{Bone "shield2"}
+	{Matrix34
+		0.998475	-0.0552125	0
+		0.0552125	0.998475	0
+		0	0	1
+		-0.111866	-1.51715	0.392984
+	}
+}
+{Volume "turret"
+	{Box 8.28841 5.66038 6.73854}
+	{Bone "turren"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-1.71799	1.29422	1.36145
+	}
+}
+{Volume "wheel_r"
+	{Cylinder 6.79827 2.15633}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.0650515	-0.0806458	-0.0134369
+	}
+}

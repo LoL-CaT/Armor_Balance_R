@@ -1,0 +1,98 @@
+;Exported by: ubrashaev
+;Date:        Thu Oct 12 18:08:50 2006
+;File:        D:\-Projects1_5-\-work-\3d\-Model-\-Пушки\25pdr\25pdr_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0	0	0}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Position 1.47708	0	0.0704727}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "CommonMesh;ID=gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.181152	0	20.2272
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{animation
+							{sequence "break" {file "gun_b.anm"}}
+						}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							27.6609	2.25817	-0.0437927
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "pivot_front"
+					{Position -0.252021	0	6.31079}
+					{VolumeView "pivot_front.ply"}
+					{bone "wheell"
+						{parameters "ID=wheelleft;"}
+						{Matrix34
+							1	0	0
+							0	0	-1
+							0	1	0
+							0.144442	18.6368	0
+						}
+						{VolumeView "wheell.ply"}
+					}
+					{bone "wheelr"
+						{parameters "ID=wheelright;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							0.144442	-18.722	0
+						}
+						{VolumeView "wheelr.ply"}
+					}
+				}
+			}
+			{bone "round"
+				{Position 0	0	1.07695}
+				{VolumeView "round.ply"}
+			}
+			{bone "pivot_back"
+				{Position -33.9006	0.285527	3.86713}
+			}
+		}
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 6.3843 5.68133}
+	{Bone "wheell"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0.120502	0.049811	-0.121977
+	}
+}
+{Volume "wheelright"
+	{Cylinder 6.3843 5.13256}
+	{Bone "wheelr"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.049874	-0.0498137	-0.083488
+	}
+}

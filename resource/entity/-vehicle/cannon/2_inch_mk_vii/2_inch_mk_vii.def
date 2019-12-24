@@ -1,0 +1,81 @@
+{game_entity
+(include "/properties/cannon.ext")
+{props "vehicle" "cannon" "cannon_small" "truck_mortar" "round_sandbag3" "vision_cannon_minimum"}
+{collider "cannon_small"}
+{targetSelector "cannon_rocket"}
+{patherId "cannon.carried"}
+
+("armor_mortar")
+
+("wheel" args "wheelright")
+("wheel" args "wheelleft")
+
+	("crew_inside")
+	("crew_human" place(driver) bone(driver)	door(emit1) animation(driver))
+	("crew_human" place(gunner)	bone(gunner)	door(emit1) animation(gunner))
+
+	{placer
+		{place "gunner" {UseVision 0}}
+		{place "commander" remove}
+		{place "driver1" remove}
+		{place "driver2" remove}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_maxim_gunlaeyr" 1}}
+		}
+		{anm "driver"
+			{forward {end "walk_1hand"}}
+		}
+		{link "driver" "gunner"}
+	}
+
+	{extender "inventory"
+		{box
+			{size 4 4}
+			{clear}
+			{item "ammo mortar50_2inchhe fg" 20}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{move "walk_1hand" ""}
+		}
+		{move {workers "driver"} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+		{rotate_ik_Limit 0}		
+	}
+
+{Chassis "human_carrier"
+	{carrierPlace "driver1" "driver2"}
+	{carrierBone  "handle1" "handle2"}
+	("loco_carrier")
+}
+
+{Weaponry
+	{place "gun"
+		{Barrels 1}
+		{weapon "weapon 2inch_mk_vii" filling "ammo mortar50_2inchhe fg" 1}
+ 		{Rotate}
+	}
+}
+{mass 5}
+
+	{Extension "2_inch_mortar_mk_vii.mdl"}
+
+	    {bone "turret"
+		   {limits -3 3}		
+		   {speed2 7}
+	    }
+	    {bone "foresight"
+		   {limits -10 25}		
+		   {speed2 7}
+	    }
+
+(include "/properties/selection/cannon.inc"  scale(0.7))
+
+}

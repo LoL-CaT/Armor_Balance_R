@@ -1,0 +1,146 @@
+;Exported by: garry
+;Date:        Tue Aug 19 10:00:23 2008
+;File:        D:\-Projects-\-3DWork-\Model\Пушки\mg_stan\vehicle\cannon\browning_stan_enlong.max
+{Skeleton
+	{animation
+		{sequence "fire" {file "cartridge_belt.anm"} {speed 0.5}}
+		{sequence "close" {speed 0.5}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "emit1"
+			{parameters "Group=crew;"}
+			{Position -23.4876	-0.0254482	0}
+			{visibility 0}
+		}
+		{bone "emit2"
+			{parameters "Group=crew;"}
+			{Position -23.4876	12.0958	0}
+			{visibility 0}
+		}
+		{bone "driver2"
+			{Matrix34
+				0.999999	0	-0.00134045
+				0	1	5.5559e-005
+				0.00134044	-5.55553e-005	0.999999
+				0.926342	-10.5425	-0.0062088
+			}
+		}
+		{bone revolute "driver1"
+			{Position 0.979676	9.8322	0}
+		}
+		{bone "stan"
+			{parameters "CommonMesh;"}
+			{Position -1.7089	-0.298571	14.2284}
+			{VolumeView "stan.ply"}
+			{bone revolute "turret"
+				{speed 0.04}
+				{Position -1.01383	0.19423	10.1795}
+				{bone "gunner"
+					{Matrix34
+						0.999999	0	-0.00134045
+						0	1	5.55581e-005
+						0.00134044	-5.55618e-005	0.999999
+						-11.2469	0.356051	-25.1543
+					}
+				}
+				{bone revolute "commander"
+					{Position -9.94538	12.4627	-25.1543}
+				}
+				{bone "cartridge_belt"
+					{parameters "CommonMesh;"}
+					{Position 1.67538	3.93333	-20.37}
+					{VolumeView "cartridge_belt.ply"}
+				}
+				{bone revolute "gun_rot"
+					{limits -10 10}
+					{speed 0.05}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.478779	-0.479379	-1.69576
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "mgun"
+						{Position -5.9815	1.81487	-0.597055}
+					}
+				}
+			}
+			{bone "support1"
+				{Position -13.1547	-10.8791	-14.2137}
+			}
+			{bone "support2"
+				{Position -13.1547	10.6308	-14.2137}
+			}
+			{bone "support3"
+				{Position 13.7889	4.8532	-14.2137}
+			}
+			{bone "support4"
+				{Position 13.7889	-4.71737	-14.2137}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 4.17742 3.36232 18.1914}
+	{Bone "stan"}
+	{Position 1.8997	0.24765	-0.27929}
+}
+{Volume "touch"
+	{Box 21.6143 12.7125 27.7206}
+	{Bone "stan"}
+	{Position -0.22369	-0.331357	-0.466458}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin -22.0355	-46.1731	30.6218}
+			{lookat -12.345	-27.0211	21.9979}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 0.363029	17.4733	5.13008}
+			}
+			{"1"
+				{type point}
+				{position -15.6337	-14.9338	35.676}
+			}
+			{"2"
+				{type directional}
+				{direction -0.0672277	0.428076	-0.249462}
+			}
+		}
+	}
+	{"Stuff_primary"
+		{camera
+			{origin -13.8091	-37.138	42.7387}
+			{lookat -6.60623	-22.9023	34.1161}
+			{fov 45}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction 0.00203554	0.4547	-0.207952}
+			}
+			{"1"
+				{type point}
+				{position -22.1683	-4.18772	28.4946}
+			}
+			{"2"
+				{type point}
+				{position 11.206	17.698	22.3527}
+			}
+			{"3"
+				{type point}
+				{position -17.3216	-17.7402	27.9361}
+			}
+		}
+	}
+}

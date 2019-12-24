@@ -1,0 +1,69 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{Extension "searchlight2.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.6))
+	{props "vehicle" "cannon" "searchlight"}
+	
+	{Volume "turret"
+		{Tags  "body"}
+		{Thickness 5}
+		{component "turret"}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 5}
+		{component "body"}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "gun"
+		{Tags  "body"}
+		{Thickness 5}
+		{component "gun"}		
+		{able {visible 1}}
+	}
+
+	("armor_light" args 0.7)
+
+	{bone "turret"
+		{limits}
+	{speed 0.002}
+	}
+	{bone "gun"
+		{limits -10 10}
+	}
+
+	{targetSelector "searchlight"}
+	{sensor
+		{Visor "main"
+			{vision "searchlight"}
+		}
+	}
+	{Volume "lamp"
+		{thickness 0.1}
+		{able {obstacle 0}}
+	}
+	("crew_gunner")
+	{extender "inventory"
+		{weapon "gun"
+			{mask "weapon searchlight"}
+		}
+		{box
+			{size 8 6}
+		}
+	}
+	{Weaponry
+		{place "light"
+			{weapon "searchlight"}
+		}
+	}
+	{extender "light"
+		{lamp "1"}
+		{lightfx "light_search"}
+		{breakfx "glass_hit"}
+		{check_operatable}
+	}
+	{extender "bone_rotator"
+		{watchBone "gun"}
+	}
+}

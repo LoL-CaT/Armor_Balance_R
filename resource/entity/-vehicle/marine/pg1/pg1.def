@@ -1,0 +1,62 @@
+{game_entity
+	(include "/properties/marine.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+ 	{targetSelector "tank_bullet"}
+	{Extension "pg1.mdl"}
+	{mass 300}
+	{patherid "shallow_water"}
+	{props "vehicle" "car" "marine" "flag" "emit_on_sink" "explosion_throw_crew"}
+
+	{extension "crew.ext"}
+
+	{volume "fuel"
+		{tags "explosive"}
+		{thickness 1}
+	}
+	{volume "engine"
+		{thickness 1}
+	}
+	{volume "body"
+		{tags "body"}
+		{thickness 1}
+	}
+	{Volume "ballast1"
+		{tags "float"}
+		{Able clear {float}}
+	}
+
+	("armor_light" args 0.1)
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box
+			{size 5 6}
+			{item  "ammo mgun" 600}
+		}
+	}	
+	{Weaponry
+		{place "mgun"
+			{LinkBone "mgun"}
+			{weapon "ds" filled}			
+			{LinkAnimation "off"}
+			{charger "gunner"}
+		}             
+	}
+	{sensor
+		{Visor "main"
+			{bone "visor1"}
+		}
+		{Visor "gunner"
+			{vision "vehicle_top_mgun"}
+			{bone "visor2"}
+		}
+	}
+	{chassis
+		{Locomotion ("locomotion")
+			{MaxSpeed 10}
+			{SplineRadius 3}
+		}
+	}
+}

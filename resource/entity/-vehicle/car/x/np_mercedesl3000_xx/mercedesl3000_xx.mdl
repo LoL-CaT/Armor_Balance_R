@@ -1,0 +1,367 @@
+;Exported by: Normand
+;Date:        Mon Dec 10 14:10:45 2012
+;File:        C:\Users\Normand\mercedesl3k_xx.max
+{Skeleton
+	{bone "basis"
+		{parameters "SteerMax=30;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "pivot_front"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.999996	1.20831e-005	0.00266218
+				0	0.99999	-0.00447318
+				-0.00266221	0.00447316	0.999986
+				47.5824	0.0386638	5.85233
+			}
+			{VolumeView "pivot_front.ply"}
+			{bone revolute "steer_l1"
+				{Matrix34
+					-0.999991	0.00412393	-0.000992418
+					0.0041204	0.999985	0.00354134
+					-0.00100681	-0.00353722	0.999993
+					0.0644989	13.8127	-0.062264
+				}
+				{bone revolute "wheelleft1"
+					{parameters "ID=wheel1;Support=1;Radius=0.4;"}
+					{Matrix34
+						0.999985	-0.00411077	0.00366926
+						-0.00365466	0.00355221	0.999987
+						-0.00412376	-0.999985	0.00353714
+						0.0599709	1.9487	0.0899072
+					}
+					{VolumeView "wheelleft1.ply"}
+				}
+			}
+			{bone revolute "steer_r1"
+				{Matrix34
+					-0.999971	-0.00721071	0.00226481
+					-0.0071838	0.999906	0.0116761
+					0.00234903	-0.0116594	0.999929
+					0.0723534	-13.4817	-0.0633759
+				}
+				{bone revolute "wheelright1"
+					{parameters "ID=wheel1;Support=1;Radius=0.4;"}
+					{Matrix34
+						0.999974	0.00721511	0.00031313
+						-0.000397224	0.0116568	0.999932
+						-0.00721097	0.999906	-0.0116594
+						0.0759087	-2.13787	0.122662
+					}
+					{VolumeView "wheelright1.ply"}
+				}
+			}
+		}
+		{bone "pivot_back"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.999996	1.20831e-005	0.00266218
+				0	0.99999	-0.00447318
+				-0.00266221	0.00447316	0.999986
+				-24.2676	0.393441	8.49518
+			}
+			{VolumeView "pivot_back.ply"}
+			{bone revolute "wheelleft2"
+				{parameters "ID=wheel1;Support=1;Radius=0.4;"}
+				{Matrix34
+					-0.999996	0	0.00266221
+					0.00266221	0	0.999996
+					0	-1	0
+					-0.16855	15.2834	-0.0617266
+				}
+				{VolumeView "wheelleft2.ply"}
+			}
+			{bone revolute "wheelright2"
+				{parameters "ID=wheelright2;Support=1;Radius=0.4;"}
+				{Matrix34
+					-0.999996	0	0.00266221
+					0.00266221	0	0.999996
+					0	1	0
+					-0.168634	-16.1618	-0.0617628
+				}
+				{VolumeView "wheelright2.ply"}
+			}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.994548	0.00421095	-0.104195
+				0.00422087	0.99674	0.0805711
+				0.104194	-0.0805716	0.991288
+				7.22851	-0.359194	10.7696
+			}
+			{VolumeView "body.ply"}
+			{bone "fenderr"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999878	-0.0154269	0.00238992
+					0.0154032	0.950045	-0.311731
+					0.00253856	0.31173	0.950167
+					40.4247	-8.08746	2.68647
+				}
+				{VolumeView "fenderr.ply"}
+			}
+			{bone "part3"
+				{parameters "ID=body;"}
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	1
+					40.4248	8.82548	2.68649
+				}
+				{VolumeView "part3.ply"}
+			}
+			{bone "cabin"
+				{parameters "ID=cabine;"}
+				{Matrix34
+					-0.999996	0	0.00266208
+					0	1	0
+					0.00266212	0	0.999996
+					18.4796	0.473006	32.2097
+				}
+				{VolumeView "cabin.ply"}
+				{bone "part1"
+					{parameters "ID=part1;"}
+					{Matrix34
+						-0.0945963	-0.995514	-0.00165972
+						-0.995489	0.0946057	-0.00712514
+						-0.00725019	-0.000978224	0.999973
+						-8.81531	15.5803	-18.9094
+					}
+					{VolumeView "part1.ply"}
+				}
+				{bone "part2"
+					{parameters "ID=part2;"}
+					{Matrix34
+						-0.0803589	0.996765	-0.00165971
+						-0.996742	-0.0803451	0.00712512
+						0.00696874	0.00222687	0.999973
+						-8.81479	-15.5331	-19.1308
+					}
+					{VolumeView "part2.ply"}
+				}
+			}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{Matrix34
+					-0.00225241	0.999997	0
+					0.999994	0.00225242	-0.00266297
+					0.00266302	0	0.999997
+					26.3095	12.5154	18.8969
+				}
+				{VolumeView "engine.ply"}
+				{bone "fxfire1"
+					{Matrix34
+						0.999884	0.00981824	-0.0116532
+						0.0116634	-0.000986978	0.999931
+						0.00980601	-0.999951	-0.00110136
+						-12.1949	14.2422	-7.4423
+					}
+				}
+				{bone "part4"
+					{parameters "ID=part4;"}
+					{Matrix34
+						-0.999998	-0.00224829	0
+						0	0	1
+						0.00224829	-0.999998	0
+						-12.0634	19.2587	-6.65259
+					}
+					{VolumeView "part4.ply"}
+				}
+				{bone "engine_hutchl"
+					{parameters "ID=engine;"}
+					{Matrix34
+						0.999998	0.00226297	0
+						-7.33924e-005	0.0314394	0.999506
+						0.00226178	-0.999503	0.0314395
+						-12.1857	13.3996	1.32953
+					}
+					{VolumeView "engine_hutchl.ply"}
+				}
+			}
+			{bone "body_back"
+				{parameters "ID=body;"}
+				{Position -27.2424	0.602891	17.7275}
+				{VolumeView "body_back.ply"}
+				{bone "part5"
+					{parameters "ID=part5;"}
+					{Position 7.05719e-005	2.19345e-005	-6.86646e-005}
+					{VolumeView "part5.ply"}
+				}
+				{bone "part6"
+					{parameters "ID=part6;"}
+					{Position 7.05719e-005	2.19345e-005	-6.86646e-005}
+					{VolumeView "part6.ply"}
+				}
+			}
+			{bone "bumper"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999996	0	-0.0026622
+					0	1	0
+					0.00266223	0	0.999997
+					53.5528	0.505777	0.0767136
+				}
+				{VolumeView "bumper.ply"}
+			}
+			{bone "engine_body"
+				{parameters "ID=engine;"}
+				{Matrix34
+					0	-1	0
+					-0.0347085	0	0.999398
+					-0.999397	0	-0.0347085
+					44.9647	0.473573	4.16469
+				}
+				{VolumeView "engine_body.ply"}
+				{bone revolute "vent"
+					{parameters "ID=engine;"}
+					{Position 0.0460449	5.38809	-1.97367}
+					{VolumeView "vent.ply"}
+				}
+			}
+		}
+	}
+}
+{Volume "body_back"
+	{Box 72.5 19 41.7}
+	{Bone "body_back"}
+	{Matrix34
+		0.951101	-0.00448301	0.00400243
+		-0.00403613	-0.00717199	0.951085
+		-0.00445282	-0.951083	-0.0071908
+		0.0821389	-0.792198	-1.1504
+	}
+}
+{Volume "body"
+	{Box 113 3.3 19}
+	{Bone "body"}
+	{Matrix34
+		0.951052	-0.0112046	-0.00204118
+		0.00205118	0.000842778	0.951118
+		-0.0112028	-0.951054	0.000866908
+		-2.04884	0.373761	1.80219
+	}
+}
+{Volume "cabin"
+	{Polyhedron "cabin.vol"}
+	{Bone "cabin"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	1
+		-1.78782	-0.0365862	-28.466
+	}
+}
+{Volume "engine"
+	{Polyhedron "engine.vol"}
+	{Bone "engine"}
+	{Matrix34
+		-0.00225527	0.999998	0
+		0.999998	0.00225527	0
+		0	0	1
+		-12.2661	14.9878	-15.1111
+	}
+}
+{Volume "part1"
+	{Box 15.5844 27.5 1}
+	{Bone "part1"}
+	{Matrix34
+		-0.995318	0.0958682	0.0122682
+		0.00806002	-0.0441605	0.998992
+		0.0963135	0.994414	0.0431812
+		-7.96131	0.201072	4.09929
+	}
+}
+{Volume "part2"
+	{Box 16 27.8 1}
+	{Bone "part2"}
+	{Matrix34
+		0.997068	-0.0763631	-0.00492806
+		0.00459521	-0.00453458	0.999979
+		0.0763837	0.99707	0.00417031
+		-7.96227	0.205082	4.45548
+	}
+}
+{Volume "part3"
+	{Polyhedron "part3.vol"}
+	{Bone "part3"}
+	{Matrix34
+		0.994548	0.00422615	0.104195
+		-0.104137	-0.0121559	0.994489
+		0.00546943	-0.999917	-0.0116495
+		31.0816	19.7669	-0.832001
+	}
+}
+{Volume "part4"
+	{Polyhedron "part4.vol"}
+	{Bone "part4"}
+	{Matrix34
+		-0.037172	-0.0500713	-0.998054
+		-0.817568	0.57583	0.00156113
+		0.574631	0.816035	-0.0623415
+		7.06626	-5.22215	-0.0494194
+	}
+}
+{Volume "part5"
+	{Polyhedron "part5.vol"}
+	{Bone "part5"}
+	{Matrix34
+		0.999939	0.00494592	0.00986034
+		-0.00501933	0.99996	0.00743394
+		-0.00982318	-0.00748297	0.999924
+		0.520775	15.1463	-4.16179
+	}
+}
+{Volume "part6"
+	{Box 43 16.5 1}
+	{Bone "part6"}
+	{Matrix34
+		0.00610782	0.999979	0.00245234
+		0.0160811	-0.00255033	0.999867
+		0.999852	-0.00606758	-0.0160964
+		-34.5799	-1.02502	-0.314057
+	}
+}
+{Volume "wheelleft1"
+	{Cylinder 6.5 4.7}
+	{Bone "wheelleft1"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	1
+		-0.0780822	0.0674711	-0.390934
+	}
+}
+{Volume "wheelleft2"
+	{Cylinder 9.8 9}
+	{Bone "wheelleft2"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	1
+		0.00223285	0.0303705	-0.399885
+	}
+}
+{Volume "wheelrigh2"
+	{Cylinder 9.8 9}
+	{Bone "wheelright2"}
+	{Matrix34
+		-1	0	-1.1177e-005
+		0	1	0
+		-2.16785e-005	0	-1
+		0.0717752	0.0700639	-0.490052
+	}
+}
+{Volume "wheelright1"
+	{Cylinder 6.5 4.7}
+	{Bone "wheelright1"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		0.0611296	0.077216	-0.390022
+	}
+}

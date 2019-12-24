@@ -1,0 +1,128 @@
+;Exported by: Sergey
+;Date:        Wed Oct 03 12:38:45 2012
+;File:        D:\Documents\3dsmax\scenes\ѕулемЄты Browning\Browning M1919A4_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.931111	0.0735257	-0.357247
+				0	0.979471	0.201587
+				0.364735	-0.1877	0.911996
+				6.63533	0.000869713	1.08627
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=body;"}
+				{limits -15 15}
+				{Position 0	0	0.749518}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=body;"}
+					{limits -5 10}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.00654507	-0.00686209	0.969229
+					}
+					{VolumeView "gun_rot.ply"}
+				}
+			}
+			{bone "support3"
+				{parameters "ID=support3;"}
+				{Matrix34
+					-0.808652	0.297164	-0.507716
+					-0.476557	0.175126	0.861524
+					0.344929	0.938629	0
+					-2.0393	0.577913	-0.220372
+				}
+				{VolumeView "support3.ply"}
+				{bone "vtulka3"
+					{parameters "ID=support3;"}
+					{Position 5.97557	0	0}
+					{VolumeView "vtulka3.ply"}
+				}
+			}
+		}
+		{bone "support2"
+			{parameters "ID=support2;"}
+			{Matrix34
+				-0.384979	0.922918	-0.00368434
+				-0.468413	-0.191947	0.862407
+				0.795224	0.333734	0.506202
+				-9.13276	-0.580967	-0.000543118
+			}
+			{VolumeView "support2.ply"}
+			{bone "vtulka2"
+				{parameters "ID=support2;"}
+				{Position 6.01725	0	0}
+				{VolumeView "vtulka2.ply"}
+				{bone "rasporka"
+					{Matrix34
+						-0.798005	-0.468412	-0.379181
+						-0.506214	0.862408	0
+						0.327009	0.191947	-0.925323
+						-0.0172424	-0.00832367	0.659111
+					}
+					{VolumeView "rasporka.ply"}
+				}
+			}
+		}
+		{bone "support1"
+			{parameters "ID=support1;"}
+			{Matrix34
+				0.999971	0	-0.00762712
+				0.00762712	0	0.999971
+				0	-1	0
+				10.7382	0.213319	0.259961
+			}
+			{VolumeView "support1.ply"}
+		}
+	}
+}
+{Volume "body"
+	{Box 5.58055 2.98577 3.93701}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-0.189816	-0.0271022	0.550346
+	}
+}
+{Volume "support1"
+	{Cylinder 0.341757 7.08661}
+	{Bone "support1"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		3.54331	0	0
+	}
+}
+{Volume "support2"
+	{Cylinder 0.341757 11.811}
+	{Bone "support2"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		5.43158	0	0.00846868
+	}
+}
+{Volume "support3"
+	{Cylinder 0.341757 11.811}
+	{Bone "support3"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		5.43158	0	0.00580649
+	}
+}

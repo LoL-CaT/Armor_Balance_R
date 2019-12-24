@@ -1,0 +1,58 @@
+; made by Albus & Dinsen Sep 2010
+{Skeleton
+	{animation
+		{sequence "recoil" {speed 0.9}}
+	}
+	{bone "basis"
+		{Orientation
+			1.0000	0.0000	0.0000
+			0.0000	-1.0000	0.0000
+			0.0000	0.0000	1.0000
+		}
+		{bone "body"
+			{Matrix34
+				1.0000	0.0000	0.0000
+				0.0000	-1.0000	0.0000
+				0.0000	0.0000	-1.0000
+				-1.3229	-0.1546	0.0000
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "gun_rot1"
+				{speed 0.0200}
+				{Matrix34
+					1.0000	0.0000	0.0000
+					0.0000	-1.0000	0.0000
+					0.0000	0.0000	-1.0000
+					-0.1444	0.4189	-0.7167
+				}
+				{VolumeView "gun_rot1.ply"}
+				{bone "emit1"
+					{Position -3.3912	31.1706	0.0000}
+				}
+				{bone "emit2"
+					{Position -3.0912	-32.5294	0.0000}
+				}
+				{bone revolute "gun_rot"
+					{limits -15.0000 45.0000}
+					{speed 0.0100}
+					{Matrix34
+						1.0000	0.0000	0.0000
+						0.0000	0.0000	1.0000
+						0.0000	-1.0000	0.0000
+						0.0000	0.4000	23.1762
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "Gun"
+						{Matrix34
+							1.0000	0.0000	0.0000
+							0.0000	1.0000	0.0000
+							0.0000	0.0000	1.0000
+							4.6812	0.6310	-0.0012
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+	}
+}

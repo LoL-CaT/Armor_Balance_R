@@ -1,0 +1,117 @@
+;Exported by: vlss
+;Date:        Thu Apr 28 10:35:16 2016
+;File:        flak40-fixed.obj
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.707138	0.232528	0.131733}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "repair" {file "turret_r.anm"}}
+				}
+				{speed 0.02}
+				{Matrix34
+					-0.34202	0.939693	0
+					-0.939693	-0.34202	0
+					0	0	1
+					0	9.35048e-005	2.65914
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=mantlet;"}
+					{limits -80 11}
+					{speed 0.02}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-27.1448	0.000568271	39.4097
+					}
+					{bone "part1"
+						{parameters "ID=part1;"}
+						{Matrix34
+							0.996195	0.0871558	0
+							-0.0871557	0.996195	0
+							0	0	1
+							-0.160147	0.113914	14.2381
+						}
+						{VolumeView "part1.ply"}
+					}
+					{bone "part2"
+						{parameters "ID=part2;"}
+						{Matrix34
+							0.9745	-0.173467	-0.142336
+							0.224198	0.778836	0.58579
+							0.00924046	-0.602764	0.797867
+							-0.160139	0.113651	-14.238
+						}
+						{VolumeView "part2.ply"}
+					}
+					{bone "part3"
+						{parameters "ID=part1;"}
+						{Matrix34
+							0.996195	0.0871557	0
+							-0.0871557	0.996195	0
+							0	0	1
+							-0.160149	0.113914	14.2381
+						}
+						{VolumeView "part3.ply"}
+					}
+				}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Matrix34
+		1	0	0
+		0	1	0
+		0	0	1
+		0.85945	0.368999	1.22202
+	}
+}
+{Volume "mantlet"
+	{Polyhedron "mantlet.vol"}
+	{Bone "gun_rot"}
+	{Matrix34
+		0.999999	-0.000617475	0.00148872
+		-0.00148878	-9.2967e-005	0.999999
+		-0.000617363	-1	-9.3339e-005
+		12.7673	2.89556	-0.263829
+	}
+}
+{Volume "part1"
+	{Polyhedron "part1.vol"}
+	{Bone "part1"}
+	{Position 0	-8.17247	0}
+}
+{Volume "part2"
+	{Polyhedron "part2.vol"}
+	{Bone "part2"}
+	{Position 0	-8.17246	0}
+}
+{Volume "part3"
+	{Polyhedron "part3.vol"}
+	{Bone "part3"}
+	{Position 0	-8.17247	0}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Matrix34
+		0.999999	-0.000617444	0.00148914
+		0.000617325	1	8.0643e-005
+		-0.00148924	-7.91424e-005	0.999999
+		-9.24125	0.0317349	12.1268
+	}
+}

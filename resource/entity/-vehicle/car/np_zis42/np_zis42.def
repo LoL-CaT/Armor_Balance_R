@@ -1,0 +1,114 @@
+{game_entity
+	(include "/properties/car.ext")
+    (include "/properties/l_car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{props "vehicle" "car" "wheeled" "vision_vehicle_minimum"}
+	{collider "truck"}
+	{targetClass "car" "fg bullet"}	
+	("armor_medium" args 1.0)
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-midcar_driver)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-midcar)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+
+	("passenger_10_human")
+	{boarder
+		{anm "passenger"
+			{forward	{begin	"board_body"} {end "seat_passenger"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+	}	
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 2} 
+	}
+	{Volume "bodyback"
+		{tags "body"}
+		{component "body"}
+		{thickness 2}
+	}	
+	
+	{mass 5268}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(1.0) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(42)
+			weight(5.2)
+			power(73)
+			fuel(180)	
+		)
+	}
+	
+	{extender "inventory"
+		{Box
+			{item "can" 2}
+		}
+	}
+	(define "tank_trace"
+   		{Track "left"
+	    		{Tracer
+    				{View %fx} ; "tracks"
+    				{Bone %boneleft}
+	    			{Step %step}			; 0.7 meters
+    			}
+			{TextureScroller
+	    			{Bone "TrackL"}
+    				{Length %len}		; 0.6 meters per animation
+    			}
+    		}
+    		{Track "right"
+    			{Tracer 
+	    			{View %fx}
+    				{Bone %boneright}
+    				{Step %step}			; in meters
+	    		}
+			{TextureScroller
+	    			{Bone "TrackR"}
+    				{Length %len}		; meters per animation
+    			}
+    		}
+	)
+
+	{Extension "np_zis42.mdl"}
+	{component "cabin"	
+		{RepairTime 12}
+	}
+	{volume "cabin"
+		{thickness 1}
+	}
+	{component "engine"	
+		{RepairTime 10}
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{component "shield"	
+		{RepairTime 10}
+	}	
+	{extender "shield"
+			{on}
+	}
+	{volume "shield"	
+		{thickness 1}
+	}
+	(include "/properties/resupply_generic.inc")
+	("truck_ammo_art_sssr")	
+}

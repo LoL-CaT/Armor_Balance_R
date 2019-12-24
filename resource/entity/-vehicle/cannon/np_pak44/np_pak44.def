@@ -1,0 +1,132 @@
+{entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "round_sandbag5" "vision_cannon_minimum" "muzzle_large"}
+		
+	{PatherID "cannon.large"}
+	
+	("armor_heavy")	
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+		{place "commander" {visor "main"} {useVision 0}}
+	}	
+	{Volume "body"
+		{thickness 10}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{thickness 10}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "turret1"
+		{thickness 15}
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret2"
+		{thickness 10}
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "gun"
+		{thickness 10}
+	}
+	{Volume "gun_rot"
+		{thickness 10}
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "pivot_back"
+		{thickness 10}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "pivot_front"
+		{thickness 10}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "standl"
+		{thickness 10}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "standr"
+		{thickness 10}
+		{tags "body"}
+		{component "body"}
+	}
+	("wheel" args "wheelright1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelleft2")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "cannon_m8_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_61K_gunlayer_left" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+	{Extension "pak44.mdl"}
+	{extender "inventory"
+		{box			
+           	{item "ammo bullet128ger ap" 4}
+           	{item "ammo bullet128ger fg" 4}
+;            {item "ammo bullet128ger apcr" 2}
+		    {item "sandbag_kit2" 5}
+            {item "plant" 5}
+			)
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "128mm_pak81_3" filling "bullet128ger ap" 1}	
+		}
+	}  	
+
+	{extender "cannon"
+		{animation
+			{aim "cannon_m8_gunlayer" "Cannon_61K_gunlayer_left"}
+			
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			;{reload  "" "cannon_flak38_charger_left"}
+			{switch "close"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel03") step(0.06) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel03") step(0.06) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
+		("loco_verybig")
+	}
+	{mass 9000}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -7 51}	
+		{speed2 5}
+	}
+	
+}
