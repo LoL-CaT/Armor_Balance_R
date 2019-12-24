@@ -1,0 +1,46 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{Extension "kitchen.mdl"}
+	{props "vehicle" "cannon" "wheeled" "steel"}
+;	{props "trailer" "vehicle" "wheeled" "steel" "break_on_burn" "parts" "construction" "small" "burning" "no_destroyed_stamp" "flue_always"}
+	{mass 600}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Tags "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Tags "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "wheel"
+		{Tags  "body"}
+		{Tags "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "wheell1"
+		{Tags  "body"}
+		{Tags "fire"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "wheelr1"
+		{Tags  "body"}
+		{Tags "fire"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_small")
+	}
+}

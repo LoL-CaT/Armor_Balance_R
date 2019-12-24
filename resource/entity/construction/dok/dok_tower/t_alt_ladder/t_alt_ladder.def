@@ -1,0 +1,93 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+	{Extension "t_alt_ladder.mdl"}
+	{extender "structure_bone"	
+		{hold "07" "08"}		
+	}
+	{placer
+		{place "1" {attach squat_lie} {linkbone "node01"}}
+		{place "7" {attach squat_lie} {linkbone "node07"}}
+		{place "10" {attach squat_lie} {linkbone "node10"}}
+		{place "11" {attach squat_lie} {linkbone "node11"}}
+		{place "12" {attach squat_lie} {linkbone "node12"}}
+		{place "15" {attach squat_lie} {linkbone "node15"}}
+	}
+	{boarder
+		{door "door" {queue 0}}
+
+
+		{node "ladder_bottom"}
+		{node "ladder_top"}
+
+		{node "node01"}
+		{node "node07"}
+		{node "node10"}
+		{node "node11"}
+		{node "node12"}
+		{node "node15"}
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 2} {loop "stand_upstairs"}}
+			{reverse	{speed 2} {loop "stand_upstairs" -1}}
+		}
+		{anm "walk"
+			{forward {speed 3}}
+			{reverse {speed 3}}
+		}
+
+		{link "door"	 		"ladder_bottom" 	{anm "ladder_bind"}}
+		{link "ladder_bottom"		"ladder_top" 		{anm "ladder"}}
+		{link "ladder_top"		"1"		{anm "[fsm]"}}
+
+
+	    	{link "1"	"7"				 		{anm "[fsm]"}}
+	    	{link "1"	"10"				 	{anm "[fsm]"}}
+	    	{link "1"	"11"				 	{anm "[fsm]"}}
+	    	{link "1"	"12"				 	{anm "[fsm]"}}
+	    	{link "1"	"15"				 	{anm "[fsm]"}}
+	    	{link "10"	"15"				 	{anm "[fsm]"}}
+	    	{link "10"	"12"				 	{anm "[fsm]"}}
+	    	{link "10"	"11"				 	{anm "[fsm]"}}
+	    	{link "10"	"7"					 	{anm "[fsm]"}}
+	    	{link "11"	"15"				 	{anm "[fsm]"}}
+	    	{link "11"	"12"				 	{anm "[fsm]"}}
+	    	{link "11"	"7"					 	{anm "[fsm]"}}
+	    	{link "12"	"15"				 	{anm "[fsm]"}}
+	    	{link "12"	"7"					 	{anm "[fsm]"}}
+	}
+	{Volume "attach01"
+		{able clear  {touch 1} }
+		{tags "attach" "1"}
+	}
+	{Volume "attach15"
+		{able clear  {touch 1} }
+		{tags "attach" "15"}
+	}
+	{Volume "attach07"
+		{able clear  {touch 1} }
+		{tags "attach" "7"}
+	}
+	{Volume "attach10"
+		{able clear  {touch 1} }
+		{tags "attach" "10"}
+	}
+	{Volume "attach11"
+		{able clear  {touch 1} }
+		{tags "attach" "11"}
+	}
+	{Volume "attach12"
+		{able clear  {touch 1} }
+		{tags "attach" "12"}
+	}
+	{Volume "body457"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+}

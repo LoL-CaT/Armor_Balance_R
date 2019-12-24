@@ -1,0 +1,38 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "river-wall_discharge.mdl"}
+	{props "construction" "concrete" "gate"}
+
+	{placer
+		{place "1" {attach open_lie} {linkbone "node"}}
+	}
+	{Boarder
+		{door "door" {queue 0}}
+		{node "bottom"}
+		{node "top"}
+		{anm "swim"
+			{forward	{speed 1} {loop "swim_gun"}}
+		}
+		{link "door" "top" {anm "swim"}
+;	 {forward putoff}
+		}
+		{link "top" "bottom" {anm "swim"}}
+		{link "bottom" "1" {anm "swim"}}
+	}
+	{Volume "attach"
+		{Tags  "attach" "1"}
+		{able {touch 1}}
+	}
+	{Volume "body1"
+		{able {obstacle 0}}
+	}
+	{Volume "switch"
+		{Tags "door_lock"}
+		{Thickness 7}
+		{able {touch}}
+	}
+	{Extender "land_patch"
+		{TerrainType "road" "bridge"}
+	}
+	{lodclass "decor_medium"}
+}

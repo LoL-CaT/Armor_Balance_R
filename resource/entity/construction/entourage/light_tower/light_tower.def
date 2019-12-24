@@ -1,0 +1,64 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "light_tower.mdl"}
+	{props "construction" "parts" "steel" "small" "no_destroyed_stamp" "disable_area"}
+	;("armor_disable_damage_acc")
+    
+
+	("armor_heavy" args 0.5)
+
+	{obstacleID "building"}
+
+	{Placer
+		{place "light"
+			{linkbone 	"attach"}
+			{entity 	"searchlight2"}
+			{handlebone "basis"}
+			{turnoff {shadow}}
+		}
+	}
+	{Boarder
+		{door "door" {queue 0}}
+		{node "ladder_bottom"}
+		{node "ladder_top"}
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 1.2} {loop "stand_upstairs"}}
+			{reverse	{speed 1.2} {loop "stand_upstairs" -1}}
+		}
+
+		{link "door" 				"ladder_bottom"		{anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "ladder_bottom" 		"ladder_top" 		{anm "ladder"}}
+		{link "ladder_top" 			"light" 				}
+	}
+	{Volume "body01"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body02"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body03"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body04"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body05"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{lodclass "decor_medium"}
+}

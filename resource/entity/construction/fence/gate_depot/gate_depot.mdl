@@ -1,0 +1,98 @@
+;Exported by: kolesnikov
+;Date:        Mon Dec 12 19:40:30 2005
+;File:        D:\-Project-\-3DWork-\gate.max
+{Skeleton
+	{animation
+		{sequence "open" {speed 0.4} {resume}}
+	}
+	{bone "gate"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "gate.ply"}
+		{bone "left"
+			{Position 13.2521	40.1718	46.4254}
+			{VolumeView "left.ply"}
+		}
+		{bone "right"
+			{Position 14.3335	-36.6163	51.471}
+			{VolumeView "right.ply"}
+		}
+	}
+}
+{Obstacle "close"
+	{Obb2
+		{Center 13.8239 -0.929337}
+		{Extent 75.1678 3.67239}
+		{Axis 3.80618e-008 1}
+	}
+	{Rotate}
+}
+{Obstacle "obstacle1"
+	{Obb2
+		{Center 6.08142 -85.1683}
+		{Extent 9.67081 9.85948}
+		{Axis 4.93069e-008 1}
+	}
+	{Rotate}
+}
+{Obstacle "obstacle2"
+	{Obb2
+		{Center 6.08142 83.6194}
+		{Extent 9.67081 9.85948}
+		{Axis 4.93069e-008 1}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 11.811 11.811 91.4567}
+	{Bone "gate"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		6.08572	84.9831	45.7283
+	}
+}
+{Volume "body"
+	{Box 11.811 11.811 91.4567}
+	{Bone "gate"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		6.08568	-83.6943	45.7283
+	}
+}
+{Volume "left"
+	{Box 79.5211 3.30709 64.6017}
+	{Bone "left"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		1.25406	0.294618	-4.06121
+	}
+}
+{Volume "lock"
+	{Polyhedron "lock.vol"}
+	{Bone "right"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		0.0129395	37.271	-13.3309
+	}
+}
+{Volume "right"
+	{Box 79.5211 3.30709 64.6017}
+	{Bone "right"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		0.172593	-2.15576	-9.17149
+	}
+}

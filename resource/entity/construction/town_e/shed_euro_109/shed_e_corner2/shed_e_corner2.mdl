@@ -1,0 +1,108 @@
+;Exported by: sana
+;Date:        Mon Apr 24 12:54:37 2006
+;File:        D:\-Project-\-3DWork-\Entourage\shed_euro_109\shed_euro_109_work.max
+{Skeleton
+	{bone "shed_euro2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "shed_euro2.ply"}
+		{bone "attach1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				16.714	8.34582	0
+			}
+		}
+		{bone "window1_x"
+			{Matrix34
+				0	1	0
+				1	0	0
+				0	0	1
+				15.999	24.3403	33.0081
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "exterior"
+			{Position 0.213517	0.809361	76.1362}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window1"
+			{Position 15.5083	24.4082	32.6798}
+			{VolumeView "window1.ply"}
+			{bone "fx_glass1"
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					-0.175938	-0.383392	-0.223801
+				}
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 2.59702 -22.5645}
+		{Extent 23.028 3.90236}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -23.5493 0.68829}
+		{Extent 2.95276 30.1706}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 2.88774 -1.09786}
+		{Extent 23.622 18.7008}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 46.056 7.80472 55}
+	{Bone "shed_euro2"}
+	{Position 2.59702	22.5645	27.5}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "shed_euro2"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-23.5493	-0.68829	0
+	}
+}
+{Volume "hole1"
+	{Box 13.6125 17.3713 13.4725}
+	{Bone "shed_euro2"}
+	{Position 15.726	22.269	33.0727}
+}
+{Volume "roof1"
+	{Box 39.763 74.1591 2.1964}
+	{Bone "exterior"}
+	{Matrix34
+		-1	0	0
+		0	-0.747378	0.6644
+		0	0.6644	0.747378
+		-0.895872	-1.01835	2.41801
+	}
+}
+{Volume "window1"
+	{Box 13.6125 1.9685 13.4725}
+	{Bone "window1"}
+	{Position 0.217648	-0.210807	0.39288}
+}

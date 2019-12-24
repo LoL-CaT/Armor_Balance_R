@@ -1,0 +1,57 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "shed102_corner2.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning"}
+	("armor_use_volume_thickness")
+	{obstacleID "small_building"}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}{holed}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "hole4"
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof1"
+		{Tags  "body" "fire"}
+		{able {obstacle 0}{visible 0}}
+	}
+	{Volume "roof2"
+		{Tags  "body" "fire"}
+		{able {obstacle 0}{visible 0}}
+	}
+	{Volume "roof3"
+		{Tags  "body" "fire"}
+		{able {obstacle 0}{visible 0}}
+	}
+	{Volume "roof"
+		{Tags  "body" "fire"}
+		{able {obstacle 0}{visible 0}}
+	}
+	{Volume "window4"
+	    {Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

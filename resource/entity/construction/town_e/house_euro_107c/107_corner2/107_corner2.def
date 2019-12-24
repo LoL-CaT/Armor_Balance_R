@@ -1,0 +1,109 @@
+{game_entity
+	(include "/properties/building.inc")
+  
+	{Extension "107_corner2.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning"}
+	("armor_heavy" args 0.8)
+
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "attach1"}}
+		{place "2" {attach  snipe_cover} 		{linkbone "attach2"}}
+	}	
+	{boarder}
+	{mass 50000}
+
+	{Volume "smoke2"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "smoke1"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "smoke0"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire8"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire7"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire6"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire4"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire3"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire2"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire1"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire0"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof2"
+		{Tags "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof3"
+		{Tags "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof1"
+		{Tags "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "window2"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window1"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	("declare_fire_volumes")
+}

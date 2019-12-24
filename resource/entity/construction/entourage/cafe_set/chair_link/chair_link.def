@@ -1,0 +1,52 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "chair_link.mdl"}
+	{props "construction" "small" "parts" "wood" "disable_area" "no_destroyed_stamp"}
+
+	{placer
+		{place "seat" {attach} {pose "pose_sit_chair"} {linkbone "seat"}}
+	}
+	{boarder
+		{door "emit"}
+		{link "emit" "seat" {forward putoff}}
+	}
+
+	{mass 50}
+
+	{Volume "body6"
+		{Tags  "body"}
+		{able {obstacle 0}}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{able {obstacle 0}}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{able {obstacle 0}}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{able {obstacle 0}}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{able {obstacle 0}}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body"
+		{Tags  "body" "attach" "seat"}
+		{Thickness 1}
+		{able {visible 1} {touch 1}}
+	}
+	{lodclass "decor_small"}
+}

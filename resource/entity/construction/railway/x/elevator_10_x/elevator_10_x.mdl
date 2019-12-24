@@ -1,0 +1,64 @@
+;Exported by: klimenko
+;Date:        Thu Jul 27 12:09:45 2006
+;File:        D:\-Project-\-3DWork-\Elevator\elevator.max
+{Skeleton
+	{bone "elevator10"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "elevator10.ply"}
+		{bone "piece1"
+			{Position 11.6519	0	128.948}
+			{VolumeView "piece1.ply"}
+			{bone "sub_piece1"
+				{Matrix34
+					0.992101	0	0.12544
+					0	1	0
+					-0.12544	0	0.992101
+					-25.8484	0.571777	2.61107
+				}
+				{VolumeView "sub_piece1.ply"}
+			}
+		}
+		{bone "piece2"
+			{Position 0	12.7155	100.726}
+			{VolumeView "piece2.ply"}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 1.53174 0.817139}
+		{Extent 10.4073 9.59473}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body"
+	{Box 20.8147 19.1895 46.5894}
+	{Bone "elevator10"}
+	{Position 1.53174	-0.817139	23.1109}
+}
+{Volume "piece1"
+	{Box 25.1376 89.3157 6.74063}
+	{Bone "piece1"}
+	{Position 0	0	-4.68125}
+}
+{Volume "piece3"
+	{Box 28.8214 9.38643 43.0601}
+	{Bone "piece2"}
+	{Position 2.20667	-13.3016	0.338116}
+}
+{Volume "sub_piece1"
+	{Box 20.3281 86.8259 5.24933}
+	{Bone "sub_piece1"}
+	{Matrix34
+		0.973386	0	0.229173
+		0	1	0
+		-0.229173	0	0.973386
+		2.4537	0	-8.84536
+	}
+}

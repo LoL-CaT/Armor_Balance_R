@@ -1,0 +1,62 @@
+;Exported by: sana
+;Date:        Sun Aug 06 19:58:59 2006
+;File:        D:\-Project-\-3DWork-\Entourage\loader_x.max
+{Skeleton
+	{animation
+		{sequence "crush2" {speed 0.4}}
+	}
+	{bone "coil_box1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "c1"
+			{parameters "CommonMesh;"}
+			{VolumeView "c1.ply"}
+		}
+		{bone "land"
+			{parameters "Land;"}
+			{Matrix34
+				0.998013	0.00415515	0.0628648
+				0.00977051	0.975543	-0.219592
+				-0.0622397	0.21977	0.973564
+				-3.99142	36.2673	23.8033
+			}
+			{visibility 0}
+			{VolumeView "land.ply"}
+		}
+	}
+}
+{Obstacle "body4"
+	{Obb2
+		{Center 0.0641317 -89.8793}
+		{Extent 6.15158 21.9603}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "coal"
+	{Obb2
+		{Center -0.924835 4.427}
+		{Extent 115.143 57.349}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Volume "body4"
+	{Box 8.08864 12.3031 59.1631}
+	{Bone "coil_box1"}
+	{Matrix34
+		0	0.770889	-0.63697
+		-1	0	0
+		0	0.63697	0.770889
+		0.0641255	89.8793	22.8041
+	}
+}
+{Volume "coal"
+	{Box 230.285 114.698 46.2483}
+	{Bone "coil_box1"}
+	{Position -0.924835	-4.427	23.1242}
+}

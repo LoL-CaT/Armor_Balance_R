@@ -1,0 +1,195 @@
+;Exported by: garry
+;Date:        Thu Apr 19 19:27:26 2007
+;File:        D:\-Projects-\-3DWork-\Model\Авто-мото\Kitchen\Kitchen.max
+{Skeleton
+	{animation
+		{sequence "close" {speed 0.5}}
+	}
+	{bone "basis"
+		{parameters "WheelRadius=0.5;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.996195	0	-0.0871557
+				0	1	0
+				0.0871557	0	0.996195
+				12.6053	0.0545524	8.47067
+			}
+			{VolumeView "body.ply"}
+			{bone "fxsmoke"
+				{Matrix34
+					0	0	1
+					0	-1	0
+					1	0	0
+					-5.0842	-0.0377376	35.5122
+				}
+			}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-0.0273709	-16.7517	-0.0554435
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;"}
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					-0.0273718	16.7606	-0.0554397
+				}
+				{VolumeView "wheelr.ply"}
+			}
+			{bone "link1"
+				{Matrix34
+					0.996195	0	-0.0871557
+					0	1	0
+					0.0871557	0	0.996195
+					-40.03	-0.037254	-4.5614
+				}
+			}
+			{bone "support1"
+				{Matrix34
+					-0.996195	0	0.0871557
+					0	-1	0
+					0.0871557	0	0.996195
+					-0.616235	-8.8669	-7.42998
+				}
+			}
+			{bone "support2"
+				{Matrix34
+					-0.996195	0	0.0871557
+					0	-1	0
+					0.0871557	0	0.996195
+					-0.616237	8.86974	-7.42998
+				}
+			}
+			{bone "pivot_back"
+				{Matrix34
+					-0.996195	0	0.0871557
+					0	-1	0
+					0.0871557	0	0.996195
+					-32.1912	-0.114615	-5.37703
+				}
+			}
+			{bone "pivot_front"
+				{Matrix34
+					-0.996195	0	0.0871557
+					0	-1	0
+					0.0871557	0	0.996195
+					14.6306	-0.114607	-9.93495
+				}
+				{bone "fxtracel"
+					{Position 15.5023	-17.2629	-6.08259}
+				}
+				{bone "fxtracer"
+					{Position 15.5023	16.3267	-6.08259}
+				}
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 12.1056 -0.0545535}
+		{Extent 26.297 14.4329}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "obstacle"
+	{Obb2
+		{Center 9.58521 -0.124663}
+		{Extent 26.1971 14.5478}
+		{Axis -0.984808 3.41286e-009}
+	}
+	{Rotate}
+}
+{Obstacle "wheelleft"
+	{Obb2
+		{Center 12.5857 16.6216}
+		{Extent 8.42608 1.91609}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "wheelright"
+	{Obb2
+		{Center 12.5858 -16.6868}
+		{Extent 8.42608 1.94704}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body1"
+	{Box 52.5879 28.8658 2.36578}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-1.07543	0	6.55928
+	}
+}
+{Volume "body3"
+	{Cylinder 2.36831 20.0039}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		-5.14717	-0.00612957	28.8684
+	}
+}
+{Volume "body"
+	{Box 33.5489 25.7245 18.1983}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		7.82088	0	10.0041
+	}
+}
+{Volume "wheel"
+	{Cylinder 8.45826 3.83217}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		-19.1832	-0.0666591	7.10883
+	}
+}
+{Volume "wheelleft"
+	{Cylinder 8.45826 3.83217}
+	{Bone "wheell"}
+	{Matrix34
+		0	1	0
+		1	0	0
+		0	0	-1
+		-0.0160496	-0.0393546	0.0755418
+	}
+}
+{Volume "wheelright"
+	{Cylinder 8.45826 3.89405}
+	{Bone "wheelr"}
+	{Matrix34
+		0	1	0
+		1	0	0
+		0	0	-1
+		-0.0160508	-0.0393526	-0.128327
+	}
+}

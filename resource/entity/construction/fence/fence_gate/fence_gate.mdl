@@ -1,0 +1,143 @@
+;Exported by: butyvsky
+;Date:        Fri Aug 11 16:57:24 2006
+;File:        D:\-Projects-\-3D Work-\Construction\fence\fence_stone_x+destr.max
+{Skeleton
+	{animation
+		{sequence "open" {speed 0.7} {resume}}
+	}
+	{bone "fence_gate"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "wall"
+			{Position 0	-3.05176e-005	0}
+			{VolumeView "wall.ply"}
+		}
+		{bone "wires1"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				1.78936	-24.5179	60.7058
+			}
+			{VolumeView "wires1.ply"}
+		}
+		{bone "doorright_open"
+			{parameters "CommonMesh;"}
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				0.556904	-16.8614	20.1405
+			}
+			{VolumeView "doorright_open.ply"}
+		}
+		{bone "doorleft_open"
+			{parameters "CommonMesh;"}
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				0.556901	21.3721	20.1458
+			}
+			{VolumeView "doorleft_open.ply"}
+		}
+	}
+}
+{Obstacle "close"
+	{Obb2
+		{Center -0.0854617 -2.24508}
+		{Extent 20.6892 3.47643}
+		{Axis 1.62774e-007 -1}
+	}
+	{Rotate}
+}
+{Obstacle "open_1"
+	{Obb2
+		{Center 10.1192 -20.1952}
+		{Extent 0.670984 9.33998}
+		{Axis 0.087156 -0.996195}
+	}
+	{Rotate}
+}
+{Obstacle "open_2"
+	{Obb2
+		{Center 10.4291 16.0702}
+		{Extent 0.670984 9.33998}
+		{Axis -0.087156 -0.996195}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle01"
+	{Obb2
+		{Center -0.0854593 29.4397}
+		{Extent 10.9151 3.47643}
+		{Axis 1.6314e-007 -1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle03"
+	{Obb2
+		{Center -0.0854639 -31.6291}
+		{Extent 8.6347 3.47643}
+		{Axis 1.63081e-007 -1}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 40.1574 7.09558 17.8672}
+	{Bone "fence_gate"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		-2.62188e-005	2.55393	50.3717
+	}
+}
+{Volume "body2"
+	{Box 17.8501 7.09558 59.4241}
+	{Bone "fence_gate"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		0	31.6396	29.7121
+	}
+}
+{Volume "body"
+	{Box 23.2379 7.09558 59.4241}
+	{Bone "fence_gate"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		-1.62782e-005	-29.1124	29.7121
+	}
+}
+{Volume "doorleft_open"
+	{Box 18.8321 2.32959 40.2906}
+	{Bone "doorleft_open"}
+	{Position 9.6908	0	0.184738}
+}
+{Volume "doorright_open"
+	{Box 18.8321 2.32959 40.2906}
+	{Bone "doorright_open"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		9.59808	1.71669e-005	0.190067
+	}
+}
+{Volume "switch"
+	{Box 21.3028 4.43662 40.2906}
+	{Bone "fence_gate"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		0.556917	10.4315	20.3306
+	}
+}

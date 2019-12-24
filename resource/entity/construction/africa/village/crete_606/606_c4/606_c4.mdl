@@ -1,0 +1,115 @@
+;Exported by: sasha
+;Date:        Tue Mar 18 09:51:02 2008
+;File:        D:\-Project-\-3DWork-\Crete\Crete_m9_v2cut6.max
+{Skeleton
+	{bone "606_c4"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "606_c4.ply"}
+		{bone "window1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-6.87862	-30.5422	42.0673
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "exterior"
+			{Position 7.24264	-15.1215	96.3872}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				9.91576	-35.1497	11.6581
+			}
+		}
+		{bone "window1_x"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-6.87862	-30.5422	42.0673
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+	}
+}
+{Obstacle "body01"
+	{Obb2
+		{Center -6.5499 23.7086}
+		{Extent 3.727 26.7429}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body02"
+	{Obb2
+		{Center 9.64325 -6.49426}
+		{Extent 19.8832 3.7691}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 8.25136 14.889}
+		{Extent 23.9832 25.9409}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body01"
+	{Box 7.45401 53.4857 76.894}
+	{Bone "606_c4"}
+	{Position -6.5499	-23.7086	50.5216}
+}
+{Volume "body02"
+	{Polyhedron "body02.vol"}
+	{Bone "606_c4"}
+	{Position 9.64325	6.49426	11.4917}
+}
+{Volume "hole1"
+	{Box 19.685 17.7166 33.4646}
+	{Bone "606_c4"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-6.87862	-30.5422	42.0673
+	}
+}
+{Volume "roof01"
+	{Box 19.9032 2.76073 19.2681}
+	{Bone "exterior"}
+	{Matrix34
+		0.924972	0	0.380034
+		-0.380034	0	0.924972
+		0	-1	0
+		-13.6726	-16.5692	-5.74162
+	}
+}
+{Volume "roof02"
+	{Box 51.0337 2.76073 33.8037}
+	{Bone "exterior"}
+	{Matrix34
+		0.924972	0	0.380034
+		-0.380034	0	0.924972
+		0	-1	0
+		0.63155	9.71767	0.151794
+	}
+}
+{Volume "window1"
+	{Box 1.49461 17.7166 33.4646}
+	{Bone "window1"}
+	{Position 0	-6.10352e-005	0}
+}

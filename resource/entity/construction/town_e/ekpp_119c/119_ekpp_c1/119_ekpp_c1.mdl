@@ -1,0 +1,173 @@
+;Exported by: sana
+;Date:        Thu Mar 30 15:00:57 2006
+;File:        D:\-Project-\-3DWork-\Entourage\e_kpp_sh_lm_corner.max
+{Skeleton
+	{bone "119_ekpp_c1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "119_ekpp_c1.ply"}
+		{bone "ground"
+			{parameters "Land;Ground;"}
+			{Position -5.04351	-6.33173	9.91311}
+			{VolumeView "ground.ply" {Ground}}
+		}
+		{bone "exterior"
+			{Position -3.42296	2.73206	97.6087}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window2"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-23.8092	-35.8895	36.1679
+			}
+			{VolumeView "window2.ply"}
+		}
+		{bone "window2_x"
+			{Position -23.8092	-35.3868	36.1679}
+			{visibility 0}
+			{VolumeView "window2_x.ply"}
+		}
+		{bone "window1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-32.345	-8.93548	36.1679
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-31.9448	-11.8275	23.8246
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "beam"
+			{Position -28.0613	9.84252	91.7856}
+			{visibility 0}
+		}
+		{bone "attach1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-17.9211	-10.8259	9.92626
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -18.937 35.4331}
+		{Extent 14.7638 2.95275}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -31.018 1.9685}
+		{Extent 2.95275 30.5118}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center -14.0157 1.9685}
+		{Extent 13.7795 30.5118}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 29.5276 5.90551 64.9606}
+	{Bone "119_ekpp_c1"}
+	{Position -18.937	-35.4331	32.4803}
+}
+{Volume "body2"
+	{Box 5.90551 61.0236 64.9606}
+	{Bone "119_ekpp_c1"}
+	{Position -31.018	-1.9685	32.4803}
+}
+{Volume "body3"
+	{Polyhedron "body3.vol"}
+	{Bone "119_ekpp_c1"}
+	{Position -31.018	-1.9685	64.9606}
+}
+{Volume "hole1"
+	{Box 29.5276 68.8976 24.6866}
+	{Bone "119_ekpp_c1"}
+	{Position -32.345	-16.3211	36.1679}
+}
+{Volume "roof1"
+	{Box 43.3071 1.96851 54.1339}
+	{Bone "exterior"}
+	{Matrix34
+		-1	0	0
+		0	-0.530089	0.847942
+		0	0.847942	0.530089
+		-10.5928	-22.1037	-20.8245
+	}
+}
+{Volume "roof2"
+	{Box 12.3165 1.96851 37.8937}
+	{Bone "exterior"}
+	{Matrix34
+		1	0	0
+		0	0.547296	0.836939
+		0	-0.836939	0.547296
+		-26.0657	30.8096	-17.1979
+	}
+}
+{Volume "roof3"
+	{Box 15.748 1.96851 38.9961}
+	{Bone "exterior"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		-12.7426	7.86282	-6.84352
+	}
+}
+{Volume "roof4"
+	{Box 24.5099 1.96851 18.189}
+	{Bone "exterior"}
+	{Matrix34
+		1	0	0
+		0	0.547296	0.836939
+		0	-0.836939	0.547296
+		-7.57349	22.4572	-11.8871
+	}
+}
+{Volume "window1"
+	{Box 1.9685 53.884 24.6866}
+	{Bone "window1"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		0	0	0
+	}
+}
+{Volume "window2"
+	{Box 17.1952 1.9685 24.6866}
+	{Bone "window2"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		0	0	0
+	}
+}

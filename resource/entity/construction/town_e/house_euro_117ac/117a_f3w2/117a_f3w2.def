@@ -1,0 +1,29 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "117a_f3w2.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "burning" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+
+	{extender "structure_bone"	
+		{hold "27"}
+;		{hold "25" "26"}		
+	}
+
+	{mass 50000}
+
+	{Volume "floor1"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}}
+	}
+	{Volume "floor2"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}}
+	}
+}

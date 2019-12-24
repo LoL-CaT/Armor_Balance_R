@@ -1,0 +1,65 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "105c_corn7.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "burning" "wall" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+
+		{placer
+	     {place "3" {attach  squat_lie} 		{linkbone "attach3"}}
+	}
+	{boarder}
+	{extender "structure_bone"
+		{hold "24"}
+		{hold "25"}
+	}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "3"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof"
+		{Thickness 1}
+		{Tags  "body" "fire"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

@@ -1,0 +1,55 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "reich_kaserne_c15.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "6" {attach snipe_cover} {linkbone "attach06"}}
+		{place "5" {attach snipe_cover} {linkbone "attach05"}}
+	}
+
+	{boarder
+		{door "door01" {queue} {auto_release_time 0.2}}
+		{link "door01"			"5"	{anm "[fsm]"}}
+	   	{link "6"				"5"		 	{anm "[fsm]"}}
+	}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}{obstacle 0} {visible 0}}
+	}
+	{Volume "body2_vol09"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "6"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "5"}
+		{able clear {hole}{touch 1}}
+	}
+	{Extender "land_patch"
+	}
+}

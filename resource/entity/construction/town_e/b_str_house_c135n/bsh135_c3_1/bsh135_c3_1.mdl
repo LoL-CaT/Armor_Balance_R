@@ -1,0 +1,98 @@
+;Exported by: shevchenko
+;Date:        Fri Jul 21 17:53:03 2006
+;File:        D:\-Projects1_5-\-3DWork-\bsh\bsh_c135-a1.max
+{Skeleton
+	{bone "bsh135_c3_1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "bsh135_c3_1.ply"}
+		{bone "attach1"
+			{Matrix34
+				-0.707106	0.707107	0
+				-0.707107	-0.707106	0
+				0	0	1
+				-13.6552	-13.412	0
+			}
+		}
+		{bone "window1"
+			{Matrix34
+				-0.707106	0.707107	0
+				0	0	-1
+				-0.707107	-0.707106	0
+				-28.7119	1.11165	34.4488
+			}
+			{VolumeView "../common/window1.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				-0.707107	-0.707107	0
+				0	0	-1
+				0.707107	-0.707107	0
+				-28.7119	1.11168	34.4488
+			}
+			{visibility 0}
+			{VolumeView "../common/window1_x.ply"}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -25.7199 -4.07976}
+		{Extent 4.93007 22.1752}
+		{Axis 0.707388 0.706825}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 13.6778 -1.87201}
+		{Extent 34.4429 4.93497}
+		{Axis 0.707388 0.706825}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body1"
+	{Box 44.3465 9.84252 61.4344}
+	{Bone "bsh135_c3_1"}
+	{Matrix34
+		-0.707106	-0.707107	0
+		0.707107	-0.707106	0
+		0	0	1
+		-25.7199	4.07976	30.7172
+	}
+}
+{Volume "body2"
+	{Box 68.8819 9.84252 60.6299}
+	{Bone "bsh135_c3_1"}
+	{Matrix34
+		-0.707107	0.707107	0
+		-0.707107	-0.707107	0
+		0	0	1
+		13.6778	1.87201	30.315
+	}
+}
+{Volume "hole1"
+	{Box 17.7166 29.5276 19.685}
+	{Bone "bsh135_c3_1"}
+	{Matrix34
+		-0.707107	-0.707107	0
+		0	0	-1
+		0.707107	-0.707107	0
+		-29.06	1.45959	34.4488
+	}
+}
+{Volume "window1"
+	{Box 17.7166 29.5276 0.984253}
+	{Bone "window1"}
+	{Matrix34
+		0	0	1
+		0	1	0
+		-1	0	0
+		-2.58093e-005	0	6.65096e-005
+	}
+}

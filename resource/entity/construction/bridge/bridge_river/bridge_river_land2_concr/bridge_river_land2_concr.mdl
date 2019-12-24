@@ -1,0 +1,58 @@
+;Exported by: sergienko
+;Date:        Fri Mar 31 11:46:06 2006
+;File:        D:\-projets1_5\3dwork\anima\construction\bridge\bidge_concrete.max
+{Skeleton
+	{bone "bridge_river_land2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "bridge_river_land2.ply"}
+		{bone "road_bridge2"
+			{Position -3.17093	-0.0604248	143.498}
+			{VolumeView "road_bridge2.ply"}
+		}
+		{bone "land2"
+			{parameters "Land;Ground;"}
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				3.08447	-0.0778809	157.231
+			}
+			{VolumeView "land2.ply" {Ground} {DecalTarget}}
+		}
+	}
+}
+{Area "rectangle01"
+	{Obb2
+		{Center -0.275085 -85.6075}
+		{Extent 121.145 5.75275}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Area "rectangle02"
+	{Obb2
+		{Center -0.275085 86.151}
+		{Extent 121.145 5.75275}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 237.308 181.701 8.52571}
+	{Bone "road_bridge2"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		3.04004	-0.00635923	25.0635
+	}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "bridge_river_land2"}
+	{Position 0	0	81.1955}
+}

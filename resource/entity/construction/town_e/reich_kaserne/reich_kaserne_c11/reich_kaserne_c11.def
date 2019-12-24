@@ -1,0 +1,97 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "reich_kaserne_c11.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "1" {attach snipe_cover} {linkbone "attach01"}}
+		{place "2" {attach snipe_cover} {linkbone "attach02"}}
+		{place "3" {attach snipe_cover} {linkbone "attach03"}}
+		{place "4" {attach snipe_cover} {linkbone "attach04"}}
+		{place "27" {attach snipe_cover} {linkbone "attach27"}}
+	}
+
+	{boarder
+
+		{door "door01" {queue} {auto_release_time 0.2}}
+
+		{node "node_ladder_top"}
+		{node "node_ladder_bottom"}
+
+		{link "door01"			"node_ladder_bottom"	{anm "[fsm]"}}
+		{link "node_ladder_bottom"	"node_ladder_top"		{anm "[fsm]"}}
+		
+		{link "node_ladder_top"	"4"				{anm "[fsm]"}}
+	   	{link "4"				"3"			 	{anm "[fsm]"}}
+	
+	   	{link "27"				"1"			 	{anm "[fsm]"}}
+	   	{link "1"				"2"			 	{anm "[fsm]"}}
+	   	{link "1"				"27"			{anm "[fsm]"}}
+	}
+
+
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}{obstacle 0} {visible 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body7"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body8"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole3"
+		{Tags  "attach" "3"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole4"
+		{Tags  "attach" "4"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "27"}
+		{able clear {hole}{touch 1}}
+	}
+}

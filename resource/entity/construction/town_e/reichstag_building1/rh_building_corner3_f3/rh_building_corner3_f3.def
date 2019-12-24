@@ -1,0 +1,72 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "rh_building_corner3_f3.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "burning"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "node01"}}
+		{place "2" {attach  snipe_cover} 		{linkbone "node02"}}
+		{place "3" {attach  snipe_cover} 		{linkbone "node03"}}
+		{place "4" {attach  snipe_cover} 		{linkbone "node04"}}
+		{place "5" {attach  snipe_cover} 		{linkbone "node05"}}
+
+	}	
+	{boarder
+
+		{door "door01" {queue} {auto_release_time 0.2}}
+		{door "door02" {queue} {auto_release_time 0.2}}
+		{node "ladder_top01"}
+		{node "ladder_bottom01"}
+
+		{node "ladder_top02"}
+		{node "ladder_bottom02"}
+
+		{link "door01"			"ladder_bottom01"	{anm "[fsm]"}}
+		{link "ladder_bottom01"	"ladder_top01"		{anm "[fsm]"}}
+		{link "door02"			"ladder_bottom02"	{anm "[fsm]"}}
+		{link "ladder_bottom02"	"ladder_top02"		{anm "[fsm]"}}
+		
+		{link "ladder_top01"	"1"				{anm "[fsm]"}}
+		{link "ladder_top01"	"2"				{anm "[fsm]"}}
+		{link "ladder_top01"	"3"				{anm "[fsm]"}}
+		{link "ladder_top01"	"4"				{anm "[fsm]"}}
+		{link "ladder_top01"	"5"				{anm "[fsm]"}}
+
+		{link "ladder_top02"	"1"				{anm "[fsm]"}}
+		{link "ladder_top02"	"2"				{anm "[fsm]"}}
+		{link "ladder_top02"	"3"				{anm "[fsm]"}}
+		{link "ladder_top02"	"4"				{anm "[fsm]"}}
+		{link "ladder_top02"	"5"				{anm "[fsm]"}}
+
+	   	{link "1"				"2"			 	{anm "[fsm]"}}
+	   	{link "1"				"3"			 	{anm "[fsm]"}}
+	   	{link "1"				"4"		 		{anm "[fsm]"}}
+	   	{link "2"				"3"				{anm "[fsm]"}}
+	   	{link "2"				"4"				{anm "[fsm]"}}
+	   	{link "3"				"4"		 		{anm "[fsm]"}}
+	   	{link "4"				"5"		 		{anm "[fsm]"}}
+	   	{link "2"				"5"		 		{anm "[fsm]"}}
+	   	{link "1"				"5"		 		{anm "[fsm]"}}
+	
+	}
+
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}{touch 1}}
+		{tags "body" "attach" "attach_any"}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+}
+
+

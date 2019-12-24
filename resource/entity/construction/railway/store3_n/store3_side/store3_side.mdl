@@ -1,0 +1,57 @@
+;Exported by: sana
+;Date:        Thu Jul 06 09:35:06 2006
+;File:        D:\ss\store_1\store_03.max
+{Skeleton
+	{bone "store3_side"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "store3_side.ply"}
+		{bone "fix16"
+			{Position -48.4172	-32.6453	23.8675}
+		}
+		{bone "fix17"
+			{Position 29.663	-32.199	25.8345}
+		}
+	}
+}
+{Obstacle "beam1"
+	{Obb2
+		{Center 55.552 -24.9574}
+		{Extent 1.99311 1.93406}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body" "fire"}
+}
+{Obstacle "beam2"
+	{Obb2
+		{Center -55.9964 -24.9574}
+		{Extent 2.09646 2.0374}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body" "fire"}
+}
+{Volume "beam1"
+	{Box 3.98622 3.86811 72.8558}
+	{Bone "store3_side"}
+	{Position 55.552	24.9574	36.4279}
+}
+{Volume "beam2"
+	{Box 4.19291 4.0748 72.8558}
+	{Bone "store3_side"}
+	{Position -55.9964	24.9574	36.4279}
+}
+{Volume "roof"
+	{Box 118.985 56.2132 2.05459}
+	{Bone "store3_side"}
+	{Matrix34
+		1	0	0
+		0	0.996195	-0.0871557
+		0	0.0871557	0.996195
+		0.947632	2.861	74.454
+	}
+}

@@ -1,0 +1,89 @@
+{game_entity
+	(include "/properties/building.inc")
+  
+	{Extension "b_pipeline1_c01.mdl"}
+	{props "wall" "cornered" "concrete" "parts" "construction" "windowed"}
+	("armor_heavy" args 0.8)
+
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "attach1"}}
+	}	
+	{boarder}
+	{mass 50000}
+
+	{Volume "window0"
+		{Thickness 0 2}
+		{able {visible 0}{window}}
+	}
+	{Volume "pipeline37"
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "pipeline34"
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "pipeline33"
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "hole04"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body12"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "body11"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "body10"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+	{Volume "body09"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "body08"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "body07"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "roof12"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+	{Volume "roof11"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+	{Volume "roof10"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+	{Volume "roof09"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+	{Volume "roof08"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+}

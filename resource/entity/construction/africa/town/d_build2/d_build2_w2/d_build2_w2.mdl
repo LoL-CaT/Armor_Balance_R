@@ -1,0 +1,95 @@
+;Exported by: Ekaterina
+;Date:        Fri Apr 11 18:09:27 2008
+;File:        D:\-Project-\-3DWork-\africa\algere_storage21.max
+{Skeleton
+	{bone "d_build2_w2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "d_build2_w2.ply"}
+		{bone "window1"
+			{Position 17.4545	-50.0355	45.6808}
+			{VolumeView "window1.ply"}
+		}
+		{bone "window1_x"
+			{Position 17.3644	-50.0355	45.6808}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "window2"
+			{Position 17.4545	-17.7327	45.6808}
+			{VolumeView "window2.ply"}
+		}
+		{bone "window2_x"
+			{Position 17.3644	-17.3532	45.6808}
+			{visibility 0}
+			{VolumeView "window2_x.ply"}
+		}
+		{bone "exterior"
+			{Position -10.245	-25.7877	70.1709}
+			{VolumeView "exterior.ply"}
+		}
+	}
+}
+{Obstacle "body01"
+	{Obb2
+		{Center 17.3977 25.296}
+		{Extent 4.14677 41.2451}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center -9.85083 27.0953}
+		{Extent 22.5432 34.3431}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body01"
+	{Box 8.29354 82.4901 75.3639}
+	{Bone "d_build2_w2"}
+	{Position 17.3977	-25.296	28.4035}
+}
+{Volume "hole01"
+	{Box 20.0554 14.2553 20.9801}
+	{Bone "d_build2_w2"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		16.3093	-49.7791	45.7753
+	}
+}
+{Volume "hole02"
+	{Box 20.0554 14.2553 20.9801}
+	{Bone "d_build2_w2"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		16.3093	-17.065	45.7753
+	}
+}
+{Volume "roof03"
+	{Box 67.9693 51.074 5.06204}
+	{Bone "exterior"}
+	{Matrix34
+		0	-0.999982	0.00587651
+		0.990834	-0.000793998	-0.135084
+		0.135087	0.00582262	0.990817
+		10.582	-0.647948	-0.6975
+	}
+}
+{Volume "window1"
+	{Box 2.88597 20.6061 15.264}
+	{Bone "window1"}
+}
+{Volume "window2"
+	{Box 2.88597 20.6061 15.264}
+	{Bone "window2"}
+}

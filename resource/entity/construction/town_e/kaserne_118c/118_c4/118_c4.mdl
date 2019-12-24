@@ -1,0 +1,129 @@
+;Exported by: sana
+;Date:        Fri Jun 23 13:58:17 2006
+;File:        D:\ss\kaserne_sh_lm_corner\kaserne_sh_lm_corner.max
+{Skeleton
+	{bone "118_c4"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "118_c4.ply"}
+		{bone "window1"
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				12.9448	-17.7165	35.4331
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "ground"
+			{parameters "Land;Ground;"}
+			{Matrix34
+				0	1	0
+				0	0	1
+				1	0	0
+				-47.0946	1.96851	5.90551
+			}
+			{VolumeView "ground.ply" {Ground}}
+		}
+		{bone "window1_x"
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				12.9448	-17.2244	35.4331
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "exterior"
+			{Position 12.9448	1.06166	65.7154}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				12.9528	-2.95277	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 12.9448 17.7165}
+		{Extent 49.2126 2.95275}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 59.2046 3.937}
+		{Extent 2.95276 10.8268}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body3"
+	{Obb2
+		{Center -33.3151 10.8268}
+		{Extent 2.95276 3.93701}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 12.9528 -4.92125}
+		{Extent 43.3071 19.685}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 98.4252 5.90551 62.9921}
+	{Bone "118_c4"}
+	{Position 12.9448	-17.7165	31.4961}
+}
+{Volume "body2"
+	{Box 5.90551 21.6535 64.9606}
+	{Bone "118_c4"}
+	{Position 59.2046	-3.937	32.4803}
+}
+{Volume "body3"
+	{Box 5.90551 7.87402 64.9606}
+	{Bone "118_c4"}
+	{Position -33.3151	-10.8268	32.4803}
+}
+{Volume "hole1"
+	{Box 51.1811 19.685 23.622}
+	{Bone "118_c4"}
+	{Position 12.9448	-17.7165	35.4331}
+}
+{Volume "roof1"
+	{Box 102.362 1.96851 34.8425}
+	{Bone "exterior"}
+	{Matrix34
+		-1	0	0
+		0	-0.117025	0.993129
+		0	0.993129	0.117025
+		-0.0175719	-8.05195	-0.470048
+	}
+}
+{Volume "window1"
+	{Box 51.1811 1.9685 23.622}
+	{Bone "window1"}
+	{Matrix34
+		0	0	-1
+		-1	0	0
+		0	1	0
+		0	0	0
+	}
+}

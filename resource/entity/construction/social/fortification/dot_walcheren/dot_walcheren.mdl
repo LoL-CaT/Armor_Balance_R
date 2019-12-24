@@ -1,0 +1,70 @@
+;Exported by: golanov
+;Date:        Mon Oct 16 18:46:28 2006
+;File:        D:\-Projects-\-3DWork-\Constructions\fence\dot_walh02.max
+{Skeleton
+	{bone "dot_walcheren"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "dot_walcheren.ply"}
+		{bone "wire"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-19.2235	0.481763	56.3091
+			}
+			{VolumeView "wire.ply"}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -19.7044 0}
+		{Extent 9.84252 59.0551}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 9.52568 49.3093}
+		{Extent 19.685 9.84252}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body1"
+	{Box 19.685 118.11 49.2126}
+	{Bone "dot_walcheren"}
+	{Position -19.7044	0	24.6063}
+}
+{Volume "body2"
+	{Box 19.685 39.3701 49.2126}
+	{Bone "dot_walcheren"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		9.52568	-49.3093	24.6063
+	}
+}
+{Volume "cover1"
+	{Box 19.685 72.8346 3.93701}
+	{Bone "dot_walcheren"}
+	{Matrix34
+		0.906308	0	0.422618
+		0	1	0
+		-0.422618	0	0.906308
+		-26.2088	4.90227	38.6136
+	}
+}
+{Volume "hole"
+	{Box 29.5276 68.8976 9.84252}
+	{Bone "dot_walcheren"}
+	{Position -19.8703	4.90227	30.5203}
+}

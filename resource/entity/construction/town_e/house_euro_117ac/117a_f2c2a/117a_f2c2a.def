@@ -1,0 +1,46 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "117a_f2c2a.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+
+	{extender "structure_bone"	
+		{hold "06"}
+	}
+
+	{placer
+		{place "1" {attach  squat_lie} 		{linkbone "attach1"}}
+	}	
+	{boarder}
+	{mass 50000}
+
+	{Volume "floor_attach"
+		{Tags  "attach" "1"}
+		{able {touch 1}}
+	}
+	{Volume "floor3"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}}
+	}
+	{Volume "floor2"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}}
+	}
+	{Volume "floor1"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}}
+	}
+	{Volume "body01"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}}
+	}
+}

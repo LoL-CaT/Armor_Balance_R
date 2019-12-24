@@ -1,0 +1,71 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{ObstacleId "construction"}
+	("armor_medium" args 0.7)
+	{Extension "netting5.mdl"}
+	{props "fence" "wood" "construction" "animated_crush"}
+	{Volume "netting"
+		{Thickness 7}
+		{tags "body" }
+		{able {visible 0} {bullet 0}}
+	}
+	{Volume "body3"
+		{Thickness 7}
+		{tags "body"}
+		{able {visible 0} }
+	}
+	{Volume "body2"
+		{Thickness 7}
+		{tags "body"}
+		{able {visible 0} }
+	}
+	{Volume "body1"
+		{Thickness 7}
+		{tags "body"}
+		{able {visible 0} }
+	}
+	{Volume "body"
+		{Thickness 7}
+		{tags "body"}
+		{able {visible 0} }
+	}
+	{lodclass "decor_medium"}
+	{placer
+           {place "trench1"
+			{linkbone 	"trench1"}
+			{entity 	"cannon_stan_ls"}
+			{handlebone "basis"}
+			{turnoff {shadow}}
+	       }
+           {place "trench2"
+			{linkbone 	"trench2"}
+			{entity 	"cannon_stan_rs"}
+			{handlebone "basis"}
+			{turnoff {shadow}}
+	       }
+;           {place "mgun"
+;			{linkbone 	"weapon"}
+;			{entity 	"mg42_stan"}
+;			{handlebone "basis"}
+;			{turnoff {shadow}}
+;	       }
+           {place "sb"
+			{linkbone 	"sb"}
+			{entity 	"sandbag2-1_round"}
+			{handlebone "basis"}
+			{turnoff {shadow}}
+	       }
+           {place "sb_left"
+			{linkbone 	"sb_left"}
+			{entity 	"sandbag2-1"}
+			{handlebone "basis"}
+			{turnoff {shadow}}
+	       }
+           {place "sb_right"
+			{linkbone 	"sb_right"}
+			{entity 	"sandbag2-1"}
+			{handlebone "basis"}
+			{turnoff {shadow}}
+	       }
+        }
+}

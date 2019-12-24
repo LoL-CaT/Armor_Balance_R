@@ -1,0 +1,34 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "ladder_wood_middle.mdl"}
+	{props "cornered" "parts" "construction" "wood" "burning" "break_on_burn" "no_destroyed_stamp" "small"}
+	{Volume "ladder"
+		{Tags  "body" "fire" "attach" "x"}
+		{able {visible 0}{bullet 0}{obstacle 0}{touch 1}}
+	}
+	{placer
+		{place "x" {NoCollect}}
+	}
+
+	{boarder
+		{door "door01" {queue} {chain "up"} {auto_release_time 1.5}}
+		{door "door02" {queue} {chain "down"} {auto_release_time 1.5}}
+		{node "node_ladder_bottom"}
+		{node "node_ladder_top"}
+
+		{anm "up"
+			{forward {speed 1.2} {loop "stand_upstairs"} {fix_orientation}}
+		}
+		{anm "down"
+			{forward {speed 1.2} {loop "stand_upstairs" -1} {fix_orientation}}
+		}
+
+		{link "door01" 			"node_ladder_top"	{anm "up"} {forward putoff} {chain "up"}}
+		{link "node_ladder_top" "door02"			{chain "up"}}
+		{link "door02" 			"x"					{forward puton} {chain "up"}}
+		
+		{link "door02"			"node_ladder_top"	{chain "down"}}
+		{link "node_ladder_top"	"door01"			{anm "down"} {forward putoff} {chain "down"}}
+		{link "door01"			"x"					{forward puton} {chain "down"}}
+	}
+}

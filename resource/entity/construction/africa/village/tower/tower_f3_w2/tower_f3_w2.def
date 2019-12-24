@@ -1,0 +1,38 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "tower_f3_w2.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall"}
+	("armor_medium" args 0.7)
+
+	{extender "structure_bone"	
+		{hold "11"}
+		{hold "12"}		
+	}
+
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "attach1"}}
+	}	
+	{boarder}
+
+	{mass 50000}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "roof"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "touch"
+		{Tags  "attach" "1"}
+		{able clear {visible 0}{bullet 0}{touch 1}{obstacle 0}}
+	}
+}

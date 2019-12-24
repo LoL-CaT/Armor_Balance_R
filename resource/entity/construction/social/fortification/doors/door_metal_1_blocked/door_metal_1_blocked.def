@@ -1,0 +1,53 @@
+{game_entity
+;	(include "/properties/building.inc") ;; Если исп. building.ink - при разрушении сохраняются препятствия (obstacle) частей разрушенной двери
+	(include "/properties/construction.inc")
+	{Extension "door_metal.mdl"}
+;	{props "cornered" "steel" "parts" "construction" "wall"}
+;	{props "construction" "small" "wood" "gate" "parts" "burning" "break_on_burn" "no_destroyed_stamp"}
+	{props "switch" "gate" "dynamite_fuse" "construction" "small" "steel" "parts" "disable_area" "windowed"}
+	
+		{obstacleID "small_building"}
+
+;	("armor_light" args 1)
+;;	("armor_medium" args 4)
+
+;	{obstacleID "unbreakable"}
+;	("armor_disable_damage_acc") ;; При использовании armor_disable_damage_acc дверь не разрушается в результате накапливания повреждений (?)
+
+	{Volume "switch"	;; Для: 1). Открытия двери вручную (при исполз. tags - "door_lock" в сочетании с props - "gate") или 2). Генерации тега switch (при исполз. tags - "lock" в сочетании с props - "gate")
+;		{Tags  "body" "fire" "door_lock"}
+		{Tags  "lock"}
+;		{Tags  "door_lock"}
+;		{Thickness 7}
+		{able {touch 1}}
+	}
+
+	{Volume "column_left"
+;		{Tags  "body" "fire"}
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 1}}
+	}
+	{Volume "column_right"
+;		{Tags  "body" "fire"}
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 1}}
+	}
+
+	{Volume "door_dot2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1} {obstacle 1} {touch} {holed}}
+	}
+
+;;;	{Volume "dynamite_activate"	;; Для генерации тега switch
+;;;		{able {touch}}
+;;;	}
+
+	{Volume "hole"
+		{able clear {hole}{touch 1}}
+	}
+
+	{lodclass "decor_medium"}
+}

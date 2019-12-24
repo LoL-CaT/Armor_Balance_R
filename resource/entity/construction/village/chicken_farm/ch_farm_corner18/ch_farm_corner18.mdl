@@ -1,0 +1,90 @@
+;Exported by: sana
+;Date:        Mon May 15 12:06:18 2006
+;File:        D:\-Project-\-3DWork-\Entourage\e-house3a\farm_construction_work3.max
+{Skeleton
+	{bone "ch_farm_corner18"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "ch_farm_corner18.ply"}
+		{bone "window2"
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				-16.9637	44.8452	38.1728
+			}
+			{VolumeView "window2.ply"}
+		}
+		{bone "window2_x"
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				-18.1383	44.8452	38.1728
+			}
+			{visibility 0}
+			{VolumeView "window2_x.ply"}
+		}
+		{bone "land"
+			{parameters "Land;Ground;"}
+			{Position -8.44177	-45.8174	1.47638}
+			{VolumeView "land.ply" {Ground}}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center -16.4656 -4.6709}
+		{Extent 3.48402 30.9479}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "door"
+	{Obb2
+		{Center 1.88196 35.1981}
+		{Extent 19.6999 1.14517}
+		{Axis 0.906401 0.422418}
+	}
+	{Rotate}
+	{Tags  "body" "fire"}
+}
+{Volume "body"
+	{Box 61.8957 60.8422 6.96803}
+	{Bone "ch_farm_corner18"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-16.4656	4.6709	30.3281
+	}
+}
+{Volume "door"
+	{Box 2.11982 39.3909 43.8353}
+	{Bone "ch_farm_corner18"}
+	{Matrix34
+		0.41849	0.908222	0
+		-0.908222	0.41849	0
+		0	0	1
+		1.88193	-35.1981	24.2875
+	}
+}
+{Volume "hole"
+	{Box 37.6379 24.9578 27.8561}
+	{Bone "ch_farm_corner18"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-16.7868	15.3479	38.1567
+	}
+}
+{Volume "window2"
+	{Box 37.7168 24.5626 2.23511}
+	{Bone "window2"}
+	{Position 29.1501	0	-1.11759}
+}

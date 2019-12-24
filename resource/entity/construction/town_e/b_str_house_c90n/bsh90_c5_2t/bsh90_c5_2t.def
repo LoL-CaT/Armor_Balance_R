@@ -1,0 +1,88 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "bsh90_c5_2t.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "attach1"}}
+		{place "2" {attach  snipe_cover} 		{linkbone "attach2"}}
+		{place "3" {attach  snipe_cover} 		{linkbone "attach3"}}
+	}	
+	{boarder}
+	{mass 50000}
+
+	{extender "structure_bone"
+		{hold "11" "12"}
+		{hold "13"}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body7"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "floor1"
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "floor2"
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "floor3"
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole3"
+		{Tags  "attach" "3"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0 2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window2"
+		{Tags  "fire"}
+		{Thickness 0 2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window3"
+		{Tags  "fire"}
+		{Thickness 0 2}
+		{able {visible 0}{window}}
+	}
+}

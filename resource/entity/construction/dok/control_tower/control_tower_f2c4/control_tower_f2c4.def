@@ -1,0 +1,36 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed" "no_destroyed_stamp"}
+	("armor_heavy" args 1.5)
+	{Extension "control_tower_f2c4.mdl"}
+	{Volume "body185"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "body186"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "body190"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole_window1"
+		{able clear {hole}}
+	}
+	{Volume "hole_window2"
+		{able clear {hole}}
+	}
+	{Volume "window1"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window2"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Extender "land_patch"
+		{TerrainType "road" "bridge"}	
+	}
+}

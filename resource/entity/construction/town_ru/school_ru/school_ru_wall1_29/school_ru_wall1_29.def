@@ -1,0 +1,29 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_house_concrete")
+	{Extension "school_ru_wall1_29.mdl"}
+	{obstacleID "building"}
+
+	{placer
+		{place "12" {attach  snipe_cover} 		{linkbone "attach12"}}
+	}
+	{boarder}
+	{mass 5000}
+
+	{Volume "body"
+		{Tags  "body"}
+		{able {holed}{obstacle 0}}
+	}
+	{Volume "door"
+	}
+	{Volume "hole2"
+		{Tags  "attach" "12"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

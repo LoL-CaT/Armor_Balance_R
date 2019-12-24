@@ -1,0 +1,98 @@
+;Exported by: butyvsky
+;Date:        Fri Jul 27 12:16:12 2007
+;File:        D:\-Projects-\-3D Work-\Construction\fence\wood.max
+{Skeleton
+	{animation
+		{sequence "open" {speed 0.4}}
+	}
+	{bone "gate_wood4_open"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{VolumeView "body.ply"}
+		}
+		{bone "doorleft_open"
+			{parameters "CommonMesh;"}
+			{Position -31.6878	-1.17926	0}
+			{VolumeView "doorleft_open.ply"}
+		}
+		{bone "doorright_open"
+			{parameters "CommonMesh;"}
+			{Position 32.9944	-1.09113	0}
+			{VolumeView "doorright_open.ply"}
+		}
+	}
+}
+{Obstacle "close"
+	{Obb2
+		{Center 0.429207 0.480774}
+		{Extent 32.4681 3.39787}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Obstacle "open_1"
+	{Obb2
+		{Center -27.3742 -16.4908}
+		{Extent 1.06924 14.912}
+		{Axis -0.965926 -0.25882}
+	}
+	{Rotate}
+}
+{Obstacle "open_2"
+	{Obb2
+		{Center 25.2468 -15.3113}
+		{Extent 1.06924 14.912}
+		{Axis -0.866025 0.5}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle02"
+	{Obb2
+		{Center -33.9231 0.519897}
+		{Extent 1.93153 3.35579}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle03"
+	{Obb2
+		{Center 34.7062 0.519897}
+		{Extent 1.93153 3.35579}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 4.17686 4.35457 41.1781}
+	{Bone "body"}
+	{Position 34.9059	0.81073	20.5891}
+}
+{Volume "body"
+	{Box 4.17686 4.35457 41.1781}
+	{Bone "body"}
+	{Position -33.9093	0.81073	20.5891}
+}
+{Volume "doorleft_open"
+	{Box 31.5578 2.20282 36.9407}
+	{Bone "doorleft_open"}
+	{Matrix34
+		0.962688	0.270613	0
+		-0.270613	0.962688	0
+		0	0	1
+		15.656	4.56927	18.4704
+	}
+}
+{Volume "doorright_open"
+	{Box 32.3482 1.20471 36.9407}
+	{Bone "doorright_open"}
+	{Position -16.552	1.36969	18.4704}
+}
+{Volume "switch"
+	{Box 33.273 3.22144 38.049}
+	{Bone "doorright_open"}
+	{Position -16.8257	1.36969	19.0245}
+}

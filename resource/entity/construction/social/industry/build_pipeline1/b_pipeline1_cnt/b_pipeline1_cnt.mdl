@@ -1,0 +1,209 @@
+;Exported by: gals
+;Date:        Fri Aug 05 12:51:29 2005
+;File:        D:\-Projects1_5-\-3DWork-\build_pipeline\build_pipeline1.max
+{Skeleton
+	{bone "center01"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "center01.ply"}
+		{bone "exterior"
+			{Position 0	0	58.0622}
+			{VolumeView "exterior.ply"}
+			{bone revolute "air-exhauster02"
+				{Position -54.3567	7.87402	15.7567}
+				{VolumeView "air-exhauster02.ply"}
+			}
+		}
+		{bone "attach1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				36.2144	45.2758	0
+			}
+		}
+		{bone "window0"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				36.1945	63.9764	26.5748
+			}
+			{VolumeView "window0.ply"}
+			{bone "fx_glass0"
+				{Matrix34
+					0	0	1
+					1	0	0
+					0	1	0
+					-0.0108624	1.00778	-0.21342
+				}
+			}
+		}
+		{bone "window0_x"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				36.1945	63.9837	26.5748
+			}
+			{VolumeView "window0_x.ply"}
+		}
+	}
+}
+{Obstacle "body06"
+	{Obb2
+		{Center 32.2575 38.3858}
+		{Extent 33.4646 2.95276}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body05"
+	{Obb2
+		{Center 23.3992 -63.9764}
+		{Extent 44.2913 2.95276}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body04"
+	{Obb2
+		{Center -26.404 -83.6614}
+		{Extent 11.4174 2.95276}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body03"
+	{Obb2
+		{Center -17.9394 -73.8189}
+		{Extent 2.95276 6.88976}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body02"
+	{Obb2
+		{Center -28.7661 83.6614}
+		{Extent 33.4646 2.95276}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body01"
+	{Obb2
+		{Center 1.74567 61.0236}
+		{Extent 2.95275 19.685}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Area "interior2"
+	{Obb2
+		{Center -30.7346 58.0709}
+		{Extent 29.5276 22.6378}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Area "interior1"
+	{Obb2
+		{Center 3.71418 -12.7953}
+		{Extent 63.9764 48.2283}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "window0"
+	{Box 15.748 1.96851 21.6535}
+	{Bone "window0"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		0	0	0
+	}
+}
+{Volume "hole01"
+	{Box 15.748 21.6535 29.5276}
+	{Bone "center01"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		36.192	63.9764	26.5748
+	}
+}
+{Volume "body06"
+	{Box 66.9291 5.90551 78.7402}
+	{Bone "center01"}
+	{Position 32.2575	-38.3858	39.3701}
+}
+{Volume "body05"
+	{Box 88.5827 5.90551 78.7402}
+	{Bone "center01"}
+	{Position 23.3992	63.9764	39.3701}
+}
+{Volume "body04"
+	{Box 22.8348 5.90551 78.7402}
+	{Bone "center01"}
+	{Position -26.404	83.6614	39.3701}
+}
+{Volume "body03"
+	{Box 5.90552 13.7795 78.7402}
+	{Bone "center01"}
+	{Position -17.9394	73.8189	39.3701}
+}
+{Volume "body02"
+	{Polyhedron "body02.vol"}
+	{Bone "center01"}
+	{Position -28.7661	-83.6614	0}
+}
+{Volume "body01"
+	{Box 5.90551 39.3701 49.2126}
+	{Bone "center01"}
+	{Position 1.74567	-61.0236	24.6063}
+}
+{Volume "roof07"
+	{Box 47.0709 29.5276 1.9685}
+	{Bone "exterior"}
+	{Position -44.4275	-20.6693	9.85117}
+}
+{Volume "roof06"
+	{Box 68.9764 39.3701 1.9685}
+	{Bone "exterior"}
+	{Position -35.6953	-61.0236	-19.6764}
+}
+{Volume "roof05"
+	{Cylinder 19.685 9.84252}
+	{Bone "exterior"}
+	{Matrix34
+		0.951057	0.309017	0
+		-0.309017	0.951057	0
+		0	0	1
+		-54.3567	7.87402	15.7567
+	}
+}
+{Volume "roof04"
+	{Polyhedron "roof04.vol"}
+	{Bone "exterior"}
+	{Position -37.8812	52.7097	8.86692}
+}
+{Volume "roof03"
+	{Box 53.3156 31.8534 1.9685}
+	{Bone "exterior"}
+	{Position -47.5499	10.0212	9.85117}
+}
+{Volume "roof02"
+	{Box 63.9764 5.90551 39.3701}
+	{Bone "exterior"}
+	{Position -33.1953	-38.3858	0.992897}
+}
+{Volume "roof01"
+	{Box 86.6142 96.4567 1.9685}
+	{Bone "exterior"}
+	{Position 22.4149	12.7953	9.85117}
+}

@@ -1,0 +1,39 @@
+{game_entity
+        (include "/properties/building.inc")
+	{Extension "500_w2.mdl"}
+        {props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning"}
+	("armor_medium" args 0.7)
+	{mass 50000}
+	{boarder}
+	{placer
+		{place "1" {attach  snipe_cover} 	{linkbone "attach1"}}
+		}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+}

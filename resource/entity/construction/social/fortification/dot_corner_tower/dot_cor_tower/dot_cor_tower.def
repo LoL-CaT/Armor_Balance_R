@@ -1,0 +1,79 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "concrete"}
+	{obstacleid "unbreakable"}
+	("armor_heavy" args 1.0)
+	{Extension "dot_cor_tower.mdl"}
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "attach1"}}
+	}
+	{Boarder
+		{door "emit" {queue 0}}
+		{node "node_ladder_bottom"}
+		{node "node_ladder_top"}
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 1.2} {loop "stand_upstairs"}}
+			{reverse	{speed 1.2} {loop "stand_upstairs" -1}}
+		}
+
+		{link "emit" 				"node_ladder_bottom"{anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "node_ladder_bottom" 	"node_ladder_top" 	{anm "ladder"}}
+		{link "node_ladder_top" 	"1" 				{forward puton} 	{reverse putoff}}
+	}
+
+	{Volume "body10"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}}
+	}
+	{Volume "body7"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}}
+	}
+	{Volume "body8"
+		{Tags  "body"}
+		{Thickness 100}
+		{able {visible 1}}
+	}
+	{Volume "body9"
+		{Tags  "attach" "1"}
+		{Thickness 100}
+		{able clear {visible 0}{touch 1}{obstacle 0}}
+	}
+}

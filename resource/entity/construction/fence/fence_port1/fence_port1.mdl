@@ -1,0 +1,65 @@
+;Exported by: sana
+;Date:        Mon Jul 10 10:24:13 2006
+;File:        D:\-Project-\-3DWork-\Entourage\fence\port.max
+{Skeleton
+	{animation
+		{sequence "crush" {speed 0.5}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "fence_port1"
+			{parameters "CommonMesh;"}
+			{LODView
+				{VolumeView "fence_port1.ply"}
+				{VolumeView "fence_port1_lod1.ply"}
+			}
+			{bone "climb1"
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					-9.96281	17.0259	0
+				}
+				{visibility 0}
+			}
+			{bone "climb2"
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					-9.96281	-18.2139	0
+				}
+				{visibility 0}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Box 5.5108 19.0021 5.51181}
+	{Bone "fence_port1"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-28.9446	-0.101243	9.54556
+	}
+}
+{Volume "body2"
+	{Box 5.5108 19.0021 5.51181}
+	{Bone "fence_port1"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		10.231	-0.101243	9.54556
+	}
+}
+{Volume "body"
+	{Box 35.0635 2.30957 1.95964}
+	{Bone "fence_port1"}
+	{Position -9.17561	0.0779933	0.97982}
+}

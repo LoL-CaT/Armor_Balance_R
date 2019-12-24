@@ -1,0 +1,120 @@
+;Exported by: shevchenko
+;Date:        Wed Mar 01 18:14:11 2006
+;File:        D:\-Projects1_5-\-3DWork-\e_farm_121_lm_corner.max
+{Skeleton
+	{bone "122_f1c1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "122_f1c1.ply"}
+		{bone "window1"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-16.0983	6.28815	29.5276
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "exterior"
+			{Position -1.08655	-0.890763	66.8704}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-15.6061	6.28815	29.5276
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-1.33448	5.29528	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -16.0983 -7.26378}
+		{Extent 2.95276 23.622}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 1.61827 -27.9331}
+		{Extent 14.7638 2.95276}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 3.58677 -1.35827}
+		{Extent 16.7323 23.622}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 5.90551 47.2441 49.2126}
+	{Bone "122_f1c1"}
+	{Position -16.0983	7.26378	24.6063}
+}
+{Volume "body2"
+	{Box 29.5276 5.90551 49.2126}
+	{Bone "122_f1c1"}
+	{Position 1.61827	27.9331	24.6063}
+}
+{Volume "body3"
+	{Polyhedron "body3.vol"}
+	{Bone "122_f1c1"}
+	{Position 1.61827	27.9331	49.2126}
+}
+{Volume "hole1"
+	{Box 19.685 9.84252 19.685}
+	{Bone "122_f1c1"}
+	{Position -15.6061	6.28815	29.5276}
+}
+{Volume "roof1"
+	{Box 23.622 1.9685 33.0102}
+	{Bone "exterior"}
+	{Matrix34
+		0	1	0
+		-0.707107	0	0.707107
+		0.707107	0	0.707107
+		-6.29359	19.9656	-5.00266
+	}
+}
+{Volume "roof2"
+	{Box 23.622 1.9685 19.1459}
+	{Bone "exterior"}
+	{Matrix34
+		0	1	0
+		-0.707107	0	0.707107
+		0.707107	0	0.707107
+		-11.1954	-3.65702	-9.90443
+	}
+}
+{Volume "window1"
+	{Box 1.9685 9.84252 19.685}
+	{Bone "window1"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-0.492127	0	0
+	}
+}

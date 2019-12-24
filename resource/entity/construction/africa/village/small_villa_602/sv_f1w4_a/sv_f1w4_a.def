@@ -1,0 +1,28 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "sv_f1w4_a.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "burning"}
+	("armor_heavy" args 0.7)
+	{mass 50000}
+
+	{Volume "body01"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "body02"
+		{Tags  "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body03"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "floor"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+}

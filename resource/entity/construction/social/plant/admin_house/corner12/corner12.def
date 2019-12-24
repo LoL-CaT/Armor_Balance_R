@@ -1,0 +1,45 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "corner12.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "attach21"}}
+		{place "2" {attach  snipe_cover} 		{linkbone "attach22"}}
+	}	
+	{boarder}
+
+	{Volume "body60"
+		{Tags  "body"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body61"
+		{Tags  "body"}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body62"
+		{Tags  "body"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body63"
+		{Tags  "body"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole21"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch}}
+	}
+	{Volume "hole22"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch}}
+	}
+	{Volume "window21"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window22"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

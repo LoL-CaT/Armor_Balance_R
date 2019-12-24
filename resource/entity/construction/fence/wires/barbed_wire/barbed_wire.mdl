@@ -1,0 +1,41 @@
+;Exported by: chernenko
+;Date:        Mon Sep 05 17:24:53 2005
+;File:        D:\-Project-\-3dwork-\Fence\spike_new.max
+{Skeleton
+	{bone "barber_wire"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "barber_wire.ply"}
+		{bone "wire_line"
+			{Matrix34
+				0.999719	-0.0106194	0.0212038
+				0.0099035	0.999387	0.0335887
+				-0.0215475	-0.0333692	0.999211
+				0.0941153	1.48388	-3.71669
+			}
+			{VolumeView "wire_line.ply"}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center -1.01762 1.26066}
+		{Extent 78.8316 12.7831}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body"
+	{Cylinder 12.5787 157.48}
+	{Bone "barber_wire"}
+	{Matrix34
+		0.00746514	0.0334846	-0.999411
+		0.00243658	0.999436	0.0335036
+		0.999969	-0.00268526	0.00737934
+		-1.01762	-1.26065	17.1531
+	}
+}

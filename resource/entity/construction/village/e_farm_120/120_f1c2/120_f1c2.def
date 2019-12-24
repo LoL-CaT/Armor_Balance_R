@@ -1,0 +1,37 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "120_f1c2.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "burning"}
+	("armor_house_concrete_light")
+
+	{mass 50000}
+
+	{Volume "hole1"
+		{able clear {hole}}
+	}
+	{Volume "door"
+		{Tags  "fire"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+}

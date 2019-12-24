@@ -1,0 +1,81 @@
+;Exported by: butyvsky
+;Date:        Fri May 04 17:59:28 2007
+;File:        D:\-Projects-\-3D Work-\industrial\damb.max
+{Skeleton
+	{bone "damb"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body_centr"
+			{VolumeView "body_centr.ply"}
+			{bone "land_centr"
+				{parameters "Land;Ground;"}
+				{VolumeView "land_centr.ply" {Ground} {DecalTarget}}
+			}
+		}
+		{bone "body_left"
+			{Position -174.429	-10.6551	0}
+			{VolumeView "body_left.ply"}
+			{bone "land_left"
+				{parameters "Land;Ground;"}
+				{VolumeView "land_left.ply" {Ground} {DecalTarget}}
+			}
+		}
+		{bone "body_right"
+			{Position 174.272	-10.6551	0}
+			{VolumeView "body_right.ply"}
+			{bone "land_right"
+				{parameters "Land;Ground;"}
+				{VolumeView "land_right.ply" {Ground} {DecalTarget}}
+			}
+		}
+	}
+}
+{Obstacle "rectangle01"
+	{Obb2
+		{Center -0.0737457 -165.488}
+		{Extent 252.468 4.05583}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle02"
+	{Obb2
+		{Center -0.0737457 19.4878}
+		{Extent 252.468 5.91833}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body_centr"
+	{Polyhedron "body_centr.vol"}
+	{Bone "body_centr"}
+	{Position 0	0	90.6683}
+}
+{Volume "body_left"
+	{Polyhedron "body_left.vol"}
+	{Bone "body_left"}
+	{Position 0	0	90.5581}
+}
+{Volume "body_right"
+	{Polyhedron "body_right.vol"}
+	{Bone "body_right"}
+	{Position 0	0	90.5581}
+}
+{Volume "land_centr"
+	{Box 205.959 197.059 8.1652}
+	{Bone "land_centr"}
+	{Position -0.0904732	73.2887	167.999}
+}
+{Volume "land_left"
+	{Box 142.845 199.753 7.75148}
+	{Bone "land_left"}
+	{Position -0.0632935	83.0345	165.353}
+}
+{Volume "land_right"
+	{Box 142.639 202.855 8.27933}
+	{Bone "land_right"}
+	{Position -0.0863037	84.8389	168.222}
+}

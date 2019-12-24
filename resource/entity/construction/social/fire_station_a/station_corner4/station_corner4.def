@@ -1,0 +1,38 @@
+{game_entity
+    (include "/properties/building.inc")
+	{Extension "station_corner4.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 1.5)
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+	{Volume "hole5"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole4"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof2"
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof1"
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window4"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window5"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+
+
+}

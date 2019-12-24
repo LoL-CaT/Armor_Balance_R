@@ -1,0 +1,45 @@
+{game_entity
+  	(include "/properties/building.inc")
+  	{Extension "fc_c5_1.mdl"}
+  	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning" "no_destroyed_stamp"}
+	("armor_heavy" args 1.5)
+
+  	{mass 25000}
+
+  	{Volume "hole3"
+    	{able clear {hole}}
+  	}
+  	{Volume "hole2"
+    	{able clear {hole}}
+  	}
+  	{Volume "hole1"
+    	{able clear {hole}}
+  	}
+  	{Volume "floor"
+    	{Tags  "body" "fire"}
+    	{thickness 7}
+    	{able {visible 0}{obstacle 0}}
+  	}
+  	{Volume "body1"
+    	{Tags  "body"}
+    	{thickness 7}
+    	{able {visible 1}{holed}}
+  	}
+  	{Volume "window3"
+		{Tags  "fire"}
+    	{Thickness 0.2}
+    	{able {visible 0}{window}}
+  	}
+  	{Volume "window2"
+		{Tags  "fire"}
+    	{Thickness 0.2}
+    	{able {visible 0}{window}}
+  	}
+  	{Volume "window1"
+		{Tags  "fire"}
+    	{Thickness 0.2}
+    	{able {visible 0}{window}}
+  	}
+  	{Extender "land_patch"
+  	}
+}

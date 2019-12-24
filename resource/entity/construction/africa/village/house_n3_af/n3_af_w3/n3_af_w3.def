@@ -1,0 +1,43 @@
+{game_entity
+        (include "/properties/building.inc")
+	{Extension "n3_af_w3.mdl"}
+        {props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning"}
+	("armor_medium" args 0.7)
+	{mass 50000}
+	{extender "structure_bone"	
+		{hold "05"}
+	}
+	{boarder}
+	{placer
+		{place "1" {attach  squat_lie} {linkbone "attach1"}}	
+        }
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body5"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+}

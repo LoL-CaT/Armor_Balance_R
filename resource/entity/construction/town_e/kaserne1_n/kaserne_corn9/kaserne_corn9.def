@@ -1,0 +1,31 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "kaserne_corn9.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "burning" "windowed" "wall"}
+	("armor_heavy" args 0.8)
+
+	{Volume "bed5"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+	{Volume "hole3"
+		{able clear {hole}}
+	}
+	{Volume "roof"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window3"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+;	{Extender "land_patch"
+;	}
+}

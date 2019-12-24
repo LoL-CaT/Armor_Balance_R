@@ -1,0 +1,44 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "e_farm_c7.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning" "no_destroyed_stamp"}
+	("armor_house_concrete_light")
+
+	{extender "structure_bone"
+		{hold  "03"}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "3"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof1"
+		{Thickness 1}
+		{Tags "body" "fire"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof2"
+		{Thickness 1}
+		{Tags "body" "fire"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof3"
+		{Thickness 1}
+		{Tags "body" "fire"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window5"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

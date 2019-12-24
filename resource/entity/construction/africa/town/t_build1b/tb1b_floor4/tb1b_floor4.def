@@ -1,0 +1,20 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "cornered" "wood" "parts" "construction" "wall" "burning" "break_on_burn" "no_destroyed_stamp"}
+	("armor_medium" args 0.7)
+	{mass 5000}
+	{Extension "tb1b_floor4.mdl"}
+	{extender "structure_bone"	
+		{hold "01" "02"}
+	}
+
+	{Volume "fire"
+		{Tags  "fire"}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+	{Volume "floor"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+}

@@ -1,0 +1,144 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+	{Extension "tm2.mdl"}
+	{placer
+		{place "2" {attach squat_lie} {linkbone "node02"}}
+		{place "3" {attach squat_lie} {linkbone "node03"}}
+		{place "4" {attach squat_lie} {linkbone "node04"}}
+		{place "5" {attach squat_lie} {linkbone "node05"}}
+		{place "6" {attach squat_lie} {linkbone "node06"}}
+		{place "8" {attach squat_lie} {linkbone "node08"}}
+		{place "9" {attach squat_lie} {linkbone "node09"}}
+		{place "13" {attach squat_lie} {linkbone "node13"}}
+		{place "14" {attach squat_lie} {linkbone "node14"}}
+	}
+	{boarder
+		{door "door" {queue 0}}
+
+
+		{node "ladder_bottom"}
+		{node "ladder_top"}
+
+		{node "node02"}
+		{node "node03"}
+		{node "node04"}
+		{node "node05"}
+		{node "node06"}
+		{node "node09"}
+		{node "node13"}
+		{node "node14"}
+
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 2} {loop "stand_upstairs"}}
+			{reverse	{speed 2} {loop "stand_upstairs" -1}}
+		}
+		{anm "walk"
+			{forward {speed 3}}
+			{reverse {speed 3}}
+		}
+
+		{link "door"	 		"ladder_bottom" 	{anm "ladder_bind"}}
+		{link "ladder_bottom"		"ladder_top" 		{anm "ladder"}}
+		{link "ladder_top"		"2"		{anm "[fsm]"}}
+
+
+	    	{link "2"	"3"				 	{anm "[fsm]"}}
+	    	{link "2"	"4"				 	{anm "[fsm]"}}
+	    	{link "2"	"5"				 	{anm "[fsm]"}}
+	    	{link "2"	"6"				 	{anm "[fsm]"}}
+	    	{link "2"	"8"				 	{anm "[fsm]"}}
+	    	{link "2"	"9"				 	{anm "[fsm]"}}
+	    	{link "2"	"13"				{anm "[fsm]"}}
+	    	{link "2"	"14"				{anm "[fsm]"}}
+	    	{link "3"	"4"				 	{anm "[fsm]"}}
+	    	{link "3"	"5"				 	{anm "[fsm]"}}
+	    	{link "3"	"6"				 	{anm "[fsm]"}}
+	    	{link "3"	"8"				 	{anm "[fsm]"}}
+	    	{link "3"	"9"				 	{anm "[fsm]"}}
+	    	{link "3"	"13"			 	{anm "[fsm]"}}
+	    	{link "3"	"14"			 	{anm "[fsm]"}}
+	    	{link "4"	"5"				 	{anm "[fsm]"}}
+	    	{link "4"	"6"				 	{anm "[fsm]"}}
+	    	{link "4"	"8"				 	{anm "[fsm]"}}
+	    	{link "4"	"9"				 	{anm "[fsm]"}}
+	    	{link "4"	"13"			 	{anm "[fsm]"}}
+	    	{link "4"	"14"			 	{anm "[fsm]"}}
+	    	{link "5"	"6"				 	{anm "[fsm]"}}
+	    	{link "5"	"8"				 	{anm "[fsm]"}}
+	    	{link "5"	"9"				 	{anm "[fsm]"}}
+	    	{link "5"	"13"			 	{anm "[fsm]"}}
+	    	{link "5"	"14"			 	{anm "[fsm]"}}
+	    	{link "6"	"8"				 	{anm "[fsm]"}}
+	    	{link "6"	"9"				 	{anm "[fsm]"}}
+	    	{link "8"	"9"				 	{anm "[fsm]"}}
+	    	{link "8"	"13"			 	{anm "[fsm]"}}
+	    	{link "8"	"14"			 	{anm "[fsm]"}}
+	    	{link "9"	"13"			 	{anm "[fsm]"}}
+	    	{link "9"	"14"			 	{anm "[fsm]"}}
+	    	{link "13"	"14"			 	{anm "[fsm]"}}
+
+	}
+	{Volume "attach02"
+		{able clear  {touch 1} }
+		{tags "attach" "2"}
+	}
+	{Volume "attach13"
+		{able clear  {touch 1} }
+		{tags "attach" "13"}
+	}
+	{Volume "attach14"
+		{able clear  {touch 1} }
+		{tags "attach" "14"}
+	}
+	{Volume "attach09"
+		{able clear  {touch 1} }
+		{tags "attach" "9"}
+	}
+	{Volume "attach08"
+		{able clear  {touch 1} }
+		{tags "attach" "8"}
+	}
+	{Volume "attach06"
+		{able clear  {touch 1} }
+		{tags "attach" "6"}
+	}
+	{Volume "attach05"
+		{able clear  {touch 1} }
+		{tags "attach" "5"}
+	}
+	{Volume "attach04"
+		{able clear  {touch 1} }
+		{tags "attach" "4"}
+	}
+	{Volume "attach03"
+		{able clear  {touch 1} }
+		{tags "attach" "3"}
+	}
+	{Volume "body116"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body115"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body114"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body113"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+}

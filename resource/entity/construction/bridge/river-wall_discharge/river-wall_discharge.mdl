@@ -1,0 +1,110 @@
+;Exported by: klimenko
+;Date:        Thu Jun 29 14:52:28 2006
+;File:        D:\-Project-\-3DWork-\fences\river-wall\e_river-wall_low.max
+{Skeleton
+	{animation
+		{sequence "open" {speed 0.08} {resume}}
+	}
+	{bone "r_wall13"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "r_wall13.ply"}
+		{bone "road04"
+			{parameters "Land;Ground;"}
+			{Position 0.411469	-57.6147	0}
+			{VolumeView "road04.ply" {Ground} {DecalTarget}}
+		}
+		{bone "close"
+			{Position 49.7417	72.9534	-98.4252}
+		}
+		{bone "right"
+			{Matrix34
+				0.34202	-0.939693	0
+				0.939693	0.34202	0
+				0	0	1
+				70.0308	106.498	-98.4252
+			}
+		}
+		{bone "bottom"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				49.093	-6.83123	-56.1564
+			}
+		}
+		{bone "door"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				38.8356	62.6475	-52.0476
+			}
+		}
+		{bone "node"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				46.7393	-53.353	-77.0368
+			}
+		}
+		{bone "top"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				50.7762	23.2319	-52.0476
+			}
+		}
+		{bone "hatch"
+			{Position 86.5067	58.9363	-47.2081}
+			{VolumeView "hatch.ply"}
+			{bone "catch"
+				{Matrix34
+					0.991274	-0.00064473	-0.131817
+					0.00142697	0.999982	0.00583991
+					0.131811	-0.00597705	0.991257
+					-64.0931	5.36303	0
+				}
+				{VolumeView "catch.ply"}
+			}
+		}
+	}
+}
+{Obstacle "rectangle18"
+	{Obb2
+		{Center 48.739 -24.894}
+		{Extent 98.4227 29.5276}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "attach"
+	{Cylinder 35.9002 1.9685}
+	{Bone "r_wall13"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		49.078	58.6385	-47.2081
+	}
+}
+{Volume "body1"
+	{Box 198.819 7.87402 59.0551}
+	{Bone "r_wall13"}
+	{Position 49.6674	-0.792725	-19.2576}
+}
+{Volume "switch"
+	{Cylinder 41.0663 14.7839}
+	{Bone "hatch"}
+	{Matrix34
+		1	0	0
+		0	0	-1
+		0	1	0
+		-37.4286	2.21407	0
+	}
+}

@@ -1,0 +1,112 @@
+;Exported by: shevchenko
+;Date:        Fri Jun 09 10:22:58 2006
+;File:        D:\-Projects1_5-\-3DWork-\fortress_complex_2floor_alternative.max
+{Skeleton
+	{bone "c2_2a"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "c2_2a.ply"}
+		{bone "ground_c2_2"
+			{parameters "Ground;Land;"}
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				0.357803	2.50935	15.748
+			}
+			{VolumeView "ground_c2_2.ply" {Ground}}
+		}
+		{bone "attach1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-17.6913	-8.47366	62.9921
+			}
+		}
+		{bone "attach2"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-17.6913	17.1169	62.9921
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -31.4514 4.50781}
+		{Extent 3.93701 44.7269}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 8.90295 1.51662}
+		{Extent 2.95276 34.4488}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body1"
+	{Box 7.87402 89.4537 63.5669}
+	{Bone "c2_2a"}
+	{Position -31.4514	-4.50781	31.7835}
+}
+{Volume "body2"
+	{Box 5.90552 68.8976 74.7244}
+	{Bone "c2_2a"}
+	{Position 8.90295	-1.51662	53.1102}
+}
+{Volume "body3"
+	{Box 7.87402 41.1487 18.4344}
+	{Bone "c2_2a"}
+	{Position -31.4514	19.9198	72.6846}
+}
+{Volume "body4"
+	{Box 7.87402 28.3926 18.4344}
+	{Bone "c2_2a"}
+	{Position -31.4514	-30.6914	72.6846}
+}
+{Volume "floor1"
+	{Box 39.3701 92.4803 3.93701}
+	{Bone "c2_2a"}
+	{Position -7.82935	4.05516	61.0236}
+}
+{Volume "floor2"
+	{Box 23.622 34.1807 6.88976}
+	{Bone "c2_2a"}
+	{Matrix34
+		1	0	0
+		0	0.832188	-0.554494
+		0	0.554494	0.832188
+		23.6004	16.9496	73.8376
+	}
+}
+{Volume "hole1"
+	{Box 15.748 23.622 19.685}
+	{Bone "c2_2a"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-30.4648	-8.48431	74.8032
+	}
+}
+{Volume "hole2"
+	{Box 13.7795 23.622 19.685}
+	{Bone "c2_2a"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-30.4648	17.1062	86.6142
+	}
+}

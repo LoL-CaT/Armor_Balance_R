@@ -1,0 +1,44 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "hut.mdl"}
+	{props "cornered" "wood" "parts" "construction" "windowed" "wall" "burning" "no_destroyed_stamp"}
+
+	{mass 200}
+	("armor_medium" args 0.7)
+	{placer
+		{place "1" {attach hide_squat} {linkbone "node1"}}
+		{place "2" {attach hide_squat} {linkbone "node2"}}
+	}
+	{boarder
+		{door "door1" {queue 0}}
+		{door "door2" {queue 0}}
+		{node "node1"}
+		{node "node2"}
+
+
+		{link "door1"	"1"				{anm "[fsm]"}}
+		{link "door2"	"2"				{anm "[fsm]"}}
+	   	{link "1"		"2"			 	{anm "[fsm]"}}
+	}
+
+	{Volume "body1"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+	{Volume "attach"
+		{able {obstacle 0} {touch 1}}
+		{Thickness 1}
+		{tags "body" "attach" "attach_any"}
+	}
+	{Volume "attach1"
+		{able {obstacle 0} {touch 1}}
+		{Thickness 1}
+		{tags "body" "attach" "attach_any"}
+	}
+}

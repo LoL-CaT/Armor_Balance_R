@@ -1,0 +1,35 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "606a_w3.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "no_destroyed_stamp"}
+	("armor_heavy" args 0.2)
+	{mass 10000}
+	{boarder}
+	{placer
+		{place "1" {attach  squat_lie} 	{linkbone "attach1"}}
+	}
+
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof01"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof02"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

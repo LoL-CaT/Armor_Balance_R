@@ -1,0 +1,106 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall"}
+
+	{Extension "dok_build1_ld.mdl"}
+
+	("armor_medium" args 0.5)
+	{mass 5000}
+
+	{placer
+		{place "1" {attach squat_lie} {linkbone "node01"}}
+		{place "2" {attach squat_lie} {linkbone "node02"}}
+		{place "3" {attach squat_lie} {linkbone "node03"}}
+		{place "4" {attach squat_lie} {linkbone "node04"}}
+		{place "5" {attach squat_lie} {linkbone "node05"}}
+		{place "6" {attach squat_lie} {linkbone "node06"}}
+	}
+	{boarder
+		{door "door01" {queue} {auto_release_time 0.2}}
+
+		{node "ladder_top01"}
+
+
+		{link "door01" "ladder_top01"	{anm "[fsm]"}}
+	
+		
+		{link "ladder_top01"	"1"		{anm "[fsm]"}			}
+		{link "ladder_top01"	"2"		{anm "[fsm]"}			}
+		{link "ladder_top01"	"3"		{anm "[fsm]"}			}
+		{link "ladder_top01"	"4"		{anm "[fsm]"}			}
+		{link "ladder_top01"	"5"		{anm "[fsm]"}			}
+		{link "ladder_top01"	"6"		{anm "[fsm]"}			}
+
+	    	{link "1"	"2"	 	{anm "[fsm]"}	}
+	    	{link "1"	"3"	 	{anm "[fsm]"}	}
+	    	{link "1"	"4"	 	{anm "[fsm]"}	}
+	    	{link "1"	"5"	 	{anm "[fsm]"}	}
+	    	{link "1"	"6"	 	{anm "[fsm]"}	}
+			
+			{link "2"	"1"	 	{anm "[fsm]"}	}
+	    	{link "2"	"3"	 	{anm "[fsm]"}	}
+	    	{link "2"	"4"	 	{anm "[fsm]"}	}
+	    	{link "2"	"5"	 	{anm "[fsm]"}	}
+	    	{link "2"	"6"	 	{anm "[fsm]"}	}
+			
+			{link "3"	"1"	 	{anm "[fsm]"}	}
+	    	{link "3"	"2"	 	{anm "[fsm]"}	}
+	    	{link "3"	"4"	 	{anm "[fsm]"}	}
+	    	{link "3"	"5"	 	{anm "[fsm]"}	}
+	    	{link "3"	"6"	 	{anm "[fsm]"}	}
+					
+			{link "4"	"1"	 	{anm "[fsm]"}	}
+	    	{link "4"	"2"	 	{anm "[fsm]"}	}
+	    	{link "4"	"3"	 	{anm "[fsm]"}	}
+	    	{link "4"	"5"	 	{anm "[fsm]"}	}
+	    	{link "4"	"6"	 	{anm "[fsm]"}	}
+					
+			{link "5"	"1"	 	{anm "[fsm]"}	}
+	    	{link "5"	"2"	 	{anm "[fsm]"}	}
+	    	{link "5"	"3"	 	{anm "[fsm]"}	}
+	    	{link "5"	"4"	 	{anm "[fsm]"}	}
+	    	{link "5"	"6"	 	{anm "[fsm]"}	}
+					
+			{link "6"	"1"	 	{anm "[fsm]"}	}
+	    	{link "6"	"2"	 	{anm "[fsm]"}	}
+	    	{link "6"	"3"	 	{anm "[fsm]"}	}
+	    	{link "6"	"4"	 	{anm "[fsm]"}	}
+	    	{link "6"	"6"	 	{anm "[fsm]"}	}
+    
+	}
+
+	{Volume "body197"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	
+	{Volume "attach01"
+		{able clear  {touch 1} }
+		{tags "attach" "1"}
+	}
+	{Volume "attach02"
+		{able clear  {touch 1} }
+		{tags "attach" "2"}
+	}
+	{Volume "attach03"
+		{able clear  {touch 1} }
+		{tags "attach" "3"}
+	}
+	{Volume "attach04"
+		{able clear  {touch 1} }
+		{tags "attach" "4"}
+	}
+	{Volume "attach05"
+		{able clear  {touch 1} }
+		{tags "attach" "5"}
+	}
+	{Volume "attach06"
+		{able clear  {touch 1} }
+		{tags "attach" "6"}
+	}
+	{Extender "land_patch"
+		{TerrainType "road" "bridge"}
+		{nonormals 1}
+	}
+}

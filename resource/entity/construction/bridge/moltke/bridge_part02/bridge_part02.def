@@ -1,0 +1,28 @@
+{game_entity
+	(include "/properties/bridge.inc")
+	{Extension "bridge_part02.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "bridge" "no_destroyed_stamp"}
+	{obstacleid "building"}
+
+	{Volume "body3_vol01"
+		{tags "body"}
+		{able clear {blast}}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{able clear {blast}}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body2_vol01"
+		{tags "body"}
+		{able clear {blast}}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Extender "land_patch"
+		{TerrainType "road" "bridge"}
+	}
+}

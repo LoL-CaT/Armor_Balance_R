@@ -1,0 +1,24 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "100_corner16_n.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "burning" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+
+	{extender "structure_bone"	
+		{hold "26" "27" "28"}
+		{hold "27" "28" "29"}
+		{hold "28" "29" "30"}
+		{hold "29" "30" "31"}
+		{hold "30" "31" "26"}
+		{hold "31" "26" "27"}
+	}
+
+	{boarder}
+	{mass 50000}
+
+	{Volume "floor"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+}

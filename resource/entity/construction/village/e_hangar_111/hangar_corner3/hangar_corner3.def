@@ -1,0 +1,29 @@
+{construction	
+    (include "/properties/building.inc")
+  
+	{Extension "hangar_corner3.mdl"}
+	{props "wall" "cornered" "concrete" "parts" "construction"}
+	("armor_heavy" args 1.5)
+
+	{constrain zero}
+	{mass 30000}
+
+	{Volume "fire1"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire0"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "support1"
+		{Thickness 7}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	("declare_fire_volumes")
+}

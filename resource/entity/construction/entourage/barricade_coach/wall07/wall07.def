@@ -1,0 +1,58 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "wall07.mdl"}
+	{props "cornered" "steel" "parts" "construction" "windowed" "wall"}
+	{obstacleID "small_building"}
+
+	{mass 5000}
+{boarder}
+	{placer
+		{place "1" {attach  snipe_cover} 	{linkbone "attach1"}}
+	}
+	{extender "structure_bone"	
+		{hold "09" "10"}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}{holed}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body7"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

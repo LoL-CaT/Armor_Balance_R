@@ -1,0 +1,31 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "fc_c9_roof.mdl"}
+	{props "one" "staged" "wood" "construction" "windowed" "disable_area" "no_destroyed_stamp" "burning"}
+	("armor_heavy" args 0.8)
+
+	{extender "structure_bone"	
+		{hold "113"}
+	}
+
+	{mass 5000}
+
+	{Volume "floor"
+		{Tags  "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{able clear {hole}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

@@ -1,0 +1,105 @@
+;Exported by: klimenko
+;Date:        Wed Dec 14 16:03:26 2005
+;File:        D:\-Project-\-3DWork-\fences\rock_gate_metal.max
+{Skeleton
+	{animation
+		{sequence "open" {speed 0.5} {resume}}
+	}
+	{bone "rock_metal_gate"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "col_left"
+			{Position 0.224542	-42.0722	0}
+			{VolumeView "col_left.ply"}
+		}
+		{bone "col_right"
+			{Position 0.224542	42.4059	0}
+			{VolumeView "col_right.ply"}
+		}
+		{bone "gate_left"
+			{parameters "CommonMesh;"}
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				0.0700516	-40.7823	0
+			}
+			{VolumeView "gate_left.ply"}
+		}
+		{bone "gate_right"
+			{parameters "CommonMesh;"}
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				0.0700504	40.8078	0
+			}
+			{VolumeView "gate_right.ply"}
+		}
+	}
+}
+{Obstacle "close"
+	{Obb2
+		{Center 0.819023 -0.229866}
+		{Extent 2.52274 40.8338}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Obstacle "col_left"
+	{Obb2
+		{Center 0.224542 42.0722}
+		{Extent 2.21442 2.10604}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "col_right"
+	{Obb2
+		{Center 0.224542 -42.4059}
+		{Extent 2.21442 2.10604}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "left"
+	{Obb2
+		{Center -21.3553 44.0104}
+		{Extent 19.442 2.08724}
+		{Axis -0.991124 0.132943}
+	}
+	{Rotate}
+}
+{Obstacle "right"
+	{Obb2
+		{Center -21.3553 -42.5664}
+		{Extent 19.442 2.08724}
+		{Axis -0.996085 -0.0884054}
+	}
+	{Rotate}
+}
+{Volume "col_left"
+	{Box 4.42884 4.21208 44.2012}
+	{Bone "col_left"}
+	{Position 0	0	22.1006}
+}
+{Volume "col_right"
+	{Box 4.42884 4.21208 44.3275}
+	{Bone "col_right"}
+	{Position 0	0	22.1637}
+}
+{Volume "switch1"
+	{Box 43.3787 59.7526 1.80014}
+	{Bone "gate_left"}
+	{Position -21.5013	29.6708	-0.0238454}
+}
+{Volume "switch"
+	{Box 41.5209 59.8589 1.18111}
+	{Bone "gate_right"}
+	{Position 19.6911	29.7239	-0.333367}
+}

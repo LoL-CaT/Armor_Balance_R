@@ -1,0 +1,86 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+	{Extension "dok_build2_top_r.mdl"}
+
+	{extender "structure_bone"
+		{hold "02"}
+	}
+	{placer
+		{place "1" {attach squat_lie} {linkbone "node01"}}
+	}
+	{boarder
+		{door "door01" {queue 0}}
+
+		{node "ladder_bottom01"}
+		{node "ladder_top01"}
+
+		{node "node01"}
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 2} {loop "stand_upstairs"}}
+			{reverse	{speed 2} {loop "stand_upstairs" -1}}
+		}
+		{anm "walk"
+			{forward {speed 3}}
+			{reverse {speed 3}}
+		}
+
+		{link "door01"	 		"ladder_bottom01" 	{anm "ladder_bind"}}
+		{link "ladder_bottom01"		"ladder_top01" 		{anm "ladder"}}
+;		{link "ladder_top01"		"1"		{anm "run_slow_down_1"}}
+	}
+	{Volume "window2"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "hole_window2"
+		{tags "attach" "1"}
+		{able clear {hole} {touch 1}}
+	}
+	{Volume "body495"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body494"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body493"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body482"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "body478"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body475"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body465"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body464"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+}

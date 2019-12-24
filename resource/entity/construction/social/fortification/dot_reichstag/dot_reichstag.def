@@ -1,0 +1,50 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "concrete" "construction"}  
+	{Extension "dot_reichstag.mdl"}
+	{Extender "land_patch"
+		{TerrainType "road" "bridge"}
+	}
+	("armor_heavy" args 1.0)
+	{obstacleid "unbreakable"}
+	{armor
+		{setting "cover"
+		{thickness 100}
+			{volumes "cover*"}
+		}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{thickness 100}
+		{able {visible 1}{holed}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{thickness 100}
+		{able {visible 1}{holed}}
+	}
+	{Volume "cover1"
+		{able {visible 0}{contact 0}}
+	}
+	{Volume "cover2"
+		{able {visible 0}{contact 0}}
+	}
+	{Volume "cover"
+		{able {visible 0}{contact 0}}
+	}
+	{Volume "hole1"
+		{able clear {hole}}
+	}
+	{Volume "hole2"
+		{able clear {hole}}
+	}
+	{Volume "hole3"
+		{able clear {hole}}
+	}
+	{Volume "hole4"
+		{able clear {hole}}
+	}
+	{Volume "hole"
+		{able clear {hole}}
+	}
+}

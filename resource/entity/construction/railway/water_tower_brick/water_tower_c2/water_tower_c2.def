@@ -1,0 +1,91 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed" "burning"}
+	{Extension "water_tower_c2.mdl"}
+	{boarder
+	}
+	{placer
+		{place "1" {attach squat_lie} {linkbone "attach1"}}
+		{place "12" {attach snipe_cover} {linkbone "attach12"}}
+		{place "13" {attach snipe_cover} {linkbone "attach13"}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole13"
+		{Tags  "attach" "13"}
+		{able clear {hole}{touch 13}}
+	}
+	{Volume "hole12"
+		{Tags  "attach" "12"}
+		{able clear {hole}{touch 12}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "body9"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body8"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body7"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}                      
+	{Volume "body5"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body4"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body3"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {holed}{obstacle 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body11"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body10"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "window13"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window12"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

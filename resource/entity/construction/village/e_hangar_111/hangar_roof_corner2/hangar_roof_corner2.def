@@ -1,0 +1,40 @@
+{construction	
+    (include "/properties/building.inc")
+  
+	{Extension "hangar_roof_corner2.mdl"}
+	{props "wall" "cornered" "concrete" "parts" "construction"}
+	("armor_heavy" args 0.8)
+
+	{constrain zero}
+
+    {mass 30000}
+
+	{Volume "fire4"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire3"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire2"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire1"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "support"
+		{Thickness 7}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "beam"
+		{Thickness 1}
+	}
+	("declare_fire_volumes")
+}

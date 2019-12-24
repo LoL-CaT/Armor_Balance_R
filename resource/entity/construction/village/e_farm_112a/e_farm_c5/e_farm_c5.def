@@ -1,0 +1,45 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "e_farm_c5.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning"}
+	("armor_house_concrete_light")
+
+	{placer
+	     {place "1" {attach  squat_lie} 		{linkbone "attach1"}}
+	     {place "2" {attach  squat_lie} 		{linkbone "attach2"}}
+	}
+	{boarder}
+	{mass 5000}	
+	{Volume "beam"
+		{Tags  "fire"}
+		{able {visible 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof"
+		{Thickness 1}
+		{Tags "body" "fire"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window2"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

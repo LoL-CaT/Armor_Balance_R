@@ -1,0 +1,52 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "tube_plate.mdl"}
+	{props "steel" "cornered" "construction" "parts" "no_destroyed_stamp"}
+	("armor_house_concrete_light")
+		{extender "structure_bone"	
+			{hold "02" }}
+
+	{placer
+		{place "1" {attach snipe_cover} {linkbone "node01"}}
+		{place "2" {attach snipe_cover} {linkbone "node02"}}
+		{place "3" {attach snipe_cover} {linkbone "node03"}}
+		{place "4" {attach snipe_cover} {linkbone "node04"}}
+		{place "5" {attach snipe_cover} {linkbone "node05"}}
+		{place "6" {attach snipe_cover} {linkbone "node06"}}
+	}
+	{boarder
+		{door "door01" {queue 0}}
+		{door "door02" {queue 0}}
+		{node "ladder_bottom01"}
+		{node "ladder_top01"}
+
+		{anm "ladder"
+			{forward	{speed 2} {loop "stand_upstairs"}}
+			{reverse	{speed 2} {loop "stand_upstairs" -1}}
+		}
+		{link "door01" "ladder_bottom01" {anm ""} {forward putoff} {reverse puton}}
+		{link "ladder_bottom01" "ladder_top01" {anm "ladder"}}
+		{link "ladder_top01"  "door02" {anm ""}}
+
+	   	{link "door02"			"1"			 	{anm "[fsm]"}}
+	   	{link "door02"			"6"			 	{anm "[fsm]"}}
+	   	{link "1"				"2"			 	{anm "[fsm]"}}
+	   	{link "2"				"3"			 	{anm "[fsm]"}}
+	   	{link "3"				"4"				{anm "[fsm]"}}
+	   	{link "4"				"5"				{anm "[fsm]"}}
+	   	{link "5"				"6"		 		{anm "[fsm]"}}
+	   	{link "6"				"1"		 		{anm "[fsm]"}}
+
+	}
+	{Volume "body1"
+		{able {obstacle 0}{visible 0}}
+		{thickness 1}
+		{tags "body"}
+	}
+	{Volume "body2"
+		{able {obstacle 0}{touch 1}{visible 0}}
+		{thickness 1}
+		{tags "body" "attach" "attach_any"}
+	}
+}
+ 

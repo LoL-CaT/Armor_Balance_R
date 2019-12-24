@@ -1,0 +1,91 @@
+;Exported by: sana
+;Date:        Mon Apr 24 14:12:10 2006
+;File:        D:\-Project-\-3DWork-\Entourage\e-house3a\e-house3a1()_test.max
+{Skeleton
+	{bone "e-h03a1_6"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "e-h03a1_6.ply"}
+		{bone "exterior"
+			{Position 0.204716	-22.8464	76.4608}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window0"
+			{Position -8.02556	-34.5892	30.2728}
+			{VolumeView "window0.ply"}
+		}
+		{bone "window0_x"
+			{Position -8.02556	-33.8225	30.2728}
+			{visibility 0}
+			{VolumeView "window0_x.ply"}
+		}
+		{bone "attach2"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-7.59473	-17.2106	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -0.267311 34.5907}
+		{Extent 31.5911 5.04807}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 5.36495 16.6719}
+		{Extent 31.045 15.2335}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 63.1822 61.1708 10.0961}
+	{Bone "e-h03a1_6"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-0.267311	-34.5907	30.1966
+	}
+}
+{Volume "hole"
+	{Box 16.9829 23.814 16.2818}
+	{Bone "e-h03a1_6"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-7.95004	-35.314	30.2615
+	}
+}
+{Volume "roof"
+	{Box 2.75585 50.5469 63.8439}
+	{Bone "exterior"}
+	{Matrix34
+		0	-0.718527	0.695499
+		0	0.695499	0.718527
+		-1	0	0
+		0.472778	-6.32303	-4.83544
+	}
+}
+{Volume "window0"
+	{Box 17.7419 24.3833 2.56167}
+	{Bone "window0"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		0.189514	1.10814	-0.104992
+	}
+}

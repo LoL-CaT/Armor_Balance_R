@@ -1,0 +1,26 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "sels_win11.mdl"}
+	{props "concrete" "one" "staged" "construction" "windowed" "burning" "no_destroyed_stamp"}
+	("armor_light" args 0.5)
+
+	{extender "structure_bone"
+		{hold  "32" "33"}
+	}
+
+	{placer
+		{place "10" {attach  snipe_cover} 		{linkbone "attach10"}}
+	}
+	{boarder}
+	{mass 5000}
+
+	{Volume "hole1"
+		{Tags  "attach" "10"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{obstacle 0}{window}}
+	}
+}

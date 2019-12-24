@@ -1,0 +1,88 @@
+;Exported by: shevchenko
+;Date:        Tue Mar 14 15:13:19 2006
+;File:        D:\-Projects1_5-\-3DWork-\euro1_corner2_lm_corner.max
+{Skeleton
+	{bone "101_f1c2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "101_f1c2.ply"}
+		{bone "window1_x"
+			{Matrix34
+				0	1	0
+				0	0	1
+				1	0	0
+				-2.30332	6.57443	27.559
+			}
+			{visibility 0}
+			{VolumeView "../common/window1_x.ply"}
+		}
+		{bone "window1"
+			{Matrix34
+				0	1	0
+				0	0	1
+				1	0	0
+				-2.30332	6.81064	27.559
+			}
+			{VolumeView "../common/window1.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-2.30326	-9.92645	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -0.596039 -6.80435}
+		{Extent 19.9213 2.95275}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 22.2989 -0.898834}
+		{Extent 2.95276 8.85827}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body1"
+	{Box 39.8425 5.90551 45.4724}
+	{Bone "101_f1c2"}
+	{Position -0.596039	6.80435	22.7362}
+}
+{Volume "body2"
+	{Box 5.90552 17.7165 43.4055}
+	{Bone "101_f1c2"}
+	{Position 22.2989	0.898834	21.7028}
+}
+{Volume "hole1"
+	{Box 15.748 23.622 19.685}
+	{Bone "101_f1c2"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-2.30325	7.79009	27.5591
+	}
+}
+{Volume "window1"
+	{Box 15.748 23.622 1.9685}
+	{Bone "window1"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		-0.00482059	2.21404e-005	6.28257e-005
+	}
+}

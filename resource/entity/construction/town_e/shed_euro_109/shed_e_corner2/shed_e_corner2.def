@@ -1,0 +1,52 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "shed_e_corner2.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning"}
+	("armor_heavy" args 0.8)
+
+	{placer
+		{place "1" {attach  squat_lie} 		{linkbone "attach1"}}
+	}	
+	{boarder}
+	{mass 50000}
+	{Volume "smoke9"
+		{Thickness 0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "smoke8"
+		{Thickness 0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire8"
+		{Thickness 0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire4"
+		{Thickness 0}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "roof1"
+		{Tags "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+}

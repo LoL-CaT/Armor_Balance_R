@@ -1,0 +1,35 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "wall" "cornered" "concrete" "parts" "construction" "windowed" "burning" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+	{Extension "e_house_200_f2_3.mdl"}
+
+	{extender "structure_bone"	
+		{hold "03" "04"}		
+	}
+
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{touch 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{touch 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{touch 0}}
+	}
+	{Volume "window1"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

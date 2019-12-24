@@ -1,0 +1,124 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "barrel_small.mdl"}
+	("armor_use_volume_thickness")
+	{props "big" "steel" "parts" "construction" "no_disable_volumes"}
+	{obstacleid "unbreakable"}
+
+	{placer
+		{place "1" {attach squat_lie} {linkbone "node01"}}
+		{place "2" {attach squat_lie} {linkbone "node02"}}
+		{place "3" {attach squat_lie} {linkbone "node03"}}
+		{place "4" {attach squat_lie} {linkbone "node04"}}
+		{place "5" {attach squat_lie} {linkbone "node05"}}
+		{place "6" {attach squat_lie} {linkbone "node06"}}
+		{place "7" {attach squat_lie} {linkbone "node07"}}
+		{place "8" {attach squat_lie} {linkbone "node08"}}
+	}
+
+	{boarder
+		{door "door01" {queue 0}}
+
+		{node "ladder_bottom01"}
+		{node "ladder_top01"}
+		{node "node01"}
+		{node "node02"}
+		{node "node03"}
+		{node "node04"}
+		{node "node05"}
+		{node "node06"}
+		{node "node07"}
+		{node "node08"}
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 2} {loop "stand_upstairs"}}
+			{reverse	{speed 2} {loop "stand_upstairs" -1}}
+		}
+		{anm "walk"
+			{forward {speed 3}}
+			{reverse {speed 3}}
+		}
+
+		{link "door01" "ladder_bottom01" {anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "ladder_bottom01" "ladder_top01" {anm "ladder"}}
+		{link "ladder_top01" "1" {anm "walk"}}
+    	{link "1"	"2"	{anm "walk"}}
+    	{link "2"	"3"	{anm "walk"}}
+    	{link "3"	"4"	{anm "walk"}}
+    	{link "4"	"5"	{anm "walk"}}
+    	{link "5"	"6"	{anm "walk"}}
+    	{link "7"	"8"	{anm "walk"}}
+    	{link "1"	"3"	{anm "walk"}}
+    	{link "1"	"4"	{anm "walk"}}
+    	{link "1"	"5"	{anm "walk"}}
+    	{link "1"	"6"	{anm "walk"}}
+    	{link "1"	"7"	{anm "walk"}}
+    	{link "1"	"8"	{anm "walk"}}
+
+    	{link "2"	"4"	{anm "walk"}}
+    	{link "2"	"5"	{anm "walk"}}
+    	{link "2"	"6"	{anm "walk"}}
+    	{link "2"	"7"	{anm "walk"}}
+    	{link "2"	"8"	{anm "walk"}}
+
+    	{link "3"	"5"	{anm "walk"}}
+    	{link "3"	"6"	{anm "walk"}}
+    	{link "3"	"7"	{anm "walk"}}
+    	{link "3"	"8"	{anm "walk"}}
+
+    	{link "4"	"6"	{anm "walk"}}
+    	{link "4"	"7"	{anm "walk"}}
+    	{link "4"	"8"	{anm "walk"}}
+
+    	{link "5"	"7"	{anm "walk"}}
+    	{link "5"	"8"	{anm "walk"}}
+
+    	{link "6"	"8"	{anm "walk"}}
+
+
+
+
+	}
+	{volume "attach01"
+		{able clear {touch 1} }
+		{tags "attach" "1"}
+	}
+	{volume "attach02"
+		{able clear {touch 1} }
+		{tags "attach" "2"}
+	}
+	{volume "attach03"
+		{able clear  {touch 1} }
+		{tags "attach" "3"}
+	}
+	{volume "attach04"
+		{able clear  {touch 1} }
+		{tags "attach" "4"}
+	}
+	{volume "attach05"
+		{able clear  {touch 1} }
+		{tags "attach" "5"}
+	}
+	{volume "attach06"
+		{able clear  {touch 1} }
+		{tags "attach" "6"}
+	}
+	{volume "attach07"
+		{able clear  {touch 1} }
+		{tags "attach" "7"}
+	}
+	{volume "attach08"
+		{able clear  {touch 1} }
+		{tags "attach" "8"}
+	}
+	{Volume "body"
+		{thickness	10}
+		{tags "body"}
+
+	}
+}
+

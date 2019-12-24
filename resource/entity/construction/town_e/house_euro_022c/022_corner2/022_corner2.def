@@ -1,0 +1,23 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "022_corner2.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall"}
+	("armor_heavy" args 0.8)
+
+	{boarder}
+	{mass 50000}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "floor"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{able clear {hole}}
+	}
+}

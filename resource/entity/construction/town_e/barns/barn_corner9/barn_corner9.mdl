@@ -1,0 +1,83 @@
+;Exported by: sana
+;Date:        Tue Apr 25 12:11:38 2006
+;File:        D:\-Project-\-3DWork-\Entourage\e-house023_corner(work)02.max
+{Skeleton
+	{bone "barn_corner9"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "barn_corner9.ply"}
+		{bone "exterior"
+			{Position 4.68212	-1.75939	85.7612}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window5_x"
+			{Position -11.3181	8.10317	31.1434}
+			{visibility 0}
+			{VolumeView "window5_x.ply"}
+		}
+		{bone "window5"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-11.3181	8.57429	31.1434
+			}
+			{VolumeView "window5.ply"}
+		}
+		{bone "attach3"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-11.0055	-10.3392	0
+			}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 1.00265 -9.89095}
+		{Extent 30.6458 4.38753}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body"
+	{Box 61.2915 8.77507 69.3528}
+	{Bone "barn_corner9"}
+	{Position 1.00265	9.89095	34.6764}
+}
+{Volume "hole"
+	{Box 16.6272 23.5171 24.3386}
+	{Bone "barn_corner9"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-11.544	9.16387	31.1844
+	}
+}
+{Volume "roof"
+	{Box 65.3215 60.6599 3.31602}
+	{Bone "exterior"}
+	{Matrix34
+		-1	0	0
+		0	-0.707107	0.707107
+		0	0.707107	0.707107
+		2.24349	-0.75612	0.492964
+	}
+}
+{Volume "window5"
+	{Box 17.011 24.05 1.97826}
+	{Bone "window5"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		-0.404302	-0.00560448	0.207897
+	}
+}

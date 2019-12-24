@@ -1,0 +1,43 @@
+;Exported by: vic
+;Date:        Mon Mar 27 12:03:47 2006
+;File:        D:\Obmen\sheva\stroghold2a_vic.max
+{Skeleton
+	{bone "stronghold_stair001"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "stronghold_stair001.ply"}
+		{bone "stronghold_lend001"
+			{parameters "Land;Ground;"}
+			{VolumeView "stronghold_lend001.ply" {Ground}}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -0.0506592 -44.0966}
+		{Extent 114.193 5.98999}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -107.996 -5.7865}
+		{Extent 5.97601 32.2936}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "stronghold_stair001"}
+	{Position -0.0506592	44.0966	0}
+}
+{Volume "body2"
+	{Box 11.952 64.5873 74.8031}
+	{Bone "stronghold_stair001"}
+	{Position -107.996	5.7865	37.4016}
+}

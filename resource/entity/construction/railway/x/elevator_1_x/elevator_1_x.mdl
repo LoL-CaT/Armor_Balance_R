@@ -1,0 +1,121 @@
+;Exported by: klimenko
+;Date:        Thu Jul 27 12:10:45 2006
+;File:        D:\-Project-\-3DWork-\Elevator\elevator.max
+{Skeleton
+	{bone "elevator_1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "elevator_1.ply"}
+		{bone "piece1"
+			{Position -6.91016	23.7432	30.392}
+			{VolumeView "piece1.ply"}
+		}
+		{bone "piece2"
+			{Position 1.48145	30.603	97.4387}
+			{VolumeView "piece2.ply"}
+			{bone "sub_piece2"
+				{Matrix34
+					1	0	0
+					0	0.994158	0.107939
+					0	-0.107939	0.994158
+					-0.169434	-21.2484	8.28644
+				}
+				{VolumeView "sub_piece2.ply"}
+			}
+		}
+		{bone "sub_piece1"
+			{Matrix34
+				0.998097	0	0.0616669
+				0	1	0
+				-0.0616669	0	0.998097
+				-0.876221	15.6956	128.438
+			}
+			{VolumeView "sub_piece1.ply"}
+		}
+		{bone "piece3"
+			{Position 0.91394	69.7555	124.782}
+			{VolumeView "piece3.ply"}
+		}
+		{bone "piece4"
+			{Position 2.85498	-48.2223	128.578}
+			{VolumeView "piece4.ply"}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 1.4834 -18.6764}
+		{Extent 10.4073 9.59473}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body"
+	{Box 20.8147 19.1895 52.9673}
+	{Bone "elevator_1"}
+	{Position 1.4834	18.6764	26.2999}
+}
+{Volume "piece1"
+	{Box 8.95439 15.3054 32.5041}
+	{Bone "piece1"}
+	{Matrix34
+		0.845751	-0.504536	0.173634
+		0.520853	0.85129	-0.06338
+		-0.115836	0.144042	0.982769
+		-2.8811	1.10745	0
+	}
+}
+{Volume "piece2"
+	{Box 28.962 7.15201 53.434}
+	{Bone "piece2"}
+	{Matrix34
+		0.999884	-0.0101251	-0.011368
+		0.00744795	0.976636	-0.214771
+		0.0132769	0.214661	0.976598
+		-1.64456e-005	-6.37171	0
+	}
+}
+{Volume "piece3"
+	{Box 27.0846 57.4219 8.49879}
+	{Bone "piece3"}
+	{Matrix34
+		0.989959	0.134951	-0.0420751
+		-0.121176	0.96343	0.238997
+		0.0727892	-0.231499	0.970108
+		8.28528	3.49749	-5.39469
+	}
+}
+{Volume "piece4"
+	{Box 25.7197 69.4756 7.80515}
+	{Bone "piece4"}
+	{Matrix34
+		0.960048	0.0068036	0.279754
+		-0.0511182	0.987147	0.151418
+		-0.275128	-0.159669	0.948056
+		7.59671	-2.09614	-6.59793
+	}
+}
+{Volume "sub_piece1"
+	{Box 27.9811 27.6055 6.08225}
+	{Bone "sub_piece1"}
+	{Matrix34
+		0.977145	0.0145232	0.212079
+		-0.0032888	0.998577	-0.0532298
+		-0.21255	0.0513157	0.975802
+		-8.86881	3.57562	-10.6531
+	}
+}
+{Volume "sub_piece2"
+	{Box 2.03703 35.0079 6.9457}
+	{Bone "sub_piece2"}
+	{Matrix34
+		1	0	0
+		0	0.66158	-0.749874
+		0	0.749874	0.66158
+		0	-2.39499	-0.12353
+	}
+}

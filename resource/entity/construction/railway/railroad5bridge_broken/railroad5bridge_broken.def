@@ -1,0 +1,36 @@
+{game_entity
+	(include "/properties/railway_part.inc")
+	{Extension "railroad5bridge_broken.mdl"}
+	{props "big" "steel" "parts" "construction" "no_destroyed_stamp"}
+;	("armor_disable_damage_acc")
+	{extender "structure_bone"	
+		{hold "01"}		
+	}
+	{Volume "tie0"
+		{able {obstacle 0}}
+	}
+	{Volume "tie1"
+		{able {obstacle 0}}
+	}
+	{Volume "rail_x"
+		{able clear {obstacle 0}}
+	}
+	{Volume "tie2"
+		{able {obstacle 0}}
+	}
+	{Volume "tie3"
+		{able {obstacle 0}}
+	}
+	{Extender "land_patch"
+		{AlignEnabled 0}
+		{AlignStacked 0}
+		{AlignVolumes 1}
+	}
+	{extender "railway"
+		{LinkPoint -131.23 -0.5}
+		{LinkPoint 130.03 -0.5}
+		{path 0 1}
+	}
+	{obstacleID "stuff"}
+	{NoCastShadows}
+}

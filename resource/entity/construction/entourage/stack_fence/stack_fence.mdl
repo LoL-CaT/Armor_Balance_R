@@ -1,0 +1,63 @@
+;Exported by: klimenko
+;Date:        Sat Aug 12 14:55:08 2006
+;File:        D:\-Project-\-3DWork-\stack_vic.max
+{Skeleton
+	{animation
+		{sequence "crush" {speed 0.2}}
+	}
+	{bone "stack_fence"
+		{parameters "CommonMesh;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "stack_fence.ply"}
+		{bone "fx_haulm2"
+			{Position -6.14362	16.1698	18.0285}
+		}
+		{bone "fx_hayfall1"
+			{Position 6.15056	-16.7367	36.736}
+		}
+		{bone "fx_wood"
+			{Position 0.274952	1.90081	51.5524}
+		}
+		{bone "fx_hayfall2"
+			{Position 13.2636	-0.73588	36.736}
+		}
+		{bone "fx_hayfall3"
+			{Position 0.19727	11.1325	36.736}
+		}
+		{bone "fx_hayfall4"
+			{Position -9.97232	-6.213	36.736}
+		}
+	}
+}
+{Obstacle "rectangle01"
+	{Obb2
+		{Center -0.00854492 -0.604034}
+		{Extent 32.9543 35.7225}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "stack_fence"}
+	{Matrix34
+		0.986867	-0.161537	0
+		0.161537	0.986867	0
+		0	0	1
+		-2.30963	-0.560913	0
+	}
+}
+{Volume "fire0"
+	{Box 48.6526 46.0491 48.0799}
+	{Bone "stack_fence"}
+	{Matrix34
+		-1	0	0
+		0	1	0
+		0	0	-1
+		-0.296863	1.29443	23.2221
+	}
+}

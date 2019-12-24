@@ -1,0 +1,26 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "b_euro_corn4.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 0.8)
+
+	{placer
+	     {place "4" {attach  squat_lie} 		{linkbone "attach4"}}
+	}
+	{boarder}
+
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "4"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window4"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

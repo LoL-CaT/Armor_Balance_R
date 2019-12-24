@@ -1,0 +1,116 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "windowed" "burning" "mill_water" "wall"}
+	("armor_medium" args 0.7)
+	{Extension "wind_mill2_top_corner2.mdl"}
+	{obstacleID "building"}
+
+	{extender "bone_rotator"
+		{"sweep"}
+	}
+
+	{extender "structure_bone"	
+		{hold "3"}
+		{hold "17" "18"}		
+	}
+
+	{placer
+		{place "1" {attach  squat_lie} 		{linkbone "node"}}
+		{place "2" {attach  squat_lie} 		{linkbone "node1"}}
+	    {place "3" {attach  squat_lie} 		{linkbone "node2"}}
+	    {place "4" {attach  squat_lie} 		{linkbone "node3"}}
+;	    {place "5" {attach  snipe_cover}	{linkbone "attach5"}}
+;	    {place "6" {attach  snipe_cover}	{linkbone "attach6"}}
+	}
+	{Boarder
+		{door "door" {queue 0}}
+		{node "ladder_bottom"}
+		{node "ladder_top"}
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 1.2} {loop "stand_upstairs"}}
+			{reverse	{speed 1.2} {loop "stand_upstairs" -1}}
+		}
+
+		{link "door" 				"ladder_bottom"		{anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "ladder_bottom" 		"ladder_top" 		{anm "ladder"}}
+		{link "ladder_top" 			"1" 				{forward puton} 	{reverse putoff}}
+		{link "ladder_top" 			"2" 				{forward puton} 	{reverse putoff}}
+		{link "ladder_top" 			"3" 				{forward puton} 	{reverse putoff}}
+		{link "ladder_top" 			"4" 				{forward puton} 	{reverse putoff}}
+		{link "2" 					"3" 				{forward puton} 	{reverse putoff}}
+		{link "2" 					"4" 				{forward puton} 	{reverse putoff}}
+		{link "3" 					"4" 				{forward puton} 	{reverse putoff}}
+;		{link "5" 					"6"}
+	}
+	{mass 50000}
+
+
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "roof1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}}
+	}
+
+	{Volume "attach"
+		{Tags  "attach" "1"}
+		{able clear {touch 1}{visible 1}}
+	}
+
+	{Volume "attach1"
+		{Tags  "attach" "2"}
+		{able clear {touch 1}{visible 1}}
+	}
+
+	{Volume "attach2"
+		{Tags  "attach" "3"}
+		{able clear {touch 1}{visible 1}}
+	}
+	{Volume "attach3"
+		{Tags  "attach" "4"}
+		{able clear {touch 1}{visible 1}}
+	}
+
+	{Volume "piece4"
+		{able  {visible 0}}
+		{Thickness 1}
+	}
+	{Volume "sub_piece4"
+		{able  {visible 0}}
+		{Thickness 1}
+	}
+	{Volume "piece3"
+		{able  {visible 0}}
+		{Thickness 1}
+	}
+	{Volume "sub_piece3"
+		{able  {visible 0}}
+		{Thickness 1}
+	}
+	{Volume "piece1"
+		{able  {visible 0}}
+		{Thickness 1}
+	}
+	{Volume "sub_piece1"
+		{able  {visible 0}}
+		{Thickness 1}
+	}
+	{Volume "piece2"
+		{able  {visible 0}}
+		{Thickness 1}
+	}
+	{Volume "sub_piece2"
+		{able  {visible 0}}
+		{Thickness 1}
+	}
+
+
+}

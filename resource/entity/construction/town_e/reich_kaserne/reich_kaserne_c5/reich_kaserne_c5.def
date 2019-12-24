@@ -1,0 +1,71 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "reich_kaserne_c5.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "13" {attach snipe_cover} {linkbone "attach13"}}
+		{place "14" {attach snipe_cover} {linkbone "attach14"}}
+		{place "15" {attach snipe_cover} {linkbone "attach15"}}
+		{place "16" {attach snipe_cover} {linkbone "attach16"}}
+		{place "17" {attach snipe_cover} {linkbone "attach17"}}
+		{place "18" {attach snipe_cover} {linkbone "attach18"}}
+	}
+
+	{boarder
+		{door "door01" {queue} {auto_release_time 0.2}}
+		{link "door01"		"13"		{anm "[fsm]"}}
+		{link "door01"		"15"		{anm "[fsm]"}}
+		{link "door01"		"16"		{anm "[fsm]"}}
+		{link "door01"		"14"}
+		{link "door01"		"17"}
+		{link "door01"		"18"}
+	   	{link "13"			"15"		{anm "[fsm]"}}
+	   	{link "15"			"16"		{anm "[fsm]"}}
+	   	{link "13"			"16"		{anm "[fsm]"}}
+	   	{link "14"			"17"		{anm "[fsm]"}}
+	   	{link "17"			"18"		{anm "[fsm]"}}
+	   	{link "14"			"18"		{anm "[fsm]"}}
+	}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "14"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "18"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole3"
+		{Tags  "attach" "13"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole4"
+		{Tags  "attach" "15"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole5"
+		{Tags  "attach" "16"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "17"}
+		{able clear {hole}{touch 1}}
+	}
+}

@@ -1,0 +1,88 @@
+;Created by:	John Doe
+;Date:	Feb 2010
+;Version:	1.0
+{Skeleton
+	{animation
+		{sequence "open" {speed 0.5} {resume}}
+	}
+	{bone "base"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{Position	0.0 0.0 20.0}
+		{bone "door_dot2"
+			{animation
+				{sequence "open" {speed 0.5}}
+			}
+			{Position 0	-0.3197	0}
+			{VolumeView "door_metal.ply" {DecalTarget}} ;; добавлено {DecalTarget}
+		}
+	}
+}
+{Obstacle "close"	;; препятствие створки двери при закрытом состоянии двери
+	{Obb2
+;;		{Center -0.249999 -9.52282}
+;;		{Extent 0.250001 9.84253}
+		{Center -0.5 -9.5}
+		{Extent 1.5 10.0}
+;;		{Axis 1 0}
+		{Axis -1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "column_left"	;; Препятствие стойки двери, на которой крепятся петли
+	{Obb2
+		{Center 0.0 1.5}	;; - координаты центра препятствия (прямоугольника) - (x,y)
+		{Extent 1.5 1.0}	;; - толщина, ширина препятствия (первое число - размер вдоль Х)
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "column_right"	;; Препятствие стойки двери
+	{Obb2
+		{Center 0.0 -20.5}	;; - координаты центра препятствия (прямоугольника) - (x,y)
+		{Extent 1.5 1.0}	;; - толщина, ширина препятствия
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "right"	;; Препятствие створки двери при открытом состоянии двери
+	{Obb2
+		{Center -10.0 1.0}	;; - координаты центра препятствия (прямоугольника) - (x,y)
+		{Extent 10.0 1.5}	;; - ширина, толщина препятствия
+;;		{Axis 1 0}
+		{Axis 0.95 -0.1}
+	}
+	{Rotate}
+}
+
+{Volume "door_dot2"
+	{Box 0.5 19.685 43.3071}
+	{Bone "door_dot2"}
+	{Position -0.250002	9.84252	0}
+}
+
+{Volume "hole"
+	{Box 4.0 5.0 2.0}
+	{Bone "door_dot2"}
+	{Position	0.0 10.0 12.0}
+}
+
+{Volume "switch"
+;	{Box 4.0 8.0 15.0}
+	{Box 2.0 20.0 40.0}
+;;------ толщина --- ширина --- высота --------
+	{bone "base"}
+;	{Position	-0.5	20.0	5.0}
+	{Position	-0.25	10.0	0.0}
+}
+;;------ x --- расст. от оси петель --- z ---
+
+{Volume "dynamite_activate"
+	{Box 20.0 10.0 20.0}
+	{Bone "base"}
+	{Position 0.0	22.5	0.0}
+}

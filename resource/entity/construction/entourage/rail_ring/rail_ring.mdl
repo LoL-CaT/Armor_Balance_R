@@ -1,0 +1,68 @@
+;Exported by: klimenko
+;Date:        Fri Jun 23 18:25:40 2006
+;File:        D:\-Project-\-3DWork-\rail_to_dinner.max
+{Skeleton
+	{animation
+		{sequence "gong" {speed 0.6} {resume}}
+	}
+	{bone "rail_ring_base"
+		{parameters "CommonMesh;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "rail_ring_base.ply"}
+		{bone "rail_ring"
+			{parameters "CommonMesh;"}
+			{Position -0.189079	7.17624	35.7817}
+			{VolumeView "rail_ring.ply"}
+		}
+		{bone "emit"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-0.235207	25.6374	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 0.257828 -2.14606}
+		{Extent 1.96851 7.428}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body" "fire"}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 0.054184 7.48882}
+		{Extent 2.22441 2.32873}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body" "fire"}
+}
+{Volume "body1"
+	{Box 3.93701 14.856 3.40955}
+	{Bone "rail_ring_base"}
+	{Position 0.257828	2.14606	44.2444}
+}
+{Volume "body"
+	{Box 4.44882 4.65747 46.0043}
+	{Bone "rail_ring_base"}
+	{Position 0.054184	-7.48882	23.0022}
+}
+{Volume "ring_post"
+	{Box 2.94458 2.93499 15.0131}
+	{Bone "rail_ring_base"}
+	{Matrix34
+		0.891393	-0.449713	-0.0563678
+		0.447284	0.892947	-0.0508247
+		0.07319	0.0200924	0.997116
+		-0.412569	7.05466	30.0303
+	}
+}

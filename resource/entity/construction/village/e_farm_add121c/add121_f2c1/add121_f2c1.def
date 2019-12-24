@@ -1,0 +1,41 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "add121_f2c1.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "no_destroyed_stamp"}
+	("armor_house_concrete_light")
+
+	{extender "structure_bone"	
+		{hold "01"}
+	}
+
+	{placer
+		{place "1" {attach  squat_lie} 		{linkbone "attach1"}}
+	}	
+	{boarder}
+	{mass 50000}
+
+	{Volume "roof1"
+		{Tags  "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body11"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}}
+	}
+	{Volume "body10"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+}

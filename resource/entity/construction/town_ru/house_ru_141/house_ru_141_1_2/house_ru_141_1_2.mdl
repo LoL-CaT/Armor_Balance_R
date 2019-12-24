@@ -1,0 +1,115 @@
+;Exported by: sana
+;Date:        Fri Jan 12 16:51:18 2007
+;File:        D:\ss\house_ru_141_lm_corner_work.max
+{Skeleton
+	{bone "house_ru_141_1_2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "house_ru_141_1_2.ply"}
+		{bone "window4"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-4.78137	0.688978	0
+			}
+			{VolumeView "../common/window7.ply"}
+		}
+		{bone "window4_x"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-4.58451	0.688977	0
+			}
+			{visibility 0}
+			{VolumeView "../common/window6_x.ply"}
+		}
+		{bone "exterior"
+			{Position 1.83914	0.948547	28.427}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "attach4"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				12.8386	0.598803	-25.5906
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -1.28906 21.0476}
+		{Extent 6.17912 2.33019}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body"
+	{Obb2
+		{Center -4.66831 0.645208}
+		{Extent 2.33019 18.8388}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 6.25011 0.489107}
+		{Extent 13.6768 23.242}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 12.3582 44.1321 4.66038}
+	{Bone "house_ru_141_1_2"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-1.28906	-21.0476	1.9679
+	}
+}
+{Volume "body"
+	{Box 37.6776 46.949 4.66038}
+	{Bone "house_ru_141_1_2"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-4.66831	-0.645208	0.486671
+	}
+}
+{Volume "hole"
+	{Box 12.122 17.9842 13.513}
+	{Bone "house_ru_141_1_2"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-4.72251	0.719325	-0.0875857
+	}
+}
+{Volume "roof"
+	{Box 23.4688 30.6233 5.52725}
+	{Bone "exterior"}
+	{Matrix34
+		0.631061	0.00636988	0.775707
+		-0.0429871	0.998717	0.0267701
+		-0.774541	-0.050239	0.630526
+		-7.5942	-0.789457	1.27007
+	}
+}
+{Volume "window4"
+	{Box 0.492126 17.7165 11.811}
+	{Bone "window4"}
+	{Position -0.246063	0	0}
+}

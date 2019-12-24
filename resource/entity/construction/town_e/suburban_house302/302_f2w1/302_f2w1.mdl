@@ -1,0 +1,103 @@
+;Exported by: vic
+;Date:        Wed Dec 07 19:37:05 2005
+;File:        D:\-Projects-\-3DWork-\Constructions\NEW\S2\build-02-01b_vic2.max
+{Skeleton
+	{bone "302_f2w1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "302_f2w1.ply"}
+		{bone "window1_x"
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				27.067	1.19306	2.69592
+			}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "window1"
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				26.5748	-0.0449097	-3.21564
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "fix01"
+			{Position 25.5365	-19.6259	-31.669}
+		}
+		{bone "fix02"
+			{Position 25.5365	19.7068	-31.669}
+		}
+		{bone "exterior"
+			{Position 4.55732	0.793961	-7.53091}
+			{VolumeView "exterior.ply"}
+		}
+	}
+}
+{Obstacle "body22"
+	{Obb2
+		{Center 25.608 0.0723438}
+		{Extent 3.93708 46.3386}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body" "smoke"}
+}
+{Area "interior"
+	{Obb2
+		{Center 4.20793 -0.0991383}
+		{Extent 17.1506 44.1499}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body22"
+	{Polyhedron "body22.vol"}
+	{Bone "302_f2w1"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		25.608	-0.0723439	-25.1251
+	}
+}
+{Volume "hole1"
+	{Box 19.685 11.811 17.6575}
+	{Bone "302_f2w1"}
+	{Position 24.8251	-0.127073	-3.25808}
+}
+{Volume "roof1"
+	{Box 1.9685 19.2179 55.0248}
+	{Bone "exterior"}
+	{Matrix34
+		0	-0.746094	0.665841
+		1	0	0
+		0	0.665841	0.746094
+		7.55363	-18.2193	3.27169
+	}
+}
+{Volume "roof2"
+	{Box 1.9685 19.2179 54.7735}
+	{Bone "exterior"}
+	{Matrix34
+		0	0.746094	0.665841
+		-1	0	0
+		0	-0.665841	0.746094
+		7.55363	16.8022	3.65471
+	}
+}
+{Volume "window1"
+	{Box 1.9685 11.7496 17.6575}
+	{Bone "window1"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		0	-0.0234747	0.0396906
+	}
+}

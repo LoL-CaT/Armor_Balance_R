@@ -1,0 +1,45 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "reich_kaserne_c12.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "11" {attach snipe_cover} {linkbone "attach11"}}
+		{place "12" {attach snipe_cover} {linkbone "attach12"}}
+	}
+
+	{boarder
+		{door "door01" {queue} {auto_release_time 0.2}}
+		{link "door01"		"11"		{anm "[fsm]"}}
+	   	{link "11"			"12"		{anm "[fsm]"}}
+		{link "door01"		"12"}
+	}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "11"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "12"}
+		{able clear {hole}{touch 1}}
+	}
+}

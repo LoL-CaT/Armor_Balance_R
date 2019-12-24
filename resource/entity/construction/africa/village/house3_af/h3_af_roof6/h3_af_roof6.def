@@ -1,0 +1,28 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "h3_af_roof6.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "no_destroyed_stamp" "burning"}
+	("armor_medium" args 0.7)
+	{mass 5000}
+	{extender "structure_bone"	
+		{hold "01" "02"}
+		{hold "02" "03"}
+		{hold "01" "03"}
+	}
+
+	{Volume "body"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire01"
+		{Tags  "fire"}
+		{Thickness 1}
+		{able {visible 0}{bullet 0}{obstacle 0}}
+	}
+	{Volume "roof"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+}

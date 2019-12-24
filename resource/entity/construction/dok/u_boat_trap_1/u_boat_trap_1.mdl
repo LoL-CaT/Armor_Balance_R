@@ -1,0 +1,200 @@
+;Exported by: butyvsky
+;Date:        Fri Aug 17 18:25:28 2007
+;File:        D:\-Projects-\-3D Work-\industrial\U-boat_trap.max
+{Skeleton
+	{animation
+		{sequence "open" {speed 0.35}}
+		{sequence "land" {speed 1}}
+	}
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				0	-1.52588e-005	0
+			}
+			{VolumeView "body.ply"}
+		}
+		{bone "door"
+			{Matrix34
+				0	-1	0
+				0.999088	0	0.0427056
+				-0.0427056	0	0.999088
+				-7.72816	-0.918671	0.791745
+			}
+			{VolumeView "door.ply"}
+			{bone "land1"
+				{parameters "CommonMesh;Land;Ground;"}
+				{Matrix34
+					1	0	0
+					0	0.999998	0.00210445
+					0	-0.00210445	0.999998
+					0.284637	61.3684	0.791454
+				}
+				{visibility 0}
+				{VolumeView "land1.ply" {Ground} {DecalTarget}}
+			}
+		}
+		{bone "rope1"
+			{parameters "CommonMesh;"}
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-65.676	-0.811356	89.8139
+			}
+			{VolumeView "rope1.ply"}
+		}
+		{bone "rope2"
+			{parameters "CommonMesh;"}
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-47.7543	-29.9489	46.6828
+			}
+			{VolumeView "rope2.ply"}
+		}
+		{bone "land2"
+			{parameters "Land;Ground;"}
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-31.1452	-0.535841	1.15025
+			}
+			{visibility 0}
+			{VolumeView "land2.ply" {Ground} {DecalTarget}}
+		}
+	}
+}
+{Obstacle "left"
+	{Obb2
+		{Center 52.7438 -27.5202}
+		{Extent 1.00867 86.9868}
+		{Axis 0 -1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle01"
+	{Obb2
+		{Center -24.2272 -32.2547}
+		{Extent 6.58288 9.81917}
+		{Axis 0 -1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle03"
+	{Obb2
+		{Center -24.582 34.5749}
+		{Extent 6.1292 9.81917}
+		{Axis 0 -1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle04"
+	{Obb2
+		{Center -59.455 42.8405}
+		{Extent 11.6502 9.08192}
+		{Axis 0 -1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle05"
+	{Obb2
+		{Center -44.4578 -28.9295}
+		{Extent 1.84793 10.447}
+		{Axis 0 -1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle09"
+	{Obb2
+		{Center -59.455 -42.4187}
+		{Extent 11.6502 9.08192}
+		{Axis 0 -1}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle11"
+	{Obb2
+		{Center -44.4578 30.5125}
+		{Extent 1.84793 10.447}
+		{Axis 0 -1}
+	}
+	{Rotate}
+}
+{Obstacle "right"
+	{Obb2
+		{Center 52.7438 29.6081}
+		{Extent 1.1492 86.9868}
+		{Axis 0 -1}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 8.72992 8.25372 180.884}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		24.4626	-27.821	90.4419
+	}
+}
+{Volume "body2"
+	{Box 8.72992 8.25372 180.884}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		24.4626	30.0359	90.4419
+	}
+}
+{Volume "body3"
+	{Box 24.6795 10.7711 14.3976}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		61.7034	42.054	7.19881
+	}
+}
+{Volume "body4"
+	{Box 24.6795 10.7711 14.3976}
+	{Bone "body"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		61.7034	-39.2664	7.19881
+	}
+}
+{Volume "body"
+	{Box 7.68513 56.281 122.011}
+	{Bone "body"}
+	{Matrix34
+		0.998354	0	-0.057355
+		0	1	0
+		0.057355	0	0.998354
+		-12.5174	0.330139	-66.1094
+	}
+}
+{Volume "door"
+	{Box 40.3385 148.725 4.8604}
+	{Bone "door"}
+	{Matrix34
+		1	0	0
+		0	0.999993	-0.00378274
+		0	0.00378274	0.999993
+		-0.081604	75.2315	-2.45362
+	}
+}

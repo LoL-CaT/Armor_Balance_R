@@ -1,0 +1,29 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "air_force_kaserne2_c3.mdl"}
+	{props "wood" "cornered" "windowed" "parts" "construction" "wall" "burning" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+	("armor_use_volume_thickness")
+	{obstacleID "small_building"}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {holed}}
+	}
+	{Volume "window1"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {obstacle 0}}
+	}
+	{Volume "window2"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {obstacle 0}}
+	}
+	{Volume "hole1"
+		{able clear {hole}}
+	}
+	{Volume "hole2"
+		{able clear {hole}}
+	}
+}

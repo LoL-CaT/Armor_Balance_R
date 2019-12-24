@@ -1,0 +1,56 @@
+;Exported by: Ekaterina
+;Date:        Thu Mar 06 16:22:24 2008
+;File:        D:\-Project-\-3DWork-\e_river-wall1_tex_last.max
+{Skeleton
+	{bone "wall1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "wall1.ply"}
+		{bone "road"
+			{parameters "Land;Ground;"}
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-0.243103	-58.5664	0
+			}
+			{VolumeView "road.ply" {Ground}}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 0.0140381 -1.24054}
+		{Extent 50.7476 11.0238}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -59.3526 58.1647}
+		{Extent 11.0238 50.7476}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body1"
+	{Box 101.495 22.0477 56.6967}
+	{Bone "wall1"}
+	{Position 0.0140381	1.24054	-12.2501}
+}
+{Volume "body2"
+	{Box 101.495 22.0477 56.6967}
+	{Bone "wall1"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		-59.3526	-58.1647	-12.2501
+	}
+}

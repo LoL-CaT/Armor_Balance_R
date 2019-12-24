@@ -1,0 +1,26 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{props "small" "wood" "construction" "parts" "disable_area" "no_destroyed_stamp" "big_impulse" "burning"}
+	{Extension "barricade2_c_corner1.mdl"}
+	("armor_medium" args 1.5)
+
+	{NoGroupMesh 1}
+
+	{ObstacleId "construction"}
+	{Volume "body5_vol05"
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body5_vol06"
+		{Thickness 7}
+		{tags "body"}
+		{tags "fire"}
+	}
+	{Volume "body5_vol07"
+		{Thickness 7}
+		{tags "body" "climb"}
+		{able {touch 1}}
+		{tags "fire"}
+	}
+	{lodclass "decor_medium"}
+}

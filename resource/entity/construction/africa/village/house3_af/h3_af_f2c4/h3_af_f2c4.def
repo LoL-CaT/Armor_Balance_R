@@ -1,0 +1,62 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "h3_af_f2c4.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "no_destroyed_stamp" "windowed" "burning"}
+	("armor_medium" args 1)
+	{mass 15000}
+	{boarder}
+	{placer
+		{place "1" {attach  snipe_cover} 	{linkbone "attach1"}}
+	}
+	{extender "structure_bone"	
+		{hold "01" "02"}
+	}
+
+	{Volume "body01"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body02"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body03"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "door"
+		{Tags  "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole2"
+		{able clear {hole}}
+	}
+	{Volume "roof01"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "roof02"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window2"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

@@ -1,0 +1,150 @@
+{actor
+	(include "/properties/construction.inc")
+	{props "big" "steel" "one" "staged" "construction" "parts" "no_destroyed_stamp" "no_disable_volumes" }
+	("armor_heavy" args 0.8)
+	{obstacleID "unbreakable"}
+
+	{Extension "radar_mount.mdl"}
+
+	{placer
+		{place "1" {attach  hide_stand} 		{linkbone "attach1"}}
+	}
+	{Boarder
+		{door "emit" {queue 0}}
+		{node "node_ladder_bottom"}
+		{node "node_ladder_top"}
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 1.2} {loop "stand_upstairs"}}
+			{reverse	{speed 1.2} {loop "stand_upstairs" -1}}
+		}
+
+		{link "emit" 				"node_ladder_bottom"{anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "node_ladder_bottom" 	"node_ladder_top" 	{anm "ladder"}}
+		{link "node_ladder_top" 	"1" 				{forward puton} 	{reverse putoff}}
+	}
+
+	{Volume "attach1"
+		{Tags  "attach" "1"}
+		{able clear {touch 1}}
+	}
+
+	{Volume "roof"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body9"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body8"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body7"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}{holed}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body23"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body22"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body21"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body20"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body19"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body18"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body17"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body16"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body15"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body14"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body13"
+		{Thickness 1}
+		{able {visible 0}}
+	}
+	{Volume "body12"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body11"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body10"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}}
+	}
+}

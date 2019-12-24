@@ -1,0 +1,104 @@
+;Exported by: sana
+;Date:        Thu Mar 30 15:00:47 2006
+;File:        D:\-Project-\-3DWork-\Entourage\e_kpp_sh_lm_corner.max
+{Skeleton
+	{bone "119_ekpp_c4"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "119_ekpp_c4.ply"}
+		{bone "ground"
+			{parameters "Land;Ground;"}
+			{Position 6.81604	-8.33814	7.48903}
+			{VolumeView "ground.ply" {Ground}}
+		}
+		{bone "exterior"
+			{Position -0.29483	10.2869	75.9652}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window1"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-8.50836	-6.46033	36.1679
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "window1_x"
+			{Position -8.50836	-5.64306	23.8246}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-8.89674	8.8395	9.92626
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -10.0496 6.00394}
+		{Extent 28.4941 2.95276}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 44.8066 -4.18666}
+		{Extent 2.95275 13.1201}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 1.90945 -9.74409}
+		{Extent 40.3543 12.7953}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 56.9882 5.90551 64.9606}
+	{Bone "119_ekpp_c4"}
+	{Position -10.0496	-6.00394	32.4803}
+}
+{Volume "body2"
+	{Box 5.90551 26.2402 73.4055}
+	{Bone "119_ekpp_c4"}
+	{Position 44.8066	4.18666	36.7028}
+}
+{Volume "hole1"
+	{Box 45.8638 19.685 24.6866}
+	{Bone "119_ekpp_c4"}
+	{Position -8.50836	-6.46033	36.1679}
+}
+{Volume "roof1"
+	{Box 84.8126 1.96851 25}
+	{Bone "exterior"}
+	{Matrix34
+		-1	0	0
+		0	-0.530089	0.847942
+		0	0.847942	0.530089
+		6.62432	-12.5813	-7.33119
+	}
+}
+{Volume "window1"
+	{Box 45.8638 1.9685 24.6866}
+	{Bone "window1"}
+	{Orientation
+		0	1	0
+		-1	0	0
+		0	0	1
+	}
+}

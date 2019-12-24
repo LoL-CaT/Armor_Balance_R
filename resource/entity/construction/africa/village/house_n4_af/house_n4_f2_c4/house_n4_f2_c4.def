@@ -1,0 +1,152 @@
+{game_entity
+    (include "/properties/building.inc")
+	{Extension "house_n4_f2_c4.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_medium" args 0.7)
+	{placer
+		{place "1" {attach snipe_cover} {linkbone "attach1"}}
+		{place "2" {attach snipe_cover} {linkbone "attach2"}}
+		{place "3" {attach snipe_cover} {linkbone "attach3"}}
+	}
+	{boarder
+		{door "door01" {queue} {auto_release_time 0.2}}
+		{node "ladder_top01"}
+
+		{link "door01"			"ladder_top01"	{anm "[fsm]"}}
+		
+		{link "ladder_top01"	"1"				{anm "[fsm]"}}
+		{link "ladder_top01"	"2"				{anm "[fsm]"}}
+		{link "ladder_top01"	"3"				{anm "[fsm]"}}
+
+	   	{link "1"				"1"			 	{anm "[fsm]"}}
+	   	{link "2"				"2"				{anm "[fsm]"}}
+	   	{link "3"				"3"				{anm "[fsm]"}}
+           }
+	{Volume "body10"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body11"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body12"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body13"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body14"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body15"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body16"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body17"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body18"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body19"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body20"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body5"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body6"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body7"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body8"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body9"
+		{Tags  "body" "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole3"
+		{Tags  "attach" "3"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0 2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window2"
+		{Tags  "fire"}
+		{Thickness 0 2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window3"
+		{Tags  "fire"}
+		{Thickness 0 2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+}

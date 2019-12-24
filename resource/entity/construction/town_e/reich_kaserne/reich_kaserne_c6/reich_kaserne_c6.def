@@ -1,0 +1,70 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "reich_kaserne_c6.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "19" {attach snipe_cover} {linkbone "attach19"}}
+		{place "20" {attach snipe_cover} {linkbone "attach20"}}
+	}
+
+	{boarder
+	
+	   	{link "19"			"20"		 	{anm "[fsm]"}}
+	}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}{obstacle 0} {visible 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body7"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body8"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body9"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "20"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "19"}
+		{able clear {hole}{touch 1}}
+	}
+}

@@ -1,0 +1,97 @@
+;Exported by: sana
+;Date:        Thu Mar 30 15:00:43 2006
+;File:        D:\-Project-\-3DWork-\Entourage\e_kpp_sh_lm_corner.max
+{Skeleton
+	{bone "119_ekpp_w1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "119_ekpp_w1.ply"}
+		{bone "exterior"
+			{Position -1.41367	-16.2832	35.5492}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-9.37429	-0.403374	-4.28799
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-11.4963	-0.906105	-16.5862
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-8.46471	-14.8513	-30.7037
+			}
+		}
+		{bone "fix07"
+			{Position -45.5726	-0.491692	0.398987}
+		}
+		{bone "fix05"
+			{Position 33.1814	-0.491692	0.398987}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -4.29191 0.491692}
+		{Extent 30.5625 2.95276}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 1.33858 15.8465}
+		{Extent 37.4016 12.7953}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 61.125 5.90551 42.3228}
+	{Bone "119_ekpp_w1"}
+	{Position -4.29191	-0.491692	0.398987}
+}
+{Volume "hole1"
+	{Box 30.3913 19.685 24.4819}
+	{Bone "119_ekpp_w1"}
+	{Position -9.37429	-0.403374	-4.28799}
+}
+{Volume "roof1"
+	{Box 68.478 1.96851 20.2555}
+	{Bone "exterior"}
+	{Matrix34
+		1	0	0
+		0	0.547296	0.836939
+		0	-0.836939	0.547296
+		0.452729	14.2948	-8.79278
+	}
+}
+{Volume "window1"
+	{Box 30.3913 1.9685 24.4819}
+	{Bone "window1"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		0	0	0
+	}
+}

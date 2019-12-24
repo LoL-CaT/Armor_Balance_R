@@ -1,0 +1,93 @@
+;Exported by: butyvsky
+;Date:        Fri Aug 17 17:52:28 2007
+;File:        D:\-Projects-\-3D Work-\industrial\gate_shlus.max
+{Skeleton
+	{animation
+		{sequence "open" {speed 0.6} {resume}}
+	}
+	{bone "lock_gate"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{VolumeView "body.ply"}
+		}
+		{bone "doorright_open"
+			{parameters "CommonMesh;"}
+			{Position -145.483	5.2608	83.1745}
+			{VolumeView "doorright_open.ply"}
+		}
+		{bone "doorleft_open"
+			{parameters "CommonMesh;"}
+			{Position 145.923	5.24963	83.1745}
+			{VolumeView "doorleft_open.ply"}
+		}
+	}
+}
+{Obstacle "close"
+	{Obb2
+		{Center 1.8239 -14.4893}
+		{Extent 142.606 17.0174}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Obstacle "open_1"
+	{Obb2
+		{Center 132.402 -80.6256}
+		{Extent 7.12126 68.2834}
+		{Axis -0.984808 0.173648}
+	}
+	{Rotate}
+}
+{Obstacle "open_2"
+	{Obb2
+		{Center -133.698 -80.7017}
+		{Extent 9.81152 68.2263}
+		{Axis -0.984808 -0.173648}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle01"
+	{Obb2
+		{Center -144.222 10.1175}
+		{Extent 14.3797 23.3989}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Obstacle "rectangle02"
+	{Obb2
+		{Center 141.946 10.1175}
+		{Extent 14.3797 23.3989}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 27.418 29.9975 132.722}
+	{Bone "body"}
+	{Position -144.686	-17.6809	66.5692}
+}
+{Volume "body"
+	{Box 27.418 29.9975 132.722}
+	{Bone "body"}
+	{Position 143.268	-17.6809	66.5692}
+}
+{Volume "doorleft_open"
+	{Box 158.223 15.7394 166.391}
+	{Bone "doorleft_open"}
+	{Position -66.3572	0.518719	0}
+}
+{Volume "doorright_open"
+	{Box 158.223 15.2267 166.391}
+	{Bone "doorright_open"}
+	{Position 66.2861	0.732937	0}
+}
+{Volume "switch"
+	{Box 158.724 29.7377 154.743}
+	{Bone "doorright_open"}
+	{Position 82.779	0.198598	-5.82367}
+}

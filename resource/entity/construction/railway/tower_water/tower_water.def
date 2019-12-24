@@ -1,0 +1,113 @@
+{building
+  	(include "/properties/construction.inc")
+	{Extension "tower_water.mdl"}
+	{obstacleID "small_building"}
+	{props "steel" "big" "parts" "construction" "water_capacity" "tower_metal"}
+	("armor_use_volume_thickness")
+
+	{Volume "body"
+		{Thickness 7}
+		{able {visible 0}{bullet 0}}
+		{tags "body"}
+	}
+	{Volume "body1"
+		{Thickness 7}
+		{tags "body" "water"}
+		{able {visible 0}}
+	}
+	{Volume "place7"
+		{Tags  "attach" "7"}
+		{able clear {bullet 0}{touch 1}}
+	}
+	{Volume "place6"
+		{Tags  "attach" "6"}
+		{able clear {bullet 0}{touch 1}}
+	}
+	{Volume "place5"
+		{Tags  "attach" "5"}
+		{able clear {bullet 0}{touch 1}}
+	}
+	{Volume "place4"
+		{Tags  "attach" "4"}
+		{able clear {bullet 0}{touch 1}}
+	}
+	{Volume "place3"
+		{Tags  "attach" "3"}
+		{able clear {bullet 0}{touch 1}}
+	}
+	{Volume "place2"
+		{Tags  "attach" "2"}
+		{able clear {bullet 0}{touch 1}}
+	}
+	{Volume "place1"
+		{Tags  "attach" "1"}
+		{able clear {bullet 0}{touch 1}}
+	}
+	{Volume "top"
+		{Tags  "attach" "1"}
+		{able {visible 0}{touch 1}}
+		{Thickness 1}
+	}
+	{mass 30000}
+
+	{placer
+		{place "1" {attach  squat_lie} 		{linkbone "attach1"}}
+		{place "2" {attach  squat_lie} 		{linkbone "attach2"}}
+		{place "3" {attach  squat_lie} 		{linkbone "attach3"}}
+		{place "4" {attach  squat_lie} 		{linkbone "attach4"}}
+		{place "5" {attach  squat_lie} 		{linkbone "attach5"}}
+		{place "6" {attach  squat_lie} 		{linkbone "attach6"}}
+		{place "7" {attach  squat_lie} 		{linkbone "attach7"}}
+	}
+
+	{Boarder
+		{door "emit" {queue 0}}
+		{node "node_ladder_bottom"}
+		{node "node_ladder_top"}
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 1.2} {loop "stand_upstairs"}}
+			{reverse	{speed 1.2} {loop "stand_upstairs" -1}}
+		}
+		{link "emit" "node_ladder_bottom" {anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "node_ladder_bottom" "node_ladder_top" {anm "ladder"}}
+
+		{link "node_ladder_top" "1" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "2" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "3" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "4" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "5" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "6" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "7" {forward puton} {reverse putoff}}
+	
+		{link "1" "2"}
+    	{link "1" "3"}
+		{link "1" "4"}
+		{link "1" "5"}
+		{link "1" "6"}
+		{link "1" "7"}
+
+		{link "2" "3"}
+    	{link "2" "4"}
+		{link "2" "5"}
+		{link "2" "6"}
+		{link "2" "7"}
+
+		{link "3" "4"}
+    	{link "3" "5"}
+		{link "3" "6"}
+		{link "3" "7"}
+
+	   	{link "4" "5"}
+		{link "4" "6"}
+		{link "4" "7"}
+	
+		{link "5" "6"}
+		{link "5" "7"}
+
+		{link "6" "7"}	
+	}
+}

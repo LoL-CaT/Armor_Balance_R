@@ -1,0 +1,27 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "one" "staged" "concrete" "construction" "windowed" "disable_area" "no_destroyed_stamp"}
+
+	{mass 1000}
+	("armor_medium" args 0.7)
+
+	{Extension "plat_roof_c1.mdl"}
+	{ObstacleId "construction"}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 1}
+	}
+	{Volume "window1"
+		{Thickness 1}
+		{able {visible 0} {window}}
+	}
+	{Volume "window0"
+		{Thickness 1}
+		{able {visible 0} {window}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+}

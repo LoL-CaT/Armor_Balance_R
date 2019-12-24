@@ -1,0 +1,92 @@
+{construction
+	(include "/properties/building.inc")
+  
+	{Extension "build_agl1-03.mdl"}
+	{props "wall" "cornered" "concrete" "parts" "construction" "windowed" "burning"}
+	("armor_heavy" args 0.8)
+
+	{constrain zero}
+	{TexMods
+		{"_x" "_x"}
+		{"1" "1"}
+		{"1_x" "1_x"}
+		{"2" "2"}
+		{"2_x" "2_x"}
+		{"3" "3"}
+		{"3_x" "3_x"}
+		{"4" "4"}
+		{"5" "5"}
+		{"6" "6"}
+		{"7" "7"}
+		{"8" "8"}
+		{"9" "9"}
+		{"10" "10"}
+	}
+	{placer
+		{place "1" {attach  snipe_cover} {linkbone "attach1"}}
+		{place "2" {attach  snipe_cover} {linkbone "attach2"}}
+	}
+	{boarder}
+	{mass 50000}
+		
+	{Volume "body7"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}}	
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}	
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}	
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}}	
+	}
+	{Volume "body3"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {visible 0}}	
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}}	
+	}
+
+	{Volume "Hole0"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "Hole1"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+
+	{Volume "window1"
+		{Tags "fire"}
+		{Thickness 0.1}
+		{able {visible 0} {window}}
+	}
+	{Volume "window3"
+		{Tags "fire"}
+		{Thickness 0.1}
+		{able {visible 0} {window}}
+	}
+}

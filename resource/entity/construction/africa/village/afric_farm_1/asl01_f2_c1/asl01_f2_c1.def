@@ -1,0 +1,39 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "asl01_f2_c1.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "no_destroyed_stamp"}
+	("armor_medium" args 0.7)
+	{mass 50000}
+	{boarder}
+           {placer
+		{place "12" {attach  snipe_cover} 	{linkbone "attach12"}}
+		}
+	{extender "structure_bone"	
+		{hold "16"}	
+		{hold "14"}
+
+    }
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "12"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

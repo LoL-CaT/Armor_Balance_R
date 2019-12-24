@@ -1,0 +1,70 @@
+;Exported by: sergienko
+;Date:        Fri Mar 31 10:40:00 2006
+;File:        D:\-projets1_5\3dwork\anima\construction\bridge\bidge.max
+{Skeleton
+	{bone "bridge_river_land1"
+		{parameters "Ground;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "bridge_river_land1.ply" {Ground}}
+		{bone "road_bridge1"
+			{parameters "Ground;"}
+			{Position 37.7727	-0.0671387	143.152}
+			{VolumeView "road_bridge1.ply" {Ground}}
+			{bone "land1"
+				{parameters "Land;Ground;"}
+				{Position -0.0703125	0	13.733}
+				{VolumeView "land1.ply" {Ground} {DecalTarget}}
+			}
+		}
+	}
+}
+{Area "rectangle03"
+	{Obb2
+		{Center 44.4886 -85.6077}
+		{Extent 121.145 5.75275}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Area "rectangle04"
+	{Obb2
+		{Center 44.4886 86.151}
+		{Extent 121.145 5.75275}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 127.078 181.701 11.7399}
+	{Bone "road_bridge1"}
+	{Matrix34
+		-0.992688	0	-0.120704
+		0	-1	0
+		-0.120704	0	0.992688
+		-58.7653	-5.65469e-005	18.4138
+	}
+}
+{Volume "body2"
+	{Box 127.078 181.701 11.4828}
+	{Bone "road_bridge1"}
+	{Matrix34
+		-1	0	-0.000147469
+		0	-1	0
+		-0.000147469	0	1
+		61.6703	-3.84408e-005	25.8953
+	}
+}
+{Volume "body3"
+	{Box 137.244 181.701 127.705}
+	{Bone "bridge_river_land1"}
+	{Matrix34
+		-1	0	-0.000147469
+		0	-1	0
+		-0.000147469	0	1
+		-0.928921	-0.0671923	63.8674
+	}
+}

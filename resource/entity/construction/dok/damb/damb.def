@@ -1,0 +1,26 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "bridge" "no_destroyed_stamp" "construction"}	
+	("armor_heavy" args 1.0)
+	{obstacleid "building"}
+
+	{Extension "damb.mdl"}
+	{Volume "land_centr"
+		{Tags  "body"}
+		{Thickness 500}
+		{able clear {blast}}
+	}
+	{Volume "land_left"
+		{Tags  "body"}
+		{Thickness 500}
+		{able clear {blast}}
+	}
+	{Volume "land_right"
+		{Tags  "body"}
+		{Thickness 500}
+		{able clear {blast}}
+	}
+	{Extender "land_patch"
+		{TerrainType "road" "bridge"}
+	}
+}

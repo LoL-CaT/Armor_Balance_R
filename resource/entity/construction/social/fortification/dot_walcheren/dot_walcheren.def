@@ -1,0 +1,29 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "dot_walcheren.mdl"}
+	{obstacleid "unbreakable"}
+	{props "parts" "cornered" "concrete" "construction"}
+	("armor_heavy" args 1.0)
+	{armor
+		{setting "cover"
+		{Thickness 300}
+			{volumes "cover*"}
+		}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 300}
+		{able {visible 1}{holed}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 300}
+		{able {visible 1}}
+	}
+	{Volume "cover1"
+		{able {visible 0}{contact 0}}
+	}
+	{Volume "hole"
+		{able clear {hole}}
+	}
+}

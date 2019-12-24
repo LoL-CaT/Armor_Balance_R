@@ -1,0 +1,27 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 0.8)
+	{Extension "control_office_corner04.mdl"}
+	{placer
+		{place "7" {attach snipe_cover} {linkbone "attach7"}}
+	}
+	{boarder}
+	{Volume "hole2_vol02"
+		{Tags  "attach" "7"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body2_vol06"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body2_vol08"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "window2_vol02"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

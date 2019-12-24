@@ -1,0 +1,101 @@
+;Exported by: sasha
+;Date:        Tue Mar 18 09:50:49 2008
+;File:        D:\-Project-\-3DWork-\Crete\Crete_m9_v2cut6.max
+{Skeleton
+	{bone "606a_w3"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "606a_w3.ply"}
+		{bone "exterior"
+			{Position 6.17626	9.44861	76.0018}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-9.81518	4.90161	42.247
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-9.81518	4.90161	42.247
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				2.64996	1.21301	10.2905
+			}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center -9.44188 -5.91467}
+		{Extent 3.96214 42.1193}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center -0.548332 -9.1355}
+		{Extent 14.4586 40.3798}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body"
+	{Box 7.92429 84.2386 59.1944}
+	{Bone "606a_w3"}
+	{Position -9.44188	5.91467	39.4696}
+}
+{Volume "hole1"
+	{Box 19.685 17.7165 33.4646}
+	{Bone "606a_w3"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-9.8152	4.90161	42.2469
+	}
+}
+{Volume "roof01"
+	{Polyhedron "roof01.vol"}
+	{Bone "exterior"}
+	{Matrix34
+		0.944042	0	0.329825
+		-0.329825	0	0.944042
+		0	-1	0
+		-5.94354	40.4135	-0.959183
+	}
+}
+{Volume "roof02"
+	{Polyhedron "roof02.vol"}
+	{Bone "exterior"}
+	{Matrix34
+		0	-0.942861	0.333188
+		0	0.333188	0.942861
+		-1	0	0
+		10.9699	27.7682	-1.63304
+	}
+}
+{Volume "window1"
+	{Box 1.47638 17.7165 33.4646}
+	{Bone "window1"}
+	{Position 2.28882e-005	0	-2.67029e-005}
+}

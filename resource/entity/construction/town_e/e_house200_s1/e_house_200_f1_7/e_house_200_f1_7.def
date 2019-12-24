@@ -1,0 +1,46 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "wall" "cornered" "concrete" "parts" "construction" "windowed" "burning"}
+	("armor_heavy" args 1.5)
+	{Extension "e_house_200_f1_7.mdl"}
+
+	{placer
+		{place "1" {attach  squat_lie} 		{linkbone "attach1"}}
+		{place "2" {attach  squat_lie} 		{linkbone "attach2"}}
+	}	
+	{boarder}
+	{mass 50000}
+
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "floor"
+		{Thickness 7}
+		{able {visible 0}{touch 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{touch 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{touch 0}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window2"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

@@ -1,0 +1,45 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "farm_corn4.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning"}
+	("armor_house_concrete_light")
+
+	{placer
+		{place "4" {attach  squat_lie} 		{linkbone "attach4"}}
+	}
+	{boarder}
+	{mass 5000}	
+	{Volume "hole"
+		{Tags  "attach" "4"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "roof"
+		{Thickness 1}
+		{Tags "body" "fire"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "door"
+		{Thickness 1}
+		{able {visible 1}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+}

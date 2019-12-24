@@ -1,0 +1,127 @@
+;Exported by: sasha
+;Date:        Tue May 06 18:16:54 2008
+;File:        D:\-Project-\-3DWork-\Crete\Crete_cr605.max
+{Skeleton
+	{bone "605_c3"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "605_c3.ply"}
+		{bone "window1"
+			{Position -6.99628	32.1496	45.1401}
+			{VolumeView "window1.ply"}
+		}
+		{bone "window1_x"
+			{Position -6.99628	32.1496	45.1401}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "exterior"
+			{Position 22.5761	30.9391	83.1241}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "land"
+			{parameters "Land;"}
+			{Position 13.1526	25.1956	6.84055}
+			{VolumeView "land.ply"}
+		}
+	}
+}
+{Obstacle "body01"
+	{Obb2
+		{Center -6.90579 -28.807}
+		{Extent 3.73769 31.9071}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body02"
+	{Obb2
+		{Center 9.37062 6.62061}
+		{Extent 19.9078 4.06111}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 18.1132 -26.7884}
+		{Extent 31.3601 39.5284}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body01"
+	{Box 7.47537 63.8143 59.0446}
+	{Bone "605_c3"}
+	{Position -6.90579	28.807	43.4608}
+}
+{Volume "body02"
+	{Box 39.8157 8.12222 59.0215}
+	{Bone "605_c3"}
+	{Position 9.37062	-6.62061	43.3967}
+}
+{Volume "body03"
+	{Box 9.98158 8.12222 11.2094}
+	{Bone "605_c3"}
+	{Position 33.7686	-6.62061	67.2699}
+}
+{Volume "hole1"
+	{Box 15.748 17.7165 33.4646}
+	{Bone "605_c3"}
+	{Position -6.99628	32.1496	45.1401}
+}
+{Volume "roof01"
+	{Polyhedron "roof01.vol"}
+	{Bone "exterior"}
+	{Matrix34
+		0.935019	0	0.354597
+		0	1	0
+		-0.354597	0	0.935019
+		-9.51334	-4.888	-0.959442
+	}
+}
+{Volume "roof02"
+	{Polyhedron "roof02.vol"}
+	{Bone "exterior"}
+	{Matrix34
+		0.935018	0	-0.354601
+		0	1	0
+		0.354601	0	0.935018
+		21.3281	12.121	6.94809
+	}
+}
+{Volume "roof03"
+	{Polyhedron "roof03.vol"}
+	{Bone "exterior"}
+	{Matrix34
+		0	0.930617	0.365993
+		-1	0	0
+		0	-0.365993	0.930617
+		-5.12286	-18.0606	-0.72612
+	}
+}
+{Volume "windbody01"
+	{Box 1.4946 17.7166 26.437}
+	{Bone "605_c3"}
+	{Position -8.83533	31.9973	42.0371}
+}
+{Volume "windbody02"
+	{Box 1.4946 9.15237 26.437}
+	{Bone "605_c3"}
+	{Matrix34
+		0.0633629	0.997991	0
+		-0.997991	0.0633629	0
+		0	0	1
+		34.6457	-7.69424	42.0371
+	}
+}
+{Volume "window1"
+	{Box 1.4946 17.7165 33.4646}
+	{Bone "window1"}
+	{Position 0	0	0}
+}

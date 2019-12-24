@@ -1,0 +1,50 @@
+{game_entity
+    (include "/properties/building.inc")
+	{Extension "wall7r_c3.mdl"}
+    {props "cornered" "concrete" "parts" "construction" "windowed" "wall"}
+	("armor_heavy" args 1.5)
+
+	{placer
+      {place "1" {attach  snipe_cover}    {linkbone "attach1"}}
+      {place "2" {attach  snipe_cover}    {linkbone "attach2"}}
+    } 
+    {boarder}
+    {mass 15000}
+
+	{Volume "hole2"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "floor2"
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "floor1"
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+}

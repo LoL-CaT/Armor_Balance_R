@@ -1,0 +1,125 @@
+;Exported by: sana
+;Date:        Mon Apr 24 14:15:17 2006
+;File:        D:\-Project-\-3DWork-\Entourage\e-house3a\e_farm112_new.max
+{Skeleton
+	{bone "farm_corn1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "farm_corn1.ply"}
+		{bone "exterior"
+			{Position -3.7804	6.10306	70.406}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				21.5225	20.3141	28.5076
+			}
+			{VolumeView "../common/window1.ply"}
+		}
+		{bone "window1_x"
+			{Position 21.5225	19.5169	28.5076}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				20.6122	2.00385	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 19.265 -19.2788}
+		{Extent 22.8002 4.59918}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -7.25812 -9.03058}
+		{Extent 4.57484 14.6006}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 19.8789 -5.24457}
+		{Extent 23.4573 11.3171}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "beam"
+	{Box 5.1181 5.1181 67.8823}
+	{Bone "farm_corn1"}
+	{Matrix34
+		-0.874592	0	0.484859
+		0	-1	0
+		0.484859	0	0.874592
+		-24.9457	13.3929	28.4062
+	}
+}
+{Volume "body1"
+	{Box 45.6005 9.19836 61.7838}
+	{Bone "farm_corn1"}
+	{Position 19.265	19.2788	30.8919}
+}
+{Volume "body2"
+	{Box 9.14969 29.2011 60.1544}
+	{Bone "farm_corn1"}
+	{Position -7.25812	9.03058	30.0772}
+}
+{Volume "body3"
+	{Box 29.7852 9.92841 27.0675}
+	{Bone "farm_corn1"}
+	{Matrix34
+		0.866025	0	-0.5
+		0	1	0
+		0.5	0	0.866025
+		9.70163	19.2757	62.8781
+	}
+}
+{Volume "hole"
+	{Box 17.6415 25.6017 19.1475}
+	{Bone "farm_corn1"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		21.595	20.0439	28.4636
+	}
+}
+{Volume "roof"
+	{Box 35.7814 34.7686 3.62666}
+	{Bone "exterior"}
+	{Matrix34
+		0	-1	0
+		0.573576	0	0.819152
+		-0.819152	0	0.573576
+		-2.24192	3.42541	-2.89509
+	}
+}
+{Volume "window1"
+	{Box 18.1047 2.92014 26.3394}
+	{Bone "window1"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		-1.24141	-0.0503534	0.0242167
+	}
+}

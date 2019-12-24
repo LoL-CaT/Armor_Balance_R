@@ -1,0 +1,30 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "114c_f1int3.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall"}
+	("armor_heavy" args 0.8)
+
+	{mass 50000}
+
+	{boarder}
+	{placer
+		{place "1" {attach  snipe_cover} 	{linkbone "attach1"}}
+	}	
+	{extender "structure_bone"	
+		{hold "29"}
+	}
+	{Volume "attach1"
+		{Tags  "attach" "1"}
+		{able clear {visible 0}{bullet 0}{touch 1}{obstacle 0}}
+	}
+	{Volume "beam"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}}
+	}
+	{Volume "floor1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+}

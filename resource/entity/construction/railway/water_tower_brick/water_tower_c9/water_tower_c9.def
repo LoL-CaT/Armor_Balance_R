@@ -1,0 +1,37 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed" "burning"}
+	{Extension "water_tower_c9.mdl"}
+	{placer
+		{place "16" {attach snipe_cover} {linkbone "attach16"}}
+	}
+	{boarder}
+	{Volume "window16"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "hole16"
+		{Tags  "attach" "16"}
+		{able clear {hole}{touch 16}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+}

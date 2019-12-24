@@ -1,0 +1,20 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "win9.mdl"}
+	{props "concrete" "one" "staged" "construction" "windowed" "burning" "no_destroyed_stamp"}
+	("armor_light" args 0.5)
+
+	{extender "structure_bone"
+		{hold  "17" "18"}
+	}
+
+	{Volume "hole"
+		{Tags  "attach" "3"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window9"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

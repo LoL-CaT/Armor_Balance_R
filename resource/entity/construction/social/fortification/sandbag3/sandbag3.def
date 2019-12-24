@@ -1,0 +1,31 @@
+{game_entity
+	(include "/properties/construction.inc")
+
+	{props "sand" "sandbag" "heap" "construction" "burning" "no_destroyed_stamp"}
+	("armor_sandbag")
+	("armor_use_volume_thickness")
+	{collider "sandbag"}
+	
+	{Extension "sandbag3.mdl"}
+	{Extender "land_patch"
+		{updateentities 0}
+	}
+
+	{NoGroupMesh 1}
+	
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+;		{able {visible 1}{touch 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+;		{able {visible 1}{touch 0}}
+	}
+	{Volume "body"
+		{Tags  "body" "climb"}
+		{Thickness 7}
+;		{able {visible 1}{touch}}
+	}
+}

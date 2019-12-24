@@ -1,0 +1,84 @@
+;Exported by: sergienko
+;Date:        Fri Jul 14 17:39:45 2006
+;File:        D:\-projets1_5\3dwork\anima\construction\house_euro_100c\euro_corner_n.max
+{Skeleton
+	{bone "100_corner2_n"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "100_corner2_n.ply"}
+		{bone "window1"
+			{Matrix34
+				0	-1	0
+				0	0	1
+				-1	0	0
+				-14.2344	-21.1928	34.2899
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				-14.2344	-20.9743	34.2899
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				-0.0871557	-0.996195	0
+				0.996195	-0.0871557	0
+				0	0	1
+				-12.8518	-7.48734	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 0.837059 20.338}
+		{Extent 34.5407 3.74734}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body1"
+	{Box 69.0814 7.49467 63.8422}
+	{Bone "100_corner2_n"}
+	{Position 0.837059	-20.338	31.9211}
+}
+{Volume "floor"
+	{Box 34.678 3.82228 74.7865}
+	{Bone "100_corner2_n"}
+	{Matrix34
+		0	1	0
+		0	0	-1
+		-1	0	0
+		0.45771	-0.0635235	53.0968
+	}
+}
+{Volume "hole1"
+	{Box 27.3564 36.2785 17.9066}
+	{Bone "100_corner2_n"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-13.9513	-18.9759	28.292
+	}
+}
+{Volume "window1"
+	{Box 27.5591 37.4016 0.984253}
+	{Bone "window1"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		-0.492129	-5.74657	0
+	}
+}

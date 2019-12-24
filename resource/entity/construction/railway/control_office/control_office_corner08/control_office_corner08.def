@@ -1,0 +1,24 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed" "no_destroyed_stamp"}
+	("armor_medium" args 0.7)
+	{Extension "control_office_corner08.mdl"}
+	{Volume "hole2_vol05"
+		{able clear {hole}}
+	}
+	{Volume "body2_vol14"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}}
+	}
+	{Volume "body2_vol13"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "window3_vol"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+
+}

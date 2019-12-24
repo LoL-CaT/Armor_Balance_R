@@ -1,0 +1,105 @@
+;Exported by: sana
+;Date:        Fri Jun 23 13:58:09 2006
+;File:        D:\ss\kaserne_sh_lm_corner\kaserne_sh_lm_corner.max
+{Skeleton
+	{bone "118_w2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "118_w2.ply"}
+		{bone "window3"
+			{Matrix34
+				0	1	0
+				0	0	1
+				1	0	0
+				-1.96849	20.3123	38.3858
+			}
+			{VolumeView "window3.ply"}
+		}
+		{bone "window3_x"
+			{Matrix34
+				0	1	0
+				0	0	1
+				1	0	0
+				-1.96849	19.8202	38.3858
+			}
+			{visibility 0}
+			{VolumeView "../common/window3_x.ply"}
+		}
+		{bone "exterior"
+			{Position -5.73118	8.27592	77.3447}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-2.95275	5.55119	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -1.96849 -20.3123}
+		{Extent 36.4173 2.95275}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 11.9371 3.30201}
+		{Extent 9.52486 20.1203}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body" "fire"}
+}
+{Area "interior"
+	{Obb2
+		{Center 7.62939e-006 4.29134}
+		{Extent 42.3228 21.6535}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 72.8346 5.90551 68.7992}
+	{Bone "118_w2"}
+	{Position -1.96848	20.3123	34.3996}
+}
+{Volume "body2"
+	{Box 19.0497 40.2407 13.9762}
+	{Bone "118_w2"}
+	{Position 11.9371	-3.30201	6.98809}
+}
+{Volume "hole1"
+	{Box 53.1496 19.685 25.5906}
+	{Bone "118_w2"}
+	{Position -1.96848	20.3123	38.3858}
+}
+{Volume "roof1"
+	{Box 77.256 1.96851 27.2812}
+	{Bone "exterior"}
+	{Matrix34
+		1	0	0
+		0	0.549962	0.83519
+		0	-0.83519	0.549962
+		1.02668	5.73487	-2.26633
+	}
+}
+{Volume "window3"
+	{Box 53.1496 1.9685 25.5906}
+	{Bone "window3"}
+	{Matrix34
+		0	0	1
+		1	0	0
+		0	1	0
+		0	1.04904e-005	0
+	}
+}

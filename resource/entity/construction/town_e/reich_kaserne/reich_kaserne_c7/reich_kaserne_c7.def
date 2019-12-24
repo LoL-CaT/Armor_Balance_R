@@ -1,0 +1,100 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "reich_kaserne_c7.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "21" {attach snipe_cover} {linkbone "attach21"}}
+		{place "22" {attach snipe_cover} {linkbone "attach22"}}
+		{place "23" {attach snipe_cover} {linkbone "attach23"}}
+		{place "24" {attach snipe_cover} {linkbone "attach24"}}
+		{place "25" {attach snipe_cover} {linkbone "attach25"}}
+		{place "26" {attach snipe_cover} {linkbone "attach26"}}
+	}
+
+	{boarder
+
+		{door "door01" {queue} {auto_release_time 0.2}}
+
+		{node "node_ladder_top"}
+		{node "node_ladder_bottom"}
+
+		{link "door01"			"node_ladder_bottom"	{anm "[fsm]"}}
+		{link "node_ladder_bottom"	"node_ladder_top"		{anm "[fsm]"}}
+		
+		{link "node_ladder_top"	"23"				{anm "[fsm]"}}
+	   	{link "23"				"24"			 	{anm "[fsm]"}}
+	   	{link "24"				"25"			 	{anm "[fsm]"}}
+	   	{link "23"				"25"			 	{anm "[fsm]"}}
+	
+	   	{link "21"				"22"			 	{anm "[fsm]"}}
+	   	{link "22"				"26"			 	{anm "[fsm]"}}
+	   	{link "21"				"26"			 	{anm "[fsm]"}}
+	}
+
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body3_vol02"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body5"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body6"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "22"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole2"
+		{Tags  "attach" "21"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole3"
+		{Tags  "attach" "25"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole4"
+		{Tags  "attach" "24"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole5"
+		{Tags  "attach" "23"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "26"}
+		{able clear {hole}{touch 1}}
+	}
+}

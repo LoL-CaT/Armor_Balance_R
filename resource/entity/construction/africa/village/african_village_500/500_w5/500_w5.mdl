@@ -1,0 +1,85 @@
+;Exported by: dima
+;Date:        Fri Jun 20 10:23:57 2008
+;File:        D:\Work_File\Попов Дмитрий\Домик\house 102\a_house_102c.max
+{Skeleton
+	{bone "500_w5"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "500_w5.ply"}
+		{bone "exterior"
+			{Position -9.6686	1.33159	53.605}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window1"
+			{Position -16.3942	-1.45787	31.568}
+			{VolumeView "window1.ply"}
+		}
+		{bone "window1_x"
+			{Position -17.117	-1.45787	31.568}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				2.93752	-4.86874	0
+			}
+		}
+	}
+}
+{Area "interior"
+	{Obb2
+		{Center -0.67321 -1.26319}
+		{Extent 19.7425 21.9625}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Obstacle "obstacle1"
+	{Obb2
+		{Center -16.0281 -0.694197}
+		{Extent 5.32785 23.0376}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 9.9956 45.1215 61.2167}
+	{Bone "500_w5"}
+	{Position -16.0972	0.959391	30.6184}
+}
+{Volume "hole1"
+	{Box 13.8673 15.1608 15.4399}
+	{Bone "500_w5"}
+	{Position -17.0876	-1.21302	32.1434}
+}
+{Volume "roof1"
+	{Box 5.4392 20.4473 15.4562}
+	{Bone "exterior"}
+	{Matrix34
+		0	0.642787	0.766045
+		0	-0.766045	0.642787
+		1	0	0
+		0.852092	7.64506	1.77123
+	}
+}
+{Volume "roof2"
+	{Box 5.4392 20.4473 15.4562}
+	{Bone "exterior"}
+	{Matrix34
+		0	-0.573581	0.819149
+		0	-0.819149	-0.573581
+		1	0	0
+		0.852092	-7.66846	2.55533
+	}
+}
+{Volume "window1"
+	{Box 10.7104 17.1317 16.8881}
+	{Bone "window1"}
+	{Position -0.572029	0.244846	0.486773}
+}

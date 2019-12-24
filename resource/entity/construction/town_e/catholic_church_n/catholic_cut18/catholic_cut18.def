@@ -1,0 +1,26 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "catholic_cut18.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "burning" "windowed" "no_destroyed_stamp"}
+	("armor_heavy" args 1.5)
+
+	{extender "structure_bone"
+		{hold "10" "11"}
+	}
+
+	{placer
+		{place "2" {attach  snipe_cover} 		{linkbone "attach2"}}
+	}	
+	{boarder}
+	{mass 500000}
+		
+	{Volume "hole"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

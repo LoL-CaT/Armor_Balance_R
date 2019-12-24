@@ -1,0 +1,107 @@
+;Exported by: shevchenko
+;Date:        Tue Mar 14 15:13:16 2006
+;File:        D:\-Projects1_5-\-3DWork-\euro1_corner2_lm_corner.max
+{Skeleton
+	{bone "101_f1w3"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "101_f1w3.ply"}
+		{bone "window1_x"
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				-8.49397	23.1732	27.559
+			}
+			{visibility 0}
+			{VolumeView "../common/window1_x.ply"}
+		}
+		{bone "attach1"
+			{Position -24.9658	23.173	-5.20722e-005}
+		}
+		{bone "window1"
+			{Matrix34
+				1	0	0
+				0	0	1
+				0	-1	0
+				-8.25775	23.1732	27.559
+			}
+			{VolumeView "../common/window1.ply"}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -8.25516 -16.5456}
+		{Extent 2.95276 23.1693}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -8.25516 32.8476}
+		{Extent 2.95276 6.71909}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "door"
+	{Obb2
+		{Center 2.73672 8.00282}
+		{Extent 8.85831 0.984645}
+		{Axis 0.996199 0.0871117}
+	}
+	{Rotate}
+	{Tags  "fire"}
+}
+{Volume "body1"
+	{Box 5.90552 46.3386 46.2992}
+	{Bone "101_f1w3"}
+	{Position -8.25516	16.5456	23.1496}
+}
+{Volume "body2"
+	{Box 5.90552 13.4382 48.1512}
+	{Bone "101_f1w3"}
+	{Position -8.25516	-32.8476	24.0756}
+}
+{Volume "body3"
+	{Box 5.90552 19.685 9.84252}
+	{Bone "101_f1w3"}
+	{Position -8.25516	-16.3612	44.2611}
+}
+{Volume "door"
+	{Box 17.7165 1.96851 39.3701}
+	{Bone "101_f1w3"}
+	{Matrix34
+		0.996195	-0.0871557	0
+		0.0871557	0.996195	0
+		0	0	1
+		2.73673	-8.00282	19.685
+	}
+}
+{Volume "hole1"
+	{Box 15.748 23.622 19.685}
+	{Bone "101_f1w3"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		-7.2625	23.1729	27.559
+	}
+}
+{Volume "window1"
+	{Box 15.748 23.622 1.9685}
+	{Bone "window1"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		0.0110341	-3.4506e-005	0.000248189
+	}
+}

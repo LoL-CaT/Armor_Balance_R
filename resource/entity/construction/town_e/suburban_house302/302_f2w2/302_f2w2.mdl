@@ -1,0 +1,70 @@
+;Exported by: vic
+;Date:        Wed Dec 07 19:37:04 2005
+;File:        D:\-Projects-\-3DWork-\Constructions\NEW\S2\build-02-01b_vic2.max
+{Skeleton
+	{bone "302_f2w2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "302_f2w2.ply"}
+		{bone "fix04"
+			{Position -25.5922	-19.6259	-31.669}
+		}
+		{bone "fix03"
+			{Position -25.5922	19.7068	-31.669}
+		}
+		{bone "exterior"
+			{Position -4.24735	2.28746	-7.42911}
+			{VolumeView "exterior.ply"}
+		}
+	}
+}
+{Obstacle "body21"
+	{Obb2
+		{Center -25.618 0.0723438}
+		{Extent 3.93706 46.3386}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body" "smoke"}
+}
+{Area "interior"
+	{Obb2
+		{Center -6.85772 -1.91236}
+		{Extent 15.0862 47.3566}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body21"
+	{Polyhedron "body21.vol"}
+	{Bone "302_f2w2"}
+	{Matrix34
+		-1	0	0
+		0	-1	0
+		0	0	1
+		-25.618	-0.0723438	-25.1251
+	}
+}
+{Volume "roof1"
+	{Box 1.9685 16.9118 54.0197}
+	{Bone "exterior"}
+	{Matrix34
+		0	-0.746094	0.665841
+		1	0	0
+		0	0.665841	0.746094
+		-8.81491	-19.6785	3.18182
+	}
+}
+{Volume "roof2"
+	{Box 1.9685 22.8309 56.8288}
+	{Bone "exterior"}
+	{Matrix34
+		0	0.746094	0.665841
+		-1	0	0
+		0	-0.665841	0.746094
+		-5.91432	16.017	2.45122
+	}
+}

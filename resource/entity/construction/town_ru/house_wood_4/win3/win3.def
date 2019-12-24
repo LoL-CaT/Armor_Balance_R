@@ -1,0 +1,26 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "win3.mdl"}
+	{props "concrete" "one" "staged" "construction" "windowed" "burning" "no_destroyed_stamp"}
+	("armor_light" args 0.5)
+
+	{placer
+		{place "5" {attach  snipe_cover} 		{linkbone "attach5"}}
+	}
+	{boarder}
+	{mass 5000}
+
+	{extender "structure_bone"
+		{hold  "11" "13"}
+	}
+
+	{Volume "hole"
+		{Tags  "attach" "5"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window3"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

@@ -1,0 +1,75 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "metal_structure.mdl"}
+	{props "steel" "construction" "parts" "small" "no_destroyed_stamp"}
+	("armor_light" args 1)
+
+	{placer
+		{place "1" {attach snipe_cover} {linkbone "node01"}}
+	}
+
+	{boarder
+		{door "door01" {queue} {auto_release_time 0.2}}
+		{node "ladder_top01"}
+
+		{link "door01"			"ladder_top01"	{anm "[fsm]"}}
+		
+		{link "ladder_top01"	"1"				{anm "[fsm]"}}
+	}
+
+	{Volume "body10"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body1"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body2"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body3"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body4"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body5"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body6"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body7"
+		{able {obstacle 0} {touch 1} {visible 0}}
+		{Thickness 7}
+		{tags "body" "attach" "attach_any"}
+	}
+	{Volume "body8"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body9"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+	{Volume "body"
+		{able {obstacle 0} {visible 0}}
+		{Thickness 7}
+		{tags "body"}
+	}
+}

@@ -1,0 +1,69 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "fc_c10_31.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "windowed" "wall" "burning" "no_destroyed_stamp"}
+	("armor_heavy" args 1.5)
+
+	{extender "structure_bone"	
+		{hold "19"}
+		{hold "20"}
+		{hold "17" "18"}		
+	}
+
+	{placer
+		{place "3" {attach  snipe_cover} 		{linkbone "attach3"}}
+	}	
+	{boarder}
+	{mass 15000}
+
+	{Volume "beam1"
+		{Tags  "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "beam2"
+		{Tags  "fire"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole2"
+		{able clear {hole}}
+	}
+	{Volume "hole1"
+		{able clear {hole}}
+	}
+	{Volume "hole3"
+		{Tags  "attach" "3"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window2"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window3"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

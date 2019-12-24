@@ -1,0 +1,42 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "h_w_4_cut2.mdl"}
+	{props "cornered" "wood" "parts" "construction" "burning" "wall" "windowed"}
+	("armor_house_wood")
+	{obstacleID "small_building"}
+
+	{placer
+		{place "2" {attach  snipe_cover} 		{linkbone "attach2"}}
+	}
+	{boarder}
+	{mass 5000}
+
+	{extender "structure_bone"
+		{hold  "28"}
+	}
+	{Volume "body1"
+		{Tags  "body"}
+		{able {obstacle 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{able {obstacle 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{able {obstacle 0}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "2"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof"
+		{Tags  "body" "fire"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

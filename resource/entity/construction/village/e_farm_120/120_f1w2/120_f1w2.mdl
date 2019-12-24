@@ -1,0 +1,98 @@
+;Exported by: shevchenko
+;Date:        Sat Mar 25 14:47:30 2006
+;File:        D:\-Projects1_5-\-3DWork-\e_farm_120_en_edifise.max
+{Skeleton
+	{bone "120_f1w2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "120_f1w2.ply"}
+		{bone "window1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-2.95978	-3.61875	50.1968
+			}
+			{VolumeView "../common/window1.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-2.95978	-3.85497	50.1968
+			}
+			{visibility 0}
+			{VolumeView "../common/window1_x.ply"}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -26.5818 3.61874}
+		{Extent 13.7795 2.95275}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 22.6308 3.61874}
+		{Extent 15.748 2.95275}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "door"
+	{Obb2
+		{Center 5.65134 -6.15363}
+		{Extent 9.83849 0.991651}
+		{Axis 0.0879049 0.996129}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 27.5591 5.90551 59.0551}
+	{Bone "120_f1w2"}
+	{Position -26.5818	-3.61874	29.5276}
+}
+{Volume "body2"
+	{Box 31.4961 5.90551 59.0551}
+	{Bone "120_f1w2"}
+	{Position 22.6308	-3.61874	29.5276}
+}
+{Volume "body3"
+	{Box 19.685 5.90551 19.685}
+	{Bone "120_f1w2"}
+	{Position -2.95979	-3.61874	49.2126}
+}
+{Volume "door"
+	{Box 1.9685 19.6755 39.3701}
+	{Bone "120_f1w2"}
+	{Matrix34
+		0.996195	0.0871557	0
+		-0.0871557	0.996195	0
+		0	0	1
+		5.65134	6.15363	19.685
+	}
+}
+{Volume "hole1"
+	{Box 19.685 19.685 9.84252}
+	{Bone "120_f1w2"}
+	{Position -2.95979	-3.86481	50.1968}
+}
+{Volume "window1"
+	{Box 19.685 1.9685 9.84252}
+	{Bone "window1"}
+	{Matrix34
+		0	-1	0
+		1	0	0
+		0	0	1
+		-0.246073	0	0
+	}
+}

@@ -1,0 +1,75 @@
+;Exported by: garry
+;Date:        Thu Apr 19 19:28:29 2007
+;File:        D:\-Projects-\-3DWork-\Model\Авто-мото\Kitchen\Kitchen_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 12.6089	0.0590551	8.46457}
+			{VolumeView "body.ply"}
+			{bone revolute "wheell"
+				{parameters "ID=wheelleft;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0.078098	16.7517	-0.255692
+				}
+				{VolumeView "wheell.ply"}
+			}
+			{bone revolute "wheelr"
+				{parameters "ID=wheelright;"}
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0.0781052	-16.7606	-0.255692
+				}
+				{VolumeView "wheelr.ply"}
+			}
+		}
+	}
+}
+{Obstacle "wheelleft"
+	{Obb2
+		{Center 12.671 -16.7352}
+		{Extent 6.88977 1.91609}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "wheelright"
+	{Obb2
+		{Center 12.671 16.5732}
+		{Extent 5.90551 1.94703}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "wheelleft"
+	{Cylinder 6.88976 3.83217}
+	{Bone "wheell"}
+	{Matrix34
+		0	1	0
+		1	0	0
+		0	0	-1
+		-0.0160509	-0.0393537	0.0755432
+	}
+}
+{Volume "wheelright"
+	{Cylinder 5.90551 3.89405}
+	{Bone "wheelr"}
+	{Matrix34
+		0	1	0
+		1	0	0
+		0	0	-1
+		-0.0160518	-0.0393527	-0.128326
+	}
+}

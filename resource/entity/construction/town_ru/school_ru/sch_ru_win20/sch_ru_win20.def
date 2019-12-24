@@ -1,0 +1,26 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{props "concrete" "one" "staged" "construction" "windowed" "burning" "no_destroyed_stamp"}
+	("armor_light" args 0.5)
+	{Extension "sch_ru_win20.mdl"}
+
+	{extender "structure_bone"
+		{hold  "7" "8" "9"}
+	}
+
+	{placer
+		{place "16" {attach  snipe_cover} 		{linkbone "attach16"}}
+	}
+	{boarder}
+	{mass 5000}
+
+	{Volume "hole8"
+		{Tags  "attach" "16"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "window4"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+}

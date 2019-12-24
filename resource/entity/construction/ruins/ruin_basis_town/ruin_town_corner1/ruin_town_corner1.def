@@ -1,0 +1,29 @@
+{game_entity
+    (include "/properties/building.inc")
+  
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_heavy" args 0.8)
+	{Extension "ruin_town_corner1.mdl"}
+
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "attach1"}}
+	}	
+	{boarder}
+	{mass 50000}
+
+	{Volume "hole_window1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body1"
+		{Thickness 7}
+		{Tags  "body"}
+		{able {obstacle 0}}
+	}
+	{Volume "body"
+		{Thickness 7}
+		{Tags  "body"}
+		{able {holed}}
+		{able {obstacle 0}}
+	}
+}

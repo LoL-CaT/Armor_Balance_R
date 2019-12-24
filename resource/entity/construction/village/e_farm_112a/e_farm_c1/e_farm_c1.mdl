@@ -1,0 +1,102 @@
+;Exported by: sana
+;Date:        Tue Jun 19 18:48:50 2007
+;File:        D:\-Project-\-3DWork-\Entourage\e-house3a\e_farm112a_work01.max
+{Skeleton
+	{bone "e_farm_c1"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "e_farm_c1.ply"}
+		{bone "exterior"
+			{Position 2.71338	0.933746	55.6255}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window3"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-1.08679	-7.39438	29.5276
+			}
+			{VolumeView "../common/window3.ply"}
+		}
+		{bone "window3_x"
+			{Matrix34
+				0	-1	0
+				1	0	0
+				0	0	1
+				-1.08679	-6.83151	29.5276
+			}
+			{visibility 0}
+			{VolumeView "window3_x.ply"}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -4.61426 7.11084}
+		{Extent 16.0038 4.5443}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center 14.8801 3.62219}
+		{Extent 4.5443 7.68975}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center -5.57599 -6.01147}
+		{Extent 17.0079 9.48373}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 32.0077 9.08859 53.1959}
+	{Bone "e_farm_c1"}
+	{Position -4.61426	-7.11084	26.598}
+}
+{Volume "body2"
+	{Box 9.08859 15.3795 49.658}
+	{Bone "e_farm_c1"}
+	{Position 14.8801	-3.62219	24.829}
+}
+{Volume "hole"
+	{Box 11.9356 19.4435 19.559}
+	{Bone "e_farm_c1"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-0.942932	-7.20392	29.7521
+	}
+}
+{Volume "roof1"
+	{Box 45.443 33.0614 2.68706}
+	{Bone "exterior"}
+	{Matrix34
+		0.980618	0	-0.19593
+		0	1	0
+		0.19593	0	0.980618
+		0.00280064	-0.352661	-0.108458
+	}
+}
+{Volume "window3"
+	{Box 12.8036 2.13085 20.4324}
+	{Bone "window3"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		-0.262695	0.0371402	0.123008
+	}
+}

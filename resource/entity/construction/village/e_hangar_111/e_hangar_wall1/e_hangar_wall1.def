@@ -1,0 +1,39 @@
+{construction
+	(include "/properties/building.inc")
+  
+	{Extension "e_hangar_wall1.mdl"}
+	{props "one" "staged" "wood" "construction" "windowed" "disable_area" "no_destroyed_stamp" "burning"}
+	("armor_heavy" args 0.8)
+
+	{constrain zero}
+	{placer
+		{place "1" {attach  squat_lie} 	 {linkbone "attach1"}}
+	}
+	{boarder}
+    {mass 5000}
+
+	{Volume "smoke0"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "fire1"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "fire0"
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}}
+	}
+	("declare_fire_volumes")
+}

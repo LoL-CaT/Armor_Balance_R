@@ -1,0 +1,24 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "ch_farm_corner22.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "burning" "windowed" "no_destroyed_stamp"}
+	("armor_house_concrete")
+
+	{Volume "beam"
+		{Tags  "body" "fire"}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {visible 1}{holed}}
+	}
+	{Volume "hole"
+		{able clear {hole}}
+	}
+	{Volume "window3"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

@@ -1,0 +1,16 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall"}
+	{Extension "dot_pz_b.mdl"}
+	{obstacleid "unbreakable"}
+	{Placer
+		{place "top"
+			{entity "pz_turret"}
+			{Linkbone "attach1"}
+			{obstacle disable}
+		}
+	}
+	{Extender "land_patch"
+		{TerrainType "road" "bridge"}	
+	}
+}

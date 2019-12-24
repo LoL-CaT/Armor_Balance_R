@@ -1,0 +1,53 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "reich_kaserne_c9a.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "no_destroyed_stamp"}
+	("armor_heavy" args 1.5)
+
+	{placer
+		{place "1" {attach snipe_cover} {linkbone "attach1"}}
+	}
+
+	{boarder
+
+		{door "door01" {queue} {auto_release_time 0.2}}
+
+		{node "node_ladder_top"}
+		{node "node_ladder_bottom"}
+
+		{link "door01"			"node_ladder_bottom"	{anm "[fsm]"}}
+		{link "node_ladder_bottom"	"node_ladder_top"		{anm "[fsm]"}}
+		
+		{link "node_ladder_top"	"1"				{anm "[fsm]"}}
+	}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body2"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body3"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body4"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {holed}{obstacle 0} {visible 0}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+}

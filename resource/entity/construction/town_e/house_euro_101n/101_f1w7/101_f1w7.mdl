@@ -1,0 +1,74 @@
+;Exported by: shevchenko
+;Date:        Tue Mar 14 15:13:14 2006
+;File:        D:\-Projects1_5-\-3DWork-\euro1_corner2_lm_corner.max
+{Skeleton
+	{bone "101_f1w7"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "101_f1w7.ply"}
+		{bone "attach1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				16.7445	-0.000366211	0
+			}
+		}
+		{bone "window1"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				0	0	27.559
+			}
+			{VolumeView "../common/window1.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				0.236225	0	27.559
+			}
+			{visibility 0}
+			{VolumeView "../common/window1_x.ply"}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 0.00781631 -0.73349}
+		{Extent 2.95276 28.8661}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "body1"
+	{Box 5.90551 57.7323 45.6693}
+	{Bone "101_f1w7"}
+	{Position 0.00781631	0.73349	22.8346}
+}
+{Volume "hole1"
+	{Box 15.748 23.622 19.685}
+	{Bone "101_f1w7"}
+	{Matrix34
+		0	-1	0
+		0	0	1
+		-1	0	0
+		-2.94051	-0.000340194	27.5591
+	}
+}
+{Volume "window1"
+	{Box 15.748 23.622 1.9685}
+	{Bone "window1"}
+	{Matrix34
+		0	0	-1
+		0	1	0
+		1	0	0
+		-0.387025	3.07096e-005	-0.000369918
+	}
+}

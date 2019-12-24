@@ -1,0 +1,36 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "rh_building_cornerf2_1.mdl"}
+
+	{props "cornered" "concrete" "parts" "construction" "wall" "burning"}
+	("armor_heavy" args 1.5)
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "node01"}}
+		{place "2" {attach  snipe_cover} 		{linkbone "node02"}}
+	}	
+	{boarder
+
+		{door "door01" {queue} {auto_release_time 0.2}}
+
+		{node "ladder_top01"}
+		{node "ladder_bottom01"}
+
+		{link "door01"			"ladder_bottom01"	{anm "[fsm]"}}
+		{link "ladder_bottom01"	"ladder_top01"		{anm "[fsm]"}}
+		
+		{link "ladder_top01"	"1"				{anm "[fsm]"}}
+	   	{link "1"				"2"			 	{anm "[fsm]"}}
+	
+	}
+
+	{Volume "body1"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}{touch 1}}
+	}
+	{Volume "body"
+		{tags "body" "attach" "attach_any"}
+		{Thickness 7}
+		{able {visible 0}{obstacle 0}{touch 1}}
+	}
+}

@@ -1,0 +1,77 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{props "cornered" "concrete" "parts" "construction" "windowed" "burning" "wall"}
+	("armor_heavy" args 0.8)
+	{Extension "e_house_200_f1_3.mdl"}
+
+	{placer
+		{place "1" {attach  squat_lie} 		{linkbone "attach1"}}
+		{place "2" {attach  squat_lie} 		{linkbone "attach2"}}
+		{place "3" {attach  squat_lie} 		{linkbone "attach3"}}
+		{place "4" {attach  squat_lie} 		{linkbone "attach4"}}                	
+		{place "5" {attach  squat_lie} 		{linkbone "attach5"}}
+	}	
+	{boarder}
+	{mass 50000}
+
+	{Volume "attach1"
+		{Tags  "attach" "1"}
+		{able clear {visible 0}{touch 1}}
+	}
+	{Volume "attach2"
+		{Tags  "attach" "2"}
+		{able clear {visible 0}{touch 1}}
+	}
+	{Volume "attach3"
+		{Tags  "attach" "3"}
+		{able clear {visible 0}{touch 1}}
+	}
+	{Volume "attach4"
+		{Tags  "attach" "4"}
+		{able clear {visible 0}{touch 1}}
+	}
+	{Volume "attach5"
+		{Tags  "attach" "5"}
+		{able clear {visible 0}{touch 1}}
+	}
+	{Volume "body27"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{touch 0}}
+	}
+	{Volume "body26"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{touch 0}}
+	}
+	{Volume "body"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{touch 0}}
+	}
+	{Volume "window1"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window2"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window3"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window4"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "window5"
+		{Tags "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

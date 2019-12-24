@@ -1,0 +1,40 @@
+;Exported by: klimenko
+;Date:        Sat Sep 17 12:17:22 2005
+;File:        D:\-Project-\-3DWork-\decor\lion_ring.max
+{Skeleton
+	{animation
+		{sequence "move" {speed 0.3} {resume}}
+	}
+	{bone "lion_ring"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "lion_ring.ply"}
+		{bone "switch"
+			{parameters "CommonMesh;"}
+			{Position -0.202507	-1.29354	6.91683}
+			{VolumeView "switch.ply"}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center -0.0985069 0}
+		{Extent 7.87402 1.9685}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Volume "dynamite_activate"
+	{Box 19.685 7.87402 35.4331}
+	{Bone "lion_ring"}
+	{Position -0.0932732	-0.224165	17.7165}
+}
+{Volume "body"
+	{Box 15.748 3.93701 31.4961}
+	{Bone "lion_ring"}
+	{Position -0.0985069	0	15.748}
+}

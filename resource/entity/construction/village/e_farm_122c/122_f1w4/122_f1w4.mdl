@@ -1,0 +1,91 @@
+;Exported by: shevchenko
+;Date:        Wed Mar 01 18:14:08 2006
+;File:        D:\-Projects1_5-\-3DWork-\e_farm_121_lm_corner.max
+{Skeleton
+	{bone "122_f1w4"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "122_f1w4.ply"}
+		{bone "window1"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-11.4286	3.35917	29.5276
+			}
+			{VolumeView "window1.ply"}
+		}
+		{bone "exterior"
+			{Position 0.859144	0	64.0956}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "window1_x"
+			{Matrix34
+				-1	0	0
+				0	0	1
+				0	1	0
+				-10.9364	3.35917	29.5276
+			}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "attach1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				3.33522	3.35917	0
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -11.4286 1.56209}
+		{Extent 2.95276 28.5433}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center 0.382463 0.577835}
+		{Extent 8.85827 33.4646}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 5.90551 57.0866 49.2126}
+	{Bone "122_f1w4"}
+	{Position -11.4286	-1.56209	24.6063}
+}
+{Volume "hole1"
+	{Box 19.685 23.622 19.685}
+	{Bone "122_f1w4"}
+	{Position -10.9364	3.35917	29.5276}
+}
+{Volume "roof1"
+	{Box 68.0787 1.9685 24.3364}
+	{Bone "exterior"}
+	{Matrix34
+		0	1	0
+		-0.707107	0	0.707107
+		0.707107	0	0.707107
+		-6.95699	-1.37434	-5.6153
+	}
+}
+{Volume "window1"
+	{Box 1.9685 23.622 19.685}
+	{Bone "window1"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-0.492129	0	0
+	}
+}

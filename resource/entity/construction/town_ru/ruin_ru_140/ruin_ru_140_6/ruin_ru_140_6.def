@@ -1,0 +1,38 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "ruin_ru_140_6.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "no_destroyed_stamp"}
+	("armor_medium" args 1.0)
+	{obstacleID "small_building"}
+
+	{placer
+		{place "1" {attach  snipe_cover} 		{linkbone "attach1"}}
+	}
+	{boarder}
+	{mass 5000}
+
+	{Volume "body14"
+		{Tags  "body"}
+		{able {obstacle 0}}
+	}
+	{Volume "body15"
+		{Tags  "body"}
+		{able {obstacle 0}}
+	}
+	{Volume "body16"
+		{Tags  "body"}
+		{able {obstacle 0}}
+	}
+	{Volume "body26"
+		{Tags  "body"}
+		{able {holed}{obstacle 0}}
+	}
+	{Volume "body30"
+		{Tags  "body"}
+		{able {obstacle 0}}
+	}
+	{Volume "hole"
+		{Tags  "attach" "1"}
+		{able clear {hole}{touch 1}}
+	}
+}

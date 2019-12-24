@@ -1,0 +1,46 @@
+{game_entity
+	(include "/properties/construction.inc")
+  
+	{mass 30}
+	{Extension "crate.mdl"}
+
+	{props "small" "wood" "parts" "construction" "burning" "no_destroyed_stamp" "disable_area"}
+	{props "inventory_box" "spread_items"}
+
+	{ObstacleID "stuff"}
+	{extender "inventory"
+		{box
+			{weight 5000}
+			{size 8 6}
+		}
+	}
+	{Volume "box"
+		{Thickness 1}
+		{tags "fire"}
+		{tags "body"}
+		{able {obstacle 1}}
+		{able {touch}}
+	}
+	{Volume "box3"
+		{Thickness 1}
+		{tags "fire"}
+		{tags "body"}
+		{able {obstacle 0}}
+		{able {touch}}
+	}
+	{Volume "box2"
+		{Thickness 1}
+		{tags "fire"}
+		{tags "body"}
+		{able {obstacle 1}}
+		{able {touch}}
+	}
+	{Volume "box1"
+		{Thickness 1}
+		{tags "fire"}
+		{tags "body"}
+		{able {obstacle 1}}
+		{able {touch}}
+	}
+	{lodclass "decor_medium"}
+}

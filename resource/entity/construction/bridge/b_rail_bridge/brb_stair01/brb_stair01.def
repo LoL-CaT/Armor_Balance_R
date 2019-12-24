@@ -1,0 +1,35 @@
+{game_entity
+	(include "/properties/building.inc")
+	{props "concrete"}
+	{obstacleid "building"}
+	{Extension "brb_stair01.mdl"}
+
+	{Volume "ladder"
+		{Tags  "attach" "x"}
+		{able {visible 0}{bullet 0}{touch 1}}
+	}
+	{placer
+		{place "x" {NoCollect}}
+	}
+	{boarder
+		{door "emit_up" {queue} {chain "up"} {auto_release_time 1.5}}
+		{door "emit_down" {queue} {chain "down"} {auto_release_time 1.5}}
+		{node "node_ladder_bottom"}
+		{node "node_ladder_top"}
+
+		{anm "up"
+			{forward {speed 1.2} {loop "stand_upstairs"} {fix_orientation}}
+		}
+		{anm "down"
+			{forward {speed 1.2} {loop "stand_upstairs" -1} {fix_orientation}}
+		}
+
+		{link "emit_up" 			"node_ladder_top"	{anm "up"} {forward putoff} {chain "up"}}
+		{link "node_ladder_top" 	"emit_down"			{chain "up"}}
+		{link "emit_down" 			"x"					{forward puton} {chain "up"}}
+		
+		{link "emit_down"			"node_ladder_top"	{chain "down"}}
+		{link "node_ladder_top"		"emit_up"			{anm "down"} {forward putoff} {chain "down"}}
+		{link "emit_up"				"x"					{forward puton} {chain "down"}}
+	}
+}

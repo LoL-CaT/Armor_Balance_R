@@ -1,0 +1,52 @@
+{game_entity
+	(include "/properties/construction.inc")
+
+	{Extension "ladder_big.mdl"}
+	{props  "steel" "small" "construction" "parts" "no_destroyed_stamp" "disable_area"}
+	("armor_disable_damage_acc")
+
+	{placer
+		{place "1" {attach squat_lie} {linkbone "node01"}}
+		{place "2" {attach squat_lie} {linkbone "node02"}}
+	}
+	{boarder
+		{door "door" {queue 0}}
+		{node "ladder_bottom1"}
+		{node "ladder_top1"}
+		{node "node01"}
+		{node "node02"}
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 2} {loop "stand_upstairs"}}
+			{reverse	{speed 2} {loop "stand_upstairs" -1}}
+		}
+		{anm "walk"
+			{forward {speed 3}}
+			{reverse {speed 3}}
+		}
+		{link "door" "ladder_bottom1" {anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "ladder_bottom1" "ladder_top1" {anm "ladder"}}
+		{link "ladder_top1" "1" {anm "walk"}}
+		{link "ladder_top1" "2" {anm "walk"}}
+	}
+
+	{volume "attach01"
+		{able clear {touch 1} }
+		{tags "attach" "1"}
+	}
+	{volume "attach02"
+		{able clear {touch 1} }
+		{tags "attach" "2"}
+	}
+	{Volume "body"
+		{thickness	4}
+		{able {visible 0}}
+		{tags "body"}
+
+	}
+	{lodclass "decor_medium"}
+}
+

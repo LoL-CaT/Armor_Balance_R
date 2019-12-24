@@ -1,0 +1,82 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "watch_tower_1.mdl"}
+	{props "small" "cornered" "parts" "construction" "watch_tower" "wood" "burning" "disable_area" "no_destroyed_stamp"}
+
+	{Volume "object24-3"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object24-2"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object24-1"
+		{Tags  "attach,1"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object24"
+		{Tags  "body"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object23"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object17"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object04"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object03"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object02"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+	{Volume "object01"
+		{Tags  "body" "fire"}
+		{Thickness 1}
+		{able {obstacle 0} {visible 0}}
+	}
+
+	{Placer
+		{place "mgun"
+			{linkbone 	"attach"}
+			{entity 	"mg34_tower"}
+			{handlebone "basis"}
+			{turnoff {shadow}}
+		}
+	}
+	{Boarder
+		{door "emit" {queue 0}}
+		{node "node_ladder_bottom"}
+		{node "node_ladder_top"}
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 1} {loop "stand_upstairs"}}
+			{reverse	{speed 1} {loop "stand_upstairs" -1}}
+		}
+		{link "emit" "node_ladder_bottom" {anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "node_ladder_bottom" "node_ladder_top" {anm "ladder"}}
+		{link "node_ladder_top" "mgun"}
+	}
+
+}

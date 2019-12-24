@@ -1,0 +1,94 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed" "no_destroyed_stamp"}
+	("armor_heavy" args 0.8)
+	{Extension "dok_build2_top_l.mdl"}
+	{extender "structure_bone"
+		{hold "03"}
+	}
+	{placer
+		{place "2" {attach snipe_cover} {linkbone "node02"}}
+		{place "3" {attach snipe_cover} {linkbone "node03"}}
+	}
+	{boarder
+		{door "door02" {queue 0}}
+
+		{node "ladder_bottom02"}
+		{node "ladder_top02"}
+
+		{node "node02"}
+		{node "node03"}
+
+		{anm "ladder_bind"
+			{forward	{begin	"stand_climb_stairs"}}
+			{reverse	{end	"stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward	{speed 2} {loop "stand_upstairs"}}
+			{reverse	{speed 2} {loop "stand_upstairs" -1}}
+		}
+		{anm "walk"
+			{forward {speed 3}}
+			{reverse {speed 3}}
+		}
+
+		{link "door02"	 		"ladder_bottom02" 	{anm "ladder_bind"}}
+		{link "ladder_bottom02"		"ladder_top02" 		{anm "ladder"}}
+;		{link "ladder_top02"		"2"		{anm "run_slow_down_1"}}
+
+
+;	    	{link "2"	"3"				 	{anm "run_slow_down_1"}}
+
+
+	}
+	{Volume "attach02"
+		{able clear  {touch 1} }
+		{tags "attach" "2"}
+	}
+	{Volume "attach03"
+		{able clear  {touch 1} }
+		{tags "attach" "3"}
+	}
+	{Volume "window3"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "hole_window3"
+		{able clear {hole}}
+	}
+	{Volume "body492"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0} {visible 0}}
+	}
+	{Volume "body479"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0} {visible 0}}
+	}
+	{Volume "body471"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body470"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0} {visible 0}}
+	}
+	{Volume "body467"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}{obstacle 0}}
+	}
+	{Volume "body463"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body462"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{obstacle 0}}
+	}
+}

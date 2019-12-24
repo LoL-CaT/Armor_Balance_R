@@ -1,0 +1,107 @@
+{game_entity
+    (include "/properties/building.inc")
+	{props "cornered" "concrete" "parts" "construction" "wall" "windowed"}
+	("armor_medium" args 0.7)
+	{Extension "control_office_corner05.mdl"}
+	{placer
+		{place "1" {attach snipe_cover} {linkbone "node01"}}
+		{place "2" {attach snipe_cover} {linkbone "node02"}}
+		{place "3" {attach snipe_cover} {linkbone "node3"}}
+		{place "4" {attach snipe_cover} {linkbone "node4"}}
+		{place "5" {attach snipe_cover} {linkbone "node5"}}
+		{place "6" {attach snipe_cover} {linkbone "node6"}}
+		{place "7" {attach snipe_cover} {linkbone "node7"}}
+		{place "8" {attach snipe_cover} {linkbone "attach08"}}
+	}
+	{boarder
+		{door "door01" {queue} {auto_release_time 0.2}}
+		{node "ladder_top01"}
+
+		{link "door01"			"ladder_top01"	{anm "[fsm]"}}
+		
+		{link "ladder_top01"	"1"				{anm "[fsm]"}}
+		{link "ladder_top01"	"2"				{anm "[fsm]"}}
+
+	   	{link "1"				"2"			 	{anm "[fsm]"}}
+	   	{link "2"				"3"				{anm "[fsm]"}}
+	   	{link "2"				"4"				{anm "[fsm]"}}
+	   	{link "3"				"4"		 		{anm "[fsm]"}}
+	   	{link "3"				"5"		 		{anm "[fsm]"}}
+	   	{link "3"				"6"		 		{anm "[fsm]"}}
+	   	{link "3"				"7"		 		{anm "[fsm]"}}
+	   	{link "4"				"3"		 		{anm "[fsm]"}}
+	   	{link "4"				"5"		 		{anm "[fsm]"}}
+	   	{link "4"				"6"		 		{anm "[fsm]"}}
+	   	{link "4"				"7"		 		{anm "[fsm]"}}
+	   	{link "5"				"4"		 		{anm "[fsm]"}}
+	   	{link "5"				"3"		 		{anm "[fsm]"}}
+	   	{link "5"				"6"		 		{anm "[fsm]"}}
+	   	{link "5"				"7"		 		{anm "[fsm]"}}
+	   	{link "6"				"4"		 		{anm "[fsm]"}}
+	   	{link "6"				"5"		 		{anm "[fsm]"}}
+	   	{link "6"				"3"		 		{anm "[fsm]"}}
+	   	{link "6"				"7"		 		{anm "[fsm]"}}
+	   	{link "7"				"4"		 		{anm "[fsm]"}}
+	   	{link "7"				"5"		 		{anm "[fsm]"}}
+	   	{link "7"				"6"		 		{anm "[fsm]"}}
+	   	{link "7"				"3"		 		{anm "[fsm]"}}
+	}
+	{Volume "hole04"
+		{tags "attach" "8"}
+		{able clear {hole}{touch 1}}		
+	}
+	{Volume "attach7"
+		{able clear  {touch 1} }
+		{tags "attach" "7"}
+	}
+	{Volume "attach5"
+		{able clear  {touch 1} }
+		{tags "attach" "5"}
+	}
+	{Volume "attach6"
+		{able clear  {touch 1} }
+		{tags "attach" "6"}
+	}
+	{Volume "attach4"
+		{able clear  {touch 1} }
+		{tags "attach" "4"}
+	}
+	{Volume "attach3"
+		{able clear  {touch 1} }
+		{tags "attach" "3"}
+	}
+	{Volume "attach02"
+		{able clear  {touch 1} }
+		{tags "attach" "2"}
+	}
+	{Volume "attach01"
+		{able clear  {touch 1} }
+		{tags "attach" "1"}
+	}
+	{Volume "body01"
+		{able {obstacle 0}{visible 0}}
+	}
+	{Volume "body"
+	}
+	{Volume "body22"
+		{able {obstacle 0}{visible 0}}
+	}
+	{Volume "body102"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 1}{holed}}
+	}
+	{Volume "body103"
+		{Tags  "body"}
+		{Thickness 7}
+	}
+	{Volume "body104"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {obstacle 0}{visible 0}}
+	}
+	{Volume "window4"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

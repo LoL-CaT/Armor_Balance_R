@@ -1,0 +1,35 @@
+{game_entity
+	(include "/properties/building.inc")
+	{Extension "sv_f2w3.mdl"}
+	{props "cornered" "concrete" "parts" "construction" "wall" "no_destroyed_stamp" "windowed" "burning"}
+	("armor_heavy" args 0.7)
+	{mass 25000}
+
+	{extender "structure_bone"	
+		{hold "01" "02"}
+	}
+
+	{Volume "body01"
+		{Tags  "body"}
+		{Thickness 7}
+		{able {visible 0}{holed}{obstacle 0}}
+	}
+	{Volume "body02"
+		{Tags  "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "body03"
+		{Tags  "fire"}
+		{Thickness 1}
+		{able {visible 0}{obstacle 0}}
+	}
+	{Volume "hole1"
+		{able clear {hole}}
+	}
+	{Volume "window1"
+		{Tags  "fire"}
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+}

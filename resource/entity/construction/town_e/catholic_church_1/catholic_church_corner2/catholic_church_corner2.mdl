@@ -1,0 +1,224 @@
+;Exported by: sergienko
+;Date:        Fri Apr 21 17:12:22 2006
+;File:        D:\-projets1_5\3dwork\anima\construction\catholic_church\Catholic_church_gals_new02.max
+{Skeleton
+	{bone "church_corner2"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "church_corner2.ply"}
+		{bone "window1"
+			{Position 37.7503	31.9495	38.2713}
+			{VolumeView "window1.ply"}
+			{bone "fx_glass1"
+				{Position 5.65515	0.0123596	1.55178}
+			}
+		}
+		{bone "window1_x"
+			{Position 36.7518	31.8856	38.2713}
+			{visibility 0}
+			{VolumeView "window1_x.ply"}
+		}
+		{bone "window2"
+			{Position 37.7503	-26.7428	38.2713}
+			{VolumeView "window2.ply"}
+			{bone "fx_glass2"
+				{Position 5.65515	0.0123596	1.55178}
+			}
+		}
+		{bone "window2_x"
+			{Position 36.7518	-26.8067	38.2713}
+			{visibility 0}
+			{VolumeView "window2_x.ply"}
+		}
+		{bone "attach1"
+			{Position 5.47363	31.6951	0}
+		}
+		{bone "attach2"
+			{Position 5.47363	-27.6713	0}
+		}
+		{bone "exterior"
+			{parameters "exterior;"}
+			{Position -0.787354	4.3898	0}
+			{VolumeView "exterior.ply"}
+			{bone "fix2"
+				{Position 32.7482	6.58884	74.8994}
+			}
+		}
+		{bone "fix1"
+			{Position 0	3.05176e-005	-18.2087}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 34.5129 3.83632}
+		{Extent 4.42019 61.487}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -4.49591 62.2476}
+		{Extent 43.6558 4.42019}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Obstacle "body3"
+	{Obb2
+		{Center -31.2155 9.1449}
+		{Extent 15.1371 11.7436}
+		{Axis 1 0}
+	}
+	{Rotate}
+	{Tags  "body"}
+}
+{Area "interior"
+	{Obb2
+		{Center -7.73462 -7.70325}
+		{Extent 36.8119 64.216}
+		{Axis -1 0}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 122.974 78.6694 8.84036}
+	{Bone "church_corner2"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		34.5129	-3.83632	39.2454
+	}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "church_corner2"}
+	{Matrix34
+		1	0	0
+		0	0	1
+		0	-1	0
+		-4.49591	-60.9813	110.982
+	}
+}
+{Volume "body3"
+	{Polyhedron "body3.vol"}
+	{Bone "church_corner2"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		-31.2155	-9.14491	8.25498
+	}
+}
+{Volume "fire0"
+	{Box 6.53746 25.198 6.82426}
+	{Bone "church_corner2"}
+	{Matrix34
+		0.0059636	0	0.999982
+		-0.999982	0	0.0059636
+		0	-1	0
+		-11.7997	2.00062	127.627
+	}
+}
+{Volume "fire1"
+	{Box 161.949 119.987 3.40512}
+	{Bone "exterior"}
+	{Matrix34
+		0.545871	0	-0.837869
+		0	1	0
+		0.837869	0	0.545871
+		6.2337	-8.75562	148.702
+	}
+}
+{Volume "fire2"
+	{Box 6.53746 100.769 6.82426}
+	{Bone "church_corner2"}
+	{Position 4.49255	-3.98224	129.648}
+}
+{Volume "fire3"
+	{Box 6.53746 152.53 6.82426}
+	{Bone "church_corner2"}
+	{Matrix34
+		0.841131	0	0.540832
+		-0.540832	0	0.841131
+		0	-1	0
+		2.58678	-52.8821	140.118
+	}
+}
+{Volume "fire4"
+	{Box 6.53746 135.752 6.82426}
+	{Bone "church_corner2"}
+	{Matrix34
+		0.841131	0	0.540832
+		-0.540832	0	0.841131
+		0	-1	0
+		8.40758	3.08269	131.392
+	}
+}
+{Volume "fire6"
+	{Box 3.99492 18.6824 29.7702}
+	{Bone "church_corner2"}
+	{Position 36.5483	-26.9007	36.1734}
+}
+{Volume "fire7"
+	{Box 3.99492 18.6824 29.7702}
+	{Bone "church_corner2"}
+	{Position 35.6005	32.0172	36.1734}
+}
+{Volume "hole1"
+	{Box 18.7135 32.4805 32.0761}
+	{Bone "church_corner2"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		35.6369	31.9506	37.2246
+	}
+}
+{Volume "hole2"
+	{Box 18.7135 32.4805 32.0761}
+	{Bone "church_corner2"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		35.6369	-27.4158	37.2246
+	}
+}
+{Volume "roof"
+	{Box 129.817 163.336 2.74051}
+	{Bone "exterior"}
+	{Matrix34
+		0	1	0
+		-0.545607	0	0.838041
+		0.838041	0	0.545607
+		5.72805	-14.0679	149.974
+	}
+}
+{Volume "smoke0"
+	{Box 3.99492 18.6824 29.7702}
+	{Bone "church_corner2"}
+	{Position 37.0119	-26.9007	36.1734}
+}
+{Volume "smoke1"
+	{Box 3.99492 18.6824 29.7702}
+	{Bone "church_corner2"}
+	{Position 36.8086	32.063	36.1734}
+}
+{Volume "window1"
+	{Box 4.77198 21.0402 35.7475}
+	{Bone "window1"}
+	{Position -0.450308	-0.146765	0.149855}
+}
+{Volume "window2"
+	{Box 4.77198 21.0402 35.7475}
+	{Bone "window2"}
+	{Position -0.450336	-0.146758	0.149855}
+}
