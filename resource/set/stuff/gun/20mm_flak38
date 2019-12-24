@@ -1,0 +1,35 @@
+﻿{from "pattern gun"	; Panzerflak, SdKfz-10/5, Flak-38, Flak-37
+	{filling "bullet20x138b" 20}
+	{fireSound "gun/20mm_burst/"}
+	{reloadSound "flak38"}
+	
+	{rechargeTime 3}
+	("recoveryTime" r(450))
+	{Automatic}
+	{burst
+		{min 1}
+		{short 2.5 1}
+		{long 7 2}
+	}
+
+	("accuracy_autocannon")
+        ("range_autocannon")
+	("speed" s(830))
+	("caliber_zenite")
+		    {calibre 20} 	
+	{projectileDamage 8}
+	("damage" a(40) b(25) c(19) d(14) e(11))
+    {parameters "apcr"
+		{cursor "cannon_on_apcr"}
+		{cursorReloading "cannon_reload_apcr"}
+        ("damage" a(68) b(26) c(8) d(3) e(1))   
+;		("speed" s(1050))
+	}
+	
+	{parameters "fg"
+		{cursor "cannon_on_fg"}
+		{cursorReloading "cannon_reload_fg"}
+	}
+
+	{desc "2 cm FlaK 38 L/65 (ЭДС 105)"}
+}

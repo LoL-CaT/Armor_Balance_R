@@ -1,0 +1,243 @@
+;----- Squads -----
+
+
+
+
+;°°°generic°°°
+
+(define "generic_vi"
+    {charge %c}
+    {tags "%t"}
+    {group "%g"}
+    {button "%b"}
+)
+
+;°°°Mechanized infantry°°°
+(define "vb3"
+    ("generic_vi" c(%c) t(%t %s) g(%g) i(%i) b(%b))
+    {content "%c1 ( mp/%s/sturmovik:%n1 mp/%s/sturmovik2:%n2 mp/%s/sturmovik3:%n3)"}
+)
+(define "vb3-2"
+    ("generic_vi" c(%c) t(%t %s) g(%g) i(%i) b(%b))
+    {content "%c1 ( mp/%s/grenadierss:%n1 mp/%s/grenadierss2:%n2 mp/%s/grenadierss3:%n3)"}
+)
+(define "vb4"
+    ("generic_vi" c(%c) t(%t %s) g(%g) i(%i) b(%b))
+    {content "%c1 ( mp/%s/sturmovik:%n1 mp/%s/sturmovik2:%n2 mp/%s/sturmovik3:%n3 mp/%s/sturmovik4:%n4 )"}
+)
+
+
+
+;°°°Squads define°°°
+
+(define "squad_with1types"
+	{"%name(%side)"
+		{charge %c}
+		{content "mp/%side/%c1"}
+		{tags "frontline_cp infantry %side %t"}
+		{group "%g"}
+		{button "%b"}
+		{cost %cost}
+		{fore %f}
+	}
+)
+
+(define "squad_with2types"
+	{"%name(%side)"
+		{charge %c}
+		{content "mp/%side/%c1 mp/%side/%c2"}
+		{tags "frontline_cp infantry %side %t"}
+		{group "%g"}
+		{button "%b"}
+		{cost %cost}
+		{fore %f}
+	}
+)
+
+(define "squad_with3types"
+	{"%name(%side)"
+		{charge %c}
+		{content "mp/%side/%c1 mp/%side/%c2 mp/%side/%c3"}
+		{tags "frontline_cp infantry %side %t"}
+		{group "%g"}
+		{button "%b"}
+		{cost %cost}
+		{fore %f}
+	}
+)
+
+(define "squad_with4types"
+	{"%name(%side)"
+		{charge %c}
+		{content "mp/%side/%c1 mp/%side/%c2 mp/%side/%c3 mp/%side/%c4"}
+		{tags "frontline_cp infantry %side %t"}
+		{group "%g"}
+		{button "%b"}
+		{cost %cost}
+		{fore %f}
+	}
+)
+
+(define "squad_with5types"
+	{"%name(%side)"
+		{charge %c}
+		{content "mp/%side/%c1 mp/%side/%c2 mp/%side/%c3 mp/%side/%c4 mp/%side/%c5"}
+		{tags "frontline_cp infantry %side %t"}
+		{group "%g"}
+		{button "%b"}
+		{cost %cost}
+		{fore %f}
+	}
+)
+
+
+
+
+;°°°Squads°°°
+
+;("squad_with2types" side(rus) name(home_guards) c(1) g(squad_1) c1(home_guard:8) c2(home_guard2:2) b(squad1) t(all inf_only) cost(20) f(1)) ; начало 38
+;("squad_with3types" side(ger) name(home_guards) c(1) g(squad_1) c1(home_guard:8) c2(home_guard2:1) c3(home_guard3:1) b(squad1) t(all inf_only) cost(25) f(1)) ; начало 38
+;("squad_with2types" side(usa) name(home_guards) c(1) g(squad_1) c1(home_guard:8) c2(home_guard2:2) b(squad1) t(all inf_only) cost(20) f(1)) ; начало 38
+;("squad_with1types" side(eng) name(home_guards) c(1) g(squad_1) c1(home_guard:10) b(squad1) t(all inf_only) cost(25) f(1)) ; начало 38
+;("squad_with2types" side(jap) name(home_guards) c(1) g(squad_1) c1(home_guard:8) c2(home_guard2:2) b(squad1) t(all inf_only) cost(15) f(1)) ; начало 38
+
+;("squad_with5types" side(rus) name(smgs) c(1) g(squad_2) c1(squadleader2:1) c2(rifle2:1) c3(smg2:6) c4(rifle4:1) c5(mgun:1) b(squad1) t(all inf_only) cost(30) f(-1800.0)) ; начало 41
+;("squad_with4types" side(ger) name(smgs) c(1) g(squad_2) c1(squadleader:1) c2(rifle2:6) c3(smg2:1) c4(mgun2:2) b(squad1) t(all inf_only) cost(35) f(-1800)) ; начало 41
+;("squad_with4types" side(usa) name(smgs) c(1) g(squad_2) c1(squadleader2:1) c2(rifle2:3) c3(smg2:3) c4(rifle3:3) b(squad1) t(all inf_only) cost(35) f(1)) ; начало 38
+;("squad_with3types" side(eng) name(smgs) c(1) g(squad_2) c1(squadleader2:1) c2(rifle2:7) c3(smg2:2) b(squad1) t(all inf_only) cost(30) f(-1800.0)) ; начало 41
+;("squad_with3types" side(jap) name(smgs) c(1) g(squad_2) c1(squadleader2:1) c2(rifle2:9) c3(smg2:0) b(squad1) t(all inf_only) cost(25) f(-2700.0)) ; начало 42
+
+;("squad_with5types" side(rus) name(riflemans) c(60) g(squad_3) c1(squadleader:1) c2(rifle:2) c3(smg:4) c4(mgun:1) c5(rifle4:2) b(squad1) t(all inf_only) cost(47) f(-44.0)) ; начало 42
+;("squad_with5types" side(ger) name(riflemans) c(60) g(squad_3) c1(squadleader:1) c2(rifle:5) c3(smg:1) c4(mgun:2) c5(rifle3:1) b(squad1) t(all inf_only) cost(55) f(-44.0)) ; начало 42
+;("squad_with5types" side(usa) name(riflemans) c(60) g(squad_3) c1(squadleader:1) c2(rifle:4) c3(smg:1) c4(mgun:1) c5(rifle3:3) b(squad1) t(all inf_only) cost(55) f(1)) ; начало 38
+;("squad_with4types" side(eng) name(riflemans) c(60) g(squad_3) c1(squadleader2:1) c2(rifle:6) c3(smg:2) c4(mgun:1) b(squad1) t(all inf_only) cost(53) f(-29.0)) ; начало 41
+;("squad_with4types" side(jap) name(riflemans) c(60) g(squad_3) c1(squadleader:1) c2(rifle:8) c3(smg:0) c4(mgun:1) b(squad1) t(all inf_only) cost(43) f(-44.0)) ; начало 42
+
+;("squad_with4types" side(ger) name(volksgrenadiers) c(30) g(squad_3) c1(squadleader3:1) c2(rifle3:6) c3(smg3:2) c4(mgun2:1) b(squad1) t(all inf_only) cost(135) f(-0.5))
+
+
+
+;("squad_with3types" side(rus) name(elites) c(120) g(squad_4) c1(elite:1) c2(elite2:1) c3(elite3:8) b(squad1) t(all inf_only squads_cap_rus) cost(75) f(-21.5)) ; начало 42
+;("squad_with3types" side(ger) name(elites) c(120) g(squad_4) c1(elite:5) c2(elite2:3) c3(elite3:2) b(squad1) t(all inf_only squads_cap_ger) cost(70) f(-21.5)) ; начало 42
+;("squad_with3types" side(usa) name(elites) c(120) g(squad_4) c1(elite:6) c2(elite2:2) c3(elite3:2) b(squad1) t(all inf_only squads_cap_usa) cost(65) f(-21.5)) ; начало 42
+;("squad_with3types" side(eng) name(elites) c(120) g(squad_4) c1(elite:4) c2(elite2:3) c3(elite3:3) b(squad1) t(all inf_only squads_cap_eng) cost(70) f(-21.5)) ; начало 42
+;("squad_with3types" side(jap) name(elites) c(120) g(squad_4) c1(elite:5) c2(elite2:3) c3(elite3:2) b(squad1) t(all inf_only squads_cap_jap) cost(65) f(-21.5)) ; начало 42
+
+
+;("squad_with4types" side(rus) name(stormtroopers) c(240) g(squad_5) c1(sturmovik:6) c2(sturmovik2:2) c3(sturmovik3:2) c4(sturmovik4:0) b(squad1) t(all inf_only) cost(90) f(-14)) ; начало 43
+;("squad_with4types" side(ger) name(stormtroopers) c(240) g(squad_5) c1(sturmovik:6) c2(sturmovik2:2) c3(sturmovik3:2) c4(sturmovik4:0) b(squad1) t(all inf_only) cost(90) f(-17.75)) ; начало 44
+;("squad_with5types" side(usa) name(stormtroopers) c(240) g(squad_5) c1(sturmovik:5) c2(sturmovik2:2) c3(sturmovik3:2) c4(sturmovik4:0) c5(sturmovik5:1) b(squad1) t(all inf_only) cost(90) f(-18.75)) ; начало 44
+;("squad_with4types" side(eng) name(stormtroopers) c(240) g(squad_5) c1(sturmovik:6) c2(sturmovik2:2) c3(sturmovik3:1) c4(sturmovik4:1) b(squad1) t(all inf_only) cost(85) f(-10.25)) ; начало 42
+;("squad_with4types" side(jap) name(stormtroopers) c(240) g(squad_5) c1(sturmovik:6) c2(sturmovik2:2) c3(sturmovik3:2) c4(sturmovik4:0) b(squad1) t(all inf_only) cost(75) f(-10.25)) ; начало 42
+  
+  ("squad_with1types" side(rus) name(stormtroopers1) c(1) g(squad_6) b(squad1) c1(un_bot:1) t(all inf_only) cost(2) f(1)) ; 
+  ("squad_with1types" side(ger) name(stormtroopers1) c(1) g(squad_6) b(squad1) c1(un_bot:1) t(all inf_only) cost(2) f(1)) ;  
+  ("squad_with1types" side(usa) name(stormtroopers1) c(1) g(squad_6) b(squad1) c1(un_bot:1) t(all inf_only) cost(2) f(1)) ;
+  ("squad_with1types" side(eng) name(stormtroopers1) c(1) g(squad_6) b(squad1) c1(un_bot:1) t(all inf_only) cost(2) f(1)) ;
+  ("squad_with1types" side(jap) name(stormtroopers1) c(1) g(squad_6) b(squad1) c1(un_bot:1) t(all inf_only) cost(2) f(1)) ; 
+
+;{"storm_mech_rus"      ("vb3" c(240) c1(np_m3) 		    t(all inf_only) s(rus) n1(6) n2(2) n3(2) 		g(squad_7) b(squad1)) {cost 115} {fore -14}} ; начало 43
+;{"storm_mech_ger"      ("vb3" c(240) c1(np_sdkfz251_1) 	t(all inf_only) s(ger) n1(6) n2(2) n3(2) 		g(squad_7) b(squad1)) {cost 120} {fore -17.75}} ; начало 44
+;{"storm_mech_usa"      ("vb3" c(240) c1(np_m3_us)    	t(all inf_only) s(usa) n1(6) n2(2) n3(2) 		g(squad_7) b(squad1)) {cost 120} {fore -10.25}} ; начало 42
+;{"storm_mech_eng"      ("vb4" c(240) c1(m3_eng) 	    t(all inf_only) s(eng) n1(6) n2(2) n3(1) n4(1)  g(squad_7) b(squad1)) {cost 105} {fore -10.25}} ; начало 42 
+;{"storm_mech_jap"      ("vb3" c(240) c1(ho-ha3mgun) 	t(all inf_only) s(jap) n1(6) n2(2) n3(2) 		g(squad_7) b(squad1)) {cost 85} {fore -17.75}} ; начало 44
+
+;{"storm_mech_ger2"     ("vb3-2" c(30) c1(sdkfz251) 	t(all inf_only) s(ger) n1(5) n2(2) n3(2) 		g(squad_7) b(squad1)) {cost 320} {fore -1.1}}
+
+
+
+;("squad_with1types" side(rus) name(ap_miners) c(120) g(squad_8) c1(ap_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+;("squad_with1types" side(ger) name(ap_miners) c(120) g(squad_8) c1(ap_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+;("squad_with1types" side(usa) name(ap_miners) c(120) g(squad_8) c1(ap_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+;("squad_with1types" side(eng) name(ap_miners) c(120) g(squad_8) c1(ap_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+;("squad_with1types" side(jap) name(ap_miners) c(120) g(squad_8) c1(ap_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+
+;("squad_with1types" side(rus) name(at_miners) c(120) g(squad_9) c1(at_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+;("squad_with1types" side(ger) name(at_miners) c(120) g(squad_9) c1(at_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+;("squad_with1types" side(usa) name(at_miners) c(120) g(squad_9) c1(at_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+;("squad_with1types" side(eng) name(at_miners) c(120) g(squad_9) c1(at_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+;("squad_with1types" side(jap) name(at_miners) c(120) g(squad_9) c1(at_miner:4) b(squad1) t(all inf_only) cost(50) f(1))
+
+;("squad_with1types" side(rus) name(sappers) c(120) g(squad_10) c1(saper:2) b(squad1) t(all inf_only) cost(4) f(1))
+;("squad_with1types" side(ger) name(sappers) c(120) g(squad_10) c1(saper:2) b(squad1) t(all inf_only) cost(4) f(1))
+;("squad_with1types" side(usa) name(sappers) c(120) g(squad_10) c1(saper:2) b(squad1) t(all inf_only) cost(4) f(1))
+;("squad_with1types" side(eng) name(sappers) c(120) g(squad_10) c1(saper:2) b(squad1) t(all inf_only) cost(4) f(1))
+;("squad_with1types" side(jap) name(sappers) c(120) g(squad_10) c1(saper:2) b(squad1) t(all inf_only) cost(4) f(1))
+
+
+
+;°°°Single Soldiers°°°
+
+;("squad_with1types" side(rus) name(riflemans2) c(60) g(soldier_1) c1(rifle:1) b(squad2) t(all inf_only) cost(15) f(1)) ; начало 38
+;("squad_with1types" side(ger) name(riflemans2) c(60) g(soldier_1) c1(rifle:1) b(squad2) t(all inf_only) cost(20) f(1)) ; начало 38
+;("squad_with1types" side(usa) name(riflemans2) c(60) g(soldier_1) c1(rifle3:1) b(squad2) t(all inf_only) cost(15) f(1)) ; начало 38
+;("squad_with1types" side(eng) name(riflemans2) c(60) g(soldier_1) c1(rifle:1) b(squad2) t(all inf_only) cost(15) f(1)) ; начало 38
+;("squad_with1types" side(jap) name(riflemans2) c(60) g(soldier_1) c1(rifle:1) b(squad2) t(all inf_only) cost(15) f(1)) ; начало 38
+
+;("squad_with1types" side(rus) name(smgs2) c(60) g(soldier_2) c1(smg:1) b(squad2) t(all inf_only) cost(15) f(-29)) ; начало 41
+;("squad_with1types" side(ger) name(smgs2) c(60) g(soldier_2) c1(smg:1) b(squad2) t(all inf_only) cost(20) f(1)) ; начало 38
+;("squad_with1types" side(usa) name(smgs2) c(60) g(soldier_2) c1(smg:1) b(squad2) t(all inf_only) cost(15) f(1)) ; начало 38
+;("squad_with1types" side(eng) name(smgs2) c(60) g(soldier_2) c1(smg:1) b(squad2) t(all inf_only) cost(15) f(-29)) ; начало 41
+;("squad_with1types" side(jap) name(smgs2) c(60) g(soldier_2) c1(smg:1) b(squad2) t(all inf_only) cost(15) f(-44)) ; начало 42
+
+;("squad_with1types" side(rus) name(mgs2) c(60) g(soldier_3) c1(mgun:1) b(squad2) t(all inf_only) cost(20) f(1)) ; начало 38
+;("squad_with1types" side(ger) name(mgs34) c(60) g(soldier_3) c1(mgun2:1) b(squad2) t(all inf_only) cost(30) f(1)) ; начало 38
+;("squad_with1types" side(ger) name(mgs2) c(60) g(soldier_4) c1(mgun:1) b(squad2) t(all inf_only) cost(60) f(-44)) ; начало 42
+;("squad_with1types" side(usa) name(mgs2) c(60) g(soldier_3) c1(mgun:1) b(squad2) t(all inf_only) cost(20) f(1)) ; начало 38
+;("squad_with1types" side(eng) name(mgs2) c(60) g(soldier_3) c1(mgun:1) b(squad2) t(all inf_only) cost(20) f(1)) ; начало 38
+;("squad_with1types" side(jap) name(mgs2) c(60) g(soldier_3) c1(mgun:1) b(squad2) t(all inf_only) cost(18) f(1)) ; начало 38
+
+
+;("squad_with2types" side(rus) name(at_rifles4) c1(at_rifle4:1) c2(at_rifle4:1)  c(60) g(soldier_4) b(squad2) t(all inf_only) cost(5)  f(1)) ; начало 39
+;("squad_with2types" side(rus) name(at_rifles2) c1(at_rifle2:1) c2(at_rifle2:1)  c(60) g(soldier_5) b(squad2) t(all inf_only) cost(5)  f(-14)) ; начало 40
+;("squad_with2types" side(rus) name(at_rifles)  c1(at_rifle:1)  c2(at_rifle:1)   c(60) g(soldier_6) b(squad2) t(all inf_only) cost(3)  f(-29)) ; начало 41
+;("squad_with2types" side(rus) name(at_rifles3) c1(at_rifle3:1) c2(at_rifle3:1)  c(60) g(soldier_7) b(squad2) t(all inf_only) cost(6)  f(-14)) ; начало 40
+;("squad_with2types" side(ger) name(at_rifles)  c1(at_rifle:1)  c2(at_rifle2:1)  c(60) g(soldier_5) b(squad2) t(all inf_only) cost(5)  f(1)) ; начало 35
+;("squad_with2types" side(ger) name(gzb_rifles) c1(gzb_rifle:1) c2(gzb_rifle2:1) c(60) g(soldier_6) b(squad2) t(all inf_only) cost(5) f(-14)) ; начало 40
+;("squad_with1types" side(usa) name(shotguns)   c1(shotgun:9)                    c(15) g(soldier_4) b(squad2) t(all inf_only) cost(5) f(1)) ; начало 35
+;("squad_with2types" side(usa) name(at_rifles)  c1(at_rifle:1)  c2(at_rifle:1)   c(60) g(soldier_5) b(squad2) t(all inf_only) cost(5) f(1)) ; начало 36
+;("squad_with2types" side(eng) name(at_rifles)  c1(at_rifle:1)  c2(at_rifle:1)   c(60) g(soldier_4) b(squad2) t(all inf_only) cost(3)  f(1)) ; начало 37
+;("squad_with2types" side(eng) name(at_rifles2) c1(at_rifle2:1) c2(at_rifle2:1)  c(60) g(soldier_5) b(squad2) t(all inf_only) cost(5) f(-14)) ; начало 40
+;("squad_with2types" side(jap) name(at_rifles)  c1(at_rifle:1)  c2(at_rifle:1)   c(60) g(soldier_4) b(squad2) t(all inf_only) cost(5)  f(1)) ; начало 37
+;("squad_with2types" side(jap) name(at_rifles2) c1(at_rifle2:1) c2(at_rifle2:1)  c(60) g(soldier_5) b(squad2) t(all inf_only) cost(5) f(1)) ; начало 39
+
+;("squad_with2types" side(rus) name(bazookers) c1(bazooker:1) c2(bazooker:1) c(60) g(soldier_8) b(squad2) t(all inf_only) cost(10) f(-44.0)) ; начало 42
+;("squad_with2types" side(rus) name(bazookers2) c1(bazooker2:1) c2(bazooker2:1) c(60) g(soldier_9) b(squad2) t(all inf_only) cost(16) f(-74.0)) ; начало 44
+;("squad_with2types" side(ger) name(bazookers) c1(bazooker:1) c2(bazooker:1) c(60) g(soldier_7) b(squad2) t(all inf_only) cost(16) f(-59.0)) ; начало 43
+;("squad_with2types" side(usa) name(bazookers) c1(bazooker:1) c2(bazooker:1) c(60) g(soldier_6) b(squad2) t(all inf_only) cost(15) f(-44.0)) ; начало 42
+;("squad_with2types" side(eng) name(bazookers) c1(bazooker:1) c2(bazooker:1) c(60) g(soldier_6) b(squad2) t(all inf_only) cost(15) f(-44.0)) ; начало 42
+;("squad_with2types" side(jap) name(bazookers) c1(bazooker:1) c2(bazooker:1) c(60) g(soldier_6) b(squad2) t(all inf_only) cost(15) f(-74.0)) ; начало 44
+
+;("squad_with1types" side(rus) name(tankmans) c(30) g(soldier_10) c1(tankman:4) b(squad2) t(all inf_only tankmans) cost(6) f(-1))
+;("squad_with1types" side(ger) name(tankmans) c(30) g(soldier_8) c1(tankman:4) b(squad2) t(all inf_only tankmans) cost(5) f(-1))
+;("squad_with1types" side(usa) name(tankmans) c(30) g(soldier_7) c1(tankman:4) b(squad2) t(all inf_only tankmans) cost(6) f(-1))
+;("squad_with1types" side(eng) name(tankmans) c(30) g(soldier_7) c1(tankman:4) b(squad2) t(all inf_only tankmans) cost(5) f(-1))
+;("squad_with1types" side(jap) name(tankmans) c(30) g(soldier_7) c1(tankman:4) b(squad2) t(all inf_only tankmans) cost(3) f(-1))
+
+
+
+;("squad_with2types" side(rus) name(flamers) c(120) g(soldier_11) c1(flamer:1) c2(flamer:1) b(squad2) t(all flamer inf_only) cost(8) f(0))
+;("squad_with2types" side(ger) name(flamers) c(120) g(soldier_9) c1(flamer:1) c2(flamer:1) b(squad2) t(all flamer inf_only) cost(8) f(0))
+;("squad_with2types" side(usa) name(flamers) c(120) g(soldier_8) c1(flamer:1) c2(flamer:1) b(squad2) t(all flamer inf_only) cost(8) f(0))
+;("squad_with2types" side(eng) name(flamers) c(120) g(soldier_8) c1(flamer:1) c2(flamer:1) b(squad2) t(all flamer inf_only) cost(8) f(0))
+;("squad_with2types" side(jap) name(flamers) c(120) g(soldier_8) c1(flamer:1) c2(flamer:1) b(squad2) t(all flamer inf_only) cost(8) f(0))
+
+;("squad_with1types" side(rus) name(snipers) c(900) g(soldier_12) c1(sniper:1) b(squad2) t(all sniper inf_only) cost(140) f(0))
+;("squad_with1types" side(ger) name(snipers) c(900) g(soldier_10) c1(sniper:1) b(squad2) t(all sniper inf_only) cost(140) f(0))
+;("squad_with1types" side(usa) name(snipers) c(900) g(soldier_9) c1(sniper:1) b(squad2) t(all sniper inf_only) cost(140) f(0))
+;("squad_with1types" side(eng) name(snipers) c(900) g(soldier_9) c1(sniper:1) b(squad2) t(all sniper inf_only) cost(140) f(0))
+;("squad_with1types" side(jap) name(snipers) c(900) g(soldier_9) c1(sniper:1) b(squad2) t(all sniper inf_only) cost(140) f(0))
+
+;("squad_with1types" side(rus) name(officers) c(120) g(soldier_13) c1(oficer:1) b(squad2) t(all officer inf_only) cost(1) f(-1))
+;("squad_with1types" side(ger) name(officers) c(120) g(soldier_11) c1(oficer:1) b(squad2) t(all officer inf_only) cost(1) f(-1))
+;("squad_with1types" side(usa) name(officers) c(120) g(soldier_10) c1(oficer:1) b(squad2) t(all officer inf_only) cost(1) f(-1))
+;("squad_with1types" side(eng) name(officers) c(120) g(soldier_10) c1(oficer:1) b(squad2) t(all officer inf_only) cost(1) f(-1))
+;("squad_with1types" side(jap) name(officers) c(120) g(soldier_10) c1(oficer:1) b(squad2) t(all officer inf_only) cost(1) f(-1))
+
+
+
+;("squad_with1types" side(rus) name(snipers_d) c(0) g(soldier_14) c1(sniper:1) b(squad2) t(sniper_duell) cost(200) f(-1))
+;("squad_with1types" side(ger) name(snipers_d) c(0) g(soldier_12) c1(sniper2:1) b(squad2) t(sniper_duell) cost(200) f(-1))
+;("squad_with1types" side(usa) name(snipers_d) c(0) g(soldier_11) c1(sniper:1) b(squad2) t(sniper_duell) cost(200) f(-1))
+;("squad_with1types" side(eng) name(snipers_d) c(0) g(soldier_11) c1(sniper:1) b(squad2) t(sniper_duell) cost(200) f(-1))
+;("squad_with1types" side(jap) name(snipers_d) c(0) g(soldier_11) c1(sniper:1) b(squad2) t(sniper_duell) cost(200) f(-1))

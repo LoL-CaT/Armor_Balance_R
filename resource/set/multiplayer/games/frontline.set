@@ -1,0 +1,104 @@
+{game
+	{teammatch}
+	{parameters "freezeTime=2:180,4:180,6:180;bonusTime=1;flag_time=24;flag_time_small=8;score_time=0;score_flag=500;score_phase=2000;score_defBonus=0.25"}
+	{settings
+		{options 			gameDuration enableSpectators}
+		{optionsAdvanced 	friendlyFire fogOfWar showPiercing showDamageReports useUnitLevelRestrictions}
+		{optionsRanked 		}
+		{fogOfWar 			fog_realistic}
+		{difficulty 		multiplayer}
+		{gameDuration 		"25 min"} ; min
+		{impregnableTimeout	5}	; sec
+		{floraRespawn		0}
+		{friendlyFire}
+		{showPiercing}
+		{showDamageReports}
+		{useUnitLevelRestrictions 0}
+;		{enableBots}
+	}
+	{teamSettings
+		{teamsMode normal}
+		{armySelectionMode alliance}
+		{teams
+			{"a"}
+			{"b"}
+		}
+		{alliances
+			(include "preset_alliances.inc")
+		}
+	}
+	{presets
+		{"vehicles"
+			{unitMode "vehicles"}
+			{teams
+				{a
+					{unitset
+						{value "all|deminer^heavy|heavyart|sheavy|mines|arcade"}
+					}	
+					{commandPoints "*=180"}
+;					{unitLimits "flamer=3;sniper=2;officer=1;heavyaa=1;artillery=2"}
+					{balancingFactorBonus {cp 1.0} {mp 1.0} }
+					{chargeFactors 
+						{value "hero=0.90;engineers=0.50;*=1.0;"}
+					}
+					{budgets
+						{vehicle
+							{mode "with_update"}
+							{resource
+								{start 		5000}
+								{finish 	5000}
+								{speed 		500}
+								{period 	180}
+							} 
+				                        {buttons "squad1 squad2 v1 v2 v3 v4 v5 v6 v7 v8 v9 v10"}
+						}
+						{hero
+							{resource 
+								{start 		100}
+							} 
+							{buttons "hero"}
+							{tag "special"}
+						}
+					}
+					{bots
+						(include "bots_generic.inc")
+					}
+				}
+				{b
+					{unitset 
+						{value "all^heavy|heavyart|sheavy|arcade"}
+					}
+					{commandPoints "*=140"}
+;					{unitLimits "flamer=3;sniper=2;officer=1;heavyaa=1"}
+					{balancingFactorBonus {cp 1.0} {mp 1.0} }
+					{chargeFactors 
+						{value "hero=1.00;engineers=0.50;*=1.0;"}
+					}
+					{budgets
+						{vehicle
+							{mode "standard"}   
+							{resource 
+								{start 		2000}
+								{finish 	2000}
+								{restoreBegin 	0.50}	; points per sec
+								{restoreEnd 	0.50}	; points per sec
+							}
+				                        {buttons "squad1 squad2 v1 v2 v3 v4 v5 v6 v7 v8 v9 v10"}
+						}
+						{hero
+							{resource 
+								{start 		100}
+							} 
+							{buttons "hero"}
+							{tag "special"}
+						}
+					}
+					{bots
+						(include "bots_generic.inc")
+					}
+				}
+			}
+			{ranked}
+		}
+	}
+}

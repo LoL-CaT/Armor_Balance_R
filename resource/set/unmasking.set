@@ -1,0 +1,368 @@
+{unmasking
+
+{profile "soldier_rochefort"
+    {rule                     ; ranged
+        {true}
+        {range 7 20}
+        {time 100 150}
+    }
+    {rule                     ; runing
+        {speed 10}
+        {range 7 30}
+        {time 5 10}
+    }
+
+    {rule                     ; strange behavoiur
+        {or 
+            {pose "move down"}
+            {pose "repair"} 
+        }
+        {instant 3}
+        {range 5 30}
+        {time 1 20}
+    }
+    {rule                     ; strange behavoiur
+        {or 
+            {pose "aim"} 
+        }
+        {instant 5}
+        {range 10 30}
+        {time 2 5}
+    }
+    {rule                     ; strange behavoiur
+        {examine}
+        {instant 3}
+        {range 5 25}
+        {time 2 10}
+    }
+    {rule                     ; strange behavoiur
+        {pose "throw"} 
+        {instant 3}
+        {range 10 35}
+        {time 2 5}
+    }
+    {rule                   ; worker with weapon
+        {and
+            {item "weapon"}
+            {skin "worker"}
+        }
+        {range 5 30}
+        {time 4 8}
+    }
+    {rule                   ; worker with weapon
+        {and
+            {item "weapon"}
+        }
+        {range 5 30}
+        {time 4 8}
+    }
+    {rule                     ; strange-items
+        {or
+           {item "mine"}
+           {item "dynamite"}
+           {item "matchbox"}
+           {item "sharp_edge"}
+        }
+        {instant 5}
+        {range 5 25}
+        {time 3 20}
+    }                
+}
+
+{profile "antispy_rochefort"
+    {rule                     ; ranged
+        {true}
+        {instant 4}
+        {range 5 15}
+        {time 15 120}
+    }
+ 
+    {rule                     ; runing
+        {speed 10}
+        {range 5 35}
+        {time 4 8}
+    }
+
+    {rule                     ; strange behavoiur
+        {or 
+            {pose "board"} 
+            {pose "move down"}
+            {pose "repair"} 
+        }
+        {instant 5}
+        {range 10 30}
+        {time 1 30}
+    }
+
+    {rule                     ; strange behavoiur
+        {or 
+            {pose "aim"} 
+            {pose "throw"} 
+        }
+        {instant 5}
+        {range 10 30}
+        {time 1 5}
+    }
+
+    {rule                     ; strange behavoiur
+        {examine}
+        {instant 3}
+        {range 5 25}
+        {time 2 8}
+    }
+
+    {rule                     ; strange-items
+        {or
+           {item "mine"}
+           {item "dynamite"}
+           {item "matchbox"}
+           {item "sharp_edge"}
+        }
+        {instant 5}
+        {range 5 25}
+        {time 3 15}
+    }                
+}
+
+{profile "recon_rochefort"
+    {rule                     ; ranged
+        {true}
+        {range 5 30}
+        {time 30 90}
+    }
+ 
+    {rule                     ; runing
+        {speed 10}
+        {range 5 35}
+        {time 10 20}
+    }
+
+    {rule                     ; strange behavoiur
+        {or 
+            {pose "board"} 
+            {pose "move down"}
+            {pose "repair"} 
+        }
+        {instant 5}
+        {range 10 30}
+        {time 1 30}
+    }
+
+    {rule                     ; strange behavoiur
+        {or 
+            {pose "aim"} 
+            {pose "throw"} 
+        }
+        {instant 5}
+        {range 10 30}
+        {time 1 5}
+    }
+
+    {rule                     ; strange behavoiur
+        {examine}
+        {instant 3}
+        {range 5 25}
+        {time 5 20}
+    }
+
+    {rule                     ; strange-items
+        {or
+           {item "mine"}
+           {item "dynamite"}
+           {item "matchbox"}
+           {item "sharp_edge"}
+        }
+        {instant 5}
+        {range 5 25}
+        {time 3 15}
+    }                
+}
+{profile "ger-soldier"
+    {rule                     ; ranged
+        {true}
+        {instant 0.5}
+        {range 2 5}
+        {time 5 10}
+    }
+    {rule                     ; strange-skin
+        {not skin "ger"}
+        {instant 3}
+        {range 5 20}
+        {time 3 30}
+    }
+    {rule                     ; strange-items
+        {not item "ger"}
+        {instant 3}
+        {range 5 15}
+        {time 6 20}
+    }         
+    {rule                   ; worker with weapon
+        {and
+            {item "weapon"}
+            {skin "worker"}
+        }
+        {range 5 15}
+        {time 6 10}
+    }
+    {rule                     ; strange behavoiur
+        {or 
+            {pose "board"} 
+            {pose "move down"}
+            {pose "repair"} 
+            {pose "aim"} 
+            {pose "throw"} 
+            {examine}
+            {examine "chest"}
+        }
+        {instant 3}
+        {range 5 15}
+        {time 6 20}
+    }
+}
+
+{profile "night_sneak_soldiers"
+    {rule                     ; ranged
+        {true}
+        {range 1 5}
+        {time 1 5}
+    }
+
+    {rule                     ; ranged
+        {true}
+        {range 1 30}
+        {time 2 20}
+    }
+
+    {rule                     ; runing fast
+        {speed 15}
+        {range 5 35}
+        {time 5 60}
+    }
+
+    {rule                     ; runing
+        {speed 10}
+        {range 5 25}
+        {time 5 80}
+    }
+
+    {rule                     ; walking
+        {speed 5}
+        {range 5 20}
+        {time 5 100}
+    }
+
+    {rule                     ; strange behavoiur
+        {examine}
+        {instant 4}
+        {range 5 25}
+        {time 2 10}
+    }
+}
+
+{profile "night_sneak_soldiers+"
+    {rule                     ; ranged
+        {true}
+        {range 1 5}
+        {time 1 5}
+    }
+
+    {rule                     ; ranged
+        {true}
+        {range 1 30}
+        {time 5 10}
+    }
+
+    {rule                     ; runing fast
+        {speed 15}
+        {range 5 35}
+        {time 5 30}
+    }
+
+    {rule                     ; runing
+        {speed 10}
+        {range 5 25}
+        {time 5 40}
+    }
+
+    {rule                     ; walking
+        {speed 5}
+        {range 5 20}
+        {time 5 50}
+    }
+
+    {rule                     ; strange behavoiur
+        {examine}
+        {instant 4}
+        {range 5 25}
+        {time 2 10}
+    }
+}
+
+{profile "night_deaf_blind"
+    {rule                     ; ranged
+        {true}
+        {range 0 3}
+        {time 1 3}
+    }
+}
+
+{profile "night_sneak_lights"
+    {rule                     ; ranged
+        {true}
+        {range 1 10}
+        {time 5 10}
+    }
+    {rule                     ; ranged
+        {true}
+        {range 1 100}
+        {time 5 50}
+    }
+    {rule                     ; runing fast
+        {speed 15}
+        {range 5 100}
+        {time 5 60}
+    }
+
+    {rule                     ; runing
+        {speed 10}
+        {range 5 85}
+        {time 5 70}
+    }
+
+    {rule                     ; walking
+        {speed 5}
+        {range 5 70}
+        {time 5 80}
+    }
+}
+
+
+{profile "weapon-checker"
+    {rule                     ; ranged
+        {item "weapon"}
+        {instant 2}
+        {range 5 25}
+        {time 5 30}
+    }
+}
+
+{profile "sentry"
+    {rule                     ; ranged
+        {true}
+        {instant 3}
+        {range 5 10}
+        {time 5 20}
+    }
+}
+
+{profile "antispy"
+    {rule                     ; ranged
+        {true}
+        {instant 5}
+        {range 10 30}
+        {time 5 30}
+    }
+}
+
+
+}

@@ -1,0 +1,3 @@
+{"bridge"
+	{on "criticalhit" overload}
+}

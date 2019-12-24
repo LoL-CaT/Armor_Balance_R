@@ -1,0 +1,36 @@
+{game
+	{teammatch}
+	{parameters "freezeTime=30"}
+	{settings
+		{options 			scoreFinal gameDuration enableSpectators}
+		{optionsAdvanced 	preparationTime friendlyFire fogOfWar showPiercing showDamageReports useUnitLevelRestrictions}
+		{optionsRanked 		}
+		{fogOfWar 			fog_realistic}
+		{difficulty 		multiplayer}
+		{gameDuration 		"90 min"} ; min
+		{scoreMin			50}
+		{scoreMax			10000}
+		{scoreFinal			500}
+		{preparationTimeMin	0}
+		{preparationTimeMax	60}
+		{preparationTime	15}
+		{impregnableTimeout	7}	; sec
+		{floraRespawn 		0}
+		{friendlyFire}
+		{showPiercing}
+		{showDamageReports}
+		{useUnitLevelRestrictions 0}
+	}
+	{teamSettings
+		{teamsMode normal}
+		{armySelectionMode alliance}
+		{teams
+			{"a"}
+			{"b"}
+		}
+		{alliances
+			(include "preset_alliances.inc")
+		}
+	}
+	(include "presets.inc")
+}

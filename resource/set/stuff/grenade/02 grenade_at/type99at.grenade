@@ -1,0 +1,32 @@
+{from "pattern grenade_at_bomb"
+	{inventory {size 2 1}}
+	{entity "mine_antitank_jap"}
+	{tag "proximity_charge" "kamikaze"}
+		
+	{inventory 
+		{size 2 2}
+		{weight 10}
+	}
+	{mass 15}
+	
+	{special
+		{PrepareTime 0.01}
+		{PrepareCursor "grenade"}
+		{mode detonate}
+	}
+	{damage blastwave
+		{energy 18000}
+		{area 5.2 5.4}
+	}
+    {damage add blastwave
+	    {energy 24.3}
+		{area 5 6}
+    }
+    {damage add blastwave
+	    {energy 3.1}
+	    {area 6 7}
+    }
+
+	{possibleDamageRadius 4}
+	{desc "Детонатор"}
+}

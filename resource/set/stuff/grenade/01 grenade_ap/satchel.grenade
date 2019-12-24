@@ -1,0 +1,26 @@
+﻿{from "pattern throwable"
+	{tag "dynamite"}
+	{inventory {size 2 2}}
+	{entity "satchel_charge"}
+	{special
+		{PrepareTime 10}
+		{PrepareCursor "grenade"}
+		{mode detonate}
+	}
+	{throw
+		{range 4.5}
+		{startAngle 40}		
+		{spreading 0.1}
+	}	
+	{damage blastwave
+		{energy 20}
+		{area 1 2}
+	}
+	{damage add blastwave
+		{energy 0.1} ; kg
+		{area 3 4}
+	}
+	{possibleDamageRadius 4}
+	
+	{desc "Взрывпакет"}		
+}

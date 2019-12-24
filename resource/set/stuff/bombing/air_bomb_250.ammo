@@ -1,0 +1,41 @@
+﻿{from "air_bomb"   ; ФАБ-250
+	{tag "big shell fg bomb"}
+	{inventory
+		{noView}		
+	}
+	{inventory
+		{size 6 1}
+		{weight 1000}
+		{noView}
+		{fsm "stuff"}
+	}
+	{mass 250}
+	{entity "air_bomb1"}	
+	        {damage blastwave
+		        {energy 14000}
+		    {area 6 6}
+	        }
+	        {damage add blastwave
+		        {energy 937}
+		        {area 7 7}
+	        }
+		{damage add blastwave
+			{energy 2.1}
+			{area 13 14}
+		}			
+		{damage add blastwave
+			{energy 1.3}
+			{area 14 16}
+		}
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 26 26}
+	        }
+	        {damage fire
+		        {radius 4}
+		        {heating 100}
+		        {time 2}
+	        }
+			
+	{desc "250 кг Авиабомба (ОФ)"}				
+}

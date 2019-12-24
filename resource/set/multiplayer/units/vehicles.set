@@ -1,0 +1,161 @@
+;----- Vehicles -----
+
+
+
+
+;°°°generic°°°
+
+(define "generic_v"
+    {charge %c}
+    {score %sc}
+    {tags "%t"}
+    {group "%g"}
+    {button "%b"}
+    {cw %cw}
+    {cp %cp}
+)
+
+(define "generic_h"
+    {charge %c}
+    {tags "%t"}
+    {group "%g"}
+    {button "%b"}
+)
+
+(define "generic_x"
+    {score %sc}
+    {tags "%t"}
+    {cw %cw}
+    {cp %cp}
+)
+
+
+
+;°°°generic_v°°°
+
+; 1 vehicle with tankmen
+(define "v"
+    ("generic_v" c(%c) sc(%sc) t(%t %s) g(%g) b(%b) cw(%cw) cp(%cp))
+    {content "* ( mp/%s/tankman:%n1 mp/%s/tankman2:%n2)"}
+)
+
+; 1 vehicle with supporters
+(define "vs"
+    ("generic_v" c(%c) sc(%sc) t(%t %s) g(%g) b(%b) cw(%cw) cp(%cp))
+    {content "* ( mp/%s/vehicle_supporter:%n )"}
+)
+
+
+
+;°°°generic_h°°°
+
+; 1 infantry types
+(define "i1"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "mp/%s/%n1"}
+)
+
+; 2 infantry types
+(define "i2"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "mp/%s/%n1 mp/%s/%n2"}
+)
+
+; 3 infantry types
+(define "i3"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "mp/%s/%n1 mp/%s/%n2 mp/%s/%n3"}
+)
+
+; 1 vehicle - 0 infantry types
+(define "v0"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "%c1 ( mp/%s/%n1 )"}
+)
+
+; 2 vehicles - 2 infantry types
+(define "2v"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "%c1 ( mp/%s/%n1 ) %c2 ( mp/%s/%n2 )"}
+)
+
+; 1 vehicle - 2 infantry types
+(define "v1"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "%c1 ( mp/%s/%n1 mp/%s/%n2 )"}
+)
+
+; 2 vehicle - 2 infantry types
+(define "v2"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "%c1 ( mp/%s/%n1 mp/%s/%n2 ) %c1 ( mp/%s/%n1 mp/%s/%n2 )"}
+)
+
+; 2 vehicle - 3 infantry types
+(define "v23"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "%c1 ( mp/%s/%n1 mp/%s/%n2 mp/%s/%n3 ) %c1 ( mp/%s/%n1 mp/%s/%n2 mp/%s/%n3 )"}
+)
+
+; 1 vehicle - 3 infantry types
+(define "v3"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "%c1 ( mp/%s/%n1 mp/%s/%n2 mp/%s/%n3 )"}
+)
+
+; 1 vehicle - 4 infantry types
+(define "v4"
+    ("generic_h" c(%c) t(%t %s) g(%g) b(%b))
+    {content "%c1 ( mp/%s/%n1 mp/%s/%n2 mp/%s/%n3 mp/%s/%n4 )"}
+)
+
+
+;°°°generic_x°°°
+
+; extra unit
+(define "extra"
+    ("generic_x" sc(%sc) t(%t %s) cw(%cw) cp(%cp))
+)
+
+
+
+;°°°Howitzer°°°
+
+; 1 howitzer
+(define "how"
+	{"%name(%side)"
+   		{charge %c}
+		{content "%c1 ( mp/%side/vehicle_supporter:2 ) %c2 ( mp/%side/vehicle_supporter:2 )"}
+		{tags "%side %t"}
+		{group "%g"}
+		{button "%b"}
+		{level %level}
+		{cost %cost}
+		{fore %f}
+		{info %c2}
+	}
+)
+
+; 2 howitzers
+(define "how2"
+	{"%name"
+   		{charge %c}
+		{content "%c1 ( mp/%side/vehicle_supporter:2 ) %c2 ( mp/%side/vehicle_supporter:2 ) %c1 ( mp/%side/vehicle_supporter:2 ) %c2 ( mp/%side/vehicle_supporter:2 )"}
+		{tags "%side %t"}
+		{group "%g"}
+		{button "%b"}
+		{level %level}
+		{cost %cost}
+		{fore %f}
+		{info %info}
+	}
+)
+
+;------------------------------------------------------------------------------
+
+	(include "vehicles_eng.set")
+	(include "vehicles_ger.set")
+	(include "vehicles_jap.set")
+	(include "vehicles_rus.set")
+	(include "vehicles_usa.set")
+	(include "vehicles_x.set")

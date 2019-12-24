@@ -1,0 +1,42 @@
+﻿{bullet
+	{tag "ammo shell itemin2hands"}
+	{tag "big" "size_maximum"}
+	{tag "itemin2hands"}
+;	{tag "no_ricochet"}
+	{tag "bomb"}
+	{inventory
+		{size 5 2}
+		{weight 100}
+		{fsm "stuff"}
+	}	
+	{mass 35}
+	        {damage blastwave
+		        {energy 8000}
+		    {area 4 4}
+	        }
+	        {damage add blastwave
+		        {energy 937}
+		        {area 5 5}
+	        }
+		{damage add blastwave
+			{energy 2.1}
+			{area 10 11}
+		}			
+		{damage add blastwave
+			{energy 1.3}
+			{area 11 12}
+		}
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 26 26}
+	        }
+	        {damage fire
+		        {radius 3}
+		        {heating 100}
+		        {time 2}
+	        }
+	
+	{entity "air_bomb_stuff"}
+
+	{desc "Авиабомба (ОФ)"}	
+}

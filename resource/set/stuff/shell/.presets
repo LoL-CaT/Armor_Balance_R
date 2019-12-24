@@ -1,0 +1,406 @@
+; heavy : 4-6, [2-3, 4-6]
+; medium: 3-4  [2, 3-4]
+; light : 1-2  [1, 2-3]
+
+(define "_tr"
+	{trace
+		{view "/texture/fx/trace"
+			{Light 8}
+			{ScaleY 0.35}
+		}
+		{length (* %0 12)}
+	}
+)
+(define "_tra"
+	{trace
+		{view "/texture/fx/trace_apcr"
+			{Light 8}
+			{ScaleY 0.35}
+		}
+		{length (* %0 12)}
+	}
+)
+(define "_tr2"
+	{trace
+		{view "/texture/fx/trace_apcr"
+			{Light 8}
+			{ScaleY 0.35}
+		}
+		{length (* %0 12)}
+	}
+)
+
+ (define "he"
+;		; anti-tank
+;		{damage blastwave
+;			{energy (* %0 1.1)}
+;			{area 0.15 0.4}
+;		}
+;		; anti-personel
+;		{damage add blastwave
+;			{energy 1}
+;			{area (* 0.4 (+ %0 5)) (* 0.75 (+ %0 5))}
+;		}
+ )
+
+ (define "fg"
+;		; anti-tank
+;		{damage blastwave
+;			{energy 1.1}
+;			{area (* 1 (+ %0 5)) (* 1 (+ %0 5))}
+;		}
+;		; anti-personel
+;		{damage add blastwave
+;			{energy 100.100}
+;			{area (* 100.100 (+ %0 5)) (* 100.100 (+ %0 5))}
+;		}
+ )
+
+ (define "fg_medium"
+;		; anti-tank
+;		{damage blastwave
+;			{energy (* %0 1.15)}
+;			{area 0.2 0.5}
+;		}
+;		; anti-personel
+;		{damage add blastwave
+;			{energy 1.2}
+;			{area (* 0.6 (+ %0 5)) (* 0.9 (+ %0 5))}
+;		}
+ )
+
+ (define "fg_heavy"
+;		; anti-tank
+;		{damage blastwave
+;			{energy %0}
+;			{area 1.3 2.2}
+;		}
+;		; anti-apc
+;		{damage add blastwave
+;			{energy (* %0 0.2)}
+;			{area 5.5 6}
+;		}
+;		; anti-personel
+;		{damage add blastwave
+;			{energy 1.2}
+;			{area 12 22}
+;		}
+ )
+
+(define "ap"
+	;{damage add blastwave
+	;{energy 1}
+	;{area 0.5 2}
+	;}
+	("_tr" args (* %0 4))
+)
+
+(define "apcr"
+	;{damage blastwave
+	;{energy 1}
+	;{area 0.3 0.3}
+	;}
+	("_tra" args (* %0 5))
+
+)
+
+(define "heat"
+	;{damage blastwave
+	;{energy 0.8}
+	;{area 0.7 0.7}
+	;}
+	("_tr2" args (* %0 5))
+
+)
+
+(define "apds"
+	;{damage blastwave
+	;{energy 1}
+	;{area 0.3 0.3}
+	;}
+	("_tra" args (* %0 5))
+
+)
+
+; FG
+        ; 1mm trh armor  2dmg
+(define "fg_14_19"
+		{damage blastwave
+			{energy 1.3} 
+			{area 0.2 0.2}
+		}
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 0.5 0.5}
+	        }
+)
+       ; 3mm trh armor  2dmg
+(define "fg_20_37"
+		{damage blastwave
+			{energy 2} 
+			{area 0.5 0.5}
+		}
+	        {damage add blastwave
+		        {energy 1.3}
+		        {area 1 2}
+	        }
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 2 2}
+	        }			
+)
+       ; 6mm trh armor  3dmg
+(define "fg_40_57"
+		{damage blastwave
+			{energy 4} 
+			{area 1 1}
+		}
+	        {damage add blastwave
+		        {energy 1.3}
+		        {area 2 2}
+	        }
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 4 4}
+	        }				
+)
+       ; 10mm trh armor  25dmg
+(define "fg_70_77"
+		{damage blastwave
+			{energy 7}
+			{area 2 2}
+		}
+	        {damage add blastwave
+		        {energy 1.3}
+		        {area 2 3}
+	        }
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 7 7}
+	        }			
+)
+       ; 15mm trh armor  200dmg
+(define "fg_80_95"
+		{damage blastwave
+			{energy 10}
+			{area 2 3}
+		}
+	        {damage add blastwave
+		        {energy 1.3}
+		        {area 3 4}
+	        }
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 9 9}
+	        }			
+)
+       ; 25mm trh armor  200dmg
+(define "fg_100_107"
+		{damage blastwave
+			{energy 16}
+			{area 3 4}
+		}
+	        {damage add blastwave
+		        {energy 1.3}
+		        {area 5 6}
+	        }
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 16 16}
+	        }
+)
+       ; 40mm trh armor  1000dmg
+(define "fg_120_130"
+	        {damage blastwave
+			{energy 25}
+			{area 5 6}
+	        }
+		{damage add blastwave
+			{energy 2.1}
+			{area 6 7}
+		}			
+	        {damage add blastwave
+		        {energy 1.3}
+		        {area 7 8}
+	        }
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 20 20}
+	        }
+)
+       ; 60mm trh armor  4000dmg
+(define "fg_149_155"   
+	        {damage blastwave
+			{energy 37}   
+			{area 6 6}
+	        }
+		{damage add blastwave
+			{energy 2.1}
+			{area 7 8}
+		}			
+		{damage add blastwave
+			{energy 1.3}
+			{area 8 9}
+		}
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 26 26}
+	        }
+)
+       ; 170mm trh armor  40000dmg
+(define "fg_170_240"
+	        {damage blastwave
+		        {energy 103}
+		    {area 6 7}
+	        }
+	        {damage add blastwave
+		        {energy 37}
+		        {area 9 10}
+	        }
+		{damage add blastwave
+			{energy 2.1}
+			{area 11 12}
+		}			
+		{damage add blastwave
+			{energy 1.3}
+			{area 13 14}
+		}
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 50 50}
+	        }
+)
+       ; +    thr armor 40000dmg
+(define "fg_290_380"
+		{damage blastwave
+			{energy 270}
+			{area 7 8}
+		}
+	        {damage add blastwave
+		        {energy 230}
+		        {area 10 11}
+	        }
+		{damage add blastwave
+			{energy 4}
+			{area 13 15}
+		}
+		{damage add blastwave
+			{energy 2.1}
+			{area 14 15}
+		}		
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 55 55}
+	        }
+)
+       ; ++ trh armor  40000dmg
+(define "fg_600" 
+		{damage blastwave
+			{energy 380}
+			{area 13 14}
+		}
+	        {damage add blastwave
+		        {energy 270}
+		        {area 14 15}
+	        }
+		{damage add blastwave
+			{energy 65}
+			{area 15 16}
+		}
+		{damage add blastwave
+			{energy 5}
+			{area 16 17}
+		}
+		{damage add blastwave
+			{energy 2}
+			{area 17 18}
+		}
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 150 150}
+	        }
+	        {damage fire
+		        {radius 11}
+		        {heating 1}
+		        {time 35}
+	        }
+)
+
+; AP
+
+(define "ap_14_19"
+		{damage blastwave
+			{energy 0.2}
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_20_37"
+		{damage blastwave
+			{energy 1.8}
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_40_57"
+		{damage blastwave
+			{energy 4}
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_70_77"
+		{damage blastwave
+			{energy 7}
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_80_95"
+		{damage blastwave
+			{energy 10} 
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_100_107"
+		{damage blastwave
+			{energy 16} 
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_120_130"
+		{damage blastwave
+			{energy 25} 
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_149_155"
+		{damage blastwave
+			{energy 37}
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_170_240"
+		{damage blastwave
+			{energy 103}
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_290_380"
+		{damage blastwave
+			{energy 270}
+			{area 0.1 0.1}
+		}
+)
+
+(define "ap_600"
+		{damage blastwave
+			{energy 380}
+			{area 0.1 0.1}
+		}
+)

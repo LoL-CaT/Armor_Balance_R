@@ -1,0 +1,28 @@
+
+                                                              ; Бомбы
+(define "bomb_1"
+	{spreading 
+		    {radiusTable {0 0} {15 (* 0.50 %r1)} {35 (* 2.00 %r2)} {55 (* 2.80 %r3)} {125 (* 3.50 %r4)} {300 (* 4.00 %r5)}}
+	}	
+)
+
+
+(define "acc_bomb"
+	("bomb_1" r1(211.20) r2(315.20) r3(418.20) r4(523.20) r5(625.20)) 
+)
+
+
+(define "bomb_av"
+	{tag "weapon"}
+	{fillingVisible "bomb"}
+	{inventory {noView}}
+	{foresight "pivot_front"}
+	{spreading 
+	    {SpreadRadius	1}
+	    {SpreadPower	1}
+		{SpreadYadjust	0.01}
+	}
+	("acc_bomb")
+		
+	{ZeroingAccuracy 0.99 0.98 0.97 0.96 0.95}	
+)

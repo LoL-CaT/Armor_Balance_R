@@ -1,0 +1,31 @@
+﻿{from "pattern rpg_weapon"
+;1945
+	{filling "ammo PWK10H64" 1}
+	{mass 640}	
+	{entity "PWK8H63"}
+	{parameters "fg"
+		{curve "cumulative"}
+    	{projectileDamage 7}
+		{projectileDamageThreshold 1}
+		{AimingTolerance 3}
+		{spreading 10.5
+			{SpreadXYRatio	1}
+			{radiusFunction
+				0.0		0
+				1.0		1.0
+				1.2		2.5
+				2.5		5.0
+			}
+		}
+	}
+	{parameters "ap"
+	{DisableRicochet}
+		{projectileDamageTable {0 145} {50 145} {100 145} {150 145} {200 145}}
+		{spreading 3}
+	}
+	{fireSound "reactive/grnd_launch"}
+	{range 80 81}
+	("speed" s(520))
+	
+    {desc "8 cm PWK8H63 (ЭДС 80 БП 145)"}	
+}

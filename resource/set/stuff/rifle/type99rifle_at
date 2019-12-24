@@ -1,0 +1,74 @@
+{from "pattern at_rifle"
+	{tag "weapon at_rifle rifle bullet to_hand"}
+	{mass 8}	
+	{filling "ammo type2_grenade" 1}
+	
+    {fillingVisible "type2_40mm_grenade"}	
+;	{parameters "fg"
+;		{fillingVisible "type2_30mm_grenade"}
+;	}
+;	{parameters "ap"
+;		{fillingVisible "type2_40mm_grenade"}
+;	}
+	{inventory
+		{size 4 2}
+		{link_bone "gun_back"}
+		{weight 10}
+		{fsm "smg"}
+	}
+	{entity "arisaka_type_99g_type2"}
+
+		
+	{cursor "cannon_on"}
+	{cursorReloading "cannon_reload"}
+	
+	{parameters "fg"
+		{cursor "cannon_on_fg"}
+		{cursorReloading "cannon_reload_fgger"}
+	}
+	
+	{burst
+		{short 1}
+		{Long 1}
+	}	
+	
+	{preloaded}
+	
+	{fireSound "rifle/ptr/grb39"}
+	{reloadSound "rifle_at"}
+	{calibre 50}
+
+	{DisableRicochet}
+	{foresight "Foresight3"}
+	{gravity 2}
+	{rechargeTime 10}
+
+		
+	{parameters "fg"
+		{curve "cumulative"}
+    	{projectileDamage 2}
+		{projectileDamageThreshold 1}
+		{AimingTolerance 3}
+		{spreading 10.5
+			{SpreadXYRatio	1}
+			{radiusFunction
+				0.0		0
+				1.0		1.0
+				1.2		2.5
+				2.5		5.0
+			}
+		}
+	}
+	{parameters "ap"
+	{DisableRicochet}
+		{projectileDamageTable {0 60} {500 60} {1000 60} {1500 60} {2000 60}}
+		{spreading 3}
+	}
+	
+	("accuracy_grb")
+	{range 12 15}
+	{aimtype curved}
+	("speed" s(65))
+	
+    {desc "Type 2 Grenade Launcher (ЭДС 12 БП 60)"}	
+}

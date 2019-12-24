@@ -1,0 +1,44 @@
+{from "pattern bullet"
+	{tag "weapon mgun bullet to_hand"}
+	{filling "ammo mgun" 30}
+	{reloadSound "mg1"}
+	{inventory
+		{size 5 2 }
+		{link_bone "gun_back"}
+		{weight 100}
+	}
+	{entity "mg34"}
+	{mass 12}
+	{traceFreq 1}
+	{Automatic}
+
+    {aimRange 110}
+	{range 110 200}
+	{aimingTolerance 3}
+        {aimtype direct}
+
+	("burst_tankh")
+	("recoveryTime" r(900))
+	{rechargeTime 9}
+	("speed" s(755))
+	
+    {RelaxationTime 0.9}	
+
+	{projectileDamage 1}
+	{projectileDamageClip 1}
+	{projectileDamageThreshold 1.5}
+	{projectileDamageTable {0 4} {50 3} {100 2} {150 1} {200 0}}
+	
+	{healthDamage     50}
+	{spreading 1
+		{SpreadPower	1}
+		{SpreadXYRatio	0.8}
+		{SpreadYadjust	0.15}
+        {BurstAccuracy 900 2 1 0.5 0.2 0.1}
+	}
+	{burst
+		{short 1 1}
+		{long 1 1}
+	}
+	("accuracy_uberbrowning")	
+}

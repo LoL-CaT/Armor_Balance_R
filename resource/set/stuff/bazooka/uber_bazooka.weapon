@@ -1,0 +1,33 @@
+{from "pattern rpg_weapon"
+;1944
+	{filling "ammo uber_bazooka" 1}
+	{entity "bazooka"}
+	{mass 8.8}	
+	{parameters "fg"
+		{curve "cumulative"}
+    	{projectileDamage 7}
+		{projectileDamageThreshold 1}
+		{AimingTolerance 3}
+		{spreading 10.5
+			{SpreadXYRatio	1}
+			{radiusFunction
+				0.0		0
+				1.0		1.0
+				1.2		2.5
+				2.5		5.0
+			}
+		}
+	}
+	{parameters "ap"
+	{DisableRicochet}
+		{projectileDamageTable {0 300} {50 300} {100 300} {150 300} {200 300}}
+		{spreading 3}
+	}
+	{fireSound "reactive/grnd_launch"}
+	{reloadSound "gun_r05"}
+	{range 37 37}
+	{calibre 89}
+	("speed" s(100))
+	
+    {desc "T20 Rocket Launcher Update (ЭДС 22 БП 300)"}	
+}

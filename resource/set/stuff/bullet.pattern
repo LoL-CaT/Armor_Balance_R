@@ -1,0 +1,55 @@
+{weapon_bullet
+	{inventory
+		{fsm "smg"}
+	}
+	{states
+		{reload		"reload"}
+		{unload		"unload"}
+		{fire		"fire"	}
+		{aim 		"aim"	}
+		{can_aim	"can-aim"}
+	}
+	{Spreading
+		{BurstRecoveryTime 0.5}
+		{BurstAccuracy 100}
+		{SpreadRadius 5}
+	}
+
+	{mass 1000}
+	{range 160 200}
+	{spreading 1}
+	{gravity 7.5}
+	{rechargeTime 5}
+	{speed 75}
+    {RelaxationTime 0.5}	
+	
+	{reloadSound "reload.smg"}
+	{foresight "Foresight3"}
+	{speed 100}
+	{calibre 7.62}
+    	{AimingTolerance 3}
+	{cursor "smg_on"}
+	{cursorReloading "smg_reload"}
+	{curve "bullet"}
+    {gravity 1}
+	
+	{RicochetEnergyDamping 	; penetration energy damping after ricochet (angle - damping)	
+		{0 	1}	
+		{20	1}
+		{30	0.8}
+		{45 0.4}
+		{60 0.2}
+		{70 0}		
+	}
+
+	{OvermatchDamping
+		{0  1}
+		{30 1.16}
+		{45 1.41}
+		{50	1.55}
+		{60	2}
+		{70	2.92}
+		{80	5.75}		
+		{90	800}		
+	}
+}

@@ -1,0 +1,35 @@
+﻿{from "pattern rpg_weapon"
+;1945
+	{filling "ammo panzershreck" 1}	
+	{mass 18}	
+	{entity "panzershreck"}
+        {projectileDamage 300}
+	{fireSound "reactive/RPzB54_shoot.wav"}
+	{parameters "fg"
+		{curve "cumulative"}
+    	{projectileDamage 7}
+		{projectileDamageThreshold 1}
+		{AimingTolerance 3}
+		{spreading 10.5
+			{SpreadXYRatio	1}
+			{radiusFunction
+				0.0		0
+				1.0		1.0
+				1.2		2.5
+				2.5		5.0
+			}
+		}
+	}
+	{parameters "ap"
+	{DisableRicochet}
+		{projectileDamageTable {0 250} {50 250} {100 250} {100 250} {200 250}}
+		{spreading 3}
+	}
+	
+	("speed" s(130))	
+	{range 25 25}
+	{calibre 100}
+	
+    {desc "10 cm R.Pz.B 54/2 (ЭДС 25 БП 250)"}	
+}
+

@@ -1,0 +1,356 @@
+{Pathers
+    ; default profile must be first
+	; Terrain:
+    ;   K <= 0 	  - move disabled
+    ;   K >= 1	  - move without penalties
+    ;   0 < K < 1 - speed = maxSpeed * K
+	;   cost = 1 / K
+	; Height:
+    ;   cost < 0 - move disabled
+    ;   cost = 0 - move without penalties
+    ;   cost > 0 - move with penalties
+    ; pathCost = distance * (terrainCost + heightCost)
+	{Profile "human"
+		{Network}
+		{Human}
+		{Priority 1}
+		{Radius 0.3}
+	    {Terrain
+			"ground"		1
+			"no_pass"		0
+			"swamp"		    0.25
+			"shallow_water"	0.7
+			"water"			0.4		0	; ai movement disabled
+			"deep_water"	0.4		0	; ai movement disabled
+		}
+		{Height	 
+			0  0  0  0  0 ;  0...6..12..18..24..29
+			0  0 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90 
+		}
+    }
+
+	{Profile "human_flying"
+		{Priority 1}
+		{Radius 0.3}
+		{Height
+			0  0  0  0  2 ;  0...6..12..18..24..29
+			2  2 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90 
+		}
+    }
+
+	{Profile "animal"
+		{Priority 0}
+		{Radius 0.3}
+	    {Terrain
+			"ground"		1
+			"no_pass"		0
+			"swamp"		    0
+			"shallow_water"	0
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  0  0  1  1 ;  0...6..12..18..24..29
+			2  3 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90 
+		}
+    }	
+
+    {Profile "tank"
+		{Radius 2.25}
+		{Priority 5}
+		{BattleCrusher}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.5
+			"shallow_water"	0.5
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  0  1  2  3 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+    {Profile "tank.light"
+		{Radius 2.25}
+		{Priority 4}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.5
+			"shallow_water"	0.5
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  0  1  2  3 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+	{Profile "amphibia"
+		{Radius 2.25}
+		{Priority 3}
+		{BattleCrusher}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.7
+			"shallow_water"	0.7
+			"water"			0.5		
+			"deep_water"	0.5		
+		}
+		{Height	 
+			0  0  1  2  3 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+    {Profile "armored"
+		{Radius   2.25}
+		{Priority 3}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.5
+			"shallow_water"	0.5
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  0  1  2  3 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+    {Profile "vehicle.large"
+		{Radius 2}
+		{Priority 2}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.33
+			"shallow_water"	0.33
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  1  1  2 -1 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+    {Profile "vehicle.small"
+		{Radius 1.5}
+		{Priority 2}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.33
+			"shallow_water"	0.33
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  1  1  2 -1 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+    {Profile "moto"
+		{Radius 1.5}
+		{Priority 2}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.33
+			"shallow_water"	0.33
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  1  1  2 -1 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+    {Profile "cannon.large"
+		{Radius 2}
+		{Priority 2}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.33
+			"shallow_water"	0.33
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  1  1  2 -1 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+    {Profile "cannon.small"
+		{Radius 1.5}
+		{Priority 2}
+	    {Terrain
+			"road"			1.2
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.33
+			"shallow_water"	0.33
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  1  1  2 -1 ;  0...6..12..18..24..29
+		   -1 -1 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90
+		}
+    }
+
+    {Profile "cannon.carried"
+		{Radius 1.0}
+		{Priority 2}
+	    {Terrain
+			"road"			1
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.33
+			"shallow_water"	0.33
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  0  0  0  0 ;  0...6..12..18..24..29
+			1  2 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90 
+		}
+    }
+
+    {Profile "cannon.micro"
+		{Radius 0.6}
+		{Priority 2}
+	    {Terrain
+			"road"			1
+			"ground"		0.75
+			"no_pass"		0
+			"swamp"		    0.33
+			"shallow_water"	0.33
+			"water"			0		
+			"deep_water"	0		
+		}
+		{Height	 
+			0  0  0  0  0 ;  0...6..12..18..24..29
+			1  2 -1 -1 -1 ; 30..36..42..48..54..59
+		   -1 -1 -1 -1 -1 ; 60..66..72..78..84..90 
+		}
+    }
+    
+    {Profile "airborne"
+		{SkipImpregnable}
+		{Radius 3.25}
+		{Priority 2}
+	    {Terrain
+			"undef"  		1
+			"ground"		1
+			"no_pass"		1
+			"swamp"		    1
+			"shallow_water"	1
+			"water"			1
+			"deep_water"	1
+		}
+    }
+
+    {Profile "railway"
+		{LinearPath}
+		{Radius 1.5}
+		{Priority 6}
+	    {Terrain
+			"undef"  		1
+			"ground"		1
+			"no_pass"		1
+			"swamp"		    1
+			"shallow_water"	1
+			"water"			1
+			"deep_water"	1
+		}
+    }
+    {Profile "shallow_water"
+		{Radius 2}
+		{Priority 5}
+	    {Terrain
+			"ground"  		0
+			"no_pass" 		0
+			"shallow_water"	1
+			"water"			1		
+			"deep_water"	1		
+		}
+    }
+    {Profile "shallow_water_0"	; lcvp
+		{Radius 5}
+		{Priority 5}
+	    {Terrain
+			"ground"  		0
+			"no_pass" 		0
+			"shallow_water"	1
+			"water"			1		
+			"deep_water"	1		
+		}
+    }
+    {Profile "water"
+		{Radius 3.5}
+		{Priority 6}
+	    {Terrain
+			"ground"  		0
+			"no_pass" 		0
+			"shallow_water"	0
+			"water"			1		
+			"deep_water"	1		
+		}
+    }
+    {Profile "deep_water"
+		{Radius 7}
+		{Priority 7}
+	    {Terrain
+			"ground"  		0
+			"no_pass" 		0
+			"shallow_water"	0
+			"water"			0		
+			"deep_water"	1		
+		}
+    }
+    {Profile "deep_water_0"	; armor barge
+		{Radius 14}
+		{Priority 7}
+	    {Terrain
+			"ground"  		0
+			"no_pass" 		0
+			"shallow_water"	0
+			"water"			0		
+			"deep_water"	1		
+		}
+    }
+} 

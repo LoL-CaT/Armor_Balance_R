@@ -1,0 +1,85 @@
+{game
+	{teammatch}
+	{parameters "freezeTime=30;flag_capture_time=300;flag_release_time=90;flag_capture_factor=0.5"}
+	{settings
+		{options 			enableSpectators}
+		{optionsAdvanced 	friendlyFire fogOfWar showPiercing showDamageReports useUnitLevelRestrictions}
+		{optionsRanked 		}
+		{fogOfWar 			fog_realistic}
+		{difficulty 		multiplayer}
+		;{gameDuration 		"90 min"} ; min
+		{impregnableTimeout	7}	; sec
+		{floraRespawn 0}
+		{friendlyFire}
+		{showPiercing}
+		{showDamageReports}
+		{useUnitLevelRestrictions 0}
+		{enableBots}
+	}
+	{teamSettings
+		{teamsMode normal}
+		{armySelectionMode alliance}
+		{teams
+			{"a"}
+			{"b"}
+		}
+		{alliances
+			(include "preset_alliances.inc")
+		}
+	}
+	(define "standard_all"
+		{common
+			{unitset
+				{value "all^arcade"}
+			}
+			{commandPoints "*=%cp"}
+;			{unitLimits "flamer=3;sniper=2;officer=1;heavyaa=1"}
+			{chargeFactors 
+				{value "hero=1.25;*=2.0"}
+			}
+			{budgets
+				{vehicle
+					{mode "standard"}
+					{resource 
+						{start 		%start}
+						{finish 	%finish}
+					        {growTime	31000}		; round time when money growing 
+					        {growTable 	"1.50 1.51 1.52 1.53 1.54 1.55 1.56 1.57 1.58 1.59 1.60 1.61 1.62 1.63 1.64 1.65 1.66 1.67 1.68 1.69 1.70 1.71 1.72 1.73 1.74"}
+						{restoreBegin 	2.00}	; points per sec
+						{restoreEnd 	2.00}	; points per sec
+					} 
+				{buttons "squad1 squad2 v1 v2 v3 v4 v5 v6 v7 v8 v9 v10"}
+				}
+				{hero
+					{resource 
+						{start 		100}
+						{tag "special"}
+					} 
+					{buttons "hero"}
+				}
+			}
+			{bots
+				(include "bots_generic.inc")
+			}
+		}
+	)
+
+
+;------------------------------------------------------------------------------------------------------------
+	{presets
+		{"s:standard_100_captureflag"	
+			{gameMode "standard"}
+			{unitMode "all"}
+			{specMode "all_normal"}
+			("standard_all" 		start(250) finish(3000) cp(180))
+			{ranked}
+		}
+		{"s:standard_160_captureflag"	
+			{gameMode "standard"}
+			{unitMode "all"}
+			{specMode "all_high"}
+			("standard_all" 		start(2500) finish(4000) cp(250))
+		}
+;------------------------------------------------------------------------------------------------------------
+	}
+}

@@ -1,0 +1,37 @@
+﻿{from "pattern gun"			; Корабельный автомат
+	{filling "bullet37_flak36" 5}
+	{fireSound "gun/37mm_flak18"}  
+	{reloadSound "61k_reload"}
+	{calibre 37}
+
+	{RechargeTime 0.2}
+	("recoveryTime" r(160))
+	{Automatic}
+	{burst
+		{min 1}
+		{short 2.5 1}
+		{long 7 2}
+	}
+
+	("accuracy_zenite")
+	("range_zenite")
+	
+	("speed" s(770))
+	("caliber_minimum")
+		    {calibre 37}
+	{projectileDamage 9}
+	("damage" a(59) b(48) c(39) d(31) e(23))
+    {parameters "apcr"
+		{cursor "cannon_on_apcr"}
+		{cursorReloading "cannon_reload_apcr"}
+	("damage" a(99) b(78) c(57) d(25) e(11))
+;		("speed" s(1050))
+	}
+
+	{parameters "fg"
+		{cursor "cannon_on_fg"}
+		{cursorReloading "cannon_reload_fg"}
+	}
+	
+	{desc "3,7 cm Flak m42 L/57 (ЭДС 105)"}	
+}

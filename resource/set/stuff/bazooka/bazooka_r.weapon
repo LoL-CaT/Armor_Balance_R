@@ -1,0 +1,32 @@
+﻿{from "pattern rpg_weapon"
+;1942
+	{filling "ammo bazooka" 1}	
+	{entity "bazooka"}
+	{mass 6.8}	
+	{parameters "fg"
+		{curve "cumulative"}
+    	{projectileDamage 7}
+		{projectileDamageThreshold 1}
+		{AimingTolerance 3}
+		{spreading 10.5
+			{SpreadXYRatio	1}
+			{radiusFunction
+				0.0		0
+				1.0		1.0
+				1.2		2.5
+				2.5		5.0
+			}
+		}
+	}
+	{parameters "ap"
+	{DisableRicochet}
+		{projectileDamageTable {0 76} {500 76} {1000 76} {1500 76} {2000 76}}
+		{spreading 3}
+	}
+	{fireSound "reactive/grnd_launch"}
+	{range 15 15}
+	{calibre 60}
+	("speed" s(82))
+	
+    {desc "М-1 (ЭДС 15 БП 76)"}	
+}

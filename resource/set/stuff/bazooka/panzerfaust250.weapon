@@ -1,0 +1,42 @@
+﻿{from "pattern rpg_weapon"
+;1946
+	{filling "ammo panzerfaust" 1}
+	{fillingVisible "faustrocket"}
+	{preloaded}
+	{inventory
+		{size 5 1}
+	}
+	{entity "panzerfaust100"} 	
+	{mass 7.1}	
+	{fireSound "reactive/launch04"}
+	{ammoLocked}
+	{parameters "fg"
+		{curve "cumulative"}
+     	{projectileDamage 7}
+		{projectileDamageThreshold 1}
+		{AimingTolerance 3}
+		{spreading 10.5
+			{SpreadXYRatio	1}
+			{radiusFunction
+				0.0		0
+				1.0		1.0
+				1.2		2.5
+				2.5		5.0
+			}
+		}
+	}
+	{parameters "ap"
+	{DisableRicochet}
+		{projectileDamageTable {0 420} {50 420} {100 420} {150 420} {200 420}}
+		{spreading 3}
+	}
+	{gravity 0.8}
+	{reactive 0}
+	{spreading 3}
+	{aimRange 27}
+	{maxRange 27}
+	("speed" s(150))
+	{calibre 106}
+	
+    {desc "Panzerfaust 250 (ЭДС 27 БП 420)"}		
+}

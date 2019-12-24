@@ -1,0 +1,79 @@
+{game
+	; specify base game mode to inherit implementation from. not used for built-in game modes
+	{class gamemodeBaseType}
+	; specify order in game mode list
+	{order 100}
+	; game mode parameters string
+	{parameters	""}
+	{settings
+		{options			scoreFinal randomSpawnPoints enableSpectators}
+		{optionsAdvanced	preparationTime friendlyFire fogOfWar showPiercing showDamageReports}
+		{optionsRanked		}
+		{fogOfWar			fog_realistic}
+		{difficulty			multiplayer}
+		{scoreMin			10}
+		{scoreMax			1000}
+		{scoreFinal			100}
+		{preparationTimeMin	0}
+		{preparationTimeMax	60}
+		{preparationTime	15}
+		{impregnableTimeout	10}
+		{floraRespawn		0}
+		{friendlyFire}
+		{showPiercing}
+		{showDamageReports}
+		{useUnitLevelRestrictions}
+		{enableBots}
+	}
+	; team settings
+	{teamSettings
+		; deathmatch - enables ffa mode. ignores other team settings 
+		; normal - normal team mode
+		{teamsMode normal}
+		; list of teams 
+		{teams
+			; Team "A" definition
+			{"a" 
+				; team display name (or localization key)
+				{title "key/to/localizable"} 
+				; reserved player slots. default is 0. 
+				{minTeamSlots 0}
+				; max amount of player slots. default is 0.
+				{maxTeamSlots 0}
+				; minimum amount of players in team to start game (TBI)
+				{minTeamPlayers 0}
+				; maximum amount of players in team to start game (TBI)
+				{maxTeamPlayers 0}
+				; amount of bots in team. (not affected by maxTeamSlots or maxTeamPlayers)
+				{aiTeamPlayers 0}  
+				; hides team from selection
+				{hidden 0}		   
+				; list of allowed armies for TEAM army selection. skip this block to allow all available armies
+				{armies "usa grm"}
+			}
+			; Team "B" basic definition. Use all defaults.
+			{"b"}
+		}
+		; list of alliances. Unlocks "Alliances" option.
+		{alliances
+			; Full alliance definition
+			{"nato" 
+				; alliance display name (or localization key)
+				{title "mp/alliance/nato"}
+				; list of allowed armies for ALLIANCE army selection selection. skip section to allow all armies
+				{armies "usa eng"}
+			}
+			{"opfor"
+				{title "mp/alliance/opfor"}
+				{armies "grm"}
+			}
+		}
+	}
+	; ranked game settings
+	{ranked
+		{enabled 0}
+		{minPlayers 0}
+		{maxPlayers 0}
+	}
+	(include "presets_basic.inc")
+}

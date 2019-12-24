@@ -1,0 +1,39 @@
+﻿{from "air_bomb" ; ФАБ-50
+	{tag "ammo shell itemin2hands"}
+	{tag "big" "size_maximum"}
+	{tag "itemin2hands"}
+;	{tag "no_ricochet"}
+	{tag "bomb"}
+	{inventory
+		{size 3 1}
+		{weight 1000}
+		{noView}
+		{fsm "stuff"}
+	}
+	{mass 50}
+	        {damage blastwave
+			{energy 6000}   
+			{area 2 2}
+	        }
+		{damage add blastwave
+			{energy 92.1}
+			{area 3 3}
+		}			
+		{damage add blastwave
+			{energy 1.3}
+			{area 7 8}
+		}
+	        {damage add blastwave
+		        {energy 0.1}
+		        {area 17 17}
+	        }
+	        {damage fire
+		        {radius 2}
+		        {heating 100}
+		        {time 1}
+	        }	
+		
+;	{entity "air_bomb_small"}
+	
+	{desc "50/60 кг Авиабомба (ОФ)"}	
+}

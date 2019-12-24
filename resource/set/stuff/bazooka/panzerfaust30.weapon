@@ -1,0 +1,42 @@
+﻿{from "pattern rpg_weapon"
+;1943
+	{filling "ammo panzerfaust" 1}
+	{fillingVisible "faustrocket"}
+	{preloaded}
+	{inventory
+		{size 5 1}
+	}
+	{entity "panzerfaust100"}
+	{mass 6.9}	
+	{fireSound "reactive/launch04"}
+	{ammoLocked}
+	{parameters "fg"
+		{curve "cumulative"}
+    	{projectileDamage 7}
+		{projectileDamageThreshold 1}
+		{AimingTolerance 3}
+		{spreading 10.5
+			{SpreadXYRatio	1}
+			{radiusFunction
+				0.0		0
+				1.0		1.0
+				1.2		2.5
+				2.5		5.0
+			}
+		}
+	}
+	{parameters "ap"
+	{DisableRicochet}
+		{projectileDamageTable {0 200} {50 200} {100 200} {150 200} {200 200}}
+		{spreading 3}
+	}
+	{gravity 0.8}
+	{reactive 0}
+	{spreading 3}
+	{aimRange 10}
+	{maxRange 10}
+	("speed" s(30))
+	{calibre 149}
+	
+    {desc "Panzerfaust 30 (ЭДС 10 БП 200)"}	
+}

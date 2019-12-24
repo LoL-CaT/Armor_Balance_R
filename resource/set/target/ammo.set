@@ -1,0 +1,240 @@
+;;; Select best weapon and ammo ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;{ready_for_shot}	- ammo charged (shell in the breech & gun ready for shot)
+;;{charging} 		- ammo is charging (gun is`t ready for shot)
+
+{select_ammo
+	{human in_bush
+		{"grenade ic" {ready_for_shot}}
+		{"mortar fg" {ground}}
+		{"grenade fg" {check_grenade}}
+		{"shell fg" {ground} {ready_for_shot}}
+		{"shell fg" {ready_for_shot}}	
+		{"shell he" {ground} {ready_for_shot}}
+		{"shell he" {ready_for_shot}}		
+;		{"ptr" {enable_for_human_user 0}}
+		{"zenite" {enable_for_human_user 0}}
+		{"hmgun"}
+		{"flame"}
+		{"fuel"}      
+		{"bullet"}
+		{"grenade fg" {ground}}
+		{"grenade ap"}
+		{"light"}
+		;--- SKR Infantry Weapon ---
+		{"dyakonov_grenade"	{ready_for_shot}}
+		{"grb_grenade fg"		{ready_for_shot}}		
+	}
+	{human in_cover
+		{"grenade ic" {ready_for_shot}}
+		{"mortar fg" {ground}}
+		{"grenade fg" {check_grenade}}
+		{"grenade ap" {enable_for_ai 0} {check_grenade}}
+		{"shell fg" {ground} {ready_for_shot}}
+		{"shell fg" {ready_for_shot}}		
+		{"shell he" {ground} {ready_for_shot}}
+		{"shell he" {ready_for_shot}}	
+;		{"ptr" {enable_for_human_user 0}}
+		{"zenite" {enable_for_human_user 0}}
+		{"hmgun"}
+		{"flame"}
+		{"fuel"}      
+		{"bullet"}
+		{"ammo rocketlauncher" {enable_for_user 0}}
+		{"grenade fg" {ground}}
+		{"grenade ap" {enable_for_ai 0}}
+		{"grenade ic" {enable_for_ai 0}}
+		{"shell fg"}
+		{"light"}
+		
+		;--- SKR Infantry Weapon ---
+		{"dyakonov_grenade"	{ready_for_shot}}
+		{"grb_grenade fg"		{ready_for_shot}}               
+	}
+	{human
+		{"grenade ic" {ready_for_shot}}
+		{"shell fg" {ground} {ready_for_shot}}
+		{"shell fg" {ready_for_shot}}
+		{"shell fg" {charging}}			
+		{"shell he" {ground} {ready_for_shot}}
+		{"shell he" {ready_for_shot}}
+		{"shell he" {charging}}			
+		{"mortar fg" {ground}}
+;		{"ptr" {enable_for_human_user 0}}
+		{"zenite" {enable_for_human_user 0}} ; prohibit the usage (for player infantry)
+		{"hmgun"}
+		{"flame"}
+		{"fuel"}       
+		{"bullet"}
+		{"sharp_edge"}
+		{"grenade fg"}
+		{"grenade ap"}
+		{"ammo rocketlauncher" {enable_for_user 0}}
+		{"light"}
+		;--- SKR Infantry Weapon ---
+		{"dyakonov_grenade"	{ready_for_shot}}
+		{"grb_grenade fg"		{ready_for_shot}}		           
+	}
+	{car
+		{"ptr"}	
+		{"mortar fg" {ground}}
+		{"grenade fg"	{ground}}
+		{"grenade ap"}
+		{"grenade ic"}
+		{"shell fg" {ready_for_shot}}
+		{"shell he" {ready_for_shot}}
+		{"shell he"}
+		{"zenite"}
+		{"hmgun"}
+		{"shell fg"}
+		{"shell heat"}
+		{"shell ap"}	; for training
+		{"fuel"}
+		{"bullet"}
+		{"light"}
+		;--- SKR Infantry Weapon ---
+		{"dyakonov_grenade"	{ready_for_shot}}
+		{"grb_grenade fg"		{ready_for_shot}}               
+	}
+	{cannon
+       		{"mortar fg" {ground}}
+		{"grenade ic" {ready_for_shot}}
+		{"shell fg"}
+		{"shell he"}
+		{"shell he" {ground}}
+		{"fuel"}
+		{"grenade fg" {ground}}
+		{"grenade ap"}
+		{"grenade ic"}
+		{"shell ap"}
+		{"ammo rocketlauncher" {enable_for_user 0}}
+		{"light"}
+		;--- SKR Infantry Weapon ---
+		{"dyakonov_grenade"	{ready_for_shot}}
+		{"grb_grenade fg"		{ready_for_shot}}
+	}
+	{airborne
+		{"zenite" {volume "body"} {ready_for_shot}}	
+		{"hmgun" {volume "body"} {ready_for_shot}}
+		{"bullet" {volume "body"} {ready_for_shot}}
+		{"shell fg" {volume "body"} {ready_for_shot}}
+		{"zenite" {volume "body"}}	
+		{"hmgun" {volume "body"}}
+		{"bullet" {volume "body"}}
+		{"shell fg" {volume "body"}}
+		{"airplane"}	
+		{"zenite"}
+		{"hmgun"}
+		{"bullet"}
+		{"shell fg"}		
+		{"shell ap"}
+	}
+	{attacker
+		{"zenite" {volume "body"} {ready_for_shot}}	
+		{"hmgun" {volume "body"} {ready_for_shot}}
+		{"bullet" {volume "body"} {ready_for_shot}}
+		{"shell fg" {volume "body"} {ready_for_shot}}
+		{"zenite" {volume "body"}}	
+		{"hmgun" {volume "body"}}
+		{"bullet" {volume "body"}}
+		{"shell fg" {volume "body"}}
+		{"airplane"}	
+		{"zenite"}
+		{"hmgun"}
+		{"bullet"}
+		{"shell fg"}		
+		{"shell ap"}
+	}
+	{fighter
+		{"zenite" {volume "body"} {ready_for_shot}}	
+		{"hmgun" {volume "body"} {ready_for_shot}}
+		{"bullet" {volume "body"} {ready_for_shot}}
+		{"shell fg" {volume "body"} {ready_for_shot}}
+		{"zenite" {volume "body"}}	
+		{"hmgun" {volume "body"}}
+		{"bullet" {volume "body"}}
+		{"shell fg" {volume "body"}}
+		{"airplane"}
+		{"zenite"}
+		{"hmgun"}
+		{"bullet"}
+		{"shell fg"}		
+		{"shell ap"}
+	}
+	{armoredcar
+	    {"ptr"}
+		{"size3 fg" {volume "body"} {ready_for_shot}}
+		{"shell ap" {volume "body"} {ready_for_shot}}
+		{"zenite" {volume "body"}}
+		{"zenite ap" {volume "body"}}
+		{"hmgun" {volume "body"} {ready_for_shot}}
+		{"size3 fg" {volume "body"} {charging}}
+		{"size2 fg" {volume "body"} {ready_for_shot}}
+		{"shell ap" {volume "body"}}
+		{"shell heat"}
+		{"shell ap"}
+		{"shell apcr"}
+		{"shell apds"}
+		{"grenade ic" {ready_for_shot}}
+		{"grenade ap" {volume "body"}}
+		{"fuel" {volume "engine"}}
+		{"grenade fg" {volume "grenade_fg_target"}}
+		{"grenade ic" {volume "engine"}}
+		{"shell fg"}
+		{"shell he"}
+		{"shell sm" {ready_for_shot}}
+		{"light"}
+		;--- SKR Infantry Weapon ---
+		{"dyakonov_grenade"	{ready_for_shot}}
+		{"grb_grenade fg"		{ready_for_shot}}
+
+	}
+	{light_tank
+	    {"ptr"}
+		{"size3 fg" {volume "body"} {ready_for_shot}}
+		{"shell ap" {volume "body"} {ready_for_shot}}
+		{"hmgun" {volume "body"}}
+		{"size3 fg" {volume "body"} {charging}}
+		{"size2 fg" {volume "body"} {ready_for_shot}}
+		{"shell ap" {volume "body"}}
+		{"shell heat"}
+		{"shell ap"}
+		{"shell apcr"}
+		{"shell apds"}
+		{"zenite" {volume "body"}}
+		{"zenite ap" {volume "body"}}
+		{"grenade ic" {volume "engine"} {ready_for_shot}}
+		{"grenade ap" {volume "body"}}
+		{"fuel" {volume "engine"}}
+		{"grenade fg" {volume "grenade_fg_target"}}
+		{"grenade ic" {volume "engine"}}
+		{"shell fg"}
+		{"shell sm" {ready_for_shot}}
+		{"light"}
+		;--- SKR Infantry Weapon ---
+		{"dyakonov_grenade"	{ready_for_shot}}
+		{"grb_grenade fg"		{ready_for_shot}}		               
+	}
+	{tank
+		{"shell ap" {volume "body"}}
+		{"shell heat" {volume "body"}}
+		{"shell ap"}
+		{"shell heat"}
+		{"shell apcr"}
+		{"shell apds"}
+		{"size3 fg" {volume "body"} {ready_for_shot}}
+		{"size3 fg" {volume "body"} {charging}}		
+		{"grenade ic" {volume "engine"} {ready_for_shot}}
+		{"grenade ap" {volume "body"}}
+		{"fuel" {volume "engine"}}
+		{"grenade fg" {volume "grenade_fg_target"}}
+		{"grenade ic" {volume "engine"}}		
+		{"shell fg"}
+		{"shell sm" {ready_for_shot}}
+		{"light"}
+		;--- SKR Infantry Weapon ---
+		{"dyakonov_grenade"	{ready_for_shot}}
+		{"grb_grenade fg"		{ready_for_shot}}		                
+	}
+	
+}
