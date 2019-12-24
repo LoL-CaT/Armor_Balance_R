@@ -1,0 +1,223 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{props "vehicle" "armored_car" "tractor" "tank" "opened" "vision_vehicle_minimum"}
+	{targetClass "tank" "fg bullet"}
+	{targetSelector "tank"}
+	{patherId "tank.light"}
+
+	{extender "enumerator"}
+	
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body6"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body7"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body8"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body9"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body10"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body11"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+	{volume "body12"
+		{component "body"}
+		{tags "body"}
+		{thickness 7
+		{front 10}
+		{top 4}
+		{bottom 4}
+		}
+	}
+
+	{volume "inventory"
+        {thickness 2}
+	}
+
+	("armor_light_shit" turret(0) body(10 7 7 4))
+
+		{sensor
+	        {visor "main1"
+			{vision "moto_crew"}
+			{bone "visor1"}
+		}			
+    }
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+;		{anm "commander"
+;			{forward	{begin	"board_tank_left"} {end "seat_passenger"}}
+;			{reverse 	{end	"emit_tank_1_hold"}}
+;		}
+		{anm "crew"
+			{forward	{begin	"board_tank_right"} {end "seat_passenger"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}	
+	("crew_human_visible_anm" place(driver)		door1(emit1) door2(emit2) anm_left(driver) anm_right(driver) visor(driver))
+;	("crew_human_visible_anm" place(commander)	door1(emit1) door2(emit2) anm_left(commander) anm_right(commander) visor(main))
+	("crew_human_visible_anm" place(seat01)		door2(emit3) door4(emit3) anm_left(crew) anm_right(crew) visor(main))
+	("crew_human_visible_anm" place(seat02)		door2(emit4) door4(emit4) anm_left(crew) anm_right(crew) visor(main))
+;	("gunner_visible")
+	{placer 
+		{place "driver" {openForCrush 0}}
+;		{place "gunner" {openForCrush 0}}
+	}	
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+
+   {sensor
+		{visor "main"
+			{vision "moto_crew"}
+			{bone "foresight4"}
+		}
+	}
+
+	{extender "inventory"
+		{box
+;			{item "ammo mgun" 900}
+		}
+	}
+;	{Weaponry
+;		{place "mgun"
+;			{type "mgun_hull"}
+;			{LinkBone "mgun"}
+;			{weapon "brenstan" filled}			
+;			{LinkAnimation "off"}
+;			{gunner "commander"}
+;			{charger "commander"}
+;			("abm_mgun")
+;           {basic}			
+;		}
+;	}  	
+
+	{mass 4000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.56) len(0.4))
+		("mobility"
+			speed(48)
+			weight(4.0)
+			power(85)
+			fuel(91)	
+		)
+	}
+
+	{Extension "universal_carrier.mdl"}
+}

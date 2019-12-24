@@ -1,0 +1,75 @@
+;Exported by: gals
+;Date:        Mon Feb 27 18:02:29 2006
+;File:        D:\-Projects1_5-\-3DWork-\trench\trench14_1.max
+{Skeleton
+	{bone "trench_ground_exit2"
+		{parameters "CommonMesh;Ground;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "trench_ground_exit2.ply" {Ground} {DecalTarget}}
+		{bone "trench_wood_exit2"
+			{parameters "Ground;"}
+			{Orientation
+				-1	0	0
+				0	-1	0
+				0	0	1
+			}
+			{VolumeView "trench_wood_exit2.ply" {Ground}}
+		}
+		{bone "point"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				21.5961	0.27388	-13.786
+			}
+		}
+		{bone "point1"
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				-21.6851	0.273878	-13.786
+			}
+		}
+	}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 21.5961 -0.27388}
+		{Extent 2.96435 24.3867}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -21.6851 -0.273878}
+		{Extent 2.96435 24.3867}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Area "cut"
+	{Polygon2
+		{Radius 0}
+		{Vertex 22.6261 -45.3067}
+		{Vertex 22.6262 18.2555}
+		{Vertex -24.7581 18.2555}
+		{Vertex -24.7581 -45.3067}
+	}
+	{Rotate}
+}
+{Volume "body"
+	{Box 48.7735 5.92871 23.622}
+	{Bone "point"}
+	{Position 0	0	11.811}
+}
+{Volume "body1"
+	{Box 48.7735 5.92871 23.622}
+	{Bone "point1"}
+	{Position 0	0	11.811}
+}

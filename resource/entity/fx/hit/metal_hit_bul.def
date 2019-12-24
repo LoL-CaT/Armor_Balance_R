@@ -1,0 +1,137 @@
+{fx
+	{sound "hit/small/metal"}
+	{#+ particleview sparkles
+		{generator
+			{totalparticles 10}
+			{particlesinblock 10}
+			{emissionarea
+				{radius 0.2 0.2}
+				{alpha0 0}
+				{alpha1 90}
+			}
+			{particleinit
+				{speed 4 4}
+				{lifetime 0.15 0.07}
+			}
+			{timetolive 0.1}
+		}
+		{mover
+			{damping 0.98}
+			{gravity
+				{value 0.1}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.015 0.005}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ spriteview streak
+		{sprite "$/flash/waterplume2"
+			{timer
+				{mode }
+				{duration 0.1}
+			}
+			{visibility 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{highlight 0xfffdf69b}
+			{scalex 0.3}
+			{scaley 0.1}
+			{preturn 90}
+		}
+		{orientation trace}
+		{autovisible}
+	}
+	{#+ particleview smoke
+		{generator
+			{emissionarea
+				{radius 1}
+				{alpha0 0}
+				{alpha1 40}
+			}
+			{particleinit
+				{speed 1 1}
+				{lifetime 1.55 0.45}
+			}
+			{totalparticles 3}
+			{particlesinblock 3}
+			{timetolive 0.1}
+		}
+		{mover
+			{damping 0.95}
+		}
+		{visualizer
+			{stage 
+				{sprite "/texture/fx/_bmp/smoke/smokeend_lightloop"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{visibility 1
+						{linear
+							{min 0.325 0.075}
+							{max 0}
+						}
+					}
+					{highlight 0xffa8a8a8}
+					{preturn 90 10}
+					{scale 0.475 0.175}
+				}
+			}
+		}
+	}
+	{#+ particleview smoke
+		{generator
+			{emissionarea
+				{radius 1}
+				{alpha0 0}
+				{alpha1 40}
+			}
+			{particleinit
+				{speed 0.5 0.5}
+				{lifetime 1.55 0.45}
+			}
+			{totalparticles 1}
+			{particlesinblock 1}
+			{timetolive 0.1}
+		}
+		{mover
+			{damping 0.95}
+		}
+		{visualizer
+			{stage 
+				{sprite "/texture/fx/smoke/smokesmal4b_30"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{visibility 1
+						{linear
+							{min 0.5 0.1}
+							{max 0}
+						}
+					}
+					{preturn 90 10}
+					{scale 0.55 0.25}
+				}
+			}
+		}
+	}
+}

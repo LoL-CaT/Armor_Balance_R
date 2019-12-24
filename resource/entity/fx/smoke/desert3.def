@@ -1,0 +1,55 @@
+{fx
+	{particleview
+		{generator
+			{totalparticles 200}
+			{emissionarea
+				{radius 200 200}
+				{alpha0 0}
+				{alpha1 -10 5}
+			}
+			{particleinit
+				{speed 2 1}
+				{lifetime 25}
+			}
+		}
+		{mover
+			{damping 5}
+			{gravity
+				{value 0}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.3}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smoke_desert"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 150}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.725 0.075}
+							{max 0.95 0.05}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.5}
+							{max 0}
+						}
+					}
+					{preturn 90 90}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+			}
+		}
+	}
+}

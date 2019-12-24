@@ -1,0 +1,57 @@
+;SDL
+
+{boarder
+	{anm "left"
+		{forward	{begin	"board_willis_driver"} {base"doorleft"}}
+		{reverse 	{end	"board_willis_driver" -1}  {base"doorleft" -1}}
+	}
+
+	{anm "left"
+		{forward	{begin	"board_dodge"}	{base"doorleft"}}
+		{reverse 	{end	"seat_Willis_passenger" -1} {base"doorleft" -1}}
+	}
+
+	{anm "gunner3"
+		{forward	{begin	"board_dodge"} {end "seat_m7_mgunner"} {base"doorleft"}}
+		{reverse 	{end	"seat_Willis_passenger" -1} {base"doorleft" -1}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver)		door(emit1) group(crew)		animation(left)	    visor(driver))
+("crew_human" place(commander)	door(emit1) group(crew)		animation(left)	    visor(back))
+("crew_human" place(gunner)		door(emit1) group(crew)	   	 animation(left)	    visor(main))
+("crew_human" place(charger)		door(emit1) group(crew)		animation(left)	    visor(view-around))
+("crew_human" place(gunner3)		door(emit1) group(crew)		animation(left)	    visor(back2))
+
+
+{sensor
+    {visor "main"
+        {bone "turret"}
+    }
+    {Visor "driver"
+        {vision "tank_driver"}
+        {bone "visor1"}
+    }
+    {visor "view-around"
+        {vision "vehicle_around"}
+        {bone "basis"}
+    }
+	{visor "back"
+		{vision "tank_back"}
+		{bone "Foresight3"}
+	}
+	{visor "back2"
+		{vision "tank_driver"}
+		{bone "Foresight4"}
+	}
+}

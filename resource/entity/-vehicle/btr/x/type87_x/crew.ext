@@ -1,0 +1,30 @@
+;SDL
+
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_gaz-m_driver"} {base "doorleft"}}
+		{reverse 	 {end	"board_gaz-m_driver" -1} {base "doorleft" -1}}
+	}
+	{anm "gunner"
+		{forward	{begin	"board_gaz-m"} {base "doorright"}}
+		{reverse 	{end	"board_gaz-m" -1} {base "doorright" -1}}
+	}
+	{anm "gunner1"
+		{forward	{begin	"board_gaz-m_driver"} {base "doorleft"}}
+		{reverse 	 {end	"board_gaz-m_driver" -1} {base "doorleft" -1}}
+	}
+}
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver)		door(emit1) group(crew)		animation(driver)	    visor(driver))
+("crew_human" place(gunner)		door(emit2) group(crew)	    animation(gunner)	    visor(main))
+("crew_human" place(gunner1)	door(emit1) group(crew)		animation(gunner1)	visor(main))
+

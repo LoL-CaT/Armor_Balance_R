@@ -1,0 +1,58 @@
+{fx
+	{particleview
+		{generator
+			{totalparticles 200}
+			{emissionarea
+				{radius 75 75}
+				{alpha0 0}
+				{alpha1 85 5}
+				{speed 0.05}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 7 1}
+			}
+			{axisz}
+		}
+		{offset 0 0 15}
+		{mover
+			{damping 0.993}
+			{collisions
+				{terrain}
+				{restitution 0.4}
+			}
+		}
+		{visualizer
+			{stage 
+				{flags ground }
+				{sprite "$/smoke/smoke_g04a"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 150}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.35 0.15}
+							{max 1.4 0.6}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.3}
+						}
+					}
+					{highlight 0xffb6dfb6}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

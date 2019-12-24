@@ -1,0 +1,60 @@
+  
+
+;SDL
+
+{Placer
+	{place "side1"
+		{entity "mg1_ju52"}
+		{Linkbone "attach_gun1"}
+		{obstacle disable}
+	}
+	{place "side2"
+		{entity "mg2_ju52"}
+		{Linkbone "attach_gun2"}
+		{obstacle disable}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+{boarder
+	{anm "crew"
+		{forward	{begin	"board_gaz-m"} {end "seat_driver_car"} {base "open"}}
+		{reverse 	{end	"board_gaz-m" -1} }
+	}
+	{anm "passengers"
+		{forward	{begin	"board_gaz-m"} {end "seat_driver_car"} {base "open"}}
+		{reverse 	{end	"emit_cg-4a" -1} }
+	}
+	{door "emit"}
+	{node "node_r1"}
+	(define "climb"
+		{anm "climb%0"
+			{forward	{begin	"board_gaz-m"} {end "seat_gunner_stand"} {base "open"}}
+			{reverse 	{end	"emit_cg-4a" -1} }
+		}
+	)
+	("climb" args 1)
+	("climb" args 2)
+	("climb" args 3)
+	("climb" args 4)
+
+	{link "emit"	"node_r1"	{anm "climb1"} {forward putoff} {reverse puton}}
+
+	{link "node_r1" "side1" 	{anm "climb"}}
+	{link "node_r1" "side2" 	{anm "climb"}}
+	{link "node_r1" "crew" 		{anm "crew"}}
+	{link "node_r1" "passengers" 	{anm "crew"}}
+
+}
+
+("crew_human" place(gunner1)     door(emit1) bone(gunner1)        animation(gunner1)  group(crew))
+("crew_human" place(gunner2)     door(emit1) bone(gunner2)        animation(gunner2)  group(crew))

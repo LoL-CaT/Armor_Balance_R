@@ -1,0 +1,132 @@
+	{actor
+	(include "/properties/airborne.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(2.0))
+	(include "crew.ext")
+	{lodclass "vehicle_large"}
+	{props "marine" "open_without_land" "transport_av"}
+
+	{Volume "Body"
+		{tags "body"}
+		{component "body"}
+		{thickness 5}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 5}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 5}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 5}
+	}
+	{Volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 5}
+	}
+	{Volume "body6"
+		{tags "body"}
+		{component "body"}
+		{thickness 5}
+	}
+	{Volume "body7"
+		{tags "body"}
+		{component "body"}
+		{thickness 5}
+	}
+
+	{Volume "ballast1"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast2"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast3"
+		{tags "float"}
+		{Able clear {float}}
+	}
+	{Volume "ballast4"
+		{tags "float"}
+		{Able clear {float}}
+	}
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder1")
+	("part" args "rudder2")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "body_back")
+	("part" args "body_back1")
+	("part" args "propeller")
+	("part" args "propeller_a")
+	("part" args "propeller_b")
+	("part" args "propeller1")
+	("part" args "propeller1_a")
+	("part" args "propeller1_b")
+	("part" args "propeller2")
+	("part" args "propeller2_a")
+	("part" args "propeller2_b")
+	("part" args "flap1")
+	("part" args "flap2")
+	("part" args "part1")
+	("part" args "part2")
+	("part" args "body1")
+	("part" args "body2")
+	("part" args "body3")
+	("part" args "body5")
+	("part" args "body6")
+	("part" args "body7")
+
+	("part" args "wingl1")
+	("part" args "wingl2")
+	("part" args "wingl3")
+	("part" args "wingr1")
+	("part" args "wingr2")
+	("part" args "wingr3")
+	
+	("armor_transport")	
+
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+		{switch
+			{exitFromWater}
+			{terrain not "water" "deep_water"}
+		}
+	}
+
+	{chassis "water"
+		("chassis_defaults")
+		{ignorePatherBounds}
+		{waterline -1.8}
+		{switch
+			{terrain "water" "deep_water"}
+		}	
+	}
+
+	{mass 3000}
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+	}
+	{Extension "do-24t.mdl"}
+}

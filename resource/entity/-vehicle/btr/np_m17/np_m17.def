@@ -1,0 +1,133 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	(include "/properties/car_crew.ext")
+	{props "vehicle" "armored_car" "tank" "turret" "turret_rotator" "wheeled" "flak" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank_bullet_h_flak"}
+	{PatherId "vehicle.small"}
+
+	{extender "enumerator"}
+	{extension "crew.ext"}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+	{Volume "gun"
+		{thickness 10}
+	}
+	{component "gun"
+		{RepairTime 15}
+	}
+
+	("armor_light" args 1.0)
+	
+	
+	{placer
+		{place "driver"		{group "gunner"} {visor "driver"}}
+		{place "commander"	{group "gunner"} {visor "driver"}}
+		{place "gunner"		{group "gunner"} {visor "main"} {turnoff {targetable 0}}}
+	}
+ 	{Placer
+	          {place "attach01"
+	             {entity "can"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "can"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	}
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun" 3000}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "mgun_aa"}
+			{RestoreIKAfterAim}
+			{weapon "browning_x4" filled}
+			{Barrels 4}
+			{LinkAnimation "off"}
+			{charger "gunner"}
+			("abm_mgun_heavy")
+		}
+	}  	
+	{sensor
+		{visor "main"
+			{bone "gun_rot"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+    		{visor "view-around"
+        			{vision "tank_main-l"}
+        			{bone "visor2"}
+    		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.2) boneleft("wheell4") boneright("wheelr4"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(72)
+			weight(9.0)
+			power(147)
+			fuel(230)	
+		)
+	}
+	
+   {mass 9000}
+
+	{Extension "m17.mdl"}
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+		{limits -10 85}
+		{speed2 25}		
+	}
+	{texmod "3"}
+}

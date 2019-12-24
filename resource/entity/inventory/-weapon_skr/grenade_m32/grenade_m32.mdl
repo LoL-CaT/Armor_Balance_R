@@ -1,0 +1,69 @@
+;Exported by: sergienko
+;Date:        Mon May 08 17:47:45 2006
+;File:        D:\tmp\grenade_m24\m24.max
+{Skeleton
+	{bone "m24"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{LODView
+			{VolumeView "m24.ply"}
+			{VolumeView "m24_lod1.ply"}
+			{VolumeView "m24_lod2.ply"}
+		}
+		{bone "handle"
+			{Matrix34
+				0.5	0	-0.866026
+				0.866026	0	0.5
+				0	-1	0
+				-3.23266	-0.677581	1.4607
+			}
+		}
+	}
+}
+{Volume "body"
+	{Cylinder 0.695903 6.96621}
+	{Bone "m24"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		-0.569799	0.0393488	0.0292106
+	}
+}
+{Volume "select"
+	{Cylinder 2.86712 13.8495}
+	{Bone "m24"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		-0.502178	0.0393497	0.0292103
+	}
+}
+{Extender "preview"
+	{"Stuff"
+		{camera
+			{origin 2.47067	-6.90253	4.67539}
+			{lookat -0.103559	-0.0825821	0.171697}
+			{fov 45}
+			{horizon -167}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.323888	0.376375	-0.0586333}
+			}
+			{"1"
+				{type point}
+				{position 0.356352	-1.82808	-1.21396}
+			}
+			{"2"
+				{type point}
+				{position -3.57486	-0.372915	-1.94322}
+			}
+		}
+	}
+}

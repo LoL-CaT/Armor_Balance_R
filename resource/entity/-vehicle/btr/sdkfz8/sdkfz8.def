@@ -1,0 +1,120 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_low" "flak" "muzzle_medium"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank_flak"}
+	{PatherId "vehicle.small"}
+
+	{Extension "crew.ext"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{volume "body1"
+		{thickness 15}
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{thickness 15}
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{thickness 15}
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body4"
+		{thickness 15}
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "engine"
+		{thickness 10}
+		{component "engine"}
+		{tags "engine"}
+	}
+	{volume "inventory"
+		{thickness 2}
+	}
+	{Volume "Gun"
+		{thickness 10}
+		{tags "no_target"}
+		{able {Visible 0} {Obstacle 0} {Contact 0}}
+	}
+	{component "Gun"
+		{RepairTime 20}
+	}
+
+	{extender "shield"
+		{on}
+	}
+
+	{volume "shield"
+		{component "gun"}
+		{tags "gun"}
+		{thickness 25}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+	
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	("armor_medium" args 1.0)
+
+	{extender "inventory"
+		{box
+			{item "bullet88_flak18 ap" 12}
+			{item "bullet88_flak18 fg" 6}
+		}
+	}
+
+	{Weaponry
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "88mm_flak18_40" filling "bullet88_flak18 ap" 1}
+			("abm_high")
+		}
+	}
+
+	{mass 14700}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(52)
+			weight(14.7)
+			power(185)
+			fuel(250)	
+		)
+	}
+
+	{Extension "sdkfz8.mdl"}
+
+;	(mod "mp"
+;		{brain
+;			{properties
+;				{fire_mode hold}
+;			}
+;		}
+;	)
+	
+	{bone "gun_rot1"		;horizontal gun
+		{limits -120 120}	;gun min right to max left
+		{speed 0.01}
+	}
+	{bone "gun_rot"			;vertical gun
+		{speed 0.01}
+	}
+}

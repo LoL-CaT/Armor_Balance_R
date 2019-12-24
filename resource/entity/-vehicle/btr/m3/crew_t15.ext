@@ -1,0 +1,34 @@
+;SDL
+
+(include "/properties/car_crew.ext")
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+{sensor
+	{visor "gunner" {bone "visor"}}
+	{visor "gunner1" {bone "foresight3"}}
+}
+{placer
+	{place "driver" {visor "driver"}}
+	{place "gunner" {visor "main"}}
+}
+
+("board_animation" place(driver)	  board_begin(board_big-midcar_driver) board_end(seat_driver_car) base(doorleft))
+("board_animation" place(gunner)	  board_begin(board_body) board_end(seat_armor) base(gunner))
+("board_animation" place(charger)	  board_begin(board_body) board_end(seat_armor) base(doorback))
+("board_animation" place(commander)	  board_begin(board_big-midcar) board_end(seat_passenger) base(doorright))
+
+
+("crew_human" place(driver)	door(emit1) bone(driver) animation(driver) 		group(crew))
+("crew_human" place(gunner)	door(emit3) bone(gunner) animation(gunner) 		group(crew))
+("crew_human" place(charger)	door(emit4) bone(charger) animation(gunner) 		group(crew))
+("crew_human" place(commander)	door(emit2) bone(commander) animation(commander) 		group(crew))
+
+

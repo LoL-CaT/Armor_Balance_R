@@ -1,0 +1,81 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")	
+	{props "muzzle_zenite" "wheeled" "windowed"}	
+;	{targetClass "fighter"}
+	{props "fighter_av"}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheel2")
+	("part" args "body_back")
+	("part" args "propeller")
+	("part" args "wingl")
+	("part" args "wingr")
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+	{mass 2600}
+	
+	{extender "enumerator"
+		{digit_folder "2"}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet45_53k airplane" 29}
+			{item "ammo hmgun" 1500}
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{type "gun_av"}		
+			{weapon "45mm_ns" filling "ammo bullet45_53k airplane" 29}
+			{charger "driver"}
+			{gunner "driver"}
+			{foresight "foresight1"}
+			{rotate}
+;			("abm_zenite")
+			{basic}			
+		}
+		{place "mgun"
+			{type "mgun_av"}		
+            {weapon "ubs_x2" filled}
+			{barrels 2}
+			{charger "driver"}
+			{gunner "driver"}
+			{foresight "foresight4"}
+			("abm_zenite")			
+			{rotate}
+			{basic}			
+		}
+	}
+
+	{Extension "yak3.mdl"}
+}

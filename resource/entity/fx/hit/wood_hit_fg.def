@@ -1,0 +1,190 @@
+{fx
+	{#+ particleview shepki
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 1 1}
+				{alpha0 0}
+				{alpha1 90}
+			}
+			{particleinit
+				{speed 3 3}
+				{lifetime 2 0.8}
+			}
+			{axisz}
+			{particlesinblock 30}
+			{timetolive 0.1}
+		}
+		{mover
+			{gravity
+				{value 0.1}
+			}
+			{damping 0.97}
+			{collisions
+				{terrain}
+				{restitution 0.5}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/particle/doski3"
+					{turn 1
+						{npower
+							{min 0 300}
+							{max 0}
+							{pow 1.2}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 4}
+					}
+					{scale 0.085 0.035}
+				}
+			}
+			{stage collided dying 
+				{sprite "$/particle/doski3"
+					{scale 0.085 0.035}
+					{preturn 180 180}
+				}
+				{flags killparticle ground }
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview smoke
+		{delay 0.15}
+		{generator
+			{totalparticles 20}
+			{particlesinblock 20}
+			{emissionarea
+				{radius 1 1}
+				{alpha0 0}
+				{alpha1 180}
+			}
+			{particleinit
+				{speed 2 2}
+				{lifetime 3.5 0.5}
+			}
+			{timetolive 0.1}
+		}
+		{mover
+			{damping 0.92}
+			{gravity
+				{value -0.005}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.3}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smokesmal9"
+					{scale 1
+						{linear
+							{min 1 0.3}
+							{max 3 1}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.6}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+				{sprite "$/smoke/smoke_g04a"
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.35 0.05}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.8}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{highlight 0xa59f87}
+				}
+			}
+		}
+	}
+	{#+ particleview fire
+		{generator
+			{particlesinblock 20}
+			{totalparticles 20}
+			{emissionarea
+				{radius 0.5 0.5}
+				{alpha0 0}
+				{alpha1 180}
+			}
+			{particleinit
+				{speed 2 2}
+				{lifetime 0.8}
+			}
+			{timetolive 0.1}
+		}
+		{mover
+			{damping 0.9}
+			{gravity
+				{value -0.05}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.3}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smtanko"
+					{scale 1
+						{linear
+							{min 0.7 0.3}
+							{max 1.7 0.3}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{light 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 0.6 0.2}
+					}
+				}
+			}
+		}
+	}
+}

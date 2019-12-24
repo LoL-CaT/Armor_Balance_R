@@ -1,0 +1,142 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "with_gun" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	
+	{extension "crew.ext"}	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+			{front	30}
+            {top 6}
+		    {bottom 5}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+			{front	30}
+            {top 6}
+		    {bottom 5}
+		}
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret" "body"}
+		{thickness 10
+			{front	30}
+            {top 6}
+		}
+	}
+	{volume "crew"
+		{able {contact_ground 0}}
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+
+	{volume "engine"
+		{thickness 8
+			{rear 8}
+		}
+	}
+	{Volume "Gun"
+		{thickness 10}
+	}
+	{component "Gun"
+		{RepairTime 20}
+	}
+	
+	("armor_medium" args 1.0)	
+	
+    {sensor	
+	        {visor "main1"
+			{vision "moto_crew_h"}
+			{bone "visor1"}
+		}
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}	
+	        {visor "tur2_55"
+			{vision "tank_pr"}
+			{bone "visor155"}
+		}		
+	}	
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo mgun" 1200}
+			{item "bullet20x138b ap" 100}
+			{item "bullet20x138b fg" 100}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_kwk38" filling "bullet20x138b ap" 10}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+		{place "mgun"
+			{charger "gunner"}
+			{weapon "mg34_btr" filled}			
+			{linkbone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")			
+			{basic}
+		}
+	}	
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+		}
+	}
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+	("wheel" args "wheelright4")
+	("wheel" args "wheelleft4")
+
+	{mass 12000}
+	
+	{Chassis
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility"
+			speed(85)
+			weight(12.0)
+			power(210)
+			fuel(360)	
+		)
+	}
+
+	{Extension "sdkfz234_1.mdl"}
+	{texmod "2"}
+
+	{bone "turret"
+		{speed2 8}
+	}
+
+}

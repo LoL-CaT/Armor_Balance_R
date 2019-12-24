@@ -1,0 +1,36 @@
+;SDL
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_daimler_gunner"}{base "open"}}
+		{reverse 	{end	"emit_body"}}
+	}
+	{anm "gunner"
+		{forward	{begin	"board_daimler_gunner"}{base "open"}}
+		{reverse 	{end	"emit_body"}}
+	}
+}
+
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver)		door(emit1) group(crew)		animation(driver)	    visor(driver))
+("crew_human" place(gunner)		door(emit1) group(crew)	    	animation(gunner)	    visor(main))
+
+{sensor
+    {visor "main"
+		{vision "tank_main-l"}
+        {bone "foresight4"}
+    }
+    {Visor "driver"
+        {vision "tank_driver"}
+        {bone "visor2"}
+    }
+}

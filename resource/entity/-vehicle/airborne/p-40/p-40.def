@@ -1,0 +1,143 @@
+{Entity
+    (include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+;	{targetClass "fighter"}
+	{props "fighter_av"}
+
+	{Extension "p-40.mdl"}
+
+	{Volume "body2"
+            		{tags "part"}
+            		{Thickness 16} 
+	}
+	{Volume "bodyback3"
+              		{tags "part"}
+              		{Thickness 5}
+		{able {visible 1}{obstacle 0}}
+        	}
+	{Volume "bodyback2"
+              		{tags "part"}
+              		{Thickness 5}
+		{able {visible 1}{obstacle 0}}
+        	}
+	{Volume "bodyback"
+              		{tags "part"}
+              		{Thickness 15}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body"
+            		{tags "part"}
+            		{Thickness 20}
+               		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "engine"
+            		{tags "part"}
+            		{Thickness 5}
+	}
+	{Volume "gearl"  
+          		{tags "part"}
+          		{Thickness 1}
+		{able {visible 1}{obstacle 0}}       
+	}
+	{Volume "gearr"
+          		{tags "part"}
+          		{Thickness 1}
+		{able {visible 1}{obstacle 0}}  
+	}
+	{Volume "wheel2"
+          		{tags "part"}
+	}
+	{Volume "wheell"
+          		{tags "part"}
+               		{able {visible 1}{obstacle 0}}    
+	}
+	{Volume "wheelr"
+          		{tags "part"}
+	}
+	{Volume "wingl"
+           		{tags "part"}
+           		{Thickness 10}
+           		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "wingr"
+          		{tags "part"}
+          		{Thickness 10}
+          		{able {visible 1}{obstacle 0}} 
+	}
+
+       	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank"} {end "pose_sit_chair"} {base "open1"}}
+			{reverse 	{end	"board_tank" -1} {base "open1" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+	
+	{mass 3600}
+	
+	{extender "inventory"
+		{Box
+			{item  "ammo hmgun" 2580}
+			{item "ammo air_bomb_il2" 2}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "gun_av"}
+			{weapon "browning_anm2_x6" filled}
+			{Barrels 6}
+			{foresight "foresight3"}
+			{shooter "shooter"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_zenite")
+			{basic}
+		}
+		{place "bomb"
+			{weapon "bomb_dropper_il2_x2" filled}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_zenite")
+			{basic}
+		}
+	}
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "rudder")
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "body_back")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheel2")
+
+
+    {sensor
+		{Visor "main"
+			{bone  "foresight3"}
+			{vision "air"}   
+		}
+	
+	}
+}

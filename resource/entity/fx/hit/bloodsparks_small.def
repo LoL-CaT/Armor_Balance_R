@@ -1,0 +1,117 @@
+{fx
+	{sound "human/hit/"}
+	{#+ particleview stream
+		{generator
+			{totalparticles 20}
+			{particlesinblock 20}
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 3.5 1.5}
+			}
+			{particleinit
+				{speed 0.5 2.5}
+				{lifetime 0.8 0.4}
+			}
+			{timetolive 0.1}
+		}
+		{mover
+			{gravity
+				{value 0.01}
+			}
+			{damping 0.81}
+			{collisions
+				{terrain}
+				{restitution 0.4}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/bloodspot03"
+					{scale 1
+						{linear
+							{min 0.0075 0.0025}
+							{max 0.03 0.01}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{particleview splash
+		{generator
+			{totalparticles 4}
+			{particlesinblock 4}
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 7.5 2.5}
+			}
+			{particleinit
+				{speed 1 4}
+				{lifetime 0.8 0.4}
+			}
+			{timetolive 0.1}
+		}
+		{## mover
+			{gravity
+				{value 0.01}
+			}
+			{damping 0.81}
+			{## collisions
+				{terrain}
+				{restitution 0.4}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/bloodsplash01"
+					{scale 1
+						{## linear
+							{min 0.075 0.025}
+							{max 0.15 0.05}
+						}
+						{npower
+							{min 0.015 -0.015}
+							{max 0.15 0.05}
+							{pow 0.3}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90}
+				}
+				{flags trace }
+			}
+		}
+		{notifyowner}
+	}
+}

@@ -1,0 +1,312 @@
+{fx
+	{fire}
+	{#+ lightview
+		{type point}
+		{animator
+			{highlight 0xffc455}
+			{visibility 1
+				{linear
+					{min 0.7 0.1}
+					{max 1}
+				}
+			}
+			{timer
+				{mode play }
+				{duration 0.5}
+			}
+		}
+		{attenuation0 0.25}
+		{attenuation1 0.7}
+		{radius 170}
+		{priority 5}
+		{effectonground}
+		{offset 0 0 20}
+		{pulseperiod 0.1 0.02}
+	}
+	{#+ particleview fire
+		{generator
+			{totalparticles 5}
+			{emissionarea
+				{radius 2 2}
+				{alpha0 0}
+				{alpha1 -5 2}
+			}
+			{particleinit
+				{speed 0.35 0.05}
+				{lifetime 1.5 0.8}
+			}
+			{axisz}
+		}
+		{mover
+			{damping 0.9975}
+			{gravity
+				{value -0.005}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/flamenosmk01"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.1}
+							{max 0.2}
+						}
+					}
+					{light 1
+						{peak
+							{min 0}
+							{max 1}
+						}
+					}
+					{preturn 90 90}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+				{sprite "$/smokestat04l"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 150}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.035 0.015}
+							{max 0.125 0.025}
+						}
+					}
+					{## light 1
+						{peak
+							{min 0}
+							{max 0.6}
+						}
+					}
+					{preturn 90 90}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{highlight 0xffffb12a}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.6}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview "flames     "
+		{generator
+			{totalparticles 5}
+			{emissionarea
+				{radius 1 1}
+				{alpha0 0}
+				{alpha1 10 5}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 1.5 0.5}
+			}
+			{axisz}
+		}
+		{mover
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/explo04"
+					{timer
+						{mode play }
+						{duration 2}
+					}
+					{## light 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{scalex 0.1}
+					{scaley 1
+						{linear
+							{min 0.1}
+							{max 0.1}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+		{offset 0 0 5}
+	}
+	{#+ particleview sparkles
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 3 3}
+				{alpha0 0 5}
+				{alpha1 5 5}
+			}
+			{particleinit
+				{speed 0.5 0.5}
+				{lifetime 2 0.3}
+			}
+			{axisz}
+		}
+		{offset 0 0 5}
+		{mover
+			{damping 0.999}
+			{gravity
+				{value -0.001}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{scale 1
+						{linear
+							{min 0.175 0.025}
+							{max 0.1 0.05}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{particleview smoke
+		{generator
+			{totalparticles 40}
+			{emissionarea
+				{radius 5}
+				{alpha0 0}
+				{alpha1 -5 2}
+			}
+			{particleinit
+				{speed 1.25 0.25}
+				{lifetime 5 1}
+			}
+			{axisz}
+		}
+		{mover
+			{damping 0.995}
+			{gravity
+				{value 0.001}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat04l"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.2}
+							{max 0.3}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.1}
+						}
+					}
+					{preturn 90 90}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+				{sprite "$/smokestat02"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 30}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.075 0.025}
+							{max 0.25 0.05}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{preturn 0 20}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+				{sprite "$/smokestat02"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 150}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.075 0.025}
+							{max 0.25 0.05}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{preturn 0 20}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+			}
+		}
+		{offset 0 0 5}
+		{notifyowner}
+	}
+	{#+ decalview burn
+		{sprite "$/particle/burn"
+			{timer
+				{mode play loop }
+				{duration 1}
+			}
+			{visibility 2}
+			{scale 1.5}
+		}
+		{layer groundstatic}
+		{usedirection}
+	}
+}

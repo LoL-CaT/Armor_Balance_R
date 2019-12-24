@@ -1,0 +1,107 @@
+{fx
+	{sound "crush/medium/glass"}
+	{#+ lightview
+		{type point}
+		{animator
+			{timer
+				{duration 0.1}
+			}
+			{scale 1
+				{linear
+					{min 1}
+					{max 0.5}
+				}
+			}
+			{visibility 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{highlight 0xffedb0}
+		}
+		{attenuation0 0.02}
+		{attenuation1 0.4}
+		{radius 70}
+		{effectonground}
+		{offset 0 0 30}
+	}
+	{#+ spriteview flash1
+		{sprite "$/flash/flash_g03"
+			{timer
+				{mode }
+				{duration 0.1}
+			}
+			{preturn 90 90}
+			{scale 1
+				{linear
+					{min 0.05}
+					{max 0.5}
+				}
+			}
+			{light 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+		}
+		{halo}
+		{notifyowner}
+		{autovisible}
+	}
+	{#+ particleview "pieces light"
+		{entitygenerator
+			{totalparticles 5 1}
+			{emissionarea
+				{radius 1 1}
+				{alpha0 135 15}
+				{alpha1 155 5}
+			}
+			{particleinit
+				{speed 3 1}
+				{lifetime 0.35 0.15}
+			}
+			{axisz}
+			{entity "fx_piece"
+				{fx "flash_exp_sm_part3"}
+			}
+		}
+		{offset 0 0 3}
+	}
+	{#+ particleview sparkles
+		{generator
+			{emissionarea
+				{alpha0 100 10}
+				{alpha1 120 10}
+			}
+			{particleinit
+				{speed 3 2}
+				{lifetime 0.75 0.25}
+			}
+			{totalparticles 30}
+			{particlesinblock 30}
+			{axisz}
+			{timetolive 0.1}
+		}
+		{mover
+			{nodependonwind}
+			{damping 0.9}
+			{gravity
+				{value 0.05}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/flash/flashss1"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.03 0.02}
+					{light 1}
+				}
+			}
+		}
+	}
+}

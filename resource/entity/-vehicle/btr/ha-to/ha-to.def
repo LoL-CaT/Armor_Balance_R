@@ -1,0 +1,121 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")	
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	(include "/properties/car_crew.ext")
+	{props "vehicle" "armored_car" "medium" "-turret" "opened" "nebelwerfer" "vision_vehicle_high"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{patherId "tank.light"}
+
+	{extender "enumerator"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "inventory"
+	        {thickness 2}
+	}
+	{volume "turret"
+	        {thickness 4}
+	}
+
+	("armor_spa_light" armor(15 8 8 4))
+	("armor_engine"  t(4 4 4 4))
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-highcar)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-highcar_driver)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+
+	{boarder
+		{anm "charger"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_left"} {end "pose_pak40_gunlayer"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_tank_right"} {end "pose_pak40_charger"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+	("crew_human" place(gunner)	bone(gunner)	door(emit3) animation(gunner))
+	("crew_human" place(charger)	bone(charger)	door(emit6) animation(gunner))
+	("crew_human" place(gunner2)	bone(gunner2)	door(emit4) animation(gunner))
+
+	{placer
+		{place "driver" 	{visor "driver"}{group "crew"}}
+		{place "commander"	{visor "driver"}{group "crew"}}
+		{place "gunner"		{visor "main"}	{group "crew"} {openForCrush}}
+		{place "charger"	{visor "main"}	{group "crew"} {openForCrush}}
+		{place "gunner2" 	{visor "main"}	{group "crew"} {openForCrush}}
+	}
+
+	{sensor
+		{visor "main"
+			{vision "tank_main-h"}
+			{bone "visor2"}
+		}
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor1"}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{size 8 10}
+			{item "ammo 30cm_rocket" 4}
+		}
+	}
+	{Weaponry
+			{place "gun"
+				{weapon "weapon t4_30cm" filled}	
+				{barrels 1}
+				{gunner "gunner2"}
+				{charger "gunner2"}
+				("abm_howitzer")
+			}
+	}
+
+	{mass 14300}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.56) len(0.4))
+		("mobility"
+			speed(25)
+			weight(14.3)
+			power(115)
+			fuel(470)	
+		)
+	}
+
+	{Extension "ha-to.mdl"}
+	{bone "gun_rot"
+		{limits 10 -8}
+	}
+}

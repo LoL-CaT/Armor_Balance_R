@@ -1,0 +1,80 @@
+{actor;test
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+	{targetClass "fighter"}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{base "open" -1} {end	"board_plane_left" -1} }
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "body_back")
+	("part" args "propeller")
+	("part" args "propeller1")
+	("part" args "propeller2")
+	("part" args "flap1")
+	("part" args "flap2")
+	("part" args "flap3")
+	("part" args "flap4")
+
+	(define "part_body"
+		{volume %0
+			{tags "body"}
+			{thickness hollow 2}
+			{able {visible 0}}
+			{density 0.01}
+		}
+		{component %0}
+	)
+	{Chassis
+		{Locomotion ("locomotion")
+			{Maxspeed 85}
+			{turnRadius 50}
+		}
+		{maxSideSlope 70} ;degree
+		{speed
+			{Slow 10} ; km/h
+			{Normal 55}
+			{Fast 80}
+		}
+	}	
+	{mass 1000}
+	{extender "inventory"
+		{Box
+			{item "bullet20 zenite" 1000}
+			{item "aircraft_control"}
+		}
+	}
+	{Weaponry
+		{place "zenite"
+			{weapon "20mm_mg151" filled}
+			{barrels 4}
+			{foresight "foresight1"}
+			{gunner "driver"}
+			{charger "driver"}
+		}
+	}
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+	}
+	{Extension "f4f.mdl"}
+}

@@ -1,0 +1,69 @@
+{actor
+  (include "/properties/airborne.ext")
+  {PatherID  "airborne"}
+  (include "/properties/selection/airborne.inc" scale(2.0))
+  (include "/properties/car_crew.ext")
+  ;{targetClass "fighter"}
+  {props "fighter_av"}  
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+
+	{mass 2800}
+
+	{extender "inventory"
+		{Box
+			{item "bullet20_oerlikon airplane" 1200}
+			{item "ammo ptr" 5000}
+			{item "ammo air_bomb" 1}
+		}
+	}
+	{Weaponry
+		{place "zenite"
+			{weapon "20mm_Oerlikon_99_1" filling "ammo bullet20_oerlikon airplane" 120}
+			{barrels 2}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_zenite")	
+			{basic}				
+		}
+		{place "bomb"
+			{weapon "bomb_dropper" filled}
+			{gunner "driver"}
+			{charger "driver"}
+			{basic}
+		}
+	}
+
+	{Sensor
+		{Visor "main"
+			{bone  "pivot_front"}
+		}
+	}
+
+
+	{extender "enumerator"
+	}
+
+	{Extension "a6m_m21_86.mdl"}
+}

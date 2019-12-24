@@ -1,0 +1,188 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	(include "/properties/car_crew.ext")
+	{props "vehicle" "armored_car" "tank" "turret" "turret_rotator" "wheeled" "flak" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+        {targetSelector "tank_bullet_h_flak"}
+	{PatherId "vehicle.small"}
+
+	{extender "enumerator"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body7"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 8
+		{front 8}
+		{top 6}
+		}
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+	{Volume "gun"
+		{thickness 10}
+	}
+	{Volume "bumper"
+		{thickness 10}
+	}
+	{component "gun"
+		{RepairTime 15}
+	}
+	{Volume "fuel"
+		{thickness 1}
+	}
+
+	("armor_light" args 1.0)
+	
+	{boarder
+		{anm "gunner"
+			{forward	{begin	"board_LowTank_stand"} {end "pose_maxson"}}
+			{reverse 	{end	"emit_tank_1"}}
+    	}
+    }
+
+	("crew_2_human")
+
+	("crew_human" place(driver)	door(emit1) bone(driver) animation(driver) 		group(crew))
+	("crew_human" place(commander)	door(emit2) bone(commander) animation(commander) 	group(crew))
+	("crew_human" place(gunner) bone(gunner) door(emit3) animation(gunner))
+
+	{placer
+		{place "driver"		{group "gunner"} {visor "driver"}}
+		{place "commander"	{group "gunner"} {visor "driver"}}
+		{place "gunner"		{group "gunner"} {visor "main"} {turnoff {targetable 0}}}
+	}
+
+("board_animation" place(driver)	  board_begin(board_big-midcar_driver) board_end(seat_driver_car) base(doorleft))
+("board_animation" place(commander)	  board_begin(board_big-midcar) board_end(seat_driver_car) base(doorright))
+
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun" 3000}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "mgun_aa"}
+			{RestoreIKAfterAim}
+			{weapon "browning_x4" filled}
+			{Barrels 4}
+			{LinkAnimation "off"}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+	}  	
+	{sensor
+		{visor "main"
+			{bone "gun_rot"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+    	{visor "view-around"
+        	{vision "none"}
+        	{bone "visor2"}
+    	}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.2) boneleft("wheell4") boneright("wheelr4"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(72)
+			weight(9.8)
+			power(147)
+			fuel(230)	
+		)
+	}
+
+	{mass 9800}
+
+	{Extension "m16.mdl"}
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+		{limits -10 85}
+		{speed2 25}		
+	}
+}

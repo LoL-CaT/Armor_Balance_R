@@ -1,0 +1,103 @@
+{actor
+  (include "/properties/airborne.ext")
+  {PatherID  "airborne"}
+  (include "/properties/selection/airborne.inc" scale(2.0))
+  (include "/properties/car_crew.ext")
+; {targetClass "fighter"}
+  {props "fighter_av"}   
+  
+; P-51D-NA/-NT
+; Mustang Mk III
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+
+	("part" args "propeller")
+	("part" args "propeller1")
+	("part" args "propeller2")
+	("part" args "propeller3")
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "body_back")
+	("part" args "rudder")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+
+	("armor_fighter")	
+
+	{mass 4500}
+
+	{extender "inventory"
+		{Box
+			{item "T64" 6}
+			{item "hmgun" 1000}
+			{item "ammo air_bomb" 1}
+		}
+	}
+	{Weaponry
+		{place "rocket"
+			{weapon "arl_mustang" filled}
+			{barrels 6}
+			{shooter "shooter_r"}
+			{gunner "driver"}
+			{charger "driver"}
+		}
+		{place "zenite"
+			{weapon "browning_anm2" filled}
+			{barrels 5}
+			{gunner "driver"}
+			{charger "driver"}
+		}
+		{place "bomb"
+			{weapon "bomb_dropper" filled}
+			{gunner "driver"}
+			{charger "driver"}
+			{basic}
+		}
+	}
+
+	{Sensor
+		{Visor "main"
+			{bone  "pivot_back"}
+		}
+	}
+
+;	{extender "light"
+;		{lightfx "light_post"}
+;		{breakfx "glass_hit"}
+;		{lamp "1"}
+;		{check_operatable}
+;	}
+
+	{extender "enumerator"
+		{digit_folder "usa"}
+	}
+
+	{Extension "P-51Mustang.mdl"}
+}

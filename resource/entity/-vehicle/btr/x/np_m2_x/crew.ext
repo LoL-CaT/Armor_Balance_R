@@ -1,0 +1,38 @@
+;SDL
+
+(include "/properties/car_crew.ext")
+
+{boarder
+    {anm "passengers"
+		{forward	{begin	"board_body"} }   
+		{reverse 	{end	"emit_body" 1}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+
+("board_animation" place(driver)	  board_begin(board_big-midcar_driver) board_end(seat_driver_car) base(doorleft))
+("board_animation" place(gunner)	  board_begin(board_LowTank_stand) board_end(seat_armor) base(gunner))
+("board_animation" place(gunner1)	  board_begin(board_LowTank_stand) board_end(seat_gunner_stand) base(gunner))
+("board_animation" place(gunner2)	  board_begin(board_LowTank_stand) board_end(seat_gunner_stand) base(gunner))
+("board_animation" place(commander)	  board_begin(board_big-midcar) board_end(seat_driver_car) base(doorright))
+
+("crew_human" place(driver)	door(emit1) bone(driver) animation(driver) 		group(crew))
+("crew_human" place(gunner)	door(emit3) bone(gunner) animation(gunner) 		group(crew))
+("crew_human" place(commander)	door(emit2) bone(commander) animation(commander) 		group(crew))
+("crew_human" place(gunner1)	door(emit3) bone(gunner1) animation(gunner1)	group(crew))
+("crew_human" place(gunner2)	door(emit4) bone(gunner2) animation(gunner2)	group(crew))
+("crew_human" place(seat1)	door(emit3) bone(seat01) animation(passengers) 	group(passengers))
+("crew_human" place(seat2)	door(emit4) bone(seat02) animation(passengers)	group(passengers))
+("crew_human" place(seat3)	door(emit3) bone(seat03) animation(passengers)	group(passengers))
+("crew_human" place(seat4)	door(emit4) bone(seat04) animation(passengers)	group(passengers))
+("crew_human" place(seat5)	door(emit3) bone(seat05) animation(passengers)	group(passengers))

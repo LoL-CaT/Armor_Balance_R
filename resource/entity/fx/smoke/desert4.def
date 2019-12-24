@@ -1,0 +1,55 @@
+{fx
+	{particleview
+		{generator
+			{totalparticles 15}
+			{emissionarea
+				{radius 50 50}
+				{alpha0 0}
+				{alpha1 1}
+			}
+			{particleinit
+				{speed 1}
+				{lifetime 120}
+			}
+		}
+		{mover
+			{damping 5}
+			{gravity
+				{value 0}
+			}
+			{collisions
+				{terrain}
+				{restitution 1}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smoke_turb2"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 150}
+						}
+					}
+					{scale 0.5
+						{linear
+							{min 0.75 0.25}
+							{max 1.15 0.05}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.5}
+							{max 0}
+						}
+					}
+					{preturn 45 45}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+			}
+		}
+	}
+}

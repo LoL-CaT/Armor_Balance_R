@@ -1,0 +1,31 @@
+;SDL
+
+("crew_2_human")
+
+("crew_human" place(seat1)	bone(seat01)	door(emit2)	animation(passenger1))
+("crew_human" place(seat2)	bone(seat02)	door(emit4)	animation(passenger))
+("crew_human" place(seat3)	bone(seat03)	door(emit3)	animation(passenger))
+("crew_human" place(seat4)	bone(seat04)	door(emit3)	animation(passenger1))
+("crew_human" place(seat5)	bone(seat05)	door(emit6)	animation(passenger1))
+("crew_human" place(seat6)	bone(seat06)	door(emit6)	animation(passenger))
+("crew_human" place(seat7)	bone(seat07)	door(emit5)	animation(passenger1))
+
+("board_animation" place(passenger)		board_begin(board_SdKfz7) board_end(seat_passenger)	 base(doorpassenger))
+("board_animation" place(passenger1)	board_begin(board_SdKfz7) board_end(seat_passenger)	 base(doorpassenger))
+
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_SdKfz7"}}
+		{reverse 	{end	"emit_tank_1" 1}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_SdKfz7"}}
+		{reverse 	{end	"emit_tank_1" 1}}
+	}
+	{anm "passenger"
+		{reverse 	{end	"emit_tank_1" 1}}
+	}
+	{anm "passenger1"
+		{reverse 	{end	"emit_body" 1}}
+	}
+}

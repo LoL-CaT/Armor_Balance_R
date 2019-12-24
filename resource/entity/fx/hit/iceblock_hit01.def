@@ -1,0 +1,285 @@
+{fx
+	{#+ particleview cloud
+		{generator
+			{totalparticles 4}
+			{particlesinblock 4}
+			{emissionarea
+				{radius 15 15}
+				{alpha0 0}
+				{alpha1 10}
+			}
+			{particleinit
+				{speed 2 2}
+				{lifetime 5 1}
+			}
+			{axisz}
+			{timetolive 0.01}
+		}
+		{offset 0 0 10}
+		{mover
+			{gravity
+				{value 0.005}
+			}
+			{damping 0.9}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smokesmal4b_30"
+					{scale 1
+						{linear
+							{min 0.9 0.1}
+							{max 2.5 0.5}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/smoke/smokesmal4ablue"
+					{scale 1
+						{linear
+							{min 0.9 0.1}
+							{max 2.5 0.5}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.6}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/smoke/smokesmal4b_50"
+					{scale 1
+						{linear
+							{min 0.9 0.1}
+							{max 2.5 0.5}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.6}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview snowflakes
+		{generator
+			{totalparticles 10}
+			{particlesinblock 10}
+			{emissionarea
+				{radius 15 14}
+				{alpha0 0}
+				{alpha1 40}
+			}
+			{particleinit
+				{speed 8.5 6.5}
+				{lifetime 3 1}
+			}
+			{axisz}
+			{timetolive 0.01}
+		}
+		{mover
+			{gravity
+				{value 0.03}
+			}
+			{damping 0.8}
+			{collisions
+				{terrain}
+				{restitution 0.001}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/snow"
+					{scale 1
+						{linear
+							{min 0.135 0.065}
+							{max 0.135 0.065}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0.5}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview kasha
+		{generator
+			{totalparticles 5}
+			{particlesinblock 5}
+			{emissionarea
+				{radius 5 5}
+				{alpha0 45 45}
+				{alpha1 180}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 15 3}
+			}
+			{timetolive 0.01}
+		}
+		{offset 0 0 1}
+		{visualizer
+			{stage 
+				{flags ground }
+				{#+ sprite "$/smoke/smokesmal4ablue"
+					{scale 1
+						{linear
+							{min 1.5 0.5}
+							{max 4 1}
+						}
+					}
+					{visibility 1
+						{## peak
+							{min 0}
+							{max 0.6}
+						}
+						{linear
+							{min 0.7}
+							{max 0}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xffcff0fe}
+				}
+				{#+ sprite "$/smoke/smoke_turb"
+					{scale 1
+						{linear
+							{min 0.65 0.15}
+							{max 2 0.5}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 50}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xffc7e6fe}
+				}
+				{#+ sprite "$/smoke/smoke_turb"
+					{scale 1
+						{linear
+							{min 0.65 0.15}
+							{max 2 0.5}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 50}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xffc7e6fe}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview parts
+		{entitygenerator
+			{emissionarea
+				{alpha0 20 10}
+				{alpha1 42.5 7.5}
+			}
+			{axisz}
+			{particleinit
+				{speed 5.5 1.5}
+				{lifetime 5.5 0.5}
+			}
+			{entity "#ice01"}
+			{entity "#ice02"}
+			{totalparticles 2}
+		}
+		{notifyowner}
+	}
+}

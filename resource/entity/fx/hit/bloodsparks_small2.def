@@ -1,0 +1,137 @@
+{fx
+	{sound "human/hit/"}
+	{#+ particleview stream
+		{generator
+			{totalparticles 40}
+			{particlesinblock 40}
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 3.5 1.5}
+			}
+			{particleinit
+				{speed 2.5 4.5}
+				{lifetime 0.8 0.4}
+			}
+			{timetolive 0.1}
+		}
+		{mover
+			{gravity
+				{value 0.01}
+			}
+			{damping 0.81}
+			{collisions
+				{terrain}
+				{restitution 0.4}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/bloodspot03"
+					{scale 1
+						{linear
+							{min 0.0075 0.0025}
+							{max 0.015 0.005}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/particle/bloodspot03"
+					{scale 1
+						{linear
+							{min 0.0075 0.0025}
+							{max 0.03 0.01}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{spriteview splash1
+		{sprite "$/particle/bloodsplash01"
+			{timer
+				{mode play }
+				{duration 0.4}
+			}
+			{visibility 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{preturn 270}
+			{scalex 0.6
+				{npower
+					{min 0.1}
+					{max 0.6}
+					{pow 0.3}
+				}
+			}
+			{scaley 0.1}
+		}
+		{orientation trace}
+		{notifyowner}
+		{autovisible}
+	}
+	{spriteview splash2
+		{sprite "$/particle/bloodsplash01"
+			{timer
+				{mode play }
+				{duration 0.4}
+			}
+			{visibility 1
+				{#+ linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{preturn 90}
+			{scalex 0.3
+				{npower
+					{min 0.05}
+					{max 0.2}
+					{pow 0.3}
+				}
+			}
+			{scaley 0.07}
+		}
+		{orientation trace}
+		{notifyowner}
+		{autovisible}
+	}
+}

@@ -1,0 +1,44 @@
+;SDL
+
+{boarder
+	{anm "crew"
+		{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+		{reverse 	{end	"board_plane_left" -1} }
+	}
+	{anm "passengers"
+		{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+		{reverse 	{end	"board_plane_left" -1} }
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver)		door(emit2) bone(driver)	animation(crew)  group(crew))
+("crew_human" place(commander)	door(emit1) bone(driver1)	animation(crew)  group(crew))
+("crew_human" place(gunner)		door(emit1) bone(gunner)	animation(crew)  group(crew))
+("crew_human" place(gunner1)	door(emit1) bone(gunner1)	animation(crew)  group(crew))
+
+("crew_human" place(seat1) 	door(emit1) bone(seat01)	animation(passengers) 	group(passengers))
+("crew_human" place(seat2) 	door(emit1) bone(seat02)	animation(passengers)	group(passengers))
+("crew_human" place(seat3) 	door(emit1) bone(seat03)	animation(passengers)	group(passengers))
+("crew_human" place(seat4) 	door(emit1) bone(seat04)	animation(passengers)	group(passengers))
+("crew_human" place(seat5) 	door(emit2) bone(seat05)	animation(passengers)	group(passengers))
+("crew_human" place(seat6) 	door(emit2) bone(seat06)	animation(passengers)	group(passengers))
+("crew_human" place(seat7) 	door(emit2) bone(seat07)	animation(passengers)	group(passengers))
+("crew_human" place(seat8) 	door(emit2) bone(seat08)	animation(passengers)	group(passengers))
+
+
+("crew_human" place(seat10) 	door(emit2) bone(seat10)	animation(passengers)	group(passengers))
+("crew_human" place(seat11) 	door(emit2) bone(seat11)	animation(passengers) 	group(passengers))
+("crew_human" place(seat12) 	door(emit2) bone(seat12)	animation(passengers)	group(passengers))
+("crew_human" place(seat13) 	door(emit2) bone(seat13)	animation(passengers)	group(passengers))
+  
+

@@ -1,0 +1,139 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	{extension "crew.ext"}
+
+	{extender "shield"
+		{on}
+	}
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "engine1"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 20}
+	}
+	{volume "engine2"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 20}
+	}
+	{Volume "fuel"
+		{thickness 1}
+	}
+	{Volume "mgun_shield"
+		{thickness 10}
+	}
+
+	("armor_medium" args 1.0)	
+	
+    {sensor	
+	        {visor "main1"
+			{vision "moto_crew"}
+			{bone "visor1"}
+		}
+	        {visor "main11"
+			{vision "moto_crew"}
+			{bone "visor2"}
+		}	
+	        {visor "main111"
+			{vision "moto_crew"}
+			{bone "visor3"}
+		}		
+	}	
+
+	{placer
+		{place "driver"		{group "driver"} {visor "driver"}}
+		{place "gunner"		{group "driver"} {visor "main"} {turnoff {targetable 0}}}
+	}
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box
+			{item "mgun" "ammo" 2500}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{type			"mgun_main"}
+			{weapon         "mg34_btr" filled}			
+			{LinkBone		"mgun2"}
+			{LinkAnimation	"off"}
+			{charger		"gunner"}
+			{gunner			"gunner"}
+			("abm_mgun")
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{mass 5800}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(76)
+			weight(5.8)
+			power(100)
+			fuel(140)	
+		)
+	}
+
+	{Extension "sdkfz250_1.mdl"}
+	
+	{bone "mgun_rot"
+		{limits -20 20}		;gun min right to max left
+	}
+	{bone "mgun_rot2"
+		{limits -15 15}		;gun min up to max down
+	}
+}

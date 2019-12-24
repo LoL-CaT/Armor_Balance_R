@@ -1,0 +1,47 @@
+;SDL
+{border
+	{anm "driver"
+		{forward	{begin	"board_sdkfz251-1"}	{base "doorleft"}}
+		{reverse	{end	"emit_body"	1}	{base "doorleft"}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_sdkfz251-1"}	{base "doorleft"}}
+		{reverse	{end	"emit_body"	1}	{base "doorleft"}}
+	}
+	{anm "gunner1"
+		{forward	{begin	"board_sdkfz251-1"}	{base "doorleft"}}
+		{reverse	{end	"emit_body"	1}	{base "doorleft"}}
+	}
+	{anm "gunner2"
+		{forward	{begin	"board_sdkfz251-1"}	{base "doorleft"}}
+		{reverse	{end	"emit_body"	1}	{base "doorleft"}}
+	}
+	{anm "gunner3"
+		{forward	{begin	"board_sdkfz251-1"}	{base "doorleft"}}
+		{reverse	{end	"emit_body"	1}	{base "doorleft"}}
+	}
+}
+
+(define "crew_human"
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+	}
+	{placer
+		{place "%place"	{LinkBone "%place"}	{visor "%visor"} {turnoff {sensor} {shadow}}}
+	}
+)
+
+{boarder
+	{door "emit1"}
+	{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+}
+
+(crew_human" place(gunner1)	door(emit1)	visor(foresight3}}
+(crew_human" place(gunner2)	door(emit1)	visor(foresight3}}
+(crew_human" place(gunner3)	door(emit1)	visor(foresight3}}
+{placer
+	{place "driver"	{visor "main"}}
+}
+
+	

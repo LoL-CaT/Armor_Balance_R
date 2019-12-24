@@ -1,0 +1,170 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "turret_rotator" "wheeled" "with_gun" "vision_vehicle_minimum" "muzzle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	(include "/properties/tank_crew.ext")
+	
+	{extender "enumerator"}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+		{front 19}
+		{top 6}
+		{bottom 6}
+		} 
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+		{front 19}
+		{top 6}
+		{bottom 6}
+		} 
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 19
+		{front 19}
+		{top 6}
+		} 
+	}
+	{volume "mantlet"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 25}
+	}
+
+	
+	{volume "crew"
+		{able {contact_ground 0}}
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+
+	{volume "engine"
+		{thickness 5
+			{rear	5}
+		}
+	}
+	{Volume "Gun"
+		{thickness 10}
+	}
+	{component "Gun"
+		{RepairTime 20}
+	}
+
+	("armor_light" args 1.0)
+	
+	{extender "enumerator"}
+
+
+	("shield" args 8)
+	{extender "shield"
+		{on}
+	}
+
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	{anm "gunner"
+		{forward	{begin	"board_sd222_gunner_1"} {end "seat_sd222_gunner_1"} {base "open_gunner"}}
+		{reverse 	{end	"emit_body"}}
+	}
+	}
+
+	{sensor
+		{visor "main1" {bone "visor1"} {vision "moto_crew"}}
+	}          
+			
+	("crew_human" place(driver)	door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(gunner) door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))	
+	{placer {place "gunner" {openForCrush 0}}}		
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo bullet37_m3l ap" 40}
+			{item "ammo bullet37_m3l fg" 40}
+;			{item "browning" filled {user "mgun"}}
+;			{item "ammo hmgun" 500}
+			{item "ammo mgun" 1500}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "37mm_m6" filling "ammo bullet37_m3l ap" 1}
+			{charger "gunner"}
+			("abm_low")
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{LinkBone "mgun"}
+;			{LinkAnimation "off"}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			("abm_mgun_heavy")
+;		}
+		{place "mgun1"
+			{type "mgun_coaxial"}
+			{LinkBone "mgun2"}
+			{weapon "browning_m19" filled}
+			{foresight "foresight4"}
+			{charger "gunner2"}
+			("abm_mgun")
+			{basic}
+		}	
+		
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+
+	{mass 7900}
+	{Chassis
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility"
+			speed(89)
+			weight(7.9)
+			power(110)
+			fuel(210)	
+		)
+	}
+	{Extension "m8grayhound.mdl"}
+
+	{bone "turret"
+		{speed2 20}
+	}
+
+}

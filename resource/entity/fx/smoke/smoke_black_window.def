@@ -1,0 +1,97 @@
+{fx
+	{fire}
+	{particleview
+		{generator
+			{axisz}
+			{totalparticles 40}
+			{emissionarea
+				{radius 1.5 1.5}
+				{alpha0 0 5}
+				{alpha1 8 5}
+				{speed 0.12}
+			}
+			{particleinit
+				{speed 0.6 0.2}
+				{lifetime 3 1}
+			}
+		}
+		{mover
+			{gravity
+				{value -0.01}
+			}
+			{damping 0.98}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat04l"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 60}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.4}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.045 0.015}
+							{max 0.275 0.025}
+						}
+					}
+					{redlight 1
+						{linear
+							{min 0}
+							{max 1}
+						}
+					}
+					{greenlight 1
+						{linear
+							{min 0}
+							{max 1}
+						}
+					}
+					{bluelight 1
+						{linear
+							{min 0}
+							{max 1}
+						}
+					}
+				}
+				{sprite "$/smokestat02"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.4}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.045 0.015}
+							{max 0.275 0.025}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,318 @@
+{fx
+	{#+ particleview "start fire"
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 0}
+				{speed 4}
+			}
+			{particleinit
+				{speed 4.1}
+				{lifetime 0.22}
+			}
+		}
+		{mover
+			{damping 1.5}
+			{gravity
+				{value 0.03}
+			}
+			{nodependonwind}
+			{collisions
+				{objects}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/flash/flashssp3"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 1
+						{linear
+							{min 0.025}
+							{max 0.0815 0.0685}
+						}
+					}
+					{redlight 1
+						{linear
+							{min 1}
+							{max 0.1}
+						}
+					}
+					{greenlight 1
+						{linear
+							{min 0.8}
+							{max 0.1}
+						}
+					}
+					{bluelight 1
+						{linear
+							{min 0.6}
+							{max 0}
+						}
+					}
+					{light 1
+						{npower
+							{min 1}
+							{max 0}
+							{pow 4}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview "flame             "
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 0.5 0.5}
+				{alpha0 0}
+				{alpha1 -1 1}
+				{speed 2}
+			}
+			{particleinit
+				{speed 8}
+				{lifetime 1}
+			}
+		}
+		{mover
+			{damping 0.985}
+			{collisions
+				{terrain}
+				{#+ restitution 0.3}
+				{objects}
+			}
+			{gravity
+				{value 0.07}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/explosion/exp01"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90}
+					{scale 1
+						{linear
+							{min 0.2}
+							{max 0.5 0.2}
+						}
+					}
+					{light 1
+						{peak
+							{min 0.07}
+							{max 0.3}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{redlight 1
+						{linear
+							{min 1}
+							{max 0.2}
+						}
+					}
+					{greenlight 1
+						{linear
+							{min 1}
+							{max 0.2}
+						}
+					}
+					{bluelight 1
+						{linear
+							{min 0.75}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview smoke
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 0.5 0.5}
+				{alpha0 0}
+				{alpha1 0 6}
+				{speed 0.5}
+			}
+			{particleinit
+				{speed 6.5 3.5}
+				{lifetime 3.5 0.5}
+			}
+		}
+		{mover
+			{damping 0.95}
+			{gravity
+				{value -0.02}
+			}
+			{collisions
+				{objects}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smoke_g04"
+					{timer
+						{mode play }
+						{duration 3}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 300}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.05 0.02}
+							{max 0.3 0.1}
+						}
+					}
+					{highlight 0xff816534}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.8}
+						}
+					}
+				}
+				{sprite "$/explosion/faerog2b"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{turn 1
+						{linear
+							{min 7.5 2.5}
+							{max 65 -5}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 3 1}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0.25}
+							{max 1}
+						}
+					}
+					{highlight 0xfffd9227}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview "small flames"
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 0.5 0.5}
+				{alpha0 0}
+				{alpha1 -1 1}
+				{speed 0.5}
+			}
+			{particleinit
+				{speed 9 1}
+				{lifetime 1.5}
+			}
+		}
+		{mover
+			{damping 0.97}
+			{collisions
+				{terrain}
+				{restitution 0.3}
+				{objects}
+			}
+			{gravity
+				{value 0.1}
+			}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/smoke/smtanko"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{turn 1
+						{linear
+							{min 7.5 2.5}
+							{max 65 -5}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.2}
+							{max 1}
+						}
+					}
+					{light 1
+						{peak
+							{min 0}
+							{max 1}
+						}
+					}
+				}
+			}
+			{stage collided 
+				{sprite "$/explosion/fireloop"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 1
+						{linear
+							{min 0.125 0.025}
+							{max 0.9 0.1}
+						}
+					}
+					{light 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+				{flags killparticle }
+			}
+		}
+		{notifyowner}
+	}
+	{particleview "burner particles"
+		{entitygenerator
+			{emissionarea
+				{alpha0 0}
+				{alpha1 0}
+				{speed 0.6}
+			}
+			{particleinit
+				{speed 50.5 1.5};		{speed 28.5 1.5}
+				{lifetime 1}
+			}
+			{entity "fx_piece_flame"}
+			{totalparticles 30};75
+			{timetolive 0.7};2
+			{## ownerspeed}
+		}
+		{## offset 0 0 10}
+	}
+}

@@ -1,0 +1,142 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "m3.mdl"}
+	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"}
+	
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "roll"
+		{thickness 13}
+	}
+	{volume "body7"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{Volume "fuel"
+		{thickness 5}
+	}
+
+	("armor_light" args 1.0)
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+	
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box
+			{item "ammo hmgun" 750}
+			{item "mgun" "ammo" 8000}
+		}
+	}
+
+{Weaponry
+	{place "mgun"
+		{type "mgun_main"}
+		{LinkBone "mgun"}
+		{LinkAnimation "off"}
+	    {weapon "browning" filled}		
+		{charger "gunner"}
+		("abm_mgun_heavy")
+		{basic}
+	}
+}
+  	
+	{sensor
+		{visor "main"
+			{bone "mgun"}
+            {vision "moto_crew"}			
+		}
+	}
+
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.4) boneleft("wheell4") boneright("wheelr4"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(72)
+			weight(9.0)
+			power(147)
+			fuel(230)	
+		)
+	}
+
+	{mass 9000}
+
+}

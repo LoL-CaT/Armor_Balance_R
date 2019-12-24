@@ -1,0 +1,162 @@
+{fx
+	{particleview smoke
+		{generator
+			{totalparticles 15}
+			{emissionarea
+				{radius 2 2}
+				{alpha0 0}
+				{alpha1 5}
+			}
+			{particleinit
+				{speed 0.1 0.05}
+				{lifetime 2.5 0.5}
+			}
+			{timetolive 4}
+		}
+		{mover
+			{gravity
+				{value -0.05}
+			}
+			{damping 0.8}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat04l"
+					{scale 1
+						{linear
+							{min 0.09 0.01}
+							{max 0.3 0.1}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 40}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.25}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+				}
+				{sprite "$/smoke/smokesmal4c"
+					{scale 1
+						{linear
+							{min 1 0.2}
+							{max 3 1}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.25}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180 180}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview trash
+		{generator
+			{totalparticles 10}
+			{emissionarea
+				{radius 2 2}
+				{alpha0 0}
+				{alpha1 180}
+			}
+			{particleinit
+				{speed 0.75 0.25}
+				{lifetime 2.5 0.5}
+			}
+			{timetolive 2}
+		}
+		{mover
+			{gravity
+				{value 0.05}
+			}
+			{damping 0.99}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/pieces"
+					{scale 0.15 0.05}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/particle/pieces2"
+					{scale 0.15 0.05}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/particle/papers03"
+					{scale 0.125 0.025}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xff000000}
+				}
+				{sprite "$/particle/papers01"
+					{scale 0.125 0.025}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xff000000}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

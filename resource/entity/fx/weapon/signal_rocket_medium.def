@@ -1,0 +1,300 @@
+{fx
+        {sound "world/flare2"}
+	{#+ lightview
+		{animator
+			{timer
+				{mode play loop }
+				{duration 0.3}
+			}
+			{highlight 0xffffff}
+			{visibility 1
+				{peak
+					{min 1.7 0.1}
+					{max 1.9 0.1}
+				}
+			}
+			{## scale 1
+				{peak
+					{min 1.85 0.05}
+					{max 1.9 0.1}
+				}
+			}
+		}
+		{type point}
+		{radius 600}
+		{attenuation0 0.1}
+		{attenuation1 0.5}
+		{effectonground}
+		{offset 0 0 100}
+	}
+	{##+ lightview
+		{type spot}
+		{animator
+			{highlight 0xffd0eaff}
+		}
+		{attenuation0 0.1}
+		{attenuation1 0.5}
+		{## falloff 0.5}
+		{theta 50}
+		{phi 100}
+		{radius 100}
+		{priority 10}
+		{effectonground}
+	}
+	{lightview
+		{type spot}
+		{animator
+			{highlight 0xffcaffff}
+			{visibility 1
+				{peak
+					{min 0.85 0.05}
+					{max 0.95 0.05}
+				}
+			}
+			{timer
+				{mode play loop }
+				{duration 0.2}
+			}
+		}
+		{attenuation0 0.5}
+		{attenuation1 1.2}
+		{## falloff 0.5}
+		{theta 70}
+		{phi 80}
+		{radius 100}
+		{priority 10}
+		{effectonground}
+		{offset 0 0 30}
+	}
+	{#+ spriteview core
+		{sprite "$/flash/halo02"
+			{timer
+				{duration 0.08}
+				{mode play loop }
+			}
+			{light 1
+				{peak
+					{min 1}
+					{max 1}
+				}
+			}
+			{scale 1
+				{peak
+					{min 0.3}
+					{max 0.4}
+				}
+			}
+		}
+		{orientation billboard}
+		{halo}
+		{autovisible}
+	}
+	{#+ spriteview streak
+		{sprite "$/flash/flash1"
+			{timer
+				{duration 0.08}
+				{mode play loop }
+			}
+			{light 1
+				{peak
+					{min 0.8}
+					{max 1}
+				}
+			}
+			{scalex 1
+				{peak
+					{min 3}
+					{max 3.5}
+				}
+			}
+			{scaley 0.05}
+		}
+		{orientation billboard}
+		{halo}
+		{autovisible}
+	}
+	{#+ spriteview star
+		{sprite "$/flash/flash_g02"
+			{timer
+				{mode play }
+				{duration 5}
+			}
+			{light 1
+				{peak
+					{min 0.2}
+					{max 0.25}
+				}
+			}
+			{scalex 1
+				{peak
+					{min 0.3}
+					{max 0.3}
+				}
+			}
+			{scaley 1
+				{peak
+					{min 0.3}
+					{max 0.3}
+				}
+			}
+			{preturn 90 90}
+			{turn 1
+				{linear
+					{min 0}
+					{max 359}
+				}
+			}
+		}
+		{orientation billboard}
+		{halo}
+		{autovisible}
+	}
+	{spriteview ring
+		{sprite "$/flash/ring_g01"
+			{timer
+				{mode play loop }
+				{duration 5}
+			}
+			{light 1
+				{peak
+					{min 0}
+					{max 0.4}
+				}
+			}
+			{highlight 0xffffac4a}
+			{scalex 0.65}
+			{scaley 0.45}
+		}
+		{orientation billboard}
+		{halo}
+		{autovisible}
+		{notifyowner}
+	}
+	{#+ particleview fire
+		{generator
+			{totalparticles 100}
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 360 360}
+				{speed 2}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.5}
+			}
+		        {timetolive 52}
+                }
+		{mover
+			{gravity
+				{value -0.005}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smtanko"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.175 0.025}
+							{max 0.11 0.01}
+						}
+					}
+					{light 1
+						{npower
+							{min 0.7}
+							{max 0}
+							{pow 0.5}
+						}
+					}
+				}
+			}
+		}
+	}
+	{#+ particleview smoke
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 7.5 2.5}
+				{speed 1.5}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 1.35 0.65}
+			}
+		        {timetolive 52}
+                }
+		{mover
+			{damping 0.9}
+			{gravity
+				{value -0.02}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smoke_g04a"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 70}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 40}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.0175 0.0025}
+							{max 0.085 0.015}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.25}
+							{max 0}
+						}
+					}
+				}
+				{sprite "$/smoke/smoke_g04b"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 70}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 40}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.0175 0.0025}
+							{max 0.085 0.015}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.25}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+	}
+}

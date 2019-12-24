@@ -1,0 +1,186 @@
+{entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "t19.mdl"}
+	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "with_gun" "wheeled" "explosion_throw_crew" "vision_cannon_high" "muzzle_large"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"}
+	
+    {volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 6} 
+	}
+	{Volume "gun_rot"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 6
+		{front 10}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	
+	{component "body"
+		{RepairTime 15}
+	}
+	{component "engine"
+		{RepairTime 6}
+	}
+	{component "gun"
+		{RepairTime 10}
+	}
+	{component "turret"
+		{RepairTime 6}
+	}
+	("armor_medium" args 1.0)
+
+	{Placer
+	          {place "attach01"
+	             {entity "can"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "can"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "attach05"
+	                  {entity "shell_fg_105"}
+	                   {Linkbone "attach05"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "attach06"
+	                  {entity "shell_fg_105"}
+	                   {Linkbone "attach06"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "attach07"
+	                  {entity "shell_fg_105"}
+	                   {Linkbone "attach07"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "attach08"
+	                  {entity "shell_fg_105"}
+	                   {Linkbone "attach08"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "attach09"
+	                  {entity "shell_fg_105"}
+	                   {Linkbone "attach09"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+               }
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet105usaS fg" 8}
+			{item "mgun" "ammo" 750}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "105mm_m2a1" filling "ammo bullet105usaS fg" 1}
+		   	{RestoreIKAfterAim}
+			{charger "gunner"}
+			{StationaryFiring}  
+		}
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "browning" filled}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			{charger "gunner1"}
+			{gunner "gunner1"}
+			{foresight "foresight3"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+  	{sensor
+		{visor "main"
+			{bone "visor"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+    		{visor "view-around"
+        			{vision "tank_main-l"}
+        			{bone "visor2"}
+    		}
+		{Visor "gunner1"
+			{bone "foresight3"}
+		}
+	}
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.4) boneleft("wheell4") boneright("wheelr4"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(72)
+			weight(9.5)
+			power(147)
+			fuel(230)	
+		)
+	}
+	
+   {mass 9500}
+   
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}
+}

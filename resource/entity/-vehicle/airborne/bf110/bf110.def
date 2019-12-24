@@ -1,0 +1,263 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	(include "/properties/selection/airborne.inc" scale(1.0))
+	(include "/properties/car_crew.ext")
+	{PatherID  "airborne"}
+	{props "muzzle_zenite" "wheeled" "windowed"}
+;	{targetClass "attacker"}
+	{props "attacker_av"}
+	
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(gunner))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+	{Volume "aileron_ar_l"
+		{Thickness 10}
+	}
+	{Volume "aileron_ar_r"
+		{Thickness 10}
+	}
+	{Volume "aileronl"
+		{Thickness 10}
+	}
+	{Volume "aileronr"
+		{Thickness 10}
+	}
+	{Volume "body_back"
+		{Thickness 10}
+	}
+	{Volume "body"
+		{Thickness 10}
+	}
+	{Volume "bomb01"
+		{Thickness 10}
+	}
+	{Volume "bomb02"
+		{Thickness 10}
+	}
+	{Volume "bomb03"
+		{Thickness 10}
+	}
+	{Volume "cockpit_avant"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "cockpit_mobile"
+		{Thickness 0.2}
+		{able {visible 0}{window}}
+	}
+	{Volume "elevatorl"
+		{Thickness 10}
+	}
+	{Volume "elevatorr"
+		{Thickness 10}
+	}
+	{Volume "engine"
+		{Thickness 10}
+	}
+	{Volume "inventory"
+	}
+	{Volume "mgun1"
+	}
+	{Volume "mgun2"
+	}
+	{Volume "mgun3"
+	}
+	{Volume "mgun4"
+	}
+	{Volume "mgun5"
+	}
+	{Volume "mgun6"
+	}
+	{Volume "pale1"
+		{Thickness 10}
+	}
+	{Volume "pale2"
+		{Thickness 10}
+	}
+	{Volume "pale3"
+		{Thickness 10}
+	}
+	{Volume "ram"
+	}
+	{Volume "retract_wheelback"
+	}
+	{Volume "retract_wheell"
+	}
+	{Volume "retract_wheelr"
+	}
+	{Volume "rudder"
+		{Thickness 10}
+	}
+	{Volume "wheel_back"
+	}
+	{Volume "wheell"
+	}
+	{Volume "wheelr"
+	}
+	{Volume "wingl_centre"
+	}
+	{Volume "wingl_ext"
+	}
+	{Volume "wingl_mid"
+	}
+	{Volume "wingr_centre"
+	}
+	{Volume "wingr_ext"
+	}
+	{Volume "wingr_mid"
+	}
+	(define "part_body"
+		{volume %0
+			{tags "body"}
+			{thickness hollow 10}
+			{able {visible 0}}
+			{density 0.01}
+		}
+		{component %0}
+	)
+	
+	("part" args "aileron_ar_l")
+	("part" args "aileron_ar_r")
+	("part" args "aileronl")
+	("part" args "aileronr")
+	("part" args "wheel_back")
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "body_back")
+	("part" args "gouv_fix")
+	("part" args "rudder")	
+	("part" args "gearl")
+	("part" args "gearr")
+	("part" args "pivot_train_ar")
+	("part" args "pale1")
+	("part" args "pale2")
+	("part" args "pale3")
+	("part" args "wingr_centre")
+	("part" args "wingr_mid")
+	("part" args "wingr_ext")
+	("part" args "wingl_centre")
+	("part" args "wingl_mid")
+	("part" args "wingl_ext")
+	("part" args "mg1")
+	("part" args "mg2")
+	("part" args "mg3")
+	("part" args "mg2")
+	("part" args "mg4")
+	("part" args "mg5")
+	("part" args "mg6")
+	("part" args "bomb01")
+	("part" args "bomb02")
+	("part" args "bomb03")
+
+	("armor_attacker")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 4417}
+
+	{extender "inventory"
+		{Box
+			{item "bullet20_oerlikon_ger airplane" 180}		
+			{item "ammo mgun" 4000}
+			{item "ammo air_bomb small" 12}
+		}
+	}
+	{Weaponry
+        {place "gun"
+			{type "gun_av"}		
+	    	{weapon "20mm_mgff_x2" filling "ammo bullet20_oerlikon_ger airplane" 180}
+			{foresight "foresight1"}
+			{Barrels 2}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_zenite")			
+			{basic}
+		}	
+		{place "mgun"
+			{type "mgun_av"}		
+			{weapon "mg17x2" filled}
+			{foresight "foresight3"}
+			{Barrels 2}
+			{gunner "driver"}		
+			{charger "driver"}
+			("abm_zenite")			
+		}
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "mg17x2" filled}
+;			{Barrels 2}
+			{foresight "foresight4"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_zenite")			
+		}
+		{place "bomb01"
+			{type "dropper_av"}			
+			{weapon "bomb_dropper_x12_s" filled}
+			{barrels 1}
+			{gunner "driver"}
+			{charger "driver"}
+			{shooter "shooterb01"}
+			{basic}
+		}
+;		{place "bomb02"
+;			{type "dropper_av"}			
+;			{weapon "bomb_dropper_il2" filled}
+;			{barrels 1}
+;			{gunner "driver"}
+;			{charger "driver"}
+;			{shooter "shooterb02"}
+;			{basic}
+;		}
+;		{place "bomb03"
+;			{type "dropper_av"}			
+;			{weapon "bomb_dropper_il2" filled}
+;			{barrels 1}
+;			{gunner "driver"}
+;			{charger "driver"}
+;			{shooter "shooterb03"}
+;			{basic}
+;		}
+	}
+	{Extension "bf110.mdl"}
+	{Volume "inventory"
+	}
+	{sensor
+		{Visor "main"
+			{bone  "foresight3"}
+			{vision "air"}   ;New vision for planes
+		}
+		{Visor "visor1"
+			{bone "foresight1"}
+		}
+		{visor "visor2"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight4"}
+		}		
+	}	
+}

@@ -1,0 +1,86 @@
+{actor
+	(include "/properties/airborne.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+;	{targetClass "fighter"}
+	{props "fighter_av"}	
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open1" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "body_back")
+	("part" args "propeller")
+	("part" args "propeller1")
+	("part" args "propeller2")
+	("part" args "flap1")
+	("part" args "flap2")
+	("part" args "flap3")
+	("part" args "flap4")
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+	{mass 3150}
+
+	{extender "inventory"
+		{box
+			{item "ammo katusha" 8}
+			{item "ammo air_bomb_il2" 2}
+			{item "bullet20_oerlikon_ger airplane" 270}
+		}
+	}	
+	{Weaponry
+		{place "zenite"
+			{type "gun_av"}		
+	    	{weapon "20mm_mgff_x3" filling "ammo bullet20_oerlikon_ger airplane" 270}
+			{barrels 3}
+			{charger "driver"}
+			{gunner "driver"}
+			("abm_zenite")			
+		}
+	}
+
+	{Sensor
+		{Visor "main"
+			{bone "pivot_back"}
+		}
+	}
+
+	{Extension "bf109g.mdl"}
+
+	{bone "gun_rot"
+		{speed 10}
+	}
+	{bone "gun_rot1"
+		{speed 10}
+	}
+}

@@ -1,0 +1,102 @@
+{fx
+	{sound "explosion/vehic_die_new"}
+	{#+ particleview sparkles
+		{generator
+			{totalparticles 1200}
+			{particlesinblock 1200}
+			{emissionarea
+				{radius 2.5 2.5}
+				{alpha0 0}
+				{alpha1 35 25}
+			}
+			{particleinit
+				{speed 10.5 9.5}
+				{lifetime 4.5 3.5}
+			}
+			{timetolive 1}
+			{axisz}
+		}
+		{mover
+			{damping 0.99}
+			{gravity
+				{value 0.1}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.1}
+				{objects}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{scale 0.225 0.175}
+					{highlight 0xfffe951c}
+				}
+				{sprite "$/particle/oskolki"
+					{scale 0.175 0.125}
+				}
+			}
+		}
+	}
+	{#+ particleview cooking
+		{generator
+			{totalparticles 2}
+			{emissionarea
+				{radius 0}
+				{alpha1 0}
+				{speed 0}
+			}
+			{particleinit
+				{speed 1}
+				{lifetime 0.1}
+			}
+			{timetolive 0.1}
+			{axisz}
+		}
+		{mover
+			{damping 0}
+			{gravity
+				{value 0}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/flash/flashssp2"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{## scale 1
+						{linear
+							{min 1}
+							{max 1}
+						}
+					}
+					{light 1
+						{peak
+							{min 0}
+							{max 0.65 0.15}
+						}
+					}
+					{## scalex 0.6 0.1
+						{linear
+							{min 0.2}
+							{max 0.2}
+						}
+					}
+					{scaley 1
+						{linear
+							{min 0.1}
+							{max 1}
+						}
+					}
+					{preturn -90}
+					{highlight 0xfffe8031}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

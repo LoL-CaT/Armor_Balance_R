@@ -1,0 +1,326 @@
+{fx
+	{constrain ground}
+	{#+ lightview
+		{type point}
+		{animator
+			{highlight 0xffc455}
+			{visibility 1
+				{linear
+					{min 0.9 0.3}
+					{max 0.9 0.3}
+				}
+			}
+			{timer
+				{mode play }
+				{duration 0.5}
+			}
+		}
+		{attenuation0 0.25}
+		{attenuation1 0.7}
+		{radius 170}
+		{priority 5}
+		{effectonground}
+		{offset 0 0 20}
+		{pulseperiod 0.1 0.02}
+	}
+	{particleview "hot smoke"
+		{generator
+			{totalparticles 15}
+			{emissionarea
+				{radius 10 10}
+				{alpha0 0}
+				{alpha1 8 2}
+				{speed 0.2}
+			}
+			{particleinit
+				{speed 1.8 0.3}
+				{lifetime 2.5 0.5}
+			}
+			{axisz}
+			{timetolive 7}
+		}
+		{mover
+			{damping 0.975}
+			{gravity
+				{value -0.02}
+			}
+		}
+		{visualizer
+			{stage 
+				{## sprite "$/smokestat03"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0 20}
+							{max -120 20}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.2}
+							{max 0.2}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.7}
+						}
+					}
+				}
+				{sprite "$/smokestat02"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 50}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.125 0.025}
+							{max 0.325 0.075}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.3}
+						}
+					}
+					{highlight 0xff100903}
+				}
+			}
+		}
+	}
+	{particleview flame
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 17.5 17.5}
+				{alpha0 0}
+				{alpha1 5 2}
+				{speed 0.5}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 1.2 0.2}
+			}
+			{particlesinblock 1}
+			{axisz}
+			{timetolive 7}
+		}
+		{mover
+			{damping 0.9975}
+			{gravity
+				{value -0.03}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokeless01"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.2}
+							{max 0.3}
+						}
+					}
+					{light 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{redlight 1}
+					{greenlight 0.7}
+					{bluelight 0.2}
+				}
+			}
+		}
+	}
+	{#+ particleview sparkles
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 20}
+				{alpha0 0}
+				{alpha1 0 40}
+				{speed 0.5}
+			}
+			{particleinit
+				{lifetime 2.5 1}
+				{speed 1.2}
+			}
+			{axisz}
+			{timetolive 7}
+		}
+		{mover
+			{damping 0.99}
+			{gravity
+				{value -0.01}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 1
+						{linear
+							{min 0.2}
+							{max 0.05}
+						}
+					}
+				}
+			}
+		}
+	}
+	{particleview "small flames"
+		{generator
+			{totalparticles 15}
+			{emissionarea
+				{radius 12.5 12.5}
+				{speed 0.4}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 1}
+			}
+			{axisz}
+			{particlesinblock 5}
+			{timetolive 7}
+		}
+		{mover
+			{damping 1}
+			{gravity
+				{value 0}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/explo04"
+					{timer
+						{mode loop }
+						{duration -1}
+					}
+					{scalex 0.1}
+					{scaley 0.1}
+					{## light 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0}
+							{max 1}
+						}
+					}
+				}
+			}
+		}
+		{offset 0 0 10}
+	}
+	{particleview aftersmoke
+		{generator
+			{totalparticles 15}
+			{emissionarea
+				{radius 10 10}
+				{speed 0.2}
+				{alpha0 0}
+				{alpha1 12.5 12.5}
+			}
+			{particleinit
+				{speed 0 1}
+				{lifetime 3 0.5}
+			}
+			{axisz}
+			{timetolive 13}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value -0.02}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat02"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 50}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.275 0.025}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.6}
+						}
+					}
+					{highlight 0xff2a2300}
+				}
+				{sprite "$/smokestat01"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 50}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.275 0.025}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.6}
+						}
+					}
+					{highlight 0xffffd781}
+				}
+			}
+		}
+	}
+}

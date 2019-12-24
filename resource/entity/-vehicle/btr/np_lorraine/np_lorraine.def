@@ -1,0 +1,114 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "vehicle" "armored_car" "tractor" "tank" "explosion_throw_crew" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}	
+	{patherId "tank.light"}
+	
+    {sensor		
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}		
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}
+	        {visor "main1"
+			{vision "moto_crew"}
+			{bone "visor1"}
+		}		
+	}	
+	
+	("armor_light_shit" turret(0) body(16 11 16 6))
+	("armor_engine"  t(16))
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 16}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 6}
+	}
+	{volume "body_back"
+		{tags "body"}
+		{component "body"}
+		{thickness 16}
+	}
+	{Volume "engine"
+		{component "engine"}
+		{thickness 6}
+	}
+	{Volume "trackleft"
+		{thickness 6}
+	}
+	{Volume "trackright"
+		{thickness 6}
+	}
+	
+	{boarder
+			{anm "left"
+				{forward	{begin	"board_LowTank_left"} {end "seat_driver_car"} {base "close_driver"}}
+				{reverse 	{end	"emit_tank_1_hold"} {base "open_driver"}}
+			}
+			{anm "right"
+		        	{forward	{begin	"board_LowTank_left"} {end "squat_load_mortar"} {base "close_driver"}}
+				{reverse 	{end	"emit_tank_1_hold"} {base "open_driver"}}
+			}
+			{anm "passengers"
+				{forward	{begin	"board_MiddleArmor"} {end "seat_armor"} {base "open1"}}
+				{reverse 	{end	"emit_tank_1" 1} {base "open1"}}
+			}
+			{anm "gunner"
+				{forward	{begin	"board_MiddleArmor"} {end "seat_gunner_stand"} {base "open1"}}
+				{reverse 	{end	"emit_tank_1" 1} {base "open1"}}
+			}
+			
+	}
+	("crew_human"		place(driver) door1(emit0) door2(emit0) visor(driver))
+	("crew_human"		place(commander) door1(emit2) door2(emit2) visor(driver))
+	("crew_human_visible_anm" place(gunner) door1(emit1) door2(emit1) visor(main) anm_left(gunner) anm_right(gunner))	
+;	("crew_human_visible_anm" place(seat01) door1(emit1) door2(emit1) anm_left(passengers) anm_right(passengers))
+;	("crew_human_visible_anm" place(seat02) door1(emit1) door2(emit1) anm_left(passengers) anm_right(passengers))
+;	("crew_human_visible_anm" place(seat03) door1(emit1) door2(emit1) anm_left(passengers) anm_right(passengers))
+	{placer {place "gunner" {openForCrush 0}}}
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box
+			{item "mgun" "ammo" 1500}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{LinkBone "mgun"}
+			{weapon "mg34_btr" filled}			
+			{LinkAnimation "off"}
+			{charger "gunner"}
+			("abm_mgun")
+		}
+	}  		
+		
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.45))
+		("mobility"
+			speed(37)
+			weight(5.2)
+			power(70)
+			fuel(144)	
+		)
+	}
+
+	{mass 5200}
+
+	{Extension "lorraine.mdl"}
+	
+}

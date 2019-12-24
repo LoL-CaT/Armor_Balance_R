@@ -1,0 +1,101 @@
+{fx
+	{constrain ground}
+	{#+ particleview smoke
+		{generator
+			{totalparticles 10}
+			{emissionarea
+				{radius 1 1}
+				{alpha0 0}
+				{alpha1 2}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 2.25 0.25}
+			}
+			{axisz}
+			{timetolive 2}
+		}
+		{mover
+			{damping 0.99}
+			{gravity
+				{value -0.005}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat02"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.03}
+							{max 0.04}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview fire
+		{generator
+			{totalparticles 15}
+			{emissionarea
+				{radius 1 1}
+				{alpha0 0}
+				{alpha1 4}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.6 0.2}
+			}
+			{axisz}
+			{timetolive 15}
+		}
+		{mover
+			{damping 1}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/explo04"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scalex 0.02}
+					{scaley 1
+						{linear
+							{min 0.01}
+							{max 0.03}
+						}
+					}
+					{## light 0.35 0.15}
+					{visibility 1
+						{peak
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+		{offset 0 0 1}
+	}
+}

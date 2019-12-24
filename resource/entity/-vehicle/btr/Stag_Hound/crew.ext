@@ -1,0 +1,39 @@
+;SDL
+
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_tank_left"}}
+		{reverse 	{end	"emit_tank_1_hold"}}
+	}
+
+	{anm "gunner"
+		{forward	{begin	"board_tank_left"}}
+		{reverse 	{end	"emit_tank_1_hold"}}
+	}
+
+	{anm "charger"
+		{forward	{begin	"board_tank_right"}}
+		{reverse 	{end	"emit_tank_1_hold"}}
+	}
+
+	{anm "commander"
+		{forward	{begin	"board_tank_right"}}
+		{reverse 	{end	"emit_tank_1_hold"}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"}  {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver)		door(emit1) group(crew)	 animation(driver)	    visor(driver))
+("crew_human" place(gunner)		door(emit2) group(crew)	 animation(gunner)	    visor(main))
+("crew_human" place(commander)	door(emit3) group(crew)	 animation(commander)	visor(main))
+("crew_human" place(charger)	door(emit4) group(crew)	 animation(charger)	    visor(main))
+

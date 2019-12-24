@@ -1,0 +1,176 @@
+{fx
+	{constrain ground}
+	{sound "weapon/shot/flame/fire"}
+	{#+ lightview
+		{type point}
+		{animator
+			{highlight 0xffc455}
+			{visibility 1
+				{linear
+					{min 0.9 0.3}
+					{max 0.9 0.3}
+				}
+			}
+			{timer
+				{mode play }
+				{duration 0.5}
+			}
+		}
+		{attenuation0 0.25}
+		{attenuation1 0.7}
+		{radius 120}
+		{priority 5}
+		{effectonground}
+		{offset 0 0 20}
+		{pulseperiod 0.1 0.02}
+	}
+	{#+ particleview flames
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 20 20}
+				{alpha0 0}
+				{alpha1 20}
+				{#+ distributionlaw sphere}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 1.05 0.25}
+			}
+		}
+		{mover
+			{damping 0.9975}
+			{gravity
+				{value -0.001}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.2}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/secondexp"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.5
+						{linear
+							{min 0.05}
+							{max 0.09}
+						}
+					}
+					{light 1
+						{linear
+							{min 2}
+							{max 0}
+						}
+					}
+				}
+				{sprite "$/explo04"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{## light 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{scalex 0.09}
+					{scaley 0.09}
+					{visibility 1
+						{linear
+							{min 0}
+							{max 1}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+		{offset 0 0 5}
+	}
+	{particleview smoke
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 20 20}
+				{alpha0 0}
+				{alpha1 20}
+				{distributionlaw sphere}
+			}
+			{particleinit
+				{speed 0.2}
+				{lifetime 3 1}
+			}
+		}
+		{offset 0 0 5}
+		{mover
+			{damping 0.99}
+			{gravity
+				{value -0.007}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat02"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.035 0.015}
+							{max 0.25 0.05}
+						}
+					}
+					{highlight 0xff907256}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.6}
+						}
+					}
+				}
+				{sprite "$/smokestat04l"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 40}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.035 0.015}
+							{max 0.25 0.05}
+						}
+					}
+					{highlight 0xff614c3a}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.6}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

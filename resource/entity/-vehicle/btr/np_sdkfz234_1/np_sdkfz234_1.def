@@ -1,0 +1,173 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	{extension "crew.ext"}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+			{front	15}
+            {top 6}
+		    {bottom 5}
+		}
+	}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+			{front	15}
+            {top 6}
+		    {bottom 5}
+		}
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 15
+			{front	15}
+            {top 6}
+		}
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+
+	{volume "engine"
+		{thickness 8
+			{rear 8}
+		}
+	}
+	{Volume "Gun"
+		{thickness 10}
+	}
+	{component "Gun"
+		{RepairTime 20}
+	}
+	
+	("armor_medium" args 1.1)
+	
+    {sensor	
+	        {visor "main1"
+			{vision "moto_crew_h"}
+			{bone "visor1"}
+		}
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}	
+	        {visor "tur2_55"
+			{vision "tank_pr"}
+			{bone "visor155"}
+		}		
+	}	
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 1300}
+			{item "bullet20x138b zenite" 100}
+			{item "bullet20x138b ap" 100}
+			{item "bullet20x138b fg" 100}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_kwk38" filling "bullet20x138b zenite" 10}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "mg34_btr" filled}
+			{LinkBone "mgun"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}  	
+	
+	 {Placer
+	         {place "canr1"
+	            {entity "can"}
+	            {Linkbone "canr1"}
+	            {handlebone "basis"}
+	            {obstacle disable}
+	         }
+	         {place "canr2"
+	                 {entity "can"}
+	                  {Linkbone "canr2"}
+	                  {handlebone "basis"}
+	                  {obstacle disable}
+	         }
+	        {place "canl1"
+	                 {entity "can"}
+	                  {Linkbone "canl1"}
+	                  {handlebone "basis"}
+	                  {obstacle disable}
+	         }
+	         {place "canl2"
+	                 {entity "can"}
+	                  {Linkbone "canl2"}
+	                  {handlebone "basis"}
+	                  {obstacle disable}
+	         }
+	   
+	 }
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+	("wheel" args "wheelright4")
+	("wheel" args "wheelleft4")
+
+	{mass 10000}
+	
+	{Chassis
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility"
+			speed(85)
+			weight(10.0)
+			power(210)
+			fuel(360)	
+		)
+	}
+
+	{Extension "sdkfz234_1.mdl"}
+	
+	{bone "turret"
+		{speed2 8}
+	}
+	{texmod "2"}
+}
+

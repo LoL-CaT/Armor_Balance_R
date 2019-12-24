@@ -1,0 +1,111 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+;	{targetClass "attacker"}
+	{props "wheeled" "windowed"}
+	{props "attacker_av"}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open1" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open2"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open2" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit2) animation(gunner))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder1")
+	("part" args "rudder2")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "body_back")
+
+	("armor_attacker")
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+
+	{mass 5500}
+
+	{extender "inventory"
+		{box
+			{item "bullet37_type12 airplane" 15}
+			{item "bullet20x125 airplane" 50}		
+			{item "ammo mgun" 1500}
+			{item "ammo air_bomb_250" 2}			
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{type "gun_av"}		
+			{weapon "37mm_ho203" filling "ammo bullet37_type12 airplane" 15}
+			{foresight "foresight1"}
+			{gunner "driver"}
+			{charger "driver"}
+;			("abm_zenite")			
+			{basic}
+		}
+		{place "gun2"
+            {type "mgun_av"}
+			{weapon "20mm_ho3" filling "ammo bullet20x125 airplane" 50}			
+			{foresight "foresight3"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_zenite")			
+			{basic}
+		}
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "mg15_jap" filled}
+			{foresight "foresight4"}
+			{LinkBone "mgun1"}
+			{LinkAnimation "off"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{rotate}
+			("abm_zenite")			
+		}
+		{place "bomb"
+			{type "dropper_av"}		
+			{weapon "bomb_dropper_jap_250" filled}
+			{gunner "driver"}
+			{charger "driver"}
+			{basic}
+		}
+	}
+	{extender "enumerator"
+	}
+	{Extension "ki45.mdl"}
+    {sensor
+		{visor "visor"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight4"}
+		}			
+	}	
+}

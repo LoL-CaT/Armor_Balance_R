@@ -1,0 +1,125 @@
+{Car
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "with_gun" "vision_vehicle_medium" "muzzle_medium"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{volume "body1"
+		{tags "body"}	
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body3"
+		{tags "body"}
+		{thickness 6
+		{front 15}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret" "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{component "turret"
+		{RepairTime 5}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+	{Volume "gun_rot"
+		{tags "gun_rot"}
+		{component "gun_rot"}
+		{thickness 15}
+	}
+	{Volume "fuel"
+		{thickness 1}
+	}
+
+	("armor_medium" args 1.0)
+	
+	{extender "enumerator"}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet75usaP fg" 60}
+			{item "ammo hmgun" 750}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "75mm_m1ph" filling "ammo bullet75usaP fg" 1}
+			{RestoreIKAfterAim}
+			("abm_low")		
+		}
+		{place "mgun"
+			;{foresight "foresight5"}
+			{type "mgun_rear"}
+			{weapon "browning" filled}
+			("abm_mgun")
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			{basic}
+		}
+	}  	
+	{sensor
+		{visor "driver"
+			{bone "visor1"}
+			{vision "vehicle_main"}
+		}
+		{visor "main"
+			{bone "foresight3"}
+			{vision "vehicle_top_mgun"}
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.2) boneleft("wheell4") boneright("wheelr4"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(72)
+			weight(9.0)
+			power(147)
+			fuel(230)	
+		)
+	}
+	
+   {mass 9000}
+
+	{Extension "t30hmc.mdl"}
+
+	{bone "turret"
+		{speed2 8}
+	}	
+
+}

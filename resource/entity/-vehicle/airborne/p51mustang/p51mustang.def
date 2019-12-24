@@ -1,0 +1,81 @@
+{actor
+  	(include "/properties/airborne_mp.ext")
+  	{PatherID  "airborne"}
+  	(include "/properties/selection/airborne.inc" scale(2.0))
+  	(include "/properties/car_crew.ext")
+;	{targetClass "fighter"}
+	{props "fighter_av"}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("part" args "propeller")
+	("part" args "propeller1")
+	("part" args "propeller2")
+	("part" args "propeller3")
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "body_back")
+	("part" args "rudder")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+
+	{mass 4500}
+
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun" 2580}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "browning_anm2_x6" filled}
+			{barrels 6}
+			{gunner "driver"}
+			{charger "driver"}
+			{rotate}
+			("abm_zenite")
+		}
+	}
+
+	{Sensor
+		{Visor "main"
+			{vision "air"}
+		}
+	}
+
+	{extender "enumerator"
+		{digit_folder "usa"}
+	}
+
+	{Extension "P-51Mustang.mdl"}
+	
+}

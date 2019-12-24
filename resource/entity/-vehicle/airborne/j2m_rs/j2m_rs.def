@@ -1,0 +1,91 @@
+{actor
+    (include "/properties/airborne_mp.ext")
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+;   {targetClass "fighter"}
+    {props "fighter_av"}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{volume "wingr1"
+		{component "wingr1"}
+		{tags "wingr1"}
+	}
+	{volume "wingl1"
+		{component "wingl1"}
+		{tags "wingl1"}
+	}
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "body")
+	("part" args "rudder")
+	("part" args "elevator1")
+    ("part" args "elevator2")
+	("part" args "wingl1")
+	("part" args "wingr1")
+	("part" args "propeller")
+	("part" args "pivot_front")
+	("part" args "cabin")
+	
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+
+	{mass 3200}
+	
+
+	{extender "inventory"
+		{Box
+			{item "bullet20_oerlikon airplane" 500}
+			{item "ammo air_bomb small" 8}			
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "gun_av"}		
+			{weapon "20mm_Oerlikon_99_2_4_x4" filling "ammo bullet20_oerlikon airplane" 500}
+			{barrels 4}
+			{foresight "foresight3"}
+			{gunner "driver"}
+			{charger "driver"}
+			{rotate}
+			("abm_zenite")			
+			{basic}
+		}
+		{place "bomb"
+			{type "dropper_av"}		
+			{weapon "bomb_dropper_jap_x8" filled}
+			{gunner "driver"}
+			{charger "driver"}
+			{barrels 2}
+			{basic}
+		}
+	}
+	
+	{Extension "j2m_rs.mdl"}
+	{sensor
+		{Visor "main"
+			{bone  "foresight1"}
+			{vision "air"}   
+		}
+	
+	}
+}

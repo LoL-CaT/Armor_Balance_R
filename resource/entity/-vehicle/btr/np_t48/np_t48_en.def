@@ -1,0 +1,142 @@
+{entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "t48.mdl"}
+	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "with_gun" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum" "muzzle_small"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}  
+	}
+	{Volume "gun_rot"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 6
+		{front 16}
+		{top 6}
+		}
+	}
+	{component "body"
+		{RepairTime 15}
+	}
+	{component "engine"
+		{RepairTime 5}
+	}
+	{component "gun"
+		{RepairTime 10}
+	}
+	{component "turret"
+		{RepairTime 10}
+	}
+	("armor_light" args 1.0)
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+	
+	 {Placer
+	          {place "attach01"
+	             {entity "can"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "can"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	         {place "attach03"
+	                  {entity "can"}
+	                   {Linkbone "attach03"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	          {place "attach05"
+	                  {entity "can"}
+	                   {Linkbone "attach05"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	}
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet57 ap" 80}
+			{item "ammo bullet57 fg" 19}
+			{item "ammo bullet57 apcr" 2}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "57mm_oqf" filling "ammo bullet57 ap" 1}
+			{RestoreIKAfterAim}
+		}
+	}
+
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.4) boneleft("wheell4") boneright("wheelr4"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(72)
+			weight(9.0)
+			power(147)
+			fuel(230)	
+		)
+	}
+	
+   {mass 9000}
+   
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}
+}

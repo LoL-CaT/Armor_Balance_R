@@ -1,0 +1,150 @@
+{Car
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	(include "/properties/car_crew.ext")
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_medium" "flak" "muzzle_medium"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank_flak"}
+	{PatherId "vehicle.small"}
+
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-highcar_driver)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-highcar)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+
+	{boarder
+		{anm "gunner"
+			{forward	{begin	"board_LowTank_stand"} {end "pose_flak41_gunlayer"}}
+			{reverse 	{end	"emit_tank_1"}}
+    		}
+		{anm "charger"
+			{forward	{begin	"board_LowTank_stand"} {end "pose_flak41_gunlayer_1"}}
+			{reverse 	{end	"emit_tank_1"}}
+    		}
+
+   	}
+
+	("crew_human" place(gunner)		bone(gunner)	door(emit3) animation(gunner))
+	("crew_human" place(charger)	bone(charger)	door(emit6) animation(charger))
+
+	{placer
+		{place "driver" 	{visor "driver"}{group "crew"}}
+		{place "commander"	{visor "driver"}{group "crew"}}
+		{place "gunner"		{visor "main"}	{group "crew"} {openForCrush}}
+		{place "charger"	{visor "main"}	{group "crew"} {openForCrush}}
+	}
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 15}
+		{top 4}
+		{bottom 4}
+		}  
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 15}
+		{top 4}
+		{bottom 4}
+		}    
+	}
+	{volume "turret"
+		{thickness 6
+		{front 15}
+		{top 4}
+		{bottom 4}
+		} 
+	}
+	{Volume "shield_front"
+		{thickness 15}
+	}
+	{component "shield_front"	
+		{RepairTime 10}
+	}
+	{Volume "body2"
+		{tags "cabine"}
+		{component "body"}
+		{thickness 15}   
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+	{component "gun"
+		{RepairTime 15}
+	}
+	{Volume "fuel"
+		{thickness 5}
+	}
+	{Volume "wheelleft1"
+		{component "wheelleft1"}
+	}
+	{Volume "wheelright1"
+		{component "wheelright1"}
+	}
+	{Volume "trackright"
+		{component "trackright"}
+	}
+	{Volume "trackleft"
+		{component "trackleft"}
+	}
+
+	("armor_medium" args 1.0)
+	{extender "inventory"
+		{box
+			{item "bullet88_flak18 ap" 12}
+			{item "bullet88_flak18 fg" 6}
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{weapon "88mm_flak18_40" filling "bullet88_flak18 ap" 1}
+;			{RestoreIKAfterAim}
+			("abm_high")
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.5) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(52)
+			weight(11.5)
+			power(140)
+			fuel(215)	
+		)
+	}
+	
+   {mass 11500}	
+
+	{Extension "sdkfz7_1.mdl"}
+	{bone "gun_rot"
+		{speed2 20}
+	}
+	{bone "turret"
+		{speed2 35}
+	}
+}

@@ -1,0 +1,91 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(2.0))
+  	(include "/properties/car_crew.ext")
+;	{targetClass "attacker"}
+	{props "wheeled" "windowed"}
+	{props "attacker_av"}
+	
+
+{Volume "body"
+		{tags "body"}
+		{component "body"}
+}
+{Volume "wingl"
+		{tags "body"}
+		{component "body"}
+}
+{Volume "wingr"
+		{tags "body"}
+		{component "body"}
+}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(driver))
+
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "rudder")
+	("part" args "wingl")
+	("part" args "wingr")
+	
+	("armor_attacker")
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	
+	{mass 4000}
+	
+	{extender "inventory"
+		{Box
+			{item "ammo air_bomb small" 6}		
+			{item "mgun ammo" 970}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+		    {type "mgun_rear"}
+			{weapon "lewis_jap_vk" filled}
+			{foresight "foresight3"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{rotate}
+			("abm_zenite")			
+			{basic}
+        }
+		{place "bomb"
+			{type "dropper_av"}		
+			{weapon "bomb_dropper_jap" filled}
+			{foresight "foresight1"}			
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+		}	
+	}		
+	{Extension "b5n2.mdl"}
+    {sensor
+		{visor "visor"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight3"}
+		}			
+	}	
+}

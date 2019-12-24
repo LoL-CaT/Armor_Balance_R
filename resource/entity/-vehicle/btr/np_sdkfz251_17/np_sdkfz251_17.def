@@ -1,0 +1,238 @@
+{ArmoredCar
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "SdKfz251_17.mdl"}
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "armoredcar" "ap fg bullet"}
+        {targetSelector "tank_flak"}
+	{PatherId "vehicle.small"}
+
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+	}
+	{Volume "bodyl"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}   
+	}
+	{Volume "bodyr"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}   
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 5}  
+	}
+	{Volume "gun_rot1"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}  	
+	}
+	{Volume "gun_rot"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+	{Volume "mgun_turret"
+		{tags "body"}
+		{component "body"}
+		{thickness 20}
+	}
+	{Volume "shield"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 20}
+	}
+	{Volume "stand"
+		{tags "body"}
+		{component "body"}
+		{thickness 10} 
+	}
+	
+	{Volume "turret1"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 15}
+	}
+	{Volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 15}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 15}
+	}
+	{component "body"
+		{RepairTime 15}
+	}
+	{component "engine"
+		{RepairTime 5}
+	}
+	{component "turret"
+		{RepairTime 15}
+	}
+	{component "gun"
+		{RepairTime 10}
+	}
+	 ("armor_light" args 1.0)
+
+	("crew_2_human")
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(gunner))
+	("crew_human" place(commander) bone(commander) door(emit1) animation(commander))
+	;("crew_human" place(charger) bone(seat01) door(emit1) animation(charger))
+
+	{sensor
+		{visor "main"
+			{bone "gun_rot"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+    		{visor "view-around"
+        			{vision "none"}
+        			{bone "visor2"}
+    		}
+	}
+
+	{placer
+		{place "driver"		{group "crew"}	{visor "driver"}}
+		{place "gunner"		{group "crew"}}
+		{place "commander"	{group "crew"}}
+		;{place "charger"	{group "crew"}}
+	}	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_driver_car"}  {base "close"}}
+			{reverse 	{end	"emit_body" 1}  {base "close" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_SdKfz251-1"}	{end "pose_flak38-1_gunlayer" 10}  {base "close"}}
+			{reverse	{end	"emit_body" 1}  {base "close" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_SdKfz251-1"}	{end "pose_flak38-1_charger" 10}  {base "close"}}
+			{reverse 	{end	"emit_body" 7}  {base "close" -1}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"}  {base "close"}}
+			{reverse 	{end	"emit_body"} {base "close" -1}}
+		}
+	}
+	 {Placer
+	          {place "attach01"
+	             {entity "mauzer"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "mauzer"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	          {place "attach03"
+	                   {entity "mauzer"}
+	                   {Linkbone "attach03"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	          {place "attach04"
+	                   {entity "crate_one"}
+	                   {Linkbone "attach04"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	 }
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+	{extender "enumerator"}
+
+	{extender "inventory"
+		{Box
+			{item "bullet20x138b zenite" 300}
+			{item "bullet20x138b ap" 300}
+			{item "bullet20x138b fg" 300}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_flak38" filling "ammo bullet20x138b zenite" 20}
+			{RestoreIKAfterAim}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+	}  	
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{mass 8600}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(53)
+			weight(8.6)
+			power(100)
+			fuel(160)	
+		)
+	}
+	
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+		{speed2 25}		
+	}	
+	
+}

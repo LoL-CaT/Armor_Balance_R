@@ -1,0 +1,133 @@
+{entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{Extension "np_sdkfz250_9.mdl"}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_driver_car"} {base "close"}}
+			{reverse 	{end	"emit_body" 1} {base "close" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_gunner_stand"} {base "close_gunner"}}
+			{reverse 	{end	"emit_body" 1} {base "close_gunner" -1}}
+		}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{sensor
+		{visor "gunner" {bone "visor"}}
+	}
+	{placer
+		{place "driver" {visor "driver"}}
+		{place "gunner" {useVision} {visor "gunner"}}
+	}
+
+    {sensor	
+	        {visor "main1"
+			{vision "moto_crew_h"}
+			{bone "visor1"}
+		}
+	        {visor "tur2_55"
+			{vision "tank_pr"}
+			{bone "visor155"}
+		}		
+	}	
+	
+	("crew_human" place(driver)	door(emit1) bone(driver) animation(driver)		group(crew))
+	("crew_human" place(commander)	door(emit1) bone(commander) animation(driver)		group(crew))
+	("crew_human" place(gunner)	door(emit1) bone(gunner) animation(gunner)		group(crew))
+	
+	
+	
+
+			{volume "body"
+			{tags "body"}
+			{component "body"}
+	    	{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+			}
+			{volume "engine"
+			{tags "engine"}
+			{component "engine"}
+	    	{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+			}
+			{volume "turret"
+			{tags "turret"}
+			{component "turret"}
+		    {thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+			}
+	
+	("armor_light" turret(8) body(30 8 8 8))
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+	("tracks")
+
+	{extender "enumerator"}
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 500}
+			{item "bullet20x138b zenite" 50}
+			{item "bullet20x138b ap" 50}
+			{item "bullet20x138b fg" 50}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_kwk30" filling "ammo bullet20x138b zenite" 10}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "mg34_btr" filled}
+			{LinkBone "mgun"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+		
+	{mass 5800}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(76)
+			weight(5.8)
+			power(100)
+			fuel(140)	
+		)
+	}
+	
+}

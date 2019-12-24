@@ -1,0 +1,106 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/l_tank_mobility.ext")	
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "vehicle" "armored_car" "tractor" "tank" "explosion_throw_crew" "vision_vehicle_minimum" "windowed"}
+	{targetClass "armoredcar" "ap fg bullet"}
+;	{targetSelector "tank_bullet_h_flak"}
+	{PatherId "tank.light"}
+	
+	("armor_light" turret(0) body(10 10 10 10))
+	("armor_engine"  t(10 10 10 10))
+
+	{extension "crew.ext"}	
+
+	{extender "enumerator"}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun" 750}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{type "mgun_aa"}
+			{weapon "browning" filled}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{LinkBone "Mgun_rot"}
+			{LinkAnimation "off"}
+			("abm_mgun_heavy")
+		}
+	}
+	{sensor
+	{visor "gunner2" {vision "moto_crew"} {bone "mgun_rot"}}
+	
+	        {visor "main1"
+			{vision "moto_crew"}
+			{bone "visor1"}
+		}	
+	        {visor "main11"
+			{vision "moto_crew"}
+			{bone "Mgun_rot"}
+		}		
+    }	
+	
+    {placer 
+;	{place "gunner" {useVision} {visor "gunner"} {group "pass"}}
+;	{place "gunner1" {useVision} {visor "gunner1"} {group "crew"}}
+	{place "gunner2" {useVision} {visor "gunner2"} {group "crew"}}
+;	{place "gunner3" {useVision} {visor "gunner3"} {group "pass"}}
+}
+  	
+
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.5))
+		("mobility"
+			speed(35)
+			weight(14.2)
+			power(210)
+			fuel(445)	
+		)
+	}
+	{mass 14200}
+
+	{Extension "m4hst.mdl"}
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+
+	}
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+
+	}
+	{Volume "engine"
+	}
+	{Volume "ram"
+	}
+	{Volume "trackleft"
+	}
+	{Volume "trackright"
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window2"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+
+	(include "/properties/resupply_generic.inc")
+	("truck_ammo_art_us")
+}

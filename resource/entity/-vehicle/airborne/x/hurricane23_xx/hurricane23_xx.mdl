@@ -1,0 +1,137 @@
+;Exported by: Jagdpanther
+;Date:        Thu Aug 12 11:09:41 2010
+;File:        D:\Δενθρ\3DS MAX\Hurricane234\Hurricane234_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position 0	0	42.6657}
+			{VolumeView "body.ply"}
+			{bone "bodyback"
+				{parameters "id=bodyback;"}
+				{VolumeView "bodyback.ply"}
+				{bone "pivot_back"
+					{Position -74.7281	0	-11.1922}
+					{bone "retract_wheelback"
+						{parameters "id=retract_wheelBack;"}
+						{Matrix34
+							-1	0	0
+							0	0	1
+							0	1	0
+							-0.0291901	0.0293304	-0.267883
+						}
+						{VolumeView "retract_wheelback.ply"}
+						{bone revolute "wheelback"
+							{parameters "Radius=0.15;support;"}
+							{VolumeView "wheelback.ply"}
+						}
+					}
+				}
+				{bone "hwostr"
+					{parameters "id=wingright;"}
+					{Position -91.8733	0.118861	18.0518}
+					{VolumeView "hwostr.ply"}
+				}
+				{bone "elevator1"
+					{parameters "id=wingLeft;"}
+					{Position -82.1317	18.0547	12.2338}
+					{VolumeView "elevator1.ply"}
+				}
+				{bone "elevator2"
+					{parameters "id=wingRight;"}
+					{Position -82.143	-17.8197	12.2338}
+					{VolumeView "elevator2.ply"}
+				}
+			}
+			{bone "driver"
+				{Matrix34
+					0.984808	0	0.173648
+					0	1	0
+					-0.173648	0	0.984808
+					28.6324	0.893528	-2.09044
+				}
+			}
+			{bone "pivot_front"
+				{Position 49.3375	0	-34.0342}
+				{bone "retract_wheell"
+					{Position -13.8209	28.982	22.5056}
+					{VolumeView "retract_wheell.ply"}
+					{bone revolute "wheell"
+						{parameters "ID=retract_wheell;Radius=0.4;support;"}
+						{Matrix34
+							-1	0	0
+							0	0.0165984	0.999862
+							0	0.999862	-0.0165984
+							17.0722	-3.21349	-23.0344
+						}
+						{VolumeView "wheell.ply"}
+					}
+				}
+				{bone "retract_wheelr"
+					{Matrix34
+						1	0	0
+						0	0.999939	-0.0110395
+						0	0.0110395	0.999939
+						-14.022	-29.1913	24.5155
+					}
+					{VolumeView "retract_wheelr.ply"}
+					{bone revolute "wheelr"
+						{parameters "ID=retract_wheell;Radius=0.4;support;"}
+						{Matrix34
+							-1	0	0
+							0	0.00555925	0.999985
+							0	0.999985	-0.00555925
+							17.2733	3.76584	-25.0043
+						}
+						{VolumeView "wheelr.ply"}
+					}
+				}
+			}
+			{bone "propeller"
+				{parameters "id=propeller;"}
+				{Position 98	-0.337316	5.40883}
+				{VolumeView "propeller.ply"}
+			}
+			{bone "wingl1"
+				{parameters "id=wingleft;"}
+				{Position 44.2381	81.2029	-6.36574}
+				{VolumeView "wingl1.ply"}
+			}
+			{bone "wingr1"
+				{parameters "id=wingright;"}
+				{Position 44.0668	-81.2339	-6.88367}
+				{VolumeView "wingr1.ply"}
+			}
+			{bone "cabin"
+				{parameters "id=body;"}
+				{Position 29.5528	-0.129381	21.9221}
+				{VolumeView "cabin.ply"}
+			}
+			{bone revolute "gun_rot1"
+				{limits -10 10}
+				{speed 0.01}
+				{Matrix34
+					0	1	0
+					0	0	1
+					1	0	0
+					78.3196	0.162037	-6.46597
+				}
+				{bone revolute "gun_rot"
+					{limits -20 30}
+					{speed 0.01}
+					{Matrix34
+						0	0	1
+						0	1	0
+						-1	0	0
+						0	0	1.36697
+					}
+				}
+			}
+		}
+	}
+}

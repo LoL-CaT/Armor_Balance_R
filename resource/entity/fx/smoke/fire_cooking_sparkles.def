@@ -1,0 +1,48 @@
+{fx
+	{fire}
+	{particleview sparks
+		{generator
+			{emissionarea
+				{radius 1}
+				{alpha0 0}
+				{alpha1 0 20}
+			}
+			{particleinit
+				{speed 20 5}
+				{lifetime 0.6 0.4}
+			}
+			{timetolive 16.2}
+			{totalparticles 100}
+			{particlesinblock 1}
+			{axisz}
+		}
+		{mover
+			{damping 0.95}
+			{gravity
+				{value 0.25}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.5}
+			}
+		}
+		{visualizer
+			{stage 
+				{flags trace }
+				{sprite "$/particle/metal_drops1"
+					{timer
+						{mode play }
+						{duration 0.5}
+					}
+					{scalex 1
+						{linear
+							{min 2}
+							{max 0.08}
+						}
+					}
+					{scaley 0.08}
+				}
+			}
+		}
+	}
+}

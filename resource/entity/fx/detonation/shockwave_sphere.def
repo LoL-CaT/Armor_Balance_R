@@ -1,0 +1,46 @@
+{fx
+	{particleview shock
+		{generator
+			{totalparticles 1}
+			{emissionarea
+				{radius 0}
+				{speed 1}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.4}
+			}
+			{timetolive 0.1}
+			{particlesinblock 1}
+		}
+		{offset 0 0 10}
+		{mover
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/flash/supershock"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 1
+						{linear
+							{min 0.1}
+							{max 8}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{highlight 0xffd5c57b}
+					{preturn 90 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

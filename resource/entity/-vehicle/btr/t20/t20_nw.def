@@ -1,0 +1,102 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/l_tank_mobility.ext")	
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "vehicle" "armored_car" "tractor" "tank" "explosion_throw_crew" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{patherId "tank.light"}
+	
+	("armor_medium" turret(0) body(10 7 7 7))
+	("armor_engine"  t(7 7 7 7))
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}   
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	
+	("crew_2_human")
+	("crew_human" place(gunner) door1(emit1) door2(emit2) visor(main))
+	("seat_6_human")
+		
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "mgun1"}
+		}
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}
+	}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+;	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+;	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+;	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+;	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+	{extender "inventory"
+		{Box
+			{item "ammo mgun" 1071}
+		}
+	}
+;	{Weaponry
+;		{place "mgun2"
+;			{type "mgun_hull"}
+;			{weapon "dt" filled}
+;			{foresight "foresight5"}
+;			{gunner "gunner"}
+;			{charger "gunner"}
+;			("abm_mgun")
+;		}
+;	}  	
+
+	{mass 3500}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.45))
+		("mobility"
+			speed(50)
+			weight(3.5)
+			power(50)
+			fuel(122)	
+		)
+	}
+
+	{Extension "t20.mdl"}
+}

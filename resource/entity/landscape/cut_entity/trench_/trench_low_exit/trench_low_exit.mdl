@@ -1,0 +1,113 @@
+;Exported by: klimenko
+;Date:        Fri Dec 15 12:28:16 2006
+;File:        D:\-Project-\-3DWork-\trench\trench_low.max
+{Skeleton
+	{bone "trench_ground_low_exit"
+		{parameters "CommonMesh;Ground;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "trench_ground_low_exit.ply" {Ground} {DecalTarget}}
+		{bone "point1"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				17.4466	9.88173	-14.8938
+			}
+		}
+		{bone "point2"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-16.0577	5.37911	-14.8938
+			}
+		}
+		{bone "point3"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				17.4466	-26.5171	-14.8938
+			}
+		}
+		{bone "point4"
+			{Matrix34
+				-1	0	0
+				0	-1	0
+				0	0	1
+				-16.0577	-23.3973	-14.8938
+			}
+		}
+	}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center 17.4466 -10.5309}
+		{Extent 16.8278 2.99932}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -16.0577 -7.32634}
+		{Extent 16.8278 2.99932}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body3"
+	{Obb2
+		{Center 17.4466 26.5171}
+		{Extent 16.8278 2.99932}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body4"
+	{Obb2
+		{Center -16.0577 25.4888}
+		{Extent 3.13766 16.8519}
+		{Axis 0.0531047 0.998589}
+	}
+	{Rotate}
+}
+{Area "cut"
+	{Polygon2
+		{Radius 0}
+		{Vertex -37.9732 -18.1887}
+		{Vertex 52.6386 -18.1888}
+		{Vertex 52.6386 32.531}
+		{Vertex -37.9732 32.5311}
+	}
+	{Rotate}
+}
+{Volume "body1"
+	{Box 33.6557 5.99864 23.622}
+	{Bone "point1"}
+	{Position 0	-0.6492	7.90769}
+}
+{Volume "body2"
+	{Box 33.6557 5.99864 23.622}
+	{Bone "point2"}
+	{Position 0	-1.94723	7.97422}
+}
+{Volume "body3"
+	{Box 33.6557 5.99864 23.622}
+	{Bone "point3"}
+	{Position 0	0	7.90769}
+}
+{Volume "body4"
+	{Box 33.6557 5.99864 23.622}
+	{Bone "point4"}
+	{Matrix34
+		0.998992	0.0448872	0
+		-0.0448872	0.998992	0
+		0	0	1
+		0	2.09157	7.97422
+	}
+}

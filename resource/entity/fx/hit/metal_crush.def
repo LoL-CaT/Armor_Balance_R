@@ -1,0 +1,108 @@
+{fx
+	{sound "crush/medium/metal"}
+	{particleview slow
+		{generator
+			{totalparticles 20}
+			{particlesinblock 20}
+			{emissionarea
+				{radius 1 4}
+				{alpha0 0}
+				{alpha1 180}
+			}
+			{particleinit
+				{speed 1.5 1.5}
+				{lifetime 0.2}
+			}
+			{timetolive 0.08}
+		}
+		{mover
+			{damping 0.99}
+			{gravity
+				{value 0.1}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 0.15 0.05}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 0.1 0.06}
+					}
+				}
+				{sprite "$/particle/oskolkim"
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.15 0.05}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 0.1 0.06}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview fast
+		{generator
+			{totalparticles 40}
+			{particlesinblock 40}
+			{emissionarea
+				{radius 2 2}
+				{alpha0 0}
+				{alpha1 180}
+			}
+			{particleinit
+				{speed 5.5 0.5}
+				{lifetime 0.2}
+			}
+			{timetolive 0.08}
+		}
+		{mover
+			{damping 0.99}
+			{gravity
+				{value 0.1}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{timer
+						{mode play }
+						{duration 0.1 0.06}
+					}
+					{scalex 1
+						{peak
+							{min 0.1}
+							{max 1}
+						}
+					}
+					{scaley 0.1}
+				}
+				{sprite "$/particle/oskolkim"
+					{timer
+						{mode play }
+						{duration 0.1 0.06}
+					}
+					{scalex 1
+						{peak
+							{min 0.05}
+							{max 1}
+						}
+					}
+					{scaley 0.1}
+				}
+				{flags trace }
+			}
+		}
+		{notifyowner}
+	}
+}

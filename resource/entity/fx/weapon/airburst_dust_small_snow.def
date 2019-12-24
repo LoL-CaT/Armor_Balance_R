@@ -1,0 +1,113 @@
+{fx
+	{#+ particleview shock
+		{generator
+			{totalparticles 1}
+			{emissionarea
+				{radius 0}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.0}
+			}
+			{particlesinblock 1}
+			{timetolive 0.01}
+		}
+		{offset 0 0 10}
+		{visualizer
+			{stage 
+				{sprite "$/flash/supershock"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 1
+						{linear
+							{min 0.1}
+							{max 7}
+						}
+					}
+					{highlight 0xff0a0a0a}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.65}
+						}
+					}
+					{preturn 90 90}
+				}
+				{flags ground }
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview dust
+		{#+ delay 0.03}
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 45 35}
+				{alpha0 0}
+				{alpha1 0}
+			}
+			{particleinit
+				{speed 0.5 0.5}
+				{lifetime 4.5 3.5}
+			}
+			{axisz}
+			{particlesinblock 30}
+			{timetolive 0.01}
+		}
+		{offset 0 0 10}
+		{mover
+			{gravity
+				{value 0.01}
+			}
+			{damping 0.8}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smokesmal4ablue"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 0.75 0.75}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+				{sprite "$/smoke/smokesmal4b"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 0.75 0.75}
+					{visibility 1
+						{linear
+							{min 0.25}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

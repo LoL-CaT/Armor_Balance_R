@@ -1,0 +1,110 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "sdkfz4.mdl"}
+	{props "vehicle" "armored_car" "tank" "turret" "turret_rotator" "wheeled" "nebelwerfer" "vision_vehicle_high"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{extension "crew.ext"}	
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{volume "gun"
+		{thickness 6}
+	}
+	{volume "turret"
+		{thickness 6
+		{front 15}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 15}
+		{top 6}
+		{bottom 6}
+		}		
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 15}
+		{top 6}
+		{bottom 6}
+		}		
+	}
+	{volume "engine"
+		{thickness 6}
+	}
+	
+	("armor_medium" args 1.0)
+	
+    {sensor
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}
+    }
+		
+	{component "turret"
+		{RepairTime 20}
+	}
+	{component "gun"
+		{RepairTime 15}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo panzerwerfer42" 10}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "weapon panzerwerfer42" filled}
+			{charger "driver"}
+			{gunner "driver"}
+			{Barrels 10}
+			{StationaryFiring}
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")     
+
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(40)
+			weight(7.1)
+			power(80)
+			fuel(130)	
+		)
+	}
+	
+   {mass 7100}
+
+	{bone "gun"		{limits 2.0000 42.0000}}
+	{bone "turret"	{speed2 5}}
+	{brain
+		{properties
+			{fire_mode hold}
+		}
+	}
+}

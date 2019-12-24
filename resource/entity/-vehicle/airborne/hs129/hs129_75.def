@@ -1,0 +1,160 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+	{props "muzzle_zenite" "car" "wheeled" "windowed" "with_gun"}
+;	{targetClass "attacker"}
+	{props "attacker_av"}
+	
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open1"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open1" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+	{sensor
+		{Visor "visor1"
+			{bone "visor"}
+		}
+		{Visor "main"
+			{bone  "foresight1"}
+			{vision "air"}   
+		}
+	}	
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body"
+		{thickness 15}
+		{able {visible 0}}
+	}
+	{volume "engine1"
+		{tags "inflammable" "part" "-body"}
+		{thickness 10}
+		{able {visible 0}}
+	}
+	{volume "engine2"
+		{tags "inflammable" "part" "-body"}
+		{thickness 10}
+		{able {visible 0}}
+	}
+	{volume "wingr"
+		{tags "inflammable" "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wingl"
+		{tags "inflammable" "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wheel2"
+		{tags "part"}
+		{thickness hollow 5}
+		{able {visible 0}}
+	}
+	{volume "gun"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wheelr"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wheell"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	(define "part_body"
+		{volume %0
+			{tags "body"}
+			{thickness hollow 10}
+			{able {visible 0}}
+			{density 0.01}
+		}
+		{component %0}
+	)
+	
+	("part" args "aileron2")
+	("part" args "aileron1")
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder")	
+
+	("armor_attacker_129")
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 4400}
+
+	{extender "inventory"
+		{box
+			{item "bullet75_pak40 airplane" 16}
+			{item "bullet20x138b airplane" 500}
+			{item "ammo mgun" 2000}
+		}
+	}	
+	{Weaponry
+        {place "gun"
+			{type "gun_av"}			
+	    	{weapon "75mm_bk75" filling "ammo bullet75_pak40 airplane" 16}
+            {gunner "driver"}
+			{charger "driver"}
+;			("abm_zenite")
+			{basic}
+        }
+		{place "gun2"
+			{type "mgun_av"}		
+			{weapon "20mm_mg151x2" filling "ammo bullet20x138b airplane" 500}
+			{barrels 2}
+			{foresight "foresight4"}
+			{charger "driver"}
+			{gunner "driver"}
+			{rotate}
+			("abm_zenite")
+			{basic}
+		}
+		{place "mgun"
+			{type "mgun_av"}
+			{weapon "mg17x2" filled}
+			{barrels 2}
+			{foresight "foresight3"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_zenite")				
+		}		
+	}
+	{Extension "hs129_75.mdl"}
+}

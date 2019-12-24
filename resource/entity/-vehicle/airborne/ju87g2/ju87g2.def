@@ -1,0 +1,275 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+	{props "muzzle_zenite" "wheeled" "windowed"}
+;	{targetClass "attacker"}
+	{props "attacker_av"}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open1"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open1" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open2"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open2" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit2) animation(gunner))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+	{sensor
+		{Visor "visor1"
+			{bone "gun_rot1"}
+		}
+		{visor "visor2"
+			{vision "vehicle_top_mgun"} 
+			{bone "mgun_rot"}
+		}
+		{Visor "main"
+			{bone  "foresight1"}
+			{vision "air"}   
+		}
+	}	
+	{Volume "body"
+	}
+	{Volume "propeller1"
+		{tags "part" "-body"}
+		{thickness 15}
+		{able {visible 0}}
+	}
+	{Volume "inventory"
+	}
+	{volume "engine"
+		{tags "inflammable" "part" "-body"}
+		{thickness 10}
+		{able {visible 0}}
+	}
+	{volume "window1"
+		{tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{volume "window2"
+		{tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{volume "window3"
+		{tags "part"}
+		{thickness 5}
+		{able {visible 0}}
+	}
+	{volume "carter_motorr"
+		{tags "part" "-body"}
+		{thickness hollow 5}
+		{able {visible 0}}
+	}
+	{volume "carter_motorl"
+		{tags "part" "-body"}
+		{thickness hollow 5}
+		{able {visible 0}}
+	}
+	{volume "ecope"
+		{tags "part" "-body"}
+		{thickness hollow 5}
+		{able {visible 0}}
+	}
+	{volume "wingr1"
+		{tags "inflammable" "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wingr2"
+		{tags "inflammable" "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wingr3"
+		{tags "inflammable" "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wingl1"
+		{tags "inflammable" "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wingl2"
+		{tags "inflammable" "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wingl3"
+		{tags "inflammable" "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wheelback"
+		{tags "part"}
+		{thickness hollow 5}
+		{able {visible 0}}
+	}
+	{volume "door1"
+		{tags "part" "-body"}
+		{thickness hollow 5}
+		{able {visible 0}}
+	}
+	{volume "door2"
+		{tags "part" "-body"}
+		{thickness hollow 5}
+		{able {visible 0}}
+	}
+	{volume "body_back"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "retract_wheelr"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "retract_wheell"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "cannon_body1"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "cannon_body2"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "gun1"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "gun2"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wheelr"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "wheell"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "detail2_1"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+	{volume "detail2_2"
+		{tags "part"}
+		{thickness hollow 10}
+		{able {visible 0}}
+	}
+
+	(define "part_body"
+		{volume %0
+			{tags "body"}
+			{thickness hollow 10}
+			{able {visible 0}}
+			{density 0.01}
+		}
+		{component %0}
+	)
+	
+	("part" args "aileronr2")
+	("part" args "aileronr3")
+	("part" args "aileronl5")
+	("part" args "aileronl6")
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "elevator_fix_l")
+	("part" args "elevator_fix_r")
+	("part" args "gouv_fix")
+	("part" args "rudder")	
+	("part" args "sup_wing_ar_d")
+	("part" args "sup_wing_ar_l")
+	("part" args "support_roue_ar")
+	("part" args "mg01")
+	("part" args "mg02")
+	("part" args "mg81z")
+	("part" args "detail1_1")
+	("part" args "detail1_2")
+	("part" args "bomb00")
+	("part" args "bomb01")
+	("part" args "bomb02")
+	("part" args "bomb03")
+	
+	("armor_attacker")	
+
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 5100}
+
+	{extender "inventory"
+		{box
+			{item "bullet37ger airplane" 12}
+			{item "ammo mgun" 2000}
+		}
+	}	
+    {Weaponry
+        {place "gun"
+			{type "gun_av"}		
+	    	{weapon "37mm_bk37" filling "ammo bullet37ger airplane" 12}
+            {charger "driver"}
+            {Barrels 2}
+			{foresight "foresight1"}
+			{shooter "shooter_g"}
+;			("abm_zenite")
+			{basic}
+        }
+				
+		{place "mgun"
+			{type "mgun_rear"}
+			{weapon "mg81z" filled}
+			{Barrels 2}
+			{shooter "shooter_z"}
+			{foresight "foresight3"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_zenite")			
+		}
+		
+		{place "mgun_hull"
+			{type "mgun_av"}
+			{weapon "mg17x2" filled}
+			{Barrels 2}
+			{shooter "shooter_m"}
+			{foresight "foresight5"}
+			{charger "driver"}
+			("abm_zenite")			
+			{basic}			
+		}
+	}
+	{Extension "ju87g2.mdl"}
+}

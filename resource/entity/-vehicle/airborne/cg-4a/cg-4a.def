@@ -1,0 +1,80 @@
+{actor;test
+	(include "/properties/airborne.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(2.0))
+	(include "/properties/car_crew.ext")
+	(include "crew.ext")
+	{lodclass "vehicle_large"}
+	{props "transport_av"}	
+
+	{props "no_explosion" "open_without_land"}
+
+	{Volume "Body1"
+		{thickness 10}
+	}
+	{Volume "WheelR"
+		{thickness 10}
+	}
+	{Volume "WheelL"
+		{thickness 10}
+	}
+
+	("part" args "flap1")
+	("part" args "flap2")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder")
+	("part" args "part1")
+	("part" args "part2")
+	("part" args "part3")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "WingL1")
+	("part" args "WingL2")
+	("part" args "WingL3")
+	("part" args "WingR1")
+	("part" args "WingR2")
+	("part" args "WingR3")
+	("part" args "retract_wheelll")
+	("part" args "retract_wheellr")
+	
+	("armor_transport")	
+
+	{Chassis
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+		}
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 1000}
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box
+			{item  "ammo hmgun" 1000}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{weapon "browning_anm2" filled}	
+        }			
+	}
+
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+	}
+	{extender "enumerator"
+	}
+
+	{Extension "cg-4a.mdl"}
+}

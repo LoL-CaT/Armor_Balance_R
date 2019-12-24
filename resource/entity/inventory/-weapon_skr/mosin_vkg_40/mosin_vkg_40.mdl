@@ -1,0 +1,113 @@
+;Exported by: skr
+;Date:        Sun May 12 12:08:55 2013
+;File:        E:\Documents\3dsmax\scenes\Rifle Mosina\rifle_1891_30_mortar_VKG-40.max
+{Skeleton
+	{bone "vintovka_1891_30"
+		{parameters "CommonMesh;ID=mgun;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "vintovka_1891_30.ply"}
+		{bone "handle"
+			{Position 8.4377	0.320877	0}
+		}
+		{bone "fxshell"
+			{Matrix34
+				0.0077368	0	0.99997
+				0	1	0
+				-0.99997	0	0.007737
+				3.34387	1.53845	0.35487
+			}
+		}
+		{bone "foresight3"
+			{Position 23.2389	1.35968	0}
+		}
+		{bone "mortar"
+			{parameters "ID=mgun;"}
+			{Matrix34
+				1	0	0
+				0	0	-1
+				0	1	0
+				19.7063	1.35376	-0.00820802
+			}
+			{VolumeView "mortar.ply"}
+			{bone "vkg_40"
+				{Matrix34
+					1	0	0
+					0	0	1
+					0	-1	0
+					0	0	0
+				}
+				{VolumeView "vkg_40.ply"}
+			}
+		}
+	}
+}
+{Volume "body"
+	{Box 24.311 3.95733 0.984252}
+	{Bone "vintovka_1891_30"}
+	{Position 6.34458	0.336286	0.0209709}
+}
+{Volume "mortar"
+	{Cylinder 0.536029 4.52756}
+	{Bone "mortar"}
+	{Matrix34
+		0	1	0
+		0	0	1
+		1	0	0
+		1.09925	0	0
+	}
+}
+{Volume "select"
+	{Box 24.4094 4.13386 1.1811}
+	{Bone "vintovka_1891_30"}
+	{Position 6.34458	0.336286	0.0263473}
+}
+{Extender "preview"
+	{"Stuff_primary"
+		{camera
+			{origin 9.18975	-7.48051	37.3625}
+			{lookat 9.18409	-6.88889	33.8607}
+			{fov 45}
+			{horizon -177.044}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction -0.00738722	0.0880727	-0.492127}
+			}
+			{"1"
+				{type point}
+				{position 19.0573	-2.99445	-4.47698}
+			}
+			{"2"
+				{type point}
+				{position -1.29372	-1.5559	-4.89119}
+			}
+		}
+	}
+	{"Stuff"
+		{camera
+			{origin 10.0733	-5.83684	36.6932}
+			{lookat 9.93784	-5.28431	33.3261}
+			{fov 45}
+			{horizon -177.044}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position -1.47556	-0.0750828	-4.67936}
+			}
+			{"1"
+				{type point}
+				{position 20.2889	-1.34185	-4.65651}
+			}
+			{"2"
+				{type directional}
+				{direction -0.0187068	0.0879183	-0.491854}
+			}
+		}
+	}
+}

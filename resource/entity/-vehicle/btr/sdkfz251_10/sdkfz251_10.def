@@ -1,0 +1,162 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "SdKfz251_10.mdl"}
+	{extender "enumerator"}
+	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum" "muzzle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{Volume "fuel"
+		{thickness 5}
+	}
+	{Volume "turret"
+		{tags "turret" "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		} 
+	}
+	{Volume "gun"
+		{thickness 10}
+	}
+	{Volume "gun_rot"
+		{thickness 10}
+	}
+	{Volume "detail1"
+		{thickness 6}
+	}
+	{Volume "detail2"
+		{thickness 6}
+	}
+	{Volume "detail3"
+		{thickness 6}
+	}
+	{Volume "detail4"
+		{thickness 6}
+	}
+	{Volume "detail5"
+		{thickness 6}
+	}
+	
+	("armor_medium" args 1.0)
+	
+    {sensor	
+	        {visor "main1"
+			{vision "moto_crew"}
+			{bone "visor1"}
+		}		
+	}		
+	
+	{component "turret"
+		{RepairTime 20}
+	}
+	{component "Gun"
+		{RepairTime 20}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{extender "inventory"
+		{box
+			{item "bullet37_pak35 ap" 100}
+			{item "bullet37_pak35 fg" 68}
+			{item "bullet37_pak35 apcr" 2}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{type "main_gun"}
+			{RestoreIKAfterAim}
+			{weapon "37mm_pak35" filled}
+			{RestoreIKAfterAim}
+			{charger "gunner"}
+			("abm_low")
+		}
+	}  	
+	
+	{mass 8600}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(53)
+			weight(8.6)
+			power(100)
+			fuel(160)	
+		)
+	}
+	
+	{texmod "3"}
+
+	{bone "turret"
+		{speed2 8}
+	}
+
+}

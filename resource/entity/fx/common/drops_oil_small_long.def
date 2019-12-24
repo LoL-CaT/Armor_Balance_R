@@ -1,0 +1,184 @@
+{fx
+	{#+ particleview drops
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 0.1 0.1}
+				{alpha0 0}
+				{alpha1 1}
+				{speed 0.17}
+			}
+			{particleinit
+				{speed 1}
+				{lifetime 5 2}
+			}
+			{particlesinblock 1}
+		}
+		{mover
+			{damping 0.95}
+			{gravity
+				{value 0.1}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.5}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/smoke/smokesmal4b_100"
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.5 0.2}
+						}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 1.8}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.65}
+						}
+					}
+				}
+			}
+			{stage collided dying 
+				{sprite "$/flash/ripples_w"
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 1.1 0.1}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 0.8}
+					}
+					{visibility 1
+						{linear
+							{min 0.2}
+							{max 0}
+						}
+					}
+					{redlight 0}
+					{greenlight 0}
+					{bluelight 0}
+				}
+				{flags killparticle ground }
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview flow
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 0.1 0.1}
+				{alpha0 0}
+				{alpha1 0}
+			}
+			{particleinit
+				{speed 1 0.05}
+				{lifetime 1.75 0.25}
+			}
+		}
+		{mover
+			{damping 0.95}
+			{gravity
+				{value 0.1}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.5}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/particle/oil_i01"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{scalex 0.06}
+					{scaley 1
+						{linear
+							{min 0.06}
+							{max 0.2}
+						}
+					}
+					{highlight 0xff0c0c0c}
+					{redlight 0}
+					{greenlight 0}
+					{bluelight 0}
+				}
+				{sprite "$/particle/oil_i02"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{scalex 0.06}
+					{scaley 1
+						{linear
+							{min 0.06}
+							{max 0.2}
+						}
+					}
+					{highlight 0xff0f0f0f}
+					{redlight 0}
+					{greenlight 0}
+					{bluelight 0}
+				}
+			}
+			{stage collided 
+				{sprite "$/smoke/smokesmal7a"
+					{timer
+						{mode play }
+						{duration 0.6}
+					}
+					{scale 1
+						{linear
+							{min 0.1}
+							{max 0.7}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.7}
+							{max 0}
+						}
+					}
+					{preturn 90 90}
+					{highlight 0xff0f0f0f}
+					{redlight 0}
+					{greenlight 0}
+					{bluelight 0}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{sound "world/rain_wood"}
+}

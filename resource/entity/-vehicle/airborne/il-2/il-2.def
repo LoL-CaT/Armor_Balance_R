@@ -1,0 +1,99 @@
+{actor
+	(include "/properties/airborne.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+	{props "attacker_av"}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open1" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open2"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open2" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit2) animation(gunner))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "body_back")
+	
+	("armor_attacker")
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 5840}
+
+	{extender "inventory"
+		{box
+			{item "ammo katusha" 8}
+			{item "ammo air_bomb_il2" 8}
+			{item "bullet23 airplane" 300}
+		}
+	}	
+	{Weaponry
+		{place "rocket"
+			{type "secondary_rockets"}		
+			{weapon "arl_il2" filled}
+			{barrels 8}
+			{shooter "shooter_r"}
+			{charger "gunner"}
+		}
+		{place "bomb"
+			{type "dropper_av"}		
+			{weapon "bomb_dropper_il2" filled}
+			{barrels 2}
+			{shooter "shooter_b"}
+			{charger "gunner"}
+		}
+		{place "zenite"
+			{type "gun_av"}			
+			{weapon "23mm_va_x2" filling "ammo bullet23 airplane" 300}
+			{barrels 2}
+			{charger "gunner"}
+			("abm_zenite")			
+		}
+	}
+
+	{extender "enumerator"
+	}
+
+	{Sensor
+		{Visor "main"
+			{bone "pivot_back"}
+		}
+	}
+	{Extension "il-2.mdl"}
+
+	{bone "gun_rot"
+		{speed 10}
+	}
+	{bone "gun_rot1"
+		{speed 10}
+	}
+}

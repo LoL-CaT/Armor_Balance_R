@@ -1,0 +1,172 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "nebelwerfer" "vision_vehicle_high"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{PatherId "vehicle.small"}
+	{targetSelector "cannon_rocket"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	{extension "crew.ext"}
+
+	{extender "shield"
+		{on}
+	}
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "engine1"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 20}
+	}
+	{volume "engine2"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 20}
+	}
+	{Volume "fuel"
+		{thickness 1}
+	}
+	{Volume "mgun_shield"
+		{thickness 10}
+	}
+	{volume "gun1"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+	{volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+	{volume "gun3"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+	{volume "gun4"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+	{volume "gun5"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+	{volume "gun6"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}
+	}
+
+	{component "gun"
+		{RepairTime 15}
+	}
+
+	("armor_medium" args 1.0)
+
+	{placer
+		{place "driver"		{group "driver"} {visor "driver"}}
+		{place "gunner"		{group "driver"} {visor "main"} {turnoff {targetable 0}}}
+	}
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo nebel42_30" 6}
+			{item "mgun" "ammo" 2100}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+;			{RestoreIKAfterAim}
+			{weapon			"weapon wurfrahmen41_30" filled}
+			{charger		"gunner"}
+			{Barrels		6}
+;			{StationaryFiring}
+		}
+		{place "mgun"
+			{type			"mgun_aa"}
+			{LinkBone		"mgun2"}
+			{weapon         "mg34_btr" filled}			
+			{LinkAnimation	"off"}
+			{charger		"gunner"}
+			{gunner			"gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{mass 8600}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+;		{DisableMoveWhileFiring}
+		("mobility"
+			speed(53)
+			weight(8.6)
+			power(100)
+			fuel(160)	
+		)
+	}
+
+;	{brain
+;		{properties
+;			{fire_mode hold}
+;		}
+;	}
+
+	{Extension "sdkfz251_Stukazufus.mdl"}
+
+	{bone "gun1"
+		{limits -90 120}		;gun min up to max down
+	}
+}

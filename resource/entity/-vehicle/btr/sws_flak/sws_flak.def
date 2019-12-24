@@ -1,0 +1,183 @@
+{Car
+	;© 2008 Zeke Wolff & Ngvede.
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	(include "/properties/car_crew.ext")
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "turret_rotator" "flak" "barrel1" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank_flak"}
+	{PatherId "vehicle.small"}
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-highcar_driver)
+		board_end(seat_driver_car)
+		;base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-highcar)
+		board_end(seat_passenger)
+		;base(doorright)
+	)
+
+	{boarder
+		{anm "gunner"
+			{forward	{begin	"board_LowTank_stand"} {end "pose_flak38_gunlayer"}}
+			{reverse 	{end	"emit_tank_1"}}
+    	}
+		{anm "charger"
+			{forward	{begin	"board_LowTank_stand"} {end "pose_pak40_charger"}}
+			{reverse 	{end	"emit_tank_1"}}
+    	}
+}
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 15}
+		{top 6}
+		{bottom 5}
+		}     
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{Volume "bodyback"
+		{component "body"}
+		{thickness 6}
+	}
+	{volume "cabin"
+		{tags "cabin"}
+		{component "cabin"}
+		{thickness 15}
+	}
+	{volume "turret"
+		{thickness 10
+		{front 10}
+		{top 10}
+		} 
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+	{volume "shield1"
+		{thickness 10}
+	}
+	{component "shield1"	
+		{RepairTime 10}
+	}
+	{volume "shield2"
+		{thickness 10}
+	}
+	{component "shield2"	
+		{RepairTime 10}
+	}
+	{volume "shield3"
+		{thickness 10}
+	}
+	{component "shield3"	
+		{RepairTime 10}
+	}
+	{volume "shield4"
+		{thickness 10}
+	}
+	{component "shield4"	
+		{RepairTime 10}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{thickness 15}
+	}
+	{component "gun"
+		{RepairTime 15}
+	}
+	{Volume "fuel"
+		{thickness 15}
+	}
+	{Volume "wheelleft1"
+		{component "wheelleft1"}
+	}
+	{Volume "wheelright1"
+		{component "wheelright1"}
+	}
+	{Volume "trackright"
+		{component "trackright"}
+	}
+	{Volume "trackleft"
+		{component "trackleft"}
+	}
+	
+	("armor_medium" args 1.0)
+
+	("crew_human" place(gunner)		bone(gunner)	door(emit4) animation(gunner))
+	("crew_human" place(charger)		bone(charger)	door(emit3) animation(charger))
+	
+	{placer
+		{place "driver" 		{visor "driver"}	{group "crew"}}
+		{place "commander"		{visor "driver"}	{group "crew"}}
+		{place "gunner"		{visor "main"}	{group "gunners"}}
+		{place "charger"		{visor "main"}	{group "gunners"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet37_flak36 zenite" 60}
+			{item "bullet37_flak36 ap" 60}
+			{item "bullet37_flak36 fg" 60}
+		}
+	}	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+;			{RestoreIKAfterAim}
+			{weapon "37mm_flak43" filling "bullet37_flak36 zenite" 8}    
+			("abm_zenite")
+			{gunner "gunner"}
+			{charger "charger"}
+		}
+	}
+	;{sensor
+		;{visor "main"
+		;	{bone "gun_rot"}
+		;}
+		;{visor "driver"
+		;	{vision "tank_driver"}
+		;	{bone "visor2"}
+		;}
+		;{visor "view_around"
+		;	{vision "tank_around"}
+		;	{bone "visor2"}
+		;}
+	;}
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(40)
+			weight(7.1)
+			power(80)
+			fuel(130)	
+		)
+	}
+	
+   {mass 7100}
+
+	{Extension "sws_flak.mdl"}
+
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+		{speed2 25}		
+	}
+	{texmod "2"}
+}

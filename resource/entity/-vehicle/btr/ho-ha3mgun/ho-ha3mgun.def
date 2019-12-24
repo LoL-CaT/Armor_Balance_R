@@ -1,0 +1,211 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "ho-ha3mgun.mdl"}
+	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tractor" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{extender "enumerator"}
+
+{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 8}
+		{top 6}
+		{bottom 6}
+		}  
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 8}
+		{top 6}
+		{bottom 6}
+		}    
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 8}
+		{top 6}
+		{bottom 6}
+		}    
+	}
+	{volume "cabin"
+		{tags "cabin"}
+		{component "cabin"}
+		{thickness 6}
+	}
+	{volume "door"
+		{tags "door"}
+		{component "door"}
+		{thickness 6}
+	}
+	{volume "door3"
+		{tags "door"}
+		{component "door"}
+		{thickness 6}
+	}
+	{volume "door4"
+		{tags "door"}
+		{component "door"}
+		{thickness 6}
+	}
+	{volume "doorleft"
+		{tags "door"}
+		{component "door"}
+		{thickness 6}
+	}
+	{volume "doorright"
+		{tags "door"}
+		{component "door"}
+		{thickness 6}
+	}
+	{volume "doorleft1"
+		{tags "door"}
+		{component "door"}
+		{thickness 6}
+	}
+	{volume "doorright1"
+		{tags "door"}
+		{component "door"}
+		{thickness 6}
+	}
+	{volume "cargo"
+		{tags "cargo"}
+		{component "cargo"}
+		{thickness 6}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 8}
+		{top 6}
+		{bottom 6}
+		} 
+	}
+	{volume "engine"
+		{thickness 6}
+	}
+	{Volume "fuel"
+		{thickness 6}
+	}
+	("armor_light" args 1.0)
+
+	{sensor
+		{visor "main" {bone "visor1"} {vision "moto_crew"}}
+		{visor "gunner1" {bone "mgun1"} {vision "moto_crew"}}
+		{visor "gunner2" {bone "mgun2"} {vision "moto_crew"}}
+		{visor "gunner3" {bone "mgun3"} {vision "moto_crew"}}
+        {visor "view-around"
+            {vision "none"}
+            {bone "basis"}
+		}          
+	}
+	{placer 
+		{place "driver" {visor "main"}}
+		{place "gunner1" {useVision} {visor "gunner1"}}
+		{place "gunner2" {useVision} {visor "gunner2"}}
+		{place "gunner3" {useVision} {visor "gunner3"}}
+	}
+	
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{extender "inventory"
+		{weapon "mgun" 
+			{mask clear}
+		}
+		{weapon "mgun1"
+			{mask "weapon mgun"}
+	    }
+		{box
+			{item "mgun" "ammo" 1000}
+			{item "hmgun" "ammo" 300}			
+		}
+	}
+	{Weaponry
+		{place "mgun1"
+			{type "mgun_main"}
+			{LinkBone "mgun1"}
+			{LinkAnimation "off"}
+			{weapon "type93hmg" filled}			
+			{gunner "gunner1"}
+			{charger "gunner1"}
+			{foresight "foresight4"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun2"
+			{type "mgun_right"}
+			{LinkBone "mgun2"}
+			{LinkAnimation "off"}
+			{weapon "nambu_type97" filled}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{foresight "foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun3"
+			{type "mgun_left"}
+			{LinkBone "mgun3"}
+			{LinkAnimation "off"}
+			{weapon "nambu_type97" filled}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			{foresight "foresight6"}
+			("abm_mgun")
+			{basic}
+		}
+
+	}  	
+
+(define "tank_trace"
+    {Track "left"
+	    {Tracer
+    		{View %fx} ; "tracks"
+    		{Bone %boneleft}
+	    	{Step %step}			; 0.7 meters
+    	}
+		{TextureScroller
+	    	{Bone "TrackL"}
+    		{Length %len}		; 0.6 meters per animation
+    	}
+    }
+    {Track "right"
+    	{Tracer 
+	    	{View %fx}
+    		{Bone %boneright}
+    		{Step %step}			; in meters
+	    }
+		{TextureScroller
+	    	{Bone "TrackR"}
+    		{Length %len}		; meters per animation
+    	}
+    }
+)
+
+	{Chassis
+	("tank_trace" fx("tracks_mid") step(0.52) len(1.0) boneleft("FXtraceL2") boneright("FXtraceR2"))
+	("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(50)
+			weight(6.5)
+			power(134)
+			fuel(200)	
+		)
+	}
+	
+	{mass 6500}
+}

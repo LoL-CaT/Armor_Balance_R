@@ -1,0 +1,62 @@
+{fx
+	{sound "crush/medium/glass"}
+	{particleview
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 5 5}
+				{alpha0 0}
+				{alpha1 45}
+			}
+			{particleinit
+				{speed 0.7 0.7}
+				{lifetime 1.5 0.4}
+			}
+			{particlesinblock 20}
+			{timetolive 0.08}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0.1}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.4}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/glass_medium"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.15 0.05}
+					{preturn 90 90}
+					{visibility 0.7 0.2}
+				}
+				{sprite "$/particle/glass_small"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.25 0.15}
+					{preturn 90 90}
+					{visibility 0.7 0.2}
+				}
+				{sprite "$/particle/glass_large"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.175 0.125}
+					{preturn 90 90}
+					{visibility 0.7 0.2}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

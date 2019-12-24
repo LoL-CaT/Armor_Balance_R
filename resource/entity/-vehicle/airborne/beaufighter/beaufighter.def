@@ -1,0 +1,161 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+;	{targetClass "attacker"}
+	{props "wheeled" "windowed"}
+	{props "attacker_av"}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"board_plane_left" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"}}
+			{reverse 	{end	"board_plane_right" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(gunner))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+
+	("part" args "wingL0")
+	("part" args "wingR0")
+	("part" args "wingL")
+	("part" args "wingR")
+	("part" args "elevator2")
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheel2")
+	("part" args "body_back")
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 12}
+	}
+	{Volume "bodyback3"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 5}
+	}
+	{Volume "bodyback2"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 5}
+	}
+	{Volume "bodyback"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 5}
+	}
+	{Volume "engine1"
+		{thickness 12}
+		{component "engine"}
+	}
+	{Volume "engine2"
+		{thickness 12}
+		{component "engine"}
+	}
+	{Volume "wingL0"
+		{thickness 7}
+		{component "body"}
+	}
+	{Volume "wingR0"
+		{thickness 7}
+		{component "body"}
+	}
+	{Volume "wingL"
+		{thickness 5}
+	}
+	{Volume "wingR"
+		{thickness 5}
+	}
+	
+	("armor_attacker")
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 11600}
+	
+	{extender "inventory"
+		{box
+			{item "ammo air_bomb_250" 4}
+			{item "ammo mgun" 7000}
+			{item "bullet20x110hispano airplane" 240}
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{type "gun_av"}			
+			{weapon "20mm_hispano_x4" filling "ammo bullet20x110hispano airplane" 240}
+			{barrels 4}
+			{foresight "foresight1"}
+			{shooter "shooter_g"}
+			{charger "driver"}
+			{gunner "driver"}
+			{rotate}
+			("abm_zenite")
+			{basic}			
+		}
+		{place "mgun"
+			{type "mgun_rear"}
+			{weapon "browning_m19_eng" filled}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{rotate}
+			("abm_zenite")			
+		}
+		{place "mgun1"
+			{type "mgun_av"}
+			{weapon "browning_m19_eng_x6" filled}
+			{barrels 6}
+			{shooter "shooter_m"}
+			{charger "driver"}
+			{gunner "driver"}
+			{foresight "foresight31"}
+			("abm_zenite")			
+			{basic}
+		}
+		{place "bomb"
+			{type "dropper_av"}		
+			{weapon "bomb_dropper_250" filled}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+		}
+	}
+	
+	{Sensor
+		{visor "visor2"
+			{vision "vehicle_top_mgun"} 
+			{bone "mgun"}
+		}		
+	}
+	
+	{extender "enumerator"
+	}
+	{Extension "bristol.mdl"}
+}

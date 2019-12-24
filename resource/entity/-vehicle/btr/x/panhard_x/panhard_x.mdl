@@ -1,0 +1,200 @@
+;Exported by: Kislov_A
+;Date:        Tue Mar 17 11:32:28 2009
+;File:        E:\Black\Design doc\Art\Models\Technics\Tanks\Panhard\Panzerspahwagen_Panhard_x.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{animation
+				{sequence "break" {file "body_b.anm"}}
+			}
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				1.03327	-0.143307	19.6502
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{animation
+					{sequence "break" {file "turret_b.anm"}}
+				}
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					-0.00166076	-4.99995	19.966
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "Id=Gun;"}
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						8.72555	0.107816	-2.0012
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "Id=Gun;"}
+						{Matrix34
+							0	0	-1
+							-1	0	0
+							0	1	0
+							20.9416	0.423296	0
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "cover_01"
+					{parameters "ID=turret;"}
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						-15.2591	-4.55076	-0.586273
+					}
+					{VolumeView "cover_01.ply"}
+				}
+				{bone "cover_02"
+					{parameters "ID=turret;"}
+					{Matrix34
+						0	1	0
+						-1	0	0
+						0	0	1
+						-15.2591	4.48417	-0.586275
+					}
+					{VolumeView "cover_02.ply"}
+				}
+				{bone revolute "mgun"
+					{parameters "Id=turret;"}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						12.8183	5.23461	-3.34336
+					}
+					{VolumeView "mgun.ply"}
+				}
+			}
+			{bone "cover_03"
+				{parameters "ID=Body;"}
+				{Matrix34
+					1	0	0
+					0	0.996195	-0.0871557
+					0	0.0871557	0.996195
+					-7.90763	14.9921	9.53585
+				}
+				{VolumeView "cover_03.ply"}
+			}
+			{bone "cover_04"
+				{parameters "ID=Body;"}
+				{Matrix34
+					1	0	0
+					0	0.996195	-0.0871557
+					0	0.0871557	0.996195
+					7.64245	14.992	9.53585
+				}
+				{VolumeView "cover_04.ply"}
+			}
+			{bone "tubes"
+				{parameters "ID=body;"}
+				{Position 0.167765	50.0709	-0.719355}
+				{VolumeView "tubes.ply"}
+			}
+			{bone "antenn2"
+				{parameters "Id=Body;"}
+				{Position 0	0	0}
+				{VolumeView "antenn2.ply"}
+			}
+			{bone "antenn1"
+				{parameters "id=body;"}
+				{Position 0	0	0}
+				{VolumeView "antenn1.ply"}
+			}
+			{bone "cover_06"
+				{parameters "ID=Body;"}
+				{Position 15.1774	12.2906	3.41374}
+				{VolumeView "cover_06.ply"}
+			}
+			{bone "door1"
+				{parameters "ID=body;"}
+				{Position -16.7924	3.49162	4.51804}
+				{VolumeView "door1.ply"}
+			}
+			{bone "engine"
+				{parameters "id=engine;"}
+				{Matrix34
+					0	-1	0
+					1	0	0
+					0	0	1
+					-0.117192	30.53	-3.76704
+				}
+			}
+		}
+		{bone "pivot_front"
+			{Position 46.8794	-0.0207892	0}
+			{bone revolute "steerl"
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	-1
+					-13.8921	17.7452	8.25673
+				}
+				{bone revolute "wheell1"
+					{Matrix34
+						1	0	0
+						0	0	1
+						0	-1	0
+						-0.594116	-0.683506	-2.88627
+					}
+					{VolumeView "wheell1.ply"}
+				}
+			}
+			{bone revolute "steerr"
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	-1
+					-13.9139	-17.7968	8.25673
+				}
+				{bone revolute "wheelr1"
+					{parameters "id=wheelr1;"}
+					{Matrix34
+						-1	0	0
+						0	0	-1
+						0	-1	0
+						-0.57235	0.590453	-2.88626
+					}
+					{VolumeView "wheelr1.ply"}
+				}
+			}
+		}
+		{bone "pivot_back"
+			{Position -45.3846	-0.020795	0}
+			{bone revolute "wheelr2"
+				{Matrix34
+					-1	0	0
+					0	0	1
+					0	1	0
+					15.0535	-18.3872	11.143
+				}
+				{VolumeView "wheelr2.ply"}
+			}
+			{bone revolute "wheell2"
+				{Matrix34
+					1	0	0
+					0	0	-1
+					0	1	0
+					15.0535	18.4288	11.143
+				}
+				{VolumeView "wheell2.ply"}
+			}
+		}
+	}
+}

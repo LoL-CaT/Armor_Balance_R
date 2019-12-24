@@ -1,0 +1,118 @@
+{entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "m21.mdl"}
+	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tank" "wheeled" "explosion_throw_crew" "truck_mortar" "vision_cannon_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 6
+		{front 13}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	
+	("armor_light" args 1.0)
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+	
+	{Placer
+	          {place "attach01"
+	             {entity "can"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "can"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	}
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+	{extender "inventory"
+		{Box
+			{item "ammo hmgun" 750}
+			{item "ammo mortar81_o832 fg" 69}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{Barrels 1}
+			{weapon "bm37" filling "ammo mortar81_o832 fg" 1}
+			{foresight "foresight"}
+		}
+		{place "mgun"
+			{type "mgun_main"}
+			{foresight "foresight3"}
+			{weapon "browning" filled}
+			{gunner "gunner1"}
+			{charger "gunner1"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			{basic}
+		}
+		
+	} 	
+	{sensor
+		{visor "driver"
+			{bone "visor2"}
+			{vision "vehicle_main"}
+		}
+		{visor "main"
+			{bone "visor"}
+		}
+		{visor "gunner1"
+			{bone "foresight3"}
+			{vision "vehicle_top_mgun"}
+		}
+	}  	
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.4) boneleft("wheell4") boneright("wheelr4"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(72)
+			weight(9.0)
+			power(147)
+			fuel(230)	
+		)
+	}
+	
+   {mass 9000}	
+   
+	    {bone "foresight"
+		   {limits -20 25}		
+		   {speed2 7}
+	    }
+	    {bone "base"
+		   {limits -25 25}		
+		   {speed2 7}
+	    }	   
+	
+}

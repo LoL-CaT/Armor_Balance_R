@@ -1,0 +1,73 @@
+;Exported by: kolesnikov
+;Date:        Mon Jul 11 09:42:21 2005
+;File:        D:\-Project-\-3DWork-\Constructions\trench_tank.max
+{Skeleton
+	{bone "trench_tank"
+		{parameters "CommonMesh;Ground;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "trench_tank.ply" {Ground}{DecalTarget}}
+	}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -42.5258 65.6581}
+		{Extent 69.7336 1.875}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body1"
+	{Obb2
+		{Center -42.5258 -48.9121}
+		{Extent 69.7336 1.875}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 27.8034 7.51298}
+		{Extent 1.875 69.7336}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Area "cut"
+	{Polygon2
+		{Radius 0}
+		{Vertex 62.4553 71.3521}
+		{Vertex -230.906 71.3521}
+		{Vertex -230.906 -59.2207}
+		{Vertex 62.4553 -59.2207}
+	}
+	{Rotate}
+}
+{Volume "body2"
+	{Box 3.75 139.467 37.0799}
+	{Bone "trench_tank"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		-42.5258	-65.6581	-1.8219
+	}
+}
+{Volume "body1"
+	{Box 3.75 139.467 37.0799}
+	{Bone "trench_tank"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		-42.5258	48.9121	-1.8219
+	}
+}
+{Volume "body"
+	{Box 3.75 139.467 37.0799}
+	{Bone "trench_tank"}
+	{Position 27.8034	-7.51298	-1.8219}
+}

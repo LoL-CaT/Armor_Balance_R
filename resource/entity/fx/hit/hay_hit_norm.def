@@ -1,0 +1,231 @@
+{fx
+	{sound "hit/small/tree"}
+	{#+ particleview dust
+		{generator
+			{totalparticles 30}
+			{particlesinblock 30}
+			{emissionarea
+				{radius 14 14}
+				{alpha0 30}
+				{alpha1 80 10}
+			}
+			{particleinit
+				{speed 3.5 2.5}
+				{lifetime 3.5 1}
+			}
+			{timetolive 1}
+			{axisz}
+		}
+		{mover
+			{damping 0.9}
+			{gravity
+				{value 0.01}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smoke_g04a"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.4}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 0.5 0.1}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xff946c00}
+				}
+				{sprite "$/smoke/smokesmal4c"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 150}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 1.5 0.5}
+							{max 3.75 1.25}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 30}
+					{highlight 0xc7c2b1}
+				}
+			}
+		}
+	}
+	{#+ particleview feather
+		{generator
+			{totalparticles 60}
+			{emissionarea
+				{radius 8 8}
+				{alpha0 0}
+				{alpha1 100 30}
+			}
+			{particleinit
+				{speed 3 3}
+				{lifetime 2.8 1}
+			}
+			{timetolive 0.1}
+			{axisz}
+			{particlesinblock 60}
+		}
+		{mover
+			{damping 0.98}
+			{gravity
+				{value 0.065}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.05}
+			}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/particle/trava"
+					{turn 1
+						{npower
+							{min 10 10}
+							{max 90 20}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.2 0.1}
+					{preturn 90 90}
+				}
+				{sprite "$/particle/hay2"
+					{turn 1
+						{npower
+							{min 10 10}
+							{max 90 20}
+							{pow 1.4}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.5 0.3}
+					{preturn 60 60}
+				}
+				{sprite "$/particle/hay1"
+					{turn 1
+						{npower
+							{min 10 10}
+							{max 90 20}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.5 0.3}
+					{preturn 100 50}
+				}
+				{sprite "$/particle/trava"
+					{turn 1
+						{npower
+							{min 90 10}
+							{max 10 20}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.2 0.15}
+					{preturn 90 90}
+				}
+				{sprite "$/particle/hay2"
+					{turn 1
+						{npower
+							{min 90 10}
+							{max 10 20}
+							{pow 1.4}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.5 0.3}
+					{preturn 60 60}
+				}
+				{sprite "$/particle/hay1"
+					{turn 1
+						{npower
+							{min 90 10}
+							{max 10 20}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.5 0.3}
+					{preturn 100 50}
+				}
+			}
+			{stage collided dying 
+				{sprite "$/particle/trava"
+					{scale 0.3 0.3}
+					{turn 90 60}
+					{timer
+						{mode play }
+						{duration 1.6 0.7}
+					}
+				}
+				{sprite "$/particle/hay2"
+					{scale 0.5 0.3}
+					{turn 90 60}
+					{timer
+						{mode play }
+						{duration 1.7 0.8}
+					}
+				}
+				{sprite "$/particle/hay1"
+					{scale 0.5 0.3}
+					{turn 90 60}
+					{timer
+						{mode play }
+						{duration 1.7 0.8}
+					}
+				}
+				{flags killparticle ground }
+			}
+		}
+		{notifyowner}
+	}
+}

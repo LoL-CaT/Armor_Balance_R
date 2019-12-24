@@ -1,0 +1,121 @@
+{fx
+	{#+ particleview
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 1}
+				{alpha0 0}
+				{speed 0.02 0.005}
+			}
+			{particleinit
+				{speed 1 0.3}
+				{lifetime 2.5 0.5}
+			}
+			{particlesinblock 1}
+			{autoturn}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.05}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{flags ground }
+				{sprite "$/flash/wave4a"
+					{preturn 270}
+					{scaley 1
+						{linear
+							{min 1.7 0.5}
+							{max 2.75 0.25}
+						}
+					}
+					{scalex 1
+						{linear
+							{min 0.8 0.2}
+							{max 1.2 0.5}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.5 0.2}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{shifty 0 10}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 1}
+				{alpha0 0}
+				{speed 0.015 0.005}
+			}
+			{particleinit
+				{speed 1 0.3}
+				{lifetime 1.8 0.7}
+			}
+			{particlesinblock 1}
+			{autoturn}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.05}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{flags ground }
+				{sprite "$/flash/wave4"
+					{preturn 270}
+					{scaley 1
+						{linear
+							{min 1.5 0.5}
+							{max 2.3 0.9}
+						}
+					}
+					{scalex 1
+						{linear
+							{min 0.7 0.55}
+							{max 1.1 0.5}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0}
+							{max 0.4 0.2}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{shifty 0 10}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{sound "world/water"}
+}

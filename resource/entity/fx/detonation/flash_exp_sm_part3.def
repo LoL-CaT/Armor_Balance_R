@@ -1,0 +1,53 @@
+{fx
+	{particleview fire
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 0.2 0.2}
+				{alpha0 0}
+				{alpha1 360 360}
+				{speed 4}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 1.5 0.5}
+			}
+			{timetolive 2}
+		}
+		{mover
+			{damping 0.9}
+			{gravity
+				{value 0.01}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smtanko1"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{turn 1
+						{linear
+							{min 0}
+							{max 2500 1500}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.025 0.005}
+							{max 0.01}
+						}
+					}
+					{light 1
+						{linear
+							{min 0.6}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,177 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "SdKfz251.mdl"}
+	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{volume "turret"
+		{thickness 8
+			{front	15}
+            {top 6}
+		} 
+	}
+	{Volume "fuel"
+		{thickness 5}
+	}
+	{Volume "detail1"
+		{thickness 6}
+	}
+	{Volume "detail2"
+		{thickness 6}
+	}
+	{Volume "detail3"
+		{thickness 6}
+	}
+	{Volume "detail4"
+		{thickness 6}
+	}
+	{Volume "detail5"
+		{thickness 6}
+	}
+
+	("armor_medium" args 1.0)
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box
+			{item "ammo mgun" 2100}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{LinkBone "mgun"}
+			{type "mgun_hull"}
+			{LinkAnimation "off"}
+			{weapon "mg34_btr" filled}			
+			{charger "gunner"}
+			("abm_mgun")
+		}
+		{place "mgun1"
+			{foresight "foresight4"}
+			{type "mgun_left"}
+			{LinkBone "mgun1"}
+			{LinkAnimation "off"}
+			{weapon "mg34_btr" filled}
+			{gunner "gunner1"}
+			{charger "gunner1"}
+			("abm_mgun")
+		}
+		{place "mgun2"
+			{foresight "foresight5"}
+			{type "mgun_right"}
+			{LinkBone "mgun2"}
+			{LinkAnimation "off"}
+			{weapon "mg34_btr" filled}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			("abm_mgun")
+		}
+		{place "mgun3"
+			{foresight "foresight6"}
+			{type "mgun_rear"}
+			{LinkBone "mgun3"}
+			{LinkAnimation "off"}
+			{weapon "mg34_btr" filled}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			("abm_mgun")
+		}
+	}  	
+
+	{sensor
+		{visor "gunner" {bone "mgun"}}
+		{visor "gunner1" {bone "mgun1"}}
+		{visor "gunner2" {bone "mgun2"}}
+		{visor "gunner3" {bone "mgun3"}}
+	}
+	{placer 
+		{place "gunner1" {useVision} {visor "gunner1"}}
+		{place "gunner2" {useVision} {visor "gunner2"}}
+		{place "gunner3" {useVision} {visor "gunner3"}}
+	}
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{mass 9100}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.48) len(0.9) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(53)
+			weight(9.1)
+			power(100)
+			fuel(160)	
+		)
+	}
+	
+	{texmod "3"}
+
+}

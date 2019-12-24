@@ -1,0 +1,121 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "sdkfz251_2.mdl"}
+	{extension "crew_251_2.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"
+		{digit_folder "ger2"}
+	}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+	}
+	{volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 5}   
+	}
+	{Volume "body_l"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{Volume "body_r"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{component "body"
+		{RepairTime 15}
+	}
+	{component "engine"
+		{RepairTime 5}
+	}
+	("armor_medium" args 1.0)
+
+	{extender "inventory"
+;		{weapon "mgun"
+;			{mask "weapon mgun1"}
+;		}
+		{Box
+				{item "ammo mortar81_wgr34 fg" 66}
+			    {item "ammo mgun" 1500}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{Barrels 1}
+			{weapon "weapon 8cm_sgrw34_1" filling "ammo mortar81_wgr34 fg" 1}
+			{Rotate}
+			{gunner "seat1"}
+			{charger "seat2"}
+			{foresight "foresight1"}
+		}
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "mg34_btr" filled}
+			{LinkBone "mgun1"}
+			{LinkAnimation "off"}
+			{charger "gunner1"}
+			{gunner "gunner1"}
+			{foresight "foresight4"}
+			{basic}
+			("abm_mgun")
+		}
+	}  	
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{mass 8600}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(53)
+			weight(8.6)
+			power(100)
+			fuel(160)	
+		)
+	}
+	
+	    {bone "gun"
+		   {limits -12 12}		
+		   {speed2 7}
+	    }
+	    {bone "foresight1"
+		   {limits -20 25}		
+		   {speed2 7}
+	    }	
+	
+}

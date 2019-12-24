@@ -1,0 +1,128 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/car_crew.ext")	
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{props "h_light" "-turret" "opened" "vision_vehicle_minimum" "muzzle_medium"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{patherId "tank.light"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "Bodyback2"
+		{component "bodyback"}
+		{tags "bodyback"}
+		{thickness 10}
+	}
+	{volume "Bodyback3"
+		{component "bodyback"}
+		{tags "bodyback"}
+		{thickness 10}
+	}
+	{volume "inventory"
+	        {thickness 2}
+	}
+	{volume "Bodyback1"
+		{component "bodyback"}
+		{tags "bodyback"}
+		{thickness 10}
+	}
+	{volume "Bodyback4"
+		{component "bodyback"}
+		{tags "bodyback"}
+		{thickness 10}
+	}
+	{volume "Bodyback5"
+		{component "bodyback"}
+		{tags "bodyback"}
+		{thickness 10}
+	}
+
+	{extender "enumerator"}
+
+	("armor_light_shit" turret(30 12 12 12) body(20 12 12 12))
+	("armor_engine"  t(12 12 12 12))
+
+	("crew_2_human")
+	("board_animation"
+		place(driver)
+		board_begin(board_big-highcar)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-highcar_driver)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+
+	{boarder
+		{anm "charger"
+			{forward	{begin	"board_LowTank_left"} {end "pose_pak40_charger"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_left"} {end "pose_pak40_gunlayer"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_tank_right"} {end "pose_pak40_charger"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+	("crew_human" place(gunner)	bone(gunner)	door(emit3) animation(gunner))
+	("crew_human" place(charger)	bone(charger)	door(emit3) animation(gunner))
+	("crew_human" place(gunner2)	bone(gunner2)	door(emit3) animation(gunner))
+
+	{placer
+		{place "driver" 	{visor "driver"}{group "crew"}}
+		{place "commander"	{visor "driver"}{group "crew"}}
+		{place "gunner"		{visor "main"}	{group "crew"} {openForCrush}}
+		{place "charger"	{visor "main"}	{group "crew"} {openForCrush}}
+		{place "gunner2" 	{visor "main"}	{group "crew"} {openForCrush}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet75 ap" 45}
+			{item "ammo bullet75 fg" 25}
+;			{item "ammo bullet75 apcr" 5}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "75mm_type5" filling "ammo bullet75 ap" 1}
+			("abm_high")
+		}
+	
+	}
+
+	{mass 15000}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.56) len(0.167))
+		("mobility"
+			speed(38)
+			weight(15.0)
+			power(170)
+			fuel(350)	
+		)
+	}
+	{Extension "na-to.mdl"}
+	
+	{bone "turret"
+	    {limits -15 15}	
+		{speed2 5} 
+	}
+
+	{bone "gun_rot"
+		{limits -10 8}	
+		{speed2 5} 
+	}	
+}

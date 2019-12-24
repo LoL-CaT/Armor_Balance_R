@@ -1,0 +1,178 @@
+{fx
+	{sound "hit/small/wood/06"}
+	{#+ particleview dust
+		{generator
+			{totalparticles 10}
+			{particlesinblock 10}
+			{emissionarea
+				{radius 14 14}
+				{alpha0 30}
+				{alpha1 80 10}
+			}
+			{particleinit
+				{speed 3 2}
+				{lifetime 3.5 1}
+			}
+			{timetolive 1}
+			{axisz}
+		}
+		{offset 0 0 10}
+		{mover
+			{damping 0.9}
+			{gravity
+				{value 0.01}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smoke_g04a"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.15}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 0.5 0.1}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+	}
+	{#+ particleview paper
+		{generator
+			{particlesinblock 20}
+			{totalparticles 20}
+			{emissionarea
+				{radius 8 8}
+				{alpha0 5 5}
+				{alpha1 60 20}
+			}
+			{particleinit
+				{speed 2 2}
+				{lifetime 2.8 1}
+			}
+			{timetolive 0.01}
+			{axisz}
+		}
+		{mover
+			{damping 0.95}
+			{gravity
+				{value 0.02}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.05}
+			}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/particle/papers01"
+					{turn 1
+						{power
+							{min 0}
+							{max 0 80}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.075 0.025}
+					{preturn 90 90}
+				}
+				{sprite "$/particle/papers02"
+					{turn 1
+						{power
+							{min 0}
+							{max 0 80}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.1 0.05}
+					{preturn 90 90}
+				}
+				{sprite "$/particle/papers03"
+					{turn 1
+						{power
+							{min 0}
+							{max 0 80}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.15 0.05}
+					{preturn 90 90}
+				}
+			}
+			{stage collided 
+				{sprite "$/particle/papers01"
+					{timer
+						{mode play }
+						{duration 10}
+					}
+					{scale 0.075 0.025}
+					{turn 90 60}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+				{flags killparticle ground }
+				{sprite "$/particle/papers02"
+					{timer
+						{mode play }
+						{duration 10}
+					}
+					{scale 0.1 0.05}
+					{turn 90 60}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+				{sprite "$/particle/papers03"
+					{timer
+						{mode play }
+						{duration 10}
+					}
+					{scale 0.15 0.05}
+					{turn 90 60}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

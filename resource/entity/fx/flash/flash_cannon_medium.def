@@ -1,0 +1,131 @@
+{fx
+	{#+ lightview
+		{type point}
+		{animator
+			{scale 1
+				{linear
+					{min 1}
+					{max 0.5}
+				}
+			}
+			{visibility 1
+				{linear
+					{min 1}
+					{max 0.1}
+				}
+			}
+			{highlight 0xffedb0}
+			{timer
+				{duration 0.33 0.1}
+			}
+		}
+		{attenuation0 0.15}
+		{attenuation1 0.9}
+		{radius 300}
+		{effectonground}
+	}
+	{#+ spriteview muz1
+		{sprite "$/flash/flashssp1"
+			{light 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{scalex 1
+				{linear
+					{min 0.15}
+					{max 2.5}
+				}
+			}
+			{scaley 1
+				{linear
+					{min 0.15}
+					{max 2}
+				}
+			}
+			{timer
+				{duration 0.07}
+				{mode play pingpong }
+			}
+		}
+		{orientation normalXY}
+		{autovisible}
+	}
+	{#+ spriteview muz2
+		{sprite "$/flash/flashssp1"
+			{light 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{scalex 1
+				{linear
+					{min 0.15}
+					{max 2.5}
+				}
+			}
+			{scaley 1
+				{linear
+					{min 0.15}
+					{max 2}
+				}
+			}
+			{timer
+				{duration 0.07}
+				{mode play pingpong }
+			}
+		}
+		{orientation normalXZ}
+		{autovisible}
+	}
+	{#+ spriteview fire
+		{sprite "$/explosion/exp02"
+			{preturn 90}
+			{light 1
+				{linear
+					{min 1}
+					{max 0}
+				}
+			}
+			{scalex 1
+				{linear
+					{min 0.1}
+					{max 0.7}
+				}
+			}
+			{scaley 1
+				{linear
+					{min 0.1}
+					{max 0.4}
+				}
+			}
+			{timer
+				{duration 0.5}
+				{mode play }
+			}
+		}
+		{orientation trace}
+		{notifyowner}
+		{autovisible}
+	}
+	{#+ spriteview halo
+		{sprite "$/flash/halo01"
+			{timer
+				{mode play }
+				{duration 0.1}
+			}
+			{light 1
+				{linear
+					{min 0.5}
+					{max 0}
+				}
+			}
+			{scale 1.5}
+		}
+		{notifyowner}
+		{halo}
+		{autovisible}
+	}
+}

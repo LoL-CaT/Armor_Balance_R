@@ -1,0 +1,201 @@
+{ArmoredCar
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "sdkfz251_22.mdl"}
+	{extender "enumerator"}
+;	{extension "crew.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum" "muzzle_small"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{extender "shield"
+		(mod "mp"
+			{on}
+		)
+	}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+			{top 6}
+		    {bottom 6}
+		}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}			
+		}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}
+	}
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}
+	}
+	{Volume "gun"
+		{thickness 10}
+	}
+	{Volume "turret1"
+		{thickness 0
+			{front	10}
+		}
+	}
+	{Volume "turret2"
+		{thickness 0
+			{front	10}
+		}
+	}
+	{Volume "turret3"
+		{thickness 0
+			{front	10}
+		}
+	}
+	{Volume "turret4"
+		{thickness 0
+			{front	10}
+		}
+	}
+	{Volume "turret"
+		{thickness 0
+			{front	10}
+		}
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	{Volume "fuel"
+		{thickness 5}
+	}
+	{Volume "detail1"
+		{thickness 6}
+	}
+	{Volume "detail2"
+		{thickness 6}
+	}
+	{Volume "detail3"
+		{thickness 6}
+	}
+	{Volume "detail4"
+		{thickness 6}
+	}
+	{Volume "detail5"
+		{thickness 6}
+	}
+
+	("armor_medium" args 1.0)
+	
+;	("crew_2_human")
+	("crew_human" place(driver) bone(driver) door(emit3) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit3) animation(gunner))
+	("crew_human" place(commander) bone(commander) door(emit3) animation(commander))
+;	("crew_human" place(charger) bone(charger) door(emit3) animation(charger))
+	{placer
+		{place "driver"		{group "crew"}	{visor "driver"}}
+		{place "gunner"		{group "crew"}	{visor "main"}}
+		{place "commander"	{group "crew"}}
+;		{place "charger"	{group "crew"}}
+	}	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_SdKfz251-1"}	{end "pose_pak40_gunlayer" 10}}
+			{reverse	{end	"emit_body" 1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_SdKfz251-1"}	{end "pose_pak40_charger" 10}}
+			{reverse 	{end	"emit_body" 7}}
+		}
+;		{anm "charger"
+;			{forward	{begin 	"board_SdKfz251-1"}	{end "pose_pak40_charger" 10}}
+;			{reverse 	{end	"emit_body" 5}}
+;    		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet50_pak38 ap" 24}
+			{item "ammo bullet50_pak38 fg" 20}
+;			{item "ammo bullet50_pak38 apcr" 2}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "50mm_kwk39" filling "ammo bullet50_pak38 ap" 1}
+			{RestoreIKAfterAim}
+			{charger "commander"}
+            ("abm_high")
+		}
+	}	
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{mass 8600}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(53)
+			weight(8.6)
+			power(100)
+			fuel(160)	
+		)
+	}
+	
+        {texmod "3"}
+
+	{bone "turret"
+		{speed2 8}
+	}
+	{bone "gun_rot"
+		{speed2 8}
+	}	
+
+}

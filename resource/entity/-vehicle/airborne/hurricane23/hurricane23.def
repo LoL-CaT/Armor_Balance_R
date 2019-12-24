@@ -1,0 +1,82 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(2.0))
+	(include "/properties/car_crew.ext")
+;	{targetClass "fighter"}
+	{props "fighter_av"}	
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("part" args "propeller")
+	("part" args "bodyback")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "hwostr")
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "wheelback")
+	("part" args "wingl1")
+	("part" args "wingr1")
+	("part" args "retract_wheell")
+	("part" args "retract_wheelr")
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}	
+
+	{mass 3479}
+
+	{extender "inventory"
+		{Box	
+            {item "bullet20x110hispano airplane" 240}
+;			{item "tulip" 4}
+      		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "gun_av"}		
+			{weapon "20mm_hispano_x4" filling "ammo bullet20x110hispano airplane" 240}
+			{barrels 4}
+			{foresight "visor_rot_aa"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_zenite")			
+		}	
+;		{place "rocket"
+;			{type "secondary_rockets"}		
+;			{weapon "arl_hurricane" filled} 
+;			{barrels 2}
+;			{foresight "visor_rot"}
+;			{shooter "shooter_r"}
+;			{LinkBone "sp_rot"}
+;			{gunner "driver"}
+;			{charger "driver"}
+;			{basic}
+;		}	
+ 	}
+
+	{Extension "hurricane23.mdl"}
+}

@@ -1,0 +1,160 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")		
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{props "vehicle" "armored_car" "tank" "zenite" "turret" "wheeled" "with_gun" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	{extension "crew.ext"}	
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+			{front	15}
+            {top 5}
+		    {bottom 5}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+			{front	15}
+            {top 5}
+		    {bottom 5}
+		}
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 10
+			{front	15}
+            {top 5}
+		    {bottom 5}
+		}
+	}
+	{volume "crew"
+		{able {contact_ground 0}}
+	}
+	{component "turret"
+		{RepairTime 15}
+	}
+
+	{volume "engine"
+		{thickness 8
+			{rear 8}
+		}
+	}
+	{Volume "Gun"
+		{thickness 10}
+	}
+	{component "Gun"
+		{RepairTime 20}
+	}
+	
+	("armor_medium" args 1.1)
+	
+    {sensor
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	        {visor "tur2_14"
+			{vision "tank_pr"}
+			{bone "visor114"}
+		}
+	        {visor "tur2_18"
+			{vision "tank_pr"}
+			{bone "visor118"}
+		}
+	        {visor "tur2_12"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}		
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}
+	        {visor "tur2_144"
+			{vision "tank_pr"}
+			{bone "visor1144"}
+		}
+	        {visor "tur2_188"
+			{vision "tank_pr"}
+			{bone "visor1188"}
+		}		
+	}	
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 2100}
+			{item "bullet20x138b zenite" 90}
+			{item "bullet20x138b ap" 90}
+			{item "bullet20x138b fg" 90}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_kwk38" filling "ammo bullet20x138b zenite" 10}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "mg34tank" filled}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+		}
+	}
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+	("wheel" args "wheelright4")
+	("wheel" args "wheelleft4")
+
+	{mass 9300}
+	
+	{Chassis
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility"
+			speed(85)
+			weight(9.3)
+			power(150)
+			fuel(150)	
+		)
+	}
+
+	{Extension "sdkfz232.mdl"}
+
+	{bone "turret"
+		{speed2 8}
+	}
+
+}

@@ -1,0 +1,31 @@
+;SDL
+
+(include "/properties/car_crew.ext")
+
+{boarder
+    {anm "passengers"
+		{forward	{begin	"board_body"} {end "seat_passenger"}}   
+		{reverse 	{end	"board_body" -1}}
+	}
+;	{anm "passengers1"
+;		{forward	{begin	"board_HighArmor"} {end "seat_gunner_stand"}}   
+;		{reverse 	{end	"emit_body" 1}}
+;	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+;{placer
+;	{place "driver" {visor "main"}}
+;	{place "commander" {visor "commander"}}
+;}
+
+

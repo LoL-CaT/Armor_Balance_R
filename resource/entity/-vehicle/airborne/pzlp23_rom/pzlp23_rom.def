@@ -1,0 +1,152 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+;	{targetClass "fighter"}
+	{props "fighter_av"}	
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open2"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open2" -1}}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_plane_right"} {end "pose_maxim_gunlaeyr"} {base "open2"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open2" -1}}
+		}
+	}
+	("crew_human" place(driver) 	bone(driver) 		door(emit1) animation(driver))
+	("crew_human" place(gunner1) bone(gunner1) 	        door(emit2) animation(gunner))
+	("crew_human" place(gunner2) bone(gunner2) 	        door(emit2) animation(gunner2))
+
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 7}
+	}
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 7}
+	}
+	{Volume "bodyback2"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 5}
+	}
+	{Volume "bodyback"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 5}
+	}
+	{Volume "cabin"
+		{tags "body"}
+		{component "body"}
+		{thickness 4}
+	}
+	{Volume "engine"
+		{thickness 12}
+	}
+	{Volume "stabl"
+	}
+	{Volume "stabr"
+	}
+	{Volume "wingl1"
+		{thickness 3}
+	}
+	{Volume "wingr1"
+		{thickness 3}
+	}
+	("armor_fighter")
+
+	("part" args "body_back")
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder")
+	("part" args "wheell")
+	("part" args "wheelr")
+	("part" args "stabr")
+	("part" args "stabl")
+
+	("armor_attacker")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 3300}
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 1500}
+			{item "ammo air_bomb small" 8}
+		}
+	}
+	
+	{Weaponry
+        {place "gun"
+			{type "gun_av"}	
+			{weapon "pwuwz33_s" filled}
+			{foresight "foresight3"}
+			{gunner "driver"}
+			{charger "driver"}
+			{basic}
+			("abm_zenite")			
+		}
+		{place "mgun1"
+            {type "mgun_rear"}
+			{weapon "vickers_f" filled}
+			{LinkBone "mgun1"}
+			{LinkAnimation "off"}
+			{foresight "foresight4"}
+			{gunner "gunner1"}
+			{charger "gunner1"}
+;			{basic}
+			("abm_zenite")			
+		}
+		{place "mgun2"
+            {type "mgun_rear"}
+			{weapon "vickers_f" filled}
+			{LinkBone "mgun2"}
+			{LinkAnimation "off"}
+			{foresight "foresight5"}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+;    		{basic}
+			("abm_zenite")			
+		}
+		{place "bomb"
+		    {type "dropper_av"} 
+			{weapon "bomb_dropper_jap_x8" filled}
+			{gunner "driver"}
+			{charger "driver"}
+			{basic}
+		}
+    }	
+	
+	{Sensor
+		{visor "visor2"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight4"}
+		}
+		{visor "visor3"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight5"}
+		}			
+	}	
+	
+	{Extension "pzl_p23.mdl"}
+}

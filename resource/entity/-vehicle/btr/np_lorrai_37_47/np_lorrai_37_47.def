@@ -1,0 +1,130 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{collider "tank.light"}
+	{props "light" "-turret" "vision_vehicle_minimum" "muzzle_small"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{patherId "tank.light"}
+	
+    {sensor		
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}		
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}			
+	}	
+	
+	("armor_light_shit" turret(6 6 6 6) body(16 11 16 6))
+	("armor_engine"  t(6))
+	
+	
+	{boarder
+			{anm "left"
+				{forward	{begin	"board_LowTank_left"} {end "seat_driver_car"} {base "close_driver"}}
+				{reverse 	{end	"emit_tank_1_hold"} {base "open_driver"}}
+			}
+			{anm "right"
+		        	{forward	{begin	"board_LowTank_left"} {end "squat_load_mortar"} {base "close_driver"}}
+				{reverse 	{end	"emit_tank_1_hold"} {base "open_driver"}}
+			}
+			{anm "charger"
+				{forward	{begin	"board_MiddleArmor"} {end "seat_armor"} {base "close"}}
+				{reverse 	{end	"emit_tank_1" 1} {base "open"}}
+			}
+			{anm "gunner"
+				{forward	{begin	"board_MiddleArmor"} {end "seat_armor"} {base "close"}}
+				{reverse 	{end	"emit_tank_1" 1} {base "open"}}
+			}
+			
+	}
+	("crew_human"		place(driver) door1(emit0) door2(emit0) visor(driver))
+	("crew_human"		place(commander) door1(emit2) door2(emit2) visor(driver))
+	("crew_human_visible_anm" place(gunner) door1(emit1) door2(emit1) visor(main) anm_left(gunner) anm_right(gunner))	
+	("crew_human_visible_anm" place(charger) door1(emit1) door2(emit1) visor(main) anm_left(charger) anm_right(charger))
+	{placer {place "gunner" {openForCrush 0}}}
+	
+	
+	
+ 	{sensor
+		{visor "main"
+			{bone "foresight1"}
+		}
+	}
+	{extender "inventory"
+		{box
+			{item "bullet47gerAT ap" 20}
+			{item "bullet47gerAT fg" 15}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "47mm_1938" filling "bullet47gerAT ap" 1}
+			("abm_high")
+		}
+	}
+
+	("tracks")
+
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.1))
+		("mobility"
+			speed(37)
+			weight(5.2)
+			power(70)
+			fuel(144)	
+		)
+	}
+
+	{mass 5200}
+
+	{Extension "lorraine37_47.mdl"}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 16}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 16}
+	}
+	{volume "body_back"
+		{tags "body"}
+		{component "body"}
+		{thickness 16}
+	}
+	{Volume "engine"
+		{component "engine"}
+		{thickness 6}
+	}
+	{Volume "trackleft"
+		{thickness 6}
+	}
+	{Volume "trackright"
+		{thickness 6}
+	}
+	{volume "turret"
+		{component "turret"}
+		{thickness 16}
+	}
+	{Volume "gun"
+		{component "gun"}
+		{thickness 6}
+	}
+	{component "engine"	
+		{RepairTime 6}
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+	{component "gun"
+		{RepairTime 6}
+	}
+}

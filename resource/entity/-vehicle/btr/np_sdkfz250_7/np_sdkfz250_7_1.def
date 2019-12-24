@@ -1,0 +1,122 @@
+{entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{Extension "sdkfz250_7_1.mdl"}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_driver_car"} {base "close"}}
+			{reverse 	{end	"emit_body" 1} {base "close" -1}}
+		}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {visor "driver"}}
+		{place "commander" {visor "main"}}
+	}
+
+	("crew_human" place(driver)	door(emit1) bone(driver) animation(driver)		group(crew))
+	("crew_human" place(commander)	door(emit1) bone(commander) animation(driver)		group(crew))
+		
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+	}
+	
+	{volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	
+	("armor_medium" args 1.0)
+		
+    {sensor	
+	        {visor "main1"
+			{vision "moto_crew"}
+			{bone "visor1"}
+		}		
+	}
+		
+	 {Placer
+	          {place "attach01"
+	             {entity "mauzer"}
+	             {Linkbone "attach01"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "mauzer"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	 }
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {bullet 0} {touch 1}}
+	          }
+	)
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+	("tracks")
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	{extender "inventory"
+		{box
+		}
+	}
+	
+		
+	{mass 5800}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(76)
+			weight(5.8)
+			power(100)
+			fuel(140)	
+		)
+	}
+	(include "/properties/resupply_generic.inc")
+	("truck_ammo_art_ger")	       
+}

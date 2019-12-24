@@ -1,0 +1,211 @@
+{fx
+	{sound "crush/medium/concrete"}
+	{#+ particleview bricks
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 5}
+				{alpha0 0}
+				{alpha1 50}
+			}
+			{particleinit
+				{speed 6 4}
+				{lifetime 2 0.4}
+			}
+			{axisz}
+			{particlesinblock 20}
+			{timetolive 0.1}
+		}
+		{mover
+			{gravity
+				{value 0.2}
+			}
+			{damping 0.98}
+			{collisions
+				{terrain}
+				{restitution 0.5}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/particle/flinders2"
+					{turn 1
+						{npower
+							{min 90 30}
+							{max 360 90}
+							{pow 1.2}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 4}
+					}
+					{scale 0.3 0.2}
+				}
+				{sprite "$/particle/flinders"
+					{turn 1
+						{npower
+							{min 90 30}
+							{max 90 360}
+							{pow 1.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 4}
+					}
+					{scale 0.3 0.2}
+				}
+				{sprite "$/particle/flinders4"
+					{turn 1
+						{npower
+							{min 90 30}
+							{max 90 360}
+							{pow 1.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 4}
+					}
+					{scale 0.3 0.2}
+				}
+				{sprite "$/particle/flinders5"
+					{turn 1
+						{npower
+							{min 90 30}
+							{max 90 360}
+							{pow 1.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration 4}
+					}
+					{scale 0.3 0.1}
+				}
+			}
+			{stage collided dying 
+				{sprite "$/particle/flinders2"
+					{scale 0.4 0.2}
+					{turn 90 45}
+				}
+				{flags killparticle ground }
+				{sprite "$/particle/flinders4"
+					{scale 0.4 0.2}
+					{preturn 120 60}
+				}
+				{sprite "$/particle/flinders5"
+					{scale 0.4 0.2}
+					{preturn 120 60}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{particleview dust
+		{generator
+			{totalparticles 40}
+			{particlesinblock 40}
+			{emissionarea
+				{radius 14 14}
+				{alpha0 30}
+				{alpha1 80 10}
+			}
+			{particleinit
+				{speed 6.5 5.5}
+				{lifetime 5 2}
+			}
+			{timetolive 1}
+			{axisz}
+		}
+		{mover
+			{damping 0.88}
+			{gravity
+				{value 0.01}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat03"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.4}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 0.45 0.15}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xffffffdb}
+				}
+				{sprite "$/smokestat02"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.4}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 0.5 0.1}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/smokestat03"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 150}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.2}
+							{max 0.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 30}
+					{highlight 0xff959184}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,132 @@
+{ArmoredCar
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+    (include "/properties/tank_crew.ext")
+	{extension "crew.ext"}
+
+	{props "vehicle" "armored_car" "tank" "turret" "turret_rotator" "wheeled" "with_gun" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 14
+		{front 15}
+		{top 8}
+		{bottom 8}
+		} 
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 14
+		{front 15}
+		{top 8}
+		{bottom 8}
+		} 
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 14
+		{front 15}
+		{top 8}
+		} 
+	}
+	{volume "crew"
+		{able {contact_ground 0}}
+	}
+        
+	("armor_light" args 1.0)
+ 
+    {sensor
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}		
+	}
+ 
+	("crew_human" 			place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" 			place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" 			place(charger)		door1(emit1) door2(emit2) visor(main))
+
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+	
+	
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box
+			{item "ammo mgun" 2475}
+			{item "ammo hmgun" 500}	
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+            {place "mgun1"
+            {type "mgun_main"}			
+			{RestoreIKAfterAim}
+            {weapon "besa15" filled}
+		    {foresight "foresight4"}
+			{charger "gunner"}			
+			("abm_mgun_heavy")
+			{basic}			
+        }
+		    {place "mgun"
+			{type "mgun_coaxial"}
+            {weapon "besa" filled}
+		    {foresight "foresight3"}			
+			("abm_mgun")
+			{basic}
+		}
+	}
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+	{mass 6800}
+	{Chassis
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility"
+			speed(80)
+			weight(6.8)
+			power(90)
+			fuel(151)	
+		)
+	}
+        
+        {Extension "Humber.mdl"}
+		
+	{bone "turret"
+		{speed2 8}
+	}	
+}

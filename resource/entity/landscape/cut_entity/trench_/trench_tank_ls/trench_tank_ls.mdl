@@ -1,0 +1,55 @@
+;Exported by: kolesnikov
+;Date:        Thu Oct 20 16:50:58 2005
+;File:        D:\-Project-\-3DWork-\Constructions\trench_tank.max
+{Skeleton
+	{bone "trench_tank_ls"
+		{parameters "CommonMesh;Ground;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "trench_tank_ls.ply" {Ground} {DecalTarget}}
+	}
+}
+{Obstacle "body2"
+	{Obb2
+		{Center -37.461 84.7012}
+		{Extent 69.7336 1.875}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Obstacle "body"
+	{Obb2
+		{Center 32.8682 49.7057}
+		{Extent 1.875 33.415}
+		{Axis 1 0}
+	}
+	{Rotate}
+}
+{Area "cut"
+	{Polygon2
+		{Radius 0}
+		{Vertex 42.505 92.5516}
+		{Vertex -161.276 92.5516}
+		{Vertex -161.276 16.3142}
+		{Vertex 42.505 16.3142}
+	}
+	{Rotate}
+}
+{Volume "body2"
+	{Box 3.75 139.467 37.0799}
+	{Bone "trench_tank_ls"}
+	{Matrix34
+		0	1	0
+		-1	0	0
+		0	0	1
+		-37.461	-84.7012	-1.8219
+	}
+}
+{Volume "body"
+	{Box 3.75 66.83 37.0799}
+	{Bone "trench_tank_ls"}
+	{Position 32.8682	-49.7057	-1.8219}
+}

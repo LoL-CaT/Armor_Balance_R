@@ -1,0 +1,115 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(2.0))
+  	(include "/properties/car_crew.ext")
+;   {targetClass "fighter"}	
+	{props "fighter_av" "airborne" "torpedo_bomber"}
+	
+{Volume "body"
+		{tags "body"}
+		{component "body"}
+}
+{Volume "hatch"
+		{tags "body"}
+		{component "body"}
+}
+{Volume "propeller"
+		{tags "body"}
+		{component "body"}
+}
+{Volume "wingl1"
+		{tags "body"}
+		{component "body"}
+}
+{Volume "wingl2"
+		{tags "body"}
+		{component "body"}
+}
+{Volume "wingr1"
+		{tags "body"}
+		{component "body"}
+}
+{Volume "wingr2"
+		{tags "body"}
+		{component "body"}
+}
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "rudder")
+	("part" args "wingl")
+	("part" args "wingr")
+	("part" args "propeller")
+	("part" args "tail")
+	("part" args "tail_gear")
+	("part" args "tail_wingr")
+	("part" args "tail_wingl")
+	("part" args "pivot_front")
+	("part" args "cockpit")
+	("armor_fighter")
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+
+	{mass 2800}
+
+	{extender "inventory"
+		{Box
+			{item "bullet20_oerlikon airplane" 250}
+			{item "torpedo_mas" 1}		
+			{item "hmgun ammo" 1000}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "gun_av"}	
+			{weapon "20mm_Oerlikon_99_2_4_x2" filling "ammo bullet20_oerlikon airplane" 250}
+			{barrels 2}
+			{gunner "driver"}
+			{charger "driver"}
+			{rotate}
+			("abm_zenite")			
+			{basic}
+		}
+		{place "mgun1"
+			{type "mgun_av"}	
+		    {weapon "browning_anm2_jap_x4" filled}
+		    {Barrels 4}
+            {foresight "shooter_mg"}
+            {shooter "shooter_m"}
+		    {charger "driver"}
+		    {gunner "driver"}
+		    {rotate}
+		    ("abm_zenite")			   
+		    {basic}
+        }
+		{place "bomb"
+			{type "torpedo_av"}	
+			{weapon "bomb_dropper_torpedo" filled}
+			{charger "driver"}
+			{gunner "driver"}
+			{shooter  "shooter_t"}
+			{basic}
+		}	
+	{Extension "a6m5_torpedo.mdl"}
+}

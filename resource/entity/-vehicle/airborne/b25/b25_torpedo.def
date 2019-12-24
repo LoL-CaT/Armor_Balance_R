@@ -1,0 +1,281 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}	
+	(include "/properties/selection/airborne.inc" scale(1.0))
+	(include "/properties/car_crew.ext")
+;	{targetClass "attacker"}
+	{props "wheeled" "windowed" "torpedo_bomber"}
+	{props "attacker_av"}
+	
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(gunner))
+	("crew_human" place(gunner2) bone(gunner2) door(emit1) animation(gunner))
+	("crew_human" place(gunner3) bone(gunner3) door(emit1) animation(gunner))
+	("crew_human" place(gunner4) bone(gunner4) door(emit2) animation(gunner))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "engine1"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 15}
+	}
+	{Volume "engine2"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 15}
+	}
+	{Volume "part1"
+		{thickness 7}
+	}
+	{Volume "part2"
+		{thickness 7}
+	}
+		{Volume "aileron1"
+		{thickness 5}
+	}
+	{Volume "aileron2"
+		{thickness 5}
+	}
+	{Volume "elevator1"
+		{thickness 5}
+	}
+	{Volume "elevator2"
+		{thickness 5}
+	}
+	{Volume "wingl"
+		{thickness 7}
+	}
+	{Volume "wingr"
+		{thickness 7}
+	}
+	{Volume "mgun2_turret"
+		{thickness 7}
+	}
+	{Volume "rudder1"
+		{thickness 7}
+	}
+	{Volume "rudder2"
+		{thickness 7}
+	}
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder1")
+	("part" args "rudder2")
+	("part" args "wheell")
+	("part" args "wheelr")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	
+	("armor_attacker_129")
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 15600}
+	
+	{Placer
+	        
+	        {place "mgun1_1"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun1_1"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "mgun1_2"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun1_2"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+		{place "mgun1_3"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun1_3"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+		{place "mgun1_4"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun1_4"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+	         {place "mgun2_1"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun2_1"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "mgun2_2"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun2_2"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	         {place "mgun3_1"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun3_1"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "mgun3_2"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun3_2"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "mgun4"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun4"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+		{place "mgun5"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun5"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+               }
+	 (define "define_place"
+	          {placer
+	             {place "%place"
+	                {linkbone "%place"}
+	                {attach squat_lie}
+	                {turnoff {shadow}}
+	                {obstacle disable}
+	             }
+	          }
+	          {Volume "%place"
+	             {tags "attach" "attach_%place"}
+	             {able clear {usa_bullet 0} {touch 1}}
+	          }
+	)
+	{extender "inventory"
+		{Box
+			{item  "ammo hmgun" 6500}
+			{item "torpedo_mas" 1}	
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{type "gun_av"}	
+			{weapon "browning_anm2_x4" filled}
+			{Barrels 4}
+			{foresight "foresight51"}
+			{shooter "shooter1m"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_zenite")
+			{basic}
+		}
+		{place "mgun50"
+			{type "mgun_rear"}
+			{weapon "browning_anm2_x2" filled}
+			{Barrels 2}
+			{foresight "foresight52"}
+			{shooter "shooter2m"}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			("abm_zenite")
+		}
+		{place "mgun51"
+			{type "mgun_rear"}
+			{weapon "browning_anm2_x2" filled}
+			{Barrels 2}
+			{foresight "foresight53"}
+			{shooter "shooter3m"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			("abm_zenite")
+		}
+		{place "mgun52"
+			{type "mgun_left"}
+			{weapon "browning_anm2" filled}
+			{foresight "foresight54"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			("abm_zenite")
+		}
+		{place "mgun53"
+			{type "mgun_right"}
+			{weapon "browning_anm2" filled}
+			{foresight "foresight55"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			("abm_zenite")
+		}
+		{place "bomb"
+			{type "torpedo_av"}		
+			{weapon "bomb_dropper_torpedo" filled}
+			{charger "driver"}
+			{gunner "driver"}
+			{shooter  "shooter_t"}
+			{basic}
+		}		
+	}
+	{Extension "b25_torpedo.mdl"}
+	{Volume "inventory"
+	}
+	{sensor
+		{Visor "main"
+			{bone  "basis"}
+			{vision "air"}   ;New vision for planes
+		}
+		{visor "visor"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight52"}
+		}	
+		{visor "visor1"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight53"}
+		}	
+		{visor "visor2"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight54"}
+		}
+		{visor "visor3"
+			{vision "vehicle_top_mgun"} 
+			{bone "foresight55"}
+		}		
+	
+	}
+
+}

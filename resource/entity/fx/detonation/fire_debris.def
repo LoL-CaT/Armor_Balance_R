@@ -1,0 +1,86 @@
+{fx
+	{particleview fire
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 0.2 0.2}
+				{alpha0 0}
+				{alpha1 360 360}
+				{speed 2}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.75 0.25}
+			}
+			{timetolive 0.8}
+		}
+		{mover
+			{damping 0.7}
+			{gravity
+				{value 0.02}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/flamenosmk01"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 200}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.015 0.005}
+							{max 0.1}
+						}
+					}
+					{light 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+				{sprite "$/smokestat03"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.0035 0.0015}
+							{max 0.135 0.015}
+						}
+					}
+					{highlight 0xffff4416}
+					{## light 1
+						{linear
+							{min 0.6}
+							{max 0}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+	}
+}

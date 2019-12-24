@@ -1,0 +1,703 @@
+{fx
+	{fire}
+	{##+ particleview smoke1a
+		{generator
+			{totalparticles 10}
+			{emissionarea
+				{radius 1.5 1.5}
+				{alpha0 50 50}
+				{alpha1 -30}
+				{speed 0.08}
+			}
+			{particleinit
+				{speed 0.6 0.3}
+				{lifetime 5}
+			}
+			{particlesinblock 1}
+			{axisz}
+			{timetolive 180}
+		}
+		{## offset 0 0 10}
+		{mover
+			{damping 0.99}
+			{gravity
+				{value 0.005}
+			}
+		}
+		{visualizer
+			{stage 
+				{## sprite "$/smoke/smokesmal4b_100"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.35 0.05}
+							{max 0.7 0.2}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0.05 0.05}
+							{max 0.7}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/_bmp/smoke/smokeend_lightloop"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 10}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.4 0.1}
+							{max 1.1 0.1}
+						}
+					}
+					{visibility 1
+						{## linear
+							{min 0.5}
+							{max 0}
+						}
+						{peak
+							{min 0}
+							{max 0.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180 30}
+					{highlight 0xffc8c8c8}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview smoke1b
+		{generator
+			{totalparticles 10}
+			{emissionarea
+				{radius 1.5 1.5}
+				{alpha0 50 50}
+				{alpha1 -30}
+				{speed 0.06}
+			}
+			{particleinit
+				{speed 0.4 0.1}
+				{lifetime 5}
+			}
+			{particlesinblock 1}
+			{axisz}
+			{timetolive 1200}
+		}
+		{## offset 0 0 10}
+		{mover
+			{damping 0.99}
+			{gravity
+				{value 0.005}
+			}
+		}
+		{visualizer
+			{stage 
+				{## sprite "$/smoke/smokesmal4b_100"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.35 0.05}
+							{max 0.7 0.2}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0.05 0.05}
+							{max 0.7}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/_bmp/smoke/smokeend_lightloop_short"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 10}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.4 0.1}
+							{max 1.1 0.1}
+						}
+					}
+					{visibility 1
+						{## linear
+							{min 0.5}
+							{max 0}
+						}
+						{peak
+							{min 0.3}
+							{max 0.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180 30}
+					{highlight 0xffc8c8c8}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview flames
+		{generator
+			{totalparticles 10}
+			{emissionarea
+				{radius 1.5 1.5}
+				{alpha1 90 90}
+				{## speed 0.7}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.2 0.1}
+			}
+			{axisz}
+		}
+		{mover
+			{damping 0.1}
+			{gravity
+				{value -0.2}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/explosion/flame"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{## scale 1
+						{linear
+							{min 0.3 0.1}
+							{max 0.65 0.15}
+						}
+					}
+					{light 1
+						{peak
+							{min 0}
+							{max 0.65 0.15}
+						}
+					}
+					{scalex 0.6 0.1
+						{## linear
+							{min 0.25 0.05}
+							{max 1}
+						}
+					}
+					{scaley 1
+						{linear
+							{min 0.25 0.05}
+							{max 1.75 0.25}
+						}
+					}
+				}
+				{sprite "$/explosion/flame_hi"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{light 1
+						{peak
+							{min 0}
+							{max 0.65 0.15}
+						}
+					}
+					{scalex 0.35 0.05}
+					{scaley 0.215 0.035}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview sparkles
+		{generator
+			{totalparticles 6}
+			{emissionarea
+				{radius 1.5 1.5}
+				{alpha1 90 90}
+			}
+			{particleinit
+				{speed 0.05 0.05}
+				{lifetime 0.7 0.3}
+			}
+			{axisz}
+		}
+		{mover
+			{damping 0.8}
+			{gravity
+				{value -0.2}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{turn 1
+						{linear
+							{min 0 5}
+							{max 10 5}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.1}
+						}
+					}
+					{light 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview smoke
+		{generator
+			{totalparticles 1}
+			{emissionarea
+				{radius 2 2}
+				{alpha0 0}
+				{alpha1 -20 2}
+				{speed 0.4}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.9 0.1}
+			}
+			{particlesinblock 1}
+			{axisz}
+		}
+		{offset 0 0 10}
+		{mover
+			{damping 0.96}
+			{gravity
+				{value -0.05}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smtanko"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.25 0.05}
+							{max 0.5 0.1}
+						}
+					}
+					{## visibility 1
+						{peak
+							{min 0}
+							{max 0.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{light 1
+						{peak
+							{min 0}
+							{max 0.35 0.15}
+						}
+						{## linear
+							{min 0.5 0.1}
+							{max 0}
+						}
+					}
+				}
+				{##+ sprite "$/smoke/smtanko"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.075 0.025}
+							{max 0.15 0.05}
+						}
+					}
+					{## visibility 1
+						{peak
+							{min 0}
+							{max 0.4}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{light 1
+						{peak
+							{min 0}
+							{max 0.6 0.2}
+						}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview smoke
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 40}
+				{alpha0 0}
+				{alpha1 -45 -45}
+				{## speed 0.08}
+				{distributionlaw sphere}
+			}
+			{particleinit
+				{speed 1 1}
+				{lifetime 3}
+			}
+			{particlesinblock 20}
+			{axisz}
+			{timetolive 0.1}
+		}
+		{## offset 0 0 10}
+		{mover
+			{damping 0.96}
+			{gravity
+				{value -0.015}
+			}
+		}
+		{visualizer
+			{stage 
+				{## sprite "$/smoke/smokesmal4b_100"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.35 0.05}
+							{max 0.7 0.2}
+						}
+					}
+					{visibility 1}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/_bmp/smoke/smokeend_lightloop_short"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 10}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.65 0.15}
+							{max 1.6 0.4}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.7}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180 30}
+					{highlight 0xffb0b0b0}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{##+ particleview smoke
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 60}
+				{alpha0 0}
+				{alpha1 -45 -45}
+				{## speed 0.08}
+				{distributionlaw sphere}
+			}
+			{particleinit
+				{speed 0.5 0.5}
+				{lifetime 5}
+			}
+			{particlesinblock 30}
+			{axisz}
+			{timetolive 0.1}
+		}
+		{## offset 0 0 10}
+		{mover
+			{damping 0.96}
+			{gravity
+				{value -0.015}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smoke_g04b"
+					{turn 1
+						{linear
+							{min 0 50}
+							{max 0 360}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.125 0.075}
+							{max 0.4 0.1}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.5}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview smoke1
+		{generator
+			{totalparticles 10}
+			{emissionarea
+				{radius 5 5}
+				{alpha0 45 45}
+				{alpha1 -30}
+				{speed 0.1}
+			}
+			{particleinit
+				{speed 0.5 0.5}
+				{lifetime 5}
+			}
+			{particlesinblock 1}
+			{axisz}
+			{timetolive 180}
+		}
+		{offset 0 0 -10}
+		{mover
+			{damping 0.98}
+			{gravity
+				{value 0.001}
+			}
+		}
+		{visualizer
+			{stage 
+				{## sprite "$/_bmp/smoke/smokeend_lightloop"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 10}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.6 0.1}
+							{max 1.15 0.15}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.5}
+							{max 0}
+						}
+						{## peak
+							{min 0}
+							{max 0.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180 30}
+					{highlight 0xffc8c8c8}
+				}
+				{sprite "$/_bmp/smoke/smokeend_lightloop"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 10}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.4 0.1}
+							{max 1.1 0.1}
+						}
+					}
+					{visibility 1
+						{## linear
+							{min 0.5}
+							{max 0}
+						}
+						{peak
+							{min 0}
+							{max 0.4}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180 30}
+					{highlight 0xffc8c8c8}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview smoke2
+		{generator
+			{totalparticles 10}
+			{emissionarea
+				{radius 5 5}
+				{alpha0 40 40}
+				{alpha1 -30}
+				{speed 0.1}
+			}
+			{particleinit
+				{speed 0.5 0.5}
+				{lifetime 5}
+			}
+			{particlesinblock 1}
+			{axisz}
+			{timetolive 180}
+		}
+		{offset 0 0 -10}
+		{mover
+			{damping 0.98}
+			{gravity
+				{value 0.001}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/_bmp/smoke/smokeend_lightloop"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 10}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.6 0.1}
+							{max 1.15 0.15}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.4}
+							{max 0}
+						}
+						{## peak
+							{min 0}
+							{max 0.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180 30}
+					{highlight 0xffc8c8c8}
+				}
+				{## sprite "$/_bmp/smoke/smokeend_lightloop"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 10}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.4 0.1}
+							{max 1.1 0.1}
+						}
+					}
+					{visibility 1
+						{## linear
+							{min 0.5}
+							{max 0}
+						}
+						{peak
+							{min 0}
+							{max 0.4}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180 30}
+					{highlight 0xffc8c8c8}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

@@ -1,0 +1,73 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+  	{targetClass "fighter"}
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "body_back")
+	("part" args "propeller")
+	("part" args "hwostl")
+	("part" args "wingl1")
+	("part" args "wingr1")
+
+	("armor_fighter")
+
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 95}
+	 	  	{turnRadius 50}
+		}
+    	{maxSideSlope 70}	;degree
+       	{speed
+       		{Slow	15  }	; km/h
+       		{Normal	65	}
+       		{Fast	90	}
+       	}
+	}
+	{mass 3150}
+
+	{extender "inventory"
+		{box
+			{item "bullet20_rus zenite" 1000}
+			{item "aircraft_control"}
+		}
+	}	
+	{Weaponry
+		{place "zenite"
+                       		{weapon "20mm_shwak" filled}
+			{barrels 2}
+			{type "mgun_aa"}
+			{charger "driver"}
+			{gunner "driver"}
+			{rotate}
+			("abm_zenite")
+		}
+	}
+
+	;{Sensor
+	;	{Visor "main"
+	;		{bone "pivot_back"}
+                  ;     		{vision "vehicle_air"}
+            	;	}
+                 ;}
+ 	{Extension "la5fn.mdl"}
+}

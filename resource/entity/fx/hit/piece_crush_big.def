@@ -1,0 +1,164 @@
+{fx
+	{#+ particleview pieces
+		{entitygenerator
+			{totalparticles 2}
+			{emissionarea
+				{radius 10}
+				{alpha0 0 5}
+				{alpha1 20 15}
+			}
+			{particleinit
+				{speed 2.5 1.5}
+				{lifetime 5.5 0.5}
+			}
+			{entity "#flotsam2"
+				{fx "dust_small"}
+			}
+			{entity "#stone01"
+				{fx "spheredust_small"}
+			}
+		}
+	}
+	{#+ particleview dirt
+		{generator
+			{totalparticles 10}
+			{particlesinblock 10}
+			{emissionarea
+				{radius 10 10}
+				{alpha0 0}
+				{alpha1 180 10}
+			}
+			{particleinit
+				{speed 4 2}
+				{lifetime 1 0.5}
+			}
+			{timetolive 0.5}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0.2}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.3}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/rock"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.17 0.1}
+				}
+			}
+		}
+	}
+	{#+ particleview dust
+		{generator
+			{totalparticles 5}
+			{particlesinblock 5}
+			{emissionarea
+				{radius 14 14}
+				{alpha0 30}
+				{alpha1 80 10}
+			}
+			{particleinit
+				{speed 2.5 1.5}
+				{lifetime 2 1}
+			}
+			{timetolive 1}
+			{axisz}
+		}
+		{mover
+			{damping 0.85}
+			{gravity
+				{value 0.01}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat03"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.4}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.35 0.05}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xffffffdb}
+				}
+				{sprite "$/smokestat02"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.4}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.15 0.05}
+							{max 0.35 0.05}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+				{sprite "$/smokestat03"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 150}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.1}
+							{max 0.2}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 30}
+					{highlight 0xff838075}
+				}
+			}
+		}
+	}
+}

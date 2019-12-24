@@ -1,0 +1,92 @@
+{actor
+	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+;	{targetClass "fighter"}
+	{props "fighter_av"}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "body_back")
+	("part" args "propeller")
+	("part" args "hwostl")
+	("part" args "wingl1")
+	("part" args "wingr1")
+
+	("armor_fighter")	
+	
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 75}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 60}	;degree
+       	{speed
+       		{Slow	60  }	; km/h
+       		{Normal	65	}
+       		{Fast	70	}
+       	}
+	}
+	{mass 3150}
+
+	{extender "inventory"
+		{box
+            {item "bullet20x138b airplane" 500}
+			{item "hmgun" "ammo" 400}
+		}
+	}	
+	
+	{Weaponry
+        {place "gun"
+			{type "gun_av"}	
+            {weapon "20mm_mg151x2" filling "ammo bullet20x138b airplane" 500}
+            {barrels 2}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+			{rotate}
+			("abm_zenite")
+        }
+		 {place "mgun1"
+			{type "mgun_av"}
+			{weapon "breda_12_x2_s" filled}
+			{shooter "shooter_mgun"}
+			{barrels 2}
+			{gunner "driver"}
+			{charger "driver"}
+			{foresight "foresight2"}
+			{rotate}
+			{basic}
+			("abm_zenite")			
+		}
+	}
+
+	;{Sensor
+	;	{Visor "main"
+	;		{bone "pivot_back"}
+            	;	}
+       	;}
+
+	{extender "enumerator"}
+
+	{Extension "mc_205.mdl"}
+     
+}

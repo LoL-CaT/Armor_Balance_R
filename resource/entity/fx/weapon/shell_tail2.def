@@ -1,0 +1,86 @@
+{fx
+	{particleview smoke
+		{generator
+			{totalparticles 250}
+			{## emissionarea
+				{radius 4.5 4.5}
+				{alpha0 0}
+				{alpha1 -1 1}
+			}
+			{particleinit
+				{speed 20 15.0}
+				{lifetime 2.50 1.50}
+			}
+			{## axisz}
+		}
+		{mover
+			{damping 0.95}
+			{gravity
+				{value -0.002}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smoke/smokesmal4b_30"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 1.05 1.05}
+							{min 1.05 1.05}
+						}
+					}
+					{visibility 1
+						{## linear
+							{min 0.1}
+							{max 0}
+						}
+						{peak
+							{min 0}
+							{max 0.7}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+				}
+				{sprite "$/smoke/smokesmal4b"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{scale 1
+						{linear
+							{min 1.05 1.0}
+							{min 1.05 1.0}
+						}
+					}
+					{visibility 1
+						{## linear
+							{min 0.1}
+							{max 0}
+						}
+						{peak
+							{min 0}
+							{max 0.7}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

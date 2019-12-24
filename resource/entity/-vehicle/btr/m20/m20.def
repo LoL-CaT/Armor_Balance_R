@@ -1,0 +1,145 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/tank_crew.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "with_gun" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+
+	(include "/properties/tank_crew.ext")
+	{extender "enumerator"}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+		{front 19}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+		{front 19}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 10
+		{front 19}
+		{top 6}
+		{bottom 6}
+		}
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 19
+		{front 19}
+		{top 19}
+		}
+	}
+	{volume "mantlet"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 19}
+	}
+	{volume "crew"
+		{able {contact_ground 0}}
+	}
+	{component "turret"
+		{RepairTime 19}
+	}
+
+	{volume "engine"
+		{thickness 5
+			{rear	5}
+		}
+	}
+	{Volume "Gun"
+		{thickness 10}
+	}
+	{component "Gun"
+		{RepairTime 20}
+	}
+	
+	
+	("armor_light" args 1.2)
+	
+	{sensor
+		{visor "main1" {bone "visor1"} {vision "moto_crew"}}
+	} 	
+	
+	("shield" args 8)
+	{extender "shield"
+		{on}
+	}
+
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+
+	("crew_2_human")
+	("crew_human_visible" place(gunner)	door1(emit1) door2(emit2) visor(main))
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo hmgun" 1500}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{LinkBone "mgun2"}
+			{LinkAnimation "off"}
+	        {weapon "browning" filled}			
+			{charger "gunner"}
+			("abm_mgun_heavy")
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+
+	{Chassis
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlr") wheelr("wrr") bonel("FXtraceL3") boner("FXtraceR3"))
+		("mobility"
+			speed(89)
+			weight(7.0)
+			power(110)
+			fuel(230)	
+		)
+	}
+
+	{mass 7000}
+
+	{Extension "m20.mdl"}
+
+}

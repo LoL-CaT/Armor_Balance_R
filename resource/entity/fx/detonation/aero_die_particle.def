@@ -1,0 +1,151 @@
+{fx
+	{#+ particleview pieces
+		{entitygenerator
+			{totalparticles 3}
+			{emissionarea
+				{radius 14}
+				{alpha0 0 5}
+				{alpha1 15 10}
+			}
+			{particleinit
+				{speed 14 9}
+				{lifetime 5.5 0.5}
+			}
+			{entity "#metall1"}
+			{entity "#metall3"
+				{fx "smoke_barrel_small"}
+			}
+			{entity "#metall2"
+				{fx "smoke_barrel_small"}
+			}
+		}
+	}
+	{#+ particleview dirt
+		{generator
+			{totalparticles 7}
+			{emissionarea
+				{radius 15 15}
+				{alpha0 0}
+				{alpha1 90}
+			}
+			{particleinit
+				{speed 7 2}
+				{lifetime 1.5 0.4}
+			}
+			{particlesinblock 7}
+			{timetolive 0.1}
+		}
+		{mover
+			{gravity
+				{value 0.2}
+			}
+			{damping 0.98}
+			{collisions
+				{terrain}
+				{restitution 0.5}
+			}
+			{nodependonwind}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/particle/pieces2"
+					{turn 1
+						{npower
+							{min 10 10}
+							{max 90 90}
+							{pow 1.7}
+						}
+					}
+					{scale 0.105 0.035}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+				{sprite "$/particle/pieces"
+					{turn 1
+						{npower
+							{min 90 90}
+							{max 0 5}
+							{pow 1.5}
+						}
+					}
+					{scale 0.075 0.025}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+				}
+			}
+			{stage collided dying 
+				{flags killparticle ground }
+				{sprite "$/particle/pieces"
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{scale 0.075 0.025}
+					{turn 90 45}
+					{timer
+						{mode play }
+						{duration 6}
+					}
+				}
+				{sprite "$/particle/pieces2"
+					{visibility 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+					{scale 0.105 0.035}
+					{turn 90 45}
+					{timer
+						{mode play }
+						{duration 6}
+					}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ particleview sparkles
+		{generator
+			{totalparticles 20}
+			{emissionarea
+				{radius 5 5}
+				{alpha0 0}
+				{alpha1 90 30}
+			}
+			{particleinit
+				{speed 6 5}
+				{lifetime 1.5 1.5}
+			}
+			{particlesinblock 20}
+			{timetolive 1}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0.2}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.1}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/particle/oskolki"
+					{scale 0.15 0.05}
+				}
+				{sprite "$/particle/oskolki2"
+					{scale 0.185 0.065}
+				}
+			}
+		}
+		{notifyowner}
+	}
+}

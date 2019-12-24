@@ -1,0 +1,105 @@
+;Exported by: trax
+;Date:        Wed Apr 16 22:06:26 2014
+;File:        C:\Users\trax\Documents\3dsmax\scenes\sdkfz301\sdkfz301_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=Body;"}
+			{animation
+				{sequence "break" {file "body_b.anm"} {speed 0.5}}
+			}
+			{Matrix34
+				0.998536	0.00025383	-0.0540871
+				-0.00179197	0.999595	-0.0283917
+				0.054058	0.028447	0.998132
+				-0.313704	0.0106803	4.86934
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "part3"
+				{parameters "ID=part3;"}
+				{Matrix34
+					0.998536	-0.00179219	0.0540579
+					0.000254063	0.999595	0.0284468
+					-0.054087	-0.0283914	0.998132
+					-24.3766	14.6078	-0.643127
+				}
+				{VolumeView "part3.ply"}
+			}
+			{bone revolute "part2"
+				{parameters "ID=part2;"}
+				{Matrix34
+					0.998536	-0.00179221	0.0540571
+					0.000254108	0.999595	0.0284468
+					-0.0540862	-0.0283914	0.998133
+					32.9987	-15.8367	1.49991
+				}
+				{VolumeView "part2.ply"}
+			}
+			{bone "part1"
+				{parameters "ID=part1;"}
+				{Position 26.5005	0.0381278	6.56861}
+				{VolumeView "part1.ply"}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Position -21.4628	-0.0798272	15.3272}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Position -0.212248	-0.0452634	6.6025}
+}
+{Volume "part1"
+	{Polyhedron "part1.vol"}
+	{Bone "part1"}
+	{Position -0.186106	-0.0244785	1.38641}
+}
+{Volume "part2"
+	{Cylinder 4.94708 3.89512}
+	{Bone "part2"}
+	{Matrix34
+		-1	0	0
+		0	0	1
+		0	1	0
+		-0.065502	0.0799162	-0.0528762
+	}
+}
+{Volume "part3"
+	{Cylinder 3.22094 2.26659}
+	{Bone "part3"}
+	{Matrix34
+		-1	0	0
+		0	0.215741	0.976451
+		0	0.976451	-0.215741
+		-0.0424059	-0.0313963	-0.0959443
+	}
+}
+{Volume "trackleft"
+	{Box 66.9132 4.24217 14.0897}
+	{Bone "body"}
+	{Matrix34
+		0.998536	-0.00179171	0.0540579
+		0.000253569	0.999595	0.0284471
+		-0.054087	-0.0283917	0.998132
+		4.56501	15.5032	2.78538
+	}
+}
+{Volume "trackright"
+	{Box 66.8001 4.28459 13.9562}
+	{Bone "body"}
+	{Matrix34
+		0.998536	-0.00179219	0.0540579
+		0.000254048	0.999595	0.028447
+		-0.0540871	-0.0283917	0.998132
+		4.56069	-15.716	1.83025
+	}
+}

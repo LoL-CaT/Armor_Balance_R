@@ -1,0 +1,149 @@
+{fx
+	{#+ lightview
+		{animator
+			{highlight 0xffffe178}
+		}
+		{type point}
+		{radius 100}
+		{attenuation0 0.1}
+		{attenuation1 1}
+		{effectonground}
+		{offset 0 0 50}
+	}
+	{#+ spriteview flash
+		{sprite "$/flash/flash"
+			{light 1
+				{linear
+					{min 2}
+					{max 0}
+				}
+			}
+			{scalex 1
+				{linear
+					{min 0.15}
+					{max 0.8}
+				}
+			}
+			{scaley 1
+				{linear
+					{min 0.07}
+					{max 0.2}
+				}
+			}
+			{timer
+				{duration 0.07}
+				{mode play loop pingpong }
+			}
+		}
+		{orientation trace}
+		{autovisible}
+	}
+	{particleview smoke
+		{generator
+			{totalparticles 150}
+			{emissionarea
+				{radius 0.5 0.5}
+				{alpha0 0}
+				{alpha1 -1 1}
+			}
+			{particleinit
+				{speed 0 0.5}
+				{lifetime 1.35 0.35}
+			}
+		}
+		{mover
+			{damping 0.95}
+			{gravity
+				{value -0.002}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat03"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 50}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.0185 0.0115}
+							{max 0.125 0.075}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.8}
+							{max 0}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 20}
+				}
+			}
+		}
+		{notifyowner}
+	}
+	{#+ spriteview halo1
+		{sprite "$/flash/halo02"
+			{timer
+				{mode play loop }
+				{duration 0.08}
+			}
+			{preturn 90 90}
+			{scale 1
+				{peak
+					{min 0.5}
+					{max 0.8}
+				}
+			}
+			{light 0.3}
+		}
+		{halo}
+		{notifyowner}
+		{autovisible}
+	}
+	{#+ spriteview halo2
+		{sprite "$/flash/halo01"
+			{timer
+				{mode play loop }
+				{duration 0.08}
+			}
+			{preturn 90 90}
+			{scale 0.3}
+			{light 0.2}
+		}
+		{halo}
+		{notifyowner}
+		{autovisible}
+	}
+	{#+ spriteview streaks
+		{sprite "$/flash/flash_g02a"
+			{timer
+				{mode play loop }
+				{duration 2.5}
+			}
+			{preturn 90 90}
+			{scale 1}
+			{light 0.15
+				{peak
+					{min 0.1}
+					{max 0.3}
+				}
+			}
+			{turn 1
+				{linear
+					{min 0}
+					{max 360}
+				}
+			}
+		}
+		{halo}
+		{notifyowner}
+		{autovisible}
+	}
+}

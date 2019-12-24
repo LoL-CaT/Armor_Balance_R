@@ -1,0 +1,120 @@
+{entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "vehicle" "armored_car" "tractor" "tank" "explosion_throw_crew" "vision_vehicle_minimum" "windowed"}
+	{targetClass "tank" "fg bullet"}
+	{targetSelector "tank_bullet"}
+	{patherId "tank.light"}
+	
+	("armor_light" turret(0) body(1 1 1 1))
+	("armor_engine"  t(3 3 3 3))
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_passenger"} {base "doorleft"}}
+			{reverse 	{end	"board_big-highcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_big-highcar"} {end "seat_passenger"} {base "doorright"}}
+			{reverse 	{end	"board_big-highcar" -1} {base "doorright" -1}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_body"} {end "seat_passenger"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("crew_human_visible_anm" place(driver) door1(emit1) door2(emit1) visor(driver) anm_left(left) anm_right(left)) 
+	("crew_human_visible_anm" place(commander) door1(emit2) door2(emit2) visor(driver) anm_left(right) anm_right(right))
+	("seat_human" place(seat1) bone(seat01) door(emit4) animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4) animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit4) animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit4) animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit3) animation(armor1))
+	("seat_human" place(seat6) bone(seat06) door(emit3) animation(armor1))
+	("seat_human" place(seat7) bone(seat07) door(emit3) animation(armor1))
+	("seat_human" place(seat8) bone(seat08) door(emit3) animation(armor1))
+	("seat_human" place(seat9) bone(seat09) door(emit3) animation(armor1))
+
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "visor1"}
+		}
+		{Visor "driver"
+			{vision "moto_around"}
+			{bone "visor1"}
+		}
+	}
+
+	{mass 15500}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.45))
+		("mobility"
+			speed(40)
+			weight(15.5)
+			power(375)
+			fuel(550)	
+		)
+	}
+
+	{Extension "voroshilovets.mdl"}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 1}
+	}
+	{volume "bodyback"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 1}
+	}
+	{extender "shield"
+			{on}
+	}
+	{Volume "shield"
+		{component "shield"}
+		{thickness 1}	
+	}
+	{Volume "cabin"
+		{tags "body"}
+		{component "cabin"}
+		{thickness 1}	
+	}
+	{Volume "engine"
+		{component "engine"}
+	}
+	{Volume "fuel"
+		{component "fuel"}
+	}
+	{Volume "trackleft"
+		{thickness 5}
+	}
+	{Volume "trackright"
+		{thickness 5}
+	}
+	{Volume "window1"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window2"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window3"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{Volume "window4"
+		{Thickness 0.2}
+		{able {visible 0}{window}{obstacle 0}}
+	}
+	{component "cabin"}
+	{component "bodyback"}
+	{component "shield"}
+	(include "/properties/resupply_generic.inc")
+	("truck_ammo_art_sssr") 
+}

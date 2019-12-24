@@ -1,0 +1,179 @@
+{fx
+	{particleview dust
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 5 5}
+				{alpha0 0}
+				{alpha1 60 20}
+			}
+			{particleinit
+				{speed 3 2.5}
+				{lifetime 3.5 1}
+			}
+			{particlesinblock 30}
+			{timetolive 0.1}
+			{axisz}
+		}
+		{mover
+			{damping 0.93}
+			{gravity
+				{value 0.02}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.05}
+			}
+		}
+		{visualizer
+			{stage 
+				{sprite "$/smokestat03"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.5}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.1}
+							{max 0.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xffa27d49}
+				}
+				{sprite "$/smokestat02"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.4}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 0.1}
+							{max 0.3}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+					{highlight 0xffe9b833}
+				}
+				{## sprite "$/smoke/smokesmal4b_70"
+					{turn 1
+						{linear
+							{min 0}
+							{max 0 100}
+						}
+					}
+					{visibility 1
+						{linear
+							{min 0.5}
+							{max 0}
+						}
+					}
+					{scale 1
+						{linear
+							{min 1.2 0.5}
+							{max 4 2}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+	}
+	{#+ particleview feather
+		{generator
+			{totalparticles 30}
+			{emissionarea
+				{radius 5 5}
+				{alpha0 0}
+				{alpha1 60 30}
+			}
+			{particleinit
+				{speed 2 3}
+				{lifetime 4 1}
+			}
+			{particlesinblock 30}
+			{timetolive 0.1}
+			{axisz}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0.05}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.05}
+			}
+		}
+		{visualizer
+			{stage initial 
+				{sprite "$/particle/hay1"
+					{turn 1
+						{npower
+							{min 90 10}
+							{max 10 20}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.3 0.15}
+					{preturn 100 50}
+				}
+				{sprite "$/particle/hay1"
+					{turn 1
+						{npower
+							{min 10 10}
+							{max 90 20}
+							{pow 1.5}
+						}
+					}
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 0.3 0.15}
+					{preturn 100 50}
+				}
+			}
+			{stage collided dying 
+				{sprite "$/particle/twig3"
+					{scale 0.3 0.13}
+					{turn 90 60}
+				}
+				{flags killparticle ground }
+			}
+		}
+		{notifyowner}
+	}
+}

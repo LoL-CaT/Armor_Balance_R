@@ -1,0 +1,166 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/l_tank_mobility.ext")	
+	(include "/properties/selection/vehicle.inc" scale(1.2))		
+	{collider "tank.light"}
+	{props "vehicle" "armored_car" "tractor" "tank" "opened" "vision_vehicle_minimum"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{patherId "tank.light"}
+
+	("crew_2_human")	
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{Volume "engine"
+		{component "engine"}
+	}
+	{volume "inventory"
+        		{thickness 1}
+	}
+	{Volume "shieldr1"
+		{thickness 10} 
+	}
+	{Volume "shieldr2"
+		{thickness 10} 
+	}
+	{Volume "shieldr3"
+		{thickness 10} 
+	}
+	{Volume "ram"
+	}
+	{Volume "trackleft"
+	}
+	{Volume "trackright"
+	}
+
+    {sensor	
+	        {visor "main1"
+			{vision "moto_crew_h"}
+			{bone "visor1"}
+		}		
+	}
+	
+	("armor_light"   turret(0) body(20 20 20 6))
+	("armor_engine"  t(6 6 6 6))
+
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_left"} {end "pose_flak38-1_charger"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_left"} {end "pose_flak38-1_charger"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+
+	}
+	("crew_human_visible_anm" place(driver)		door1(emit1) door2(emit1) anm_left(driver) anm_right(driver) visor(driver))
+	("crew_human_visible_anm" place(gunner)		door1(emit1) door2(emit1) anm_left(gunner) anm_right(gunner) visor(main))
+;	("gunner_visible")
+	{placer 
+		{place "driver" {openForCrush 0}}
+		{place "gunner" {openForCrush 0}}
+	}	
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{placer
+		{place "gunner" {visor "main"}}
+	}
+	{boarder
+		{door "emit1"}
+		{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+
+	{Placer
+	          {place "attach00"
+	             {entity "panzershreck"}
+	             {Linkbone "attach00"}
+	             {handlebone "basis"}
+	             {obstacle disable}
+	          }
+	          {place "attach02"
+	                  {entity "mauzer"}
+	                   {Linkbone "attach02"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	}
+
+    {sensor
+        {visor "main"
+            {vision "tank_main-h"}
+        }
+    }
+
+;		{extender "shield"
+;		(mod "not_mp"
+;			{on}
+;		)
+;	}
+
+	{extender "inventory"
+		{box
+			{clear}
+			{item "repair_kit" 1}
+			{item "panzershreck" "ammo" 36}
+			{size 6 6}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "weapon panzershreck6" filling "panzershreck" 6}
+			{Barrels 6}
+			{charger "gunner"}
+			{gunner "gunner"}
+			("abm_low")
+		}
+	}
+
+	{mass 4800}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.50))
+		("mobility"
+			speed(40)
+			weight(4.8)
+			power(78)
+			fuel(75)	
+		)
+	}
+;		(mod "mp"
+;		    {speed
+;       		{Normal  25}
+;   		}
+;		)
+;	}
+
+
+
+	{Extension "sdkfz301wanze.mdl"}
+}

@@ -1,0 +1,66 @@
+;SDL
+
+(include "/properties/car_crew.ext")
+
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_sdkfz251-1"}	{end "seat_driver_car"}}
+		{reverse	{end	"emit_body"	1}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_sdkfz251-1"}	{end "seat_driver_car"}}
+		{reverse	{end	"emit_body"	1}}
+	}
+	{anm "gunner1"
+		{forward	{begin	"board_sdkfz251-1"}	{end "seat_driver_car"}}
+		{reverse	{end	"emit_body"	1}}
+	}
+	{anm "gunner2"
+		{forward	{begin	"board_sdkfz251-1"}	{end "seat_driver_car"}}
+		{reverse	{end	"emit_body"	1}}
+	}
+	{anm "gunner3"
+		{forward	{begin	"board_sdkfz251-1"}	{end "seat_driver_car"}}
+		{reverse	{end	"emit_body"	1}}
+	}
+}
+
+(define "crew_human"
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+	}
+	{placer
+		{place "%place"	{LinkBone "%place"}	{visor "%visor"} {turnoff {sensor} {shadow}}}
+	}
+)
+
+("board_animation" place(driver)  	board_begin(board_big-midcar) board_end(seat_driver_car) base(doorleft))
+("board_animation" place(commander)  	board_begin(board_big-midcar_driver) board_end(seat_passenger) base(doorleft))
+("board_animation" place(gunner1)	  board_begin(board_big-midcar) board_end(seat_passenger) base(doorleft))
+("board_animation" place(gunner2)	  board_begin(board_big-midcar) board_end(seat_passenger) base(doorleft))
+("board_animation" place(gunner3)	  board_begin(board_big-midcar) board_end(seat_passenger) base(doorleft))
+
+("crew_human" place(driver)		door(emit1)	visor(driver))
+("crew_human" place(commander)	door(emit1)	visor(view-around))
+("crew_human" place(gunner1)		door(emit1)	visor(main))
+("crew_human" place(gunner2)		door(emit1)	visor(main))
+("crew_human" place(gunner3)		door(emit1)	visor(back))
+
+
+
+{sensor
+    {visor "main"
+		{vision "tank_main-l"}
+        {bone "turret"}
+    }
+    {Visor "driver"
+        {vision "tank_driver"}
+        {bone "visor1"}
+    }
+	{visor "back"
+		{vision "tank_back"}
+		{bone "Foresight6"}
+	}
+}
+

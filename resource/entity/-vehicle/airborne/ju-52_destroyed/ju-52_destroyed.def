@@ -1,0 +1,57 @@
+{actor
+	(include "/properties/airborne.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(2.0))
+	(include "/properties/car_crew.ext")
+
+	{obstacleid "unbreakable"}
+	{collider "particle.big"}
+	{extension "crew.ext"}
+;	{props "no_explosion" "burning"}
+
+	{volume "propeller"
+		{tags "-part"}
+	}
+	{volume "wingr1" {component ""}}
+	{volume "wingl1" {component ""}}
+	{volume "wingr4" {component "wingleft"}}
+	{volume "wingl4" {component "wingright"}}
+
+	(define "part"
+		{volume %0
+			{tags "part"}
+			{thickness 0.5}
+			{able {visible 0}}
+		}
+		{component %0}
+	)
+	(define "wing"
+		("part" args %0)
+		{volume %0
+			{tags "wing"}
+		}
+	)
+;	("part" args "flap1")
+;	("part" args "flap2")
+;	("part" args "aileron1")
+;	("part" args "aileron2")
+;	("part" args "elevator1")
+;	("part" args "elevator2")
+	("part" args "rudder")
+	("part" args "part3")
+	("part" args "part4")
+;	("part" args "part3")
+	("wing" args "WingL1")
+	("wing" args "WingL2")
+	("wing" args "WingL3")
+	("wing" args "WingL4")
+	("wing" args "WingR1")
+	("wing" args "WingR2")
+	("wing" args "WingR3")
+	("wing" args "WingR4")
+	("wing" args "WingR5")
+
+	{mass 30000}
+	{Extension "ju-52_destroyed.mdl"}
+}
+

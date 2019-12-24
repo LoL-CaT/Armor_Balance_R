@@ -1,0 +1,205 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{Extension "sdkfz251_1w.mdl"}
+	{extension "crew2.ext"}
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "nebelwerfer" "vision_vehicle_high"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank"}
+	{PatherId "vehicle.small"}
+	
+	{extender "enumerator"
+		{digit_folder "ger2"}
+	}
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		}    
+	}
+	{volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 5}   
+	}
+	{Volume "body_l"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{Volume "body_r"
+		{tags "body"}
+		{component "body"}
+		{thickness 8
+			{front	15}
+            {top 6}
+		    {bottom 6}
+		} 
+	}
+	{Volume "mgun_turret"
+		{tags "body"}
+		{component "body"}
+		{thickness 10}
+	}
+	{Volume "shield"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "gun01"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}	
+	}	
+	{Volume "gun02"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}	
+	}
+	{Volume "gun21"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}	
+	}
+	{Volume "gun22"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}	
+	}
+	{Volume "gun31"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}	
+	}
+	{Volume "gun32"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 15}	
+	}
+	{Volume "sup1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}	
+	}
+	{Volume "sup2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}	
+	}
+	{Volume "sup3"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}	
+	}
+	{Volume "sup4"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}	
+	}
+	{Volume "sup5"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}	
+	}
+	{Volume "sup6"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}	
+	}
+
+	{component "body"
+		{RepairTime 15}
+	}
+	{component "engine"
+		{RepairTime 5}
+	}
+	{component "gun"
+		{RepairTime 10}
+	}
+	("armor_medium" args 1.0)
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{Box
+			{item "ammo nebel42_28_30" 6}
+			{item "ammo mgun" 2100}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{weapon "weapon nebel" filled}
+			{shooter "shooter_a"}
+			{charger "commander"}
+			{gunner "commander"}
+			{foresight "foresight1"}
+			{Barrels 2}
+			{basic}	
+		}
+		{place "gun2"
+			{weapon "weapon nebel2" filled}
+			{shooter "shooter_b"}
+			{charger "commander"}
+			{gunner "commander"}
+			{foresight "foresight5"}
+			{Barrels 2}
+			{basic}		
+		}
+		{place "gun3"
+			{weapon "weapon nebel3" filled}
+			{shooter "shooter_c"}
+			{charger "commander"}
+			{gunner "commander"}
+			{foresight "foresight6"}
+			{Barrels 2}
+			{basic}		
+		}
+		{place "mgun"
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			{weapon "mg34_btr" filled}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{type "mgun_main"}	
+			{basic}
+		}
+	}
+	
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks")
+
+	{mass 8600}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(53)
+			weight(8.6)
+			power(100)
+			fuel(160)	
+		)
+	}
+	
+}

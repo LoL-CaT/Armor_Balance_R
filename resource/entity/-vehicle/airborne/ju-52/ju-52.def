@@ -1,0 +1,155 @@
+{actor;test
+	(include "/properties/airborne.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(2.0))
+	(include "/properties/car_crew.ext")
+	(include "crew.ext")
+	{props "bomber" "steel"}
+	{lodclass "vehicle_large"}
+
+	{props "no_explosion" "open_without_land"}
+
+	(define "part_body"
+		{volume %0
+			{tags "body"}
+			{thickness hollow 2}
+			{able {visible 0}}
+			{density 0.01}
+		}
+		{component %0}
+	)
+
+	("part_body" args "body1")
+	("part_body" args "body2")
+	("part_body" args "cabin")
+
+	("part_body" args "retract_wheell")
+	("part_body" args "retract_wheelr")
+
+	{Volume "propeller1"
+		{tags "part"}
+		{thickness 0.5}
+		{able {visible 0}}
+	}
+	{Volume "propeller2"
+		{tags "part"}
+		{thickness 0.5}
+		{able {visible 0}}
+	}
+	{Volume "propeller3"
+		{tags "part"}
+		{thickness 0.5}
+		{able {visible 0}}
+	}
+
+	{volume "engine"
+		{tags "-body"}
+	}
+
+	("part" args "body3")
+	("part" args "body4")
+	("part" args "body5")
+	("part" args "body6")
+
+	("part" args "engine1_1")
+	("part" args "engine1_2")
+	("part" args "engine1_3")
+	("part" args "engine2_2")
+	("part" args "engine2_3")
+	("part" args "engine2_4")
+	("part" args "engine3_1")
+	("part" args "engine3_2")
+
+	("part" args "wingr1")
+	("part" args "wingr2")
+	("part" args "wingr3")
+	("part" args "wingr4")
+	("part" args "wingr5")
+	("part" args "wingr6")
+	("part" args "wingr7")
+	("part" args "wingr8")
+
+	("part" args "wingl1")
+	("part" args "wingl2")
+	("part" args "wingl3")
+	("part" args "wingl4")
+	("part" args "wingl5")
+	("part" args "wingl6")
+	("part" args "wingl7")
+	("part" args "wingl8")
+	("part" args "wingl9")
+	("part" args "wingl10")
+
+	("part" args "elevator1")
+	("part" args "elevator2")
+	("part" args "rudder")
+	("part" args "aileron1")
+	("part" args "aileron2")
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheelback")
+	("part" args "wheelback")
+
+	{Chassis "airborne"
+		{Locomotion ("locomotion") 
+			{Maxspeed 65}
+	 	  	{turnRadius 20}
+		}
+    	{maxSideSlope 50}	;degree
+       	{speed
+       		{Slow	50  }	; km/h
+       		{Normal	55	}
+       		{Fast	60	}
+       	}
+	}
+	{mass 1000}
+
+	{extender "inventory"
+		{Box
+			{item  "ammo mgun" 1000}
+			{item  "ammo hmgun" 1000}
+		}
+	}
+	{sensor
+		{visor "front"
+			{vision "vehicle_top_mgun"} 
+			{bone "mgun2"}
+		}
+	}
+	{placer 
+		{place "%place" {visor "front"}}
+	}
+	{sensor
+		{visor "rear"
+			{vision "vehicle_top_mgun"} 
+			{bone "mgun1"}
+		}
+	}
+	{placer 
+		{place "%place" {visor "front"}}
+	}
+	{Weaponry
+		{place "mgun1"
+			{weapon "mg131" filled}
+			{charger "gunner1"}
+			{gunner "gunner1"}
+			{foresight "foresight4"}
+			{linkbone "mgun1"}
+		}
+		{place "mgun2"
+			{weapon "mg15" filled}
+			{charger "gunner2"}
+			{gunner "gunner2"}
+			{foresight "foresight5"}
+			{linkbone "mgun2"}
+		}
+	}
+
+	{Sensor
+		{Visor "main"
+			{bone	 "pivot_back"}
+		}
+	}
+
+	{Extension "ju-52.mdl"}
+}

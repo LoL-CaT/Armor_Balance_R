@@ -1,0 +1,37 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{Extension "dot_trench.mdl"}
+	{props "construction" "parts" "wood" "no_destroyed_stamp" "disable_area" "small" "burning"} 
+	("armor_heavy" args 0.8)
+	{obstacleID "small_building"}
+
+	{Volume "body1"
+		{Tags  "body" "fire"}
+		{Thickness 50}
+		{able {holed}}
+	}
+	{Volume "body2"
+		{Tags  "body" "fire"}
+		{Thickness 50}
+		{able {holed}}
+	}
+	{Volume "body3"
+		{Tags  "body" "fire"}
+		{Thickness 50}
+	}
+	{Volume "body4"
+		{Tags  "body" "fire"}
+		{Thickness 50}
+	}
+	{Volume "hole2"
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "hole"
+		{able clear {hole}{touch 1}}
+	}
+	{Volume "roof"
+		{Tags  "body" "fire"}
+		{Thickness 20}
+		{able {visible 0}{obstacle 0}}
+	}
+}

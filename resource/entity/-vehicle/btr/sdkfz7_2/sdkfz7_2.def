@@ -1,0 +1,117 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/car_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	(include "/properties/car_crew.ext")
+	{props "vehicle" "armored_car" "tank" "turret" "wheeled" "explosion_throw_crew" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "armoredcar" "ap fg bullet"}
+	{targetSelector "tank_flak"}
+	{PatherId "vehicle.small"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{Extension "crew.ext"}
+
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 8}
+	}
+	{volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 10}
+	}
+	{volume "mantlet"
+		{component "turret"}
+		{tags "turret"}
+		{thickness 10}
+	}
+	{volume "inventory"
+        {thickness 2}
+	}
+	{Volume "gun"
+		{thickness 10}
+		{tags "no_target"}
+		{able {Visible 0} {Obstacle 0} {Contact 0}}
+	}
+	{component "gun"
+		{RepairTime 20}
+	}
+
+	{extender "shield"
+			{on}
+	}
+	("shield" args 10)
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	
+	("armor_medium" args 1.0)
+
+	{extender "inventory"
+		{box
+			{item "bullet37_flak36 zenite" 60}
+			{item "bullet37_flak36 ap" 60}
+			{item "bullet37_flak36 fg" 60}
+		}
+	}	
+
+	{Weaponry
+       ("restore_ik_time")
+		{place "gun"
+			{weapon "37mm_flak43" filling "bullet37_flak36 zenite" 8}
+;			{RestoreIKAfterAim}
+            ("abm_zenite")
+			{Barrels 1}
+		}
+	}
+
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright1")
+	("tracks")
+
+	{mass 11750}			;9700 sdkfz7 + 1550 flak36
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.5) len(0.86) boneleft("FXtraceL2") boneright("FXtraceR2"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility"
+			speed(52)
+			weight(11.7)
+			power(140)
+			fuel(215)	
+		)
+	}
+
+	{Extension "sdkfz7_2.mdl"}
+	
+	{bone "gun_rot1"		;horizontal gun
+		{speed2 40}
+;		{limits -145 145}
+	}
+	{bone "gun_rot"			;vertical gun
+		{speed2 25}
+		{limits -5 85}		;gun min down to max up
+	}
+	
+;	(mod "mp"
+;		{brain
+;			{properties
+;				{fire_mode hold}
+;			}
+;		}
+;	)
+}

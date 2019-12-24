@@ -1,0 +1,176 @@
+{Entity
+        	(include "/properties/airborne_mp.ext")
+	{PatherID  "airborne"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+	{targetClass "fighter"}
+
+	{Extension "p-39.mdl"}
+
+	{Volume "body_1"
+            		{tags "part"}
+            		{Thickness 16} 
+	}
+	{Volume "body_back_1"
+              		{tags "part"}
+              		{Thickness 5}
+		{able {visible 1}{obstacle 0}}
+        	}
+	{Volume "body_back"
+              		{tags "part"}
+              		{Thickness 15}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "body"
+            		{tags "part"}
+            		{Thickness 20}
+               		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "cabin"
+            		{tags "part"}    
+            		{Thickness 3}
+	}
+	{Volume "engine"
+            		{tags "part"}
+            		{Thickness 5}
+	}
+	{Volume "propeller1"
+         		{tags "part"}
+         		{Thickness 5}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "propeller2"
+         		{tags "part"}
+         		{Thickness 5}
+		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "propeller"
+         		{tags "part"}
+         		{Thickness 5}
+	}
+	{Volume "retract_wheelf"
+          		{tags "part"}
+          		{Thickness 1}
+		{able {visible 1}{obstacle 0}}  
+	}
+	{Volume "retract_wheell"  
+          		{tags "part"}
+          		{Thickness 1}
+		{able {visible 1}{obstacle 0}}       
+	}
+	{Volume "retract_wheelr"
+          		{tags "part"}
+          		{Thickness 1}
+		{able {visible 1}{obstacle 0}}  
+	}
+	{Volume "wheel_f"
+          		{tags "part"}
+	}
+	{Volume "wheell"
+          		{tags "part"}
+               		{able {visible 1}{obstacle 0}}    
+	}
+	{Volume "wheelr"
+          		{tags "part"}
+	}
+	{Volume "wingl1"
+           		{tags "part"}
+           		{Thickness 10}
+           		{able {visible 1}{obstacle 0}}
+	}
+	{Volume "wingr1"
+          		{tags "part"}
+          		{Thickness 10}
+          		{able {visible 1}{obstacle 0}} 
+	}
+
+       	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank"} {end "pose_sit_chair"} {base "open1"}}
+			{reverse 	{end	"board_tank" -1} {base "open1" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+       	{Chassis
+		{Locomotion ("locomotion")
+			{Maxspeed 95}
+			{turnRadius 50}
+		}
+		{maxSideSlope 70} ;degree
+		{speed
+			{Slow 15} ; km/h
+			{Normal 65}
+			{Fast 90}
+		}
+	}
+
+	("part" args "propeller")
+	("part" args "propeller1")
+	("part" args "propeller2")
+
+	("part" args "body_back")
+
+	("part" args "wheelr")
+	("part" args "wheell")
+	("part" args "wheel_f")
+
+        	{mass 3410}
+        	{extender "inventory"
+		{box
+			{item "ammo hmgun" 1000}
+			{item "ammo mgun" 2400}
+			{item "bullet37_usa fg" 90}
+			{item "aircraft_control"}
+		}
+	}	
+       	{Weaponry
+		{place "gun"
+			{weapon "37mm_m4" filled}
+			{charger "driver"}
+			{gunner "driver"}
+                        		{foresight "foresight1"}
+                        		{basic}
+		}
+                		{place "mgun"
+			{type "mgun_hull"}
+			{weapon "browning_x2" filled}
+			{barrels 2}
+			{charger "driver"}
+			{gunner "driver"}
+                        		{foresight "foresight2"}
+                        		{basic}
+		}
+                		{place "mgun1"
+			{type "mgun_main"}
+			{weapon "browning_x4" filled}
+			{barrels 4}
+			{charger "driver"}
+			{gunner "driver"}
+                        		{foresight "foresight6"}
+			{basic}
+		}
+		{place "rocket"
+			{weapon "bazooka_m10" filled}
+			{barrels 6}
+			{foresight "foresight3"}
+			{shooter "shooter_r"}
+			{charger "driver"}
+			{gunner "driver"}
+                        		{basic}
+		}
+	}
+       	{extender "enumerator"
+	}
+	{sensor
+		{Visor "main"
+			{bone  "foresight1"}
+			{vision "air"}   
+		}
+	
+	}
+}
