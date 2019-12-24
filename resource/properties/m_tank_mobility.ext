@@ -1,0 +1,87 @@
+(define "mobility"
+	{Locomotion	
+		{MaxSpeed       	(/ %speed 1.8) }
+    		{maxSpeedAtMaxTurn 	(/ 0.1 %speed)}
+    		{StartTime      	(* (/ %speed (/ %power %weight)) 10) } 
+    		{TurnTime       	(/ 360 (+ (* 0.0022058823529411764 %power)  (* 0.8397058823529412 %speed) (*  -0.060294117647058824 %weight)))} 
+    		{BrakeTime      	(* (/ %speed (/ %power %weight)) 0.5) } 
+	;		{StopTime      	        (* (/ %speed (/ %power %weight)) 0.75) } 
+    		{StopTime       	(* (/ %speed (/ %power %weight)) 4) } 
+    		{TurnStart      	2.5} 
+		{TurnRadius     	 (/ 108000 (+ (* 0.0022058823529411764 %power)  (* 0.8397058823529412 %speed) (*  -0.060294117647058824 %weight))) } 
+    		{TurnStop       	2.5} 
+    		{Gears          0.1 0.2 0.4 0.5 1.0}
+    		{RearGears 		0.09 0.13}
+		{GearSwitchDelay 	2.5 }
+	
+    	}
+	;{DisabledObstacles}		;	AS incompatible 
+	;{dontUseSlope}
+	;{ignorePatherBounds}
+	; {disableBackward}
+	; {disableForward}
+	;{sideSlopeSpeed 2}			; degree / s
+	;{maxSideSlope 4}				; degree
+	;{maxElevationSpeed 6}			; m/s
+	;{elevationAcceleration 2}			; m/s2
+	; {BlowEffectTimer 1.0}			; Response time in seconds the effect of particles on the flow of engine helicopter
+
+	{speed
+        		{Slow  (/ %speed 1) }   ; km/h
+        		{Normal  (/ %speed 1)   }
+        		{Fast   (/ %speed 1) }
+		
+    	}
+	
+	{FuelBag
+        		{volume %fuel }   ; liters
+        		{rate  (/ (+ (* 0.01 %power) (* 0.01 %weight)) 2) }    ; liters per kilometer
+       		{remain %fuel }
+        		{fuel "fuel"}
+   	}
+)
+
+;(define "tank_trace"
+;    	{Track "left"
+;	    	{Tracer
+;    			{View %fx} ; "tracks"
+;    			{Bone "TrackL"}
+;	    		{Step %step}			; 0.7 meters
+;    		}
+;		{TextureScroller
+;	    		{Bone "TrackL"}
+;    			{Length %len}		; 0.6 meters per animation
+;    		}
+;    	}
+;    	{Track "right"
+;    		{Tracer 
+;	    		{View %fx}
+;    			{Bone "TrackR"}
+;    			{Step %step}			; in meters
+;	    	}
+;		{TextureScroller
+;	    		{Bone "TrackR"}
+;    			{Length %len}		; meters per animation
+;    		}
+;    	}
+;)
+
+	;(define "define_place"
+	;	{placer
+	;		{place "%place"
+	;			{linkbone "%place"}
+	;			{attach squat_lie}
+	;			{turnoff {shadow}}
+	;			{obstacle disable}
+	;		}
+	;	}
+	;	{Volume "%place"
+	;		{tags "attach" "attach_%place"}
+	;		{able clear {bullet 0} {touch 1}}
+	;	}
+	;)
+
+	;("define_place" place(seat1))
+	;("define_place" place(seat2))
+	;("define_place" place(seat3))
+	;("define_place" place(seat4))

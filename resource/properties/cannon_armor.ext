@@ -1,0 +1,244 @@
+;SDL
+{sensor
+	{visor "main"
+		{vision "cannon_main"}
+		{bone "visor"}
+	}
+	{visor "commander"
+		{vision "cannon_crew"}
+		{bone "visor2"}
+	}
+}
+
+(define "armor_cannon"
+	{armor
+		{setting "turret"
+			{thickness %tur}
+			{threshold  {blast {value %t_thr}}}	; 
+			{durability {blast {value %t_dur}}}	; 
+			{volumes "turret*"}
+		}
+		{setting "gun"
+			{thickness %tur}
+			{threshold  {blast {value 8.5}}}	; 
+			{durability {blast {value 8.5}}}	; 
+			{volumes "gun*"}
+		}
+		{setting "shield"
+			{thickness %s}
+			{durability 
+				{blast {value (* %tur 3)}}
+				{pierce {value 1}}
+			}
+			{volumes "shield*"}
+		}
+		{setting "wheel"
+			{thickness %w}
+			{volumes "wheel*"}
+		}
+		{setting "body"
+			{thickness %b}
+			{threshold  {blast {value %t_thr}}}	
+			{durability {blast {value %t_dur}}}	
+			{volumes "body*"}
+		}
+	}
+)
+
+(define "armor_mortar"
+	("armor_cannon" tur(1) t_thr(1.2) t_dur(1.0) s(6) b(1) w(2)) ; 4.5-8.5
+)
+(define "armor_mgun"
+	("armor_cannon" tur(1) t_thr(1.2) t_dur(1.0) s(6) b(1) w(2))
+)
+(define "armor_light"
+	("armor_cannon" tur(8) t_thr(1.2) t_dur(1.0) s(8) b(5) w(4))
+)
+(define "armor_medium"
+	("armor_cannon" tur(10) t_thr(1.2) t_dur(1.0) s(10) b(5) w(4))
+)
+(define "armor_heavy"
+	("armor_cannon" tur(10) t_thr(1.2) t_dur(1.0) s(10) b(5) w(4))
+)
+(define "armor_sheavy"
+	("armor_cannon" tur(305) t_thr(305) t_dur(305) s(305) b(305) w(305))
+)
+
+(define "loco_params"
+	{StopTime	0.2}
+	{BrakeTime	0.7}
+	{TurnRadius	3}
+	{TurnStart	0.8}
+	{TurnStop	0.5}
+	{Gears		0.35 0.5 0.7 1.0}
+	{RearGears	0.33 0.5}
+)
+
+
+(define "loco_carrier"
+	{locomotion
+		("loco_params")
+		{MaxSpeed	15}
+		{StartTime	1}
+		{TurnTime	2}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_carrier_big"
+	{locomotion
+		("loco_params")
+		{MaxSpeed	14}
+		{StartTime	2}
+		{TurnTime	6}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_small"
+	{locomotion
+		("loco_params")
+		{MaxSlope   50}
+		{FallSlope  60}
+		{MaxSpeed	12}
+		{StartTime	2}
+		{TurnTime	4}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_medium"
+	{locomotion
+		("loco_params")
+		{FallSlope  60}
+		{MaxSpeed	12}
+		{StartTime	3}
+		{TurnTime	10}
+		{TurnRadius	3}
+	}
+)
+
+(define "loco_massive"
+	{locomotion
+		("loco_params")
+		{FallSlope  60}
+		{MaxSpeed	12}
+		{StartTime	4}
+		{TurnTime	10}
+		{TurnRadius	3}
+	}
+)
+
+(define "loco_big"
+	{locomotion
+		("loco_params")
+		{FallSlope  60}
+		{MaxSpeed	9}
+		{StartTime	5}
+		{TurnTime	20}
+		{TurnRadius	3}
+	}
+)
+
+(define "loco_verybig"
+	{locomotion
+		("loco_params")
+		{FallSlope  60}
+		{MaxSpeed	8}
+		{StartTime	5}
+		{TurnTime	25}
+		{TurnRadius	3}
+	}
+)
+
+(mod "mp"
+
+(define "loco_params"
+	{StopTime	0.2}
+	{BrakeTime	0.7}
+	{TurnRadius	3}
+	{TurnStart	0.8}
+	{TurnStop	0.5}
+	{Gears		0.35 0.5 0.7 1.0}
+	{RearGears	0.33 0.5}
+)
+
+
+(define "loco_carrier" ; миномёт -115
+	{locomotion
+		("loco_params")
+		{MaxSpeed	9.5} 
+		{StartTime	1}
+		{TurnTime	20}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_carrier_big" ; миномёт 120+
+	{locomotion
+		("loco_params")
+		{MaxSpeed	9}
+		{StartTime	2}
+		{TurnTime	20}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_small" ; -57 и полевые лёгкие пушки с миномётами. гаубицы до 3х тонн.
+	{locomotion
+		("loco_params")
+		{MaxSlope   30}
+		{FallSlope  60}
+		{MaxSpeed	9.5}
+		{StartTime	2}
+		{TurnTime	25}
+		{TurnRadius	2}
+	}
+)
+ 
+(define "loco_medium" ; 58 - 76
+	{locomotion
+		("loco_params")
+		{FallSlope  80}
+		{MaxSpeed	9}
+		{StartTime	2}
+		{TurnTime	35}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_massive" ; 77 - 105 зенитки 65-80 
+	{locomotion
+		("loco_params")
+		{FallSlope  90}
+		{MaxSpeed	4}
+		{StartTime	10}
+		{TurnTime	60}
+		{TurnRadius	3}
+	}
+)
+
+(define "loco_big" ; 114 - 130 зенитки 85-105
+	{locomotion
+		("loco_params")
+		{FallSlope  140}
+		{MaxSpeed	1}
+		{StartTime	150}
+		{TurnTime	120}
+		{TurnRadius	3}
+	}
+)
+
+(define "loco_verybig" ; 140+ 
+	{locomotion
+		("loco_params")
+		{FallSlope  160}
+		{MaxSpeed	0}
+		{StartTime	200}
+		{TurnTime	200}
+		{TurnRadius	3}
+	}
+	
+)
+
+)

@@ -1,0 +1,67 @@
+(define "mobility"
+	{Locomotion	
+		{MaxSpeed       	%speed} 
+    		{maxSpeedAtMaxTurn 	6 }
+                {StartTime      	9 } 
+    		{TurnTime       	7 } 
+    		{BrakeTime      	4 } 
+                {StopTime       	7 } 
+                {TurnStart      	0.1 } 
+		{TurnRadius     	18 } 
+;               {TurnStop       	0.1 } 
+    		{Gears 			0.01 0.25 0.5 0.75 1} 
+    		{RearGears 		0.01 0.25} 
+		{GearSwitchDelay 	0.3 }
+                {SplineRadius 13}
+	
+    	}
+	;{DisabledObstacles}		;	AS incompatible 
+	;{dontUseSlope}
+	;{ignorePatherBounds}
+	; {disableBackward}
+	; {disableForward}
+	;{sideSlopeSpeed 2}			; degree / s
+	;{maxSideSlope 4}				; degree
+	;{maxElevationSpeed 6}			; m/s
+	;{elevationAcceleration 2}			; m/s2
+	; {BlowEffectTimer 1.0}			; Response time in seconds the effect of particles on the flow of engine helicopter
+
+	{speed
+        		{Slow  (* 10 %speed) }   ; km/h
+        		{Normal  (* 10 %speed)   }
+        		{Fast   (* 10 %speed) }
+		
+    	}
+	
+	{FuelBag
+        		{volume %fuel }   ; liters
+        		{rate  (/ (+ (* 0.01 %power) (* 0.01 %weight)) 2) }    ; liters per kilometer
+       		{remain %fuel }
+        		{fuel "fuel"}
+   	}
+)
+
+(define "tank_trace"
+    	{Track "left"
+	    	{Tracer
+    			{View %fx} ; "tracks"
+    			{Bone "TrackL"}
+	    		{Step %step}			; 0.7 meters
+    		}
+		{TextureScroller
+	    		{Bone "TrackL"}
+    			{Length %len}		; 0.6 meters per animation
+    		}
+    	}
+    	{Track "right"
+    		{Tracer 
+	    		{View %fx}
+    			{Bone "TrackR"}
+    			{Step %step}			; in meters
+	    	}
+		{TextureScroller
+	    		{Bone "TrackR"}
+    			{Length %len}		; meters per animation
+    		}
+    	}
+)

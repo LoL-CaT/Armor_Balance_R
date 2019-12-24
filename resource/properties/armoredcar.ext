@@ -1,0 +1,378 @@
+﻿;SDL
+actor
+
+(include "vehicle.ext")
+(include "car_crew.ext")
+
+("brain_vehicle")
+
+(define "accuracy_by_motion" ;  spreading depending on the speed of "body", "gun" volumes
+    {AccuracyByMotion
+        {MaxLinearSpeed %max_linear}               ;km/h
+        {ByLinearSpeed %accuracy_by_linear}
+        {MaxAngularSpeed %max_angular}             ;deg/s
+        {ByAngularSpeed %accuracy_by_angular}
+        {DisorderTime %disorder_time}              ;s
+        {OrderTime %order_time}                    ;s
+    }
+)
+(define "abm_low"
+    ("accuracy_by_motion"
+        max_linear(9) accuracy_by_linear(0.2)
+        max_angular(6) accuracy_by_angular(0.6)
+        disorder_time(4.5) order_time(18)
+    )
+)
+(define "abm_medium"
+    ("accuracy_by_motion"
+        max_linear(9) accuracy_by_linear(0.2)
+        max_angular(6) accuracy_by_angular(0.6)
+        disorder_time(4.5) order_time(10)
+    )
+)
+(define "abm_high"
+    ("accuracy_by_motion"
+        max_linear(9) accuracy_by_linear(0.2)
+        max_angular(6) accuracy_by_angular(0.6)
+        disorder_time(4.5) order_time(3)
+    )
+)
+
+(define "abm_zenite"
+    ("accuracy_by_motion"
+        max_linear(16) accuracy_by_linear(0.2)
+        max_angular(40) accuracy_by_angular(0.8)
+        disorder_time(4.5) order_time(2)
+    )
+)
+(define "abm_howitzer"
+    ("accuracy_by_motion"
+        max_linear(5) accuracy_by_linear(0.95)
+        max_angular(1) accuracy_by_angular(0.95)
+        disorder_time(1.5) order_time(25)
+     )
+)
+(define "abm_mgun"
+	("accuracy_by_motion"
+    max_linear(16) accuracy_by_linear(0.2)
+	max_angular(40) accuracy_by_angular(0.8)
+	disorder_time(4.5) order_time(2)
+     )
+)
+(define "abm_mgun_heavy"
+	("accuracy_by_motion"
+    max_linear(16) accuracy_by_linear(0.2)
+	max_angular(40) accuracy_by_angular(0.8)
+	disorder_time(4.5) order_time(2)
+     )
+)
+
+
+{hearingBias 4.5} ; in meters
+{sensor
+    {visor "main"
+        {bone "visor1"}
+    }
+    {Visor "driver"
+        {vision "tank_driver"}
+        {bone "visor2"}
+    }
+    {visor "view-around"
+        {vision "none"}
+        {bone "visor2"}
+    }
+
+}
+
+{PatherID  "armored"}
+{collider "armored"}
+{props "emit_on_sink" "armored_car" "tractor"}
+{targetClass "armoredcar" "bullet"}
+{targetSelector "tank_bullet"}
+
+{extender "inventory"
+    {box
+        {Size 6 10}
+        {weight 10000}
+        {item "repair_kit"}
+		{item "can" 4 filling "fuel" 60}
+    }
+}
+
+{extender "talk"
+    {talker "tank"}
+}
+{able "talk"}
+
+{volume "body"
+    {thickness 4}
+}
+{volume "engine"
+    {thickness 15}
+}
+{volume "inventory"
+    {tags "explosive"}
+    {thickness 2}
+}
+{volume "crew"
+    {thickness 1}
+}
+{volume "turret"
+    {component "turret"}
+    {tags "turret"}
+}
+
+
+
+{component "body"
+    {RepairTime 120}
+    {tags "mover" "noDestroyedView"}
+}
+{component "engine"
+    {RepairTime 15}
+}
+
+{Chassis "wheel"
+	("chassis_defaults")
+	{speed
+		{Slow	6	}	; km/h
+		{Normal	11	}
+		{Fast	35	}
+	}
+}
+
+(define "locomotion"
+	{MaxSpeed	25	}		; ¬ ЄбЁ¬ «м­ п бЄ®а®бвм, kmph
+	{StartTime	15	}		; ўаҐ¬п а §Ј®­  ¤® ¬ Єб. бЄ®а®бвЁ б 0, seconds
+    	{TurnTime       25      }
+	{maxSpeedAtMaxTurn 6}
+	{BrakeTime	4	}		; ўаҐ¬п в®а¬®¦Ґ­Ёп б ¬ Єб. бЄ®а®бвЁ ¤® 0, seconds
+	{StopTime	7	}		; ўаҐ¬п ®бв ­®ўЄЁ Ї®б«Ґ ®вЄ«озҐ­Ёп ¤ўЁЈ вҐ«п б ¬ Єб. бЄ®а®бвЁ ¤® 0, seconds
+	{TurnRadius	8	}		; ¬Ё­. а ¤Ёгб а §ў®а®в , meter
+    	{Gears 			0.01 0.25 0.5 0.75 1} 
+    	{RearGears 		0.01 0.25} 
+	{SteerOn	6}			; бЄ®а®бвм Ї®ў®а®в  Є®«Ґб, Ја ¤гб®ў ў бҐЄг­¤г
+	{SteerOff	11}         ; бЄ®а®бвм ў®§ўа в  Є®«Ґб ў Ёбе. б®бв®п­ЁҐ, Ја ¤гб®ў ў бҐЄг­¤г
+	{SplineRadius 1}		; ®Ја ­ЁзҐ­ЁҐ а ¤Ёгб  Ї®ў®а®в  ­  бЇ« ©­ е, ¬Ґва®ў
+)
+
+(define "armor_btr"
+    {armor
+;        {setting "wheel"
+;           {max (* %t %k)}
+;           {max_absorb %ta}
+;            {volumes "wheel*"}
+;        }
+        {setting "wheel"
+;           {max (* %w %k)}
+            {thickness 1}
+            {durability
+                {blast
+                    {koef 1}
+                }
+                {pierce
+                    {value 1}
+                }
+            }
+            {threshold
+                {blast
+                    {value 1.1}
+                }
+                {pierce
+                    {value 1}
+                }
+            }
+            {volumes "wheel*"}
+            {whole_wound}
+        }
+;        {setting "track"
+;           {max (* %t %k)}
+;           {max_absorb %ta}
+;            {volumes "track*"}
+;        }
+;        {setting "track"
+;           {max (* %w %k)}
+;            {thickness 15}
+;            {durability
+;                {blast
+;                    {koef 4}
+;                }
+;                {pierce
+;                    {value 5}
+;                }
+;            }
+;            {threshold
+;                {blast
+;                    {value 9}
+;                }
+;                {pierce
+;                    {value 3000}
+;                }
+;            }
+;            {volumes "track*"}
+;            {whole_wound}
+;        }		
+        {setting "gun"
+            {thickness 15}
+            {durability
+                {blast  {koef 5}}
+                {pierce {koef 5}}
+            }
+            {threshold
+                {blast
+                    {value 3}
+                }
+                {pierce
+                    {value 3000}
+                }
+            }
+            {volumes "gun*"}
+        }
+        {setting "body"
+            {durability
+                {blast
+                    {koef 4}
+                }
+        		{pierce
+                    {koef 5}
+                }
+            }
+            {threshold
+                {blast
+                    {koef 3}
+                }
+            }
+            {volumes "body*"}
+        }
+        {setting "turret"
+            {durability
+                {blast
+                    {value 4}
+                }			
+                {pierce
+                    {koef 5}
+                }
+            }
+        
+            {threshold
+                {blast
+                    {koef  3}
+                }
+            }
+            {volumes "turret"}
+        }
+        {setting "engine"
+            {durability
+                {blast
+                    {koef 3}
+                }
+            }
+            {threshold
+                {blast
+                    {koef 3}
+                }
+            }
+            {volumes "engine*"}
+        }
+    }
+)
+
+(define "armor_light"
+    ("armor_btr" t(3) ta(3) b(3) w(3) k(%0))
+)
+
+(define "armor_light_shit"
+    {armor
+        {setting "wheel"
+            {thickness 1}
+            {durability
+                {blast
+                    {koef 1}
+                }
+                {pierce
+                    {value 1}
+                }
+            }
+            {threshold
+                {blast
+                    {value 1.1}
+                }
+                {pierce
+                    {value 1}
+                }
+            }
+            {volumes "wheel*"}
+            {whole_wound}
+        }	
+        {setting "gun"
+            {thickness 15}
+            {durability
+                {blast  {koef 5}}
+                {pierce {koef 5}}
+            }
+            {threshold
+                {blast
+                    {value 3}
+                }
+                {pierce
+                    {value 3000}
+                }
+            }
+            {volumes "gun*"}
+        }
+        {setting "body"
+            {durability
+                {blast
+                    {koef 4}
+                }
+        		{pierce
+                    {koef 5}
+                }
+            }
+            {threshold
+                {blast
+                    {koef 3}
+                }
+            }
+            {volumes "body*"}
+        }
+        {setting "turret"
+            {durability
+                {blast
+                    {value 4}
+                }			
+                {pierce
+                    {koef 5}
+                }
+            }
+        
+            {threshold
+                {blast
+                    {koef  3}
+                }
+            }
+            {volumes "turret"}
+        }
+        {setting "engine"
+            {durability
+                {blast
+                    {koef 3}
+                }
+            }
+            {threshold
+                {blast
+                    {koef 3}
+                }
+            }
+            {volumes "engine*"}
+        }
+    }
+)
+
+(define "armor_medium"
+    ("armor_btr" t(3) ta(3) b(3) w(3) k(%0))
+)
+
+(define "restore_ik_time"
+    {RestoreIKTime 10}
+)

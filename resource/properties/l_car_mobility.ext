@@ -1,0 +1,31 @@
+(define "mobility"
+	{Locomotion	
+		{MaxSpeed       	(/ %speed 1.8) } 
+    		{maxSpeedAtMaxTurn 	(/ %speed 4)}		
+    		{StartTime      	(* (/ %speed (/ %power %weight)) 11) } 
+    		{BrakeTime      	(* (/ %speed (/ %power %weight)) 0.5) } 
+			{StopTime      	        (* (/ %speed (/ %power %weight)) 0.75) } 
+		    {TurnRadius     	5}			
+    		{Gears          0.1 0.5 0.7 1.0} 
+            {RearGears  0.35}
+            {SteerOn    30}         			
+            {SteerOff   70}         			
+		    {GearSwitchDelay 	0.5 }
+	        {SplineRadius 3}        
+	
+    	}
+
+	{speed
+        		{Slow  (/ %speed 15) }   ; km/h
+        		{Normal  (/ %speed 10)   }
+        		{Fast   (/ %speed 1) }
+		
+    	}
+	
+	{FuelBag
+        		{volume %fuel }   ; liters
+        		{rate  (/ (+ (* 0.01 %power) (* 0.01 %weight)) 2) }    ; liters per kilometer
+       		    {remain %fuel }
+        		{fuel "fuel"}
+   	}
+)

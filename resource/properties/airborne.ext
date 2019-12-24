@@ -1,0 +1,324 @@
+;SDL
+actor
+
+(include "vehicle.ext")
+
+{collider "airborne"}
+{props "airborne"}
+{targetClass "airborne"}
+{targetSelector "cannon_bullet"}
+{brain "airborne" {state "airborne"}}
+
+{Chassis "wheel"
+	("chassis_defaults")
+	{locomotion
+		{MaxSpeed 	 	25 } ; максимальная скорость, kmph
+		{StartTime 		6  } ; время разгона до макс. скорости с 0, seconds
+		{BrakeTime 		1  } ; время торможения с макс. скорости до 0, seconds
+		{StopTime		3  } ; время остановки после отключения двигателя с макс. скорости до 0, seconds
+	}
+	{dontUseSlope}
+	{ignorePatherBounds}
+	{disableBackward}
+}
+{Chassis "airborne"
+	("chassis_defaults")
+	{locomotion
+		{Maxspeed 		95 } ; kmph
+ 	  	{turnRadius 	40 } ; m
+		{StartTime 		6  } ; время разгона до макс. скорости с 0, seconds
+		{BrakeTime 		4  } ; время торможения с макс. скорости до 0, seconds
+		{StopTime		7  } ; время остановки после отключения двигателя с макс. скорости до 0, seconds
+	}
+	{dontUseSlope}
+	{ignorePatherBounds}
+	{disableBackward}
+	{sideSlopeSpeed 25}			;degree/s
+	{maxSideSlope 45}			;degree
+	{maxElevationSpeed 6}		;m/s
+	{elevationAcceleration 2}	;m/s^2
+}
+{chassisManager
+	{current "wheel"}
+}
+{simulatorId "airborne"}
+
+{extender "inventory"
+	{box
+		{Size 8 6}
+		{weight 20000}
+	}
+}
+(define "accuracy_by_motion" ;  spreading depending on the speed of "body", "gun" volumes
+    {AccuracyByMotion
+        {MaxLinearSpeed %max_linear}               ;km/h
+        {ByLinearSpeed %accuracy_by_linear}
+        {MaxAngularSpeed %max_angular}             ;deg/s
+        {ByAngularSpeed %accuracy_by_angular}
+        {DisorderTime %disorder_time}              ;s
+        {OrderTime %order_time}                    ;s
+    }
+)
+(define "abm_zenite"
+    ("accuracy_by_motion"
+        max_linear(15) accuracy_by_linear(0.3)
+        max_angular(4) accuracy_by_angular(0.8)
+        disorder_time(1.2) order_time(1.4)
+    )
+)
+{volume "propeller"
+	{tags "part"}
+	{thickness 10.0}
+	{able {visible 0}}
+}
+{volume "engine"
+	{tags "body" "inflammable"}
+	{thickness 3.0}
+	{able {visible 1}}
+}
+{volume "body"
+	{tags "body"}
+	{thickness hollow 5.0}
+	{able {visible 0}}
+}
+{volume "body_back"
+	{tags "body"}
+	{thickness hollow 2.5}
+	{able {visible 0}}
+	{density 0.01}
+}
+{volume "cabine"
+	{tags "part"}
+	{thickness hollow 0.1}
+	{able {visible 0}}
+}
+{volume "wingr1"
+	{tags "inflammable" "part"}
+	{component "wingright"}
+	{thickness hollow 3}
+	{able {visible 0}}
+}
+{volume "wingl1"
+	{tags "inflammable" "part"}
+	{component "wingleft"}
+	{thickness hollow 3}
+	{able {visible 0}}
+}
+{volume "wingr2"
+	{tags "inflammable" "part"}
+	{thickness hollow 3}
+	{able {visible 0}}
+}
+{volume "wingl2"
+	{tags "inflammable" "part"}
+	{thickness hollow 3}
+	{able {visible 0}}
+}
+{volume "wheel_back"
+	{tags "part"}
+	{thickness 1}
+	{able {visible 0}}
+}
+{volume "retract_wheelR"
+	{tags "part"}
+	{thickness 1}
+	{able {visible 0}}
+}
+{volume "retract_wheelL"
+	{tags "part"}
+	{thickness 1}
+	{able {visible 0}}
+}
+	
+{component "propeller"
+	{RepairTime 10}
+}
+{component "engine"
+	{RepairTime 25}
+}
+{component "body"
+	{RepairTime 25}
+}
+{component "cabine"
+	{RepairTime 15}
+}
+{component "body_back"
+	{RepairTime 25}
+}
+{component "wingright"
+	{RepairTime 25}
+}
+{component "wingleft"
+	{RepairTime 25}
+}
+{component "wingr2"
+	{RepairTime 25}
+}
+{component "wingl2"
+	{RepairTime 25}
+}
+{component "wheel_back"
+	{RepairTime 10}
+	{tags "mover"}
+}
+{component "retract_wheelR"
+	{RepairTime 10}
+	{tags "mover"}
+}
+{component "retract_wheelL"
+	{RepairTime 15}
+	{tags "mover"}
+}
+
+(define "locomotion"
+	{StartTime	5	}		; время разгона до макс. скорости с 0, seconds
+	{BrakeTime	2	}		; время торможения с макс. скорости до 0, seconds
+	{StopTime	4	}		; время остановки после отключения двигателя с макс. скорости до 0, seconds
+	{SteerOn	15}			; скорость поворота колес, градусов в секунду
+	{SteerOff	15}         ; скорость возврата колес в исх. состояние, градусов в секунду
+	{SplineRadius 5}		; ограничение радиуса поворота на сплайнах, метров
+)
+
+(define "part"
+	{volume %0
+		{tags "part"}
+		{thickness 0.5}
+		{able {visible 0}}
+	}
+	{component %0}
+)
+(define "armor_airborne" 
+    {armor
+        {setting "body"
+            {thickness %bod}
+            {durability
+                {blast
+                    {koef %dur}
+                }
+        		{pierce
+                    {koef %pierce_dur}
+                }
+            }
+            {threshold
+                {blast
+                    {koef %thr}
+                }
+            }
+            {volumes "body*"}
+        }
+		{setting "body_back"
+            {thickness %bod_back}
+            {durability
+                {blast
+                    {koef %dur}
+                }
+        		{pierce
+                    {koef %pierce_dur}
+                }
+            }
+            {threshold
+                {blast
+                    {koef %thr}
+                }
+            }
+            {volumes "body_back*"}
+        }
+        {setting "engine"
+            {thickness %en}
+            {durability
+                {blast
+                    {koef %dur}
+                }
+				{pierce
+                    {koef %pierce_dur}
+                }
+            }
+            {threshold
+                {blast
+                    {koef %thr}
+                }
+            }
+            {volumes "engine*"}
+        }
+		{setting "wingl1"
+            {thickness %wl1}
+            {durability
+                {blast
+                    {koef %dur}
+                }
+				{pierce
+                    {koef %pierce_dur}
+                }
+            }
+            {threshold
+                {blast
+                    {koef %thr}
+                }
+            }
+            {volumes "wingl1*"}
+        }
+		{setting "wingl2"
+            {thickness %wl2}
+            {durability
+                {blast
+                    {koef %dur}
+                }
+				{pierce
+                    {koef %pierce_dur}
+                }
+            }
+            {threshold
+                {blast
+                    {koef %thr}
+                }
+            }
+            {volumes "wingl2*"}
+        }
+		{setting "wingr1"
+            {thickness %wr1}
+            {durability
+                {blast
+                    {koef %dur}
+                }
+				{pierce
+                    {koef %pierce_dur}
+                }
+            }
+            {threshold
+                {blast
+                    {koef %thr}
+                }
+            }
+            {volumes "wingr1*"}
+        }
+		{setting "wingr2"
+            {thickness %wr2}
+            {durability
+                {blast
+                    {koef %dur}
+                }
+				{pierce
+                    {koef %pierce_dur}
+                }
+            }
+            {threshold
+                {blast
+                    {koef %thr}
+                }
+            }
+            {volumes "wingr2*"}
+        }
+	}
+)
+(define "armor_attacker_129"
+    ("armor_airborne"  bod(16) bod_back(16) en(16) wl1(16) wl2(16) wr1(16) wr2(16) dur(6.25) thr(1.2) pierce_dur(1800.25))
+)
+(define "armor_attacker"
+    ("armor_airborne"  bod(6) bod_back(6) en(6) wl1(6) wl2(6) wr1(6) wr2(6) dur(4.25) thr(1.3) pierce_dur(1300.25))
+)
+(define "armor_fighter"
+    ("armor_airborne"  bod(2) bod_back(2) en(2) wl1(2) wl2(2) wr1(2) wr2(2) dur(3.25) thr(1.2) pierce_dur(750.25))
+)
+(define "armor_transport"
+    ("armor_airborne"  bod(8) bod_back(8) en(8) wl1(8) wl2(8) wr1(8) wr2(8) dur(12.25) thr(1.2) pierce_dur(3000.25))
+)

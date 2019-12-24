@@ -1,0 +1,187 @@
+;SDL
+actor
+
+(include "vehicle.ext")
+
+("brain_vehicle")
+
+(define "accuracy_by_motion" ; 	spreading depending on the speed of "body", "gun" volumes
+	{AccuracyByMotion
+		{MaxLinearSpeed %max_linear}               ;km/h
+		{ByLinearSpeed %accuracy_by_linear}
+		{MaxAngularSpeed %max_angular}             ;deg/s
+		{ByAngularSpeed %accuracy_by_angular}
+		{DisorderTime %disorder_time}              ;s
+		{OrderTime %order_time}                    ;s
+	}
+)
+(define "abm_mgun"
+	("accuracy_by_motion"
+		max_linear(18) accuracy_by_linear(0.5)
+		max_angular(4) accuracy_by_angular(0.8)
+		disorder_time(1.2) order_time(2)
+	)
+)
+
+
+{collider "moto"}
+{props "moto" "wheeled" "vehicle" "emit_on_sink"}
+{targetClass "car"}
+{targetSelector "tank_bullet"}
+
+{extender "inventory"
+	{box
+		{Size 6 10}
+		{weight 1000}
+	}
+}
+
+{volume "wheel1"
+	{thickness 1}
+}
+{volume "wheel2"
+	{thickness 1}
+}
+{volume "wheel3"
+	{thickness 1}
+}
+{volume "fuel"
+	{tags "explosive"}
+	{thickness 1}
+}
+	
+{component "body"
+	{RepairTime 15}
+}
+{component "engine"
+	{RepairTime 10}
+}
+{component "wheel1"
+	{RepairTime 10}
+}
+{component "wheel2"
+	{RepairTime 10}
+}
+{component "wheel3"
+	{RepairTime 10}
+}
+
+{Chassis "wheel"
+	("chassis_defaults")
+}
+
+	{armor
+		{setting "body"
+			{thickness 2}
+			{threshold
+				{blast 					
+					{value 9}
+				}								
+				{pierce 
+					{value 1}
+				}
+			}						
+			{durability 
+				{blast 					
+					{value 1}
+				}			
+				{pierce
+					{value 1}
+				}
+			}				
+			{volumes "body*"}
+		}
+		{setting "engine"
+			{thickness 3}
+			{threshold								
+				{blast 					
+					{value 9}
+				}								
+				{pierce 
+					{value 1}
+				}
+			}						
+			{durability 		
+				{blast 					
+					{value 2}
+				}							
+				{pierce
+					{value 150}				
+				}
+			}				
+			{volumes "engine*"}
+		}
+		{setting "wheel"
+			{thickness 1}
+			{threshold
+				{blast 
+					{value 1}
+				}				
+				{pierce 
+					{value 1}
+				}
+			}			
+			{durability 
+				{blast 
+					{value 1}
+				}				
+				{pierce 
+					{value 1}
+				}
+			}			
+			{whole_wound}
+			{volumes "wheel*"}
+		}
+	}
+
+{Chassis
+    {Track "w1"
+	    {Tracer
+    		{View "tracewheel03a"}
+    		{Bone "FXtrace1"}
+	    	{Step 0.07}
+    	}
+    }
+    {Track "w2"
+    	{Tracer 
+	    	{View "tracewheel03a"}
+    		{Bone "FXtrace2"}
+    		{Step 0.07}
+	    }
+    }
+    {Track "w3"
+    	{Tracer 
+	    	{View "tracewheel03a"}
+    		{Bone "FXtrace3"}
+    		{Step 0.07}
+	    }
+    }
+}
+
+(define "locomotion"
+	{MaxSpeed	25	}		; максимальная скорость, kmph
+	{StartTime	10	}		; время разгона до макс. скорости с 0, seconds
+	{BrakeTime	2	}		; время торможения с макс. скорости до 0, seconds
+	{StopTime	4	}		; время остановки после отключения двигателя с макс. скорости до 0, seconds
+	{TurnRadius	8	}		; мин. радиус разворота, meter
+	{Gears		0.35 0.5 0.7 1.0} ; передаточные коэф-ты коробки передач
+	{RearGears	0.33 0.5}	; передаточные коэф-ты коробки передач
+	{SteerOn	20}			; скорость поворота колес, градусов в секунду
+	{SteerOff	40}         ; скорость возврата колес в исх. состояние, градусов в секунду
+	{SplineRadius 3}		; ограничение радиуса поворота на сплайнах, метров
+)
+
+{armor
+	{setting "body"
+		{thickness 1}
+		{durability 
+			{blast 					
+				{value 4}
+			}			
+			{pierce
+				{value 3}
+			}					
+		}
+		{volumes "body*" "engine*"}
+	}
+}

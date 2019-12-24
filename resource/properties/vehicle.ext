@@ -1,0 +1,144 @@
+;SDL
+{PatherID  "vehicle.large"}
+{obstacleID "tank"}
+{Simulation {Able 1}}
+{props "steel" "vehicle" "obstacle_ignore_height"}
+{able "emit_passangers_on_enemy" "repaired" "minimap"}
+{lodclass "vehicle_small"}
+{collider "vehicle"}
+
+{sensor
+	{Visor "main"
+		{vision "vehicle_main"}
+		{bone "visor"}
+	}
+	{RecognizeTime 0.20}
+	{InformRange 50 240}		;first - AI ;second - USER
+
+}
+
+{boarder}
+{placer {crew}}
+
+(define "brain_vehicle"
+	{brain "vehicle"
+		{state "vehicle"}
+		{const "crush/min_danger_zone_time" 	1}
+		{const "crush/min_danger_zone_length"	1}
+	}
+)
+
+{## extender "detail"
+	{random}
+}
+
+(define "chassis_defaults"
+	{FuelBag
+		{volume 200 }	; liters
+		{rate	20 }   	; liters per kilometer
+		{remain 200 }
+		{fuel "fuel"}
+	}
+	{speed
+		{Slow	10	}	; km/h
+		{Normal	17	}
+		{Fast	30	}
+	}
+)
+
+(define "wheel"
+	{volume %0
+		{thickness 0.5}
+		{tags "wheel"}
+		{component %0}
+		{able {NoWoundDecal}}
+	}
+	{component %0
+		{RepairTime 10}
+		{tags "wheel"}
+	}
+)
+
+(define "tracks"
+	{volume "trackleft"
+		{thickness 20}
+		{tags "mover" "track"}
+		{able {NoWoundDecal}}
+	}
+	{volume "trackright"
+		{thickness 20}
+		{tags "mover" "track"}
+		{able {NoWoundDecal}}
+	}
+	{component "trackleft"
+		{RepairTime 10}
+		{tags "mover" "track"}
+	}
+	{component "trackright"
+		{RepairTime 10}
+		{tags "mover" "track"}
+	}
+)
+
+(define "car_trace"
+    {Track %wheell
+	    {Tracer
+    		{View %fx}
+    		{Bone %bonel}
+	    	{Step %step}
+    	}
+    }
+    {Track %wheelr
+    	{Tracer 
+	    	{View %fx}
+    		{Bone %boner}
+    		{Step %step}
+	    }
+    }
+)
+
+(define "tank_trace_ex"
+    {Track "left"
+	    {Tracer
+    		{View %fx} ; "tracks"
+    		{Bone %boneleft}
+	    	{Step %step}			; 0.7 meters
+    	}
+		{TextureScroller
+	    	{Bone "TrackL"}
+    		{Length %len}		; 0.6 meters per animation
+    	}
+    }
+    {Track "right"
+    	{Tracer 
+	    	{View %fx}
+    		{Bone %boneright}
+    		{Step %step}			; in meters
+	    }
+		{TextureScroller
+	    	{Bone "TrackR"}
+    		{Length %len}		; meters per animation
+    	}
+    }
+)
+
+(define "tank_trace"
+	("tank_trace_ex" fx(%fx) step(%step) len(%len) boneleft("FXtraceL1") boneright("FXtraceR1"))
+)
+
+(define "tank_doubletrace"
+	("tank_trace_ex" fx(%fx) step(%step) len(%len) boneleft("for_tracesl") boneright("for_tracesr"))
+)
+
+{able "ally_crew"}
+
+(define "shield"
+	{armor
+		{setting "shield"
+			{thickness %0}
+			{volumes "shield*"}
+		}
+	}
+)
+
+{RimLight}

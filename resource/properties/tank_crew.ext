@@ -1,0 +1,320 @@
+;SDL
+(include "tank_crew_skr.ext")
+;//////////////////////////////////////////////////////////////////////////////
+(define "crew_inside"
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+)
+(define "crew_human_visible_anm"
+	{placer
+		{place "%place"
+			{group "crew"}
+			{linkbone "%place"}
+			{turnoff {sensor} {shadow}}
+			{visor "%visor"}
+			{openForCrush}
+		}
+	}
+	{boarder
+		{door "%door1"}
+		{door "%door2"}
+		{link "%door1" "%place" {anm "%anm_left"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%anm_right"} {forward putoff} {reverse puton}}
+	}
+)
+(define "crew_human_visible"
+	("crew_human_visible_anm" place(%place) door1(%door1) door2(%door2) visor(%visor) anm_left(left) anm_right(right))
+)
+(define "crew_human"
+	{placer
+		{place "%place"
+			{group "crew"}
+			{visor "%visor"}
+		}
+	}
+	{boarder
+		{door "%door1"}
+		{door "%door2"}
+		{link "%door1" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)
+(define "crew_3_human"
+	("crew_inside")
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(main))
+)
+(define "crew_4_human"
+	("crew_3_human")
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(main))
+)
+(define "crew_4_human_cay"
+	("crew_3_human")
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(mgsoc))
+)
+(define "crew_5_human"
+	("crew_4_human")
+	("crew_human" place(gunner3)	door1(emit1) door2(emit2) visor(mgsoc))
+)
+
+(define "crew_6_human"
+	("crew_4_human")
+	("crew_human" place(gunner3)	door1(emit1) door2(emit2) visor(mgsoc))
+	("crew_human" place(charger2)	door1(emit1) door2(emit2) visor(back))
+)
+(define "crew_7_human"
+	("crew_6_human")
+	("crew_human" place(gunner4)	door1(emit1) door2(emit2) visor(mgsoc))
+)
+(define "crew_8_human"
+	("crew_7_human")
+	("crew_human" place(gunner5)	door1(emit1) door2(emit2) visor(mgsoc))
+)
+(define "crew_2_human"
+	("crew_inside")
+	("crew_human" place(gunner) door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)	door1(emit1) door2(emit2) visor(driver))
+)
+(define "crew_3_human_extended"
+	("crew_inside")
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(main))
+)
+(define "crew_4_human_extended"
+	("crew_inside")
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(main1))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(view-around))
+)
+(define "crew_4_human_extended2"
+	("crew_inside")
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(charger))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(view-around))
+)
+(define "crew_4_human_extended_t34"
+	("crew_inside")
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(main1))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(view-around))
+)
+(define "crew_5_human_extended"
+	("crew_inside")
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(gunner)	door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(main1))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(view-around))
+	("crew_human" place(gunner3)	door1(emit1) door2(emit2) visor(mgsoc))
+)
+(define "crew_6_human_extended"
+	("crew_inside")
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(gunner)	door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(back))
+	("crew_human" place(charger2)	door1(emit1) door2(emit2) visor(main1))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(view-around))
+	("crew_human" place(gunner3)	door1(emit1) door2(emit2) visor(mgsoc))
+)
+;----------------NP
+(define "crew_51_human"
+	("crew_4_human_extended")
+	{placer
+		{place "gunner2" {group "crew"} {visor "tur3"}}
+	}
+	{boarder
+		{door "emit7"}
+		{link "emit7" "gunner2" {anm "gunner3"} {forward putoff} {reverse puton}}
+	}	
+)
+(define "crew_61_human"
+	("crew_51_human")
+	{placer
+		{place "gunner3" {group "crew"} {visor "tur2"}}
+	}
+	{boarder
+		{door "emit8"}
+		{link "emit8" "gunner3" {anm "gunner4"} {forward putoff} {reverse puton}}
+	}	
+)
+(define "crew_10_human"
+	("crew_61_human")
+	{placer
+		{place "gunner4" {group "crew"} {visor "tur4"}};â turret4
+	}
+	{boarder
+		{door "emit9"}
+		{link "emit9" "gunner4" {anm "gunner5"} {forward putoff} {reverse puton}}
+	}
+	{placer
+		{place "gunner5" {group "crew"} {visor "tur5"}};â turret5
+	}
+	{boarder
+		{door "emit10"}
+		{link "emit10" "gunner5" {anm "gunner6"} {forward putoff} {reverse puton}}
+	}
+	{placer
+		{place "charger5" {group "crew"} {visor "tur4"}};â turret4
+	}
+	{boarder
+		{door "emit9"}
+		{link "emit9" "charger5" {anm "charger5"} {forward putoff} {reverse puton}}
+	}
+	{placer
+		{place "charger6" {group "crew"} {visor "tur5"}};â turret5
+	}
+	{boarder
+		{door "emit10"}
+		{link "emit10" "charger6" {anm "charger6"} {forward putoff} {reverse puton}}
+	}
+)
+;----------------NP
+;----------------DCG
+(define "crew_3_human_2"
+	("crew_inside")
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(around))
+)
+(define "crew_3_human_3"
+	("crew_inside")
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(none))
+)
+(define "crew_4_human2"
+	("crew_inside")
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(gunner3)	door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(around))
+)
+(define "crew_2_human2"
+	("crew_inside")
+	("crew_human" place(driver) 		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(main))
+)
+(define "crew_4_human_2"
+	("crew_inside")
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(gunner3)	door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(around))
+)
+;----------------DCG
+;//////////////////////////////////////////////////////////////////////////////
+(define "seat_on_armor"
+	{boarder
+		{anm "armor"
+			{forward	{begin "board_bigcar"}	{end "seat_armor"}}
+			{reverse	{end "emit_tank_1_hold"}}
+		}
+	}
+)
+(define "seat_human"
+	{placer
+		{place "%place" {LinkBone "%bone"} {openForCrush}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+(define "seat_2_human"
+	("seat_on_armor")
+	("seat_human" place(seat1) bone(seat01) door(emit3) animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4) animation(armor))
+)
+(define "seat_3_human"
+	("seat_2_human")
+	("seat_human" place(seat3) bone(seat03) door(emit5) animation(armor))
+)
+(define "seat_4_human"
+	("seat_3_human")
+	("seat_human" place(seat4) bone(seat04) door(emit6) animation(armor))
+)
+(define "seat_6_human"
+	("seat_4_human")
+	("seat_human" place(seat5) bone(seat05) door(emit7) animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit8) animation(armor))
+)
+(define "seat_9_human"
+	("seat_6_human")
+	("seat_human" place(seat7) bone(seat07) door(emit9) animation(armor))
+	("seat_human" place(seat8) bone(seat08) door(emit10) animation(armor))
+	("seat_human" place(seat9) bone(seat09) door(emit11) animation(armor))
+)
+
+;//////////////////////////////////////////////////////////////////////////////
+(define "crew_human_gunner"
+	("crew_human_visible" place(%place) door1(emit1) door2(emit2) visor(main))
+	{sensor
+		{visor "top"
+			{vision "vehicle_top_mgun"} 
+			{bone "%visorbone"}
+		}
+	}
+	{placer 
+		{place "%place" {visor "top"}}
+	}
+)
+(define "gunner_visible"
+	("crew_human_gunner" place(gunner2) visorbone(mgun2))
+)
+(define "gunner_visible_2"
+	("crew_human_gunner" place(gunner3) visorbone(mgun2))
+)
+(define "gunner_visible_3"
+	("crew_human_gunner" place(gunner3) visorbone(foresight3))
+)
+(define "gunner_visible_4"
+	("crew_human_gunner" place(gunner3) visorbone(foresight4))
+)

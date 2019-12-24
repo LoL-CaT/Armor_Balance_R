@@ -1,0 +1,143 @@
+;SDL
+actor
+
+(include "vehicle.ext")
+(include "cannon_armor.ext")
+
+(define "accuracy_by_motion" ;  spreading depending on the speed of "body", "gun" volumes
+    {AccuracyByMotion
+        {MaxLinearSpeed %max_linear}               ;km/h
+        {ByLinearSpeed %accuracy_by_linear}
+        {MaxAngularSpeed %max_angular}             ;deg/s
+        {ByAngularSpeed %accuracy_by_angular}
+        {DisorderTime %disorder_time}              ;s
+        {OrderTime %order_time}                    ;s
+    }
+)
+
+(define "abm_field_gun"
+    ("accuracy_by_motion"
+        max_linear(9) accuracy_by_linear(0.2)
+        max_angular(6) accuracy_by_angular(0.9)
+        disorder_time(4.5) order_time(1.5)
+
+    )
+)
+(define "abm_low"
+    ("accuracy_by_motion"
+        max_linear(9) accuracy_by_linear(0.2)
+        max_angular(6) accuracy_by_angular(0.6)
+        disorder_time(4.5) order_time(18)
+    )
+)
+(define "abm_medium"
+    ("accuracy_by_motion"
+        max_linear(9) accuracy_by_linear(0.2)
+        max_angular(6) accuracy_by_angular(0.6)
+        disorder_time(4.5) order_time(10)
+    )
+)
+(define "abm_high"
+    ("accuracy_by_motion"
+        max_linear(9) accuracy_by_linear(0.2)
+        max_angular(6) accuracy_by_angular(0.6)
+        disorder_time(4.5) order_time(3)
+    )
+)
+
+(define "abm_zenite"
+    ("accuracy_by_motion"
+        max_linear(16) accuracy_by_linear(0.2)
+        max_angular(40) accuracy_by_angular(0.8)
+        disorder_time(4.5) order_time(2)
+    )
+)
+(define "abm_howitzer"
+    ("accuracy_by_motion"
+        max_linear(5) accuracy_by_linear(0.95)
+        max_angular(1) accuracy_by_angular(0.95)
+        disorder_time(1.5) order_time(25)
+     )
+)
+(define "abm_mgun"
+	("accuracy_by_motion"
+    max_linear(16) accuracy_by_linear(0.2)
+	max_angular(40) accuracy_by_angular(0.8)
+	disorder_time(4.5) order_time(2)
+     )
+)
+(define "abm_mgun_heavy"
+	("accuracy_by_motion"
+    max_linear(16) accuracy_by_linear(0.2)
+	max_angular(40) accuracy_by_angular(0.8)
+	disorder_time(4.5) order_time(2)
+     )
+)
+
+("brain_vehicle")
+
+{PatherID  "cannon.small"}
+{targetClass "cannon" "ap fg"}
+{targetSelector "cannon_shell"}
+{collider "cannon"}
+{props "with_gun" "trailer" "emit_on_sink"}
+{able "emit_crew_on_injure"}
+
+{extender "inventory"
+    {box
+        {Size 6 10}
+        {weight 10000}
+        {item "repair_kit" {cell 4 0}}
+    }
+}
+
+{Weaponry
+    {ManualAccuracy 1}
+    {place "gun"
+        {charger "gunner"}
+    }
+}
+
+{placer
+    {place "gunner"}
+    {place "commander" {visor "commander"}}
+}
+
+(include "cannon_crew.ext")
+
+{volume "body"
+    {thickness 7}
+}
+{volume "turret"
+    {thickness 7}
+}
+{volume "gun"
+    {thickness 7}
+    {able {Visible 0} {Obstacle 0} {Contact 0} {nolook 1}}
+}
+
+{volume "standr"
+    {able {Visible 0} {nolook 1}}
+}
+{volume "standl"
+    {able {Visible 0} {nolook 1}}
+}
+
+{component "body"
+    {RepairTime 40}
+}
+{component "turret"
+    {RepairTime 30}
+}
+{component "gun"
+    {RepairTime 20}
+}
+
+{extender "talk"
+    {talker "cannon"}
+}
+{able "talk"}
+
+(define "restore_ik_time"
+    {RestoreIKTime 10}
+)

@@ -1,0 +1,130 @@
+;SDL
+actor
+
+(include "vehicle.ext")
+(include "cannon_crew.ext")
+(include "cannon_armor.ext")
+;(include "shadow/tank.inc"  scale(0.7))
+(include "selection/vehicle.inc"  scale(0.7))
+{PatherID "cannon.carried"}
+{simulation {able 1} {disableLinked 1}}
+{obstacleID "tank"}
+{collider "cannon"}
+{constrain ground}
+{props "mg_stan" "vehicle" "steel" "cannon" "emit_on_sink"}
+{able "emit_crew_on_injure"}
+{targetClass "cannon" "bullet"}
+{targetSelector "cannon_bullet"}
+
+{brain "vehicle" 
+	{state "vehicle"}
+}
+
+{placer
+	{crew}
+	{place "commander" {visor "commander"}}
+	{place "driver1" {visor "commander"}}
+	{place "driver2" {visor "commander"}}
+}
+
+{sensor
+	{visor "main"
+		{vision "cannon_mgun"}
+	}
+	{visor "commander"
+		{vision "cannon_crew"}
+		{bone "turret"}
+	}
+}
+
+{extender "inventory"
+	{Box
+		{Size 6 10}
+		{weight 1000}
+                {item "repair_kit" 1}
+	}
+}
+
+{Weaponry
+	{place "mgun"
+		{charger "gunner"}
+		{LinkBone "mgun"}
+		{LinkAnimation "off"}
+	}
+}  	
+
+
+("crew_2_human")
+("crew_human" place(driver1) bone(driver1)	door(emit1) animation(driver1))
+("crew_human" place(driver2) bone(driver2)	door(emit2) animation(driver2))
+{boarder
+	{anm "gunner"
+		{forward	{end "pose_mgun_stan"}}
+	}
+	{anm "commander"
+		{forward	{end "pose_mg_stan_charger"}}
+	}
+	{anm "driver1"
+		{forward {end "mgun_browning_driver_r"}}
+	}
+	{anm "driver2"
+		{forward {end "mgun_browning_driver_l"}}
+	}
+	{link "driver1" "gunner"}
+	{link "driver2" "commander"}
+}
+
+{extender "cannon"
+	{animation
+		{switch "close"}
+		{move "mgun_browning_driver_r" "mgun_browning_driver_l"}
+		{aim "" ""}
+		{fire  "" ""}
+		{reload  "mgun_stan_charger" ""}
+	}
+	{attack {workers "gunner" "commander"}}
+}
+
+{Chassis "human_carrier"
+	("loco_carrier")
+}
+
+{volume "shield" {thickness 8}}
+{component "shield" {RepairTime 20}}
+{extender "shield"
+	{off}
+	{no_blast}
+}
+
+{armor
+	{setting "shield"
+		{volumes "*shield*"}
+		{thickness 8}
+	}
+	{setting "body"
+		{thickness 5}
+		{threshold  {blast {value 8.5}}}	
+		{durability {blast {value 8.5}}}	
+		{volumes "body*"}
+	}
+}
+
+{mass 50}
+
+{volume "select"
+	{able clear {select}}
+	{density 0}
+}
+{component "body"
+	{RepairTime 5}
+}
+
+{extender "talk"
+	{talker "cannon"}
+}
+
+;	{Chassis "track"
+;		("loco_small")
+;	}
+
+("armor_mgun" args 0.7)	
