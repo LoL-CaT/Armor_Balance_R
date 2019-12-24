@@ -1,0 +1,94 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "heavy" "turret_rotator" "vision_vehicle_high" "muzzle_small2"} 
+
+	{extension "crew.ext"}
+
+        {extender "enumerator"
+		{digit_folder "ger"}
+	}	
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	{sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	}	
+
+	("armor_heavy_shit" turret(85 85 85 30) body(85 55 85 30))
+	("armor_mantlet" t(85))
+	("armor_engine"  t(85 85 85 30))
+	("wheels_armor" args 5)	
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet47ger ap" 30}
+			{item "ammo bullet47ger fg" 20}
+			{item "ammo bullet75gerF ap" 27}
+			{item "ammo bullet75gerF fg" 60}
+			{item "ammo mgun" 5100}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "47mm_sa35" filling "ammo bullet47ger ap" 1}
+			("abm_low")
+		}
+		{place "gun2"
+			{weapon "75mm_sa35" filling "bullet75gerF fg" 1}
+			{foresight "foresight2"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_low")
+			{basic}
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "7,5mm_shatelro" filled}
+			{foresight "foresight3"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+
+	}
+	}
+	{mass 38600}
+	
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.6))
+		("mobility"
+			speed(25)
+			weight(38.6)
+			power(350)
+			fuel(400)	
+		)
+	}
+
+{Extension "b1bis.mdl"}
+
+{bone "turret"
+		{speed2 14}
+	}
+}

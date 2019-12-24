@@ -1,0 +1,162 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}	
+	{props "medium" "turret_rotator" "vision_vehicle_high" "muzzle_medium"}
+	
+;	{extender "enumerator"}
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+
+	{volume "turret1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret3"
+		{tags "turret"}
+		{component "turret"}
+	}
+	("armor_medium" turret(30 24 24 20) body(64 32 32 20) body2(64 32 32 20) body3(64 32 32 20))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(20 20 20 20))
+
+	("shield" args 10)
+	
+	{extender "shield"
+		{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+
+	("crew_3_human")
+	
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))	
+
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_left"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_lowArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	
+    {sensor
+;	        {visor "tur2_1"
+;			{vision "tank_pr"}
+;			{bone "visor11"}
+;		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+;	        {visor "tur2_3"
+;			{vision "tank_pr"}
+;			{bone "visor13"}
+;		}
+;	        {visor "tur2_4"
+;			{vision "tank_pr"}
+;			{bone "visor14"}
+;		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+;	        {visor "tur2_6"
+;			{vision "tank_pr"}
+;			{bone "visor16"}
+;		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+;	        {visor "tur2_8"
+;			{vision "tank_pr"}
+;			{bone "visor18"}
+;		}	
+	}	
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet83eng ap" 20}
+			{item "ammo bullet83eng fg" 10}
+			{item "ammo bullet83eng apcr" 2}
+			{item "ammo mgun" 3150}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "83mm_20pdr_pak" filling "ammo bullet83eng ap" 1}	
+			("abm_high")
+		}
+	}
+
+	{mass 30000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.2))
+		("mobility" 
+			speed(50) 
+			weight(30)			
+			power(600)
+			fuel(750)
+		)
+		
+	}
+       {Extension "charioteer.mdl"}
+	{bone "turret"
+		{speed2 5}
+        }
+	{bone "gun_rot"
+		{speed2 5}
+	} 
+}

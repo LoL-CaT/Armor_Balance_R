@@ -1,0 +1,148 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "sheavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_maximum"}
+
+	{extender "enumerator"}
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "mantlet"
+		{tags "mantlet"}
+		{component "mantlet"}
+	}	
+	{volume "engine"
+		{thickness 50}
+	}
+	
+	("armor_sheavy_shit_true" turret(290 250 200 50) body(180 180 160 50))
+	("armor_mantlet" t(325))
+	("armor_engine"  t(50 50 50 50))
+	("wheels_armor" args 5)	
+
+	("crew_5_human")
+;	("crew_human" 	place(charger3)	door1(emit1) door2(emit2) visor(main))
+;	("crew_human" 	place(charger4)	door1(emit1) door2(emit2) visor(main))
+	{boarder
+
+		{anm "driver"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"} {base "open_driver"}}
+			{reverse 	{end	"board_Is-2" -1} {base "open_driver" -1}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Kv-85"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	{sensor
+		{visor "mgun"
+			{vision "tank_back"}
+			{bone "foresight5"}
+		}
+	        {visor "tur2"
+			{vision "tank_pr"}
+			{bone "visor"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor3"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor4"}
+		}		
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet152rus51 ap" 10}
+			{item "ammo bullet152rus51 fg" 5}		
+			{item "hmgun" "ammo" 2900}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "152mm_m51" filling "ammo bullet152rus51 ap" 1}
+			{gunner "gunner"}
+			{charger "charger"}			
+			("abm_high")
+		}
+		{place "mgun1"
+			{type "mgun_coaxial"}
+			{weapon "kpv" filled}
+			{foresight "foresight4"}		
+			{gunner "charger"}
+			{charger "charger"}
+			("abm_mgun_heavy")			
+           	{basic}
+		}
+		{place "mgun2"
+			{type "mgun_aa"}
+			{weapon "kpvx2" filled}
+			{foresight "foresight5"}
+            {Barrels 2}				
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+            {basic}
+			("abm_mgun_heavy")
+		}
+	}
+
+	{mass 105500}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.52) len(0.183))
+		("mobility"
+			speed(40)
+			weight(105.5)
+			power(1050)
+			fuel(1300)		
+		)
+	}
+	
+	{Extension "is705a.mdl"}
+;	{texmod "2"}
+	
+	{bone "mgun_turret"
+		{speed2 25}
+	}	
+	{bone "mgun"
+                {limits -2.5 85}
+		{speed2 25}
+	}	
+	{bone "gun_rot"
+                {limits -3 8}
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 15}
+	}		
+
+}

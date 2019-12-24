@@ -1,0 +1,246 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.sheavy"}
+	{props "tank" "sheavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large2"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	("armor_sheavy_shit_true" turret(200 190 190 100) body(190 110 110 100) body1(190 110 110 220))
+;	("armor_heavy" turret(240 210 200 90) body(230 50 105 160) body1(230 210 105 150)) 
+;	("armor_mantlet" t(200)) 
+	
+	("armor_engine"  t(100 100 100 100))
+	("wheels_armor" args 5)	
+
+	("crew_8_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"board_steam_locomotive" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"board_steam_locomotive" -1}}
+		}
+		{anm "left1"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_gunner_stand"} {base "doorleft"}}
+			{reverse 	{end	"board_steam_locomotive" -1} {base "doorleft" -1}}
+		}
+		{anm "right1"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_gunner_stand"} {base "doorright"}}
+			{reverse 	{end	"board_steam_locomotive" -1} {base "doorright" -1}}
+		}
+	}
+
+	{sensor	
+		{visor "main"
+			{vision "tank_main-h"}
+			{bone "visor1"}
+		}	
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor3"}
+		}
+		{visor "around"
+			{vision "tank_main-h"}
+			{bone "visor2"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet127 ap" 45}
+;			{item "ammo bullet127 apcr" 5}
+			{item "ammo bullet127 fg" 30}
+			{item "ammo bullet57j   ap" 200}
+			{item "ammo bullet57j   fg" 100}
+;			{item "ammo bullet57j   apcr" 50}
+			{item "ammo hmgun" 5100}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "127mm_type3" filling "bullet127 ap" 1}
+			{gunner "gunner"}
+			{charger "charger" "charger2"}	
+			("abm_high")
+			{basic}	
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "type93hmg" filled}
+			{foresight "foresight3"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			("abm_mgun_heavy")
+			{basic}
+		}
+		{place "mgun2"
+			{type "mgun_hull"}
+			{weapon "type93hmg" filled}
+			{foresight "foresight5"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			("abm_mgun_heavy")
+		}
+		{place "gun2"	
+			{RestoreIKAfterAim}		
+			{type "secondary_main"}
+			{weapon "57mm_typeB_43" filled}
+			{gunner "gunner5"}
+			{charger "gunner5"}
+			{foresight "foresight2"}
+			{basic}
+		}
+	}
+
+	{mass 200000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(2.21))
+		("mobility"
+			speed(35)
+			weight(200.0)
+			power(1100)
+			fuel(1200)		
+		)
+	}
+	
+	{Extension "type4.mdl"}
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+	{Volume "frontl"
+		{thickness 230}
+	}
+	{Volume "frontr"
+		{thickness 230}
+	}
+	{Volume "gun2_rot"
+		{tags "gun2"}
+		{component "gun2"}
+		{thickness 10}
+	}
+	{Volume "gun2"
+		{tags "gun2"}
+		{component "gun2"}
+		{thickness 10}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 50}
+	}
+	{Volume "mantlet2"
+		{tags "gun2"}
+		{component "gun2"}
+		{thickness 10}
+	}
+	{Volume "shieldl1"
+		{thickness 35}
+	}
+	{Volume "shieldl2"
+		{thickness 35}
+	}
+	{Volume "shieldr1"
+		{thickness 35}
+	}
+	{Volume "shieldr2"
+		{thickness 35}
+	}
+	{Volume "trackleft"
+		{tags "trackleft"}
+		{component "trackleft"}
+		{thickness 50}
+	}
+	{Volume "trackright"
+		{tags "trackright"}
+		{component "trackright"}
+		{thickness 50}
+	}
+	{Volume "turplate"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 250}
+	}
+	{Volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 240}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turretfront"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 240}
+	}
+	{Volume "wingl"
+		{thickness 10}
+	}
+	{Volume "wingr"
+		{thickness 10}
+	}
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+	    {limits -20 10}
+		{speed2 5} 
+	}	
+	{bone "gun_rot2"
+		{speed2 5} 
+	}
+	{bone "hull_rot"
+		{speed2 5} 
+	}		
+}

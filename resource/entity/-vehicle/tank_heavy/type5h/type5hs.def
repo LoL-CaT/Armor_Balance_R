@@ -1,0 +1,248 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.sheavy"}
+	{props "sheavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_maximum3"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	("armor_sheavy_shit_true" turret(260 260 260 110) body(260 150 150 110) body1(250 150 110 240))
+;	("armor_heavy" turret(260 210 200 90) body(260 50 105 160) body1(260 210 105 150)) 
+;	("armor_mantlet" t(240)) ・・ⅱ・ ・・・粽・淲・
+	
+	("armor_engine"  t(100 100 100 100))
+	("wheels_armor" args 5)	
+
+	("crew_8_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"board_steam_locomotive" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"board_steam_locomotive" -1}}
+		}
+		{anm "left1"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_gunner_stand"} {base "doorleft"}}
+			{reverse 	{end	"board_steam_locomotive" -1} {base "doorleft" -1}}
+		}
+		{anm "right1"
+			{forward	{begin	"board_steam_locomotive"} {end "seat_gunner_stand"} {base "doorright"}}
+			{reverse 	{end	"board_steam_locomotive" -1} {base "doorright" -1}}
+		}
+	}
+
+	{sensor	
+		{visor "main"
+			{vision "tank_main-h"}
+			{bone "visor1"}
+		}	
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor3"}
+		}
+		{visor "around"
+			{vision "tank_main-h"}
+			{bone "visor2"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet155j ap" 25}
+;			{item "ammo bullet155j apcr" 5}
+			{item "ammo bullet155j fg" 20}
+			{item "bullet25_type96" 400}
+			{item "ammo hmgun" 2000}
+;			{item "ammo mgun" 5000}			
+;			{item "ammo s_mine fg" 32}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")	
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "155mm_type3" filling "bullet155j ap" 1}
+			{gunner "gunner"}
+			{charger "charger" "charger2"}
+			("abm_high")				
+		}
+;		{place "mgun"
+;			{type "mgun_coaxial"}
+;			{weapon "type93hmg" filled}
+;			{foresight "foresight3"}
+;			{gunner "gunner3"}
+;			{charger "gunner3"}
+;			("abm_mgun_heavy")
+;			{basic}
+;		}
+		{place "mgun2"
+			{type "mgun_hull"}
+			{weapon "type93hmg" filled}
+			{foresight "foresight5"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			("abm_mgun_heavy")
+			{basic}			
+		}
+		{place "gun2"			
+			{type "secondary_main"}
+			{weapon "25mm_type96" filled}
+			{gunner "gunner5"}
+			{charger "gunner5"}
+			{foresight "foresight2"}
+			("abm_mgun_heavy")			
+			{basic}
+		}
+;		{place "s_mine"
+;			{type "s_mine"}
+;			{Barrels 2}
+;			{weapon "weapon s_mine" filling "ammo s_mine fg" 8}
+;			("abm_mgun")
+;			{gunner "charger"}
+;			{charger "charger"}
+;			{foresight "foresight3"}
+;			{basic}
+;		}
+	}
+
+	{mass 250000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(2.21))
+		("mobility"
+			speed(35)
+			weight(250.0)
+			power(1100)
+			fuel(1200)		
+		)
+	}
+	
+	{Extension "type5s.mdl"}
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+	{Volume "frontl"
+		{thickness 250}
+	}
+	{Volume "frontr"
+		{thickness 250}
+	}
+	{Volume "gun2_rot"
+		{tags "gun2"}
+		{component "gun2"}
+		{thickness 10}
+	}
+	{Volume "gun2"
+		{tags "gun2"}
+		{component "gun2"}
+		{thickness 10}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 50}
+	}
+	{Volume "mantlet2"
+		{tags "gun2"}
+		{component "gun2"}
+		{thickness 10}
+	}
+	{Volume "shieldl1"
+		{thickness 35}
+	}
+	{Volume "shieldl2"
+		{thickness 35}
+	}
+	{Volume "shieldr1"
+		{thickness 35}
+	}
+	{Volume "shieldr2"
+		{thickness 35}
+	}
+	{Volume "trackleft"
+		{tags "trackleft"}
+		{component "trackleft"}
+		{thickness 50}
+	}
+	{Volume "trackright"
+		{tags "trackright"}
+		{component "trackright"}
+		{thickness 50}
+	}
+	{Volume "turplate"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 280}
+	}
+	{Volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 280}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turretfront"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 280}
+	}
+	{Volume "wingl"
+		{thickness 10}
+	}
+	{Volume "wingr"
+		{thickness 10}
+	}
+	{bone "gun_rot"
+	    {limits -20 10}
+		{speed2 3} 
+	}	
+}

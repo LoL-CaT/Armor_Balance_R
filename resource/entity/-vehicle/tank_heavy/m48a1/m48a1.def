@@ -1,0 +1,213 @@
+; jonvigo
+
+;==================================================================================================
+	
+{Entity
+	
+	(include "/properties/tank.ext")
+	(include "/properties/tank1.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "tank" "l_heavy" "turret_rotator" "vision_vehicle_high" "muzzle_medium"}
+
+	{extender "enumerator"}
+
+	{volume "body"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "spa"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 110}
+	}
+	{volume "spa2"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 110}
+	}	
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body6"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body7"
+		{component "body"}
+		{tags "body"}
+	}	
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{volume "turret2"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{volume "turret3"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{volume "turret4"
+		{component "turret"}
+		{tags "turret"}
+	}
+	
+;==================================================================================================	
+	
+	("armor_heavy_shit" turret(178 76 51 178) body(110 51 35 110))
+	("armor_engine"  t(30 30 30 30))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(214))	
+
+	
+;==================================================================================================
+
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor())
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(commander))
+	
+;==================================================================================================	
+	
+	{boarder
+		{anm "commander"
+			{forward	{begin	"board_tank_left"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		
+		{anm "gunner"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		
+		{anm "charger"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "driver"
+			{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+	
+	    {sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}
+
+	
+;==================================================================================================
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 5900}
+			{item "ammo hmgun" 500}	
+			{item "ammo bullet90usa apcrLATE" 33}			
+;			{item "ammo bullet90usa apLATE" 3}
+			{item "ammo bullet90usa fg" 25}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")		
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "90mm_M41" filling "bullet90usa apcrLATE" 1}	
+			("abm_high")			
+		}
+		{place "mgun"
+			{weapon "browning" filled}
+			{type "mgun_aa"}
+			{gunner "commander"}
+			{charger "commander"}
+			{foresight "foresight3"}
+			{LinkAnimation "off"}
+			("abm_mgun_heavy")
+			{basic}
+		}
+		{place "mgun3"
+			{type "mgun_coaxial"}
+			{weapon "m73" filled}
+			{foresight "foresight6"}
+			{gunner "charger"}
+			{charger "charger"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 44000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(1.4))
+		("mobility"
+			speed(48)
+			weight(44)
+			power(810)
+			fuel(757)
+		)
+	}
+	{texmod ""}
+	{Extension "m48a1.mdl"}
+
+	{bone "turret"
+		{speed2 17} 
+		
+	}
+	{bone "gun_rot"
+		{limits -9 19}
+		{speed2 5} 
+	}
+	{bone "turret_mgun"
+		{speed2 38} 
+		{terminator}
+	}
+	{bone "mgun"
+		{limits -10 25}
+		{speed2 12} 
+	}
+
+}

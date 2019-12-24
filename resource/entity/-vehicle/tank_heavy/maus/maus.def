@@ -1,0 +1,137 @@
+{game_entity	
+	(include "/properties/tank.ext")
+	(include "/properties/tank_mobilityP.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+
+	{collider "tank.sheavy"}
+	{props "tank" "sheavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large2"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "mantlet"
+		{tags "mantlet"}
+		{component "mantlet"}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+
+
+	("armor_heavy1_shit" turret(250 210 210 80) body(200 185 178 80) body2(200 185 160 80))
+	("armor_engine"  t(80 80 80 80))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(250))
+
+	("crew_6_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	{sensor		
+		{visor "top"
+			{vision "vehicle_top_mgun"}
+			{bone "visor3"}
+		}
+	}
+	
+	
+	{extender "inventory"
+		{box
+				{item "ammo mgun" 1000}
+				{item "ammo bullet128ger fg" 30}
+				{item "ammo bullet128ger ap" 29}
+;				{item "ammo bullet128ger apcr" 2}
+				{item "ammo bullet75ger ap" 100}
+				{item "ammo bullet75ger fg" 50}
+			    {item "ammo bullet75ger apcr" 50}
+;				{item "mg42" filled {user "mgun"}}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "128mm_kwk44" filling "ammo bullet128ger ap" 1}	
+			{gunner "gunner"}
+		    {charger "gunner"}
+			("abm_high")
+                }
+		{place "gun2"
+			{type "secondary_main"}
+			{weapon "75mm_kwk40_3" filling "ammo bullet75ger fg" 1}
+			{foresight "foresight2"}
+			{gunner "gunner"}
+	        {charger "gunner"}
+			("abm_high")
+			{basic}
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{gunner "gunner"}
+;			{charger "gunner"}
+;			{LinkBone "mgun_rot"}
+;			{LinkAnimation "off"}
+;			("abm_mgun")
+;			{basic}
+;		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "mg34tank" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	
+	{mass 188000}
+	{texmod "71"}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.52) len(0.7))
+		("mobility"
+			speed(20)
+			weight(188.0)
+			power(1088)
+			fuel(3200)		
+		)
+	}
+	{Extension "maus.mdl"}
+	{bone "turret"
+		{speed2 12}
+	}	
+
+}

@@ -1,0 +1,131 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.sheavy"}
+	{props "tank" "h_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+;	{tag "fv215b"}
+	
+;	{extender "enumerator"}
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "turret1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+
+	("armor_heavy_shit" turret(254 152 101 51) body(152 101 76 51))
+	("armor_engine"  t(51 51 51 51))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(254))
+	("shield" args 10)
+
+	{extender "shield"
+		{on}
+	}
+
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldR1" {tags "shield"}}
+	{component "shieldR2" {tags "shield"}}
+	{component "shieldR3" {tags "shield"}}
+
+	("crew_3_human")
+	
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))	
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_left"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_lowArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	
+    {sensor
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	}	
+
+	{extender "inventory"
+		{box			
+			{item "ammo bullet120eng ap" 16}
+			{item "ammo bullet120eng fg" 6}
+			{item "ammo bullet120eng apcr" 2}
+			{item "ammo mgun" 7500}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "120mm_L1A1" filling "ammo bullet120eng ap" 1}
+			{foresight "foresight1"}			
+			("abm_high")
+		}
+		{place "mgun2"
+            {type "mgun_coaxial"}
+			{weapon "browning_m19" filled}
+			{foresight "foresight5"}
+			{gunner "gunner"}
+			{charger "gunner"}			
+			("abm_mgun")
+			{basic}				
+		}
+}
+
+    {mass 70000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.52) len(0.86))
+		("mobility"
+			speed(34)
+			weight(70)
+			power(1500)
+			fuel(1005)		
+		)
+	}
+
+	{Extension "fv215b.mdl"}
+	{texmod "2"}
+	{bone "turret"
+		{speed2 13}
+	}
+	{bone "gun_rot"
+		{limits -7 15} 
+		{speed2 5}
+	}
+}

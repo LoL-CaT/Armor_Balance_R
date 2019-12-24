@@ -1,0 +1,218 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+
+	{collider "tank.sheavy"}
+	{props "sheavy" "-turret" "vision_vehicle_maximum" "muzzle_medium"}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+	}
+
+	("armor_sheavy" armor(228 178 122 35))
+	("armor_mantlet" t(406))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(35 35 35 35))
+	
+
+	
+	{extender "enumerator"}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+	("crew_human" place(gunner)		door1(emit2)	door2(emit3)	visor(gun))
+	("crew_human" place(driver)		door1(emit2)	door2(emit3)	visor(driver))
+	("crew_human" place(charger)		door1(emit3)	door2(emit2)	visor(main))
+	("crew_human" place(gunner1)		door1(emit3)	door2(emit2)	visor(driver))
+	("crew_human" place(gunner2)		door1(emit3)	door2(emit2)	visor(driver))	
+	("crew_human" place(commander)		door1(emit2)	door2(emit3)	visor(around))
+
+    {sensor
+;	        {visor "tur2_1"
+;			{vision "tank_pr"}
+;			{bone "visor11"}
+;		}
+;	        {visor "tur2_2"
+;			{vision "tank_pr"}
+;			{bone "visor12"}
+;		}
+;	        {visor "tur2_3"
+;			{vision "tank_pr"}
+;			{bone "visor13"}
+;		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+;	        {visor "tur2_11"
+;			{vision "tank_pr"}
+;			{bone "visor111"}
+;		}
+;	        {visor "tur2_21"
+;			{vision "tank_pr"}
+;			{bone "visor112"}
+;		}
+;	        {visor "tur2_31"
+;			{vision "tank_pr"}
+;			{bone "visor113"}
+;		}
+	        {visor "tur2_41"
+			{vision "tank_pr"}
+			{bone "visor114"}
+		}
+	        {visor "tur2_51"
+			{vision "tank_pr"}
+			{bone "visor115"}
+		}
+	        {visor "tur2_61"
+			{vision "tank_pr"}
+			{bone "visor116"}
+		}
+	        {visor "tur2_71"
+			{vision "tank_pr"}
+			{bone "visor117"}
+		}
+	        {visor "tur2_81"
+			{vision "tank_pr"}
+			{bone "visor118"}
+		}		
+	}	
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo mgun" 6750}
+;			{item "ammo smoke" 400}
+			{item "bullet93eng ap" 40}
+            {item "bullet93eng fg" 20}
+;           {item "bullet93eng apcr" 2}
+;			{item "besa" filled {user "mgun"}}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "93mm_vickers" filling "ammo bullet93eng ap" 1}
+			{RestoreIKAfterAim}	
+			("abm_high")
+		}
+		{place "mgun"
+			{type "mgun_aa"}
+			{weapon "besa_x2" filled}
+			{Barrels 2}
+			{gunner "gunner1"}
+			{charger "gunner1"}
+			{foresight "foresight10"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "besa" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+			{basic}
+		}
+;		{place "mgun2"
+;			{type "mgun_coaxial"}
+;			{weapon "besa" filled}
+;			{foresight "foresight5"}
+;			{gunner "gunner"}
+;			{charger "gunner"}
+;			("abm_mgun")
+;			{basic}
+;		}
+		{place "mgun3"			
+			{type "smoke"}
+			{weapon "6xsmokegun" filled}
+			{gunner "gunner"}
+			{charger "charger"}
+			{foresight "foresight20"}
+		}
+		{place "mgun4"
+			{type "smoke"}
+			{weapon "6xsmokegun" filled}
+			{gunner "gunner"}
+			{charger "charger"}
+			{foresight "foresight21"}
+		}
+		{place "mgun5"
+			{type "smoke"}
+			{weapon "6xsmokegun" filled}
+			{gunner "gunner"}
+			{charger "charger"}
+			{foresight "foresight23"}
+		}
+	}
+
+	{mass 79000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.6) len(0.28))
+		("mobility"
+			speed(19)
+			weight(79.0)
+			power(600)
+			fuel(1140)		
+		)
+	}
+
+	{Extension "tortoise.mdl"}
+	
+	{bone "turret"
+		{limits -20 20}
+		{speed2 5} 
+		
+	}
+	{bone "gun_rot"
+		{limits -10 20}
+		{speed2 5}
+		
+	}	
+
+}

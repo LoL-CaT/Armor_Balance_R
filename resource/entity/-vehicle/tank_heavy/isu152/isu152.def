@@ -1,0 +1,137 @@
+{Entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "l_heavy" "-turret" "vision_vehicle_high" "muzzle_maximum"}
+
+	{extender "enumerator"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+	}
+
+	{Volume "mantlet"
+		{tags "body"}
+		{component "body"}
+		{thickness 60}
+	}
+
+	{volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}	
+	
+	("armor_spa_heavy" armor(90 75 60 30))
+	("armor_mantlet" t(60))
+	("armor_engine"  t(30 30 30 30))
+	("wheels_armor" args 5)	
+	("shield" args 10)
+			
+	("crew_4_human")
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_kv"} {end "pose_gunner_isu"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_body"} 	{end "seat_isu"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_body"} {end "seat_isu1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_body"} {end "seat_isu2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor3"
+			{forward	{begin	"board_body"} {end "seat_isu3"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))	
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))	
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor2))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor3))	
+	
+	{extender "inventory"
+		{box			
+;           {item "ammo bullet152_ml20 ap" 4}
+            {item "ammo bullet152_ml20 fg" 20}
+;			{item "ammo hmgun" 250}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "152mm_ML20a" filling "ammo bullet152_ml20 fg" 1}	
+			("abm_high")
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{weapon "dshk" filled}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			{LinkBone "mgun_rot"}
+;			{LinkAnimation "off"}
+;			("abm_mgun_heavy")
+;			{basic}
+;		}
+	}
+
+	{mass 46000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.23))
+		("mobility"
+			speed(37)
+			weight(46.0)
+			power(520)
+			fuel(520)		
+		)
+	}
+
+	{Extension "isu152.mdl"}	
+	
+;	{bone "turret_mgun"
+;		{speed 0.02}
+;		{terminator}
+;	}	
+	{bone "gun_rot"
+		{limits -3 21}
+		{speed2 5}
+	}
+	{bone "gun_rot1"
+		{limits -3 7}
+		{speed2 5}
+	}	
+}
+

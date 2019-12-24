@@ -1,0 +1,215 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "h_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+
+	{extender "enumerator"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "engine"
+		{thickness 90}
+	}
+	{volume "armorf"
+		{thickness 20}
+	}
+	{volume "barrel1"
+		{thickness 2}
+	}
+	{volume "barrel2"
+		{thickness 2}
+	}
+	{volume "barrel3"
+		{thickness 2}
+	}
+	{volume "barrel4"
+		{thickness 2}
+	}
+	{volume "tools_box1"
+		{thickness 8}
+	}
+	{volume "tools_box2"
+		{thickness 8}
+	}
+	{volume "tools_box3"
+		{thickness 8}
+	}
+	{volume "wingleft"
+		{thickness 3}
+	}
+	{volume "wingleft1"
+		{thickness 3}
+	}
+	{volume "wingleft2"
+		{thickness 3}
+	}
+	{volume "wingright"
+		{thickness 3}
+	}
+	{volume "wingright1"
+		{thickness 3}
+	}
+	{volume "wingright2"
+		{thickness 3}
+	}
+	{component "wingleft" {tags "shield"}}
+	{component "wingright" {tags "shield"}}
+	{component "barrel1" {tags "shield"}}
+	{component "barrel2" {tags "shield"}}
+	{component "barrel3" {tags "shield"}}
+	{component "barrel4" {tags "shield"}}
+	{component "tools_box1" {tags "shield"}}
+	{component "tools_box2" {tags "shield"}}
+	{component "tools_box3" {tags "shield"}}
+
+	("armor_heavy1_shit" turret(250 217 184 30) body(140 160 133 30) body2(140 160 100 30) body3(160 160 115 30))
+	("armor_engine"  t(30 30 30 30))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(250))
+	("shield" args 10)
+
+	("crew_3_human")
+	
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))
+
+	{extender "shield"
+		{off}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldl5" {tags "shield"}}
+	{component "shieldl6" {tags "shield"}}
+	{component "shieldl7" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+	{component "shieldr5" {tags "shield"}}
+	{component "shieldr6" {tags "shield"}}
+	{component "shieldr7" {tags "shield"}}
+
+
+	{boarder
+
+
+		{anm "left"
+			{forward	{begin	"board_Kv-85"} {end "pose_gunner_isu"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Is-2"} {end "pose_gunner_isu"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_body"} 	{end "seat_isu1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor3"
+			{forward	{begin	"board_body"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor4"
+			{forward	{begin	"board_body"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+
+	}
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor2))
+	("seat_human" place(seat4) bone(seat04) door(emit4)  animation(armor3))
+	("seat_human" place(seat5) bone(seat05) door(emit3)  animation(armor4))
+
+
+
+
+
+
+	{extender "inventory"
+		{weapon "mgun" {mask clear}}
+		{weapon "mgun1"
+			{mask "weapon mgun"}
+		}
+		{box			
+			{item "ammo bullet122rus_late ap" 12}
+			{item "ammo bullet122rus_late fg" 18}
+			{item "ammo bullet122rus_late apcr" 1}
+			{item "ammo hmgun" 2000}
+
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "122mm_d25_46" filling "ammo bullet122rus_late ap" 1}
+			("abm_high")
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{weapon "dshk" filled}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			("abm_mgun_heavy")
+;			{basic}
+;		}
+		{place "mgun1"
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			{basic}
+			("abm_mgun")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "dshk" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+            		{basic}
+		}
+	}
+
+	{mass 60000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.23))
+		("mobility"
+			speed(41)
+			weight(60.0)
+			power(750)
+			fuel(820)		
+		)
+	}
+	
+	{Extension "is4.mdl"}
+	{bone "gun_rot" 
+		{limits -2 19}
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 6}
+	}
+
+}

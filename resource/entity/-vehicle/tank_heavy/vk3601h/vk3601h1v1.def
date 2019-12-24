@@ -1,0 +1,331 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "l_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+	
+        {volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret3"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 40}
+	}
+	{Volume "mantlet"
+		{tags "mantlet"}
+		{component "mantlet"}
+		{thickness 100}
+	}
+	{Volume "ekran_body1"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 20}
+	}
+	{Volume "ekran_body2"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 30}
+	}
+	{Volume "ekran_body3"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 30}
+	}
+	{Volume "ekran_body4"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 30}
+	}
+	{Volume "ekran_body5"
+		{tags "ekran_body"}
+		{component "ekran_body"}
+		{thickness 80}
+	}
+	{Volume "ekran_turret"
+		{tags "ekran_turret"}
+		{component "ekran_turret"}
+		{thickness 100}
+	}
+	{Volume "ekran_turret2"
+		{tags "ekran_turret"}
+		{component "ekran_turret"}
+		{thickness 40}
+	}
+	{Volume "ekran_turret3"
+		{tags "ekran_turret"}
+		{component "ekran_turret"}
+		{thickness 40}
+	}
+	{Volume "ekran_mantlet"
+		{tags "ekran_mantlet"}
+		{component "ekran_mantlet"}
+		{thickness 40}
+	}
+	{Volume "ekran_mantlet2"
+		{tags "ekran_mantlet"}
+		{component "ekran_mantlet"}
+		{thickness 30}
+	}
+	{Volume "trackright"
+	}
+	{Volume "trackleft"
+	}
+	{Volume "wheelr1"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr2"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr3"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr4"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr5"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr6"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr7"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr8"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr9"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheelr10"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell1"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell2"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell3"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell4"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell5"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell6"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell7"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell8"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell9"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+	{Volume "wheell10"
+		{tags "wheels"}
+		{component "wheels"}
+	}
+		("armor_heavy_279" 
+                                     
+                                      turret(80 60 26 26)
+                                      turret2(80 60 5 20)
+                                      turret3(50 50 50 50)
+                                      
+                                      body(80 60 20 26)
+                                      body2(80 60 17 26)
+                                  
+                                      gun(25)
+        )
+
+	("armor_engine"  t(26 26 26 26))
+	("armor_mantlet" t(80))
+	("wheels_armor" args 5)
+	("shield" args 7)
+	
+	{extender "shield"
+			{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	
+	("crew_3_human")
+	
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))		
+
+	{sensor
+		{visor "tur1"
+			{vision "tank_main-l"}
+			{bone "visor1"}
+		}
+	        {visor "tur1_2"
+			{vision "tank_back"}
+			{bone "visor9"}
+		}
+	        {visor "tur3"
+			{vision "tank_back"}
+			{bone "visor10"}
+		}
+	        {visor "tur3_2"
+			{vision "tank_back"}
+			{bone "visor11"}
+		}
+	        {visor "tur3_3"
+			{vision "tank_back"}
+			{bone "visor12"}
+		}
+	        {visor "tur3_4"
+			{vision "tank_back"}
+			{bone "visor13"}
+		}
+	        {visor "tur3_5"
+			{vision "tank_back"}
+			{bone "visor14"}
+		}
+	        {visor "tur3_6"
+			{vision "tank_back"}
+			{bone "visor15"}
+		}
+	        {visor "tur3_7"
+			{vision "tank_back"}
+			{bone "visor16"}
+		}
+	        {visor "tur3_8"
+			{vision "tank_back"}
+			{bone "visor17"}
+		}
+	        {visor "tur4"
+			{vision "tank_back"}
+			{bone "visor6"}
+		}
+	        {visor "tur4_2"
+			{vision "tank_back"}
+			{bone "visor7"}
+		}
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+		{visor "driver_2"
+			{vision "tank_driver"}
+			{bone "visor4"}
+		}
+		{visor "body1"
+			{vision "tank_driver"}
+			{bone "visor3"}
+		}
+		{visor "body1_2"
+			{vision "tank_driver"}
+			{bone "visor5"}
+		}
+	}
+
+	{extender "inventory"
+			{box
+			        {item "ammo mgun" 2500}
+			        {item "ammo bullet105_lefn18 fg" 20}
+                    {item "ammo bullet105_lefn18 heat" 16}
+			}
+		}
+		{Weaponry
+		("restore_ik_time")
+			{place "gun"
+				{RestoreIKAfterAim}
+			    {weapon "105mm_stuh41" filling "ammo bullet105_lefn18 heat" 1}
+				{gunner "gunner"}
+				{charger "charger"}
+                {foresight "foresight1"}
+				{basic}
+			    ("abm_medium")
+				
+			}
+		    {place "mgun"
+				{type "mgun_coaxial"}
+				{weapon "mg34" filled}	
+			    ("abm_mgun")
+			    {foresight "foresight2"}
+			    {charger "gunner"}
+			    {gunner "gunner"}
+			    {basic}
+		    }
+			{place "mgun2"
+				{type "mgun_hull"}
+				{weapon "mg34" filled}
+                {gunner "gunner2"}
+                {charger "gunner2"}
+				{foresight "foresight3"}
+                ("abm_mgun")
+				{basic}
+			}
+	    }
+
+	{mass 31500}
+	{Chassis
+        ("tank_trace" fx("tracks_big") step(0.47) len(2.45))
+		("mobility"
+			speed(40)
+			weight(31.5)
+			power(600)
+			fuel(450)		
+		)
+	}
+	
+	{Extension "vk3601h1v1.mdl"}
+	
+	{bone "turret"
+		{speed2 5} 
+	}	
+	
+	{bone "mantlet"
+		{speed2 5} 
+	}	
+	
+}
+
+

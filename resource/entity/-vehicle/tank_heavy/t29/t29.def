@@ -1,0 +1,227 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.heavy"}
+	{props "tank" "h_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large2"}
+		
+	{extender "enumerator"}
+	
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 76}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 76}
+	}
+	{Volume "engine1"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 76}
+	}
+	{Volume "engine2"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 76}
+	}
+	{Volume "gun"
+	}
+	{Volume "mantlet"
+		{thickness 203}
+	}
+	{Volume "trackleft"
+	}
+	{Volume "trackright"
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 76}
+	}
+	{Volume "uho"
+		{thickness 10}
+	}
+	
+	("armor_heavy" turret(178 127 102 38) body(102 76 50 38) body2(70 76 50 38) body3(70 76 50 38))
+	("armor_engine"  t(38 38 38 38))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(203))
+
+	{armor
+		; correction to make T-29 vulnerable to dynamite
+		{setting "body"
+            {durability
+                {blast
+                    {koef 4000}
+                }
+                {pierce
+                    {koef 4000}
+                }
+            }
+            {threshold
+                {blast
+                    {koef  3}
+                }
+            }
+        }
+        {setting "body2"
+            {durability
+                {blast
+                    {koef 4000}
+                }
+                {pierce
+                    {koef 4000}
+                }
+            }
+            {threshold
+                {blast
+                    {koef  3}
+                }
+            }
+        }
+    }
+
+	("crew_5_human")
+	
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit7)  animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit8)  animation(armor1))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+    {sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}		
+
+	{extender "inventory"
+		{weapon "mgun" {mask clear}}
+		{weapon "mgun1"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo mgun" 2220}
+			{item "ammo hmgun" 2200}
+			{item "ammo bullet105usa ap" 40}
+			{item "ammo bullet105usa fg" 23}
+			{item "ammo bullet105usa apcr" 3}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "105mm_t5e2" filling "ammo bullet105usa ap" 1}
+			("abm_high")
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{weapon "browning" filled}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			{LinkBone "mgun_rot"}
+;			{LinkAnimation "off"}
+;			("abm_mgun_heavy")
+;		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "browning_m19" filled}			
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "browning_x2" filled}
+			{Barrels 2}
+			{foresight "foresight5"}
+			("abm_mgun_heavy")
+			{basic}
+		}
+	}
+	
+	{mass 65000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.56))
+		("mobility"
+			speed(35)
+			weight(65.0)
+			power(810)
+			fuel(1050)		
+		)
+	}
+
+	{Extension "t29.mdl"}
+	
+	{bone "mgun_rot"
+		{limits -9 40}
+                {speed 0.06}
+	}
+	{bone "gun_rot"
+		{limits -15 10}
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 20} 
+	}	
+}

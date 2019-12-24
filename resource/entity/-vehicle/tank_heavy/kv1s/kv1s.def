@@ -1,0 +1,172 @@
+ ;Model created by: Djakon
+{Entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "l_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_medium"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}	
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	("armor_heavy_shit" turret(82 75 75 30) body(75 60 40 30))
+	("armor_mantlet" t(82))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(30 30 30 30))
+
+	{extender "enumerator"}
+
+	("crew_5_human_extended")
+	("crew_human" place(gunner) door1(emit1) door2(emit2) visor(back))
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_kv2_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Kv-85"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Kv-85"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit7)  animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit8)  animation(armor1))
+	("seat_human" place(seat7) bone(seat07) door(emit9)  animation(armor))
+	("seat_human" place(seat8) bone(seat08) door(emit10)  animation(armor1))
+	("seat_human" place(seat9) bone(seat09) door(emit11)  animation(armor))
+	
+	{sensor
+		{visor "back"
+			{vision "tank_back"}
+			{bone "Foresight4"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}	
+
+	{extender "inventory"
+		{weapon "mgun" {mask clear}}
+		{weapon "mgun1"
+			{mask "weapon mgun"}
+		}
+		{box
+            {item "ammo bullet76rus ap" 40}
+			{item "ammo bullet76rus fg" 50}
+;			{item "ammo bullet76rus apcr" 2}
+			{item  "ammo mgun" 3276}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")	
+		{place "gun"
+			{RestoreIKAfterAim}		
+			{weapon "76mm_f34" filling "ammo bullet76rus ap" 1}
+            ("abm_medium")
+		}
+		{place "mgun3"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight6"}
+			{gunner "driver"}
+			{charger "driver"}
+            ("abm_mgun")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{foresight "foresight5"}
+			{gunner "gunner"}
+			{charger "charger"}
+            ("abm_mgun")
+			{basic}
+		}
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "dt" filled}			
+			{foresight "foresight4"}
+			{gunner "charger"}
+			{charger "charger"}
+            ("abm_mgun")
+		}
+
+	}
+
+	{mass 42500}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.183))
+		("mobility"
+			speed(42)
+			weight(42.5)
+			power(600)
+			fuel(600)		
+		)
+	}
+	
+	{Extension "kv1s.mdl"}
+
+	{bone "gun_rot"
+		{speed2 5}
+		{limits -20 5}
+	}
+	{bone "turret"
+		{speed2 12} 
+	}
+	{bone "coaxial_mgun"
+		{limits 0}	;для кости типа socket нужен 1 параметр
+	}
+}

@@ -1,0 +1,186 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "l_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_medium"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body2"}
+		{component "body2"}
+	}
+	{volume "body3"
+		{tags "body3"}
+		{component "body3"}
+	}
+	{volume "turret1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret3"
+		{tags "turret"}
+		{component "turret"}
+	}	
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+	
+	("armor_heavy_shit" turret(100 90 60 40) body(75 60 40 40) body2(75 60 40 75) body3(75 60 40 40))
+	("armor_engine"  t(40 40 40 40))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(100))
+
+	{extender "enumerator"}
+
+	{sensor
+		{visor "back"
+			{vision "tank_back"}
+			{bone "Foresight4"}
+        }
+        {visor "main"
+            {vision "tank_main-h"}
+        }
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+
+	}
+	("crew_4_human")
+	{placer 
+		{place "commander" {visor "back"}}
+	}
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv-85"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Kv-85"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit7)  animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit8)  animation(armor1))
+	("seat_human" place(seat7) bone(seat07) door(emit9)  animation(armor))
+	("seat_human" place(seat8) bone(seat08) door(emit10)  animation(armor1))
+	("seat_human" place(seat9) bone(seat09) door(emit11)  animation(armor))
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet85rus ap" 30}
+			{item "ammo bullet85rus fg" 40}
+			{item "ammo bullet85rus apcr" 2}
+            {item "ammo mgun" 3276}
+		}
+	}
+	{sensor
+		{visor "back"
+			{vision "tank_back"}
+			{bone "foresight4"}
+		}
+        {visor "main"
+            {vision "tank_main-m"}
+        }
+    }
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "85mm_d5t" filling "ammo bullet85rus ap" 1}
+			("abm_high")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{foresight "foresight5"}
+			{charger "commander"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun3"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight6"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}	
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "dt" filled}
+			{foresight "foresight4"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 46000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.183))
+		("mobility"
+			speed(42)
+			weight(46.0)
+			power(600)
+			fuel(600)		
+		)
+	}
+
+	{Extension "kv-85.mdl"}
+	{bone "turret"
+		{speed2 8} 
+	}
+	
+}

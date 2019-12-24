@@ -1,0 +1,128 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.sheavy"}
+	{props "tank" "sheavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_medium"}
+
+	{extender "enumerator"}
+
+	
+	("armor_heavy1_shit" turret(114 76 53 25) body(76 76 51 25))
+	("armor_engine"  t(25 25 25 25))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(114))
+
+	("shield" args 8)
+	{extender "shield"
+		{on}
+	}
+
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+
+	
+	("crew_5_human")
+	
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))	
+
+		{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_lowArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+    {sensor
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_21"
+			{vision "tank_pr"}
+			{bone "visor112"}
+		}	
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet77eng ap" 100}
+			{item "ammo bullet77eng fg" 44}
+			{item "ammo mgun" 7500}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "77mm_qf17" filling "ammo bullet77eng ap" 1}	
+			("abm_high")
+		}
+
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "besa" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "besa" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+{Extension "tog2.mdl"}
+
+	{mass 83000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.4) len(1.825))
+		("mobility" 
+			speed(14) 
+			weight(83)			
+			power(600)
+			fuel(757)
+		)
+		
+	}
+	
+	{bone "turret"
+		{speed2 14} 
+        }	
+	{bone "gun_rot"
+		{limits -15 4}
+		{speed2 5}
+
+	}
+
+}
+

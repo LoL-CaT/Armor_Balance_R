@@ -1,0 +1,60 @@
+;Exported by: Administrator
+;Date:        Fri Aug 09 10:31:22 2013
+;File:        C:\Documents and Settings\Administrator\Desktop\tanky\t8 - t28 prototype\t28Prot_xx_mow.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.19685	-0.314961	20.1575}
+			{VolumeView "body.ply"}
+			{bone "turret"
+				{parameters "ID=turret;"}
+				{Position 15.7874	0	12.8543}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -12 6}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						22.2677	0	10.0761
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							0	0	0
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone revolute "enumerator"
+					{parameters "ID=turret;"}
+					{speed 0.003}
+					{Position 0	0	0}
+					{VolumeView "enumerator.ply"}
+				}
+			}
+		}
+		{bone "trackl"
+			{parameters "ID=TrackLeft;"}
+			{Position 0.19685	-0.314961	0.196854}
+			{VolumeView "trackl.ply"}
+		}
+		{bone "trackr"
+			{parameters "ID=TrackRight;"}
+			{Position 0.19685	-0.314961	0.196854}
+			{VolumeView "trackr.ply"}
+		}
+	}
+}

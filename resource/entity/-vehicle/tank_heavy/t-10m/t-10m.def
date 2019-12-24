@@ -1,0 +1,218 @@
+; jonvigo
+
+;==================================================================================================
+	
+{Entity
+
+	(include "/properties/tank.ext")
+	(include "/properties/tank1.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.heavy"}
+	{props "tank" "heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+	
+	{volume "body"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "spa"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 120}
+	}
+	{volume "spa2"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 120}
+	}	
+	{volume "spa3"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 120}
+	}
+	{volume "spa4"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 120}
+	}
+	{volume "spa5"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 120}
+	}
+	{volume "spa6"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 120}
+	}	
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+	}	
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{volume "turret2"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{volume "turret3"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{volume "turret4"
+		{component "turret"}
+		{tags "turret"}
+	}	
+	
+;==================================================================================================	
+	
+    ("armor_heavy_shit" turret(250 150 50 250) body(120 80 60 120) body2(120 80 60 120))
+    ("armor_engine"  t(30 30 30 30))
+	("wheels_armor" args 5)	
+    ("armor_mantlet" t(250))
+
+;==================================================================================================
+
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(commander))
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(commander))
+	
+	;("crew_human_visible" place(gunner2)		door1(emit1) door2(emit2) visor(commander))
+	;("crew_human_spg" place(driver2) )
+	;("crew_human_spg" place(driver1) )	
+;==================================================================================================	
+	
+	{boarder
+		{anm "commander"
+			{forward	{begin	"board_tank_left"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_tank_left"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		
+		{anm "charger"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "charger2"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "driver"
+			{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+	
+    {sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}	
+	
+;==================================================================================================
+	{extender "inventory"
+		{box
+			{item "ammo bullet122rus2 ap" 20}
+			{item "ammo bullet122rus2 fg" 10}
+			{item "ammo hmgun" 1000}
+		}
+	}
+
+	{Weaponry		
+                ("restore_ik_time")		
+		{place "gun"
+                        {RestoreIKAfterAim}
+			{weapon "122mm_M62T2" filling "ammo bullet122rus2 ap" 1}	
+			("abm_high")	
+		}
+		{place "mgun2"			
+			{type "mgun_coaxial"}
+			{weapon "kpv" filled}
+			{foresight "foresight5"}
+			{gunner "charger"}
+			{charger "charger"}
+			("abm_mgun_heavy")
+			{basic}
+		}
+	}
+
+	{mass 51000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.4) len(1.825))
+		("mobility" 
+			speed(50) 
+			weight(51)	
+			power(750)
+			fuel(940)
+		)
+		
+	}
+	{texmod ""}
+	{Extension "t-10m.mdl"}
+	{bone "turret"
+		{speed2 12} 
+	
+	}
+	{bone "gun_rot"
+		{limits -4 15}
+		{speed2 5} 
+	}
+	{volume "spa5"
+		{component "spa2"}
+	}
+	{volume "spa6"
+		{component "spa2"}
+	}
+}

@@ -1,0 +1,217 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.sheavy"}
+	{props "tank" "sheavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_maximum"}
+
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "side_shield1"
+		{thickness 35}
+	}
+	{Volume "side_shield2"
+		{thickness 35}
+	}
+	{Volume "side_shield3"
+		{thickness 35}
+	}
+	{Volume "side_shield4"
+		{thickness 35}
+	}
+	("armor_sheavy_shit_true" turret(100 150 100 100) body(100 150 100 100));turret(top, front&rear, right, left) body(top, front&rear, right&right lower, left&left lower&bottom)
+	("armor_mantlet" t(250))
+	("armor_engine"  t(80 80 80 80))
+	("wheels_armor" args 5)	
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_sherman_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_sherman_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("crew_8_human")
+
+	{sensor
+		{visor "mgun"
+			{vision "tank_back"}
+			{bone "foresight3"}
+		}
+		{visor "mgun2"
+			{vision "tank_back"}
+			{bone "foresight4"}
+		}
+		{visor "mgun4"
+			{vision "tank_back"}
+			{bone "foresight8"}
+		}
+		{visor "mgun5"
+			{vision "tank_back"}
+			{bone "foresight9"}
+		}
+		{visor "gun2"
+			{vision "tank_main-l"}
+			{bone "foresight11"}
+		}
+	    {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	    {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	    {visor "tur2_14"
+			{vision "tank_pr"}
+			{bone "visor114"}
+		}
+	    {visor "tur2_18"
+			{vision "tank_pr"}
+			{bone "visor118"}
+		}		
+	        {visor "tur2_10000"
+			{vision "tank_pr"}
+			{bone "visor110000"}
+		}
+	        {visor "tur2_20000"
+			{vision "tank_pr"}
+			{bone "visor120000"}
+		}
+	        {visor "tur2_30000"
+			{vision "tank_pr"}
+			{bone "visor130000"}
+		}
+	        {visor "tur2_40000"
+			{vision "tank_pr"}
+			{bone "visor140000"}
+		}
+	        {visor "tur2_50000"
+			{vision "tank_pr"}
+			{bone "visor150000"}
+		}
+	        {visor "tur2_60000"
+			{vision "tank_pr"}
+			{bone "visor160000"}
+		}
+	        {visor "tur2_70000"
+			{vision "tank_pr"}
+			{bone "visor170000"}
+		}
+	        {visor "tur2_80000"
+			{vision "tank_pr"}
+			{bone "visor180000"}
+		}		
+	}
+
+	{extender "inventory"
+		{box
+;			{item "ammo bullet150 ap" 25}
+			{item "ammo bullet150 fg" 60}
+			{item "ammo bullet57j ap" 200}
+			{item "ammo bullet57j fg" 100}
+;			{item "ammo bullet57j apcr" 4}
+			{item "ammo hmgun" 6000}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "150mm_type96_t" filling "bullet150 fg" 1}
+			{gunner "gunner"}
+			{charger "charger" "charger2"}
+			("abm_high")			
+        }
+		{place "gun2"
+			{type "secondary_main"}
+			{weapon "57mm_typeB_43" filling "bullet57j ap" 1}
+			{foresight "foresight11"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			("abm_medium")			
+			{basic}
+		}
+		{place "mgun"
+			{type "mgun_hull"}
+			{weapon "type93hmg" filled}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			("abm_mgun_heavy")		
+			{basic}
+		}
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "type93hmg_x2" filled}
+			{foresight "foresight4"}
+			{gunner "gunner5"}
+			{charger "gunner5"}
+			{Barrels 2}			
+			("abm_mgun_heavy")
+		}
+		{place "mgun4"
+			{type "mgun_rear"}
+			{weapon "type93hmg" filled}
+			{foresight "foresight8"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun_heavy")
+		}
+		{place "mgun5"
+			{type "mgun_rear"}
+			{weapon "type93hmg" filled}
+			{foresight "foresight9"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun_heavy")
+		}
+	}
+
+	{mass 250000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.47) len(2.21))
+		("mobility"
+			speed(35)
+			weight(150.0)
+			power(1100)
+			fuel(1200)		
+		)
+	}
+	
+	{Extension "120t_vtype_nva.mdl"}
+	
+	{bone "turret"	
+		{speed2 7}
+	}	
+	{bone "turret1"
+	    {limits -135 45}
+		{speed2 8}		
+	}	
+	{bone "turret2"
+	    {limits -165 45}
+		{speed2 8}		
+	}	
+	{bone "turret3"
+		{limits 135 -135}
+		{speed2 8}		
+	}	
+	{bone "gun_rot"
+	    {limits -40 4}
+		{speed2 6} 
+	}
+	
+}

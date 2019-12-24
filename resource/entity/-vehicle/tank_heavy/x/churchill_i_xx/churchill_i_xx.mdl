@@ -1,0 +1,148 @@
+;Exported by: vlss.com
+;Date:        Sun Feb 26 15:41:52 2012
+;File:        churchill_i.obj
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Matrix34
+				0.998623	0.0491035	0.0184907
+				-0.0486265	0.998494	-0.0254183
+				-0.019711	0.0244842	0.999506
+				-0.377238	0.873796	7.85367
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{Matrix34
+					0.912073	-0.409972	0.00681872
+					0.406894	0.907028	0.10834
+					-0.0506011	-0.0960395	0.99409
+					-8.06135	-0.833052	23.5512
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{Matrix34
+						0.941766	-0.157401	-0.297157
+						-0.244428	0.286458	-0.926389
+						0.230937	0.945075	0.231303
+						14.0662	-0.089721	7.42074
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							3.94308	0.353195	0.15999
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+		}
+		{bone "chassis_rshape_split_0"
+			{Position -10.4814	-22.4897	10.1463}
+			{bone "trackr"
+				{parameters "ID=trackright;"}
+				{Position 0.689956	0.993557	5.98431}
+				{VolumeView "trackr.ply"}
+			}
+			{bone "trackright"
+				{Position 0.689956	0.993557	5.98435}
+			}
+		}
+		{bone "chassis_lshape_split_0"
+			{Position -10.9683	22.0985	9.71369}
+			{bone "trackl"
+				{parameters "ID=trackleft;"}
+				{Position 1.17691	-0.634838	6.4169}
+				{VolumeView "trackl.ply"}
+			}
+			{bone "trackleft"
+				{Position 1.17695	-0.634762	6.4169}
+			}
+		}
+	}
+}
+{Volume "baffle1"
+	{Polyhedron "baffle1.vol"}
+	{Bone "body"}
+	{Position 0	0.324749	0}
+}
+{Volume "baffle2"
+	{Polyhedron "baffle2.vol"}
+	{Bone "body"}
+	{Position -1.06543e-005	-42.8668	0}
+}
+{Volume "baffle3"
+	{Polyhedron "baffle3.vol"}
+	{Bone "body"}
+}
+{Volume "baffle4"
+	{Polyhedron "baffle4.vol"}
+	{Bone "body"}
+}
+{Volume "baffle5"
+	{Polyhedron "baffle5.vol"}
+	{Bone "body"}
+}
+{Volume "baffle6"
+	{Polyhedron "baffle6.vol"}
+	{Bone "body"}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Position 0	0.324749	0}
+}
+{Volume "body3"
+	{Polyhedron "body3.vol"}
+	{Bone "body"}
+	{Position -1.06543e-005	-42.8668	0}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+}
+{Volume "gun"
+	{Polyhedron "gun.vol"}
+	{Bone "gun"}
+	{Position 0.951241	-0.00462341	-0.0156631}
+}
+{Volume "turret1"
+	{Polyhedron "turret1.vol"}
+	{Bone "turret"}
+	{Position 0	0	0}
+}
+{Volume "turret2"
+	{Polyhedron "turret2.vol"}
+	{Bone "turret"}
+	{Position 0	0	0}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position 0	0	0}
+}
+{Volume "trackleft"
+	{Polyhedron "trackleft.vol"}
+	{Bone "chassis_lshape_split_0"}
+	{Position 1.17695	-0.634762	6.4169}
+}
+{Volume "trackright"
+	{Polyhedron "trackright.vol"}
+	{Bone "chassis_rshape_split_0"}
+	{Position 0.689956	0.993557	5.98435}
+}

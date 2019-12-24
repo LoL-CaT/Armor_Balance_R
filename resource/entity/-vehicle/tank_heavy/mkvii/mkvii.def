@@ -1,0 +1,220 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.medium"}
+	{props "tank" "l_heavy" "turret_rotator" "vision_vehicle_high" "muzzle_medium"}
+
+	{extender "enumerator"}
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body1"
+		{tags "body1"}
+		{component "body1"}
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "trackleft"
+		{tags "trackleft"}
+		{component "trackleft"}
+	}
+	{Volume "trackright"
+		{tags "trackright"}
+		{component "trackright"}
+	}
+	{Volume "turret_mgun"
+		{tags "turret_mgun"}
+		{component "turret_mgun"}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+
+
+
+	("armor_heavy_shit" turret(165 112 90 37) body(121 51 51 29) body1(121 51 51 29))
+	("armor_engine"  t(29 29 29 29))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(220))
+
+
+	("shield" args 58)
+	{extender "shield"
+		{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldl5" {tags "shield"}}
+	{component "shieldl6" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+	{component "shieldr5" {tags "shield"}}
+	{component "shieldr6" {tags "shield"}}
+
+
+	
+	("crew_3_human")
+
+	{sensor
+		{visor "back"
+			{bone "mgun3"}			
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+;	        {visor "tur2_3"
+;			{vision "tank_pr"}
+;			{bone "visor13"}
+;		}
+;	        {visor "tur2_4"
+;			{vision "tank_pr"}
+;			{bone "visor14"}
+;		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}				
+	}
+
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_jtiger_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+
+
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet83eng ap" 43}
+			{item "ammo bullet83eng fg" 27}
+			{item "ammo bullet83eng apcr" 5}
+;			{item "besa" filled {user "mgun"}}
+;			{item "ammo hmgun" 650}
+			{item "ammo mgun" 2500}
+		}
+	}
+	
+	{Weaponry
+	    ("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "83mm_20pdr" filling "ammo bullet83eng ap" 1}	
+			("abm_high")
+			{basic}
+			
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			{LinkBone "mgun_rot"}
+;			{LinkAnimation "off"}
+;		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "besa" filled}
+			{foresight "foresight5"}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			("abm_mgun")
+			{basic}
+		}
+
+		{place "mgun3"
+			{type "smoke"}		
+			{weapon "6xsmokegun" filled}
+			{foresight "foresight6"}
+		}
+		{place "mgun4"
+			{type "smoke"}		
+			{weapon "6xsmokegun" filled}
+			{foresight "foresight7"}
+		}
+
+	}
+
+
+
+
+	{mass 51500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.50) len(0.63))
+		("mobility"
+			speed(42)
+			weight(51.5)
+			power(650)
+			fuel(550)		
+		)
+	}
+
+	{Extension "mkvii.mdl"}
+	{bone "turret"
+		{limits}
+		{speed2 20}
+	}
+	{bone "gun_rot"
+		{limits -15 7}
+		{speed2 5}
+	}
+}

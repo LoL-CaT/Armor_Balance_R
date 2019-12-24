@@ -1,0 +1,96 @@
+;SDL
+{boarder
+	{anm "left"
+		{forward	{begin	"board_kv"}}
+		{reverse 	{end	"emit_tank_1_hold"}}
+	}
+	{anm "right"
+		{forward	{begin	"board_kv"} {end "pose_gunner_isu"}}
+		{reverse 	{end	"emit_tank_2_hold"}}
+	}
+	{anm "armor"
+		{forward	{begin	"board_body"} 	{end "seat_isu"}}
+		{reverse 	{end	"emit_tank_2"}}
+	}
+	{anm "armor1"
+		{forward	{begin	"board_body"} {end "seat_isu1"}}
+		{reverse 	{end	"emit_body"}}
+	}
+	{anm "armor2"
+		{forward	{begin	"board_body"} {end "seat_isu2"}}
+		{reverse 	{end	"emit_body"}}
+	}
+	{anm "armor3"
+		{forward	{begin	"board_body"} {end "seat_isu3"}}
+		{reverse 	{end	"emit_body"}}
+	}
+}
+
+{placer
+	{place "driver" {group "crew"} {visor "driver"}}
+}
+{boarder
+	{door "emit1"}
+	{door "emit2"}
+	{link "emit1" "driver" {anm "left"} {forward putoff} {reverse puton}}
+	{link "emit2" "driver" {anm "right"} {forward putoff} {reverse puton}}
+}
+
+{placer
+	{place "commander" {group "crew"} {visor "main"}}
+}
+{boarder
+	{door "emit1"}
+	{door "emit2"}
+	{link "emit1" "commander" {anm "left"} {forward putoff} {reverse puton}}
+	{link "emit2" "commander" {anm "right"} {forward putoff} {reverse puton}}
+}
+
+{placer
+	{place "gunner" {group "crew"} {visor "main"}}
+}
+{boarder
+	{door "emit1"}
+	{door "emit2"}
+	{link "emit1" "gunner" {anm "left"} {forward putoff} {reverse puton}}
+	{link "emit2" "gunner" {anm "right"} {forward putoff} {reverse puton}}
+}
+
+{placer
+	{place "charger" {group "crew"} {visor "main"}}
+}
+{boarder
+	{door "emit1"}
+	{door "emit2"}
+	{link "emit1" "charger" {anm "left"} {forward putoff} {reverse puton}}
+	{link "emit2" "charger" {anm "right"} {forward putoff} {reverse puton}}
+}
+
+;{placer
+;	{place "gunner2" {group "crew"} {visor "top"}}
+;}
+;{boarder
+;	{door "emit1"}
+;	{door "emit2"}
+;	{link "emit1" "gunner2" {anm "left"} {forward putoff} {reverse puton}}
+;	{link "emit2" "gunner2" {anm "right"} {forward putoff} {reverse puton}}
+;}
+
+(define "seat_human"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor2))
+("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor3))
+  
+
+
+

@@ -1,0 +1,136 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.heavy"}
+	{props "tank" "h_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large2"}
+	
+	{Volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{Volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+	}
+	
+	{extender "enumerator"}
+
+	("armor_heavy_shit" turret(229 89 208 28) body(191 66 51 28))
+	("armor_engine"  t(28 28 28 28))		
+	("armor_mantlet" t(229))
+	("wheels_armor" args 5)
+	
+	("crew_5_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	{sensor
+	    {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	        {visor "tur2_14"
+			{vision "tank_pr"}
+			{bone "visor114"}
+		}	
+	        {visor "tur2_18"
+			{vision "tank_pr"}
+			{bone "visor118"}
+		}		
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 2220}
+			{item "ammo hmgun" 2200}
+			{item "ammo bullet105usa ap" 40}
+			{item "ammo bullet105usa fg" 23}
+			{item "ammo bullet105usa apcr" 3}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "105mm_t5e2" filling "ammo bullet105usa ap" 1}
+			("abm_high")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "browning" filled}
+			{foresight "foresight5"}
+			("abm_mgun_heavy")
+			{basic}
+		}
+	}
+
+	{mass 75000}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.85))
+		("mobility"
+			speed(32)
+			weight(75)
+			power(700)
+			fuel(950)		
+		)
+	}
+	
+	{Extension "m6a2e1.mdl"}
+	
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 13} 
+	}	
+
+}

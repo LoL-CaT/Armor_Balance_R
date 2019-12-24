@@ -1,0 +1,106 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	
+	{collider "tank.medium"}
+	{props "medium" "-turret" "opened" "vision_vehicle_high" "muzzle_large"}
+	
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_spa_medium" armor(50 30 20 15))
+	("armor_engine"  t(15 15 15 15))	
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(10))
+
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "pose_pak40_gunlayer" 10}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_pak40_charger" 10}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human_visible" place(commander)	door1(emit1) visor(main))
+	("crew_human" 	      place(commander2)	door1(emit1) visor(driver))
+	("crew_human_visible" place(gunner)	door1(emit2) visor(main))
+	("crew_human_visible" place(charger) 	door1(emit0) visor(main))
+
+	{extender "inventory"
+		{box
+				{item "ammo bullet128ger fg" 6}
+				{item "ammo bullet128ger ap" 9}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "128mm_L61" filling "bullet128ger ap"}
+            ("abm_high")
+		}
+	}
+	
+	{mass 35000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.4) len(2))
+		("mobility"
+			speed(25)
+			weight(35.0)
+			power(300)
+			fuel(550)		
+		)
+	}
+	
+	{Extension "pzsfl5.mdl"}
+	
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}
+}

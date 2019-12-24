@@ -1,0 +1,99 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "h_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+
+	{extender "enumerator"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+    ("armor_heavy_shit" turret(178 89 51 44) body(130 57 51 18) body1(130 57 51 18))
+    ("armor_engine"  t(18 18 18 18))
+	("wheels_armor" args 5)	
+    ("armor_mantlet" t(200))
+
+	("shield" args 8)
+	{extender "shield"
+		{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldR1" {tags "shield"}}
+	{component "shieldR2" {tags "shield"}}
+	{component "shieldR3" {tags "shield"}}
+	{component "shieldR4" {tags "shield"}}
+
+	("crew_4_human_extended")
+
+	{boarder
+
+		{anm "driver"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"} {base "open_driver"}}
+			{reverse 	{end	"board_Is-2" -1} {base "open_driver" -1}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Kv-85"} {end "pose_gunner_isu"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Is-2"} {end "pose_gunner_isu"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	{extender "inventory"
+		{box			
+			{item "ammo bullet83eng ap" 45}
+			{item "ammo bullet83eng fg" 25}			
+			{item "ammo bullet83eng apcr" 10}
+			{item "ammo mgun" 7500}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "83mm_20pdr" filling "ammo bullet83eng ap" 1}
+			("abm_high")
+		}
+		{place "mgun"
+           		{type "mgun_coaxial"}
+			{weapon "browning_m19" filled}
+			{foresight "foresight3"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 66000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.4) len(1.825))
+		("mobility" 
+			speed(34) 
+			weight(66)			
+			power(810)
+			fuel(1005)
+		)
+		
+	}
+
+	{Extension "caernarvon.mdl"}
+}

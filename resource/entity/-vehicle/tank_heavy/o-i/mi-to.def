@@ -1,0 +1,306 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.sheavy"}
+	{props "tank" "sheavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_maximum"}
+	
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+
+	("armor_sheavy_shit_true" turret(100 75 75 50) body(100 75 75 50))
+	("armor_engine"  t(50 50 50 50))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(150))
+
+	{extender "enumerator"}
+
+	("crew_8_human")
+	("crew_human" place(gunner3) door1(emit1) door2(emit2) visor(top))
+	("crew_human" place(gunner4) door1(emit1) door2(emit2) visor(top))
+	{placer 
+		{place "commander" {visor "back"}}
+	}
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv-85"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Kv-85"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	
+	{sensor
+		{visor "back1"
+			{vision "tank_back"}
+			{bone "foresight4"}
+		}
+		{visor "back2"
+			{vision "tank_back"}
+			{bone "foresight5"}
+		}		
+		{visor "tur1"
+			{vision "tank_driver"}
+			{bone "foresight11"}
+		}
+		{visor "tur2"
+			{vision "tank_driver"}
+			{bone "foresight12"}
+		}
+		{visor "vis1"
+			{vision "tank_pr"}
+			{bone "visorL1"}
+		}
+		{visor "vis2"
+			{vision "tank_pr"}
+			{bone "visorR2"}
+		}		
+	    {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	    {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	    {visor "tur2_14"
+			{vision "tank_pr"}
+			{bone "visor114"}
+		}
+	    {visor "tur2_18"
+			{vision "tank_pr"}
+			{bone "visor118"}
+		}	
+	    {visor "tur2_114"
+			{vision "tank_pr"}
+			{bone "visor1114"}
+		}
+	    {visor "tur2_118"
+			{vision "tank_pr"}
+			{bone "visor1118"}
+		}
+	        {visor "tur2_10"
+			{vision "tank_pr"}
+			{bone "visor110"}
+		}
+	        {visor "tur2_20"
+			{vision "tank_pr"}
+			{bone "visor120"}
+		}
+	        {visor "tur2_30"
+			{vision "tank_pr"}
+			{bone "visor130"}
+		}
+	        {visor "tur2_40"
+			{vision "tank_pr"}
+			{bone "visor140"}
+		}
+	        {visor "tur2_50"
+			{vision "tank_pr"}
+			{bone "visor150"}
+		}
+	        {visor "tur2_60"
+			{vision "tank_pr"}
+			{bone "visor160"}
+		}
+	        {visor "tur2_70"
+			{vision "tank_pr"}
+			{bone "visor170"}
+		}
+	        {visor "tur2_80"
+			{vision "tank_pr"}
+			{bone "visor180"}
+		}
+	        {visor "tur2_100"
+			{vision "tank_pr"}
+			{bone "visor1100"}
+		}
+	        {visor "tur2_200"
+			{vision "tank_pr"}
+			{bone "visor1200"}
+		}
+	        {visor "tur2_300"
+			{vision "tank_pr"}
+			{bone "visor1300"}
+		}
+	        {visor "tur2_400"
+			{vision "tank_pr"}
+			{bone "visor1400"}
+		}
+	        {visor "tur2_500"
+			{vision "tank_pr"}
+			{bone "visor1500"}
+		}
+	        {visor "tur2_600"
+			{vision "tank_pr"}
+			{bone "visor1600"}
+		}
+	        {visor "tur2_700"
+			{vision "tank_pr"}
+			{bone "visor1700"}
+		}
+	        {visor "tur2_800"
+			{vision "tank_pr"}
+			{bone "visor1800"}
+		}
+	        {visor "tur2_1000"
+			{vision "tank_pr"}
+			{bone "visor11000"}
+		}
+	        {visor "tur2_2000"
+			{vision "tank_pr"}
+			{bone "visor12000"}
+		}
+	        {visor "tur2_3000"
+			{vision "tank_pr"}
+			{bone "visor13000"}
+		}
+	        {visor "tur2_4000"
+			{vision "tank_pr"}
+			{bone "visor14000"}
+		}
+	        {visor "tur2_5000"
+			{vision "tank_pr"}
+			{bone "visor15000"}
+		}
+	        {visor "tur2_6000"
+			{vision "tank_pr"}
+			{bone "visor16000"}
+		}
+	        {visor "tur2_7000"
+			{vision "tank_pr"}
+			{bone "visor17000"}
+		}
+	        {visor "tur2_8000"
+			{vision "tank_pr"}
+			{bone "visor18000"}
+		}
+	        {visor "tur2_10000"
+			{vision "tank_pr"}
+			{bone "visor110000"}
+		}
+	        {visor "tur2_20000"
+			{vision "tank_pr"}
+			{bone "visor120000"}
+		}
+	        {visor "tur2_30000"
+			{vision "tank_pr"}
+			{bone "visor130000"}
+		}
+	        {visor "tur2_40000"
+			{vision "tank_pr"}
+			{bone "visor140000"}
+		}
+	        {visor "tur2_50000"
+			{vision "tank_pr"}
+			{bone "visor150000"}
+		}
+	        {visor "tur2_60000"
+			{vision "tank_pr"}
+			{bone "visor160000"}
+		}
+	        {visor "tur2_70000"
+			{vision "tank_pr"}
+			{bone "visor170000"}
+		}
+	        {visor "tur2_80000"
+			{vision "tank_pr"}
+			{bone "visor180000"}
+		}		
+	}
+
+	{extender "inventory"
+		{box
+ ;           {item "ammo bullet150 ap" 20}
+            {item "ammo bullet150 fg" 50}
+	        {item "ammo bullet47 ap" 200}
+	        {item "ammo bullet47 fg" 100}
+            {item  "ammo hmgun" 6000}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "150mm_type4_t" filling "ammo bullet150 fg" 1}		
+            ("abm_high")
+		}
+		{place "gun2"
+			{type "secondary_main"}
+			{Weapon "47mm_type1" filling "ammo bullet47 ap" 1}
+			{foresight "foresight11"}
+			{gunner "driver"}
+			{charger "driver"}
+;			{LinkBone "hull_gun"}
+			("abm_medium")
+			{basic}
+		}
+		{place "gun3"
+			{type "secondary_main"}
+			{Weapon "47mm_type1" filling "ammo bullet47 ap" 1}
+			{foresight "foresight12"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+;			{LinkBone "hull_gun"}
+			("abm_medium")
+			{basic}			
+		}
+		{place "mgun2"
+			{type "mgun_hull"}
+			{weapon "type93hmg" filled}
+			{foresight "foresight5"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			("abm_mgun_heavy")
+		}
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "type93hmg" filled}
+			{foresight "foresight4"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			("abm_mgun_heavy")
+		}
+
+	}
+	
+	{mass 150000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.183))
+		("mobility"
+			speed(35)
+			weight(150.0)
+			power(1100)
+			fuel(1200)		
+		)
+	}
+	
+	{Extension "o-i.mdl"}
+	
+	{bone "turret"
+		{speed2 6} 
+	}
+	{bone "gun_rot"
+		{limits -15 45}
+		{speed2 5} 
+	}	
+
+}
+

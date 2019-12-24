@@ -1,0 +1,169 @@
+{Entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "l_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "engine"
+		{thickness 90}
+	}
+	
+    ("armor_heavy_shit" turret(100 100 100 30) body(120 90 75 30) body2(120 90 75 30) body3(60 90 75 30))
+    ("armor_engine"  t(30 30 30 30))
+    ("armor_mantlet" t(100))
+
+
+	{extender "enumerator"}
+
+	{sensor
+		{visor "back"
+			{vision "tank_back"}
+			{bone "foresight4"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}			
+	}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv-85"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("crew_4_human")
+	{placer 
+		{place "commander" {visor "back"}}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+	{extender "inventory"
+		{weapon "mgun" {mask clear}}
+		{weapon "mgun1"
+			{mask "weapon mgun"}
+		}
+		{box
+			{size 9 12}			  
+			{item "ammo bullet122rus ap" 12}
+            {item "ammo bullet122rus fg" 18}
+			{item "ammo bullet122rus apcr" 1}
+			{item "ammo bullet122rus heat" 1}
+			{item "ammo hmgun" 945}
+			{item "ammo mgun" 2330}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "122mm_d2_5t" filling "ammo bullet122rus ap" 1}	
+			("abm_high")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun3"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight6"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "dt" filled}			
+			{foresight "foresight4"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 46000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.23))
+		("mobility"
+			speed(37)
+			weight(46.0)
+			power(520)
+			fuel(520)		
+		)
+	}
+	
+	{Extension "is2.mdl"}
+
+	{bone "turret"
+		{speed2 13} 
+	}
+	{bone "turret_mgun"
+		{speed 0.07}
+	}
+	{bone "gun_rot"
+		{limits -3 20}
+		{speed2 5}
+	}
+}

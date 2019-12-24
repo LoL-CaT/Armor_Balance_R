@@ -1,0 +1,129 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+
+	{extender "enumerator"}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "mantlet"
+		{tags "mantlet"}
+		{component "mantlet"}
+	}	
+	{volume "engine"
+		{thickness 20}
+	}
+	
+    ("armor_sheavy_shit_true" turret(249 172 100 20) body(110 90 60 20) body2(110 90 60 20))
+	("armor_engine"  t(20 20 20 20))
+	("wheels_armor" args 5)	
+    ("armor_mantlet" t(249))
+
+	("crew_3_human_extended")
+
+	{boarder
+
+		{anm "driver"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"} {base "open_driver"}}
+			{reverse 	{end	"board_Is-2" -1} {base "open_driver" -1}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Kv-85"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))
+
+;("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+;("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+;("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+;("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+	{extender "inventory"
+		{box
+			{size 9 12}			
+			{item "ammo bullet122rus ap" 12}
+			{item "ammo bullet122rus fg" 16}
+			{item "ammo bullet122rus apcr" 1}
+			{item "ammo bullet122rus heat" 1}
+;			{item "ammo hmgun" 300}
+			{item "ammo mgun" 2000}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "122mm_d25_45" filling "ammo bullet122rus ap" 1}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_high")
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{weapon "dshk" filled}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			{LinkBone "mgun_rot"}
+;			{LinkAnimation "off"}
+;			("abm_mgun_heavy")
+;		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{gunner "gunner2"}
+			{charger "gunner2"}			
+			{foresight "foresight5"}
+			("abm_mgun")
+            {basic}
+		}
+	}
+
+	{mass 50000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.23))
+		("mobility"
+			speed(38)
+			weight(50.0)
+			power(520)
+			fuel(520)		
+		)
+	}
+	
+	{Extension "is3.mdl"}
+
+	{bone "gun_rot" 
+		{limits -2 19}
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 12}
+	}
+}

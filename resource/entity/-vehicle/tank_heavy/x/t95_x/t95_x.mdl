@@ -1,0 +1,60 @@
+;Exported by: Administrator
+;Date:        Wed Mar 05 10:37:04 2014
+;File:        D:\Administrator\Documents\3dsmax\scenes\tank\t95_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "trackr"
+			{parameters "id=trackright;"}
+			{Position 0	-31.3035	0}
+			{VolumeView "trackr.ply"}
+		}
+		{bone "trackl"
+			{parameters "id=trackleft;"}
+			{Position 0	31.3035	0}
+			{VolumeView "trackl.ply"}
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position 0	0	19.685}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{Matrix34
+					1	0	3.11434e-005
+					0	1	0
+					-3.14265e-005	0	1
+					44.7352	0	9.8231
+				}
+				{bone revolute "gun_rot"
+					{parameters "id=spa2;"}
+					{Matrix34
+						1	0	-3.14228e-005
+						3.11546e-005	0	1
+						0	-1	0
+						0	0	0
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Matrix34
+							0	0	-1
+							-1	0	0
+							0	1	0
+							60.125	-0.196003	-0.104068
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "spa"
+				{parameters "id=spa;"}
+				{Position 0	0	0}
+				{VolumeView "spa.ply"}
+			}
+		}
+	}
+}

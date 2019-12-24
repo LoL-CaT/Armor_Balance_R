@@ -1,0 +1,188 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "l_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_medium"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body2"}
+		{component "body2"}
+	}	
+	{volume "body3"
+		{tags "body3"}
+		{component "body3"}
+	}
+	{volume "turret1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	("armor_heavy" turret(95 75 75 40) body(75 75 70 40) body2(75 75 70 75) body3(75 75 70 40))
+	("armor_engine"  t(40 40 40 40))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(90))
+	("shield" args 25)
+
+
+	{extender "enumerator"}
+
+	("crew_4_human_extended")
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_Kv-85"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_highArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit7)  animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit8)  animation(armor1))
+
+	{sensor
+		{visor "back"
+			{vision "tank_back"}
+			{bone "foresight4"}
+		}
+        {visor "main"
+            	{vision "tank_main-h"}
+        }
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+;	        {visor "tur2_2"
+;			{vision "tank_pr"}
+;			{bone "visor12"}
+;		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+;	        {visor "tur2_5"
+;			{vision "tank_pr"}
+;			{bone "visor15"}
+;		}
+;	        {visor "tur2_6"
+;			{vision "tank_pr"}
+;			{bone "visor16"}
+;		}
+;	        {visor "tur2_7"
+;			{vision "tank_pr"}
+;			{bone "visor17"}
+;		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+    }
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet76rus ap" 50}
+			{item "ammo bullet76rus fg" 64}
+;			{item "ammo bullet76rus apcr" 2}
+;			{item "dt" filled {user "mgun"}}
+			{item "ammo mgun" 1890}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "76mm_zis5" filling "ammo bullet76rus ap" 1}	
+			("abm_medium")
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			{LinkBone "mgun_rot"}
+;			{LinkAnimation "off"}
+;			("abm_mgun")
+;		}
+		{place "mgun1"
+			{type "mgun_rear"}
+			{weapon "dt" filled}
+			{foresight "foresight4"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun3"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight6"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 43500}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.183))
+		("mobility"
+			speed(34)
+			weight(43.5)
+			power(600)
+			fuel(600)		
+		)
+	}
+	
+	{Extension "kv1.mdl"}
+	
+
+	{bone "turret"
+		{speed2 10} 
+	}
+	{bone "gun_rot"
+		{limits -6 25}
+		{speed2 5}
+	}
+
+}

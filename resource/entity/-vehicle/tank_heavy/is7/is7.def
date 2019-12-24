@@ -1,0 +1,169 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "tank" "h_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+
+	{extender "enumerator"}
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "engine"
+		{thickness 90}
+	}
+	
+	("armor_heavy1_shit" turret(240 185 94 30)	body(150 100 100 30))
+	("armor_mantlet" t(305))
+	("armor_engine"  t(30 30 30 30))
+	("wheels_armor" args 5)	
+
+	("crew_3_human_extended")
+	("crew_human" 	place(charger3)	door1(emit1) door2(emit2) visor(main))
+	("crew_human" 	place(charger4)	door1(emit1) door2(emit2) visor(main))
+	{boarder
+
+		{anm "driver"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"} {base "open_driver"}}
+			{reverse 	{end	"board_Is-2" -1} {base "open_driver" -1}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Kv-85"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	{sensor
+		{visor "mgun"
+			{vision "tank_back"}
+			{bone "foresight3"}
+		}
+;		{visor "mgun5"
+;			{vision "tank_back"}
+;			{bone "foresight8"}
+;		}
+;		{visor "mgun6"
+;			{vision "tank_back"}
+;			{bone "foresight9"}
+;		}
+	}
+	{extender "inventory"
+		{box
+			{item "ammo bullet130rus ap" 15}
+			{item "ammo bullet130rus fg" 15}		
+			{item "hmgun" "ammo" 400}
+			{item "mgun" "ammo" 2500}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "130mm_s70" filling "ammo bullet130rus ap" 1}
+			{gunner "gunner"}
+			{charger "charger3" "charger4"}			
+			("abm_high")
+		}
+		{place "mgun"
+			{type "mgun_aa"}
+			{weapon "kpv" filled}
+			{foresight "foresight3"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun_heavy")			
+            {basic}
+		}
+		{place "mgun1"
+			{type "mgun_coaxial"}
+			{weapon "kpv" filled}
+			{foresight "foresight4"}
+			{gunner "charger4"}
+			{charger "charger4"}
+			("abm_mgun")
+            {basic}
+			("abm_mgun_heavy")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "sgmtx2" filled}
+			{foresight "foresight5"}
+            {Barrels 2}
+			{gunner "charger4"}
+			{charger "charger4"}
+			("abm_mgun_heavy")
+           	{basic}
+		}
+		{place "mgun3"
+			{type "mgun_hull"}
+			{weapon "sgmt" filled}
+			{foresight "foresight6"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun4"
+			{type "mgun_hull"}
+			{weapon "sgmt" filled}
+			{foresight "foresight8"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun5"
+			{type "mgun_rear"}
+			{weapon "sgmt" filled}
+			{foresight "foresight9"}
+			{gunner "charger3"}
+			{charger "charger3"}
+			("abm_mgun")
+		}
+		{place "mgun6"
+			{type "mgun_rear"}
+			{weapon "sgmt" filled}
+			{foresight "foresight10"} 
+			{gunner "charger3"}
+			{charger "charger3"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 69500}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.52) len(0.183))
+		("mobility"
+			speed(55)
+			weight(69.5)
+			power(1050)
+			fuel(1300)		
+		)
+	}
+	
+	{Extension "is-7.mdl"}
+	{texmod "2"}
+
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 15}
+	}		
+	
+}

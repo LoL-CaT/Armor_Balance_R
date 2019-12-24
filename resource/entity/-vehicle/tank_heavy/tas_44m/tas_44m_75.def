@@ -1,0 +1,145 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.heavy"}
+	{props "tank" "h_medium" "turret_rotator" "vision_vehicle_maximum" "muzzle_medium"}
+
+	{extender "enumerator"
+	{digit_folder "ger"}
+	}
+	
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body2"}
+		{component "body2"}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "engine"
+		{component "engine"}
+;		{thickness 15}
+	}
+	{Volume "gun"
+		{component "gun"}
+		{tags "gun"}
+	}
+	{Volume "mantlet"
+		{component "mantlet"}
+		{tags "mantlet"}
+	}
+	
+
+	("armor_heavy" turret(100 50 50 30) body(75 50 50 30) body2(120 50 50 30))
+	("armor_engine"  t(30 30 30 30))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(120))
+		
+	("crew_4_human_extended")
+	
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))	
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_pz4_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"board_pz4_driver" -1} {base "open_driver" -1}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_isu1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	
+    {sensor
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}		
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}	
+	}	
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet75gerHUI ap" 40}
+;			{item "ammo bullet75gerHUI apcr" 2}
+			{item "ammo bullet75gerHUI fg" 22}
+            {item "ammo mgun" 2350}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "75mm_43m_true" filling "ammo bullet75gerHUI ap" 1}
+			("abm_high")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "gebauer" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "gebauer" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 38000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(1.2))
+		("mobility"
+			speed(45)
+			weight(38.0)
+			power(520)
+			fuel(750)		
+		)
+	}
+	
+	{Extension "tas_44m.mdl"}
+
+	{bone "turret"
+		{speed2 14}
+	}
+	{bone "mantlet"
+		{speed2 5}
+	}	
+	
+}

@@ -1,0 +1,322 @@
+{entity		
+	(include "/properties/tank_multyturret5.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))			
+	{props  "tank" "heavy_t35" "dymopusk" "turret_rotator" "turret2_rotator" "turret3_rotator" "turret4_rotator" "turret5_rotator" "turret"  "turret2" "turret3" "turret4" "turret5" "vision_vehicle_maximum" "muzzle_large"}
+	{collider "tank.heavy"}	
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+	}	
+	{volume "turret5"
+		{tags "turret5"}
+		{component "turret5"}		
+	}
+	{volume "turret4"
+		{tags "turret4"}
+		{component "turret4"}	
+		
+	}	
+	{volume "turret3"
+		{tags "turret3"}
+		{component "turret3"}
+	}
+	{volume "turret2"
+		{tags "turret2"}
+		{component "turret2"}
+	}
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+    {Volume "gun"
+		{component "gun"}
+		{tags "gun"}
+	}
+	{Volume "gun2"
+		{component "gun2"}
+		{tags "gun2"}
+	}
+	{Volume "gun3"
+		{component "gun3"}
+		{tags "gun3"}
+	}	
+	("armor_heavy_M5" body(70 40 40 10) turret(70 43 43 10) turret2(42 43 43 10) turret3(42 43 43 10) turret4(50 43 43 10) turret5(50 43 43 10) SHL1(10) SHR1(10) SHL2(20) SHR2(20) SHR3(10))	
+	("armor_mantlet" t(70))			
+	{extender "shield"
+		{on}
+	}
+	{extender "enumerator"}
+	("crew_10_human")	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit11)  animation(armor2)) 
+	("seat_human" place(seat6) bone(seat06) door(emit12)  animation(armor2))      
+        {boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "close_d35"}}
+			{reverse 	{end	"emit_t34_hold"} {base "open_d35"}}
+		}
+		{anm "gunner3"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open3" -0.5}}
+			{reverse 	{end	"emit_tank_2_hold"}{base "open3" 0.5} }
+		}
+		{anm "gunner4"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open2" -0.5}}
+			{reverse 	{end	"emit_tank_2_hold"}{base "open2" 0.5} }
+		}
+		{anm "gunner5"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open4" -0.5}}
+			{reverse 	{end	"emit_tank_2_hold"}{base "open4" 0.5} }
+		}		
+		{anm "gunner6"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open5" -0.5}}
+			{reverse 	{end	"emit_tank_2_hold"}{base "open5" 0.5} }
+		}
+		{anm "left"
+			{forward	{begin	"board_sherman_left"} {end "pose_mgun_stan"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_sherman_right"} {end "pose_mgun_stan"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}	
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_sherman_left"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}	         
+	{sensor		
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "Visor2"}
+		}
+		{visor "tur2" ; левая пулемётная
+			{vision "tank_main-l"}
+			{bone "foresight6"}
+		}
+		{visor "tur3" ; правая пулемётная
+			{vision "tank_main-l"}
+			{bone "foresight8"}
+		}
+		{visor "tur4"
+			{vision "tank_main-m"}
+			{bone "visor11"}
+		}
+		{visor "tur5"
+			{vision "tank_main-m"}
+			{bone "visor12"}
+		}
+		{visor "main"
+			{vision "tank_main-h"}
+			{bone "Visor4"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}
+	        {visor "tur2_444"
+			{vision "tank_pr"}
+			{bone "visor1444"}
+		}
+	        {visor "tur2_888"
+			{vision "tank_pr"}
+			{bone "visor1888"}
+		}	
+	        {visor "tur2_4444"
+			{vision "tank_pr"}
+			{bone "visor14444"}
+		}
+	        {visor "tur2_8888"
+			{vision "tank_pr"}
+			{bone "visor18888"}
+		}
+	        {visor "tur2_44444"
+			{vision "tank_pr"}
+			{bone "visor144444"}
+		}
+	        {visor "tur2_88888"
+			{vision "tank_pr"}
+			{bone "visor188888"}
+		}			
+	}
+	{extender "inventory"	
+		{weapon "mgun5"
+            		{mask "weapon mgun"}
+        	}
+		{weapon "mgun5"
+            		{mask "weapon mgun"}
+        	}	
+		{weapon "mgun4"
+            		{mask "weapon mgun"}
+        	}
+        	{weapon "mgun3"
+            		 {mask "weapon mgun"}
+        	}
+        	{weapon "mgun2"
+             		{mask "weapon mgun"}
+         	}					
+		{box
+			{size 8 16}	
+			{item "ammo bullet76rus ap" 26{cell 0 0}}	
+			{item "ammo bullet76rus fg" 70{cell 4 0}}	
+			{item "ammo bullet45rus ap" 113{cell 0 1}}
+			{item "ammo bullet45rus fg" 113{cell 3 1}}			
+			{item "ammo mgun" 10800 {cell 6 2}}				
+			{item "repair_kit" 1{cell 6 3}}
+;			{item "dt" filling "mgun" "ammo" 60 {user "mgun2"}}
+;			{item "dt" filling "mgun" "ammo" 59 {user "mgun3"}}			
+;			{item "dt" filling "mgun" "ammo" 58 {user "mgun4"}}
+;			{item "dt" filling "mgun" "ammo" 57 {user "mgun5"}}	
+;			{item "dt" filling "mgun" "ammo" 56 {user "mgun6"}}			
+		}
+	}	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "76mm_ps3" filling "ammo bullet76rus ap" 1}
+			("abm_medium")			
+		}
+		{place "gun2"
+			{weapon "45mm_20k" filling "ammo bullet45rus ap" 1}
+			{foresight "foresight11"}	
+			{gunner "gunner5"}
+			{charger "charger5"}
+                        ("abm_medium")	
+			{basic}		
+		}
+		{place "gun3"
+			{weapon "45mm_20k" filling "ammo bullet45rus ap" 1}
+			{foresight "foresight12"}
+			{gunner "gunner2"}
+			{charger "charger6"}
+                        ("abm_medium")
+			{basic}			
+		}
+		{place "mgun5"
+			{LinkBone "ms5"}
+           		{LinkAnimation "off"}
+			{type "mgun_right_b"}
+			{weapon "dt" filled}			
+			{foresight "foresight9"}
+			{gunner "gunner5"}
+			{charger "charger5"}
+			("abm_mgun")	
+;			{basic}			
+		}
+		{place "mgun6"
+			{LinkBone "ms6"}
+           		{LinkAnimation "off"}
+			{type "mgun_left_b"}
+			{weapon "dt" filled}			
+			{foresight "foresight10"}
+			{gunner "gunner2"}
+			{charger "charger6"}
+			("abm_mgun")	
+;			{basic}	
+		}
+		{place "mgun4" ;правый
+			{LinkBone "ms4"}
+           		{LinkAnimation "off"}
+			{type "mgun_right"}			
+			{weapon "dt" filled}
+			{foresight "foresight8"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			("abm_mgun")	
+;			{basic}		
+		}
+		{place "mgun3" ;левый
+			{LinkBone "ms3"}
+          		{LinkAnimation "off"}
+			{type "mgun_left"}
+			{weapon "dt" filled}			
+			{foresight "foresight6"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			("abm_mgun")
+;			{basic}
+		}
+		{place "mgun2" ;спаренный
+			{LinkBone "ms2"}
+           		{LinkAnimation "off"}
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}			
+			{foresight "foresight5"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+			{basic}
+						
+		}		
+	}	
+	{mass 50000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(1.0))		
+		("mobility"
+			speed(29)
+			weight(50.0)
+			power(500)
+			fuel(910)		
+		)
+	}
+	
+	{Extension "t-35_33.mdl"}
+
+	{bone "turret"
+		{speed2 15} 
+        }
+	{bone "turret2"
+		{speed2 5} 
+        }	
+	{bone "turret3"
+		{speed2 5} 
+        }
+	{bone "turret4"
+		{speed2 5} 
+        }		
+	{bone "turret5"
+		{speed2 5} 
+        }		
+	{bone "gun_rot_28"
+		{limits -25 5}	
+		{speed2 5} 
+        }
+	{bone "gun_rot9"
+		{speed2 5} 
+        }
+	{bone "gun_rot10"
+		{speed2 5} 
+        }		
+}

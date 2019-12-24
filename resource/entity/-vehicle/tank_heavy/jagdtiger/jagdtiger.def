@@ -1,0 +1,173 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "r_heavy" "-turret" "vision_vehicle_maximum" "muzzle_large"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 250}
+	}
+
+	("armor_elefant" body(150 80 80 40) body2(120 80 80 40) body3(250 80 80 40))
+	("armor_engine"  t(40 40 40 40))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(250))
+	
+	{Volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 250}
+	}
+	
+	{volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+	}
+
+	("crew_6_human_extended")
+;	("gunner_visible")
+
+	{sensor
+		{visor "back"
+			{bone "mgun3"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+;	        {visor "tur2_2"
+;			{vision "tank_pr"}
+;			{bone "visor12"}
+;		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+;	        {visor "tur2_5"
+;			{vision "tank_pr"}
+;			{bone "visor15"}
+;		}
+;	        {visor "tur2_6"
+;			{vision "tank_pr"}
+;			{bone "visor16"}
+;		}
+;	        {visor "tur2_7"
+;			{vision "tank_pr"}
+;			{bone "visor17"}
+;		}
+;	        {visor "tur2_8"
+;			{vision "tank_pr"}
+;			{bone "visor18"}
+;		}		
+	}
+	
+	;("crew_human_visible" 	place(gunner3)	door1(emit1) door2(emit2) visor(back))
+	;{placer 
+	;	{place "gunner3" {group "back"} {useVision} {visor "back"}}
+	;}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_jtiger_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	
+	{extender "inventory"
+		{box			
+           	{item "ammo bullet128ger ap" 28}
+           	{item "ammo bullet128ger fg" 10}
+;           {item "ammo bullet128ger apcr" 2}
+			{item "ammo mgun" 2925}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "128mm_pak80" filling "ammo bullet128ger ap" 1}	
+			("abm_high")
+		}
+		{place "mgun"
+			{type "mgun_hull"}
+			{weapon "mg34tank" filled}
+			{foresight "foresight3"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 75200}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(2.1))
+		("mobility"
+			speed(41)
+			weight(75.2)
+			power(700)
+			fuel(860)		
+		)
+	}
+
+	{Extension "jagdtiger.mdl"}
+	
+	{bone "gun_rot"
+		{limits -7 15}
+		{speed2 5}
+	}
+	{bone "gun_rot1"
+		{limits -11 11}
+		{speed2 5}
+	}
+	{bone "mgun"
+		{limits 10}
+		{speed2 80}
+	}
+}
+  
+

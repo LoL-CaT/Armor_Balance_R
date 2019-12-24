@@ -1,0 +1,105 @@
+;Exported by: Administrator
+;Date:        Mon Feb 10 09:38:49 2014
+;File:        C:\Documents and Settings\Administrator\Desktop\tanky\T6 - TOG2\tog2_x_mow.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "wheelsr"
+			{parameters "ID=trackright;"}
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				0.0915337	-0.00505686	-0.110268
+			}
+			{VolumeView "wheelsr.ply"}
+			{bone "trackr"
+				{parameters "ID=trackright;"}
+				{Position 0.00505686	-0.00689155	-0.00783539}
+				{VolumeView "trackr.ply"}
+			}
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position 0.0915337	-0.00505686	17.9874}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=turret;"}
+				{speed 0.002}
+				{Position 38.0766	0	21.1853}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -15 5}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						18.1856	0	9.42422
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Position 0.00449371	0	0}
+						{VolumeView "gun.ply"}
+					}
+				}
+				{bone "enumerator"
+					{parameters "ID=enumerator;"}
+					{Orientation
+						0	-1	0
+						1	0	0
+						0	0	1
+					}
+					{VolumeView "enumerator.ply"}
+				}
+			}
+			{bone revolute "mgun_rot"
+				{limits -20 20}
+				{speed 0.01}
+				{Position 66.3652	-5.95951	16.1464}
+				{bone revolute "mgun"
+					{parameters "ID=body;"}
+					{limits -15 15}
+					{speed 0.01}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						0	0	0
+					}
+					{VolumeView "mgun.ply"}
+				}
+			}
+			{bone "engine"
+				{parameters "ID=engine;"}
+				{Orientation
+					0	-1	0
+					1	0	0
+					0	0	1
+				}
+				{VolumeView "engine.ply"}
+			}
+		}
+		{bone "wheelsl"
+			{parameters "ID=trackleft;"}
+			{Matrix34
+				0	1	0
+				-1	0	0
+				0	0	1
+				0.0915337	-0.00505686	-0.110268
+			}
+			{VolumeView "wheelsl.ply"}
+			{bone "trackl"
+				{parameters "ID=trackleft;"}
+				{Position 0.00505686	-0.00689155	-0.00783539}
+				{VolumeView "trackl.ply"}
+			}
+		}
+	}
+}
