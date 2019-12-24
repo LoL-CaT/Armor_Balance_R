@@ -1,0 +1,1356 @@
+;Preset
+(define "adjustalt"
+	{"if"     
+		{condition
+			{type entities}
+			{selector
+				{ignore_captured_by_user 0}
+				{source advanced}
+				{group
+					{include
+						{tag
+							{tag "maybelockedbyp%p"}
+						}
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag "%altm"}
+						}
+					}
+				}
+			}
+		}
+		{"air_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{source advanced}
+				{group
+					{include
+						{tag
+							{tag "p%parstryattack"}
+						}
+					}
+				}
+			}
+			{drop orders}
+			{altitude %alt}
+		}										
+	}
+)
+(define "adjustaltclosed"
+	{"if"     
+		{condition
+			{type entities}
+			{selector
+				{source advanced}
+				{ignore_captured_by_user 0}
+				{group
+					{include
+						{relation
+							{relation enemy}
+							{player "%p"}
+						}
+						{state
+							{state operatable}
+						}
+						{prop
+							{prop airborne}
+						}
+						{tag
+							{tag "%altm"}
+						}
+					}
+				}
+				{amount 1
+				}
+				{sort
+					{type entity}
+					{entity
+						{source advanced}
+						{ignore_captured_by_user 0}
+						{group
+							{include
+								{tag
+									{tag "p%parstryseek"}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		{"air_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{tag "p%parstryseek"}
+			}
+			{drop orders}
+			{altitude %alt}
+		}										
+	}
+)
+;ARS
+(define "ars"
+	{"cosalcea/airmission/ars/seek/p%p"  ;Seek
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%p"}
+				 				}
+				 				{tag
+				 					{tag "ars"}
+				 				}
+				 				{tag
+				 					{tag "inited"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{relation
+									{relation enemy}
+									{player "%p"}
+								}
+								{state
+									{state operatable}
+								}
+								{prop
+									{prop airborne}
+								}
+							}
+						}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{player
+			 					{player "%p"}
+			 				}
+			 				{tag
+			 					{tag "ars"}
+			 				}
+			 				{tag
+			 					{tag "inited"}
+			 				}
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%parstryseek"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+						{distance 15}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+					 	}
+						{tag_remove "p%parssee"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"air_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%parstryseek"}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{altitude  80}
+					}	
+					{"delay"
+						{time 0.01}
+					}	
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.25}
+							}
+							{"action"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag "p%parstryseek"}
+								}
+								{drop orders}
+								{action move}
+								{waypoint "arsi4"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.25}
+							}
+							{"action"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag "p%parstryseek"}
+								}
+								{drop orders}
+								{action move}
+								{waypoint "arsi3"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.25}
+							}
+							{"action"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag "p%parstryseek"}
+								}
+								{drop orders}
+								{action move}
+								{waypoint "arsi2"}
+							}
+						}
+						{"default"
+							{"action"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag "p%parstryseek"}
+								}
+								{drop orders}
+								{action move}
+								{waypoint "arsi1"}
+							}
+						}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+						{distance 100}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+					 	}
+						{tag_remove "p%parssee"}
+					}					
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%parstryseek"}
+											}
+										}
+									}
+								}
+							}
+						}
+						{interval 0}
+						{time 0}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%parstryseek"}
+											}
+										}
+									}
+								}
+							}							
+						}
+						{volume body_back}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;("adjustaltclosed" p(%p) alt(10))
+					;("adjustaltclosed" p(%p) alt(20))
+					("adjustaltclosed" p(%p) alt(30))
+					("adjustaltclosed" p(%p) alt(40))
+					("adjustaltclosed" p(%p) alt(50))
+					("adjustaltclosed" p(%p) alt(60))
+					("adjustaltclosed" p(%p) alt(70))
+					("adjustaltclosed" p(%p) alt(80))
+					{"delay"
+						{time 0.01}
+					}					
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%parstryseek"}
+											}
+										}
+									}
+								}
+							}
+						}
+						{interval 0}
+						{time 0}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%parstryseek"}
+											}
+										}
+									}
+								}
+							}							
+						}
+						{volume body_back}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%parstryseek"}
+											}
+										}
+									}
+								}
+							}
+						}
+						{interval 0}
+						{time 0}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%parstryseek"}
+											}
+										}
+									}
+								}
+							}							
+						}
+						{volume body_back}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+						{distance 250}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+					 	}
+						{tag_add "p%parssee"}
+						{tag_remove "p%parsseek"}
+					}
+				}
+				{"default"
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%parstryseek"}
+					 	}
+						{tag_add "p%parsseek"}
+						{tag_remove "p%parssee"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsseek"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{volume body_back}
+					}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%parstryseek"}
+			 	}
+				{tag_remove "p%parstryseek"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/ars/seek/p%p"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/ars/find/p%p"  ;Find
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%parssee"}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%parssee"}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%parstryattack"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop airborne}
+							}
+						}
+					}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "maybelockedbyp%p"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parstryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%p"}
+						}
+						{distance 150}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%parstryattack"}
+					 	}
+						{tag_add "p%parstoattack"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%p"}
+					 	}
+						{tag_add "lockedbyp%p"}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parstryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%p"}
+						}
+						{distance 200}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%parstryattack"}
+					 	}
+						{tag_remove "p%parstoattack"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%p"}
+					 	}
+						{tag_remove "lockedbyp%p"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parstryattack"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%p"}							
+						}
+						{volume body_back}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parstryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%p"}
+						}
+						{distance 250}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%parstryattack"}
+					 	}
+						{tag_remove "p%parstoattack"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%p"}
+					 	}
+						{tag_remove "lockedbyp%p"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;("adjustalt" p(%p) alt(10))
+					;("adjustalt" p(%p) alt(20))
+					("adjustalt" p(%p) alt(30))
+					("adjustalt" p(%p) alt(40))
+					("adjustalt" p(%p) alt(50))
+					("adjustalt" p(%p) alt(60))
+					("adjustalt" p(%p) alt(70))
+					("adjustalt" p(%p) alt(80))
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%parstryattack"}
+			 	}
+				{tag_remove "p%parstryattack"}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "maybelockedbyp%p"}
+			 	}
+				{tag_remove "maybelockedbyp%p"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/ars/find/p%p"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/ars/fight/p%p"  ;fight
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%parstoattack"}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "lockedbyp%p"}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%parstoattack"}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%parsattacking"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "lockedbyp%"}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "attackedbyp%p"}
+			}
+			{"delay"
+				{time 0.01}
+			}			
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}
+						}
+						{distance 20}
+					}
+					{"air_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%parsattacking"}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{altitude 80}
+					}	
+					{"delay"
+						{time 0.01}
+					}	
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.25}
+							}
+							{"action"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag "p%parsattacking"}
+								}
+								{drop orders}
+								{action move}
+								{waypoint "arsi4"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.25}
+							}
+							{"action"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag "p%parsattacking"}
+								}
+								{drop orders}
+								{action move}
+								{waypoint "arsi3"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.25}
+							}
+							{"action"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag "p%parsattacking"}
+								}
+								{drop orders}
+								{action move}
+								{waypoint "arsi2"}
+							}
+						}
+						{"default"
+							{"action"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag "p%parsattacking"}
+								}
+								{drop orders}
+								{action move}
+								{waypoint "arsi1"}
+							}
+						}
+					}	
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}
+						}
+						{distance 100}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}							
+						}
+						{volume body_back}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}
+						}
+						{interval 0}
+						{time 0}
+					}	
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}							
+						}
+						{volume body_back}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}
+						}
+						{interval 0}
+						{time 0}
+					}	
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}							
+						}
+						{volume body_back}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}
+						}
+						{interval 0}
+						{time 0}
+					}	
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}							
+						}
+						{volume body_back}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}
+						}
+						{distance 150}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%parsattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%p"}							
+						}
+						{volume body_back}
+					}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%parsattacking"}
+			 	}
+				{tag_remove "p%parsattacking"}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "attackedbyp%p"}
+			 	}
+				{tag_remove "attackedbyp%p"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/ars/fight/p%p"}
+			}
+		}
+	}		
+
+	{"cosalcea/airmission/ars/debug/p%p" ;debug
+		{condition
+		}
+		{actions
+			{"if"     
+				{condition
+					{type entities}
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%parsseek"}
+				 				}			 				
+				 			}
+				 			{exclude
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"entity_state"
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%parsseek"}
+				 				}			 				
+				 			}
+				 			{exclude
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+					{tag_remove "p%parsseek"}
+				}													
+			}
+			{"if"     
+				{condition
+					{type entities}
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%parssee"}
+				 				}			 				
+				 			}
+				 			{exclude
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"entity_state"
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%parssee"}
+				 				}			 				
+				 			}
+				 			{exclude
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+					{tag_remove "p%parssee"}
+				}													
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/ars/debug/p%p"}
+			}
+		}
+	}	
+)
+
+("ars" p(1))
+("ars" p(2))
+("ars" p(3))
+("ars" p(4))
+("ars" p(5))
+("ars" p(6))
+("ars" p(7))
+("ars" p(8))
+("ars" p(9))
+("ars" p(10))
+("ars" p(11))
+("ars" p(12))
+("ars" p(13))
+("ars" p(14))
+("ars" p(15))
+("ars" p(16))

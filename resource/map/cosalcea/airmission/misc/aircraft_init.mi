@@ -1,0 +1,404 @@
+(define "initaircraft"
+	{"cosalcea/airmission/init/%type" ;Init ARS, MTP, CAS, TBB
+		{condition
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{select
+							{tag
+								{tag "%type"}
+							}
+						}
+						{exclude
+							{tag
+								{tag inited}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "%typetoinit"}
+			}
+			;{"delay"
+			;     	{time 0.01}
+			;}
+			;{"ables"
+			;     	{selector
+			;    		{ignore_captured_by_user 0}
+			;     		{tag "%typetoinit"}
+			;     	}
+			;     	{remove select}
+			;}
+			{"delay"
+				{time 0.01}
+			}
+			{"actor_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "%typetoinit"}
+				}
+				{control user}
+				{move_mode hold}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "%typetoinit"}
+				}
+				{drop orders}
+				{altitude %alt}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{near_to
+							{zone "airzone1"}
+						}
+						{distance 50}
+					}
+					{"placement"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{target_waypoint "%typei1"}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{tag_add "i1"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;{"action"
+					;	{selector
+					;		{ignore_captured_by_user 0}
+					;		{tag "%typetoinit"}
+					;	}
+					;	{drop orders}
+					;	{action move}
+					;	{waypoint "movei1"}
+					;}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{near_to
+							{zone "airzone2"}
+						}
+						{distance 50}
+					}
+					{"placement"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{target_waypoint "%typei2"}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{tag_add "i2"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;{"action"
+					;	{selector
+					;		{ignore_captured_by_user 0}
+					;		{tag "%typetoinit"}
+					;	}
+					;	{drop orders}
+					;	{action move}
+					;	{waypoint "movei2"}
+					;}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{near_to
+							{zone "airzone3"}
+						}
+						{distance 50}
+					}
+					{"placement"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{target_waypoint "%typei3"}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{tag_add "i3"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;{"action"
+					;	{selector
+					;		{ignore_captured_by_user 0}
+					;		{tag "%typetoinit"}
+					;	}
+					;	{drop orders}
+					;	{action move}
+					;	{waypoint "movei3"}
+					;}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{near_to
+							{zone "airzone4"}
+						}
+						{distance 50}
+					}
+					{"placement"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{target_waypoint "%typei4"}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{tag_add "i4"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;{"action"
+					;	{selector
+					;		{ignore_captured_by_user 0}
+					;		{tag "%typetoinit"}
+					;	}
+					;	{drop orders}
+					;	{action move}
+					;	{waypoint "movei4"}
+					;}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{near_to
+							{zone "airzone1"}
+						}
+						{distance 50}
+					}
+					{"placement"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{target_waypoint "%typei1"}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{tag_add "i1"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;{"action"
+					;	{selector
+					;		{ignore_captured_by_user 0}
+					;		{tag "%typetoinit"}
+					;	}
+					;	{drop orders}
+					;	{action move}
+					;	{waypoint "movei1"}
+					;}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{near_to
+							{zone "airzone2"}
+						}
+						{distance 50}
+					}
+					{"placement"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{target_waypoint "%typei2"}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{tag_add "i2"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;{"action"
+					;	{selector
+					;		{ignore_captured_by_user 0}
+					;		{tag "%typetoinit"}
+					;	}
+					;	{drop orders}
+					;	{action move}
+					;	{waypoint "movei2"}
+					;}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{near_to
+							{zone "airzone3"}
+						}
+						{distance 50}
+					}
+					{"placement"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{target_waypoint "%typei3"}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{tag_add "i3"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;{"action"
+					;	{selector
+					;		{ignore_captured_by_user 0}
+					;		{tag "%typetoinit"}
+					;	}
+					;	{drop orders}
+					;	{action move}
+					;	{waypoint "movei3"}
+					;}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{near_to
+							{zone "airzone4"}
+						}
+						{distance 50}
+					}
+					{"placement"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{target_waypoint "%typei4"}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "%typetoinit"}
+						}
+						{tag_add "i4"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					;{"action"
+					;	{selector
+					;		{ignore_captured_by_user 0}
+					;		{tag "%typetoinit"}
+					;	}
+					;	{drop orders}
+					;	{action move}
+					;	{waypoint "movei4"}
+					;}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "%typetoinit"}
+				}
+				{tag_add inited}
+				{tag_remove "%typetoinit"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/init/%type"}
+			}
+		}
+	}
+)
+("initaircraft" type(ars) alt(80)) ;Air Superiority spawns at 800m.
+("initaircraft" type(mtp) alt(60)) ;Multi Purpose spawns at 600m.
+("initaircraft" type(cas) alt(50)) ;Close Air Support spawns at 500m.
+("initaircraft" type(tbb) alt(80)) ;Tactial Bomber spawns at 800m.

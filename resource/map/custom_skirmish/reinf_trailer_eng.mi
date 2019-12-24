@@ -1,0 +1,367 @@
+;{mission
+	{Helpers
+		{event "player_medic"}
+		{event "player_heavy_trailer"}
+		{reinforcements
+			{scoreTotal 0}
+			{scoreCurrent 0}
+			{"player_heavy_trailer"
+				{state hidden}
+				{text "$/player_heavy_trailer"}
+				{image churchill_Kangaroo}
+				{hint "$/player_heavy_trailer"}
+				{count -1}
+				{score 500}
+				{delay 20}
+				{eventStart "player_heavy_trailer"}
+				{waypoint "1"}
+			}
+			{"player_medic"
+				{state hidden}
+				{text "$/player_medic"}
+				{image "medics(eng)"}
+				{hint "$/player_medic"}
+				{count -1}
+				{score 30}
+				{delay 10}
+				{eventStart "player_medic"}
+				{waypoint "0"}
+			}
+		}
+		{triggers
+			{"mod:add/new_reinf/player_base/m1/hidden"
+				{condition
+					{expression "!1"}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name player_medic}
+					}
+					{"trigger"
+						{name "mod:add/new_reinf/player_base/m1/show"}
+					}
+				}
+			}
+			{"mod:add/new_reinf/player_base/m1/show"
+				{condition
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation show}
+						{name player_medic}
+					}
+					{"trigger"
+						{name "mod:add/new_reinf/player_base/m1/hidden"}
+					}
+				}
+			}
+			{"mod:add/new_reinf/player_medic"
+				{condition
+					{terms
+						{"1.event"
+							{id "player_medic"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 3}
+					}
+					{"event"
+						{event "player_medic"}
+						{mode reset}
+						{delay 0}
+					}
+					{"waypoint"
+						{who
+							{type actor}
+							{actors
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag player_infantry}
+										}
+									}
+									{include
+										{tag
+											{tag medic}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+						}
+						{action
+							{type start}
+							{waypoint "0"}
+							{clone}
+							{make_squad}
+						}
+					}
+					{"actor_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag player_infantry}
+									}
+								}
+								{include
+									{tag
+										{tag medic}
+									}
+								}
+								{exclude
+									{tag
+										{tag hidden}
+									}
+								}
+							}
+						}
+						{control user}
+						{move_mode hold}
+						{weapon_prepare on}
+						{movement
+							{speed fast}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"event"
+						{event "skirmish_reinf_arrive"}
+						{mode set}
+						{delay 0}
+					}
+					{"autoassign"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag medic}
+									}
+								}
+								{include
+									{tag
+										{tag player_infantry}
+									}
+								}
+								{exclude
+									{tag
+										{tag hidden}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag medic}
+									}
+								}
+								{include
+									{tag
+										{tag player_infantry}
+									}
+								}
+								{exclude
+									{tag
+										{tag hidden}
+									}
+								}
+							}
+						}
+						{tag_remove player_infantry}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "mod:add/new_reinf/player_medic"}
+					}
+				}
+			}
+			{"mod:add/new_reinf/player_heavy_trailer"
+				{condition
+					{terms
+						{"1.event"
+							{id "player_heavy_trailer"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 10}
+					}
+					{"event"
+						{event "player_heavy_trailer"}
+						{mode reset}
+						{delay 0}
+					}
+					{"waypoint"
+						{who
+							{type actor}
+							{actors
+								{tag player_heavy_trailer}
+							}
+						}
+						{action
+							{type start}
+							{waypoint "1"}
+							{clone}
+							{make_squad}
+						}
+					}
+					{"actor_state"
+						{selector
+							{tag player_heavy_trailer}
+						}
+						{control AI}
+						{move_mode hold}
+						{weapon_prepare on}
+						{ai_move
+							{mode disable}
+							{enable_on injure}
+						}
+						{movement
+							{speed slow}
+						}
+					}
+					{"delay"
+						{time 7.9}
+					}
+					{"actor_state"
+						{selector
+							{tag player_heavy_trailer}
+						}
+						{control user}
+						{move_mode hold}
+						{weapon_prepare on}
+						{movement
+							{speed slow}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"event"
+						{event "skirmish_reinf_arrive"}
+						{mode set}
+						{delay 0}
+					}
+					{"autoassign"
+						{selector
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag player_heavy_trailer}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag player_heavy_trailer}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{tag_remove player_heavy_trailer}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "mod:add/new_reinf/player_heavy_trailer"}
+					}
+				}
+			}
+			{"mod:add/new_reinf/player_heavy_trailer/show"
+				{condition
+					{terms
+						{"1.event"
+							{id "menu_2"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation show}
+						{name player_heavy_trailer}
+					}
+					{"trigger"
+						{name "mod:add/new_reinf/player_heavy_trailer/off"}
+					}
+				}
+			}
+			{"mod:add/new_reinf/player_heavy_trailer/off"
+				{condition
+					{expression "!1"}
+					{terms
+						{"1.event"
+							{id "menu_2"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name player_heavy_trailer}
+					}
+					{"trigger"
+						{name "mod:add/new_reinf/player_heavy_trailer/show"}
+					}
+				}
+			}
+			{"reinforcements:menu/menu_back"
+				{condition
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name player_heavy_trailer}
+					}
+				}
+			}
+		}
+	}
+;}

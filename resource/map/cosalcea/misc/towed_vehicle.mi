@@ -1,0 +1,148 @@
+(define "link_towed_vehicle"		
+	{"service/link/1_link"
+		{autoreset}
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{tag link_place1}
+					}
+					{count
+						{op "=="}
+						{value 1}
+					}
+				}
+			}
+		}
+		{actions
+			{"linker"
+				{selector
+					{source advanced}
+					{ignore_captured_by_user 0}
+					{group
+						{select
+							{tag
+								{tag link_place1}
+							}
+						}
+						{exclude
+							{state
+								{state linked}
+							}
+						}
+					}
+					{sort
+						{type entity}
+						{entity
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag link_place1}
+									}
+								}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{entities
+					{source advanced}
+					{ignore_captured_by_user 0}
+					{group
+						{select
+							{tag
+								{tag link_to_place1}
+							}
+						}
+						{exclude
+							{state
+								{state linked}
+							}
+						}
+					}
+					{amount 1
+					}
+					{sort
+						{type entity}
+						{entity
+							{ignore_captured_by_user 0}
+							{tag link_place1}
+						}
+					}
+				}
+				{place
+					{type specific}
+					{name vehicle1}
+				}
+			}
+			{"linker"
+				{selector
+					{source advanced}
+					{ignore_captured_by_user 0}
+					{group
+						{select
+							{tag
+								{tag link_place1}
+							}
+						}
+						{exclude
+							{state
+								{state linked}
+							}
+						}
+					}
+					{sort
+						{type entity}
+						{entity
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag link_place1}
+									}
+								}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{entities
+					{source advanced}
+					{ignore_captured_by_user 0}
+					{group
+						{select
+							{tag
+								{tag link_to_place1}
+							}
+						}
+						{exclude
+							{state
+								{state linked}
+							}
+						}
+					}
+					{amount 1
+					}
+					{sort
+						{type entity}
+						{entity
+							{ignore_captured_by_user 0}
+							{tag link_place1}
+						}
+					}
+				}
+				{place
+					{type specific}
+					{name vehicle1}
+				}
+			}
+		}
+	}
+)
+("link_towed_vehicle")

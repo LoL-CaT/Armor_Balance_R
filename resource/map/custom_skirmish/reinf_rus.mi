@@ -1,0 +1,1083 @@
+;{mission
+	{Helpers
+		{event "flag_b01_reinf"}
+		{event "flag_b01_reinf_get"}
+		{event "flag_b02_reinf_get"}
+		{event "flag_b03_reinf"}
+		{event "flag_b03_reinf_get"}
+		{event "flag_c01_reinf"}
+		{event "flag_c01_reinf_get"}
+		{event "flag_c02_reinf"}
+		{event "flag_c02_reinf_get"}
+		{event "flag_c03_reinf"}
+		{event "flag_c03_reinf_get"}
+		{event "get_b01_reinf"}
+		{event "get_b02_reinf"}
+		{event "get_b03_reinf"}
+		{event "get_c01_reinf"}
+		{event "get_c02_reinf"}
+		{event "get_c03_reinf"}
+		{event "menu:0"}
+		{event "menu_1"}
+		{event "menu_2"}
+		{event "menu_3"}
+		{event "menu_4"}
+		{event "menu_bonus"}
+		{reinforcements
+			{scoreTotal 10000}
+			{scoreCurrent 0}
+			{"get_b01"
+				{state hidden}
+				{text "$/get_b01"}
+				{image t60}
+				{hint "$/get_b01"}
+				{count -1}
+				{score 45}
+				{delay 0}
+				{eventStart "get_b01_reinf"}
+			}
+			{"get_b02"
+				{state hidden}
+				{text "$/get_b02"}
+				{image rus_bonus}
+				{hint "$/get_b02"}
+				{count -1}
+				{score 45}
+				{delay 0}
+				{eventStart "get_b02_reinf"}
+			}
+			{"get_b03"
+				{state hidden}
+				{text "$/get_b03"}
+				{image t34_42m}
+				{hint "$/get_b03"}
+				{count -1}
+				{score 60}
+				{delay 0}
+				{eventStart "get_b03_reinf"}
+			}
+			{"get_c01"
+				{state hidden}
+				{text "$/get_c01"}
+				{image m10525}
+				{hint "$/get_c01"}
+				{count -1}
+				{score 105}
+				{delay 0}
+				{eventStart "get_c01_reinf"}
+			}
+			{"get_c02"
+				{state hidden}
+				{text "$/get_c02"}
+				{image np_bm13}
+				{hint "$/get_c02"}
+				{count -1}
+				{score 60}
+				{delay 0}
+				{eventStart "get_c02_reinf"}
+			}
+			{"get_c03"
+				{state hidden}
+				{text "$/get_c03"}
+				{image is2_43}
+				{hint "$/get_c03"}
+				{count -1}
+				{score 105}
+				{delay 0}
+				{eventStart "get_c03_reinf"}
+			}
+		}
+		{vars
+			{"player_score"}
+			{"menu:3"}
+			{"menu:4"}
+		}
+		{triggers
+			{"mod:add/get_reinf/b01/show"
+				{condition
+					{expression "!1 & !2 & !3 & !4 & 5 & !6 & !7"}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 45}
+						}
+						{"6.event"
+							{id "flag_b01_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation show}
+						{name get_b01}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b01/hidden"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b01/hidden"
+				{condition
+					{type 1}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op "<<"}
+							{value 45}
+						}
+						{"6.event"
+							{id "flag_b01_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name get_b01}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b01/show"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b01/work"
+				{condition
+					{expression "1 & 2 & !3"}
+					{terms
+						{"1.event"
+							{id "get_b01_reinf"}
+						}
+						{"2.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 45}
+						}
+						{"3.event"
+							{id "flag_b01_reinf"}
+						}
+					}
+				}
+				{actions
+					{"set_i"
+						{var "player_score$"}
+						{op "-"}
+						{value 45}
+					}
+					{"event"
+						{event "flag_b01_reinf_get"}
+						{mode set}
+						{delay 0}
+					}
+					{"event"
+						{event "get_b01_reinf"}
+						{mode reset}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b01/work"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b01/working"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.event"
+							{id "flag_b01_reinf_get"}
+						}
+						{"2.event"
+							{id "flag_b01_reinf"}
+						}
+					}
+				}
+				{actions
+					{"event"
+						{event "flag_b01_reinf"}
+						{mode set}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b01/working"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/var_menu3"
+				{condition
+					{expression "2 | (1 & 3) | (1 & 4)"}
+					{terms
+						{"1.cmp_i"
+							{var "menu:3$"}
+							{op "<<="}
+							{value 0}
+						}
+						{"2.cmp_i"
+							{var "menu:3$"}
+							{op ">"}
+							{value 5}
+						}
+						{"3.event"
+							{id "flag_b01_reinf_get"}
+						}
+						{"4.event"
+							{id "flag_b03_reinf_get"}
+						}
+					}
+				}
+				{actions
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "menu:3$"}
+								{op ">"}
+								{value 5}
+							}
+							{"set_i"
+								{var "menu:3$"}
+								{op "-"}
+								{value 1}
+							}
+						}
+						{"default"
+							{"set_i"
+								{var "menu:3$"}
+								{op "+"}
+								{value 1}
+							}
+						}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/var_menu3"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/var_menu4"
+				{condition
+					{expression "2 | (1 & 3) | (1 & 4) | (1& 5)"}
+					{terms
+						{"1.cmp_i"
+							{var "menu:4$"}
+							{op "<<="}
+							{value 0}
+						}
+						{"2.cmp_i"
+							{var "menu:4$"}
+							{op ">"}
+							{value 5}
+						}
+						{"3.event"
+							{id "flag_c01_reinf_get"}
+						}
+						{"4.event"
+							{id "flag_c02_reinf_get"}
+						}
+						{"5.event"
+							{id "flag_c03_reinf_get"}
+						}
+					}
+				}
+				{actions
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "menu:4$"}
+								{op ">"}
+								{value 5}
+							}
+							{"set_i"
+								{var "menu:4$"}
+								{op "-"}
+								{value 1}
+							}
+						}
+						{"default"
+							{"set_i"
+								{var "menu:4$"}
+								{op "+"}
+								{value 1}
+							}
+						}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/var_menu4"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b02/show"
+				{condition
+					{expression "!1 & !2 & !3 & !4 & 5 & !6 & !7"}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 45}
+						}
+						{"6.event"
+							{id "menu_bonus"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation show}
+						{name get_b02}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b02/hidden"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b02/hidden"
+				{condition
+					{type 1}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op "<<"}
+							{value 45}
+						}
+						{"6.event"
+							{id "menu_bonus"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name get_b02}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b02/show"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b02/work"
+				{condition
+					{expression "1 & 2 & !3"}
+					{terms
+						{"1.event"
+							{id "get_b02_reinf"}
+						}
+						{"2.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 45}
+						}
+						{"3.event"
+							{id "menu_bonus"}
+						}
+					}
+				}
+				{actions
+					{"set_i"
+						{var "player_score$"}
+						{op "-"}
+						{value 45}
+					}
+					{"event"
+						{event "flag_b02_reinf_get"}
+						{mode set}
+						{delay 0}
+					}
+					{"event"
+						{event "get_b02_reinf"}
+						{mode reset}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b02/work"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b02/working"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.event"
+							{id "flag_b02_reinf_get"}
+						}
+						{"2.event"
+							{id "menu_bonus"}
+						}
+					}
+				}
+				{actions
+					{"event"
+						{event "menu_bonus"}
+						{mode set}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b02/working"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b03/show"
+				{condition
+					{expression "!1 & !2 & !3 & !4 & 5 & !6 & !7"}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 60}
+						}
+						{"6.event"
+							{id "flag_b03_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation show}
+						{name get_b03}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b03/hidden"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b03/hidden"
+				{condition
+					{type 1}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op "<<"}
+							{value 60}
+						}
+						{"6.event"
+							{id "flag_b03_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name get_b03}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b03/show"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b03/work"
+				{condition
+					{expression "1 & 2 & !3"}
+					{terms
+						{"1.event"
+							{id "get_b03_reinf"}
+						}
+						{"2.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 60}
+						}
+						{"3.event"
+							{id "flag_b03_reinf"}
+						}
+					}
+				}
+				{actions
+					{"set_i"
+						{var "player_score$"}
+						{op "-"}
+						{value 60}
+					}
+					{"event"
+						{event "flag_b03_reinf_get"}
+						{mode set}
+						{delay 0}
+					}
+					{"event"
+						{event "get_b03_reinf"}
+						{mode reset}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b03/work"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/b03/working"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.event"
+							{id "flag_b03_reinf_get"}
+						}
+						{"2.event"
+							{id "flag_b03_reinf"}
+						}
+					}
+				}
+				{actions
+					{"event"
+						{event "flag_b03_reinf"}
+						{mode set}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/b03/working"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c01/show"
+				{condition
+					{expression "!1 & !2 & !3 & !4 & 5 & !6 & !7"}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 105}
+						}
+						{"6.event"
+							{id "flag_c01_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation show}
+						{name get_c01}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c01/hidden"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c01/hidden"
+				{condition
+					{type 1}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op "<<"}
+							{value 105}
+						}
+						{"6.event"
+							{id "flag_c01_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name get_c01}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c01/show"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c01/work"
+				{condition
+					{expression "1 & 2 & !3"}
+					{terms
+						{"1.event"
+							{id "get_c01_reinf"}
+						}
+						{"2.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 105}
+						}
+						{"3.event"
+							{id "flag_c01_reinf"}
+						}
+					}
+				}
+				{actions
+					{"set_i"
+						{var "player_score$"}
+						{op "-"}
+						{value 105}
+					}
+					{"event"
+						{event "flag_c01_reinf_get"}
+						{mode set}
+						{delay 0}
+					}
+					{"event"
+						{event "get_c01_reinf"}
+						{mode reset}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c01/work"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c01/working"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.event"
+							{id "flag_c01_reinf_get"}
+						}
+						{"2.event"
+							{id "flag_c01_reinf"}
+						}
+					}
+				}
+				{actions
+					{"event"
+						{event "flag_c01_reinf"}
+						{mode set}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c01/working"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c02/show"
+				{condition
+					{expression "!1 & !2 & !3 & !4 & 5 & !6 & !7"}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 60}
+						}
+						{"6.event"
+							{id "flag_c02_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation show}
+						{name get_c02}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c02/hidden"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c02/hidden"
+				{condition
+					{type 1}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op "<<"}
+							{value 60}
+						}
+						{"6.event"
+							{id "flag_c02_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name get_c02}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c02/show"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c02/work"
+				{condition
+					{expression "1 & 2 & !3"}
+					{terms
+						{"1.event"
+							{id "get_c02_reinf"}
+						}
+						{"2.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 60}
+						}
+						{"3.event"
+							{id "flag_c02_reinf"}
+						}
+					}
+				}
+				{actions
+					{"set_i"
+						{var "player_score$"}
+						{op "-"}
+						{value 60}
+					}
+					{"event"
+						{event "flag_c02_reinf_get"}
+						{mode set}
+						{delay 0}
+					}
+					{"event"
+						{event "get_c02_reinf"}
+						{mode reset}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c02/work"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c02/working"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.event"
+							{id "flag_c02_reinf_get"}
+						}
+						{"2.event"
+							{id "flag_c02_reinf"}
+						}
+					}
+				}
+				{actions
+					{"event"
+						{event "flag_c02_reinf"}
+						{mode set}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c02/working"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c03/show"
+				{condition
+					{expression "!1 & !2 & !3 & !4 & 5 & !6 & !7"}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 105}
+						}
+						{"6.event"
+							{id "flag_c03_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation show}
+						{name get_c03}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c03/hidden"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c03/hidden"
+				{condition
+					{type 1}
+					{terms
+						{"1.event"
+							{id "menu_1"}
+						}
+						{"2.event"
+							{id "menu_2"}
+						}
+						{"3.event"
+							{id "menu_3"}
+						}
+						{"4.event"
+							{id "menu_4"}
+						}
+						{"5.cmp_i"
+							{var "player_score$"}
+							{op "<<"}
+							{value 105}
+						}
+						{"6.event"
+							{id "flag_c03_reinf"}
+						}
+						{"7.event"
+							{id "menu:0"}
+						}
+					}
+				}
+				{actions
+					{"reinforcement"
+						{operation hide}
+						{name get_c03}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c03/show"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c03/work"
+				{condition
+					{expression "1 & 2 & !3"}
+					{terms
+						{"1.event"
+							{id "get_c03_reinf"}
+						}
+						{"2.cmp_i"
+							{var "player_score$"}
+							{op ">="}
+							{value 105}
+						}
+						{"3.event"
+							{id "flag_c03_reinf"}
+						}
+					}
+				}
+				{actions
+					{"set_i"
+						{var "player_score$"}
+						{op "-"}
+						{value 105}
+					}
+					{"event"
+						{event "flag_c03_reinf_get"}
+						{mode set}
+						{delay 0}
+					}
+					{"event"
+						{event "get_c03_reinf"}
+						{mode reset}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c03/work"}
+					}
+				}
+			}
+			{"mod:add/get_reinf/c03/working"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.event"
+							{id "flag_c03_reinf_get"}
+						}
+						{"2.event"
+							{id "flag_c03_reinf"}
+						}
+					}
+				}
+				{actions
+					{"event"
+						{event "flag_c03_reinf"}
+						{mode set}
+						{delay 0}
+					}
+					{"trigger"
+						{name "mod:add/get_reinf/c03/working"}
+					}
+				}
+			}
+			{"mod:add/tag"
+				{condition
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag player_assault_squad}
+						}
+						{tag_add m3}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag player_armor_03}
+						}
+						{tag_add t34_76}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag t34_76}
+						}
+						{tag_add t34_2}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag player_armor_04}
+						}
+						{tag_add t60}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag player_armor_05}
+						}
+						{tag_add t34_3}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag t34_3}
+						}
+						{tag_add t34_85}
+					}
+				}
+			}
+		}
+	}
+;}

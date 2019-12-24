@@ -1,0 +1,59 @@
+;pullupto800
+;pullupto600
+;pullupto400
+
+(define "altlimit"
+	{"cosalcea/airmission/limit/%alt" 
+		{condition
+		}
+		{actions
+			{"if"     
+				{condition
+					{type entities}
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "pullupto%alt0"}
+				 				}	
+				 				{state
+				 					{state operatable}
+				 				}		 				
+				 			}
+				 		}
+				 	}
+				}
+				{"air_state"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+				 					{tag "pullupto%alt0"}
+				 				}	
+				 				{state
+				 					{state operatable}
+				 				}	
+							}
+						}
+					}
+					{drop orders}
+					{altitude %alt}
+				}	
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/limit/%alt"}
+			}
+		}
+	}
+)
+
+("altlimit"  alt(40))
+("altlimit"  alt(60))
+("altlimit"  alt(80))

@@ -1,0 +1,231 @@
+(define "casspeed"
+	{"cosalcea/airmission/cas/spped/p%p/%plane" ;Control the speed of the CAS.
+		{condition
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "cas"}
+							}
+							{tag
+								{tag "striking"}
+							}
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop "%plane"}
+							}
+						}
+						{exclude
+							{tag
+								{tag "fired"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%p%planecastoslow"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"     
+					{condition
+						{type near}
+						{units
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{tag
+										{tag "p%p%planecastoslow"}
+									}
+								}
+							}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pstriketarget"}
+									}
+								}
+							}
+						}
+						{distance 10}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%p%planecastoslow"}
+						}
+						{tag_add "fired"}
+						{tag_remove "castoslowstrike"}
+					}
+				}
+				{"case"     
+					{condition
+						{type near}
+						{units
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{tag
+										{tag "p%p%planecastoslow"}
+									}
+								}
+							}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pstriketarget"}
+									}
+								}
+							}
+						}
+						{distance 100}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%p%planecastoslow"}
+						}
+						{tag_add "castoslowstrike"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%p%planecastoslow"}
+						}
+						{movement
+							{max_speed_kph %sp}
+						}
+					}
+				}
+				{"case"     
+					{condition
+						{type near}
+						{units
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{tag
+										{tag "p%p%planecastoslow"}
+									}
+								}
+							}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "smoketarget"}
+									}
+									{player
+					 					{player "%p"}
+					 				}
+								}
+							}
+						}
+						{distance 100}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%p%planecastoslow"}
+						}
+						{tag_add "castoslowstrike"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%p%planecastoslow"}
+						}
+						{movement
+							{max_speed_kph %sp}
+						}
+					}
+				}
+				{"default"
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%p%planecastoslow"}
+						}
+						{tag_remove "castoslowstrike"}
+					}
+				}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%p%planecastoslow"}
+				}
+				{tag_remove "p%p%planecastoslow"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/cas/spped/p%p/%plane"}
+			}
+		}
+	}	
+)
+
+(define "casspeedab"
+	("casspeed" p(%p) plane(p-47n-15) sp(67))
+	("casspeed" p(%p) plane(d3a_val) sp(69))
+	("casspeed" p(%p) plane(fw190) sp(116))
+	("casspeed" p(%p) plane(hurricane23) sp(106))
+	("casspeed" p(%p) plane(i-16) sp(120))
+	("casspeed" p(%p) plane(il-2) sp(66))
+	("casspeed" p(%p) plane(ju-87) sp(34))
+	("casspeed" p(%p) plane(ki-43_oscar) sp(118))
+	("casspeed" p(%p) plane(p-51mustangCAS) sp(163))
+	("casspeed" p(%p) plane(p-51mustangMTP) sp(182))
+)
+
+("casspeedab" p(1))
+("casspeedab" p(2))
+("casspeedab" p(3))
+("casspeedab" p(4))
+("casspeedab" p(5))
+("casspeedab" p(6))
+("casspeedab" p(7))
+("casspeedab" p(8))
+("casspeedab" p(9))
+("casspeedab" p(10))
+("casspeedab" p(11))
+("casspeedab" p(12))
+("casspeedab" p(13))
+("casspeedab" p(14))
+("casspeedab" p(15))
+("casspeedab" p(16))

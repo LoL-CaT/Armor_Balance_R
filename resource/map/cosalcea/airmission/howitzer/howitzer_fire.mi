@@ -1,0 +1,353 @@
+(define "howitzer"
+	{"cosalcea/airmission/howitzer/tofire/atwill/p%p" ;Order in/off-map CAS to strike.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{player
+									{player "%p"}
+								}
+								{tag
+									{tag "howitzer"}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{tag
+									{tag "firing"}
+								}
+							}
+						}
+					}
+				}
+				{"2.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "p%phowitzertarget"}
+								}
+							}
+						}
+					}
+				}
+				{"3.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "p%phowitzertargetsmoke"}
+								}
+							}
+						}
+					}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+			}	
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "howitzer"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "firing"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%phowitzertofire"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"actor_fire"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%phowitzertofire"}
+				}
+				{drop orders}
+				{attack enemies}
+				{enemies
+					{source advanced}
+					{ignore_captured_by_user 0}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+					}
+					{amount 1
+					}
+					{sort
+						{type entity}
+						{entity
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{tag
+										{tag "p%phowitzertarget"}
+									}
+								}
+							}
+						}
+					}
+				}
+				{interval 0}
+				{time 0}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%phowitzertofire"}
+							}
+						}
+					}
+				}
+				{tag_add "firing"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%phowitzertofire"}
+				}
+				{tag_remove "p%phowitzertofire"}
+				{tag_remove "p%phowitzertoattack"}
+			}
+			{"delay"
+				{time 7}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/howitzer/tofire/atwill/p%p"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/howitzer/tofire/smoke/p%p" ;Order off-map CAS to strike.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{player
+									{player "%p"}
+								}
+								{tag
+									{tag "howitzer"}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{tag
+									{tag "firing"}
+								}
+							}
+						}
+					}
+				}
+				{"2.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "p%phowitzertargetsmoke"}
+								}
+							}
+						}
+					}
+				}
+				{"3.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "p%phowitzertarget"}
+								}
+							}
+						}
+					}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+			}	
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "howitzer"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "firing"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%phowitzertofire"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"actor_fire"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%phowitzertofire"}
+				}
+				{drop orders}
+				{attack enemies}
+				{enemies
+					{source advanced}
+					{ignore_captured_by_user 0}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+					}
+					{amount 1
+					}
+					{sort
+						{type entity}
+						{entity
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{tag
+										{tag "p%phowitzertargetsmoke"}
+									}
+								}
+							}
+						}
+					}
+				}
+				{interval 0}
+				{time 0}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%phowitzertofire"}
+							}
+						}
+					}
+				}
+				{tag_add "firing"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%phowitzertofire"}
+				}
+				{tag_remove "p%phowitzertofire"}
+			}
+			{"delay"
+				{time 7}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/howitzer/tofire/smoke/p%p"}
+			}
+		}
+	}
+)
+
+("howitzer" p(1))
+("howitzer" p(2))
+("howitzer" p(3))
+("howitzer" p(4))
+("howitzer" p(5))
+("howitzer" p(6))
+("howitzer" p(7))
+("howitzer" p(8))
+("howitzer" p(9))
+("howitzer" p(10))
+("howitzer" p(11))
+("howitzer" p(12))
+("howitzer" p(13))
+("howitzer" p(14))
+("howitzer" p(15))
+("howitzer" p(16))

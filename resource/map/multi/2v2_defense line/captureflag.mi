@@ -1,0 +1,685 @@
+{mission
+	{Entity "map_point" 0xc00a
+		{Position -3311.65 -2465.48}
+		{xform zl 69.76}
+		{Extender "map_point"
+			{name b2}
+			{team b}
+			{phase 0}
+			{order 2}
+			{visor SpawnPoint}
+		}
+		{Player 0}
+		{MID 18}
+	}
+	{Entity "map_point" 0x8002
+		{Position -2561.44 -2456.8}
+		{xform zl 87.27}
+		{Extender "map_point"
+			{name b1}
+			{team b}
+			{phase 0}
+			{order 1}
+			{visor SpawnPoint}
+		}
+		{Player 0}
+		{MID 19}
+	}
+	{Entity "map_point" 0xc005
+		{Position 172.56 3513.58}
+		{xform zl -89.62}
+		{Extender "map_point"
+			{name a1}
+			{team a}
+			{phase 0}
+			{order 1}
+			{visor SpawnPoint}
+		}
+		{Player 0}
+		{MID 29}
+	}
+	{Entity "map_point" 0xc011
+		{Position 819.05 3451.15}
+		{xform zl -110.25}
+		{Extender "map_point"
+			{name a2}
+			{team a}
+			{phase 0}
+			{order 2}
+			{visor SpawnPoint}
+		}
+		{Player 0}
+		{MID 35}
+	}
+	{Entity "side_star" 0xc001
+		{Extender "bone_rotator"
+			{"rotate"
+				{speed 10}
+			}
+		}
+	}
+	{Entity "flag_point" 0xc000
+		{Position -870.05 488.1}
+		{xform zl -90.47 scale 0.75}
+		{Extender "map_point"
+			{name f1}
+			{zoneA 15}
+			{zoneB 15}
+			{phase 0}
+			{order 1}
+			{show All}
+			{visor MapPoint}
+			{allow
+				{capture "b" "a"}
+				{release "b" "a"}
+			}
+		}
+		{Player 0}
+		{MID 1}
+	}
+	{Entity "birds" 0x8000
+		{Position -1015.47 -1533.54}
+	}
+	{Entity "birds" 0x8001
+		{Position 2176.86 -2840.21 1.78}
+	}
+	{Entity "birds" 0x8003
+		{Position 1785.3 726.66}
+	}
+	{Entity "birds" 0x8004
+		{Position 706.47 3406.94}
+	}
+	{Entity "birds" 0x8005
+		{Position -3032.87 3238.58}
+	}
+	{Entity "birds" 0x8006
+		{Position -3364.07 467.08}
+	}
+	{Entity "battle" 0x8007
+		{Position -3846.34 -2891.28}
+	}
+	{Link 0xc001 {0xc000 "side_pointer"}}
+	{Environment "multi/multi_01"}
+	{Helpers
+		{zone "circle"
+			{Position -3311.65 -2465.48 0}
+			{name "air_b2"}
+			{Radius 1200}
+		}
+		{zone "circle"
+			{Position -2561.44 -2456.8 0}
+			{name "air_b1"}
+			{Radius 1200}
+		}
+		{zone "circle"
+			{Position 172.56 3513.58 0}
+			{name "air_a1"}
+			{Radius 1200}
+		}
+		{zone "circle"
+			{Position 819.05 3451.15 0}
+			{name "air_a2"}
+			{Radius 1200}
+		}
+		{zone "circle"
+			{Position -870.05 488.1 0}
+			{name "airattack_f1"}
+			{Radius 200}
+		}
+		{reinforcements
+			{scoreTotal 0}
+			{scoreCurrent 0}
+		}
+		(include "/map/cosalcea/airmission/misc/aircraft_tz&wp.mi") 
+		{triggers
+			(include "/map/cosalcea/combine.mi")
+			{"aircraft_b2"
+				{condition
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{tag teamnone}
+							{zone "air_b2"}
+						}
+						{tag_add teamb}
+						{tag_remove teamnone}
+					}
+					{"entity_state"
+						{selector
+							{tag v_teamnone}
+							{zone "air_b2"}
+						}
+						{tag_add v_teamb}
+						{tag_remove v_teamnone}
+					}
+					{"entity_state"
+						{selector
+							{tag fighter_aircraft}
+							{zone "air_b2"}
+						}
+						{tag_add fighter_aircraft_b}
+					}
+					{"entity_state"
+						{selector
+							{tag bomber_aircraft}
+							{zone "air_b2"}
+						}
+						{tag_add bomber_aircraft_b}
+					}
+					{"air_state"
+						{selector
+							{tag bomber_aircraft}
+							{zone "air_b2"}
+						}
+						{altitude 27}
+					}
+					{"air_state"
+						{selector
+							{tag fighter_aircraft}
+							{zone "air_b2"}
+						}
+						{altitude 27}
+					}
+					{"air_state"
+						{selector
+							{tag transport_aircraft}
+							{zone "air_b2"}
+						}
+						{altitude 30}
+					}
+					{"trigger"
+						{name "aircraft_b2"}
+					}
+				}
+			}
+			{"aircraft_b1"
+				{condition
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{tag teamnone}
+							{zone "air_b1"}
+						}
+						{tag_add teamb}
+						{tag_remove teamnone}
+					}
+					{"entity_state"
+						{selector
+							{tag v_teamnone}
+							{zone "air_b1"}
+						}
+						{tag_add v_teamb}
+						{tag_remove v_teamnone}
+					}
+					{"entity_state"
+						{selector
+							{tag fighter_aircraft}
+							{zone "air_b1"}
+						}
+						{tag_add fighter_aircraft_b}
+					}
+					{"entity_state"
+						{selector
+							{tag bomber_aircraft}
+							{zone "air_b1"}
+						}
+						{tag_add bomber_aircraft_b}
+					}
+					{"air_state"
+						{selector
+							{tag bomber_aircraft}
+							{zone "air_b1"}
+						}
+						{altitude 27}
+					}
+					{"air_state"
+						{selector
+							{tag fighter_aircraft}
+							{zone "air_b1"}
+						}
+						{altitude 27}
+					}
+					{"air_state"
+						{selector
+							{tag transport_aircraft}
+							{zone "air_b1"}
+						}
+						{altitude 30}
+					}
+					{"trigger"
+						{name "aircraft_b1"}
+					}
+				}
+			}
+			{"aircraft_a1"
+				{condition
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{tag teamnone}
+							{zone "air_a1"}
+						}
+						{tag_add teama}
+						{tag_remove teamnone}
+					}
+					{"entity_state"
+						{selector
+							{tag v_teamnone}
+							{zone "air_a1"}
+						}
+						{tag_add v_teama}
+						{tag_remove v_teamnone}
+					}
+					{"entity_state"
+						{selector
+							{tag fighter_aircraft}
+							{zone "air_a1"}
+						}
+						{tag_add fighter_aircraft_a}
+					}
+					{"entity_state"
+						{selector
+							{tag bomber_aircraft}
+							{zone "air_a1"}
+						}
+						{tag_add bomber_aircraft_a}
+					}
+					{"air_state"
+						{selector
+							{tag bomber_aircraft}
+							{zone "air_a1"}
+						}
+						{altitude 27}
+					}
+					{"air_state"
+						{selector
+							{tag fighter_aircraft}
+							{zone "air_a1"}
+						}
+						{altitude 27}
+					}
+					{"air_state"
+						{selector
+							{tag transport_aircraft}
+							{zone "air_a1"}
+						}
+						{altitude 30}
+					}
+					{"trigger"
+						{name "aircraft_a1"}
+					}
+				}
+			}
+			{"aircraft_a2"
+				{condition
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{tag teamnone}
+							{zone "air_a2"}
+						}
+						{tag_add teama}
+						{tag_remove teamnone}
+					}
+					{"entity_state"
+						{selector
+							{tag v_teamnone}
+							{zone "air_a2"}
+						}
+						{tag_add v_teama}
+						{tag_remove v_teamnone}
+					}
+					{"entity_state"
+						{selector
+							{tag fighter_aircraft}
+							{zone "air_a2"}
+						}
+						{tag_add fighter_aircraft_a}
+					}
+					{"entity_state"
+						{selector
+							{tag bomber_aircraft}
+							{zone "air_a2"}
+						}
+						{tag_add bomber_aircraft_a}
+					}
+					{"air_state"
+						{selector
+							{tag bomber_aircraft}
+							{zone "air_a2"}
+						}
+						{altitude 27}
+					}
+					{"air_state"
+						{selector
+							{tag fighter_aircraft}
+							{zone "air_a2"}
+						}
+						{altitude 27}
+					}
+					{"air_state"
+						{selector
+							{tag transport_aircraft}
+							{zone "air_a2"}
+						}
+						{altitude 30}
+					}
+					{"trigger"
+						{name "aircraft_a2"}
+					}
+				}
+			}
+			{"environment"
+				{condition
+				}
+				{actions
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_10"}
+							}
+							{"delete"
+								{selector
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_09"}
+							}
+							{"delete"
+								{selector
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{amount 1
+									}
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_08"}
+							}
+							{"delete"
+								{selector
+									{amount 2
+									}
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_07"}
+							}
+							{"delete"
+								{selector
+									{amount 2
+									}
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_06"}
+							}
+							{"delete"
+								{selector
+									{amount 2
+									}
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_05"}
+							}
+							{"delete"
+								{selector
+									{amount 2
+									}
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_04"}
+							}
+							{"delete"
+								{selector
+									{amount 2
+									}
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_03"}
+							}
+							{"delete"
+								{selector
+									{amount 2
+									}
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.1}
+							}
+							{"environment"
+								{name "multi/multi_02"}
+							}
+							{"delete"
+								{selector
+									{amount 2
+									}
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+						{"default"
+							{"environment"
+								{name "multi/multi_01"}
+							}
+							{"delete"
+								{selector
+									{amount 2
+									}
+									{tag day}
+								}
+							}
+							{"delete"
+								{selector
+									{tag night}
+								}
+							}
+							{"delete"
+								{selector
+									{tag rain}
+								}
+							}
+						}
+					}
+				}
+			}
+			{"music"
+				{condition
+				}
+				{actions
+					{"music"
+						{start "/music/skirmish_background_01.mp3"}
+						{stop_all}
+						{volume game}
+						{fade 5}
+						{loop}
+					}
+					{"delay"
+						{time 480}
+					}
+					{"music"
+						{start "/music/skirmish_background_02.mp3"}
+						{stop_all}
+						{volume game}
+						{fade 5}
+						{loop}
+					}
+					{"delay"
+						{time 120}
+					}
+					{"music"
+						{start "/music/skirmish_background_01.mp3"}
+						{stop_all}
+						{volume game}
+						{fade 5}
+						{loop}
+					}
+					{"delay"
+						{time 480}
+					}
+					{"music"
+						{start "/music/skirmish_background_02.mp3"}
+						{stop_all}
+						{volume game}
+						{fade 5}
+						{loop}
+					}
+					{"delay"
+						{time 120}
+					}
+					{"trigger"
+						{name "music"}
+					}
+				}
+			}
+		}
+	}
+	{Fog 1}
+}

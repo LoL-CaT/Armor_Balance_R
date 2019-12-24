@@ -1,0 +1,214 @@
+;The target zones and waypoints.
+
+;Target zones for checking the strongest enemy. 
+	(define "tz"
+		{zone "poly"
+			{position (- (* 1000 0) 3500) (- (* 1000 %n) 3000) 0}
+			{Name "A%n"}
+			{Point -500 -500}
+			{Point -500 500}
+			{Point 500 500}
+			{Point 500 -500}
+		}
+		{zone "poly"
+			{position (- (* 1000 1) 3500) (- (* 1000 %n) 3000) 0}
+			{Name "B%n"}
+			{Point -500 -500}
+			{Point -500 500}
+			{Point 500 500}
+			{Point 500 -500}
+		}
+		{zone "poly"
+			{position (- (* 1000 2) 3500) (- (* 1000 %n) 3000) 0}
+			{Name "C%n"}
+			{Point -500 -500}
+			{Point -500 500}
+			{Point 500 500}
+			{Point 500 -500}
+		}
+		{zone "poly"
+			{position (- (* 1000 3) 3500) (- (* 1000 %n) 3000) 0}
+			{Name "D%n"}
+			{Point -500 -500}
+			{Point -500 500}
+			{Point 500 500}
+			{Point 500 -500}
+		}
+		{zone "poly"
+			{position (- (* 1000 4) 3500) (- (* 1000 %n) 3000) 0}
+			{Name "E%n"}
+			{Point -500 -500}
+			{Point -500 500}
+			{Point 500 500}
+			{Point 500 -500}
+		}
+		{zone "poly"
+			{position (- (* 1000 5) 3500) (- (* 1000 %n) 3000) 0}
+			{Name "F%n"}
+			{Point -500 -500}
+			{Point -500 500}
+			{Point 500 500}
+			{Point 500 -500}
+		}
+		{zone "poly"
+			{position (- (* 1000 6) 3500) (- (* 1000 %n) 3000) 0}
+			{Name "G%n"}
+			{Point -500 -500}
+			{Point -500 500}
+			{Point 500 500}
+			{Point 500 -500}
+		}
+		{zone "poly"
+			{position (- (* 1000 7) 3500) (- (* 1000 %n) 3000) 0}
+			{Name "H%n"}
+			{Point -500 -500}
+			{Point -500 500}
+			{Point 500 500}
+			{Point 500 -500}
+		}
+	)
+	("tz" n(0))
+	("tz" n(1))
+	("tz" n(2))
+	("tz" n(3))
+	("tz" n(4))
+	("tz" n(5))
+	("tz" n(6))
+
+;Waypoints for spawning & resetting planes.
+	{waypoints "airmission"
+		{"movei1"
+			{position -8000 0 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"movei2"
+			{position 8000 0 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"movei3"
+			{position 0 8000 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"movei4"
+			{position 0 -8000 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"arsi1"
+			{position -10000 0 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"arsi2"
+			{position 10000 0 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"arsi3"
+			{position 0 10000 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"arsi4"
+			{position 0 -10000 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"mtpi1"
+			{position -10000 2000 0}
+			{radius 1000}
+			{offsetz 60}
+		}
+		{"mtpi2"
+			{position 10000 -2000 0}
+			{radius 1000}
+			{offsetz 60}
+		}
+		{"mtpi3"
+			{position -2000 10000 0}
+			{radius 1000}
+			{offsetz 60}
+		}
+		{"mtpi4"
+			{position 2000 -10000 0}
+			{radius 1000}
+			{offsetz 60}
+		}
+		{"casi1"
+			{position -10000 -2000 0}
+			{radius 1000}
+			{offsetz 40}
+		}
+		{"casi2"
+			{position 10000 2000 0}
+			{radius 1000}
+			{offsetz 40}
+		}
+		{"casi3"
+			{position 2000 10000 0}
+			{radius 1000}
+			{offsetz 40}
+		}
+		{"casi4"
+			{position -2000 -10000 0}
+			{radius 1000}
+			{offsetz 40}
+		}
+		{"tbbi1"
+			{position -12000 0 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"tbbi2"
+			{position 12000 0 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"tbbi3"
+			{position 0 12000 0}
+			{radius 1000}
+			{offsetz 80}
+		}
+		{"tbbi4"
+			{position 0 -12000 0}
+			{radius 1000}
+			{offsetz 80}
+		}		
+	}
+
+;Zones help waypoints to init planes.
+	{zone "poly"
+		{position -10000 0 0}
+		{Name "airzone1"}
+		{Point -9000 -9000}
+		{Point -9000 9000}
+		{Point 9000 9000}
+		{Point 9000 -9000}
+	}
+	{zone "poly"
+		{position 10000 0 0}
+		{Name "airzone2"}
+		{Point -9000 -9000}
+		{Point -9000 9000}
+		{Point 9000 9000}
+		{Point 9000 -9000}
+	}
+	{zone "poly"
+		{position 0 10000 0}
+		{Name "airzone3"}
+		{Point -9000 -9000}
+		{Point -9000 9000}
+		{Point 9000 9000}
+		{Point 9000 -9000}
+	}
+	{zone "poly"
+		{position 0 -10000 0}
+		{Name "airzone4"}
+		{Point -9000 -9000}
+		{Point -9000 9000}
+		{Point 9000 9000}
+		{Point 9000 -9000}
+	}

@@ -1,0 +1,500 @@
+(define "designatetarget"
+	{"cosalcea/airmission/target/designateatwill/p%p" ;Choose the strongest ground target for air striking.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{tag "p%penemyseen"}
+					}
+				}
+				{"2.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{tag "p%pstriketarget"}
+					}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+				{"3.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{player
+									{player "%p"}
+								}
+								{tag
+									{tag "cas"}
+								}
+								{tag
+									{tag "in-map"}
+								}
+								{state
+									{state operatable}
+								}
+							}
+						}
+					}
+					{count
+						{op "<<"}
+						{value 2}
+					}
+				}
+				{"4.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{tag "p%pstriketargetsmoke"}
+					}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+			}
+		}
+		{actions
+			{"switch"
+				{"case"
+					{condition
+						{type entities}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%penemyseen"}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{ignore_captured_by_user 0}
+									{source advanced}
+									{group
+										{include
+											{tag
+												{tag "p%penemyseen"}
+											}
+										}
+										{exclude
+											{prop
+												{prop airborne}
+											}
+										}
+									}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{player
+														{player "%p"}
+													}
+													{tag
+														{tag "cas"}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+										}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "p%penemyseen"}
+													}
+													{prop
+														{prop tank}
+													}
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%pstriketarget"}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{player
+														{player "%p"}
+													}
+													{tag
+														{tag "cas"}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+										}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "p%penemyseen"}
+													}
+													{prop
+														{prop with_gun}
+													}
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%pstriketarget"}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{player
+														{player "%p"}
+													}
+													{tag
+														{tag "cas"}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+										}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "p%penemyseen"}
+													}
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%pstriketarget"}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{player
+														{player "%p"}
+													}
+													{tag
+														{tag "cas"}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+										}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "p%penemyseen"}
+													}
+													{prop
+														{prop human}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%pstriketarget"}
+									}
+								}
+								{"default"
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "p%penemyseen"}
+													}
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%pstriketarget"}
+									}
+								}
+							}
+						}
+						{"default"
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{source advanced}
+									{group
+										{include
+											{tag
+												{tag "p%penemyseen"}
+											}
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{prop
+												{prop airborne}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+								{tag_add "p%pstriketarget"}
+							}
+						}
+					}					
+				}
+				{"default"
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%penemyseen"}
+									}
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add "p%pstriketarget"}
+					}				
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/target/designateatwill/p%p"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/target/designatebyplayer/p%p" ;When player spawns a target, stop choosing at will.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "smoketarget"}
+								}
+								{player
+									{player "%p"}
+								}	
+							}
+							{exclude
+								{tag
+									{tag "p%pstriketargetsmoke"}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		{actions		
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "smoketarget"}
+							}
+							{player
+								{player "%p"}
+							}	
+						}
+						{exclude
+							{tag
+								{tag "p%pstriketargetsmoke"}
+							}
+						}
+					}
+				}
+				{tag_add "p%pstriketargetsmoke"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "cas"}
+							}
+							{tag
+								{tag "off-map"}
+							}
+							{tag
+								{tag "striking"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+					}
+				}
+				{tag_remove "striking"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/target/designatebyplayer/p%p"}
+			}
+		}
+	}
+)
+
+("designatetarget" p(1))
+("designatetarget" p(2))
+("designatetarget" p(3))
+("designatetarget" p(4))
+("designatetarget" p(5))
+("designatetarget" p(6))
+("designatetarget" p(7))
+("designatetarget" p(8))
+("designatetarget" p(9))
+("designatetarget" p(10))
+("designatetarget" p(11))
+("designatetarget" p(12))
+("designatetarget" p(13))
+("designatetarget" p(14))
+("designatetarget" p(15))
+("designatetarget" p(16))

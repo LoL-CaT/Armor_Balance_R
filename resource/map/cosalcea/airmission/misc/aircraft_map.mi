@@ -1,0 +1,378 @@
+(define "aircraftmapwatcher"
+	{"cosalcea/airmission/map/p%p" ;Check if the aircraft is off-map.
+		{condition
+			;{terms
+			;{"1.entities"
+			;	{selector
+			;		{ignore_captured_by_user 0}
+			;		{player "%p"}
+			;		{state operatable}
+			;		{tag "aircraft"}
+			;	}
+			;}
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop airborne}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				; {selector
+				; 	{ignore_captured_by_user 0}
+				; 	{amount 1
+				; 	}
+				; 	{tag aircraft}
+				; 	{player "%p"}
+				; 	{state operatable}
+				; }
+				{tag_add "p%pcheckmap"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%pcheckmap"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation ally}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+									{tag
+										{tag "pilot"}
+									}
+								}
+							}
+						}
+						{distance 250}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pcheckmap"}
+									}
+								}
+							}
+						}
+						{tag_add "in-map"}
+						{tag_remove "off-map"}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%pcheckmap"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+									{tag
+										{tag "pilot"}
+									}
+								}
+							}
+						}
+						{distance 250}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pcheckmap"}
+									}
+								}
+							}
+						}
+						{tag_add "in-map"}
+						{tag_remove "off-map"}
+					}
+				}
+				{"default"
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pcheckmap"}
+									}
+								}
+							}
+						}
+						{tag_add "off-map"}
+						{tag_remove "in-map"}
+					}					
+				}
+			}			
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%pcheckmap"}
+				}
+				{tag_remove "p%pcheckmap"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/map/p%p"}
+			}
+		}
+	}
+)
+
+("aircraftmapwatcher" p(1))
+("aircraftmapwatcher" p(2))
+("aircraftmapwatcher" p(3))
+("aircraftmapwatcher" p(4))
+("aircraftmapwatcher" p(5))
+("aircraftmapwatcher" p(6))
+("aircraftmapwatcher" p(7))
+("aircraftmapwatcher" p(8))
+("aircraftmapwatcher" p(9))
+("aircraftmapwatcher" p(10))
+("aircraftmapwatcher" p(11))
+("aircraftmapwatcher" p(12))
+("aircraftmapwatcher" p(13))
+("aircraftmapwatcher" p(14))
+("aircraftmapwatcher" p(15))
+("aircraftmapwatcher" p(16))
+	
+{"cosalcea/airmission/map/reset/cas"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "cas"}
+							}
+							{tag
+								{tag "off-map"}
+							}
+							{tag
+								{tag "fired"}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	{actions
+		{"delay"
+		 	{time 3}
+		}		
+		{"entity_state"
+			{selector
+				{ignore_captured_by_user 0}
+				{source advanced}
+				{group
+					{include
+						{tag
+							{tag "cas"}
+						}
+						{tag
+							{tag "off-map"}
+						}
+						{tag
+							{tag "fired"}
+						}
+					}
+				}
+				{amount 1
+				}
+			}
+			{tag_add "casstrikeagain"}
+		}
+		{"delay"
+		 	{time 0.01}
+		}
+		{"entity_state"
+		 	{selector
+				{ignore_captured_by_user 0}
+				{source advanced}
+				{group
+					{include
+						{tag
+							{tag "casstrikeagain"}
+						}
+					}
+				}
+			}
+		 	{tag_remove "striking"}
+		}	
+		{"entity_state"
+		 	{selector
+				{ignore_captured_by_user 0}
+				{source advanced}
+				{group
+					{include
+						{tag
+							{tag "casstrikeagain"}
+						}
+					}
+				}
+			}
+		 	{tag_remove "fired"}
+		}	
+		{"entity_state"
+		 	{selector
+				{ignore_captured_by_user 0}
+				{source advanced}
+				{group
+					{include
+						{tag
+							{tag "casstrikeagain"}
+						}
+					}
+				}
+			}
+		 	{tag_remove "reseted"}
+		}
+		{"delay"
+		 	{time 0.01}
+		}	
+		{"entity_state"
+		 	{selector
+				{ignore_captured_by_user 0}
+				{source advanced}
+				{group
+					{include
+						{tag
+							{tag "casstrikeagain"}
+						}
+					}
+				}
+			}
+		 	{tag_remove "casstrikeagain"}
+		}
+		{"delay"
+		 	{time 0.01}
+		}	
+		{"trigger"
+			{name "cosalcea/airmission/map/reset/cas"}
+		}
+	}
+}
+
+{"cosalcea/airmission/map/reset/ars"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "ars"}
+							}
+							{tag
+								{tag "off-map"}
+							}
+							{tag
+								{tag "runaway"}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	{actions
+		{"delay"
+		 	{time 3}
+		}	
+		{"entity_state"
+		 	{selector
+				{ignore_captured_by_user 0}
+				{source advanced}
+				{group
+					{include
+						{tag
+							{tag "ars"}
+						}
+						{tag
+							{tag "off-map"}
+						}
+						{tag
+							{tag "runaway"}
+						}
+					}
+				}
+				{amount 1
+				}
+			}
+		 	{tag_remove "runaway"}
+		}
+		{"delay"
+		 	{time 0.01}
+		}	
+		{"trigger"
+			{name "cosalcea/airmission/map/reset/ars"}
+		}	
+	}
+}

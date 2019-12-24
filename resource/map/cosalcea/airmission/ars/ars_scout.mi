@@ -1,0 +1,151 @@
+(define "arsob"
+	{"cosalcea/airmission/ars/scout/p%p"
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{relation
+									{relation enemy}
+									{player "%p"}
+								}
+								{state
+									{state operatable}
+								}
+								{prop
+									{prop airborne}
+								}
+							}
+						}
+				 	}
+				 	{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%p"}
+				 				}
+				 				{tag
+				 					{tag "ars"}
+				 				}
+				 				{tag
+				 					{tag "inited"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions			
+			{"air_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{player
+			 					{player "%p"}
+			 				}
+			 				{tag
+			 					{tag "ars"}
+			 				}
+			 				{tag
+			 					{tag "inited"}
+			 				}
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{drop orders}
+				{altitude 40}
+			}
+			{"delay"
+				{time 1}
+			}
+			{"action"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{player
+			 					{player "%p"}
+			 				}
+			 				{tag
+			 					{tag "ars"}
+			 				}
+			 				{tag
+			 					{tag "inited"}
+			 				}
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{drop orders}
+				{action move}
+				{target
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+			}			
+			{"delay"
+				{time 1}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/ars/scout/p%p"}
+			}
+		}
+	}	
+)
+
+("arsob" p(1))
+("arsob" p(2))
+("arsob" p(3))
+("arsob" p(4))
+("arsob" p(5))
+("arsob" p(6))
+("arsob" p(7))
+("arsob" p(8))
+("arsob" p(9))
+("arsob" p(10))
+("arsob" p(11))
+("arsob" p(12))
+("arsob" p(13))
+("arsob" p(14))
+("arsob" p(15))
+("arsob" p(16))

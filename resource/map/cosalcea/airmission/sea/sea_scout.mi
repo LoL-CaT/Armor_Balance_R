@@ -1,0 +1,116 @@
+(define "seaob"
+	{"cosalcea/airmission/sea/scout/p%p"
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{relation
+									{relation enemy}
+									{player "%p"}
+								}
+								{state
+									{state operatable}
+								}
+								{prop
+									{prop marine}
+								}
+							}
+						}
+				 	}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				 }
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%p"}
+				 				}
+				 				{tag
+				 					{tag "torpedo_attacker"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions			
+			{"action"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{player
+			 					{player "%p"}
+			 				}
+			 				{tag
+			 					{tag "torpedo_attacker"}
+			 				}
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{drop orders}
+				{action move}
+				{target
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+			}			
+			{"delay"
+				{time 1}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/sea/scout/p%p"}
+			}
+		}
+	}	
+)
+
+("seaob" p(1))
+("seaob" p(2))
+("seaob" p(3))
+("seaob" p(4))
+("seaob" p(5))
+("seaob" p(6))
+("seaob" p(7))
+("seaob" p(8))
+("seaob" p(9))
+("seaob" p(10))
+("seaob" p(11))
+("seaob" p(12))
+("seaob" p(13))
+("seaob" p(14))
+("seaob" p(15))
+("seaob" p(16))

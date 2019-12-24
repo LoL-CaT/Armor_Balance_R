@@ -1,0 +1,73 @@
+{"cosalcea/am/misc/CASpreset" ;Init CAS
+	{condition
+	}
+	{actions
+		{"entity_state"
+			{selector
+				{source advanced}
+				{group
+					{select
+						{tag
+							{tag CAS}
+						}
+					}
+					{exclude
+						{tag
+							{tag inited}
+						}
+					}
+				}
+				{amount 1
+				}
+			}
+			{tag_add toinit}
+		}
+		{"delay"
+			{time 0.01}
+		}
+		{"ables"
+			{selector
+				{tag toinit}
+			}
+			{remove select}
+		}
+		{"delay"
+			{time 0.01}
+		}
+		{"air_state"
+			{selector
+				{tag toinit}
+			}
+			{drop orders}
+			{altitude 80}
+		}
+		{"delay"
+			{time 0.01}
+		}
+		;{"action"
+		;	{selector
+		;		{tag toinit}
+		;	}
+		;	{action move}
+		;	{waypoint "0"}
+		;}
+		;{"placement"
+		;}
+		{"delay"
+			{time 0.01}
+		}
+		{"entity_state"
+			{selector
+				{tag toinit}
+			}
+			{tag_add inited}
+			{tag_remove toinit}
+		}
+		{"delay"
+			{time 0.01}
+		}
+		{"trigger"
+			{name "cosalcea/as/misc/CASpreset"}
+		}
+	}
+}

@@ -1,0 +1,216 @@
+(define "arsrun"
+	{"cosalcea/airmission/ars/runaway/p%p"
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%p"}
+				 				}
+				 				{tag
+				 					{tag "ars"}
+				 				}
+				 				{tag
+				 					{tag "runaway"}
+				 				}
+				 				{tag
+				 					{tag "inited"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{relation
+									{relation enemy}
+									{player "%p"}
+								}
+								{state
+									{state operatable}
+								}
+								{prop
+									{prop airborne}
+								}
+							}
+						}
+				 	}
+				 	{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+			}
+		}
+		{actions			
+			{"air_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pars"}
+							}
+							{tag
+			 					{tag "runaway"}
+			 				}
+			 				{state
+								{state operatable}
+							}
+						}
+					}
+				}
+				{drop orders}
+				{altitude 81}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type rand}
+						{value 0.25}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pars"}
+									}
+									{tag
+					 					{tag "runaway"}
+					 				}
+					 				{state
+										{state operatable}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi4"}
+					}
+				}
+				{"case"
+					{condition
+						{type rand}
+						{value 0.25}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pars"}
+									}
+									{tag
+					 					{tag "runaway"}
+					 				}
+					 				{state
+										{state operatable}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi3"}
+					}
+				}
+				{"case"
+					{condition
+						{type rand}
+						{value 0.25}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pars"}
+									}
+									{tag
+					 					{tag "runaway"}
+					 				}
+					 				{state
+										{state operatable}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi2"}
+					}
+				}
+				{"default"
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%pars"}
+									}
+									{tag
+					 					{tag "runaway"}
+					 				}
+					 				{state
+										{state operatable}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi1"}
+					}
+				}
+			}				
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/ars/runaway/p%p"}
+			}
+		}
+	}	
+)
+
+("arsrun" p(1))
+("arsrun" p(2))
+("arsrun" p(3))
+("arsrun" p(4))
+("arsrun" p(5))
+("arsrun" p(6))
+("arsrun" p(7))
+("arsrun" p(8))
+("arsrun" p(9))
+("arsrun" p(10))
+("arsrun" p(11))
+("arsrun" p(12))
+("arsrun" p(13))
+("arsrun" p(14))
+("arsrun" p(15))
+("arsrun" p(16))

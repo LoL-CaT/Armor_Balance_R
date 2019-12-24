@@ -1,0 +1,1085 @@
+;Preset
+;SEA
+(define "sea_attacker"
+	{"cosalcea/airmission/sea/seek/p%seap"  ;Seek
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%seap"}
+				 				}
+				 				{tag
+				 					{tag "torpedo_attacker"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{relation
+									{relation enemy}
+									{player "%seap"}
+								}
+								{state
+									{state operatable}
+								}
+								{prop
+									{prop marine}
+								}
+							}
+						}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{player
+			 					{player "%seap"}
+			 				}
+			 				{tag
+			 					{tag "torpedo_attacker"}
+			 				}
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%seapsubmarinetryseek"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+						}
+						{distance 200}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+					 	}
+						{tag_remove "p%seapsubmarinesee"}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+						}
+						{distance 250}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+					 	}
+						{tag_remove "p%seapsubmarinesee"}
+					}					
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%seapsubmarinetryseek"}
+											}
+										}
+									}
+								}
+							}
+						}
+						{interval 0}
+						{time 0}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%seapsubmarinetryseek"}
+											}
+										}
+									}
+								}
+							}							
+						}
+						{volume body}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%seapsubmarinetryseek"}
+											}
+										}
+									}
+								}
+							}
+						}
+						{interval 0}
+						{time 0}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%seapsubmarinetryseek"}
+											}
+										}
+									}
+								}
+							}							
+						}
+						{volume body}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%seapsubmarinetryseek"}
+											}
+										}
+									}
+								}
+							}
+						}
+						{interval 0}
+						{time 0}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{include
+											{tag
+												{tag "p%seapsubmarinetryseek"}
+											}
+										}
+									}
+								}
+							}							
+						}
+						{volume body}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+						}
+						{distance 350}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+					 	}
+						{tag_add "p%seapsubmarinesee"}
+						{tag_remove "p%seapsubmarineseek"}
+					}
+				}
+				{"default"
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryseek"}
+					 	}
+						{tag_add "p%seapsubmarineseek"}
+						{tag_remove "p%seapsubmarinesee"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineseek"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation enemy}
+										{player "%seap"}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop marine}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{volume body}
+					}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%seapsubmarinetryseek"}
+			 	}
+				{tag_remove "p%seapsubmarinetryseek"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/sea/seek/p%seap"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/sea/find/p%seap"  ;Find
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%seapsubmarinesee"}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%seapsubmarinesee"}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%seapsubmarinetryattack"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%seap"}
+							}
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop marine}
+							}
+						}
+					}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "maybelockedbyp%seap"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%seap"}
+						}
+						{distance 250}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryattack"}
+					 	}
+						{tag_add "p%seapsubmarinetoattack"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%seap"}
+					 	}
+						{tag_add "lockedbyp%seap"}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%seap"}
+						}
+						{distance 300}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryattack"}
+					 	}
+						{tag_remove "p%seapsubmarinetoattack"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%seap"}
+					 	}
+						{tag_remove "lockedbyp%seap"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryattack"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%seap"}							
+						}
+						{volume body}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%seap"}
+						}
+						{distance 350}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%seapsubmarinetryattack"}
+					 	}
+						{tag_remove "p%seapsubmarinetoattack"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyp%seap"}
+					 	}
+						{tag_remove "lockedbyp%seap"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%seapsubmarinetryattack"}
+			 	}
+				{tag_remove "p%seapsubmarinetryattack"}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "maybelockedbyp%seap"}
+			 	}
+				{tag_remove "maybelockedbyp%seap"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/sea/find/p%seap"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/sea/fight/p%seap"  ;fight
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%seapsubmarinetoattack"}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "lockedbyp%seap"}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%seapsubmarinetoattack"}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%seapsubmarineattacking"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "lockedbyp%seap"}
+			 				}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "attackedbyp%seap"}
+			}
+			{"delay"
+				{time 0.01}
+			}			
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}
+						}
+						{distance 200}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}
+						}
+						{distance 250}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}							
+						}
+						{volume body}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}
+						}
+						{interval 0}
+						{time 0}
+					}	
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}							
+						}
+						{volume body}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}
+						}
+						{interval 0}
+						{time 0}
+					}	
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}							
+						}
+						{volume body}
+					}
+					{"actor_fire"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{drop orders}
+						{attack enemies}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}
+						}
+						{interval 0}
+						{time 0}
+					}	
+					{"delay"
+						{time 0.01}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}							
+						}
+						{volume body}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}
+						}
+						{distance 300}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%seapsubmarineattacking"}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{ignore_captured_by_user 0}
+							{tag "attackedbyp%seap"}							
+						}
+						{volume body}
+					}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%seapsubmarineattacking"}
+			 	}
+				{tag_remove "p%seapsubmarineattacking"}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "attackedbyp%seap"}
+			 	}
+				{tag_remove "attackedbyp%seap"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/sea/fight/p%seap"}
+			}
+		}
+	}		
+
+	{"cosalcea/airmission/sea/debug/p%seap" ;debug
+		{condition
+		}
+		{actions
+			{"if"     
+				{condition
+					{type entities}
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%seapsubmarineseek"}
+				 				}			 				
+				 			}
+				 			{exclude
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"entity_state"
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%seapsubmarineseek"}
+				 				}			 				
+				 			}
+				 			{exclude
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+					{tag_remove "p%seapsubmarineseek"}
+				}													
+			}
+			{"if"     
+				{condition
+					{type entities}
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%seapsubmarinesee"}
+				 				}			 				
+				 			}
+				 			{exclude
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"entity_state"
+					{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{tag
+				 					{tag "p%seapsubmarinesee"}
+				 				}			 				
+				 			}
+				 			{exclude
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+					{tag_remove "p%seapsubmarinesee"}
+				}													
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/sea/debug/p%seap"}
+			}
+		}
+	}	
+)
+
+("sea_attacker" seap(1))
+("sea_attacker" seap(2))
+("sea_attacker" seap(3))
+("sea_attacker" seap(4))
+("sea_attacker" seap(5))
+("sea_attacker" seap(6))
+("sea_attacker" seap(7))
+("sea_attacker" seap(8))
+("sea_attacker" seap(9))
+("sea_attacker" seap(10))
+("sea_attacker" seap(11))
+("sea_attacker" seap(12))
+("sea_attacker" seap(13))
+("sea_attacker" seap(14))
+("sea_attacker" seap(15))
+("sea_attacker" seap(16))

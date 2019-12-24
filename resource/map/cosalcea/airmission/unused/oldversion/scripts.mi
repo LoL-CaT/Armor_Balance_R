@@ -1,0 +1,591 @@
+(define "strikescript"
+	{"cosalcea/am/strike/p%p"
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{source advanced}
+						{group
+							{include
+								{relation
+									{relation enemy}
+									{player "%p"}
+								}
+								{state
+									{state operatable}
+								}
+								{tag
+									{tag "p%pastarget"}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{source advanced}
+					{amount 1
+					}
+					{group
+						{include
+							{tag
+								{tag airstrike}
+							}
+							{tag
+								{tag inited}
+							}
+							{player
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag striking}
+							}
+						}
+					}
+				}
+				{tag_add tostrike}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_attack"
+				{selector
+					{tag tostrike}
+					{player "%p"}
+				}
+				{drop orders}
+				{enemies
+					{source advanced}
+					{amount 1
+					}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							;{state
+							;	{state operatable}
+							;}
+							{tag
+								{tag "p%pastarget"}
+							}
+						}
+					}
+				}
+				{count 10000}
+				{attack_altitude 24}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{tag tostrike}
+					{player "%p"}
+				}
+				{tag_add striking}
+				{tag_remove tostrike}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/as/strike/p%p"}
+			}
+		}
+	}
+)
+(define "targetscript"
+	{"cosalcea/am/target/p%p/tank"
+		{condition
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop tank}
+							}
+						}
+						{exclude
+							{tag
+								{tag "p%pastarget"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%pcheckastargett"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"if"
+				{condition
+					{type see_actors}
+					{selector
+						{player "%p"}
+						{state operatable}
+					}
+					{enemy
+						{tag "p%pcheckastargett"}
+						{player "%p"}
+						{relation enemy}
+					}
+					{distance
+						{mode near_than}
+						{meters 100}
+					}
+					{detection visible}
+				}
+				{"entity_state"
+					{selector
+						{tag "p%pcheckastargett"}
+						{player "%p"}
+						{relation enemy}
+					}
+					{tag_add "p%pastarget"}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pcheckastargett"}
+							}
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+						}
+					}
+				}
+				{tag_remove "p%pcheckastargett"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/as/target/p%p/tank"}
+			}
+		}
+	}
+	{"cosalcea/am/target/p%p/vehicle"
+		{condition
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop vehicle}
+							}
+						}
+						{exclude
+							{tag
+								{tag "p%pastarget"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%pcheckastargetv"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"if"
+				{condition
+					{type see_actors}
+					{selector
+						{player "%p"}
+						{state operatable}
+					}
+					{enemy
+						{tag "p%pcheckastargetv"}
+						{player "%p"}
+						{relation enemy}
+					}
+					{distance
+						{mode near_than}
+						{meters 100}
+					}
+					{detection visible}
+				}
+				{"entity_state"
+					{selector
+						{tag "p%pcheckastargetv"}
+						{player "%p"}
+						{relation enemy}
+					}
+					{tag_add "p%pastarget"}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pcheckastargetv"}
+							}
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+						}
+					}
+				}
+				{tag_remove "p%pcheckastargetv"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/as/target/p%p/vehicle"}
+			}
+		}
+	}
+	{"cosalcea/am/target/p%p/humancover"
+		{condition
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop human}
+							}
+							{cover}
+						}
+						{exclude
+							{tag
+								{tag "p%pastarget"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%pcheckastargethc"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"if"
+				{condition
+					{type see_actors}
+					{selector
+						{player "%p"}
+						{state operatable}
+					}
+					{enemy
+						{tag "p%pcheckastargethc"}
+						{player "%p"}
+						{relation enemy}
+					}
+					{distance
+						{mode near_than}
+						{meters 100}
+					}
+					{detection visible}
+				}
+				{"entity_state"
+					{selector
+						{tag "p%pcheckastargethc"}
+						{player "%p"}
+						{relation enemy}
+					}
+					{tag_add "p%pastarget"}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pcheckastargethc"}
+							}
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+						}
+					}
+				}
+				{tag_remove "p%pcheckastargethc"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/as/target/p%p/humancover"}
+			}
+		}
+	}
+	{"cosalcea/am/target/p%p/human"
+		{condition
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop human}
+							}
+						}
+						{exclude
+							{tag
+								{tag "p%pastarget"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%pcheckastargeth"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"if"
+				{condition
+					{type see_actors}
+					{selector
+						{player "%p"}
+						{state operatable}
+					}
+					{enemy
+						{tag "p%pcheckastargeth"}
+						{player "%p"}
+						{relation enemy}
+					}
+					{distance
+						{mode near_than}
+						{meters 100}
+					}
+					{detection visible}
+				}
+				{"entity_state"
+					{selector
+						{tag "p%pcheckastargeth"}
+						{player "%p"}
+						{relation enemy}
+					}
+					{tag_add "p%pastarget"}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pcheckastargeth"}
+							}
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+						}
+					}
+				}
+				{tag_remove "p%pcheckastargeth"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/as/target/p%p/human"}
+			}
+		}
+	}
+	{"cosalcea/am/target/p%p/remove"
+		{condition
+		}
+		{actions
+			{"delay"
+				{time 5}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{tag
+								{tag "p%pastarget"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%pcheckastargetr"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type see_actors}
+						{selector
+							{player "%p"}
+							{state operatable}
+						}
+						{enemy
+							{tag "p%pcheckastargetr"}
+							{player "%p"}
+							{relation enemy}
+							{state operatable}
+						}
+						{distance
+							{mode near_than}
+							{meters 100}
+						}
+						{detection recognized}
+					}
+				}
+				{"default"
+					{"entity_state"
+						{selector
+							{tag "p%pcheckastargetr"}
+							{player "%p"}
+							{relation enemy}
+						}
+						{tag_remove "p%pastarget"}
+					}
+					{"delay"
+						{time 0.01}
+					}					
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pcheckastargetr"}
+							}
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+						}
+					}
+				}
+				{tag_remove "p%pcheckastargetr"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/as/target/p%p/remove"}
+			}
+		}
+	}
+)
+
+("strikescript" p(1))
+("strikescript" p(2))
+("strikescript" p(3))
+("strikescript" p(4))
+("strikescript" p(5))
+("strikescript" p(6))
+("strikescript" p(7))
+("strikescript" p(8))
+("strikescript" p(9))
+("strikescript" p(10))
+("strikescript" p(11))
+("strikescript" p(12))
+("strikescript" p(13))
+("strikescript" p(14))
+("strikescript" p(15))
+("strikescript" p(16))
+
+("targetscript" p(1))
+("targetscript" p(2))
+("targetscript" p(3))
+("targetscript" p(4))
+("targetscript" p(5))
+("targetscript" p(6))
+("targetscript" p(7))
+("targetscript" p(8))
+("targetscript" p(9))
+("targetscript" p(10))
+("targetscript" p(11))
+("targetscript" p(12))
+("targetscript" p(13))
+("targetscript" p(14))
+("targetscript" p(15))
+("targetscript" p(16))

@@ -1,0 +1,428 @@
+;Preset
+	(define "sngwatcher0"
+		{"cosalcea/sngwatcher/%tz%n/p%p"
+			{condition
+				{terms
+					{"1.entities"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%penemyseen"}
+							{zone "%tz%n"}
+							{state operatable}
+						}
+					}
+				}
+			}
+			{actions
+				{"switch"
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{ignore_captured_by_user 0}
+								{zone "%tz%n"}
+								{tag "p%penemyseen"}
+								{type human}
+								{state operatable}
+							}
+							{count
+								{op "<<="}
+								{value 10}
+							}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type entities}
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{type tank}
+										{state operatable}
+									}
+									{count
+										{op ">="}
+										{value 1}
+									}
+								}
+								; {"effect" ;It causes OOS.
+								; 	{selector
+								; 		{ignore_captured_by_user 0}
+								; 		{zone "%tz%n"}
+								; 		{tag "p%penemyseen"}
+								; 		{state operatable}
+								; 	}
+								; 	{effect armystrong}
+								; }
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "normal"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "weak"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_add "strong"}
+								}
+							}
+							{"case"
+								{condition
+									{type entities}
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{type vehicle}
+										{state operatable}
+									}
+									{count
+										{op ">="}
+										{value 1}
+									}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "strong"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "weak"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_add "normal"}
+								}
+							}
+							{"case"
+								{condition
+									{type entities}
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{type vehicle}
+										{state operatable}
+									}
+									{count
+										{op ">="}
+										{value 2}
+									}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "normal"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "weak"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_add "strong"}
+								}
+							}
+							{"default"
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "normal"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "strong"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_add "weak"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{ignore_captured_by_user 0}
+								{zone "%tz%n"}
+								{tag "p%penemyseen"}
+								{type human}
+								{state operatable}
+							}
+							{count
+								{op "<<="}
+								{value 20}
+							}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type entities}
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{type vehicle}
+										{state operatable}
+									}
+									{count
+										{op ">="}
+										{value 1}
+									}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "normal"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "weak"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_add "strong"}
+								}
+							}
+							{"default"
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "strong"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_remove "weak"}
+								}
+								{"delay"
+									{time 0.01}
+								}
+								{"entity_state"
+									{selector
+										{ignore_captured_by_user 0}
+										{zone "%tz%n"}
+										{tag "p%penemyseen"}
+										{state operatable}
+									}
+									{tag_add "normal"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{ignore_captured_by_user 0}
+								{zone "%tz%n"}
+								{tag "p%penemyseen"}
+								{type human}
+								{state operatable}
+							}
+							{count
+								{op ">="}
+								{value 30}
+							}
+						}
+						{"entity_state"
+							{selector
+								{ignore_captured_by_user 0}
+								{zone "%tz%n"}
+								{tag "p%penemyseen"}
+								{state operatable}
+							}
+							{tag_remove "normal"}
+						}
+						{"delay"
+							{time 0.01}
+						}
+						{"entity_state"
+							{selector
+								{ignore_captured_by_user 0}
+								{zone "%tz%n"}
+								{tag "p%penemyseen"}
+								{state operatable}
+							}
+							{tag_remove "weak"}
+						}
+						{"delay"
+							{time 0.01}
+						}
+						{"entity_state"
+							{selector
+								{ignore_captured_by_user 0}
+								{zone "%tz%n"}
+								{tag "p%penemyseen"}
+								{state operatable}
+							}
+							{tag_add "strong"}
+						}
+					}
+				}
+				{"delay"
+					{time 0.01}
+				}
+				{"trigger"
+					{name "cosalcea/sngwatcher/%tz%n/p%p"}
+				}
+			}
+		}
+	)
+
+;Add zone numbers.
+	(define "sngwatcher1" 
+		("sngwatcher0" n(0) p(%p) tz(%tz))
+		("sngwatcher0" n(1) p(%p) tz(%tz))
+		("sngwatcher0" n(2) p(%p) tz(%tz))
+		("sngwatcher0" n(3) p(%p) tz(%tz))
+		("sngwatcher0" n(4) p(%p) tz(%tz))
+		("sngwatcher0" n(5) p(%p) tz(%tz))
+		("sngwatcher0" n(6) p(%p) tz(%tz))
+	)
+
+;Check the level of army strength for every player.
+	(define "sngwatcher2"
+		("sngwatcher1" p(1) tz(%tz))
+		("sngwatcher1" p(2) tz(%tz))
+		("sngwatcher1" p(3) tz(%tz))
+		("sngwatcher1" p(4) tz(%tz))
+		("sngwatcher1" p(5) tz(%tz))
+		("sngwatcher1" p(6) tz(%tz))
+		("sngwatcher1" p(7) tz(%tz))
+		("sngwatcher1" p(8) tz(%tz))
+		("sngwatcher1" p(9) tz(%tz))
+		("sngwatcher1" p(10) tz(%tz))
+		("sngwatcher1" p(11) tz(%tz))
+		("sngwatcher1" p(12) tz(%tz))
+		("sngwatcher1" p(13) tz(%tz))
+		("sngwatcher1" p(14) tz(%tz))
+		("sngwatcher1" p(15) tz(%tz))
+		("sngwatcher1" p(16) tz(%tz))
+	)
+
+;Check the level of army strength in every target zone.
+	("sngwatcher2" tz(A))
+	("sngwatcher2" tz(B))
+	("sngwatcher2" tz(C))
+	("sngwatcher2" tz(D))
+	("sngwatcher2" tz(E))
+	("sngwatcher2" tz(F))
+	("sngwatcher2" tz(G))
+	("sngwatcher2" tz(H))

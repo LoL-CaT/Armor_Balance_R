@@ -1,0 +1,313 @@
+(define "tbb"
+	{"cosalcea/airmission/tbb/bomb/p%p" 
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%p"}
+				 				}
+				 				{tag
+				 					{tag "tbb"}
+				 				}
+				 				{tag
+				 					{tag "inited"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"2.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "smoketarget"}
+								}
+								{player
+				 					{player "%p"}
+				 				}
+							}
+						}
+					}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "tbb"}
+							}
+							{tag
+								{tag "inited"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "bombing"}
+							}
+							{tag
+								{tag "bombrunout"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%ptbbtobomb"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_attack"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptbbtobomb"}
+				}
+				{drop orders}
+				{enemies
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "smoketarget"}
+							}
+							{player
+			 					{player "%p"}
+			 				}
+						}
+					}
+					{amount 1
+					}
+				}
+				{random_weapon 0}
+				{count 100}
+				{attack_altitude 80}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%ptbbtobomb"}
+							}
+						}
+					}
+				}
+				{tag_add "bombing"}
+				{tag_remove "p%ptbbtobomb"}
+				;{tag_remove "reseted"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/tbb/bomb/p%p"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/tbb/afterbomb/p%p" ;Make the TBB go off-map after bombing.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{player
+									{player "%p"}
+								}
+								{tag
+									{tag "tbb"}
+								}
+								{tag
+									{tag "inited"}
+								}
+								{tag
+									{tag "fired"}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{tag
+									{tag "reseted"}
+								}
+							}
+						}
+					}
+				}
+			}	
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "tbb"}
+							}
+							{tag
+								{tag "inited"}
+							}
+							{tag
+								{tag "fired"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "reseted"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%ptbbtoreset"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptbbtoreset"}
+				}
+				{drop orders}
+				{altitude 80}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type rand}
+						{value 0.25}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptbbtoreset"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "tbbi4"}
+					}
+				}
+				{"case"
+					{condition
+						{type rand}
+						{value 0.25}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptbbtoreset"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "tbbi3"}
+					}
+				}
+				{"case"
+					{condition
+						{type rand}
+						{value 0.25}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptbbtoreset"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "tbbi2"}
+					}
+				}
+				{"default"
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptbbtoreset"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "tbbi1"}
+					}
+				}
+			}	
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptbbtoreset"}
+				}
+				{tag_add "reseted"}
+				{tag_remove "p%ptbbtoreset"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/tbb/afterbomb/p%p"}
+			}
+		}	
+	}
+)
+
+("tbb" p(1))
+("tbb" p(2))
+("tbb" p(3))
+("tbb" p(4))
+("tbb" p(5))
+("tbb" p(6))
+("tbb" p(7))
+("tbb" p(8))
+("tbb" p(9))
+("tbb" p(10))
+("tbb" p(11))
+("tbb" p(12))
+("tbb" p(13))
+("tbb" p(14))
+("tbb" p(15))
+("tbb" p(16))

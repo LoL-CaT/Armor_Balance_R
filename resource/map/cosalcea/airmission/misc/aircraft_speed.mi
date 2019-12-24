@@ -1,0 +1,124 @@
+
+(define "airspeed"
+	{"cosalcea/airmission/limit/speed/%plane" 
+		{condition
+		}
+		{actions
+			{"actor_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop "%plane"}
+							}
+						}
+						{exclude
+							{tag
+								{tag "castoslowstrike"}
+							}
+							{tag
+								{tag "befast"}
+							}
+							{tag
+								{tag "beslowly"}
+							}
+						}
+					}
+				}
+				{movement
+					{max_speed_kph %nsp}
+				}
+			}
+			{"actor_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop "%plane"}
+							}
+							{tag
+								{tag "befast"}
+							}
+						}
+						{exclude
+							{tag
+								{tag "castoslowstrike"}
+							}							
+							{tag
+								{tag "beslowly"}
+							}
+						}
+					}
+				}
+				{movement
+					{max_speed_kph %bsp}
+				}
+			}
+			{"actor_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{state
+								{state operatable}
+							}
+							{prop
+								{prop "%plane"}
+							}
+							{tag
+								{tag "beslowly"}
+							}
+						}
+						{exclude
+							{tag
+								{tag "castoslowstrike"}
+							}
+							{tag
+								{tag "befast"}
+							}							
+						}
+					}
+				}
+				{movement
+					{max_speed_kph %zsp}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/limit/speed/%plane"}
+			}
+		}
+	}
+)
+
+("airspeed"  plane(p-51mustang) nsp(149) bsp(182) zsp(112))
+("airspeed"  plane(p-51mustangCAS) nsp(149) bsp(182) zsp(112))
+("airspeed"  plane(p-51mustangMTP) nsp(149) bsp(182) zsp(112))
+("airspeed"  plane(b-25j-20) nsp(94) bsp(120) zsp(71))
+("airspeed"  plane(bf109g) nsp(152) bsp(164) zsp(114))
+("airspeed"  plane(d3a_val) nsp(89) bsp(124) zsp(67))
+("airspeed"  plane(fw190) nsp(132) bsp(178) zsp(99))
+("airspeed"  plane(hurricane23) nsp(102) bsp(137) zsp(77))
+("airspeed"  plane(i-16) nsp(97) bsp(120) zsp(73))
+("airspeed"  plane(il-2) nsp(84) bsp(128) zsp(63))
+("airspeed"  plane(j2m3_jack) nsp(139) bsp(166) zsp(104))
+("airspeed"  plane(ju-87) nsp(79) bsp(141) zsp(59))
+("airspeed"  plane(ki-43_oscar) nsp(122) bsp(143) zsp(92))
+("airspeed"  plane(me-262_a1) nsp(181) bsp(217) zsp(136))
+("airspeed"  plane(p-47n-15) nsp(155) bsp(188) zsp(116))
+("airspeed"  plane(sm79) nsp(89) bsp(110) zsp(67))
+("airspeed"  plane(spitfire) nsp(149) bsp(164) zsp(112))
+("airspeed"  plane(yak9) nsp(140) bsp(149) zsp(105))

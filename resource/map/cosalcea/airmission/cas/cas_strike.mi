@@ -1,0 +1,475 @@
+(define "cas"
+	{"cosalcea/airmission/cas/bomb/p%p" 
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%p"}
+				 				}
+				 				{tag
+				 					{tag "cas"}
+				 				}
+				 				{tag
+				 					{tag "inited"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+				{"2.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "smoketarget"}
+								}
+								{player
+				 					{player "%p"}
+				 				}
+							}
+						}
+					}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "cas"}
+							}
+							{tag
+								{tag "inited"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "bombing"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%ptbbtobomb"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_attack"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptbbtobomb"}
+				}
+				{drop orders}
+				{enemies
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "smoketarget"}
+							}
+							{player
+			 					{player "%p"}
+			 				}
+						}
+					}
+					{amount 1
+					}
+				}
+				{random_weapon 0}
+				{count 20}
+				{attack_altitude 80}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%ptbbtobomb"}
+							}
+						}
+					}
+				}
+				{tag_add "bombing"}
+				{tag_remove "p%ptbbtobomb"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/cas/bomb/p%p"}
+			}
+		}
+	}
+	{"cosalcea/airmission/cas/tostrike/atwill/p%p" ;Order in/off-map CAS to strike.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{player
+									{player "%p"}
+								}
+								{tag
+									{tag "cas"}
+								}
+								{tag
+				 					{tag "inited"}
+				 				}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{tag
+									{tag "striking"}
+								}
+							}
+						}
+					}
+				}
+				{"2.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "p%pstriketarget"}
+								}
+							}
+						}
+					}
+				}
+				{"3.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "p%pstriketargetsmoke"}
+								}
+							}
+						}
+					}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+			}	
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "cas"}
+							}
+							{tag
+				 				{tag "inited"}
+				 			}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "striking"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%pcastostrike"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%pcastostrike"}
+				}
+				{drop orders}
+				{altitude 40}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_attack"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%pcastostrike"}
+				}
+				{drop orders}
+				{enemies
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pstriketarget"}
+							}
+						}
+					}
+				}
+				{random_weapon 0}
+				{count 7}
+				{attack_altitude 20}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pcastostrike"}
+							}
+						}
+					}
+				}
+				{tag_add "striking"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%pcastostrike"}
+				}
+				{tag_remove "p%pcastostrike"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/cas/tostrike/atwill/p%p"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/cas/tostrike/smoke/p%p" ;Order off-map CAS to strike.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{player
+									{player "%p"}
+								}
+								{tag
+									{tag "cas"}
+								}
+								{tag
+				 					{tag "inited"}
+				 				}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{tag
+									{tag "striking"}
+								}
+							}
+						}
+					}
+				}
+				{"2.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "p%pstriketargetsmoke"}
+								}
+							}
+						}
+					}
+				}
+				{"3.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "p%pstriketarget"}
+								}
+							}
+						}
+					}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+			}	
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "cas"}
+							}
+							{tag
+				 				{tag "inited"}
+				 			}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "striking"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%pcastostrike"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%pcastostrike"}
+				}
+				{drop orders}
+				{altitude 40}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_attack"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%pcastostrike"}
+				}
+				{drop orders}
+				{enemies
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pstriketargetsmoke"}
+							}
+						}
+					}
+				}
+				{random_weapon 0}
+				{count 10}
+				{attack_altitude 20}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%pcastostrike"}
+							}
+						}
+					}
+				}
+				{tag_add "striking"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%pcastostrike"}
+				}
+				{tag_remove "p%pcastostrike"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/cas/tostrike/smoke/p%p"}
+			}
+		}
+	}
+)
+
+("cas" p(1))
+("cas" p(2))
+("cas" p(3))
+("cas" p(4))
+("cas" p(5))
+("cas" p(6))
+("cas" p(7))
+("cas" p(8))
+("cas" p(9))
+("cas" p(10))
+("cas" p(11))
+("cas" p(12))
+("cas" p(13))
+("cas" p(14))
+("cas" p(15))
+("cas" p(16))

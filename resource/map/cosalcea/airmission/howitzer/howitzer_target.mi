@@ -1,0 +1,620 @@
+(define "find_howitzer_target"
+	{"cosalcea/airmission/howitzer/find/p%p"  ;Find
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+									{player "%p"}
+								}
+								{tag
+									{tag "howitzer"}
+								}
+				 			}
+							{exlude
+								{tag
+									{tag "p%phowitzertoattack"}
+								}
+							}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{player
+								{player "%p"}
+							}
+							{tag
+								{tag "howitzer"}
+							}
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%phowitzertryattack"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{prop
+								{prop vehicle}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag "lockedbyhowitzerp%p"}
+						}
+					}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "maybelockedbyhowitzerp%p"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%phowitzertryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyhowitzerp%p"}
+						}
+						{distance 150}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%phowitzertryattack"}
+					 	}
+						{tag_add "p%phowitzertoattack"}
+						{tag_remove "firing"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyhowitzerp%p"}
+					 	}
+						{tag_add "lockedbyhowitzerp%p"}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%phowitzertryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyhowitzerp%p"}
+						}
+						{distance 200}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%phowitzertryattack"}
+					 	}
+						{tag_add "p%phowitzertoattack"}
+						{tag_remove "firing"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyhowitzerp%p"}
+					 	}
+						{tag_add "lockedbyhowitzerp%p"}
+					}
+				}
+				{"case"
+					{condition
+						{type near}
+						{units
+							{ignore_captured_by_user 0}
+							{tag "p%phowitzertryattack"}
+						}
+						{near_to
+							{ignore_captured_by_user 0}
+							{tag "maybelockedbyhowitzerp%p"}
+						}
+						{distance 250}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "p%phowitzertryattack"}
+					 	}
+						{tag_add "p%phowitzertoattack"}
+						{tag_remove "firing"}
+					}
+					{"entity_state"
+						{selector
+					 		{ignore_captured_by_user 0}
+							{tag "maybelockedbyhowitzerp%p"}
+					 	}
+						{tag_add "lockedbyhowitzerp%p"}
+					}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%phowitzertryattack"}
+			 	}
+				{tag_remove "p%phowitzertryattack"}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "maybelockedbyhowitzerp%p"}
+			 	}
+				{tag_remove "maybelockedbyhowitzerp%p"}
+			}
+			{"delay"
+				{time 7}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/howitzer/find/p%p"}
+			}
+		}
+	}
+	{"cosalcea/airmission/howitzer/howitzer_target1/p%p" ;Choose the strongest ground target for air striking.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{tag "p%phowitzertoattack"}
+					}
+				}
+				{"2.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{tag "lockedbyhowitzerp%p"}
+					}
+				}
+				{"3.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{tag "p%phowitzertarget"}
+					}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+				{"4.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{tag "p%phowitzertargetsmoke"}
+					}
+					{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+			}
+		}
+		{actions
+			{"switch"
+				{"case"
+					{condition
+						{type entities}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "lockedbyhowitzerp%p"}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{ignore_captured_by_user 0}
+									{source advanced}
+									{group
+										{include
+											{tag
+												{tag "lockedbyhowitzerp%p"}
+											}
+										}
+										{exclude
+											{prop
+												{prop airborne}
+											}
+										}
+									}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "p%phowitzertoattack"}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+										}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "lockedbyhowitzerp%p"}
+													}
+													{prop
+														{prop tank}
+													}
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%phowitzertarget"}
+										{tag_remove "lockedbyhowitzerp%p"}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "p%phowitzertoattack"}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+										}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "lockedbyhowitzerp%p"}
+													}
+													{prop
+														{prop with_gun}
+													}
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%phowitzertarget"}
+										{tag_remove "lockedbyhowitzerp%p"}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "p%phowitzertoattack"}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+										}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "lockedbyhowitzerp%p"}
+													}
+													{prop
+														{prop airborne}
+													}
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%phowitzertarget"}
+										{tag_remove "lockedbyhowitzerp%p"}
+									}
+								}
+								{"default"
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{source advanced}
+											{group
+												{include
+													{tag
+														{tag "lockedbyhowitzerp%p"}
+													}
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{prop
+														{prop airborne}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "p%phowitzertarget"}
+										{tag_remove "lockedbyhowitzerp%p"}
+									}
+								}
+							}
+						}
+						{"default"
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{source advanced}
+									{group
+										{include
+											{tag
+												{tag "lockedbyhowitzerp%p"}
+											}
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{prop
+												{prop airborne}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+								{tag_add "p%phowitzertarget"}
+								{tag_remove "lockedbyhowitzerp%p"}
+							}
+						}
+					}					
+				}
+				{"default"
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "lockedbyhowitzerp%p"}
+									}
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add "p%phowitzertarget"}
+						{tag_remove "lockedbyhowitzerp%p"}
+					}				
+				}
+			}
+			{"delay"
+				{time 7}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/howitzer/howitzer_target1/p%p"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/howitzer/howitzer_target2/p%p" ;When player spawns a target, stop choosing at will.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{tag
+									{tag "smoketarget"}
+								}
+								{player
+									{player "%p"}
+								}	
+							}
+							{exclude
+								{tag
+									{tag "p%phowitzertargetsmoke"}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		{actions		
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "smoketarget"}
+							}
+							{player
+								{player "%p"}
+							}	
+						}
+						{exclude
+							{tag
+								{tag "p%phowitzertargetsmoke"}
+							}
+						}
+					}
+				}
+				{tag_add "p%phowitzertargetsmoke"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "howitzer"}
+							}
+							{tag
+								{tag "firing"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+					}
+				}
+				{tag_remove "firing"}
+			}
+			{"delay"
+				{time 7}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/howitzer/howitzer_target2/p%p"}
+			}
+		}
+	}
+)
+
+("find_howitzer_target" p(1))
+("find_howitzer_target" p(2))
+("find_howitzer_target" p(3))
+("find_howitzer_target" p(4))
+("find_howitzer_target" p(5))
+("find_howitzer_target" p(6))
+("find_howitzer_target" p(7))
+("find_howitzer_target" p(8))
+("find_howitzer_target" p(9))
+("find_howitzer_target" p(10))
+("find_howitzer_target" p(11))
+("find_howitzer_target" p(12))
+("find_howitzer_target" p(13))
+("find_howitzer_target" p(14))
+("find_howitzer_target" p(15))
+("find_howitzer_target" p(16))

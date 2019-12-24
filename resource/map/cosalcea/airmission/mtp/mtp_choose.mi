@@ -1,0 +1,427 @@
+(define "mtp"
+	{"cosalcea/airmission/mtp/aa/p%p" 
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{relation
+									{relation enemy}
+									{player "%p"}
+								}
+								{state
+									{state operatable}
+								}
+								{prop
+									{prop airborne}
+								}
+							}
+						}
+				 	}
+				}
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%p"}
+				 				}
+				 				{tag
+				 					{tag "mtp"}
+				 				}
+				 				{tag
+				 					{tag "inited"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{player
+			 					{player "%p"}
+			 				}
+			 				{tag
+			 					{tag "mtp"}
+			 				}
+			 				{tag
+			 					{tag "inited"}
+			 				}
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 			{exclude
+			 				{tag
+			 					{tag "ars"}
+			 				}		 				
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%pmtptoars"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%pmtptoars"}
+			 				}		 				
+			 			}
+			 		}
+			 	}
+				{drop orders}
+				{altitude 80}
+			}
+			{"delay"
+				{time 0.01}
+			}					
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%pmtptoars"}
+			 				}		 				
+			 			}
+			 		}
+			 	}
+				{tag_remove "fired"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%pmtptoars"}
+			 				}		 				
+			 			}
+			 		}
+			 	}
+				{tag_add "ars"}
+				{tag_remove "cas"}
+			}			
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%pmtptoars"}
+			 	}
+				{tag_remove "p%pmtptoars"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/mtp/aa/p%p"}
+			}
+		}
+	}
+
+	{"cosalcea/airmission/mtp/ag/p%p"
+		{condition
+			{terms
+				{"1.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+						{source advanced}
+						{group
+							{include
+								{relation
+									{relation enemy}
+									{player "%p"}
+								}
+								{state
+									{state operatable}
+								}
+								{prop
+									{prop airborne}
+								}
+							}
+						}
+				 	}
+				 	{count
+						{op "<<"}
+						{value 1}
+					}
+				}
+				{"2.entities"
+				 	{selector
+				 		{ignore_captured_by_user 0}
+				 		{source advanced}
+				 		{group
+				 			{include
+				 				{player
+				 					{player "%p"}
+				 				}
+				 				{tag
+				 					{tag "mtp"}
+				 				}
+				 				{tag
+				 					{tag "inited"}
+				 				}
+				 				{state
+				 					{state operatable}
+				 				}
+				 			}
+				 		}
+				 	}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{player
+			 					{player "%p"}
+			 				}
+			 				{tag
+			 					{tag "mtp"}
+			 				}
+			 				{tag
+			 					{tag "inited"}
+			 				}
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 			{exclude
+			 				{tag
+			 					{tag "cas"}
+			 				}		 				
+			 			}
+			 		}
+			 		{amount 1
+					}
+			 	}
+				{tag_add "p%pmtptocas"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"air_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%pmtptocas"}
+			 				}		 				
+			 			}
+			 		}
+			 	}
+				{drop orders}
+				{altitude 40}
+			}
+			{"delay"
+				{time 0.01}
+			}					
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%pmtptocas"}
+			 				}
+			 			}
+			 		}
+			 	}
+				{tag_add "fired"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "p%pmtptocas"}
+			 				}		 				
+			 			}
+			 		}
+			 	}
+				{tag_add "cas"}
+				{tag_remove "ars"}
+			}			
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+					{tag "p%pmtptocas"}
+			 	}
+				{tag_remove "p%pmtptocas"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/mtp/ag/p%p"}
+			}
+		}
+	}
+)
+
+("mtp" p(1))
+("mtp" p(2))
+("mtp" p(3))
+("mtp" p(4))
+("mtp" p(5))
+("mtp" p(6))
+("mtp" p(7))
+("mtp" p(8))
+("mtp" p(9))
+("mtp" p(10))
+("mtp" p(11))
+("mtp" p(12))
+("mtp" p(13))
+("mtp" p(14))
+("mtp" p(15))
+("mtp" p(16))
+
+{"cosalcea/airmission/mtp/debug"
+	{condition
+	}
+	{actions
+		{"if"     
+			{condition
+				{type entities}
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "mtp"}
+			 				}		
+			 				{tag
+			 					{tag "ars"}
+			 				}		 				
+			 			}
+			 			{exclude
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 	}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "mtp"}
+			 				}		
+			 				{tag
+			 					{tag "ars"}
+			 				}		 				
+			 			}
+			 			{exclude
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 	}
+				{tag_remove "ars"}
+			}													
+		}
+		{"if"     
+			{condition
+				{type entities}
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "mtp"}
+			 				}		
+			 				{tag
+			 					{tag "cas"}
+			 				}		 				
+			 			}
+			 			{exclude
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 	}
+			}
+			{"entity_state"
+				{selector
+			 		{ignore_captured_by_user 0}
+			 		{source advanced}
+			 		{group
+			 			{include
+			 				{tag
+			 					{tag "mtp"}
+			 				}		
+			 				{tag
+			 					{tag "cas"}
+			 				}		 				
+			 			}
+			 			{exclude
+			 				{state
+			 					{state operatable}
+			 				}
+			 			}
+			 		}
+			 	}
+				{tag_remove "cas"}
+			}													
+		}
+		{"delay"
+			{time 0.01}
+		}
+		{"trigger"
+			{name "cosalcea/airmission/mtp/debug"}
+		}
+	}
+}

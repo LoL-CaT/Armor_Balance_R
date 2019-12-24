@@ -1,0 +1,266 @@
+(define "exit"
+	{"cosalcea/airmission/exit/p%p" ;Let the planes leave after missions compelete.
+		{condition
+			{terms
+				{"1.entities"
+					{selector
+						{ignore_captured_by_user 0}
+						{player "%p"}
+						{state operatable}
+						{tag "exitmission"}
+					}
+				}
+			}
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{player
+								{player "%p"}
+							}
+							{tag
+								{tag "exitmission"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "exiting"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%ptoexit"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"ables"
+				{selector
+					{tag "p%ptoexit"}
+				}
+				{remove select}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptoexit"}
+				}
+				{tag_remove "aircraft"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptoexit"}
+				}
+				{tag_remove "mtp"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptoexit"}
+				}
+				{tag_remove "ars"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptoexit"}
+				}
+				{tag_remove "cas"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptoexit"}
+				}
+				{tag_remove "tbb"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type entities}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%ptoexit"}
+									}
+									{tag
+										{tag "i1"}
+									}
+								}
+							}
+						}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptoexit"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi1"}
+					}
+				}
+				{"case"
+					{condition
+						{type entities}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%ptoexit"}
+									}
+									{tag
+										{tag "i2"}
+									}
+								}
+							}
+						}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptoexit"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi2"}
+					}
+				}
+				{"case"
+					{condition
+						{type entities}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%ptoexit"}
+									}
+									{tag
+										{tag "i3"}
+									}
+								}
+							}
+						}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptoexit"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi3"}
+					}
+				}
+				{"case"
+					{condition
+						{type entities}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%ptoexit"}
+									}
+									{tag
+										{tag "i4"}
+									}
+								}
+							}
+						}
+					}
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptoexit"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi4"}
+					}
+				}
+				{"default"
+					{"action"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%ptoexit"}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "arsi4"}
+					}			
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%ptoexit"}
+				}
+				{tag_add "exiting"}
+				{tag_remove "p%ptoexit"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/exit/p%p"}
+			}
+		}
+	}
+)
+
+("exit" p(1))
+("exit" p(2))
+("exit" p(3))
+("exit" p(4))
+("exit" p(5))
+("exit" p(6))
+("exit" p(7))
+("exit" p(8))
+("exit" p(9))
+("exit" p(10))
+("exit" p(11))
+("exit" p(12))
+("exit" p(13))
+("exit" p(14))
+("exit" p(15))
+("exit" p(16))

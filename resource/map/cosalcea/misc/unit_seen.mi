@@ -1,0 +1,393 @@
+(define "seewatcher"
+	;Add tags to enemy units can be seen by ally units.	
+	{"cosalcea/seewatcher/see/p%p"
+		{condition
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{relation
+								{relation enemy}
+								{player "%p"}
+							}
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{tag
+								{tag "p%penemyseen"}
+							}
+							{prop
+								{prop airborne}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%penemymaybeseen"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type see_actors}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation ally}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+						{enemy
+							{ignore_captured_by_user 0}
+							{tag "p%penemymaybeseen"}
+						}
+						{distance
+							{mode near_than}
+							{meters 150}
+						}
+						{detection visible}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%penemymaybeseen"}
+						}
+						{tag_add "p%penemyseen"}
+					}
+				}
+				{"case"
+					{condition
+						{type see_actors}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation ally}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+						{enemy
+							{ignore_captured_by_user 0}
+							{tag "p%penemymaybeseen"}
+						}
+						{distance
+							{mode near_than}
+							{meters 75}
+						}
+						{detection recognized}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "p%penemymaybeseen"}
+						}
+						{tag_add "p%penemyseen"}
+					}
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%penemymaybeseen"}
+				}
+				{tag_remove "p%penemymaybeseen"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/seewatcher/see/p%p"}
+			}
+		}
+	}
+
+	;Remove tags when units hide.
+	{"cosalcea/seewatcher/disappear/p%p"
+		{condition
+		}
+		{actions
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{group
+						{include
+							{tag
+								{tag "p%penemyseen"}
+							}
+						}
+					}
+					{amount 1
+					}
+				}
+				{tag_add "p%penemymaydisappear"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"switch"
+				{"case"
+					{condition
+						{type see_actors}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation ally}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+						{enemy
+							{ignore_captured_by_user 0}
+							{tag "p%penemymaydisappear"}
+							{state operatable}
+						}
+						{distance
+							{mode near_than}
+							{meters 150}
+						}
+						{detection visible}
+					}
+				}
+				{"case"
+					{condition
+						{type see_actors}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation ally}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+						{enemy
+							{ignore_captured_by_user 0}
+							{tag "p%penemymaydisappear"}
+							{state operatable}
+						}
+						{distance
+							{mode near_than}
+							{meters 50}
+						}
+						{detection recognized}
+					}
+				}
+				{"case"
+					{condition
+						{type see_actors}
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{relation
+										{relation ally}
+										{player "%p"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{prop
+										{prop airborne}
+									}
+								}
+							}
+						}
+						{enemy
+							{ignore_captured_by_user 0}
+							{tag "p%penemymaydisappear"}
+							{state operatable}
+						}
+						{distance
+							{mode near_than}
+							{meters 25}
+						}
+						{detection located}
+					}
+				}
+				{"default"
+					; {"effect"
+					; 	{selector
+					; 		{ignore_captured_by_user 0}
+					; 		{source advanced}
+					; 		{group
+					; 			{include
+					; 				{tag
+					; 					{tag "p%penemymaydisappear"}
+					; 					;{tag "p%penemyseen"}
+					; 				}
+					; 			}
+					; 		}
+					; 	}
+					; 	{effect removealltags}
+					; }
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%penemymaydisappear"}
+										;{tag "p%penemyseen"}
+									}
+								}
+							}
+						}
+						{tag_remove "strong"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%penemymaydisappear"}
+										;{tag "p%penemyseen"}
+									}
+								}
+							}
+						}
+						{tag_remove "normal"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%penemymaydisappear"}
+										;{tag "p%penemyseen"}
+									}
+								}
+							}
+						}
+						{tag_remove "weak"}
+					}
+					{"delay"
+						{time 0.01}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{source advanced}
+							{group
+								{include
+									{tag
+										{tag "p%penemymaydisappear"}
+										;{tag "p%penemyseen"}
+									}
+								}
+							}
+						}
+						{tag_remove "p%penemyseen"}
+					}				
+				}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"entity_state"
+				{selector
+					{ignore_captured_by_user 0}
+					{tag "p%penemymaydisappear"}
+				}
+				{tag_remove "p%penemymaydisappear"}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/seewatcher/disappear/p%p"}
+			}
+		}
+	}	
+)
+
+("seewatcher" p(1))
+("seewatcher" p(2))
+("seewatcher" p(3))
+("seewatcher" p(4))
+("seewatcher" p(5))
+("seewatcher" p(6))
+("seewatcher" p(7))
+("seewatcher" p(8))
+("seewatcher" p(9))
+("seewatcher" p(10))
+("seewatcher" p(11))
+("seewatcher" p(12))
+("seewatcher" p(13))
+("seewatcher" p(14))
+("seewatcher" p(15))
+("seewatcher" p(16))

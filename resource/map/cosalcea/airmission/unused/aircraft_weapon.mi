@@ -1,0 +1,41 @@
+(define "weaponwatcher"
+	{"cosalcea/airmission/weaponswatcher/%weapon" 
+		{condition
+		}
+		{actions
+			{"inventory"
+				{selector
+					{ignore_captured_by_user 0}
+					{source advanced}
+					{amount 1
+					}
+					{group
+						{include
+							{tag
+								{tag "aircraft"}
+							}
+							{tag
+								{tag "atrrunout"}
+							}			
+							{with_item
+								{type existance}
+								{item "%weapon"}
+							}				
+						}
+					}
+				}
+				{action remove}
+				{item "%weapon"}
+				{amount 1000}
+			}
+			{"delay"
+				{time 0.01}
+			}
+			{"trigger"
+				{name "cosalcea/airmission/weaponswatcher/%weapon"}
+			}
+		}
+	}
+)
+
+("weaponwatcher" weapon(arl_mustang))
