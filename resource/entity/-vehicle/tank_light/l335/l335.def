@@ -1,0 +1,76 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "light" "turret_rotator" "vision_vehicle_low"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	("armor_light_shit" turret(14) body(14 10 10 6))
+	("armor_engine"  t(6 6 6 6))
+	
+	("crew_2_human")
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+	
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "foresight3"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "visor"}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun" 1896}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "13mm_hotchkiss_x2" filled}
+			{Barrels 2}
+			{foresight "foresight3"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun_heavy")
+		}
+	}
+	
+	{mass 3200}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(42)
+			weight(3.2)
+			power(43)
+			fuel(130)	
+		)
+	}
+	
+	{Extension "l335.mdl"}
+	{bone "gun_rot"
+		{speed 0.015}
+		{limits -10 15}
+	}
+	{bone "gun_rot1"
+		{speed 0.015}
+		{limits -12 12}
+	}
+}

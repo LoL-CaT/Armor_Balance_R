@@ -1,0 +1,109 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{collider "tank.light"}
+	{props "light" "-turret" "vision_vehicle_low" "muzzle_maximum"}
+	{targetClass "light_tank" "bullet"}
+	{targetSelector "tank_bullet"}
+	{extension "crew.ext"}
+	{patherId "tank.light"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body7"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body8"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_light" turret(10 10 10 8) body(15 10 10 8))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(8))
+	
+	{component "engine"	
+		{RepairTime 8}
+	}
+	{component "turret"
+		{RepairTime 15}
+	}
+	{component "gun"
+		{RepairTime 15}
+	}
+
+ 	{sensor
+		{visor "main"
+			{bone "visor1"}
+		}
+	}
+	
+    {sensor
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet150_sig33 fg" 12}
+;			{item "ammo bullet150_sig33 heat" 1}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "150mm_sig33" filling "bullet150_sig33 fg"}   
+			{StationaryFiring}
+			("abm_howitzer")
+		}
+	}
+
+	("tracks")
+
+	{mass 11500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.56) len(0.3))
+		("mobility"
+			speed(42)
+			weight(11.5)
+			power(100)
+			fuel(320)	
+		)
+	}
+	{Extension "grille.mdl"}
+	
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}	
+	
+}

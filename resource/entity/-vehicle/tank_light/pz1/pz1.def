@@ -1,0 +1,91 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "flak" "turret" "vision_vehicle_low" "muzzle_zenite" "pz1"}
+	{targetClass "light_tank" "bullet"}
+	{targetSelector "tank_flak"}
+	{extension "crew.ext"}
+	{patherId "tank.light"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Fuel"
+		{thickness 1}
+	}
+	{volume "engine"	
+		{thickness 8}
+	}
+	
+	("armor_light_shit" turret(6 6 6 6) body(13 13 13 8))
+	("wheels_armor" args 5)	
+	("shield" args 6)
+	
+	{component "engine"	
+		{RepairTime 8}
+	}
+	{component "shield_left"	
+		{RepairTime 10}
+	}
+	{component "shield_right"	
+		{RepairTime 10}
+	}
+	{component "turret"
+		{RepairTime 13}
+	}
+	{component "gun"
+		{RepairTime 10}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet20x138b zenite" 160}
+			{item "bullet20x138b ap" 160}
+			{item "bullet20x138b fg" 160}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_flak38" filling "ammo bullet20x138b zenite" 20}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+	}
+
+	("tracks")
+
+	{mass 4400}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(1.2))
+		("mobility"
+			speed(37)
+			weight(4.4)
+			power(60)
+			fuel(146)	
+		)
+	}
+
+	{Extension "pz1.mdl"}
+	
+	{bone "gun_rot"
+		{speed2 25}
+		{limits -10 85}
+	}
+	{bone "turret"
+		{speed2 40}
+	}
+}

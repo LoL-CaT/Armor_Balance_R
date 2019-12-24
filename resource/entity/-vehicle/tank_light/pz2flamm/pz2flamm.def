@@ -1,0 +1,171 @@
+;created by: EngineerDen
+{Entity	
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")		
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.light"}
+	{props "light" "turret_rotator" "vision_vehicle_low" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+
+	{Volume "smoke10" {able clear} {density 0}}
+	{Volume "smoke11" {able clear} {density 0}}
+	{Volume "smoke12" {able clear} {density 0}}
+	{Volume "smoke13" {able clear} {density 0}}
+	{Volume "smoke14" {able clear} {density 0}}
+	{Volume "smoke15" {able clear} {density 0}}
+
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("armor_light_shit" turret(30 15 15 10) body(35 15 15 10))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(10 10 10 10))
+        
+       	{extender "enumerator"}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver" -0.4}}
+			{reverse 	{end	"emit_t34_hold"} {base "open_driver" 0.3}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "open_gunner" -0.4}}
+			{reverse 	{end	"emit_t34_hold"} {base "open_gunner" 0.3}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "%group"} {visor "%visor"}}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	("crew_human" place(driver)		door(emit0) group(crew)		animation(driver)	    visor(driver))
+	("crew_human" place(gunner)		door(emit3) group(crew)	    animation(gunner)	    visor(driver))
+	("crew_human" place(commander)		door(emit2) group(crew)		animation(left)	visor(main))
+
+	;("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))	
+	;("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+
+    {sensor		
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}	
+	
+	{extender "inventory"		
+		{box
+			{item  "ammo mgun" 1800}
+			{item "tank_balloon" filling "fuel" 10000}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")	
+		{place "mgun"
+			{RestoreIKAfterAim}		
+			{type "mgun_main"}	
+			{weapon "mg34tank" filled}
+			{gunner "commander"}
+			{charger "commander"}	
+			("abm_mgun")		
+		}
+		{place "mgun1"
+			{type "f_right"}
+			{weapon "tank_flamer_ger" filled}		
+			{foresight "foresight4"}
+			{gunner "gunner"}
+			{basic}
+		}
+		{place "mgun2"
+			{type "f_left"}
+			{weapon "tank_flamer_ger" filled}
+			{foresight "foresight5"}
+			{gunner "gunner"}
+			{basic}			
+		}
+		{place "mgun17"
+			{type "smoke"}	
+			{weapon "3xsmokegun" filling "ammo smoke" 6}
+			{foresight "foresight20"}
+			{gunner "gunner"}
+			{Barrels 6}
+			{basic}	
+		}
+	}
+
+	{mass 9500}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.73))
+		("mobility"
+			speed(40)
+			weight(9.5)
+			power(140)
+			fuel(170)	
+		)
+	}
+
+	{Extension "Pz2flamm.mdl"}
+
+	{bone "turret"
+		{speed 0.01}
+	}	
+}

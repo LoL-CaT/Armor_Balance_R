@@ -1,0 +1,94 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	(include "/properties/l_tank_mobility.ext")
+	
+	{collider "tank.light"}
+	{props "l_medium" "turret_rotator" "vision_vehicle_low" "muzzle_minimum" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	{extender "enumerator"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{volume "engine"
+		{thickness 15}
+	}
+	
+	("armor_light_shit" turret(75 35 35 10) body(35 15 15 10))
+	("wheels_armor" args 5)	
+	("crew_2_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+
+	{extender "inventory"
+		{box
+			{item "bullet45rus ap" 40}
+			{item "bullet45rus fg" 50}
+;			{item "bullet45rus apcr" 2}
+			{item "ammo mgun" 945}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "45mm_20k" filling "bullet45rus ap" 1}
+			{charger "gunner"}        
+			("abm_medium")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	
+	{mass 9800}
+		{Chassis
+			("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(42)
+			weight(9.8)
+			power(140)
+			fuel(440)	
+		)
+	}
+
+	{Extension "t70.mdl"}
+
+	{bone "gun_rot"
+		{speed2 6}
+		{limits -6 20}
+	}
+	{bone "turret"
+		{speed2 6}
+	}
+}

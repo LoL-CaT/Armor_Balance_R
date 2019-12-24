@@ -1,0 +1,84 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "light" "turret_rotator" "vision_vehicle_low" "muzzle_minimum"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	{extender "enumerator"}
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_light" turret(15 13 13 5) body(32 17 9 5))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(15))
+	("armor_engine"  t(5))
+	
+	("crew_2_human")
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(back))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	
+	{extender "inventory"
+		{box
+			{item "bullet37_bofors ap" 50}
+			{item "bullet37_bofors fg" 30}
+			{item "ammo mgun" 3960}			
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "37mm_bofors" filling "bullet37_bofors ap" 1}
+			{charger "commander"}
+			("abm_low")    
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{foresight "foresight5"}
+			{weapon "ckm_wz30" filled}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	
+	
+	{mass 9400}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(32)
+			weight(9.4)
+			power(110)
+			fuel(130)	
+		)
+	}
+
+	{Extension "7tp.mdl"}
+
+}

@@ -1,0 +1,116 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "light" "turret_rotator" "vision_vehicle_low"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	{extender "enumerator"}
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_light" turret(16 16 16 8) body(16 16 16 8))
+	("armor_mantlet" t(16))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(8))
+	
+	("crew_inside")
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {base "driver"}}
+			{reverse 	{end	"emit_t34_hold"} {base "driver"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+
+    {sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}		
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 5850}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+                        {type "mgun_main"}
+			{weapon "7,5mm_shatelro" filled}
+			{charger "gunner"}
+			("abm_mgun")
+		}
+	}
+	
+	{mass 6500}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.45))
+		("mobility"
+			speed(20)
+			weight(6.5)
+			power(39)
+			fuel(90)	
+		)
+	}
+
+	{Extension "ft17_mgun.mdl"}
+
+	{bone "turret"
+		{speed2 10}
+	}
+}

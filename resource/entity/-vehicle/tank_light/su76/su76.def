@@ -1,0 +1,172 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "light" "-turret" "opened" "vision_vehicle_minimum" "muzzle_medium"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+
+	{extender "enumerator"}	
+	
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+		{thickness 15}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+		{thickness 15}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+		{thickness 15}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+		{thickness 15}
+	}
+
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+		{thickness 15}
+	}
+	{volume "body6"
+		{component "body"}
+		{tags "body"}
+		{thickness 15}
+	}
+	{volume "body7"
+		{component "body"}
+		{tags "body"}
+		{thickness 15}
+	}
+	{volume "body8"
+		{component "body"}
+		{tags "body"}
+		{thickness 15}
+	}
+	{volume "inventory"
+		{thickness 5}
+	}
+
+	("armor_spa_light" armor(25 25 15 10))
+	("armor_engine"  t(10 10 10 10))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(10))
+	
+	{Volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_su76"}}
+			{reverse 	{end	"board_su76" -1}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_su76"} {end "seat_armor"}}
+			{reverse 	{end	"board_su76" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_su76"} {end "seat_driver_car"}}
+			{reverse 	{end	"board_su76" -1}}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_su76"} {end "seat_driver_car"}}
+			{reverse 	{end	"board_su76" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_su76"} {end "seat_armor"}}
+			{reverse 	{end	"board_su76" -1}}
+		}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place"
+				{group "crew"}
+				{linkbone "%place"}
+				{turnoff {sensor} {shadow}}
+				{visor "main"}
+			}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit2" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit1" "commander" {anm "commander"} {forward putoff} {reverse puton}}
+		{link "emit2" "commander" {anm "commander"} {forward putoff} {reverse puton}}
+	}
+
+	("crew_human" place(gunner) door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(charger)	door1(emit1) door2(emit2))
+	("crew_human" place(commander)	door1(emit1) door2(emit2))
+
+	{placer
+		{place "commander" {group "crew"} {visor "main"}}
+	}
+	
+	{extender "inventory"
+		{box
+                        {item "bullet76rus ap" 20}
+                        {item "bullet76rus fg" 40}
+;                       {item "bullet76rus apcr" 2}
+;			            {item "ammo mgun" 600}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "76mm_zis3" filling "ammo bullet76rus ap" 1}        
+			("abm_high")
+		}
+	}
+
+	{mass 11200}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.3))
+		("mobility"
+			speed(45)
+			weight(11.2)
+			power(140)
+			fuel(400)	
+		)
+	}
+
+	{Extension "su76.mdl"}
+
+	{bone "turret"
+		{speed2 5}
+		{limits -22 18}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+		{limits -25 3}
+	}
+}

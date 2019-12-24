@@ -1,0 +1,75 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_minimum" "tank"}
+	{targetClass "tank" "bullet"}
+	{targetSelector "tank_bullet"}
+	{patherId "tank.light"}
+
+	{extension "crew.ext"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_light_shit" turret(20 10 10 10) body(20 10 10 10))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(10))
+
+    {sensor
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 3700}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "dt" filled}
+			{foresight "foresight3"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{basic}
+			("abm_mgun")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 7000}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.52) len(0.45))
+		("mobility"
+			speed(20)
+			weight(7.0)
+			power(56)
+			fuel(120)	
+		)
+	}
+
+	{Extension "na_ispyg.mdl"}
+}

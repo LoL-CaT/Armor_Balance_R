@@ -1,0 +1,77 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	
+	{collider "tank.light"}
+	{props "l_light" "-turret" "vision_vehicle_minimum" "heavy_tractor" "tractor" "tank"}
+	{targetClass "tank" "bullet"}
+	{targetSelector "tank_bullet"}
+	{patherId "tank.light"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	
+	("armor_spa_light" armor(30 15 15 10))
+
+
+	("crew_inside")
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+;	("crew_human_gunner" place(gunner3) visorbone(mgun2))
+	
+	{extender "inventory"
+		{box
+			{item "repair_kit" 1}
+		}
+	}
+	
+;	{Weaponry
+;		{place "mgun"
+;			{type "mgun_main"}
+;			{gunner "gunner3"}
+;			{charger "gunner3"}
+;			{LinkBone "mgun2"}
+;			{LinkAnimation "off"}
+;			{basic}
+;		}
+;	}
+
+	(include "/properties/resupply_generic.inc")
+	("truck_ammo_art_jp") 
+	
+	{mass 5000}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.52) len(1.6))
+		("mobility"
+			speed(45)
+			weight(5.0)
+			power(70)
+			fuel(200)	
+		)
+	}
+	
+	{Extension "l6a.mdl"}
+}

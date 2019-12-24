@@ -1,0 +1,92 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_minimum" "tank"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("armor_medium" turret(40 40 40 25) body(40 40 40 25))
+	("wheels_armor" args 5)		
+	("armor_engine"  t(25 25 25 25))
+
+	("crew_2_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+    {sensor
+	        {visor "tur2_144"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}
+	        {visor "tur2_188"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}			
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 2400}
+			{item "ammo bullet37_hotchkiss ap" 66}
+			{item "ammo bullet37_hotchkiss fg" 50}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "37mm_SA18" filling "ammo bullet37_hotchkiss ap" 1}
+			{charger "gunner"}
+			("abm_low") 
+		}
+
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "7,5mm_shatelro" filled}
+			{foresight "Foresight3"}
+			{charger "gunner"}
+			{basic}
+			("abm_mgun")
+		}
+	}
+
+	{mass 10600}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.4) len(0.44))
+		("mobility"
+			speed(25)
+			weight(10.6)
+			power(82)
+			fuel(150)	
+		)
+	}
+
+	{Extension "r35.mdl"}
+	{bone "turret"
+		{speed2 6}
+	}
+}

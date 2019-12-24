@@ -1,0 +1,161 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "light" "turret_rotator" "vision_vehicle_low" "muzzle_small" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	{extender "enumerator"}
+
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_light" turret(12 12 12 9) body(12 12 6 9))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(9))
+
+    {sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet57 heat" 25}
+;			{item "ammo bullet57 ap" 15}
+			{item "ammo bullet57 fg" 15}
+			{item "ammo mgun" 3400}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_type97" filling "ammo bullet57 heat" 1}
+			{charger "gunner"}
+			("abm_low")
+		}
+		{place "mgun"
+			{type "mgun_rear"}
+			{weapon "nambu_type97" filled} 
+			{foresight "foresight3"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "nambu_type97" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	("crew_2_human")
+	
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(back))
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_MiddleArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+       
+	{mass 7400}
+	{Chassis
+		("tank_trace_ex" fx("tracks_sm") step(0.3) len(0.25) boneleft("wheell4") boneright("wheelr4"))
+		("mobility"
+			speed(45)
+			weight(7.4)
+			power(120)
+			fuel(295)	
+		)
+	}
+
+	{sensor
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor1"}
+		}
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "visor2"}
+		}
+		{visor "back"
+			{vision "tank_back"}
+			{bone "foresight3"}
+		}
+	}
+
+	{Extension "Ha-go.mdl"}
+
+	{bone "turret"
+		{speed2 18}
+	}
+	{bone "gun_rot"
+		{limits -30 20}
+		{speed 0.008}
+	}
+	{bone "mgun1"
+		{speed 0.03}
+	}
+	{texmod "2"}
+}

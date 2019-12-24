@@ -1,0 +1,116 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{patherId "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_low" "muzzle_minimum" "tank"}
+	{targetClass "light_tank"}
+	
+	{extender "enumerator"}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+
+	("armor_light_shit" turret(16 16 14 4) body(16 16 14 7))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(4))
+
+	("crew_4_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+    {sensor
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor3"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor4"}
+		}	
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor5"}
+		}			
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "bullet40engL ap" 50}
+			{item "ammo mgun" 2025}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "40mm_oqf2pdrLittle42" filling "bullet40engL ap" 1}
+			("abm_low")
+		}
+		{place "mgun2"
+            {type "mgun_coaxial"}
+			{weapon "besa" filled}
+            {gunner "commander"}
+            {charger "commander"}
+			{foresight "foresight5"}			
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun17"			
+			{type "smoke"}
+			{weapon "1xsmokegun" filled}
+			{gunner "gunner"}
+			{foresight "foresight20"}
+			{basic}
+		}	
+		{place "mgun18"			
+			{type "smoke"}
+			{weapon "1xsmokegun" filled}
+			{gunner "gunner"}
+			{foresight "foresight21"}
+			{basic}
+		}		
+	}
+	
+	{mass 7620}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.2))
+		("mobility"
+			speed(64)
+			weight(7.6)
+			power(165)
+			fuel(170)	
+		)
+	}
+	
+	{Extension "mk7_42.mdl"}
+
+	{bone "turret"
+		{speed2 15}
+	}
+   {bone "gun_rot"
+		{limits -10 15}
+        {speed2 15}
+   }
+}

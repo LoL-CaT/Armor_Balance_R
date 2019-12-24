@@ -1,0 +1,76 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_minimum" "muzzle_zenite" "tank"}
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "engine"
+		{thickness 4}
+	}
+	
+	("armor_light_shit" turret(14 12 11 4) body(16 12 6 4))
+	("wheels_armor" args 5)	
+
+	("crew_3_human")
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}	
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun" 1000}		
+			{item "ammo mgun" 2900}			
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")	
+		{place "mgun"
+			{RestoreIKAfterAim}
+            {type "mgun_main"}			
+			{weapon "vickers050" filled}
+            {foresight "foresight3"}
+			{charger "commander"}
+			{gunner "gunner"}			
+			("abm_mgun_heavy")
+			{basic}			
+		}
+		{place "mgun1"
+			{charger "commander"}
+			{gunner "gunner"}
+			{type "mgun_coaxial"}
+			{weapon "vickers_mgun" filled}
+			{foresight "foresight4"}
+            ("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 5000}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.3))
+		("mobility"
+			speed(58)
+			weight(5.0)
+			power(88)
+			fuel(140)	
+		)
+	}
+
+	{Extension "mkvib.mdl"}
+	{texmod "8"}
+}	

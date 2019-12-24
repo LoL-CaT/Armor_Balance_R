@@ -1,0 +1,136 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	(include "/properties/l_tank_mobility.ext")
+	{collider "tank.light"}
+	{props "l_light" "turret" "opened" "vision_vehicle_minimum" "muzzle_small"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+
+	{extender "enumerator"}	
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+	}
+
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body6"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body7"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body8"
+		{component "body"}
+		{tags "body"}
+	}
+        {volume "turret"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{volume "inventory"
+		{thickness 5}
+	}
+
+	("armor_light_shit" turret(5 5 5 5) body(10 7 7 7))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(5 5 5 5))
+	
+
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "pose_pak40_gunlayer" 10}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_pak40_charger" 10}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(commander)	door1(emit1) visor(driver))
+	("crew_human_visible" place(gunner)	door1(emit2)  visor(main))
+	("crew_human_visible" place(charger) door1(emit3)  visor(main))
+
+
+	{extender "inventory"
+		{box
+                        {item "bullet57rus ap" 10}
+                        {item "bullet57rus fg" 10}
+;                       {item "bullet57rus apcr" 1}
+			            {item "ammo mgun" 1260}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_zis2" filling "ammo bullet57rus ap" 1}        
+			("abm_high")
+		}
+		{place "mgun2"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight5"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 4000}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.3))
+		("mobility"
+			speed(60)
+			weight(4.0)
+			power(50)
+			fuel(115	)	
+		)
+	}
+
+	{Extension "zis30.mdl"}
+        {bone "gun_rot"
+		{speed2 5}
+		{limits -3 15}
+	}
+	{bone "turret"
+		{limits -11 11}
+		{speed2 5}
+	}
+        {bone "mgun"
+		{limits 15}
+        {speed2 80}
+        }
+}

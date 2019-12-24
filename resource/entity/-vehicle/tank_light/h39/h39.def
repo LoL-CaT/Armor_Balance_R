@@ -1,0 +1,110 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_minimum" "tank"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("armor_medium" turret(44 44 44 14) body(45 40 30 14))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(14 14 14 14))
+
+	("crew_2_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+	
+    {sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}	
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 2400}
+			{item "ammo bullet37_mle38 ap" 40}
+			{item "ammo bullet37_mle38 fg" 60}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "37mm_sa38" filling "ammo bullet37_mle38 ap" 1}
+			{charger "gunner"}
+			("abm_low")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{foresight "foresight3"}
+			{weapon "7,5mm_shatelro" filled}			
+			{charger "gunner"}
+			("abm_mgun")			
+			{basic}
+		}
+	}
+
+	{mass 12800}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.4) len(0.44))
+		("mobility"
+			speed(36)
+			weight(12.8)
+			power(120)
+			fuel(180)	
+		)
+	}
+
+	{Extension "h39.mdl"}
+	{bone "turret"
+		{speed2 6}
+	}
+}

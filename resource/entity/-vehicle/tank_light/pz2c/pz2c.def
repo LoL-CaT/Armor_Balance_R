@@ -1,0 +1,153 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.light"}
+	{props "light" "turret_rotator" "vision_vehicle_low" "muzzle_zenite" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("armor_light" turret(35 15 15 10) body(20 15 15 10))
+	("wheels_armor" args 5)		
+	("armor_mantlet" t(40))
+	("armor_engine"  t(10 10 10 10))
+
+	("crew_2_human")
+
+	("crew_human" place(commander) door1(emit1) door2(emit2) visor(main))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		
+	}
+
+	("seat_human" place(seat1) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat2) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat3) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+
+    {sensor
+	        {visor "tur2_122"
+			{vision "tank_pr"}
+			{bone "visor122"}
+		}
+	        {visor "tur2_144"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}		
+	        {visor "tur2_166"
+			{vision "tank_pr"}
+			{bone "visor166"}
+		}		
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}
+	
+	{extender "inventory"
+		{box
+                       {item "ammo bullet20x138b zenite" 60}
+                       {item "ammo bullet20x138b ap" 60}
+                       {item "ammo bullet20x138b fg" 60}
+                       {item "ammo mgun" 2250}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+            {weapon "20mm_kwk30" filling "ammo bullet20x138b zenite" 10}      
+			{charger "gunner"}        
+			("abm_zenite")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+            {weapon "mg34tank" filled}			
+			{gunner "commander"}
+			{charger "commander"}
+			{basic}
+			("abm_mgun")
+		}
+	}
+
+	{mass 9500}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.4) len(0.4))
+		("mobility"
+			speed(48)
+			weight(9.5)
+			power(140)
+			fuel(170)	
+		)
+	}
+
+	{Extension "pz2c.mdl"}
+
+	{bone "turret"
+		{speed2 12}
+	}
+}
+

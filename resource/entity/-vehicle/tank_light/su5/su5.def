@@ -1,0 +1,112 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_medium" "muzzle_large"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	{extender "enumerator"}
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_light" turret(15 10 10 8) body(15 10 10 8))
+	("armor_mantlet" t(15))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(13))
+	
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_LowTank_stand"} {end "seat_armor"}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+
+	{anm "gunner"
+		{forward	{begin	"board_LowTank_stand_1"} {end "pose_pak40_gunlayer" 10}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+	{anm "gunner2"
+		{forward	{begin	"board_LowTank_stand_1"} {end "pose_155gpf_charger" 10}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+	{anm "charger"
+		{forward	{begin	"board_LowTank_stand"} {end "pose_155gpf_gunlayer" 10}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+(define "crew_human_visible"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%place"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human"		  place(driver)		door(emit0) group(driver) animation(driver) visor(driver))
+("crew_human_visible" place(charger)		door(emit1) group(crew)	 animation(charger) visor(main))
+("crew_human_visible" place(commander)		door(emit1) group(crew)	 animation(commander) visor(main))
+("crew_human_visible" place(gunner)		door(emit2) group(crew)	 animation(gunner) visor(main))
+("crew_human_visible" place(gunner2)		door(emit2) group(crew)	 animation(gunner2) visor(main))
+
+{placer 
+	{place "charger" {openForCrush}}
+	{place "gunner" {openForCrush}}
+	{place "commander" {openForCrush}}
+	{place "gunner2" {openForCrush}}
+}
+	
+	{Weaponry
+		{place "gun"
+			{weapon "122mm_m10" filling "ammo bullet122_m30 fg" 1}
+			{StationaryFiring}
+			("abm_howitzer")
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet122_m30 fg" 6}
+;			{item "ammo bullet122_m30 sm" 2}
+		}
+	}
+	
+	{mass 10500}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(30)
+			weight(10.5)
+			power(90)
+			fuel(182)	
+		)
+	}
+
+	{Extension "su5.mdl"}
+
+	{bone "turret"
+		{speed2 5}
+	}
+}

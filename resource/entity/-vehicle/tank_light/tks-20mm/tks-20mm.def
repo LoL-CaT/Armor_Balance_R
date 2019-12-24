@@ -1,0 +1,73 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(0.9))
+	
+	{props "l_light" "-turret" "vision_vehicle_minimum" "muzzle_zenite"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	{collider "tank.light"}
+	
+	{extender "enumerator"}
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+    ("armor_spa_light" armor(10 10 10 4))
+	("wheels_armor" args 5)		
+	("armor_mantlet" t(10))
+	("armor_engine"  t(4))
+	
+	("crew_2_human"	door1(emit1) door2(emit2))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet20x138b zenite" 125}
+			{item "ammo bullet20x138b ap" 125}
+			{item "ammo bullet20x138b fg" 125}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_wz38FK" filling "bullet20x138b zenite" 5}   
+			{charger "gunner"}
+			("abm_zenite")   
+		}
+	}
+	{mass 2600}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(40)
+			weight(2.6)
+			power(46)
+			fuel(60)	
+		)
+	}
+
+	{Extension "tks-20mm.mdl"}
+	
+}

@@ -1,0 +1,129 @@
+{entity
+	(include "/properties/tank_multyturret.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	
+	{collider "tank.light"}
+	{props "l_light_M2" "turret_rotator" "turret2_rotator" "turret" "turret2" "vision_vehicle_low" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	{extender "enumerator"}
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}	
+
+	("armor_light_M2" turret(13 13 13 6) turret2(13 13 13 6) body(13 13 8 6))
+	("armor_mantlet" t(13))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(6))
+	
+	("crew_2_human")
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(back))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 6600}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "mgun1"
+			{type "mgun_coaxial"}
+			{foresight "foresight4"}
+			{weapon "vickers_mgun" filled}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}     
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{foresight "foresight5"}
+			{weapon "vickers_mgun" filled}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	{sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	        {visor "tur2_11"
+			{vision "tank_pr"}
+			{bone "visor111"}
+		}
+	        {visor "tur2_33"
+			{vision "tank_pr"}
+			{bone "visor133"}
+		}	
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}	
+	        {visor "tur2_88"
+			{vision "tank_pr"}
+			{bone "visor188"}
+		}		
+	}
+	
+	
+	{mass 7200}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(37)
+			weight(7.2)
+			power(91)
+			fuel(182)	
+		)
+	}
+
+	{Extension "vickersedw.mdl"}
+
+	    {bone "turret"
+		   {limits -15 179}		
+		   {speed2 35}
+	    }
+	    {bone "turret2"
+		   {limits 30 -179}		
+		   {speed2 35}
+	    }	
+
+}

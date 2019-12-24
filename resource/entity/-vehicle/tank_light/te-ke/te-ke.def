@@ -1,0 +1,56 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "amphibia" "vision_vehicle_low" "tank"}
+	
+	("armor_light_shit" turret(12 8 8 4) body(10 8 8 4))
+	("armor_engine"  t(12))
+	
+	("crew_2_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo mgun" 1650}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "type92hmg_tank" filled}			
+			{charger "gunner"}
+			{foresight "foresight3"}
+			("abm_mgun")			
+		}
+	}
+
+	{mass 3400}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.13))
+		("mobility"
+			speed(40)
+			weight(3.4)
+			power(32)
+			fuel(120)	
+		)
+	}
+
+	{Extension "te-ke.mdl"}
+}

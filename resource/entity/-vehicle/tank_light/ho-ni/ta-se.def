@@ -1,0 +1,148 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	
+	{collider "tank.light"}	
+	{props "light" "zenite" "turret_rotator" "flak" "vision_vehicle_low" "muzzle_zenite"}
+	{targetSelector "tank_flak"}
+	{targetClass "light_tank" "bullet"}
+	{patherId "tank.light"}	
+
+	{extender "enumerator"}
+	
+	("armor_light_shit" turret(25 25 12 8) body(25 15 7 8))
+	("armor_mantlet" t(25))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(8))	
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "pose_vickers_gunlaeyr-L"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_vickers_gunlaeyr-R"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_MiddleArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("crew_human" 			place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human_visible"	place(gunner)		door1(emit2) door2(emit1) visor(main))
+	("crew_human" 			place(commander)	door1(emit1) door2(emit2) visor(main))
+	{placer 
+		{place "gunner" {openForCrush 0}}
+	}
+	{sensor
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+		{visor "main"
+			{vision "tank_main-l"}		
+			{bone "visor1"}
+		}		
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit3)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit4)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit4)  animation(armor))
+	("seat_human" place(seat5) bone(seat05) door(emit5)  animation(armor1))
+	("seat_human" place(seat6) bone(seat06) door(emit6)  animation(armor))
+
+	{extender "inventory"
+		{box
+			{size 8 6}
+                        {item "bullet25_type96 zenite" 280}
+			{item "bullet25_type96 ap" 280}
+			{item "bullet25_type96 fg" 280}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "25mm_type96" filling "bullet25_type96 zenite" 20}
+            {gunner "gunner"}
+			{charger "gunner"}
+			("abm_zenite")
+			{basic}			
+		}
+	}
+
+	{mass 7200}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.56) len(0.14))
+		("mobility"
+			speed(50)
+			weight(7.2)
+			power(130)
+			fuel(295)	
+		)
+	}
+	{Extension "ta-se.mdl"}
+      	
+	{Volume "body01"
+		{able {holed}}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body02"
+		{able {holed}}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body03"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body04"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body05"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body06"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body07"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "engine01"
+		{tags "engine"}
+		{component "engine"}
+	}
+	{Volume "engine02"
+		{tags "engine"}
+		{component "engine"}
+	}
+	
+	{Volume "trackleft"
+	}
+	{Volume "trackright"
+	}
+	{volume "turret1"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+		{speed2 25}
+	}	
+	
+}

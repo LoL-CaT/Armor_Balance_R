@@ -1,0 +1,140 @@
+;Created by Dmirog
+;Date:        Mon 9 09 2013
+{Entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_low" "muzzle_minimum" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun_rot"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{thickness 10}
+	}
+	{volume "engine"
+		{tags "engine"}
+		{thickness 10}
+	}
+	{volume "crew"
+		{able {contact_ground 0}}
+	}
+
+	("shield" args 10)
+
+	("armor_light" turret(13 13 13 10) body(13 13 13 10))		
+	("armor_mantlet" t(13))
+	("wheels_armor" args 5)		
+	("armor_engine"  t(10))
+
+	("crew_3_human_extended")
+
+	{extender "shield"
+		{on}
+	}
+	{component "shieldL1" {tags "shield"}}
+	{component "shieldR1" {tags "shield"}}
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_t34_hold"} {base "close_driver"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_MiddleArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit6)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit5)  animation(armor))
+
+    {sensor
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}
+	
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo bullet45rus ap" 50}
+			{item "ammo bullet45rus fg" 65}
+			{item "ammo mgun" 2709}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "45mm_20k" filling "bullet45rus ap" 1}
+			{charger "gunner"}
+			("abm_low")    
+
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{LinkBone "mgun_rot"}
+			{weapon "dt" filled}			
+			{LinkAnimation "off"}
+			{charger "commander"}
+			{basic}
+            ("abm_mgun")
+		}
+	}
+	
+	{mass 11500}
+
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.6))
+		("mobility"
+			speed(53)
+			weight(11.5)
+			power(365)
+			fuel(530)	
+		)
+	}
+
+	{Extension "bt-5-1.mdl"}
+
+	{bone "turret"
+		{speed2 7}
+	}
+}

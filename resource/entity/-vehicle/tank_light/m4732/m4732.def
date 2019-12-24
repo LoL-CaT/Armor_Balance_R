@@ -1,0 +1,138 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "light" "-turret" "opened" "vision_vehicle_minimum" "muzzle_minimum"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+		{thickness 30}
+	}
+	{volume "body6"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body7"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body8"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "engine"
+		{thickness 5}
+	}
+	
+	("armor_spa_light" armor(30 15 15 5))
+
+	{boarder
+		{anm "driver"
+			;{forward	{begin	"board_tank_left"} {end "seat_gunner_moto"}}
+			{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_right"} {end "pose_pak40_gunlayer"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_tank_left"} {end "seat_armor1"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(human))
+	
+	{placer
+		{place "driver" {visor "driver"} {openForCrush}}
+		{place "gunner" {visor "main"} {openForCrush}}
+		{place "charger" {visor "human"} {openForCrush}}
+	}
+	
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "foresight1"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+	}
+	
+	
+	{extender "inventory"
+		{box
+			{item "bullet47gerI ap" 35}
+			{item "bullet47gerI fg" 35}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "47mm_40_at" filling "bullet47gerI ap" 1}
+			{charger "charger"}
+			{gunner "gunner"}
+			("abm_high")
+		}
+	}
+	
+	{mass 6500}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.4) len(0.4))
+		("mobility"
+			speed(68)
+			weight(6.5)
+			power(65)
+			fuel(130)	
+		)
+	}
+	
+	{Extension "m4732.mdl"}
+	
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	{bone "gun_rot1"
+		{speed2 5}
+	}	
+	
+}

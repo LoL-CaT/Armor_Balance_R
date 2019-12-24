@@ -1,0 +1,170 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{props "h_light" "-turret" "opened" "vision_vehicle_minimum" "muzzle_medium"}
+
+	{extender "enumerator"}
+	
+	("armor_spa_light" armor(25 25 7 8))
+	("armor_engine"  t(8 8 8 8))
+	("wheels_armor" args 5)	
+	("shield" args 8)
+
+	{extender "shield"
+			{on}
+	}
+	{component "shield"}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "pose_vickers_gunlaeyr-L"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_vickers_gunlaeyr-R"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_MiddleArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("crew_human"		place(driver) door1(emit1) door2(emit2) visor(driver))
+	("crew_human_visible_anm"	place(commander) door1(emit1) door2(emit2) visor(main) anm_left(left) anm_right(right))
+	("crew_human_visible_anm"	place(gunner) door1(emit1) door2(emit2) visor(main) anm_left(left) anm_right(right))
+	{placer 
+		{place "commander" {openForCrush 0}}
+		{place "gunner" {openForCrush 0}}
+	}
+	{sensor
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor1"}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit3)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit4)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit4)  animation(armor))
+	("seat_human" place(seat5) bone(seat05) door(emit5)  animation(armor1))
+	("seat_human" place(seat6) bone(seat06) door(emit6)  animation(armor))
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet75 ap" 45}
+			{item "ammo bullet75 fg" 25}
+;			{item "ammo bullet75 apcr" 5}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "75mm_type90" filling "ammo bullet75 ap" 1}
+			{charger "commander"}
+			("abm_high")
+		}
+	
+	}
+
+	{mass 15300}
+
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.56) len(0.14))
+		("mobility"
+			speed(38)
+			weight(15.3)
+			power(240)
+			fuel(350)	
+		)
+	}
+
+	{Extension "ho-ni1.mdl"}
+      	
+	{Volume "body01"
+		{able {holed}}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body02"
+		{able {holed}}
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body03"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body04"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body05"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body06"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body07"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "engine01"
+		{tags "engine"}
+		{component "engine"}
+	}
+	{Volume "engine02"
+		{tags "engine"}
+		{component "engine"}
+	}
+	{Volume "gun01"
+		{thickness 20}
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun02"
+		{thickness 20}
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun03"
+		{thickness 20}
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "hole01"
+		{able clear {hole}}
+	}
+	{Volume "hole02"
+		{able clear {hole}}
+	}
+	{Volume "ram"
+	}
+	{Volume "shield"
+		{able {holed}}
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "trackleft"
+	}
+	{Volume "trackright"
+	}
+	{bone "turret"
+	    {limits -14 23}
+	    {speed2 5}
+	}
+	{bone "gun_rot"
+	    {limits -10 10}
+	    {speed2 5}
+	}
+}

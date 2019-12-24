@@ -1,0 +1,107 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "light" "turret_rotator" "vision_vehicle_low"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+	
+	("armor_light_shit" turret(14) body(14 10 10 6))
+	("armor_engine"  t(6 6 6 6))
+	
+	("crew_2_human")
+	
+	{sensor
+		{visor "main"
+			{vision "tank_main-l"}
+			{bone "foresight3"}
+		}
+		{Visor "driver"
+			{vision "tank_driver"}
+			{bone "visor"}
+		}
+	}
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun" 2240}
+			{item "tank_balloon" filling "fuel" 10000}
+		}
+	}
+	{Weaponry
+		{place "flamer1"
+			{type "secondary_flamer"}
+			{weapon "flamer_t_ita" filled}
+			{foresight "foresight9"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{basic}
+		}
+		{place "mgun"
+			{type "mgun_hull"}
+			{weapon "13mm_hotchkiss_x1" filled}
+			{foresight "foresight3"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun_heavy")
+			{basic}
+		}
+	}
+	
+	{mass 3200}
+	
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(42)
+			weight(3.2)
+			power(43)
+			fuel(130)	
+		)
+	}
+	
+	{Extension "l35lf.mdl"}
+	
+	{bone "gun_rot"
+		{speed 0.015}
+		{limits -10 15}
+	}
+	{bone "gun_rot1"
+		{speed 0.015}
+		{limits -12 12}
+	}
+}

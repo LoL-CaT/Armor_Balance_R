@@ -1,0 +1,153 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_low" "muzzle_minimum" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+	
+	("armor_light_shit" turret(16 16 16 8) body(16 16 16 8))
+	("armor_engine"  t(8))
+	("wheels_armor" args 5)	
+	("shield" args 10)
+	
+	("crew_2_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_t34_hold"} {base "open_driver"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	{boarder
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+	{extender "shield"
+		{on}
+	}
+	{component "shieldL1" {tags "shield"}}
+	{component "shieldL2" {tags "shield"}}
+	{component "shieldR2" {tags "shield"}}
+
+    {sensor
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 1449}
+			{item "bullet37_pak35_R ap" 44}
+			{item "bullet37_pak35_R he" 60}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")	
+		{place "gun"	
+			{RestoreIKAfterAim}
+			{weapon "37mm_b3" filling "ammo bullet37_pak35_R ap" 1}
+			{charger "gunner"}  
+			("abm_low") 
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{foresight "foresight3"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{basic}
+		}
+	}
+	{Sensor
+		{Visor "main"
+			{vision "tank_main-l"}
+		}
+
+	}
+
+	{extender "enumerator"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "turret_vol1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret_vol2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "gun_vol1"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "gun_vol2"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{volume "door_engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+	{Volume "shieldL1"
+		{thickness 16}
+	}
+	{Volume "shieldL2"
+		{thickness 10}
+	}
+	{Volume "shieldR2"
+		{thickness 10}
+	}
+	
+	{mass 5900}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(24)
+			weight(5.9)
+			power(50)
+			fuel(110)	
+		)
+	}
+
+	{Extension "ms-1_1.mdl"}
+	
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -15 15}
+	}
+	
+}

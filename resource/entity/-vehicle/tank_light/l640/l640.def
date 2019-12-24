@@ -1,0 +1,112 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_minimum" "muzzle_zenite" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("armor_medium" turret(40 40 40 10) body(30 15 15 10))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(10))
+
+	("crew_2_human")
+	
+    {sensor
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	        {visor "tur2_44"
+			{vision "tank_pr"}
+			{bone "visor144"}
+		}		
+	}		
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+;	("gunner_visible")
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 1560}
+			{item "ammo bullet20x138b_ita zenite" 312}
+			{item "ammo bullet20x138b_ita ap" 312}
+			{item "ammo bullet20x138b_ita fg" 312}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_breda_m35" filling "bullet20x138b_ita zenite" 8}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "breda" filled}
+			{foresight "Foresight3"}
+			{charger "gunner"}
+			{basic}
+			("abm_mgun")
+		}		
+	}
+
+	{mass 6800}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.4) len(0.4))
+		("mobility"
+			speed(42)
+			weight(6.8)
+			power(70)
+			fuel(200)	
+		)
+	}
+
+	{Extension "L640.mdl"}
+
+	{bone "turret"
+		{speed2 7}
+	}
+}
+

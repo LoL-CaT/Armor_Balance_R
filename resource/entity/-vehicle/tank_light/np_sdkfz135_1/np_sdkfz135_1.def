@@ -1,0 +1,115 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.light"}
+	{props "l_light" "-turret" "opened" "vision_vehicle_low" "muzzle_maximum"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	("armor_light_shit" turret(11 11 11 4) body(12 10 10 8))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(12 12 12 8))
+
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+		{thickness 10}
+	}
+	{volume "body_back"
+		{component "body"}
+		{tags "body"}
+		{thickness 16}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 10}
+	}
+	
+	{boarder
+			{anm "left"
+				{forward	{begin	"board_LowTank_left"} {end "seat_driver_car"} {base "close_driver"}}
+				{reverse 	{end	"emit_tank_1_hold"} {base "open_driver"}}
+			}
+			{anm "right"
+		        	{forward	{begin	"board_LowTank_left"} {end "squat_load_mortar"} {base "close_driver"}}
+				{reverse 	{end	"emit_tank_1_hold"} {base "open_driver"}}
+			}
+			{anm "charger"
+				{forward	{begin	"board_MiddleArmor"} {end "seat_armor"} {base "close"}}
+				{reverse 	{end	"emit_tank_1" 1} {base "open"}}
+			}
+			{anm "gunner"
+				{forward	{begin	"board_MiddleArmor"} {end "seat_armor"} {base "close"}}
+				{reverse 	{end	"emit_tank_1" 1} {base "open"}}
+			}
+			
+	}
+	("crew_human"		place(driver) door1(emit0) door2(emit0) visor(driver))
+	("crew_human"		place(commander) door1(emit2) door2(emit2) visor(driver))
+	("crew_human_visible_anm" place(gunner) door1(emit1) door2(emit1) visor(main) anm_left(gunner) anm_right(gunner))	
+	("crew_human_visible_anm" place(charger) door1(emit1) door2(emit1) visor(main) anm_left(charger) anm_right(charger))
+	{placer {place "gunner" {openForCrush 0}}
+	}
+	
+    {sensor
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}	
+	
+	{extender "inventory"
+		{box
+                        {item "ammo bullet150ger fg" 12}
+;			            {item "ammo bullet150ger sm" 2}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "150mm_sfh13" filling "ammo bullet150ger fg"}
+			{StationaryFiring}
+			("abm_howitzer")
+		}
+	}
+
+	{mass 8200}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.10) len(0.3))	
+		("mobility"
+			speed(38)
+			weight(8.2)
+			power(70)
+			fuel(144)	
+		)
+	}
+
+	{Extension "sdkfz135_1.mdl"}
+	
+	{bone "turret"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}	
+	
+	{Volume "body2"
+	}
+	{Volume "body"
+	}
+	{Volume "body_vol2"
+	}
+	{Volume "engine"
+	}
+	{Volume "trackleft"
+	}
+	{Volume "trackright"
+	}
+}

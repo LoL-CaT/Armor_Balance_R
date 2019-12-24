@@ -1,0 +1,99 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "l_light" "-turret" "opened"  "vision_vehicle_minimum" "muzzle_small"}
+	{targetClass "light_tank" "bullet"}
+	{targetSelector "tank_bullet"}
+	{patherId "tank.light"}
+	{extension "crew.ext"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body6"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body7"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body8"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body9"
+		{tags "body"}
+		{component "body"}
+	}
+	("armor_light_shit" turret(14 6 6 6) body(13 10 10 6))
+	("armor_engine"  t(6 6 6 6))
+
+	{extender "inventory"
+		{box
+			{item "bullet47_czech ap" 55}
+;           {item "bullet47_czech apcr" 5}
+			{item "bullet47_czech fg" 31}
+			{item "repair_kit" 1}
+		}
+	}
+	{Weaponry
+		{place "gun"
+            {Rotate}
+			{RestoreIKAfterAim}
+            {weapon "47mm_skoda" filling "bullet47_czech ap" 1}
+            {charger "commander"}
+			("abm_high")
+		}
+	}
+
+	{sensor
+    		{visor "main"
+        		{vision "tank_main-l"}
+        		{bone "visor1"}
+    		}
+    		{Visor "driver"
+       		 	{vision "tank_driver"}
+        		{bone "visor1"}
+    		}
+	}
+
+	{mass 6400}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.13))
+		("mobility"
+			speed(40)
+			weight(6.4)
+			power(100)
+			fuel(164)	
+		)
+	}
+
+	{Extension "panzerjager.mdl"}
+	
+	{bone "gun_rot"
+		{limits -8 12}
+	}
+	{bone "turret"
+		{limits -17 17}
+	}
+}

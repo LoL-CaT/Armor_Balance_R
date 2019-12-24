@@ -1,0 +1,106 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "h_light" "turret_rotator" "vision_vehicle_low" "muzzle_minimum" "tank"}
+	{targetClass "light_tank"}
+	{patherId "tank.light"}
+
+	{extender "enumerator"}
+
+	{volume "body1"
+		{tags "body2"}
+		{component "body2"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body3"}
+		{component "body3"}
+	}
+	
+	("armor_medium" turret(38 32 32 13) body(44 25 25 13) body2(38 25 25 13) body3(44 25 25 13))
+	("armor_mantlet" t(51))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(13 13 13 13))
+
+	("crew_4_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_highArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+	
+	{extender "inventory"
+		{box
+			{item  "ammo mgun" 7220}
+			{item "bullet37_m3l ap" 58}
+			{item "bullet37_m3l fg" 48}
+;			{item "bullet37_m3l apc" 2}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "37mm_m6" filling "bullet37_m3l ap" 1}
+			{charger "gunner"}
+			("abm_medium")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "browning_m19" filled}
+			{foresight "foresight3"}
+			{charger "gunner"}
+			{basic}
+			("abm_mgun")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "browning_m19" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+	}
+	{mass 12900}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.35))
+		("mobility"
+			speed(58)
+			weight(12.9)
+			power(250)
+			fuel(204)		
+		)
+	}
+	{Extension "m3a1.mdl"}
+
+	{bone "turret"
+		{speed2 24}
+	}
+}
+

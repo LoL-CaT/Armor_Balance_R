@@ -1,0 +1,118 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_low" "tank"}
+	{targetClass "light_tank" "bullet"}
+	{targetSelector "tank_bullet"}
+	{patherId "tank.light"}
+
+	("armor_light_shit" turret(15 13 13 8) body(13 13 13 8))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(8 8 8 8))
+	
+	("crew_2_human")
+	("seat_3_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_LowTank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	{boarder
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+    {sensor
+	        {visor "tur2_55"
+			{vision "tank_pr"}
+			{bone "visor155"}
+		}
+	        {visor "tur2_77"
+			{vision "tank_pr"}
+			{bone "visor177"}
+		}
+	        {visor "tur2_11"
+			{vision "tank_pr"}
+			{bone "visor111"}
+		}		
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "ammo smkmgun" 1525}
+		}
+	}
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "mg13_x2" filling "ammo smkmgun" 50}
+			{Barrels 2}
+			{charger "gunner"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 5800}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.13))
+		("mobility"
+			speed(40)
+			weight(5.8)
+			power(100)
+			fuel(146)	
+		)
+	}
+
+	{Extension "pz1b.mdl"}
+	
+	{bone "gun_rot"
+		{limits -10 18}
+	}
+	{bone "turret"
+		{speed2 12}
+	}
+}

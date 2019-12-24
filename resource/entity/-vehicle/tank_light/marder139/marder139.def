@@ -1,0 +1,159 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.light"}	
+	{props "l_medium" "-turret" "opened" "vision_vehicle_low" "muzzle_medium"}
+	{extender "enumerator"
+    {digit_folder "ger"}
+	}
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body1"
+			{tags "body"}
+			{component "body"}
+	}
+	{volume "body2"
+			{tags "body"}
+			{component "body"}
+	}
+	{volume "body3"
+			{tags "body"}
+			{component "body"}
+	}
+	{volume "body4"
+			{tags "body"}
+			{component "body"}
+	}
+	{volume "body5"
+			{tags "body"}
+			{component "body"}
+	}
+	{volume "body6"
+			{tags "body"}
+			{component "body"}
+	}
+	{volume "body7"
+			{tags "body"}
+			{component "body"}
+	}
+	{volume "body8"
+			{tags "body"}
+			{component "body"}
+	}
+	{volume "turret1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret3"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret4"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret5"
+			{tags "turret"}
+			{component "turret"}
+	}
+	{Volume "Fuel"
+		{thickness 1}
+	}
+	{volume "engine"	
+		{thickness 10}
+	}
+	
+	("armor_medium_shit" turret(36 11 10 10) body(50 16 10 10))
+	("wheels_armor" args 5)		
+    ("armor_engine"  t(10 10 10 10))
+
+	
+	{component "engine"	
+		{RepairTime 10}
+	}
+	{component "turret"
+		{RepairTime 36}
+	}
+	{component "gun"
+		{RepairTime 15}
+	}
+
+	{boarder
+			{anm "left"
+				{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+				{reverse 	{end	"emit_tank_1_hold"}}
+			}
+			{anm "right"
+				{forward	{begin	"board_tank_right"} {end "squat_load_mortar"}}
+				{reverse 	{end	"emit_tank_1_hold"}}
+			}
+			{anm "armor"
+						{forward	{begin	"board_MiddleArmor"} 	{end "seat_armor"}}
+						{reverse 	{end	"emit_tank_1"}}
+		}
+		}
+		("crew_human"			place(driver) door1(emit1) door2(emit2) visor(driver))
+		("crew_human_visible"	place(gunner) door1(emit1) door2(emit2) visor(main))
+		("crew_human_gunner" 	place(charger) visorbone(gun))
+		{placer 
+			{place "gunner" {openForCrush 0}}
+	}
+	("seat_human" place(seat1) bone(seat01) door(emit5)  animation(armor))
+			("seat_human" place(seat2) bone(seat02) door(emit6)  animation(armor))
+			("seat_human" place(seat3) bone(seat03) door(emit4)  animation(armor))
+		("seat_human" place(seat4) bone(seat04) door(emit3)  animation(armor))
+
+	{extender "inventory"
+		{box
+			{item "bullet76_pak36 ap" 16}
+			{item "bullet76_pak36 fg" 12}
+;			{item "bullet76_pak36 apcr" 2}
+			{item  "ammo mgun" 1200}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "76mm_pak36" filling "ammo bullet76_pak36 ap" 1}
+            ("abm_high")
+		}
+	{place "mgun1"
+				{basic}
+				{type "mgun_hull"}
+				{weapon "mg37" filled}
+				{foresight "foresight4"}
+				{gunner "driver"}
+				{charger "gunner"}
+                ("abm_mgun")
+		}
+	}
+
+	{mass 10600}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.3))
+		("mobility"
+			speed(42)
+			weight(10.6)
+			power(150)
+			fuel(320)	
+		)
+	}
+
+	{Extension "marder139.mdl"}
+	{Texmod "ambush"}
+	
+	{bone "gun_rot1"
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}	
+	
+}

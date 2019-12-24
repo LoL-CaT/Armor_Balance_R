@@ -1,0 +1,51 @@
+;SDL
+
+{boarder
+	{anm "driver"
+		{forward	{begin	"board_pz4_driver"} {end "seat_armor"}}
+		{reverse 	{end	"board_pz4_driver" -1}}
+	}
+	{anm "commander"
+		{forward	{begin	"board_LowTank_stand"} {end "seat_armor"}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+
+	{anm "gunner"
+		{forward	{begin	"board_LowTank_stand_1"} {end "pose_pak40_gunlayer" 10}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+	{anm "charger"
+		{forward	{begin	"board_LowTank_stand"} {end "pose_pak40_gunlayer" 10}}
+		{reverse 	{end	"emit_tank_1"}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "%group"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+(define "crew_human_visible"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%place"} {visor "%visor"}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human"		  place(driver)		door(emit1) group(driver) animation(driver) visor(driver))
+("crew_human_visible" place(commander)	door(emit2) group(crew)	 animation(commander) visor(main))
+("crew_human_visible" place(gunner)		door(emit2) group(crew)	 animation(gunner) visor(main))
+("crew_human_visible" place(charger)	door(emit2) group(crew)	 animation(charger) visor(main))
+
+{placer 
+	{place "commander" {openForCrush}}
+	{place "charger" {openForCrush}}
+	{place "gunner" {openForCrush}}
+}

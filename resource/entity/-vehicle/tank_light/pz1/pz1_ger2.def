@@ -1,0 +1,102 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+	{collider "tank.light"}
+	{props "light" "turret_rotator" "flak" "turret" "vision_vehicle_low" "muzzle_zenite" "pz1"}
+	{targetClass "light_tank" "bullet"}
+	{targetSelector "tank_bullet"}
+	{extension "crew.ext"}
+	{patherId "tank.light"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Fuel"
+		{thickness 1}
+	}
+	{volume "engine"	
+		{thickness 10}
+	}
+	
+	("armor_light_shit" turret(6 6 6 6) body(13 13 13 8))
+	("wheels_armor" args 5)	
+	("shield" args 6)
+	
+	{component "engine"	
+		{RepairTime 10}
+	}
+	{component "shield_left"	
+		{RepairTime 10}
+	}
+	{component "shield_right"	
+		{RepairTime 10}
+	}
+	{component "turret"
+		{RepairTime 20}
+	}
+	{component "gun"
+		{RepairTime 15}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet20 zenite" 600}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "20mm_flak38" filled}
+			{charger "gunner"}
+			("abm_zenite")
+		}
+	}
+
+	("tracks")
+
+	{mass 21000}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(1.2))
+		{Locomotion ("locomotion")
+			{maxspeed   24}
+			{maxSpeedAtMaxTurn 10}
+			{StartTime  12}
+			{TurnTime   8}
+			{TurnStart  1.3}			
+			{TurnRadius 7} 
+	    	{TurnStop   0.7}
+			{BrakeTime  1.5}
+			{StopTime   2}
+     		{Gears  0.2 0.5 1}
+			{RearGears  0.4}
+		}
+		{FuelBag
+			{volume 140 }	
+			{rate	50 }   
+			{remain 140 }
+			{fuel "fuel"}
+		}
+		{speed
+        	{Normal  12}
+        	{Slow  18}
+    	}
+	}
+	{Extension "pz1.mdl"}
+	
+	{bone "gun_rot"
+		{speed2 25}
+		{limits -10 85}
+	}
+	{bone "turret"
+		{speed2 40}
+	}
+}

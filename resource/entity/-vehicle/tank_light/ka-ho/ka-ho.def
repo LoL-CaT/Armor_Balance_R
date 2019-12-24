@@ -1,0 +1,190 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+
+	{collider "tank.medium"}
+	{props "l_medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+	
+	{extender "enumerator"}
+
+	{Volume "body01"
+		{component "body"}
+		{tags "body"}
+	}
+	{Volume "body02"
+		{component "body"}
+		{tags "body"}
+	}
+	{Volume "body03"
+		{component "body"}
+		{tags "body"}
+	}
+	{Volume "cover1"
+		{able {holed}}
+	}
+	{Volume "cover2"
+	}
+	{Volume "engine01"
+		{component "engine"}
+		{tags "engine"}
+	}
+	{Volume "engine02"
+		{component "engine"}
+		{tags "engine"}
+	}
+	{Volume "gun1"
+		{component "gun"}
+		{tags "gun"}
+	}
+	{Volume "gun2"
+		{component "gun"}
+		{tags "gun"}
+	}
+	{Volume "hole1"
+		{able clear {hole}}
+	}
+	{Volume "mantlet"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{Volume "turret1"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{Volume "turret2"
+		{component "turret"}
+		{tags "turret"}
+	}
+	{Volume "turret3"
+		{component "turret"}
+		{tags "turret"}
+	}
+
+	("armor_light_shit" turret(27 25 12 8) body(27 15 7 8))
+	("armor_engine"  t(8 8 8 8))	
+	("wheels_armor" args 5)		
+	("armor_mantlet" t(25))
+	 
+	{extender "inventory"
+		{box
+			{item "ammo bullet57 heat" 60}
+;			{item "ammo bullet57 ap" 30}
+			{item "ammo bullet57 fg" 35}
+			{item "ammo mgun" 2350}
+			{item "tank_balloon" filling "fuel" 10000}			
+		}
+	}
+		
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_type97" filling "ammo bullet57 heat" 1}
+			("abm_low")
+		}
+		{place "flamer1"
+			{type "secondary_flamer"}
+			{weapon "flame_thrower_ssd" filled}
+			{foresight "foresight9"}
+			{gunner "commander"}
+			{charger "commander"}
+			{basic}
+		}
+		{place "mgun2"
+			{type "mgun_rear"}
+			{weapon "nambu_type97" filled}    
+			{gunner "charger"}
+			{charger "charger"}
+			{foresight "foresight5"}
+			("abm_mgun")
+		}			
+	}
+	{sensor
+		{visor "back"
+			{vision "tank_back"}
+			{bone "foresight5"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}
+
+	("crew_4_human")
+	{placer 
+		{place "commander" {visor "back"}}
+	}
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+			{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_MiddleArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+
+	}
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit3)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit4)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit4)  animation(armor))
+
+	{mass 15000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.56) len(0.3))
+		("mobility"
+			speed(38)
+			weight(15.0)
+			power(170)
+			fuel(390)	
+		)
+	}
+	
+	{Extension "ka-ho.mdl"}
+
+	{bone "gun_rot"
+		{speed 0.008}
+		{limits -8 30}
+	}
+	{bone "turret"
+		{speed2 18}
+	}
+}

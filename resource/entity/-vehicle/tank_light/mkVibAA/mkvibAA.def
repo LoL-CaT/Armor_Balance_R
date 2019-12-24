@@ -1,0 +1,79 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vehicle" "flak"  "turret"  "vision_vehicle_minimum" "tank"}
+        {targetSelector "tank_bullet_flak"}
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "engine"
+		{thickness 12}
+	}
+	
+	("armor_light_shit" turret(12 10 10 6) body(12 10 6 6))
+	("wheels_armor" args 5)	
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+  	("crew_human"		place(driver)	door1(emit1) door2(emit2) visor(driver))
+	("crew_human_visible"	place(gunner)	door1(emit1) door2(emit2) visor(main))
+	("crew_human"		place(charger)	door1(emit1) door2(emit2) visor(main))
+	{placer
+		{place "gunner" {openForCrush 0}}
+	}	
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 2900}
+		}
+	}
+
+	{Weaponry	
+		{place "gun"
+			{type "mgun_aa"}		
+			{RestoreIKAfterAim}			
+			{weapon "besa_x4" filled}
+			{Barrels 4}
+			{LinkAnimation "off"}
+			{charger "charger"}
+			("abm_zenite")
+		}
+	}
+
+	{mass 5000}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.3))
+		("mobility"
+			speed(58)
+			weight(5.0)
+			power(88)
+			fuel(140)	
+		)
+	}
+
+	{Extension "mkvibaa.mdl"}
+	{texmod "5"}
+
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+		{speed2 25}		
+	}	
+	
+}	

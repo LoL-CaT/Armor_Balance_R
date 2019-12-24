@@ -1,0 +1,166 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "light" "zenite" "turret_rotator" "flak" "vision_vehicle_minimum" "muzzle_minimum"}
+	{patherId "tank.light"}
+	{targetClass "light_tank" "bullet"}
+        {targetSelector "tank_flak"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "turret1"
+		{tags "turret"}
+		{thickness 28}
+		{component "turret"}
+	}
+	{Volume "turret2"
+		{tags "turret"}
+		{thickness 28}
+		{component "turret"}
+	}
+	{Volume "turret3"
+		{tags "turret"}
+		{thickness 28}
+		{component "turret"}
+	}
+	{Volume "turret4"
+		{tags "turret"}
+		{thickness 28}
+		{component "turret"}
+	}
+	{Volume "turret5"
+		{tags "turret"}
+		{thickness 28}
+		{component "turret"}
+	}
+	{Volume "turret6"
+		{tags "turret"}
+		{thickness 28}
+		{component "turret"}
+	}
+	{Volume "turret7"
+		{tags "turret"}
+		{thickness 28}
+		{component "turret"}
+	}
+	{Volume "turret8"
+		{tags "turret"}
+		{thickness 28}
+		{component "turret"}
+	}
+	("armor_light" turret(28 16 14 7) body(20 16 14 7))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(7))
+		
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_pz4_driver"} {end "seat_sd222_gunner2"} {base "open_driver"}}
+			{reverse 	{end	"board_pz4_driver" -1} {base "open_driver" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "gunner1"
+			{forward	{begin	"board_tank_right"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_tank_left"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_tank_right"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+	
+	(define "crew_human"
+		{placer
+			{place "%place"
+				{group "crew"}
+				{linkbone "%place"}
+				{turnoff {sensor} {shadow}}
+				{visor "main"}
+			}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+	("crew_human" place(gunner)	    door1(emit1) door2(emit2))
+	("crew_human" place(charger)	door1(emit1) door2(emit2))
+	("crew_human" place(gunner1)	door1(emit1) door2(emit2))
+	("crew_human" place(commander)	door1(emit1) door2(emit2))
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	{placer
+		{place "gunner" {openForCrush 0}}
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bullet40_bofors_hun zenite" 74}
+			{item "bullet40_bofors_hun ap" 74}
+			{item "bullet40_bofors_hun fg" 74}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "40mm_bofors_36m" filling "bullet40_bofors_hun zenite" 4}
+			("abm_zenite")
+		}
+	}
+	
+	{mass 10500}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.55))
+		("mobility"
+			speed(60)
+			weight(10.5)
+			power(155)
+			fuel(265)	
+		)
+	}
+
+	{Extension "nimrod.mdl"}
+	
+	{bone "turret"
+		{speed2 40}
+	}
+        {bone "gun_rot"
+		{speed2 25}
+        }
+}

@@ -1,0 +1,90 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "l_light" "turret_rotator" "vision_vehicle_low"}
+	{patherId "tank.light"}
+
+	{extender "enumerator"}
+
+	{Volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "engine"
+		{thickness 13}
+	}
+
+	
+	("armor_light" turret(35 15 10 13) body(35 15 10 13))
+	("wheels_armor" args 5)	
+
+	("crew_2_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+
+	{Weaponry
+		{place "gun"
+			{weapon "weapon bm8" filling "ammo bm8" 24}
+			{Barrels 24}
+			{charger "gunner"}
+			{StationaryFiring}
+			{basic}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bm8" 24}
+		}
+	}
+	
+	{mass 5500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.6))
+		("mobility"
+			speed(45)
+			weight(5.5)
+			power(70)
+			fuel(320)	
+		)
+		{DisableMoveWhileFiring}
+	}
+	{Extension "bm_8_24.mdl"}
+	(mod "mp"
+		{brain
+			{properties
+				{fire_mode hold}
+			}
+		}
+	)
+}

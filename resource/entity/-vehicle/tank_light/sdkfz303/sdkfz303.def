@@ -1,0 +1,50 @@
+ {game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/l_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.0))
+
+       {collider "goliath"}
+	   {props "l_light" "fuel_tank" "vision_vehicle_minimum" "sdkfz303"}
+       {patherId "tank.light"}
+       
+       {extender "enumerator"}
+          
+          {volume "body"
+                {tags "body"}
+                {component "body"}
+             }
+          
+       ("armor_light_shit" turret(10 10 10 10) body(10 10 10 10))
+       
+       {extender "inventory"
+          {box
+          {item "ammo goliath" 1}
+		  {item "plant" 3}
+          }
+       }
+;       {autooperatable 1}
+       {placer
+          {crew 0}
+          {place "driver" remove}
+       }
+       {Weaponry
+             {place "charge"
+                {weapon "weapon goliath" filling "ammo goliath" 1}
+                {gunner "driver"}
+                {charger "driver"}
+             }
+       }
+
+       {mass 430}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.1))
+		("mobility"
+			speed(15)
+			weight(0.4)
+			power(13)
+			fuel(22)	
+		)
+	}
+		{Extension "sdkfz303.mdl"}
+       {tag "sdkfz303"}
+    }
