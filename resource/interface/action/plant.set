@@ -1,0 +1,26 @@
+{action
+	{target ground}
+	{cursor}
+	{fx "flashred"}
+	{item "plant"}
+	{item_in_box}
+	{able_vehicle}
+	{notifyselect}
+	{button}
+	{ShowCount}
+	{instructions
+		{bind}
+		{disable_action_restart}
+		{take_item}
+		{reserve_hands}
+		{fsm_request "ground-drop"} 			;animation "stand_pick_small_begin"
+		{unreserve_hands}
+		{plant "bush" default "bush8"}
+		{fsm_request nocheck "hold-nothing"} 	;{animation nocheck "stand_pick_small_end"}
+	}
+	{instant ; only instant instructions supported
+		{if props "vehicle"
+			{plant "bush" default "bush8"}
+		}
+    }
+}

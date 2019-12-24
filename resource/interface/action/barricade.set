@@ -1,0 +1,22 @@
+{action
+	{cursor "trench"}
+	{fx "flashred"}
+	{item "sandbag_kit"}
+	{item_in_box}
+	{entity "sandbag_kit"}
+	{spacing 5.5}
+	{button}
+	{able_enqueue}
+	{ShowCount}
+	{abledrag}
+	{instructions
+		{bind range 1}
+		{disable_action_restart}
+		{take_item}
+		{reserve_hands}
+		{animations "squat_repair_1 squat_repair_2" random loop totaltime 20}
+		{unreserve_hands}
+		{install "trench_ground" 0 exact_placement}
+		{fsm_request nocheck "hold-nothing"}
+	}
+}

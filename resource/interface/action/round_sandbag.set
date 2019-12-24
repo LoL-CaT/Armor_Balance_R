@@ -1,0 +1,27 @@
+{action
+	{target ground}
+	{fx "flashred"}
+	{item "sandbag_kit2"}
+	{item_in_box}
+	{able_vehicle}
+	{notifyselect}
+	{button}
+	{ShowCount}
+	{instant
+		{if props "round_sandbag"
+			{plant "sandbag_woodbeam2" default "sandbag_woodbeam2" forward}  ; под пулёмет высокий
+		}
+		{if props "round_sandbag3"
+			{plant "sandbag_woodbeam1_round" default "sandbag_woodbeam1_round" forward}   ; круглый и мелкий под миномёт
+		}
+		{if props "round_sandbag4"
+			{plant "sandbag4_round" default "sandbag4_round" forward}   ; мелкий под пушку
+		}
+		{if props "round_sandbag2"
+			{plant "sandbag2_round" default "sandbag2_round" forward}  ; средний под пушку
+		}		
+		{if props "round_sandbag5"
+			{plant "sandbag5_round" default "sandbag5_round" forward}   ; большой под пушку
+		}		
+	}
+}

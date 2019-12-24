@@ -1,0 +1,15 @@
+{action
+	{target volume "climb" able touch}
+	{cursor}
+	{fx "flashred"}
+	{apply_to_all}	; action will be applied to whole commander's squad, if commander is selected
+	{instructions
+		{bind bone "climb" tries 5}
+		{disable_action_restart}
+		{effect_object "break_windows_delayed"}
+		{check_jump_location "getover_middle"}
+		{reserve_hands}
+		{animation "getover_middle" fsm}
+		{unreserve_hands}
+	}
+}

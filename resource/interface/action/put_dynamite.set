@@ -1,0 +1,20 @@
+{action
+	{target ground}
+	{cursor}
+	{fx "flashred"}
+	{item "dynamite"}
+	{item_in_box}
+	{button}
+	{showcount}
+	{instructions
+		{bind tolerance 0.7}
+		{disable_action_restart}
+		{take_item}
+		{reserve_hands}
+		{fsm_request "ground-drop"} 			;animation "stand_pick_small_begin"
+		{unreserve_hands}
+		{undermine}
+		{fsm_request nocheck "hold-nothing"} 	;{animation nocheck "stand_pick_small_end"}
+	}
+}
+

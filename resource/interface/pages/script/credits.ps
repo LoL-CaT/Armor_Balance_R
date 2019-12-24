@@ -1,0 +1,53 @@
+{script
+	{"credits"
+		{on create
+			{navigation enter "credits"}
+			{set "$stage" 0}	
+		}
+		{on "show"
+			{call "credit_next"}
+		}
+		{on "back"
+			{navigation exit}
+			{page_back}
+		}
+		{on "credit_next"
+			{if {eq "$stage" 0}
+				{call "credit_start" "credits_dms" "<f(impact)s(27)c(255 255 255)>" 1 "/interface/pages/credits/logo_dms"}
+			elif {eq "$stage" 1}
+				{call "credit_start" "credits_devcube" "<f(impact)s(27)c(255 255 255)>" 1 "/interface/pages/credits/logo_devcube"}
+			elif {eq "$stage" 2}
+				{call "credit_start" "credits_1c" "<f(impact)s(27)c(255 255 255)>" 1 "/interface/pages/credits/logo_1c"}
+			elif {eq "$stage" 3}
+				{call "credit_start" "credits_other" "<s(18)f(arial_narrow)c(255 255 255)>" 2 "/interface/pages/credits/logo_other"}
+			}
+			{set "$stage" {add "$stage" 1}}
+			{if {eq "$stage" 4}
+				{set "$stage" 0}
+			}
+		}
+		{on key "KEY_SPACE"
+			{call "credit_next"}
+		}
+		{on "credit_start"
+			{scroller "text"
+				{dda "speed" 10}
+				{dda "text_style" "#1"}
+				{if {eq "#2" 1}
+					{dda "interval" 0.87}
+				else
+					{dda "interval" 1.0}
+				}
+			}
+			{picture "logo" "#3"
+				{location_percent 65.0 14.0}
+			}
+			{dda "macro" "%\n\n<s(18)f(arial_narrow)>"}
+			{dda "macro" "|\n "}
+			{dda "locate_text" "#0"}
+		}
+		{on end "text"
+			{call "credit_next"}
+		}
+	}
+}

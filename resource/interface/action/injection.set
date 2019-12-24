@@ -1,0 +1,19 @@
+{action
+	{cursor "medkit"}
+	{fx "flashgreen"}
+	{item "morphine"}
+	{item_in_box}
+	{button}
+;	{ShowCount}
+	{instructions
+		{take_item}
+		{bind hand}
+		{disable_action_restart}
+		{take_item}
+		{reserve_hands}
+		{fsm_request "ground-drop"} 			;animation "stand_pick_small_begin"
+		{unreserve_hands}
+		{injection}
+		{animation nocheck "stand_put_small"}
+	}
+}

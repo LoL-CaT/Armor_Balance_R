@@ -1,0 +1,19 @@
+{action
+	{target ground}; entity}	
+	{cursor}
+	{fx "flashred"}
+	{item "matchbox"}
+	{item_in_box}
+	{button}
+	{ShowCount}
+	{instructions
+		{bind}
+		{disable_action_restart}
+		{take_item}
+		{reserve_hands}
+		{fsm_request "ground-drop"} 			;animation "stand_pick_small_begin"
+		{unreserve_hands}
+		{matchbox_fire}
+		{fsm_request nocheck "hold-nothing"} 	;{animation nocheck "stand_pick_small_end"}
+	}
+}
