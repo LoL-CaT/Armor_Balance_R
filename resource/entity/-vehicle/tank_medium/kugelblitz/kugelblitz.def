@@ -1,0 +1,117 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "flak" "turret" "vision_vehicle_medium" "muzzle_zenite"}
+        {targetSelector "tank_flak"}
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{volume "turret1"
+			{tags "turret1"}
+			{component "turret"}
+	}
+	
+	("armor_medium_shit" turret(22) turret1(22) body(80 30 30 22))
+	("wheels_armor" args 5)	
+	("shield" args 10)
+	
+		{extender "shield"
+			(mod "mp"
+				{on}
+			)
+		}
+		{component "shieldl"}
+		{component "shieldr"}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	("crew_5_human")
+	
+	{boarder
+			{anm "driver"
+				{forward	{begin	"board_pz4_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+				{reverse 	{end	"board_pz4_driver" -1} {base "open_driver" -1}}
+			}
+			{anm "left"
+				{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+				{reverse 	{end	"emit_tank_2_hold"}}
+			}
+			{anm "right"
+				{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+				{reverse 	{end	"emit_tank_2_hold"}}
+			}
+			{anm "armor"
+				{forward	{begin	"board_highArmor"} 	{end "pose_seat_armor_1"}}
+				{reverse 	{end	"emit_tank_2"}}
+			}
+			{anm "armor1"
+				{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+				{reverse 	{end	"emit_body"}}
+			}
+			{anm "armor2"
+				{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+				{reverse 	{end	"emit_body"}}
+			}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet30mk zenite" 1200}
+			{item "ammo bullet30mk ap" 1200}
+			{item "ammo bullet30mk fg" 1200}
+			{item "ammo mgun" 600}
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{weapon "30mm_mk103_38" filling "bullet30mk zenite" 1200}
+			{charger "gunner"}
+			{Barrels 2}
+            ("abm_zenite")
+			{basic}
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "mg34tank" filled}
+			{foresight "foresight3"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	{mass 23000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility"
+			speed(40)
+			weight(23.0)
+			power(300)
+			fuel(470)		
+		)
+	}
+
+	{Extension "kugelblitz.mdl"}
+	
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "turret1"
+		{speed2 25}
+	}	
+	
+}

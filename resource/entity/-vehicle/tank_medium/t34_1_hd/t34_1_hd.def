@@ -1,0 +1,261 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+	
+	{extender "enumerator"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+
+	{Volume "turret1"
+		{Thickness 45}
+		{component "turret"}
+		{tags "turret"}
+	}
+	{Volume "gunrot"
+		{Thickness 45}
+	}
+	{Volume "door"
+		{Thickness 30}
+	}
+	
+	{volume "detail19"
+		{Thickness 15}
+	}	
+	{volume "detail19L1"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19L2"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19L3"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19L4"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19L5"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}
+	{volume "detail19R1"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19R2"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19R3"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19R4"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19R5"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}
+
+	{volume "detail20"
+		{Thickness 15}
+	}	
+	{volume "detail20L1"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}		
+	{volume "detail20L2"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}		
+	{volume "detail20L3"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}	
+	{volume "detail20R1"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}		
+	{volume "detail20R2"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}		
+	{volume "detail20R3"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}	
+
+    ("armor_medium_shit" turret(52 52 52 15) body(45 40 40 20))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(20 20 20 20))
+	("armor_mantlet" t(52))
+	
+	("shield" args 15)
+	{extender "shield"
+		{on}
+	}
+	
+    {extender "detail"
+        {random 0}
+    }	
+
+	{component "shieldL1" {tags "shield"}}
+	{component "shieldL2" {tags "shield"}}
+	{component "shieldL3" {tags "shield"}}
+	{component "shieldL4" {tags "shield"}}
+	{component "shieldL5" {tags "shield"}}
+	{component "shieldL6" {tags "shield"}}
+	{component "shieldL7" {tags "shield"}}
+	{component "shieldL8" {tags "shield"}}
+	{component "shieldL9" {tags "shield"}}
+	{component "shieldR1" {tags "shield"}}
+	{component "shieldR2" {tags "shield"}}
+	{component "shieldR3" {tags "shield"}}
+	{component "shieldR4" {tags "shield"}}
+	{component "shieldR5" {tags "shield"}}
+	{component "shieldR6" {tags "shield"}}
+	{component "shieldR7" {tags "shield"}}
+	{component "shieldR8" {tags "shield"}}
+	{component "shieldR9" {tags "shield"}}
+
+	{component	"detail1" {tags "detail1"}}
+	{component	"detail19" {tags "detail19"}}
+	{component	"detail20" {tags "detail20"}}
+	{component	"dnet" {tags "dnet"}}
+	{component	"dnetTL1" {tags "dnetTL1"}}
+	{component	"gunrot" {tags "gunrot"}}
+	{component	"door" {tags "door"}}
+
+	("crew_4_human_extended")
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_t34_hold"} {base "close_driver"} {base "open_driver" 1}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Is-2"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_body"} {end "seat_isu1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor3"
+			{forward	{begin	"board_body"} 	{end "seat_isu"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor2))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor3))
+
+    {sensor
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet57rus ap" 100}
+			{item "ammo bullet57rus fg" 40}
+            {item "ammo mgun" 2898}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_zis4m" filling "ammo bullet57rus ap" 1}	
+			("abm_high")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+;			{basic}
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+            {basic}
+		}
+	}
+	
+	{mass 28600}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(-1.3))
+		("mobility"
+			speed(55)
+			weight(28.6)
+			power(500)
+			fuel(540)		
+		)
+	}
+
+	{Extension "t34_1.mdl"}
+
+	{bone "gun_rot"
+		{limits -28 5}
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 24}
+	}
+}
+

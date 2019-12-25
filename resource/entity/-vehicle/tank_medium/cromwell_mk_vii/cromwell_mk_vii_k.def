@@ -1,0 +1,144 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_medium" "tank"}
+	
+	{extender "enumerator"}
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+
+	("armor_medium" turret(76 64 57 14) body(76 32 32 14) body2(32 32 32 14) body3(57 32 32 14))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(14 14 14 14))
+
+	("shield" args 10)
+	
+	{extender "shield"
+		{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+	("crew_5_human")
+
+	    {sensor
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	}
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_left"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_lowArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+
+
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+
+	{extender "inventory"
+		{box
+                      {item "ammo bullet57eng ap" 64}
+                      {item "ammo bullet57eng fg" 29}
+                      {item "ammo mgun" 4950}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_oqf" filling "ammo bullet57eng ap" 1}
+			("abm_medium")
+		}
+
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "besa" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "besa" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 28000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.2))
+		("mobility"
+			speed(40)
+			weight(28.0)
+			power(340)
+			fuel(750)		
+		)
+	}
+
+{Extension "cromwell_mk_vii.mdl"}
+
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 20}
+	}
+}

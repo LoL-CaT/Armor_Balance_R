@@ -1,0 +1,223 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "medium" "turret_rotator" "vision_vehicle_high" "muzzle_large"}
+	
+	{extender "enumerator"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+
+	{Volume "turret1"
+		{Thickness 45}
+		{component "turret"}
+		{tags "turret"}
+	}
+	{Volume "gunrot"
+		{Thickness 45}
+	}
+	{Volume "door"
+		{Thickness 30}
+	}
+	
+	{volume "detail19"
+		{Thickness 15}
+	}	
+	{volume "detail19L1"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19L2"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19L3"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19L4"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19L5"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}
+	{volume "detail19R1"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19R2"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19R3"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19R4"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}	
+	{volume "detail19R5"
+		{Thickness 15}
+		{component "detail19"}
+		{tags "detail19"}
+	}
+
+	{volume "detail20"
+		{Thickness 15}
+	}	
+	{volume "detail20L1"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}		
+	{volume "detail20L2"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}		
+	{volume "detail20L3"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}	
+	{volume "detail20R1"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}		
+	{volume "detail20R2"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}		
+	{volume "detail20R3"
+		{Thickness 15}
+		{component "detail20"}
+		{tags "detail20"}
+	}	
+
+	("armor_medium"  turret(45 45 45 15) body(45 40 40 16))
+	("armor_mantlet" t(90))
+	("armor_engine"  t(30 30 30 30))
+	
+	("shield" args 18)
+	{extender "shield"
+		{on}
+	}
+
+	{component "shieldL1" {tags "shield"}}
+	{component "shieldL2" {tags "shield"}}
+	{component "shieldL3" {tags "shield"}}
+	{component "shieldL4" {tags "shield"}}
+	{component "shieldL5" {tags "shield"}}
+	{component "shieldL6" {tags "shield"}}
+	{component "shieldL7" {tags "shield"}}
+	{component "shieldL8" {tags "shield"}}
+	{component "shieldL9" {tags "shield"}}
+	{component "shieldR1" {tags "shield"}}
+	{component "shieldR2" {tags "shield"}}
+	{component "shieldR3" {tags "shield"}}
+	{component "shieldR4" {tags "shield"}}
+	{component "shieldR5" {tags "shield"}}
+	{component "shieldR6" {tags "shield"}}
+	{component "shieldR7" {tags "shield"}}
+	{component "shieldR8" {tags "shield"}}
+	{component "shieldR9" {tags "shield"}}
+
+	{component	"detail1" {tags "detail1"}}
+	{component	"detail19" {tags "detail19"}}
+	{component	"detail20" {tags "detail20"}}
+	{component	"dnet" {tags "dnet"}}
+	{component	"dnetTL1" {tags "dnetTL1"}}
+	{component	"gunrot" {tags "gunrot"}}
+	{component	"door" {tags "door"}}
+
+	{extender "inventory"
+		{box
+            {item "ammo bullet76 ap" 42}
+            {item "ammo bullet76 fg" 40}
+            {item "ammo bullet76 apcr" 5}
+            {item "ammo mgun" 2500}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "76mm_f34" filling "ammo bullet76 ap" 1}	
+			("abm_medium")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+;			{basic}
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}
+			{foresight "foresight5"}
+			("abm_mgun")
+            {basic}
+		}
+	}
+	
+	{mass 28500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(-1.3))
+		{Locomotion ("locomotion")
+			{MaxSpeed	34}
+			{maxSpeedAtMaxTurn 14}
+			{StartTime	12}
+			{TurnTime	8}
+			{TurnStart  1.5} 
+    		{BrakeTime  1.5} 
+    		{StopTime   2.5} 
+    		{TurnRadius   9} 
+    		{TurnStop   0.7} 
+    		{Gears      0.2 0.5 1.0}
+    		{RearGears  0.27}
+		}
+		{FuelBag
+			{volume 540 }	
+			{rate	110 }   
+			{remain 540 }
+			{fuel "fuel"}
+		}
+		{speed
+        	{Normal  10}
+        	{Slow  16}
+    	}
+	}
+
+	{Extension "t34_0_xx.mdl"}
+
+	{bone "gun_rot"
+		{speed 0.002}
+	}
+	{bone "turret"
+		{speed 0.008}
+	}
+}
+

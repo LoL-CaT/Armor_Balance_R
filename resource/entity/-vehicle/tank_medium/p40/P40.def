@@ -1,0 +1,94 @@
+{game_entity
+	;© 2010 Zeke Wolff & Ngvede.
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_medium" "tank"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "turret"
+		{component "turret"}
+	}
+	("armor_medium" turret(50 45 40 20) body(50 45 40 20))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(50))
+	("armor_engine"  t(20 20 20 20))
+	
+	("crew_4_human")
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_cromwell"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_cromwell"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+	
+	{sensor
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}			
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}		
+	
+	{extender "inventory"
+		{box
+			{item "bullet75gerIT ap" 35}
+			{item "bullet75gerIT fg" 22}
+			{item  "ammo mgun" 576}			
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "75mm_34" filling "bullet75gerIT ap" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_medium")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "breda_m1938" filled}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	
+	{mass 26500}
+		{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility"
+			speed(40)
+			weight(26.5)
+			power(420)
+			fuel(350)		
+		)
+	}
+	
+	{Extension "p40.mdl"}
+	{bone "gun_rot"
+		{speed2 5}	
+	}
+	{bone "turret"
+		{speed2 24}
+	}
+}

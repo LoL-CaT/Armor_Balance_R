@@ -1,0 +1,141 @@
+; IV (75M3)
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+	{props "heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_medium" "tank"}
+
+	{extender "enumerator"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	
+	("armor_heavy" turret(89 76 76 20) body(102 76 64 20))
+	("wheels_armor" args 5)
+	
+	("crew_5_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_sherman_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_sherman_right"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+;	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+;	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+;	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor1))
+;	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+
+    {sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "ammo bullet75usa ap" 30}
+			{item "ammo bullet75usa fg" 28}
+            {item "ammo mgun" 3475}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "75mm_m3_m1a1" filling "ammo bullet75usa ap" 1}
+            ("abm_medium")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "besa" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "besa" filled}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 37900}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.2))
+		("mobility"
+			speed(28)
+			weight(37.9)
+			power(350)
+			fuel(828)		
+		)
+	}
+
+	{Extension "Mk4.mdl"}
+	
+	{bone "gun_rot"
+		{speed2 17}
+		{limits -8 25}
+	}
+	{bone "turret"
+		{speed2 25}
+	}
+	{bone "coaxial_mgun"
+		{limits 1}
+	}
+    {bone "mgun"
+        {limits 15}
+		{speed2 80}
+    }
+}

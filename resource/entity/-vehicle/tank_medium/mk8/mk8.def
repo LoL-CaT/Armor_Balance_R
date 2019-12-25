@@ -1,0 +1,115 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	
+	("armor_medium" turret(76 63 57 14) body(64 32 32 14))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(14 14 14 14))
+
+	("crew_5_human")
+
+	{extender "enumerator"}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_cromwell"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_cromwell"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+
+		    {sensor
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	}	
+	
+	{extender "inventory"
+		{box
+            {item "ammo bullet57eng ap" 64}
+            {item "ammo bullet57eng fg" 29}
+            {item "ammo mgun" 4950}
+            {item "ammo bullet57eng apcr" 2}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_oqf_42" filling "ammo bullet57eng ap" 1}	
+			("abm_medium")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "besa" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "besa" filled}
+			("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 29900}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.2))
+		("mobility"
+			speed(64)
+			weight(29.9)
+			power(600)
+			fuel(750)		
+		)
+	}
+
+	{Extension "mk8.mdl"}
+	{texmod "2"}
+
+	{bone "turret"		
+		{speed2 20}
+	}
+	{bone "foresight3"
+		{limits -1 1}
+	}
+	{bone "gun_rot"
+		{limits -20 12}
+		{speed2 25}
+	}
+	{bone "mgun"
+		{limits 15}
+		{speed2 80}
+	}
+}

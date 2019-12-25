@@ -1,0 +1,226 @@
+;для корректной работы необходимы  props "turret2" "turret3" и tank_multyturret.ext от инженера Дена
+{entity		
+	(include "/properties/tank_multyturret3.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}			
+	{props  "tank" "medium_t28" "dymopusk" "turret_rotator" "turret2_rotator" "turret3_rotator"  "turret"  "turret2" "turret3" "vision_vehicle_medium" "muzzle_medium" "tank"}
+	{volume "turret3"
+		{tags "turret3"}
+		{component "turret3"}
+	}
+	{volume "turret2"
+		{tags "turret2"}
+		{component "turret2"}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+                  {volume "FXFBS"
+		{tags "FXFBS"}
+		{component "FXFBS"}
+	}	
+	
+	("armor_medium_M3" body(30 20 18 20) body1(30 20 18 20) body2(30 20 18 20) body3(30 20 18 20) turret(20 20 20 20) turret2(20 20 20 20) turret3(20 20 20 20) SHL1(5) SHR1(5) SHL2(5) SHR2(5) SHR3(5))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(20))
+	{Volume "cover"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 20 20
+			{front	20}
+		}
+	}	
+	
+	{volume "turret"
+		{tags "turret"}
+		{component "turret"}
+	}	
+	{extender "shield"
+		{on}
+	}
+	{extender "enumerator"}
+	("crew_6_human")	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor1))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+	("seat_human" place(seat5) bone(seat05) door(emit9)  animation(armor2)) 
+	("seat_human" place(seat6) bone(seat06) door(emit10)  animation(armor2))      
+        {boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "close_d28"}}
+			{reverse 	{end	"emit_t34_hold"} {base "open_d28"}}
+		}
+		{anm "gunner3"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open3" -0.5}}
+			{reverse 	{end	"emit_tank_2_hold"}{base "open3" 0.5} }
+		}
+		{anm "gunner4"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"} {base "open2" -0.5}}
+			{reverse 	{end	"emit_tank_2_hold"}{base "open2" 0.5} }
+		}
+		{anm "left"
+			{forward	{begin	"board_sherman_left"} {end "pose_mgun_stan"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_sherman_right"} {end "pose_mgun_stan"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}	
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_sherman_left"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}	         
+	{sensor		
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "Visor2"}
+		}
+		{visor "tur2"
+			{vision "tank_main-m"}
+			{bone "foresight6"}
+		}
+		{visor "tur3"
+			{vision "tank_main-m"}
+			{bone "foresight8"}
+		}
+		{visor "main"
+			{vision "tank_main-m"}
+			{bone "Visor4"}
+		}
+	        {visor "tur2_14"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_18"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	        {visor "tur2_141"
+			{vision "tank_pr"}
+			{bone "visor141"}
+		}
+	        {visor "tur2_181"
+			{vision "tank_pr"}
+			{bone "visor181"}
+		}
+	        {visor "tur2_142"
+			{vision "tank_pr"}
+			{bone "visor142"}
+		}
+	        {visor "tur2_182"
+			{vision "tank_pr"}
+			{bone "visor182"}
+		}	
+	}
+	
+	{extender "inventory"		
+		{weapon "mgun4"
+            		{mask "weapon mgun"}
+        	}
+        	{weapon "mgun3"
+            		 {mask "weapon mgun"}
+        	}
+        	{weapon "mgun2"
+             		{mask "weapon mgun"}
+         	}					
+		{box
+			{size 8 15}	
+			{item "ammo bullet76_obr27 ap" 30{cell 0 0}}	
+			{item "ammo bullet76_obr27 fg" 40{cell 4 0}}	
+			{item "ammo mgun" 7938 {cell 6 1}}				
+			{item "repair_kit" 1{cell 6 2}}
+;			{item "dt" filling "mgun" "ammo" 63 {user "mgun2"}}
+;			{item "dt" filling "mgun" "ammo" 63 {user "mgun3"}}			
+;			{item "dt" filling "mgun" "ammo" 63 {user "mgun4"}}				
+		}
+	}	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "76mm_kt28" filling "ammo bullet76_obr27 ap" 1}
+			("abm_low")			
+		}
+		{place "mgun4" ;правый
+			{LinkBone "ms4"}
+           		{LinkAnimation "off"}
+			{type "mgun_right"}		
+			{weapon "dt" filled}			
+			{foresight "foresight8"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")	
+;			{basic}		
+		}
+		{place "mgun3" ;левый
+			{LinkBone "ms3"}
+           		{LinkAnimation "off"}
+			{type "mgun_left"}
+			{weapon "dt" filled}			
+			{foresight "foresight6"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			("abm_mgun")
+;			{basic}
+		}
+		{place "mgun2" ;спаренный
+			{LinkBone "ms2"}
+           		{LinkAnimation "off"}
+			{type "mgun_coaxial"}
+			{weapon "dt" filled}			
+			{foresight "foresight5"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+			{basic}
+						
+		}		
+	}	
+	{mass 25400}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.2) len(0.473))		
+		("mobility"
+			speed(42)
+			weight(25.4)
+			power(450)  
+			fuel(660)		
+		)
+	}
+	
+	{Extension "t-28_33.mdl"}
+
+	{bone "turret"
+		{speed2 15} 
+        }
+	{bone "turret2"
+		{speed2 5} 
+        }	
+	{bone "turret3"
+		{speed2 5} 
+        }	
+	{bone "gun_rot_28"
+		{limits -25 5}
+		{speed2 5} 
+	}	
+	
+}

@@ -1,0 +1,85 @@
+{
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "-turret" "vision_vehicle_medium" "muzzle_maximum"}
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_spa_medium" armor(80 30 21 10))
+	("armor_mantlet" t(30))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(10 10 10 10))
+	("shield" args 10)
+	
+	("crew_5_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "150mm_sig33b" filling "ammo bullet150_sig33 fg" 1}	
+			("abm_high")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "mg34tank" filled}
+			{foresight "foresight4"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+                        ("abm_mgun")
+			{basic}
+		}
+	}
+	
+	{extender "inventory"
+		{weapon "mgun"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item  "ammo mgun" 600}
+			{item "ammo bullet150_sig33 fg" 30}
+;			{item "ammo bullet150_sig33 heat" 6}
+		}
+	}
+	
+	{mass 22300}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.1))
+		("mobility"
+			speed(40)
+			weight(22.3)
+			power(300)
+			fuel(420)		
+		)
+	}
+
+	{Extension "Sig33b.mdl"}
+
+	{bone "gun_rot"
+		{limits -10 34}
+		{speed2 5}
+	}
+	{bone "gun_rot1"
+		{speed2 5}
+	}	
+}
+

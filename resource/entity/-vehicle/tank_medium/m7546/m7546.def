@@ -1,0 +1,89 @@
+{game_entity
+	;© Zeke Wolff & Ngvede.
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	
+	{props "medium" "-turret" "vision_vehicle_low" "muzzle_medium"}
+	{PatherId "tank"}
+
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body1"
+		{tags "body1"}
+		{component "body1"}
+	}
+	
+	{volume "engine"
+		{component "engine"}
+		{tags "engine"}
+	}	
+	
+	("armor_spa_medium_2b" body(100 45 40 20) body1(50 45 40 20))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(20 20 20 20))
+	("armor_mantlet" t(75))	
+
+	("crew_3_human")
+	
+	{sensor
+		{visor "main"
+			{bone "gun_rot1"}
+		}
+		{Visor "driver"
+			{bone "visor1"}
+		}
+	}
+	
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet75_pak40 ap" 27}
+			{item "bullet75_pak40 fg" 21}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}		
+			{weapon "75mm_46" filling "bullet75_pak40 ap" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_high")
+		}
+	}	
+	
+	{mass 16100}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility"
+			speed(40)
+			weight(16.1)
+			power(192)
+			fuel(320)		
+		)
+	}
+	
+	{Extension "m7546.mdl"}
+	
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	{bone "gun_rot1"
+		{speed2 5}
+	}
+	
+}

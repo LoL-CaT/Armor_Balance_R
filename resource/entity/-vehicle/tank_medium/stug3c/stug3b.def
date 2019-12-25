@@ -1,0 +1,87 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "-turret" "vision_vehicle_low" "muzzle_medium"}
+
+	{extender "enumerator"}
+
+ 	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+ 	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+
+	("crew_4_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+;	("gunner_visible")
+
+	("armor_spa_medium" armor(50 27 27 11))
+	("armor_mantlet" t(50))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(11 11 11 11))
+
+    {sensor
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}	
+	}		
+	
+	{extender "inventory"
+		{box
+;			{item "ammo bullet75gers ap" 10}
+			{item "ammo bullet75gers Bheat" 30}
+			{item "ammo bullet75gers fg" 24}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "75mm_StuK37" filling "bullet75gers Bheat" 1}
+			("abm_high")
+		}
+	}
+
+	{mass 21000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.8))
+		("mobility"
+			speed(40)
+			weight(21.0)
+			power(300)
+			fuel(320)		
+		)
+	}
+	
+	{Extension "stug3.mdl"}
+
+	{bone "gun_rot"
+		{speed2 5}
+	}
+}
+

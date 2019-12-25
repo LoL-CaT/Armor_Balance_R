@@ -1,0 +1,136 @@
+{Entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "-turret" "vision_vehicle_low" "muzzle_medium"}
+	
+	{extender "enumerator"}	
+
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "mgun_shield1"
+		{thickness 10}
+	}
+
+	("armor_spa_medium" armor(75 45 45 20))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(20 20 20 20))
+	("armor_mantlet" t(110))
+	
+	("crew_4_human_extended")
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_t34_hold"} {base "close_driver"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+    {sensor
+        {visor "main"
+            {vision "tank_main-h"}
+        }
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))		
+	
+	{extender "inventory"
+		{box
+	
+			{item "ammo bullet85rus ap" 22}
+			{item "ammo bullet85rus apcr" 2}
+			{item "ammo bullet85rus fg" 28}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "85mm_d5s" filling "ammo bullet85rus ap" 1}
+		}
+	}
+
+	{mass 31600}
+
+    {Chassis
+        ("tank_trace" fx("tracks_mid") step(0.52) len(0.2))
+		("mobility"
+			speed(55)
+			weight(31.6)
+			power(520)
+			fuel(470)		
+		)
+	}
+
+	{extension "su85m.mdl"}
+
+	{bone "gun_rot1"
+		{speed2 5}
+		{limits 11}
+	}
+}

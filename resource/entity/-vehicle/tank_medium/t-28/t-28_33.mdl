@@ -1,0 +1,65 @@
+;made in USSR
+{Skeleton
+	{animation
+		{sequence "open"{file "open.anm"} {speed 0.25} {resume}}
+		{sequence "open_d28" {speed 0.35}}
+		{sequence "close_d28" {speed 0.35}}
+		{sequence "fire" {speed 0.35}}
+		{sequence "open3" {speed 0.35}}
+		{sequence "open2" {speed 0.35}}
+		{sequence "start"}
+		{sequence "stop"}
+		{sequence "hit"}
+	}
+	{bone "basis"
+		{parameters "WheelRadius=0.6;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{animation
+				{sequence "repair" {file "body_r.anm"}}
+			}
+			{Matrix34
+				0.999977	0	-0.00675036
+				0	1	0
+				0.00675036	0	0.999977
+				0.367962	-0.10546	24.0627
+			}
+			{VolumeView "body.ply"}
+			{Extension "t-28-1.mdl"}
+			{Extension "t-28-2.mdl"}
+			{Extension "t-28-3.mdl"}
+			{bone "shieldr29"
+				{parameters "ID=shieldR29;"}
+				{Position 1.27759	-23.1827	6.85976}
+				{VolumeView "shieldr29.ply"}
+			}
+			{bone "shieldl29"
+				{parameters "ID=shieldR29;"}
+				{Matrix34
+					1	0	0
+					0	-1	0
+					0	0	1
+					1.27759	23.1668	6.85976
+				}
+				{VolumeView "shieldl29.ply"}
+			}
+			{bone "cover_d"
+				{parameters "ID=body;"}
+				{Matrix34
+					0.999977	0	0.00675053
+					-0.00675053	0	0.999977
+					0	-1	0
+					50.4404	-0.121231	2.58973
+				}
+				{VolumeView "cover_d.ply"}
+			}
+		}
+		{Extension "t-28-4.mdl"}
+	}
+}
+{Extension "t-28-5.mdl"}

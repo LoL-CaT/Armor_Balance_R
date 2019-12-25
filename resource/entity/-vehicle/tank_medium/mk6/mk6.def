@@ -1,0 +1,115 @@
+; II
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+	
+	{extender "enumerator"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "box2"
+		{thickness 2}
+	}
+	{volume "box3"
+		{thickness 2}
+	}
+	{volume "engine"
+		{component "engine"}
+		{thickness 12}
+	}
+	{Volume "mantlet"
+		{thickness 51}
+	}
+	("shield" args 2)
+	
+	{extender "shield"
+		{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}	
+
+	("armor_medium" turret(59 30 35 12) body(45 35 35 9))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(12 12 12 12))
+
+	("crew_5_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+
+	{extender "inventory"
+		{box
+			{item "bullet57eng ap" 40}
+			{item "bullet57eng fg" 25}
+            {item "ammo mgun" 4950}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_oqf" filling "bullet57eng ap" 1}		
+			("abm_medium")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "besa" filled}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	
+	{mass 19000}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.2))
+		("mobility"
+			speed(43)
+			weight(19.0)
+			power(340)
+			fuel(500)		
+		)
+	}
+
+	{Extension "crusader_mk6.mdl"}
+
+	{bone "turret"		
+		{speed2 12}
+	}
+    {bone "gun_rot"
+        {limits -10 30}
+		{speed2 25}
+    }
+}

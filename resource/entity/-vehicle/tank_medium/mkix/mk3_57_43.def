@@ -1,0 +1,120 @@
+;mk x 43
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+
+	{extender "enumerator"}
+	
+	{volume "body"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "turret"
+		{component "turret"}
+		{tags "turret"}
+	}
+	
+	("armor_medium_shit" turret(65 60 65 20) body(60 43 60 17))
+	("armor_mantlet" t(65))		
+	("wheels_armor" args 5)		
+	
+	("crew_3_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+;	("seat_human" place(seat1) bone(seat01) door(emit6)  animation(armor))
+;	("seat_human" place(seat2) bone(seat02) door(emit5)  animation(armor))
+;	("seat_human" place(seat3) bone(seat03) door(emit4)  animation(armor))
+;	("seat_human" place(seat4) bone(seat04) door(emit3)  animation(armor))
+
+	{sensor
+	        {visor "tur1_1"
+			{vision "tank_pr"}
+			{bone "visor3"}
+		}
+	        {visor "tur1_2"
+			{vision "tank_pr"}
+			{bone "visor4"}
+		}
+            {visor "tur1_3"
+			{vision "tank_pr"}
+			{bone "visor5"}
+		}
+            {visor "tur1_4"
+			{vision "tank_pr"}
+			{bone "visor6"}
+		}
+            {visor "tur1_5"
+			{vision "tank_pr"}
+			{bone "visor7"}
+		}		
+	}
+
+	{extender "inventory"
+		{box
+            		{item "ammo mgun" 3150}
+            		{item "ammo bullet57eng ap" 44}
+;           		{item "ammo bullet57eng apcr" 2}
+                    {item "ammo mgun" 3150}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_oqf_42" filling "ammo bullet57eng ap" 1}		
+			("abm_medium")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{foresight "foresight5"}
+			{weapon "besa" filled}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun17"			
+			{type "smoke"}
+			{weapon "2xsmokegun" filled}
+			{gunner "gunner"}
+			{foresight "foresight20"}
+			{basic}
+		}		
+	}
+
+	{mass 17200}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.2))
+		("mobility"
+			speed(25)
+			weight(17.2)
+			power(165)
+			fuel(165)		
+		)
+	}
+
+	{Extension "mkix.mdl"}
+
+	{bone "gun_rot"
+		{speed2 12}
+		{limits -8 17}
+	}
+	{bone "turret"
+		{speed2 30}
+	}
+}

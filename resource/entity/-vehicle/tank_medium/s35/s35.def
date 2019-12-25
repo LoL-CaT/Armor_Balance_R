@@ -1,0 +1,105 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+	
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_medium" turret(56 46 46 20) body(47 45 35 20))
+	("armor_mantlet" t(56))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(40))
+
+	{extender "enumerator"}
+	("crew_2_human")
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(back))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	{sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 2200}
+			{item "bullet47ger ap" 80}
+			{item "bullet47ger fg" 38}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "47mm_sa35" filling "ammo bullet47ger ap" 1}
+			{charger "commander"}
+			("abm_low")
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{foresight "foresight5"}
+			{weapon "7,5mm_shatelro" filled}
+			{charger "commander"}
+			{basic}
+			("abm_mgun")
+		}
+	}
+	
+	
+	{mass 19500}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(37)
+			weight(19.5)
+			power(190)
+			fuel(410)		
+		)
+	}
+
+	{Extension "s35.mdl"}
+
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 12} 
+	}
+}

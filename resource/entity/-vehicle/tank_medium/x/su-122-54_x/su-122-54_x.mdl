@@ -1,0 +1,63 @@
+;Exported by: Administrator
+;Date:        Fri Jan 31 19:17:18 2014
+;File:        C:\Users\Administrator\Documents\3dsmax\scenes\tank\su_122_54_x.max
+{Skeleton
+	{bone revolute "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position 0.000915529	0	17.7165}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{Position 35.4322	2.77558	13.1299}
+				{bone revolute "gun_rot"
+					{parameters "id=spa;"}
+					{Orientation
+						1	0	0
+						0	0	1
+						0	-1	0
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{Matrix34
+							0	0	-1
+							-1	0	0
+							0	1	0
+							52.1653	-1.53935	1.94366
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "suspension"
+				{parameters "id=body;"}
+				{Matrix34
+					0	1	0
+					-1	0	0
+					0	0	1
+					0	0	-17.7165
+				}
+				{VolumeView "suspension.ply"}
+			}
+			{bone "ring"
+				{parameters "id=spa;"}
+				{VolumeView "ring.ply"}
+			}
+		}
+		{bone "trackr"
+			{parameters "id=trackright;"}
+			{Position 0	-25.9449	0}
+			{VolumeView "trackr.ply"}
+		}
+		{bone "trackl"
+			{parameters "id=trackleft;"}
+			{Position 0	25.9449	0}
+			{VolumeView "trackl.ply"}
+		}
+	}
+}

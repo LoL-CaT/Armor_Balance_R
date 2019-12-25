@@ -1,0 +1,59 @@
+;Exported by: Administrator
+;Date:        Wed Sep 25 09:56:04 2013
+;File:        C:\Documents and Settings\Administrator\Desktop\tanky\t7 - su122-44\su122-44_xx_mow.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=body;"}
+			{Position -1.77165	0.846457	18.2283}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{limits -8 8}
+				{speed 0.01}
+				{Position 29.3662	-3.96706	12.1422}
+				{bone revolute "gun_rot"
+					{parameters "ID=gun;"}
+					{limits -16 4}
+					{speed 0.0072}
+					{Matrix34
+						1	0	0
+						0	0	-1
+						0	1	0
+						-0.00326539	0.00859662	0.00277672
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "ID=gun;"}
+						{Matrix34
+							1	0	0
+							0	0	1
+							0	-1	0
+							0	0	0
+						}
+						{VolumeView "gun.ply"}
+					}
+				}
+			}
+			{bone "enumerator"
+				{parameters "ID=body;"}
+				{Position 0	0	0}
+				{VolumeView "enumerator.ply"}
+			}
+		}
+		{bone "trackr"
+			{parameters "ID=trackright;"}
+			{Position -1.77165	0.846457	-0.3937}
+			{VolumeView "trackr.ply"}
+		}
+		{bone "trackl"
+			{parameters "ID=trackleft;"}
+			{Position -1.77165	0.846457	-0.3937}
+			{VolumeView "trackl.ply"}
+		}
+	}
+}

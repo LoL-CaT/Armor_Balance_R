@@ -1,0 +1,189 @@
+{Game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.medium"}
+	{props "medium" "-turret" "vision_vehicle_low" "muzzle_large"}
+
+	{extender "enumerator"}	
+	
+
+	{volume "body"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body6"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body7"
+		{component "body"}
+		{tags "body"}
+	}
+	{Volume "spa"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 100}		
+	}
+	{Volume "spa2"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 100}		
+	}
+	{Volume "spa3"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 100}		
+	}	
+	{Volume "spa4"
+		{component "spa"}
+		{tags "spa"}
+		{thickness 100}		
+	}	
+
+	("armor_spa_medium" armor(100 80 45 100) armor2(100 80 45 100) armor3(100 80 45 100))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(20 20 20 20))
+	("armor_mantlet" t(120))
+	
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)			door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(charger)		door1(emit1) door2(emit2) visor(commander))
+	("crew_human" place(charger2)		door1(emit1) door2(emit2) visor(commander))
+	("crew_human" place(commander) 		door1(emit1) door2(emit2) visor(commander))
+
+
+	("crew_inside")
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+		{place "charger" {group "crew"} {visor "main"}}
+		{place "commander" {group "crew"} {visor "around"}}
+		{place "gunner" {group "crew"} {visor "gun"}}
+	}
+	
+	{boarder
+		{anm "commander"
+			{forward	{begin	"board_tank_left"} {end "pose_mgun_sherman"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		
+		{anm "gunner"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		
+		{anm "charger"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "driver"
+			{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+    {sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}		
+
+	{extender "inventory"
+		{box
+			{size 9 12}			
+;			{item "ammo bullet122rus_late ap" 14}
+			{item "ammo bullet122rus_late apcr" 14}
+			{item "ammo bullet122rus_late fg" 21}
+;			{item "ammo bullet122rus_late heat" 5}
+			{item "ammo hmgun" 5950}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+		    {RestoreIKAfterAim}
+			{weapon "122mm_d49" filling "ammo bullet122rus_late apcr" 1}
+			{foresight "foresight1"}			
+			("abm_high")	
+		}
+		{place "mgun2"
+			{type "mgun_coaxial"}
+			{weapon "kpvt" filled}
+			{foresight "foresight5"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun_heavy")
+			{foresight "foresight5"}			
+			{basic}		
+		}
+	}
+
+	{mass 37167}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.52) len(0.86))
+		("mobility"
+			speed(45)
+			weight(37.1)
+			power(520)
+			fuel(730)		
+		)
+	}
+	
+	{Extension "su-122-54.mdl"}
+	
+	{bone "turret"
+		{limits -8 8}
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{limits -4 16}
+		{speed2 5}
+	}
+}

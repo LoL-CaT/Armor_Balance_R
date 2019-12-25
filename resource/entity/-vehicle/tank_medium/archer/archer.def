@@ -1,0 +1,157 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/ah_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.light"}
+	{props "h_light" "-turret" "opened" "vision_vehicle_low" "muzzle_medium"}
+
+	{extender "enumerator"}
+
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+		{thickness 30}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+		{thickness 30}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+		{thickness 30}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+		{thickness 30}
+	}
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+		{thickness 30}
+	}
+	{volume "body6"
+		{component "body"}
+		{tags "body"}
+		{thickness 30}
+	}
+	{volume "body7"
+		{component "body"}
+		{tags "body"}
+		{thickness 30}
+	}
+
+	{volume "inventory"
+        {thickness 2}
+	}
+
+	("armor_spa_light" armor(15 15 60 8))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(30))
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_hummel"} {end "pose_pak40_gunlayer"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_hummel"} {end "pose_pak40_charger"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_hummel"} {end "pose_seat_armor_2"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{placer
+		{place "gunner" {visor "main"}}
+	}
+	{boarder
+		{door "emit0"}
+		{door "emit1"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+
+	("crew_human" place(commander)	door2(emit2))
+	("crew_human" place(driver)	door1(emit1))
+	("crew_human" place(charger)	door2(emit2))
+	("crew_human" place(gunner)	door1(emit1))	
+
+	{extender "inventory"
+		{box
+            {item "bullet76eng ap" 30}
+            {item "bullet76eng fg" 9}
+;           {item "bullet76eng apcr" 2}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "76mm_mk4" filling "ammo bullet76eng ap" 1}
+			("abm_high")
+		}
+	}
+	{sensor
+		{visor "main"
+			{vision "tank_main-h"}
+			{bone "visor2"}
+		}
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor1"}
+		}
+        {visor "view-around"
+            {vision "none"}
+            {bone "basis"}
+        }
+	        {visor "tur2_5"
+			{vision "tank_driver"}
+			{bone "visor15"}
+		}		
+	}
+
+	{mass 15000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.4) len(0.4))
+		("mobility"
+			speed(32)
+			weight(15.0)
+			power(192)
+			fuel(165)		
+		)
+	}
+
+	{Extension "archer.mdl"}
+
+	{bone "gun_rot"
+		{limits -7 15}
+		{speed2 5}
+	}
+	{bone "mantlet"
+		{limits -22 22}
+		{speed2 5}
+	}
+}

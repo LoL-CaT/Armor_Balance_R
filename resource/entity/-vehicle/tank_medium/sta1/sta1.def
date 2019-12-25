@@ -1,0 +1,108 @@
+	{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "tank" "medium" "turret_rotator" "vision_vehicle_high" "muzzle_medium"}
+
+	("armor_heavy_shit" turret(115 60 35 40) body(55 35 25 25))
+	("armor_engine"  t(25 25 25 25))
+	("armor_mantlet" t(125))
+	("wheels_armor" args 5)	
+
+     ("crew_4_human")
+
+     ("seat_human" place(crew) bone(crew) door(emit1)  animation(armor))
+
+	{sensor
+		{visor "side"
+			{vision "tank_back"}
+			{bone "foresight6"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 5900}
+			{item "ammo hmgun" 500}	
+			{item "ammo bullet90usa apcrLATE" 33}			
+;			{item "ammo bullet90usa apLATE" 3}
+			{item "ammo bullet90usa fg" 25}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "90mm_M41" filling "bullet90usa apcrLATE" 1}	
+			("abm_high")	
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "browning_m1919a4" filled}
+			{foresight "foresight3"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+			{basic}
+		}
+}
+
+	{mass 35000}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(2.1))
+		("mobility"
+			speed(45)
+			weight(35)
+			power(650)
+			fuel(757)
+		)
+	}
+	
+	{Extension "sta1.mdl"}
+	
+	{bone "turret"
+		{speed2 17} 		
+	}
+	{bone "mantlet"
+		{limits -15 25}
+		{speed2 5} 
+	}	
+
+
+}
+
+

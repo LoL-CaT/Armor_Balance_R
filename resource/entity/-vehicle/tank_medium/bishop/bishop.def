@@ -1,0 +1,93 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "-turret" "vision_vehicle_medium" "muzzle_medium"}
+	
+	{extender "enumerator"}	
+
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body4"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body5"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "engine"
+		{component "engine"}
+		{tags "engine"}
+	}
+
+	("armor_medium" turret(51 25 25 8) body(60 50 60 8))
+	("wheels_armor" args 5)		
+
+	("crew_4_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+     
+
+	{extender "inventory"
+		{box
+			{item "bullet89eng fg" 32}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}			
+			{weapon "88mm_oqfmk1" filling "ammo bullet89eng fg" 1}
+			{StationaryFiring}
+			("abm_howitzer")
+		}
+	}
+
+	{mass 17500}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.13))
+		("mobility"
+			speed(24)
+			weight(17.5)
+			power(131)
+			fuel(145)		
+		)
+	}
+	{Extension "bishop.mdl"}
+	{bone "turret"
+		{limits -15 15}
+		{speed2 2}
+	}
+	{bone "gun_rot"
+		{limits -5 50}
+		{speed2 5}
+	}
+	(mod "mp"
+		{brain
+			{properties
+				{fire_mode hold}
+			}
+		}
+	)
+}

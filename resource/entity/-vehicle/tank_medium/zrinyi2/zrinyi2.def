@@ -1,0 +1,117 @@
+{game_entity
+    (include "/properties/tank.ext")
+    (include "/properties/m_tank_mobility.ext")
+    (include "/properties/selection/vehicle.inc"  scale(1.2))
+    {collider "tank.medium"}
+	{props "medium" "-turret" "vision_vehicle_low" "muzzle_large"}
+
+    {extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+    {volume "body1"
+        {tags "body"}
+        {component "body"}
+    }
+    {volume "body2"
+        {tags "body"}
+        {component "body"}
+    }
+    {volume "body3"
+        {tags "body"}
+        {component "body"}
+    }
+
+    ("armor_spa_medium" armor(75 25 25 15))
+	("wheels_armor" args 5)	
+    ("armor_engine"  t(15))
+	("shield" args 10)
+
+
+    ("crew_4_human")
+
+    {boarder
+        {anm "left"
+            {forward    {begin  "board_Kv"}}
+            {reverse    {end    "emit_tank_1_hold"}}
+        }
+        {anm "right"
+            {forward    {begin  "board_tank_right"} {end "pose_mgun_pz6"}}
+            {reverse    {end    "emit_tank_2_hold"}}
+        }
+
+;       {anm "armor"
+;           {forward    {begin  "board_HighArmor"}  {end "seat_armor"}}
+;           {reverse    {end    "emit_tank_2"}}
+;       }
+;       {anm "armor1"
+;           {forward    {begin  "board_HighArmor"} {end "seat_armor"}}
+;           {reverse    {end    "emit_body"}}
+;       }
+    }
+
+	{extender "shield"
+		{on}
+	}
+
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+
+    {sensor
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}	
+	}
+	
+    {extender "inventory"
+        {box
+			{item "ammo bullet105gerro heat" 10}		
+			{item "ammo bullet105gerro fg" 32}
+		}
+	}
+    {Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "105mm_40_43m" filling "ammo bullet105gerro fg" 1}	
+			("abm_high")
+		}
+    }
+
+    {mass 21600}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(1))
+		("mobility"
+			speed(43)
+			weight(21.6)
+			power(260)
+			fuel(445)		
+		)
+	}
+
+    {Extension "zrinyi2.mdl"}
+
+    {bone "Gun_rot1"
+       {limits -5 5}
+          {speed2 5}
+    }
+    {bone "gun_rot"
+      {limits -15 2}
+          {speed2 5}
+   }
+}

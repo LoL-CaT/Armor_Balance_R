@@ -1,0 +1,122 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+	
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "engine"
+		{thickness 20}
+	}
+	
+	("armor_medium_shit" turret(46 36 36 20) body(30 30 30 20))
+	("armor_mantlet" t(46))
+	("wheels_armor" args 5)		
+	("armor_engine"  t(20 20 20 20))
+
+	("crew_inside")
+	("crew_human" place(gunner)		door1(emit2)  door2(emit2) visor(main))
+    ("crew_human" place(driver)		door1(emit15) door2(emit15) visor(main)) 
+	("crew_human" place(charger)	        door1(emit3)  door2(emit3) visor(main))
+	
+	("seat_human" place(seat1) bone(seat00) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat4) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat5) bone(seat04) door(emit5)  animation(armor))
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"emit_t34_hold"} {base "open_driver" -1}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{door "emit1"}
+		{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	
+	{sensor
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+	}		
+
+	{extender "inventory"
+		{box
+            {item "ammo mgun" 2000}
+			{item "bullet37_type12 ap" 70}
+			{item "bullet37_type12 fg" 50}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+            {weapon "37mm_type11infantry" filling "bullet37_type12 ap" 1}       
+			("abm_low")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{foresight "foresight5"}
+            {basic}
+			("abm_mgun")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "type3hmg_tank" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+            {basic}
+			("abm_mgun")
+		}
+	}
+	
+	{mass 8500}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(20)
+			weight(8.5)
+			power(75)
+			fuel(165)		
+		)
+	}
+
+	{Extension "d2.mdl"}
+	{bone "turret"
+		{speed2 14}
+	}
+    {Texmod "jap"}	
+}

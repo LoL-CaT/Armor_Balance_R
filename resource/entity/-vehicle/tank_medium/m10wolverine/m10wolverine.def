@@ -1,0 +1,156 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_low" "muzzle_medium"}
+	
+	{extender "enumerator"}
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+	}
+
+	{Volume "mantlet"
+		{tags "mantlet"}
+		{component "mantlet"}
+	}
+	{Volume "turret1"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret2"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret3"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret4"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret5"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret6"
+		{tags "turret"}
+		{component "turret"}
+	}
+	{Volume "turret7"
+		{tags "turret"}
+		{component "turret"}
+	}
+
+	("armor_medium" turret(57 25 25 19) body(38 19 19 19) body2(51 25 25 19))
+	("armor_engine"  t(19 19 19 19))	
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(57))
+
+	("crew_4_human")
+
+	{boarder
+
+		{anm "left"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_left"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_lowArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "gunner"			
+			{forward	{begin	"board_hummel"} {end "pose_pak40_gunlayer"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_hummel"} {end "pose_seat_armor_2"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+	}
+		
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))
+	
+	("crew_human" place(driver)	door1(emit1) door2(emit2) visor(driver))
+	("crew_human_visible" place(commander) door1(emit1) door2(emit2) visor(main))
+	("crew_human_visible" place(gunner)	door1(emit1) door2(emit2) visor(main))
+	{placer 
+		{place "commander" {openForCrush 0}}
+		{place "gunner" {openForCrush 0}}
+	}
+	
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))	
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet76usa ap" 40}
+			{item "ammo bullet76usa fg" 14}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "76mm_m7" filling "ammo bullet76usa ap" 1}	
+			("abm_high")
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			{LinkBone "mgun_rot"}
+;			{LinkAnimation "off"}
+;			("abm_mgun_heavy")
+;			{basic}
+;		}
+	}
+	
+	{mass 29600}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.50) len(0.63))
+		("mobility"
+			speed(51)
+			weight(29.6)
+			power(450)
+			fuel(727)		
+		)
+	}
+
+	{Extension "m10wolverine.mdl"}
+;	{bone "turret_mgun"
+;		{limits -22 38}
+;		{speed 0.03}
+;		{terminator}
+;	}
+	{bone "turret"
+		{speed2 3}
+    }
+}

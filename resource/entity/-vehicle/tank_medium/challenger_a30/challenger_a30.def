@@ -1,0 +1,102 @@
+{Entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator"  "vision_vehicle_medium" "muzzle_medium" "tank"}
+	
+	{volume "body"
+		{component "body"}
+		{tags "body"}
+	}
+	;{volume "body1"
+	;	{component "body"}
+	;	{tags "body"}
+	;}
+	
+	("armor_medium_shit" turret(102 20 20 20) body(64 32 32 20))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(20 20 20 20))
+
+	("crew_5_human")
+
+	{extender "enumerator"}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_cromwell"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_cromwell"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit6)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit4)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit5)  animation(armor))
+	;("seat_human" place(seat6) bone(seat06) door(emit7)  animation(armor))
+	;("seat_human" place(seat5) bone(seat05) door(emit8)  animation(armor))
+
+    {sensor
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_22"
+			{vision "tank_pr"}
+			{bone "visor122"}
+		}			
+	}		
+	
+	{extender "inventory"
+		{box
+			{item  "ammo mgun" 2500}
+			{item "ammo bullet76eng ap" 31}
+			{item "ammo bullet76eng fg" 11}
+;			{item "ammo bullet76eng apcr" 2}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "76mm_mk4" filling "ammo bullet76eng ap" 1}
+			("abm_high")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "browning_m19" filled}			
+			{foresight "foresight3"}
+            ("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 32000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.2))
+		("mobility"
+			speed(52)
+			weight(32.0)
+			power(600)
+			fuel(527)		
+		)
+	}
+
+	{Extension "challenger_a30.mdl"}
+
+	{bone "turret"		
+		{speed2 4}
+	}
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	
+}

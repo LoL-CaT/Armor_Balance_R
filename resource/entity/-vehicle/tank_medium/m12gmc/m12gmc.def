@@ -1,0 +1,162 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "opened" "vision_vehicle_medium" "muzzle_maximum"}
+	
+	{extender "enumerator"}
+
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body5"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "mantlet1"
+		{tags "mantlet"}
+		{component "mantlet"}
+	}
+	{Volume "mantlet3"
+		{tags "mantlet"}
+		{component "mantlet"}
+	}
+	{Volume "mantlet"
+		{tags "mantlet"}
+		{component "mantlet"}
+	}
+
+	
+	("armor_spa_medium" armor(51 19 19 12))  
+	("armor_engine"  t(12 12 12 12))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(15))
+	
+	("crew_6_human")
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_su76"}}
+			{reverse 	{end	"board_su76" -1}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_hummel"} {end "pose_pak40_charger"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}	
+			
+		}
+		{anm "gunner"
+			{forward	{begin	"board_hummel"} {end "pose_pak40_gunlayer"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_su76"} {end "seat_driver_car"}}
+			{reverse 	{end	"board_su76" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_hummel"} {end "pose_seat_armor_2"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+	}
+
+(define "crew_human"
+		{placer
+			{place "%place"
+				{group "crew"}
+				{linkbone "%place"}
+				{turnoff {sensor} {shadow}}
+				{visor "main"}
+			}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit2" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit1" "commander" {anm "commander"} {forward putoff} {reverse puton}}
+		{link "emit2" "commander" {anm "commander"} {forward putoff} {reverse puton}}
+	}
+
+	("crew_human" place(gunner) door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(charger)	door1(emit1) door2(emit2))
+	("crew_human" place(commander)	door1(emit1) door2(emit2))
+
+	{placer
+		{place "commander" {group "crew"} {visor "main"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet155usaLT fg" 8}
+;			{item "ammo bullet155usaLT sm" 2}
+		}
+	}
+	{Weaponry
+		{place "gun"
+			{weapon "155mm_m12" filling "bullet155usaLT fg" 1}
+			{Rotate}
+			{StationaryFiring}
+			("abm_howitzer")
+		}
+	}
+	
+	{mass 26700}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.6))
+		("mobility"
+			speed(39)
+			weight(26.7)
+			power(350)
+			fuel(660)		
+		)
+	}
+
+	{Extension "m12_gmc.mdl"}
+	
+	{bone "mantlet"
+	    {limits -14 14}
+		{speed2 3}
+	}
+	{bone "gun_rot"
+	    {limits -5 45}
+		{speed2 3}
+	}
+	(mod "mp"
+		{brain
+			{properties
+				{fire_mode hold}
+			}
+		}
+	)
+}

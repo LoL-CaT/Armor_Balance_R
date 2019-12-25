@@ -1,0 +1,99 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+	
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_medium" turret(30 15 15 8) body(30 15 15 8))
+	("armor_engine"  t(15 15 15 15))	
+	("wheels_armor" args 5)	
+	
+	("crew_3_human")
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_0"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+	}
+	
+	{sensor
+		{visor "main1"
+			{vision "tank_main-l"}
+			{bone "Foresight1"}
+		}	
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_21"
+			{vision "tank_pr"}
+			{bone "visor121"}
+		}			
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}	
+	
+	{extender "inventory"
+		{box
+			{item "bullet47gerI ap" 42}
+			{item "bullet47gerI fg" 42}
+			{item "ammo mgun" 2808}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "47mm_32" filling "bullet47gerI ap" 1}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_medium")
+		}
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "breda_m1938_x2" filled}
+			{Barrels 2}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_mgun")
+			{basic}
+		}
+	}	
+	{mass 11100}
+		{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.1))
+		("mobility"
+			speed(32)
+			weight(11.5)
+			power(105)
+			fuel(150)		
+		)
+	}
+	{Extension "m1139.mdl"}
+}

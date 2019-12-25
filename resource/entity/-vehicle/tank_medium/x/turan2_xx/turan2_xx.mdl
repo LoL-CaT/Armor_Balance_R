@@ -1,0 +1,151 @@
+;Exported by: trax
+;Date:        Sun Jun 24 22:13:13 2012
+;File:        C:\Users\trax\Documents\3dsmax\scenes\Hungarian Tanks\Turan_II\turan2_xx.max
+{Skeleton
+	{bone "basis"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{bone "body"
+			{parameters "ID=Body;"}
+			{Matrix34
+				1	0	0.000705553
+				-1.75049e-005	0.999692	0.0248102
+				-0.000705336	-0.0248102	0.999692
+				-0.19866	-0.00191867	6.79026
+			}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "ID=Turret;"}
+				{Matrix34
+					0.762712	-0.635872	-0.118055
+					0.637564	0.769897	-0.0277664
+					0.108546	-0.0540901	0.992619
+					8.81462	0.0034301	12.7636
+				}
+				{VolumeView "turret.ply"}
+				{bone revolute "part1"
+					{parameters "ID=part1;"}
+					{Matrix34
+						0.994572	0	-0.10405
+						-0.103558	-0.0971115	-0.989871
+						-0.0101045	0.995273	-0.0965844
+						13.467	0.0023222	13.3889
+					}
+					{VolumeView "part1.ply"}
+				}
+				{bone "part3"
+					{parameters "ID=part3;"}
+					{VolumeView "part3.ply"}
+				}
+			}
+			{bone revolute "part2"
+				{parameters "ID=part2;"}
+				{Matrix34
+					-0.999989	0	-0.00467578
+					-0.00467578	0	0.999989
+					0	1	0
+					46.5706	19.2014	6.7427
+				}
+				{VolumeView "part2.ply"}
+			}
+			{bone "part4"
+				{parameters "ID=part4;"}
+				{Position -42.8162	0.00208291	17.4034}
+				{VolumeView "part4.ply"}
+			}
+		}
+	}
+}
+{Volume "body1"
+	{Polyhedron "body1.vol"}
+	{Bone "body"}
+	{Matrix34
+		0.998612	0	0.052679
+		0	1	0
+		-0.052679	0	0.998612
+		-6.54294	0.00808024	12.3235
+	}
+}
+{Volume "body2"
+	{Polyhedron "body2.vol"}
+	{Bone "body"}
+	{Position 0.373098	-0.00153357	-1.67843}
+}
+{Volume "gun"
+	{Cylinder 1.093 11.6636}
+	{Bone "part1"}
+	{Matrix34
+		-0.104279	0	0.994548
+		0.134051	-0.990875	0.0140553
+		0.985472	0.134786	0.103327
+		19.0614	1.60151	0.494342
+	}
+}
+{Volume "part1"
+	{Polyhedron "part1.vol"}
+	{Bone "part1"}
+	{Matrix34
+		0	0	1
+		0	-1	0
+		1	0	0
+		0.729956	0.0137405	0.0155332
+	}
+}
+{Volume "part2"
+	{Cylinder 5.73642 4.81003}
+	{Bone "part2"}
+	{Matrix34
+		-0.999986	-0.005381	-1.73538e-005
+		-0.00537977	0.999678	0.0248101
+		-0.000116155	0.0248098	-0.999692
+		-0.0502176	0.0500367	-0.284255
+	}
+}
+{Volume "part3"
+	{Box 15.9606 13.5802 0.19685}
+	{Bone "part3"}
+	{Matrix34
+		0.96025	0.279143	0
+		-0.0488131	0.167917	0.984592
+		0.274841	-0.945454	0.174868
+		6.84988	-17.9511	15.2127
+	}
+}
+{Volume "part4"
+	{Cylinder 1.7797 14.5527}
+	{Bone "part4"}
+	{Matrix34
+		-0.0553718	0.998159	-0.0247336
+		-0.216394	0.0121861	0.97623
+		0.974735	0.0594078	0.215322
+		-0.714842	-20.008	-0.999879
+	}
+}
+{Volume "trackleft"
+	{Box 8.16929 21.8508 105.118}
+	{Bone "body"}
+	{Matrix34
+		0	0.999692	-0.0248102
+		0.000705591	0.0248102	0.999692
+		1	-1.71349e-005	-0.000705353
+		0.639204	18.8823	2.57951
+	}
+}
+{Volume "trackright"
+	{Box 8.16929 21.8508 105.118}
+	{Bone "body"}
+	{Matrix34
+		0	0.999692	-0.0248102
+		0.000705527	0.0248102	0.999692
+		1	-1.76117e-005	-0.000705277
+		0.639941	-18.7413	4.55441
+	}
+}
+{Volume "turret"
+	{Polyhedron "turret.vol"}
+	{Bone "turret"}
+	{Position -4.87015	-0.00641108	14.257}
+}

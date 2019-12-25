@@ -1,0 +1,202 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+
+	{extender "enumerator"}	
+	
+	("armor_medium" turret(50 25 20 12) body(50 20 20 12))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(40))	
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_sherman_left"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_sherman_right"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	{sensor
+		{visor "back"
+			{vision "tank_back"}
+			{bone "foresight6"}
+		}
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor1"}
+		}
+		{visor "main"
+			{vision "tank_main-m"}
+			{bone "gun_rot"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}
+	
+	("crew_inside")
+	
+	("crew_human" place(commander)	door1(emit1) door2(emit2) visor(back))
+	("crew_human" place(gunner)		door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(driver)		door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(charger)	door1(emit1) door2(emit2) visor(main))
+	("crew_human" place(charger2)	door1(emit1) door2(emit2) visor(main))	
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+	{extender "inventory"
+		{weapon "mgun" {mask clear}}
+		{weapon "mgun1"
+			{mask "weapon mgun"}
+		}
+		{box
+			{item "ammo bullet47 ap" 80}
+			{item "ammo bullet47 fg" 60}
+;			{item "ammo bullet47 apcr" 2}
+			{item "ammo mgun" 4030}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "47mm_type1" filling "ammo bullet47 ap" 1}
+			{RestoreIKAfterAim}
+			("abm_medium")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "nambu_type97" filled} 
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+			{basic}
+		}
+		{place "mgun3"
+			{type "mgun_rear"}
+			{weapon "nambu_type97" filled}
+			{foresight "foresight6"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 17200}
+	{Chassis
+		("tank_trace" fx("tracks_sm") step(0.3) len(0.35))
+		("mobility"
+			speed(44)
+			weight(17.2)
+			power(240)
+			fuel(450)		
+		)
+	}
+
+	{Extension "chi-he.mdl"}
+
+	{Volume "body1"
+		{component "body"}
+		{tags "body"}
+	}	
+	{Volume "body2"
+		{component "body"}
+		{tags "body"}
+	}	
+	{Volume "cover1"
+		{component "body"}
+	}	
+	{Volume "cover2"
+		{component "body"}
+	}	
+	{Volume "engine"
+	}	
+	{Volume "gun1"
+		{tags "gun"}
+		{component "gun"}
+		{tags "no_target"}	    
+		{thickness 50}
+    	{able {Visible 0} {Obstacle 0} {Contact 0}}
+	}
+	{Volume "gun2"
+		{tags "gun"}
+		{component "gun"}
+		{tags "no_target"}
+	    {thickness 50}
+    	{able {Visible 0} {Obstacle 0} {Contact 0}}
+	}	
+	{Volume "mantlet"
+	}	
+	{Volume "ram"
+	}	
+	{Volume "trackleft"
+	}	
+	{Volume "trackright"
+	}	
+	{Volume "turret1"
+		{component "turret"}
+		{tags "turret"}
+	}	
+	{Volume "turret"
+		{component "turret"}
+		{tags "turret"}
+	}
+	
+	
+   	{bone "gun_rot"
+		{speed2 5}
+		{limits 12 -10}
+	}
+	{bone "turret"
+		{speed2 20}	
+	}
+	{bone "mgun1"
+		{speed 0.025}	
+	}
+}

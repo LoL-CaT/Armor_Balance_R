@@ -1,0 +1,80 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/m_tank_mobility.ext")	
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{targetClass "tank" "bullet"}
+	{targetSelector "tank_bullet"}
+	{props "medium" "mine_exploder" "vision_vehicle_medium"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	("armor_medium" turret(0) body(50 50 50 25))
+	("wheels_armor" args 5)	
+	
+	{volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{volume "roller"
+		{thickness 150}
+	}
+	
+	("crew_human" place(driver) door1(emit1) door2(emit2) visor(driver))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_HighArmor"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_HighArmor"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 4500}
+		}
+	}
+	{Weaponry
+		{place "mgun1"
+			{weapon "mg34tank" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 25500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.3) len(0.9))
+		("mobility"
+			speed(40)
+			weight(25.5)
+			power(300)
+			fuel(320)		
+		)
+	}
+	{Extension "pz3m.mdl"}
+}

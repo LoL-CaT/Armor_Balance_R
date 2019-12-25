@@ -1,0 +1,298 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "h_medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+        {targetSelector "tank_flak"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+{volume "gun1"
+{tags "gun"}
+{component "gun"}
+{thickness 30}
+}
+{volume "gun2"
+{tags "gun"}
+{component "gun"}
+{thickness 30}
+}
+{volume "kom_turret1"
+{tags "kom_turret1"}
+{component "kom_turret1"}
+{thickness 18}
+}
+{volume "luk_kom_l1"
+{tags "luk_kom_l1"}
+{component "luk_kom_l1"}
+{thickness 25}
+}
+{volume "luk_kom_r1"
+{tags "luk_kom_r1"}
+{component "luk_kom_r1"}
+{thickness 25}
+}
+{volume "mantlet1"
+{tags "mantlet"}
+{component "mantlet"}
+{thickness 45}
+}
+{volume "mantlet2"
+{tags "mantlet"}
+{component "mantlet"}
+{thickness 45}
+}
+{volume "turret1"
+{tags "turret"}
+{component "turret"}
+{thickness
+{front 60}
+{left 45}
+{right 50}
+{rear 30}
+{top 40}
+{bottom 30}
+}
+}
+{volume "turret4"
+{tags "turret"}
+{component "turret"}
+{thickness
+{front 60}
+{left 45}
+{right 50}
+{rear 30}
+{top 40}
+{bottom 30}
+}
+}
+{volume "turret2"
+{tags "turret"}
+{component "turret"}
+{thickness
+{front 50}
+{left 45}
+{right 30}
+{rear 40}
+{top 20}
+{bottom 10}
+}
+}	
+{volume "turret3"
+{tags "turret"}
+{component "turret"}
+{thickness
+{front 60}
+{left 20}
+{right 0}
+{rear 20}
+{top 10}
+{bottom 10}
+}
+}
+{volume "turret5"
+{tags "turret"}
+{component "turret"}
+{thickness
+{front 10}
+{left 10}
+{right 100}
+{rear 10}
+{top 10}
+{bottom 10}
+}
+}	("armor_heavy_shit" turret(80 40 40 17)  body(85 40 40 17) body2(85 40 40 17) body3(65 40 40 17))
+	("armor_engine"  t(17 17 17 17))		
+	("armor_mantlet" t(80))
+	("wheels_armor" args 5)
+
+
+        ("shield" args 15)
+	{extender "shield"
+		{on}
+	}
+	
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldl5" {tags "shield"}}
+	{component "shieldl6" {tags "shield"}}
+	{component "shieldl7" {tags "shield"}}
+	{component "shieldl8" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+	{component "shieldr5" {tags "shield"}}
+	{component "shieldr6" {tags "shield"}}
+	{component "shieldl7" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl1_1" {tags "shield"}}
+	{component "shieldr1_1" {tags "shield"}}
+        {component "shieldlturretl_1" {tags "shield"}}
+        {component "shieldlturretl_2" {tags "shield"}}
+        {component "shieldlturretl_3" {tags "shield"}}
+        {component "shieldlturretl_4" {tags "shield"}}
+        {component "shieldlturretl_5" {tags "shield"}}
+        {component "shieldlturretr_1" {tags "shield"}}
+        {component "shieldlturretr_2" {tags "shield"}}
+        {component "shieldlturretr_3" {tags "shield"}}
+        {component "shieldlturretr_4" {tags "shield"}}
+        {component "shieldlturretr_5" {tags "shield"}}
+
+	
+	("crew_4_human")
+
+    {sensor
+	
+		{visor "gunner2" {vision "vehicle_top_mgun"} {bone "mgun_kom1"}}
+	    {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}		
+	}
+	
+	{placer 
+		{place "gunner2" {visor "gunner2"} {group "crew"}}
+	}
+
+;	("gunner_visible")
+	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "seat_armor"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet55ger zenite" 300}
+			{item "ammo bullet55ger ap" 300}
+			{item "ammo bullet55ger fg" 300}
+            {item "ammo mgun" 2350}
+		}
+	}
+	
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "55mm_flak58" filling "ammo bullet55ger zenite" 14}
+            {charger "charger"}
+            {Barrels 2}
+			("abm_zenite")
+		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;           {weapon "mg34tank" filled}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;           {foresight "foresight2"}
+;			{LinkBone "mgun_kom"}
+;           {basic}
+;			("abm_mgun")
+;		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "mg34tank" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+            {basic}			
+		}
+	}
+
+
+
+
+	{mass 45500}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(1.2))
+		("mobility"
+			speed(55)
+			weight(45.5)
+			power(700)
+			fuel(730)		
+		)
+	}
+	
+	{Extension "coelian_I.mdl"}
+	{bone "gun_rot"
+		{limits -85 5}
+		{speed2 25}
+	}
+	{bone "turret"
+		{speed2 40}
+	}
+
+	{texmod ""}
+}
+
+
+

@@ -1,0 +1,75 @@
+{entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+	
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	
+	("armor_medium_shit" turret(65 65 65 20) body(60 43 60 20))
+	("wheels_armor" args 5)	
+
+	{extender "enumerator"}
+	
+	("crew_3_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+
+
+	{extender "inventory"
+		{box
+            		{item "ammo mgun" 3150}
+            		{item "ammo bullet57eng ap" 32}
+;           		{item "ammo bullet57eng apcr" 2}
+            		{item "ammo bullet57eng fg" 12}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "57mm_oqf_42" filling "ammo bullet57eng ap" 1}		
+			("abm_medium")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "besa" filled}
+            ("abm_mgun")
+			{basic}
+		}
+	}
+
+	{mass 17200}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.2))
+		("mobility"
+			speed(25)
+			weight(17.2)
+			power(165)
+			fuel(290)		
+		)
+	}
+
+	{Extension "mk_ix.mdl"}
+
+	{bone "gun_rot"
+		{limits -22 8}
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 20} 
+	}
+}

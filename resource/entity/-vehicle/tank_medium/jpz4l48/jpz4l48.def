@@ -1,0 +1,147 @@
+{entity
+	;© 2008 Zeke Wolff & Ngvede.
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "-turret"  "vision_vehicle_low" "muzzle_medium"}
+
+	{TexMods
+		{"ambush" "1"}
+	}
+	
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{collider "tank.heavy"}
+
+ 	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{Volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 80}
+	}
+	
+	("armor_spa_medium" armor(60 30 20 22))
+	("armor_engine"  t(22 22 22 22))
+	("wheels_armor" args 5)	
+	("armor_mantlet" t(80))
+	("shield" args 10)
+
+	{armor
+        {setting "body"
+            {thickness 60 30 20 22}
+            {durability
+                {blast
+                    {koef 200}
+                }
+               	{pierce
+               		{koef 200}
+               	}
+            }
+            {threshold
+                {blast
+                    {koef  3}
+                }
+            }
+            {volumes "body1" "body2"}
+        }
+    }
+	
+    {sensor
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}	
+	}		
+
+	{extender "inventory"
+		{box
+			{item "bullet75ger ap" 50}
+			{item "bullet75ger fg" 29}			
+            {item "bullet75ger apcr" 2}
+			{item "bullet75ger heat" 2}
+			{item  "ammo mgun" 600}			
+		}
+	}
+
+	{extender "shield"
+		{on}
+	}
+
+
+	("crew_4_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "75mm_pak39" filling "bullet75ger ap" 1}
+			("abm_high")
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "mg34tank" filled}
+			{foresight "foresight4"}
+			{gunner "charger"}
+			{charger "charger"}
+            ("abm_mgun")
+			{basic}
+		}
+		{place "mgun2"
+			{type "mgun_hull"}
+			{weapon "mg34tank" filled}
+			{foresight "foresight5"}
+			{gunner "commander"}
+			{charger "commander"}
+            ("abm_mgun")
+		}
+	}
+
+	{mass 24500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility"
+			speed(40)
+			weight(24.5)
+			power(300)
+			fuel(470)		
+		)
+	}
+
+	{Extension "jpz4l48.mdl"}
+	{texmod "f"}
+
+	    {bone "gun_vert"
+		{speed2 5}
+    	}
+    	{bone "gun_rot"
+        {speed2 5}
+    	}
+}

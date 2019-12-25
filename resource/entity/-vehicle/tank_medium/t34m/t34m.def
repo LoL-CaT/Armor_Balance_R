@@ -1,0 +1,80 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.medium"}
+	{props "medium" "mine_exploder" "vision_vehicle_medium"}
+	{targetClass "tank" "bullet"}
+	{targetSelector "tank_bullet"}
+	
+	{extender "enumerator"}
+	
+	("armor_medium" turret(0) body(45 40 45 20))
+	("wheels_armor" args 5)	
+	("armor_engine"  t(20 20 20 20))
+
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+	}
+	{volume "roller"
+		{thickness 150}
+	}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_SdKfz-232_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_SdKfz-232_right"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	("crew_human" place(driver)	door1(emit1) door2(emit2) visor(driver))
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 1500}
+		}
+	}
+	{Weaponry
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "dt" filled}
+			{foresight "foresight4"}
+			{gunner "driver"}
+			{charger "driver"}
+			("abm_mgun")
+		}
+	}
+
+	{mass 25500}
+	{Chassis
+		("tank_trace_ex" fx("tracks_mid") step(0.52) len(0.35) boneleft("wheell4") boneright("wheelr4"))
+		("mobility"
+			speed(55)
+			weight(25.5)
+			power(500)
+			fuel(540)		
+		)
+	}
+
+	{Extension "t34m.mdl"}
+}

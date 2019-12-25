@@ -1,0 +1,94 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/m_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+
+	{collider "tank.medium"}
+	{props "medium" "turret_rotator" "vision_vehicle_medium" "muzzle_small" "tank"}
+	
+	{extender "enumerator"}
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+	}
+	
+	("armor_medium" turret(50 25 25 15) body(50 25 25 15))
+	("armor_engine"  t(15 15 15 15))
+	("wheels_armor" args 5)	
+	
+	("crew_4_human")
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_LowArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+	
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 945}
+			{item "bullet47gerI ap" 56}
+			{item "bullet47gerI fg" 54}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "47mm_40" filling "bullet47gerI ap" 1}
+			{charger "gunner"}
+			("abm_medium")
+		}
+		{place "mgun"
+			{type "mgun_coaxial"}
+			{weapon "breda" filled}
+			{charger "gunner"}			
+			{basic}
+		}
+		{place "mgun1"
+			{type "mgun_hull"}
+			{weapon "breda_m1938_x2" filled}
+			{foresight "foresight4"}
+			{Barrels 2}
+			{gunner "driver"}
+			{charger "driver"}
+		}
+	}	
+	{mass 15500}
+		{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.6))
+		("mobility"
+			speed(40)
+			weight(15.5)
+			power(192)
+			fuel(150)		
+		)
+	}
+
+	{Extension "carro15.mdl"}
+
+	{bone "turret"
+		{speed2 20}
+	}
+	{bone "gun"
+		{limits -10 20}
+		{speed2 5}
+	}
+	{bone "foresight3"
+		{speed 0.02}
+	}
+}
