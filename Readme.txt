@@ -5,7 +5,7 @@
 - Only extract in Mods folder ( If you have a older version delete it)
 
  ------------------------------
- * Armor Balance v0.9 Mod Developers *
+ * Armor Balance v0.9.5 B Mod Developers *
  ------------------------------
 
 - LoL_CaT 
