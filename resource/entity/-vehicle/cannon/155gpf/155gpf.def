@@ -1,6 +1,6 @@
 {game_entity
 	(include "/properties/cannon.ext")
-	{props "vehicle" "cannon" "wheeled" "vision_cannon_medium" "round_sandbag5" "muzzle_maximum"}
+	{props "vehicle" "cannon" "wheeled" "vision_cannon_maximum" "muzzle_maximum"}
 	{PatherID  "cannon.large"}
 	("armor_heavy")
 	("wheel" args "wheelright")
@@ -43,18 +43,22 @@
 			("abm_howitzer")
 		}
 	}
-	{mass 14000}
+	{mass 4000}
 	{Extension "155gpf.mdl"}
 	(include "/properties/selection/cannon.inc"  scale(0.7))
 
+	{bone "basis"
+		{limits}
+		{speed2 5}
+	}
 	{bone "turret"
 		{limits -30 30}
 		{speed2 5}
 	}
 	{bone "gun_rot"
-		{limits -1 35}
+		{limits -35 35}
 		{speed2 5}
-	}	
+	}
 
 	{extender "cannon"
 		{animation
@@ -70,7 +74,7 @@
 	}
 	{Chassis "track"
 		("car_trace" fx("tracks_sm") step(0.4) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
-		("loco_verybig")
+		("loco_big")
 	}
 	{sensor
 		{visor "main"
