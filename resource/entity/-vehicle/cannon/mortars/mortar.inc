@@ -39,8 +39,9 @@
 {extender "inventory"
 	{box
 		{item "ammo mortar fg" 12}
-        {item "sandbag_kit2"}
-        {item "plant" 5}		
+		    {item "sandbag_kit2" 25}
+                {item "repair_kit" 1}
+;        {item "plant" 5}		
 	}
 }
 
