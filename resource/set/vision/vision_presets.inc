@@ -8,7 +8,8 @@
 	{delisle 0.2}
 	{hdm 0.2}
 	{sten_v_silencer 0.2}
-	{sten_v_silencer_ger 0.2}	
+	{sten_v_silencer_ger 0.2}
+	{mp40_Hub 0.1}	
 	
 	{knife_ger 0}
 	{knife_rus 0}
