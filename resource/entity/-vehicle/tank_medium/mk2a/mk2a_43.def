@@ -4,17 +4,17 @@
 	(include "/properties/h_tank_mobility.ext")
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	{collider "tank.heavy"}
-	{props "heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_minimum" "tank"}
+	{props "tank" "heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_minimum" "tank"}
 
 ;	{extender "enumerator"}
 	
 	{volume "body"
+		{tags "body"}	
 		{component "body"}
-		{tags "body"}
 	}
 	{volume "turret"
+		{tags "turret"}	
 		{component "turret"}
-		{tags "turret"}
 	}
 	{Volume "engine"
 		{tags "engine"}
@@ -33,6 +33,7 @@
 	("wheels_armor" args 5)	
 	("armor_engine"  t(20 20 20 20))
 	("armor_mantlet" t(75))	
+	("shield" args 10)		
 	
 	("crew_4_human")
 
