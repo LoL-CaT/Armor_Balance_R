@@ -102,7 +102,6 @@
 	{Entity "skirmish_target" 0x80fe
 		{Position 3755.48 6807.87}
 		{xform zl -1.79}
-		{SpawnedInFog}
 		{Player 3}
 		{MID 54}
 	}
@@ -126,15 +125,6 @@
 		{xform zl 75.49}
 		{Player 1}
 		{MID 123}
-		{Weaponry
-			{State
-				{AccuracyByMotion
-					{value 0.8}
-					{prevposition -942.522 -5842.05 23.354}
-					{prevdirection 0.609018 0.791784 -0.0466268}
-				}
-			}
-		}
 		{NameId 90 55}
 		{FsmState "stand"}
 	}
@@ -146,9 +136,9 @@
 		{Weaponry
 			{State
 				{AccuracyByMotion
-					{value 0.927434}
-					{prevposition -959.281 -5847.16 21.2745}
-					{prevdirection 0.942971 0.31255 -0.11454}
+					{value 0.8}
+					{prevposition -961.347 -5844.38 21.7856}
+					{prevdirection 0.825821 0.551718 -0.116739}
 				}
 			}
 		}
@@ -215,6 +205,15 @@
 		{Player 2}
 		{MID 21}
 		{Able "personage"}
+		{Weaponry
+			{State
+				{AccuracyByMotion
+					{value 0.94586}
+					{prevposition 292.41 4114.51 23.9207}
+					{prevdirection -0.619128 -0.783403 -0.0544126}
+				}
+			}
+		}
 		{NameId 24 4}
 		{FsmState "stand"}
 	}
@@ -366,6 +365,15 @@
 		{TexMod "d"}
 		{Player 1}
 		{MID 8}
+		{Weaponry
+			{State
+				{AccuracyByMotion
+					{value 0.848}
+					{prevposition -862.431 -5844.49 21.089}
+					{prevdirection 0.984514 0.082299 -0.154792}
+				}
+			}
+		}
 		{NameId 125 57}
 		{FsmState "stand"}
 	}
@@ -761,35 +769,35 @@
 		{NameId 107 70}
 	}
 	{Human "mp/ger/tankman" 0xe020
-		{Position 782.68 -5952.57}
+		{Position 782.69 -5952.57}
 		{xform zl 89.46}
 		{Player 1}
 		{MID 97}
 		{NameId 60 95}
 	}
 	{Human "mp/ger/tankman" 0xe021
-		{Position 788.01 -5936.27}
+		{Position 788.01 -5936.28}
 		{xform zl 89.46}
 		{Player 1}
 		{MID 98}
 		{NameId 141 29}
 	}
 	{Human "mp/ger/tankman" 0xe023
-		{Position 765.28 -5936.86}
+		{Position 765.28 -5936.87}
 		{xform zl 89.46}
 		{Player 1}
 		{MID 100}
 		{NameId 74 31}
 	}
 	{Human "mp/ger/tankman2" 0xe025
-		{Position 897.56 -5907.79}
+		{Position 897.56 -5907.78}
 		{xform zl 179.95 y 22.8 zw -89.99}
 		{Player 1}
 		{MID 101}
 		{NameId 55 7}
 	}
 	{Human "mp/ger/tankman" 0xe027
-		{Position 912.84 -5907.67}
+		{Position 912.85 -5907.67}
 		{xform zl 178.87 y 23.44 zw -88.8}
 		{Player 1}
 		{MID 103}
@@ -861,8 +869,8 @@
 		{NameId 68 99}
 	}
 	{Human "mp/eng/tankman2" 0xc003
-		{Position 91.63 4226.22}
-		{xform zl 142.85 y 3.59 zw -145.35}
+		{Position 839.59 4031.88}
+		{xform zl -102.03 y 1.83 zw 106.09}
 		{Player 2}
 		{MID 113}
 		{Able "personage"}
@@ -883,14 +891,20 @@
 		{Player 2}
 		{MID 116}
 	}
-	{Entity "mk6_42" 0xa001
+	{Entity "crusaderi" 0xa001
 		{Position 873.72 4042.89 8.88}
 		{xform zl 167.97 y 1.83 zw 106.09}
+		{Volume "ram"
+			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}}
+		}
 		{Placer
 			{State "seat1" {Broken}}
 			{State "seat2" {Broken}}
 			{State "seat3" {Broken}}
 			{State "seat4" {Broken}}
+		}
+		{Extender "enumerator"
+			{number 758}
 		}
 		{Player 2}
 		{MID 118}
@@ -1053,7 +1067,7 @@
 		{NameId 24 5}
 		{FsmState "stand"}
 	}
-	{Entity "qf2" 0xa01e
+	{Entity "25mm_hotchkiss_mle34_eng" 0xa01e
 		{Position 443.02 3914.47}
 		{xform zl 70 y 1.14 zw -160}
 		{TexMod "d"}
@@ -1446,10 +1460,10 @@
 		{Player 2}
 		{MID 64}
 	}
-	{Entity "mk4_75" 0xe024
+	{Entity "churchill_iii" 0xe024
 		{Position -341.6 6711.3 -7.78}
 		{xform zl 42.48 y 0.77 zw -130.73}
-		{TexMod "d"}
+		{TexMod "3"}
 		{Volume "ram"
 			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}}
 		}
@@ -1459,14 +1473,20 @@
 		{Player 2}
 		{MID 71}
 	}
-	{Entity "mk6_42" 0xc007
+	{Entity "crusaderii" 0xc007
 		{Position 143.17 6717.6 2.54}
 		{xform zl -123.74 y 3.22 zw 33.8}
+		{Volume "ram"
+			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}}
+		}
 		{Placer
 			{State "seat1" {Broken}}
 			{State "seat2" {Broken}}
 			{State "seat3" {Broken}}
 			{State "seat4" {Broken}}
+		}
+		{Extender "enumerator"
+			{number 772}
 		}
 		{Player 2}
 		{MID 50}
@@ -1584,7 +1604,7 @@
 		{NameId 47 81}
 	}
 	{Human "mp/eng/tankman2" 0xe046
-		{Position -393.44 6726.51}
+		{Position -388.41 6720.33}
 		{xform zl 132.48 y 0.77 zw -130.73}
 		{Player 2}
 		{MID 189}
@@ -1750,7 +1770,7 @@
 		{Able "personage"}
 		{NameId 57 29}
 	}
-	{Entity "mk6" 0xe000
+	{Entity "crusaderii" 0xe000
 		{Position -730.37 5025.37 -17.79}
 		{xform zl 96.93 y 0.7 zw -127.84}
 		{Volume "ram"
@@ -1786,14 +1806,6 @@
 		{Able "personage"}
 		{NameId 23 52}
 	}
-	{Human "mp/eng/tankman" 0xe037
-		{Position -740.9 4991.09}
-		{xform zl -173.07 y 0.7 zw -127.84}
-		{Player 2}
-		{MID 162}
-		{Able "personage"}
-		{NameId 68 102}
-	}
 	{Entity "bedford_art" 0x806b
 		{Position -471.87 4144.77}
 		{xform zl 84.58 y 0.35 zw -151.08}
@@ -1807,7 +1819,7 @@
 		{Player 2}
 		{MID 28}
 	}
-	{Entity "churchill_mk_vii_57" 0x8068
+	{Entity "mk4_75" 0x8068
 		{Position 2475.49 6830.39 -40.72}
 		{xform zl -73.51 y 4.79 zw -16.46}
 		{TexMod "d"}
@@ -2399,7 +2411,7 @@
 		{NameId 125 56}
 	}
 	{Human "mp/ger/tankman" 0x8070
-		{Position 905.29 -5933.41}
+		{Position 905.3 -5933.4}
 		{xform zl 0.9 y 1.17 zw 89.07}
 		{Player 1}
 		{MID 120}
@@ -2451,14 +2463,6 @@
 		{MID 172}
 		{Able "personage"}
 		{NameId 60 2}
-	}
-	{Human "mp/eng/tankman" 0x8084
-		{Position -327.24 3471.67}
-		{xform zl -161.39 y 1.47 zw 162.11}
-		{Player 2}
-		{MID 181}
-		{Able "personage"}
-		{NameId 35 57}
 	}
 	{Human "mp/eng/tankman" 0x808d
 		{Position 110.44 5498.77}
@@ -2551,6 +2555,19 @@
 			{Item "mauzer_kar_98k" filled}
 		}
 	}
+	{Entity "sten" 0xa005
+		{Extender "stuff"
+			{Item "sten" filled}
+		}
+	}
+	{Human "mp/eng/tankman2" 0xa007
+		{Position 839.59 4031.88}
+		{xform zl -102.03 y 1.83 zw 106.09}
+		{Player 2}
+		{MID 61}
+		{Able "personage"}
+		{NameId 60 5}
+	}
 	{Link 0xf00d {0xd00f "gunner"}}
 	{Link 0xd017 {0xd00f "driver"}}
 	{Link 0xd018 {0xd00f "charger"}}
@@ -2604,17 +2621,17 @@
 	{Link 0xe014 {0xc005 "commander"}}
 	{Link 0xe013 {0xc005 "gunner2"}}
 	{Link 0xe027 {0xc009 "driver"}}
-	{Link 0xe025 {0xc009 "commander"}}
 	{Link 0x8070 {0xc009 "gunner"}}
+	{Link 0xe025 {0xc009 "commander"}}
 	{Link 0xe02d {0xc00c "gunner"}}
 	{Link 0xe02c {0xc00c "driver"}}
 	{Link 0xe02f {0xc00c "charger"}}
 	{Link 0x8072 {0xc00c "gunner3"}}
 	{Link 0xe01f {0xa01b "driver"}}
 	{Link 0xe023 {0xa01b "gunner"}}
-	{Link 0xe021 {0xa01b "commander"}}
 	{Link 0x8098 {0xa01b "charger2"}}
 	{Link 0x8096 {0xa01b "charger3"}}
+	{Link 0xe021 {0xa01b "commander"}}
 	{Link 0xe020 {0xa01b "charger"}}
 	{Link 0x805c {0x8052 "gunner"}}
 	{Link 0x805a {0x8052 "driver"}}
@@ -2625,6 +2642,7 @@
 	{Link 0xc01a {0xa001 "driver"}}
 	{Link 0xc00d {0xa001 "charger"}}
 	{Link 0xc003 {0xa001 "commander"}}
+	{Link 0xa007 {0xa001 "gunner3"}}
 	{Link 0x8065 {0x805d "gunner"}}
 	{Link 0xc022 {0x805f "driver"}}
 	{Link 0xc026 {0x805f "gunner"}}
@@ -2633,7 +2651,6 @@
 	{Link 0x900e {0x9001 "driver"}}
 	{Link 0x9009 {0x9001 "charger"}}
 	{Link 0xc01d {0x9001 "commander"}}
-	{Link 0x8084 {0x9001 "gunner3"}}
 	{Link 0xb000 {0xa01e "gunner"}}
 	{Link 0xb003 {0xa01e "commander"}}
 	{Link 0x80b9 {0xc00f "gunner"}}
@@ -2668,7 +2685,7 @@
 	{Link 0xe060 {0xe024 "driver"}}
 	{Link 0xe05e {0xe024 "charger"}}
 	{Link 0xe05a {0xe024 "commander"}}
-	{Link 0xe046 {0xe024 "gunner3"}}
+	{Link 0xe046 {0xe024 "gunner2"}}
 	{Link 0xe042 {0xc007 "gunner"}}
 	{Link 0xe040 {0xc007 "driver"}}
 	{Link 0xe03e {0xc007 "charger"}}
@@ -2684,7 +2701,6 @@
 	{Link 0xe02e {0xe000 "driver"}}
 	{Link 0xe033 {0xe000 "charger"}}
 	{Link 0xe012 {0xe000 "commander"}}
-	{Link 0xe037 {0xe000 "gunner3"}}
 	{Link 0xc012 {0xd000 "driver"}}
 	{Link 0xc000 {0xd000 "seat1"}}
 	{Link 0xc029 {0xd000 "seat2"}}
@@ -2924,7 +2940,6 @@
 	{Tags "player" 0xe012}
 	{Tags "player" 0xe02e}
 	{Tags "player" 0xe033}
-	{Tags "player" 0xe037}
 	{Tags "hidden" "convoy_key_tank" "engine_brake" 0x8068}
 	{Tags "convoy_soldiers" "hidden" "convoy_foot" 0x806c}
 	{Tags "convoy_soldiers" 0xc000}
@@ -4558,14 +4573,6 @@
 			{item "beret_eng1" {cell 4 0}{user "head"}}
 		}
 	}
-	{Inventory 0xe037
-		{box
-			{clear}
-			{item "webley" filled {cell 0 0}}
-			{item "pistol" "ammo" 100 {cell 2 0}}
-			{item "beret_eng1" {cell 4 0}{user "head"}}
-		}
-	}
 	{Inventory 0x806c
 		{box
 			{clear}
@@ -4850,14 +4857,6 @@
 			{item "beret_eng1" {cell 4 0}{user "head"}}
 		}
 	}
-	{Inventory 0x8084
-		{box
-			{clear}
-			{item "webley" filled {cell 0 0}}
-			{item "pistol" "ammo" 100 {cell 2 0}}
-			{item "beret_eng1" {cell 4 0}{user "head"}}
-		}
-	}
 	{Inventory 0x808d
 		{box
 			{clear}
@@ -4896,6 +4895,14 @@
 			{item "valter" filled {cell 0 0}}
 			{item "pistol" "ammo" 100 {cell 2 0}}
 			{item "tank_cap2_ger" {cell 4 0}{user "head"}}
+		}
+	}
+	{Inventory 0xa007
+		{box
+			{clear}
+			{item 0xa005 {cell 0 0}}
+			{item "pistol" "ammo" 100 {cell 4 0}}
+			{item "beret_eng1" {cell 4 1}{user "head"}}
 		}
 	}
 	{Brain 0x829e
@@ -5606,12 +5613,6 @@
 			{move_mode hold}
 		}
 	}
-	{Brain 0xe037
-		{Properties
-			{control user}
-			{move_mode hold}
-		}
-	}
 	{Brain 0x806b
 		{Properties
 			{fire_mode hold}
@@ -5692,12 +5693,6 @@
 			{move_mode hold}
 		}
 	}
-	{Brain 0x8084
-		{Properties
-			{control user}
-			{move_mode hold}
-		}
-	}
 	{Brain 0x808d
 		{Properties
 			{control user}
@@ -5715,6 +5710,12 @@
 		}
 	}
 	{Brain 0x8094
+		{Properties
+			{control user}
+			{move_mode hold}
+		}
+	}
+	{Brain 0xa007
 		{Properties
 			{control user}
 			{move_mode hold}
@@ -5866,7 +5867,7 @@
 				{image "bazookers(eng)"}
 				{hint "$/reinf_i01"}
 				{count -1}
-				{score 50}
+				{score 10}
 				{delay 20}
 				{eventStart "player_bazooka"}
 				{waypoint "0"}
@@ -5876,8 +5877,8 @@
 				{text "$/reinf_i02"}
 				{image "tankmans(eng)"}
 				{hint "$/reinf_i02"}
-				{count 10}
-				{score 50}
+				{count 100}
+				{score 1}
 				{delay 20}
 				{eventStart "player_tankmen"}
 				{waypoint "1"}
@@ -5888,7 +5889,7 @@
 				{image oerlikon}
 				{hint "$/reinf_s01"}
 				{count -1}
-				{score 150}
+				{score 100}
 				{delay 20}
 				{eventStart "player_support_01"}
 				{waypoint "2"}
@@ -5899,7 +5900,7 @@
 				{image 25}
 				{hint "$/reinf_s02"}
 				{count -1}
-				{score 200}
+				{score 100}
 				{delay 20}
 				{eventStart "player_support_02"}
 				{waypoint "3"}
@@ -5921,7 +5922,7 @@
 				{image qf6_1942}
 				{hint "$/reinf_s03"}
 				{count 1}
-				{score 500}
+				{score 600}
 				{delay 1}
 				{eventStart "player_support_03"}
 				{waypoint "4"}
@@ -5954,7 +5955,7 @@
 				{image mk6_42}
 				{hint "$/reinf_a03"}
 				{count 1}
-				{score 550}
+				{score 650}
 				{delay 20}
 				{eventStart "player_armor_03"}
 				{waypoint "9"}
@@ -5965,7 +5966,7 @@
 				{image crusaderii}
 				{hint "$/reinf_a02"}
 				{count 1}
-				{score 650}
+				{score 750}
 				{delay 1}
 				{eventStart "player_armor_02"}
 				{waypoint "8"}
@@ -5976,7 +5977,7 @@
 				{image mk8}
 				{hint "$/reinf_sp01"}
 				{count 1}
-				{score 700}
+				{score 800}
 				{delay 21}
 				{eventStart "player_special_01"}
 				{waypoint "10"}
@@ -5987,7 +5988,7 @@
 				{image mk3_57}
 				{hint "$/reinf_sp02"}
 				{count 1}
-				{score 800}
+				{score 900}
 				{delay 1}
 				{eventStart "player_special_02"}
 				{waypoint "11"}
@@ -5998,7 +5999,7 @@
 				{image m3grant}
 				{hint "$/reinf_sp03"}
 				{count 1}
-				{score 850}
+				{score 950}
 				{delay 1}
 				{eventStart "player_special_03"}
 				{waypoint "12"}
@@ -6006,10 +6007,10 @@
 			{"player_special_04"
 				{state hidden}
 				{text "$/reinf_sp04"}
-				{image mk4_75}
+				{image churchill_iii}
 				{hint "$/reinf_sp04"}
 				{count 1}
-				{score 1000}
+				{score 1100}
 				{delay 1}
 				{eventStart "player_special_04"}
 				{waypoint "13"}
