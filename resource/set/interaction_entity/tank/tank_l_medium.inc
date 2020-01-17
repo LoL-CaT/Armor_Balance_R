@@ -275,14 +275,14 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.2)
-        pierce_body__body_brake(0.60)
+        pierce_body__body_brake(0.75)
         pierce_body__body_destroy(0.1)
     ;--------------------------
 		  crew_shock_time(0.20)
     ;--------------------------
         pierce_turret__explosive(0)
 
-        pierce_turret_front__turret_brake(0.50)
+        pierce_turret_front__turret_brake(0.65)
         pierce_turret_back__turret_brake(0.50)
         pierce_turret_left_right__turret_brake(0.50)
 
