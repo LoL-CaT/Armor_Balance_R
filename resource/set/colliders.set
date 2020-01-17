@@ -53,7 +53,7 @@
 	}
 	{"chicken"
 		{colliderID "stuff"}
-		{collideWith "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "construction" "tree" "human"}
+		{collideWith "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "construction" "tree" "human"}
 		{noCollideForStable}
 		{noContactsAtAll 0}
 		{rejectColliderByVolume}
@@ -68,28 +68,28 @@
 	}
 	{"particle.small"
 		{colliderId "particle"}
-		{collideWith  "construction" "sandbag" "bush" "human" "vehicle" "tank.light" "tank.medium" "tank.heavy" "armored"}
+		{collideWith  "construction" "sandbag" "bush" "human" "vehicle" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "armored"}
 	}
 	{"particle.big"  
 		{colliderId "particle.big"}
-		{collideWith  "construction" "sandbag" "tree" "bush" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
+		{collideWith  "construction" "sandbag" "tree" "bush" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy"}
 		{noContactWith "particle" "human" "bush" "stuff"}
 	}
 	{"particle.construction"
 		{colliderId "construction"}
-		{collideWith "construction" "sandbag" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
+		{collideWith "construction" "sandbag" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy"}
 	}
 	{"particle.fire"
 		{rejectColliderByVolume}
 		{pointCollider}
 		{colliderID "flame"}
-		{collideWith "construction" "sandbag" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
+		{collideWith "construction" "sandbag" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy"}
 	}
 	
 	;///////////////////////////// stuff
 	{"stuff"
 		{colliderID "stuff"}
-		{collideWith "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "construction" "sandbag" "tree"}
+		{collideWith "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "construction" "sandbag" "tree"}
 	}
 	{"stuff.construction" from "stuff"
 		{colliderID "construction"}
@@ -106,15 +106,15 @@
 	;///////////////////////////// special
 	{"torpedo"
 		{colliderId "car"}
-		{collideWith  "construction" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle"}
+		{collideWith  "construction" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle"}
 		{rejectColliderByVolume}
 	}
 
 	;///////////////////////////// vehicles
 	{"vehicle"
 		{colliderId "nothing"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big"}
-		{useRamVolume "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big"}
+		{useRamVolume "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy"}
 		{noContactWith "particle" "particle.big" "human" "bush" "stuff" "mine.at" "mine.ap" "flame"}
 		{blocking
 			{speed 10} ; kmph
@@ -124,11 +124,11 @@
 
 	{"moto" from "vehicle"
 		{colliderId "moto"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
 	}
 	{"cannon" from "vehicle"
 		{colliderId "cannon"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{noContactWith "tree"}
 		{blocking
 			{speed 20} ; kmph
@@ -137,7 +137,7 @@
 	}
 	{"cannon_small" from "vehicle"
 		{colliderId "cannon_small"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{noContactWith "tree"}
 		{blocking
 			{speed 20} ; kmph
@@ -146,67 +146,266 @@
 	}
 	{"car" from "vehicle"
 		{colliderId "car"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
 	}
 	{"truck" from "vehicle"
 		{colliderId "truck"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{canPush "moto"}
 		{canPushBroken "car" "cannon" "cannon_small"}
 	}
 	{"armored" from "vehicle"
 		{colliderId "armored"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{nocontactwith "vehicle"}
-		{canPush "moto" "car" "cannon_small"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "cannon_small"}
 		{canPushBroken "truck" "armored" "cannon" "cannon_small"}
 	}
 	{"tank.light" from "vehicle"
 		{colliderId "tank.light"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
-		{canPush "moto" "car" "truck" "cannon" "cannon_small"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "cannon" "cannon_small"}
 		{canPushBroken "armored" "tank.light"}
 	}
 	{"tank.medium" from "vehicle"
 		{colliderId "tank.medium"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
-		{canPush "moto" "car" "truck" "armored" "cannon" "cannon_small"}
-		{canPushBroken "tank.light" "tank.medium"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "cannon" "cannon_small"}
+		{canPushBroken "tank.medium"}
 	}
 	{"tank.heavy" from "vehicle"
 		{colliderId "tank.heavy"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
-		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "cannon" "cannon_small"}
-		{canPushBroken "tank.medium" "tank.heavy" "train"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "cannon" "cannon_small"}
+		{canPushBroken "tank.heavy" "train"}
 	}
 	{"tank.sheavy" from "vehicle"
 		{colliderId "tank.sheavy"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "cannon" "cannon_small"}
-		{canPushBroken "tank.medium" "tank.heavy" "train"}
-	}
+		{canPushBroken "train"}
+	}	
 	{"train" from "vehicle"
 		{colliderId "tank.heavy"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{nocontactwith "moto" "car" "truck" "armored" "cannon" "cannon_small"}
 		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "cannon" "cannon_small"}
 	}
 	{"airborne" from "vehicle"
 		{colliderId "armored"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{noContactsAtAll}
 	}
 	{"marine" from "vehicle"
 		{colliderId "armored"}
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{rejectColliderByVolume}
 	}
 	{"marine.heavy" from "marine"
-		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
 		{noContactsAtAll}
 	}
 	{"goliath" from "vehicle"
 		{colliderId "goliath"}
-		{collideWith  "construction" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
+		{collideWith  "construction" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
+	}	
+	
+(mod not "mp"
+
+	;///////////////////////////// basic
+	
+	; default collider profile must be first
+	{"nothing" 						
+		{colliderId "nothing"}
+		{noContactsAtAll}
 	}
+	{"tree" 
+		{colliderID "tree"}
+	}
+	{"bush" 
+		{colliderID "bush"}
+	}
+	{"construction"
+		{colliderID "construction"}
+	}
+	{"mine.ap"
+		{colliderId "mine.ap"}
+	}
+	{"mine.at"
+		{colliderId "mine.at"}
+	}
+	{"animal" 
+		{colliderId "human"}
+		{noContactsAtAll}
+	}
+	{"human" 
+		{colliderId "human"}
+		{collideWith  "bush" "mine.ap"}
+		{noContactsAtAll}
+	}
+	{"human.part" 
+		{colliderId "human"}
+		{collideWith  "bush"}
+	}
+	{"chicken"
+		{colliderID "stuff"}
+		{collideWith "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "construction" "tree" "human"}
+		{noCollideForStable}
+		{noContactsAtAll 0}
+		{rejectColliderByVolume}
+	}
+	{"sandbag"
+		{colliderID "sandbag"}
+	}
+
+	;///////////////////////////// particles
+	{"particle"
+		{colliderId "particle"}
+	}
+	{"particle.small"
+		{colliderId "particle"}
+		{collideWith  "construction" "sandbag" "bush" "human" "vehicle" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "armored"}
+	}
+	{"particle.big"  
+		{colliderId "particle.big"}
+		{collideWith  "construction" "sandbag" "tree" "bush" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy"}
+		{noContactWith "particle" "human" "bush" "stuff"}
+	}
+	{"particle.construction"
+		{colliderId "construction"}
+		{collideWith "construction" "sandbag" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy"}
+	}
+	{"particle.fire"
+		{rejectColliderByVolume}
+		{pointCollider}
+		{colliderID "flame"}
+		{collideWith "construction" "sandbag" "human" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy"}
+	}
+	
+	;///////////////////////////// stuff
+	{"stuff"
+		{colliderID "stuff"}
+		{collideWith "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "construction" "sandbag" "tree"}
+	}
+	{"stuff.construction" from "stuff"
+		{colliderID "construction"}
+	}
+	{"grenade" from "stuff"
+		{rejectColliderByVolume}
+		{pointCollider}
+		{collideWith "human" "stuff" "particle"}
+	}
+	{"ammo" from "stuff"
+		{colliderId "particle"}
+	}
+
+	;///////////////////////////// special
+	{"torpedo"
+		{colliderId "car"}
+		{collideWith  "construction" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle"}
+		{rejectColliderByVolume}
+	}
+
+	;///////////////////////////// vehicles
+	{"vehicle"
+		{colliderId "nothing"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big"}
+		{useRamVolume "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy"}
+		{noContactWith "particle" "particle.big" "human" "bush" "stuff" "mine.at" "mine.ap" "flame"}
+		{blocking
+			{speed 10} ; kmph
+			{penetration 0.2} ; m
+		}
+	}
+
+	{"moto" from "vehicle"
+		{colliderId "moto"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
+	}
+	{"cannon" from "vehicle"
+		{colliderId "cannon"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{noContactWith "tree"}
+		{blocking
+			{speed 20} ; kmph
+			{penetration 0.3} ; m
+		}
+	}
+	{"cannon_small" from "vehicle"
+		{colliderId "cannon_small"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{noContactWith "tree"}
+		{blocking
+			{speed 20} ; kmph
+			{penetration 0.3} ; m
+		}
+	}
+	{"car" from "vehicle"
+		{colliderId "car"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
+	}
+	{"truck" from "vehicle"
+		{colliderId "truck"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{canPush "moto"}
+		{canPushBroken "car" "cannon" "cannon_small"}
+	}
+	{"armored" from "vehicle"
+		{colliderId "armored"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{nocontactwith "vehicle"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "cannon" "cannon_small"}
+		{canPushBroken "train"}
+	}
+	{"tank.light" from "vehicle"
+		{colliderId "tank.light"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "cannon" "cannon_small"}
+		{canPushBroken "train"}
+	}
+	{"tank.medium" from "vehicle"
+		{colliderId "tank.medium"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "cannon" "cannon_small"}
+		{canPushBroken "train"}
+	}
+	{"tank.heavy" from "vehicle"
+		{colliderId "tank.heavy"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "cannon" "cannon_small"}
+		{canPushBroken "train"}
+	}
+	{"tank.sheavy" from "vehicle"
+		{colliderId "tank.sheavy"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "cannon" "cannon_small"}
+		{canPushBroken "train"}
+	}	
+	{"train" from "vehicle"
+		{colliderId "tank.heavy"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{nocontactwith "moto" "car" "truck" "armored" "cannon" "cannon_small"}
+		{canPush "moto" "car" "truck" "armored" "tank.light" "tank.medium" "cannon" "cannon_small"}
+	}
+	{"airborne" from "vehicle"
+		{colliderId "armored"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{noContactsAtAll}
+	}
+	{"marine" from "vehicle"
+		{colliderId "armored"}
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{rejectColliderByVolume}
+	}
+	{"marine.heavy" from "marine"
+		{collideWith  "construction" "sandbag" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.at" "mine.ap"}
+		{noContactsAtAll}
+	}
+	{"goliath" from "vehicle"
+		{colliderId "goliath"}
+		{collideWith  "construction" "cannon" "cannon_small" "moto" "car" "truck" "armored" "tank.light" "tank.medium" "tank.heavy" "tank.sheavy" "tree" "bush" "human" "particle" "particle.big" "mine.ap"}
+	}
+
+)	
+	
 }
