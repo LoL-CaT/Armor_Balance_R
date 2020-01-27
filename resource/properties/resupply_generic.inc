@@ -284,6 +284,7 @@
 			{item "bullet290" "ammo" 1 {max 5}{value 5}}
 			;
 			{item "calliope" "ammo" 5 {max 60}{value 5}}
+			{item "calliope180" "ammo" 5 {max 60}{value 5}}			
 			{item "lm_ammo" "ammo" 5 {max 32}{value 5}}
 			{item "bm8" "ammo" 5 {max 24}{value 5}}
 			{item "katusha" "ammo" 3 {max 16}{value 5}}
@@ -798,6 +799,7 @@
 			{item "mortar81usa" "fg" "ammo" 100 {max 100}{value 2}}			
 			{item "mortar107usa" "fg" "ammo" 100 {max 100}{value 2}}
 			{item "calliope" "ammo" 1 {max 100}{value 2}}
+			{item "calliope180" "ammo" 1 {max 100}{value 2}}			
 			{item "bullet305" "ammo" 1 {max 100}{value 2}}
 			{item "bullet120" "ammo" 1 {max 100}{value 2}}				
 		}
