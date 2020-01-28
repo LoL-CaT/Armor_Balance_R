@@ -1,15 +1,15 @@
 (define "firing"
-	{welrod 0.2}
-	{nagan_pb 0.2}	
-	{nagan_pb_ger 0.2}	
-	{mosin_m1938_bramit 0.3}
-	{mosin_m1891_30s_bramit 0.3}	
-	{mosin_s_bramit 0.3}	
-	{delisle 0.2}
-	{hdm 0.2}
-	{sten_v_silencer 0.2}
-	{sten_v_silencer_ger 0.2}
-	{mp40_Hub 0.1}	
+	{welrod 0.1}
+	{nagan_pb 0.1}	
+	{nagan_pb_ger 0.1}	
+	{mosin_m1938_bramit 0.2}
+	{mosin_m1891_30s_bramit 0.2}	
+	{mosin_s_bramit 0.2}	
+	{delisle 0.1}
+	{hdm 0.1}
+	{sten_v_silencer 0.1}
+	{sten_v_silencer_ger 0.1}
+	{mp40_Hub 0}	
 	
 	{knife_ger 0}
 	{knife_rus 0}
