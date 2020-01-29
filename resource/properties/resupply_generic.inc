@@ -840,6 +840,7 @@
 			{item "bandage"	5 {max 5}}
 			{item "ptr" "ammo" 5 {max 25}}
 			{item "bazooka" "ammo" 4 {max 5}}	
+			{item "bazooka_r" "ammo" 4 {max 5}}			
 			{item "pg1" "ammo" 4 {max 5}}			
 			{item "m18recoilless" "ammo" 4 {max 5}}
 			{item "piatrocket" "ammo" 4 {max 5}}
