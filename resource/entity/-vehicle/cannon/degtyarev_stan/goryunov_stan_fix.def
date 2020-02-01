@@ -1,0 +1,52 @@
+{game_entity
+	(include "/properties/cannon_mgun_1.ext")
+	{props "vision_cannon_minimum" "cannon_small"}
+	{collider "cannon_small"}
+
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "sg_43" filled}
+		}
+	} 
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 500}
+		    {item "sandbag_kit2" 25}
+;           {item "plant" 5}
+		}	
+	} 
+ 	
+	{Extension "Degtyarev_stan_fix.mdl"}
+	{bone "turret" {limits}}
+
+	{Volume "body"
+		{tags "body"}
+		{able{obstacle 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{able{obstacle 0}{blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{able{obstacle 0}{blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{able{obstacle 0}{blast 0}}
+		{thickness 1}
+		{component "body"}
+	}
+
+	{Volume "touch"
+		{able clear {touch}}
+	}
+
+}
