@@ -5,8 +5,8 @@
 		{cover_damage 0.50}  		; damage when protected by cover
 
 		{vehicle_burst 1.5}			; increase timeout between bursts for all vehicles
-		{cover_mgun_burst 3}		; increase bullet count in 1 burst of soldier with mgun in horizontal cover
-		{cover_mgun_delay 0.2}		; decrease timeout between bursts of soldier with mgun in horizontal cover
+		{cover_mgun_burst 1}		; increase bullet count in 1 burst of soldier with mgun in horizontal cover
+		{cover_mgun_delay 1}		; decrease timeout between bursts of soldier with mgun in horizontal cover
 
 		{cover_efficiency			; how cover efficiency will drop with distance
 			0		0
