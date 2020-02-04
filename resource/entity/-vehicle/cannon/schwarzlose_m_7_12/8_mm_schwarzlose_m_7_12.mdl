@@ -5,7 +5,7 @@
 	{animation
 		{sequence "close" {speed 0.6}}
 	}
-	{bone "basis"
+	{bone revolute "basis"
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -91,7 +91,8 @@
 				{VolumeView "turret.ply"}
 				{bone revolute "gun_rot"
 					{parameters "ID=body;"}
-					{limits -5 15}
+					{limits -5 25}
+				    {speed 0.01}					
 					{Matrix34
 						0.999989	0	-0.00473077
 						0.00473077	0	0.999989

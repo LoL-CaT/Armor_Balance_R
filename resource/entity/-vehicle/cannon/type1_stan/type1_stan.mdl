@@ -4,9 +4,9 @@
 {Skeleton
 	{animation
 		{sequence "close" {speed 0.5}}
-		{sequence "recoil" {speed 0.5}}
+;		{sequence "recoil" {speed 0.5}}
 	}
-	{bone "basis"
+	{bone revolute "basis"
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -22,13 +22,13 @@
 				{bone revolute "turret"
 					{parameters "ID=body;"}
 					{limits -30 30}
-					{speed 0.04}
+					{speed 0.01}
 					{Position 0	0	0.797641}
 					{VolumeView "turret.ply"}
 					{bone revolute "gun_rot"
 						{parameters "ID=mgun;"}
-						{limits -5 10}
-						{speed 0.05}
+						{limits -5 25}
+						{speed 0.01}
 						{Matrix34
 							1	0	0
 							0	0	1

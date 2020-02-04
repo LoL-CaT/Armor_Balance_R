@@ -1,6 +1,6 @@
 {game_entity
 	(include "/properties/cannon_mgun.ext")
-	{props "round_sandbag2" "cannon" "cannon_small" "vision_cannon_minimum"} 
+	{props "round_sandbag4" "cannon" "cannon_small" "vision_cannon_minimum"} 
 	{collider "cannon_small"}
 
 	{Weaponry
@@ -8,6 +8,7 @@
 			{type "mgun_main"}
 			;{LinkBone ""}
 			{weapon "type1hmg" filled}
+			{Rotate}			
 		}
 	}
 {boarder
@@ -41,7 +42,7 @@
 		}
 		{move {obstacle "close"}}
 		{attack {obstacle "open"}}
-		{rotate_ik_Limit 0}
+		(mod "mp" {rotate_ik_Limit 0})
 	}
 
 	{Extension "type1_stan.mdl"}

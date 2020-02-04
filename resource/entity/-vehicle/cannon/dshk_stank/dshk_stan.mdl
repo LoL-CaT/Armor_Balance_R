@@ -3,10 +3,10 @@
 ;File:        C:\Users\Пупс\Документы\3dsmax\scenes\ДШК\станок Колесникова.max
 {Skeleton
 	{animation
-		{sequence "recoil" {speed 1}}
+;		{sequence "recoil" {speed 1}}
 		{sequence "close" {speed 0.7}}
 	}
-	{bone "basis"
+	{bone revolute "basis"
 		{Orientation
 			1	0	0
 			0	-1	0
@@ -24,12 +24,12 @@
 			{bone revolute "turret"
 				{parameters "ID=turret;"}
 				{limits -25 25}
-				{speed 0.03}
+				{speed 0.01}
 				{Position 0.00807238	-0.00209242	0.976954}
 				{VolumeView "turret.ply"}
 				{bone revolute "gun_rot"
 					{limits -10 15}
-					{speed 0.03}
+					{speed 0.01}
 					{Matrix34
 						0.999864	-0.0164754	5.38826e-005
 						0	0.00328926	0.999995
