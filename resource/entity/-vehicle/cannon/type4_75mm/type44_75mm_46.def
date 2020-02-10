@@ -1,0 +1,115 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "turret" "turret_rotator" "vision_cannon_low" "muzzle_medium" "round_sandbag2"}
+	{PatherID "cannon.large"}
+        {targetSelector "flak"}
+	("armor_heavy" args 1.1)
+
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "wheelleft2"
+		{tags "wheelleft"}
+		{component "wheelleft"}
+	}
+	
+	{Volume "wheelright2"
+		{tags "wheelright"}
+		{component "wheelright"}
+	}
+	
+	
+	{placer	
+		{place "gunner" {visor "main"} {useVision 0}}
+	}	
+	
+	("wheel" args "wheelright1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelleft2")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m5_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_m5_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet75 ap" 40}
+			{item "ammo bullet75 fg" 40}
+;			{item "ammo bullet75 apcr" 5}
+		    {item "sandbag_kit2" 25}
+;           {item "plant" 5}
+		}
+	}
+	{Weaponry
+		{place "gun"
+        {weapon "75mm_type4" filling "ammo bullet75 ap" 1}
+		("abm_field_gun")
+		}
+	}  	
+	{mass 5900}
+
+	{Extension "type4_75mm.mdl"}
+
+	
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "cannon_zis3_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" "cannon_zis3_charger_fire 0.1"}
+			{reload  "" "Cannon_zis3_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel03") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_massive")
+	}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+	{bone "turret"
+		{speed2 35}
+	}
+	{bone "gun_rot"
+	    {limits -5 85}	
+		{speed2 20}
+	}	
+	
+}
