@@ -941,6 +941,69 @@
 		{xform zl -90.68}
 		{TexMod "1"}
 		{SpawnedInFog}
+		{Volume "propeller"
+			{able {contact 0}}
+		}
+		{Volume "engine"
+			{able {contact 0}}
+		}
+		{Volume "body"
+			{able {contact 0}}
+		}
+		{Volume "body_back"
+			{able {contact 0}}
+		}
+		{Volume "wingr1"
+			{able {contact 0}}
+		}
+		{Volume "wingl1"
+			{able {contact 0}}
+		}
+		{Volume "wingr2"
+			{able {contact 0}}
+		}
+		{Volume "wingl2"
+			{able {contact 0}}
+		}
+		{Volume "elevator1"
+			{able {contact 0}}
+		}
+		{Volume "elevator2"
+			{able {contact 0}}
+		}
+		{Volume "rudder"
+			{able {contact 0}}
+		}
+		{Volume "aileron1"
+			{able {contact 0}}
+		}
+		{Volume "aileron2"
+			{able {contact 0}}
+		}
+		{Volume "wheelr"
+			{able {contact 0}}
+		}
+		{Volume "wheell"
+			{able {contact 0}}
+		}
+		{Volume "wheelback"
+			{able {contact 0}}
+		}
+		{Volume "body1"
+			{able {contact 0}}
+		}
+		{Volume "body_back1"
+			{able {contact 0}}
+		}
+		{Volume "cabin"
+			{able {contact 0}}
+		}
+		{Volume "propeller1"
+			{able {contact 0}}
+		}
+		{Volume "propeller2"
+			{able {contact 0}}
+		}
 		{Impregnability full}
 		{Extender "enumerator"
 			{number 297}
@@ -1812,6 +1875,15 @@
 		{Impregnability harmless}
 		{Player 2}
 		{MID 2}
+		{Weaponry
+			{State
+				{AccuracyByMotion
+					{value 0.935056}
+					{prevposition 966.192 6198.83 4.71872}
+					{prevdirection -0.142179 0.960589 -0.238861}
+				}
+			}
+		}
 		{NameId 90 3}
 		{FsmState "stand"}
 	}
@@ -4103,11 +4175,6 @@
 			{Item "ppsh41" filled}
 		}
 	}
-	{Entity "radio_station" 0x8055
-		{Extender "stuff"
-			{Item "flaer" "ammo" 50}
-		}
-	}
 	{Entity "nagan" 0x8062
 		{Extender "stuff"
 			{Item "nagan" filled}
@@ -4683,11 +4750,11 @@
 	{Link 0xf001 {0x9004 "charger"}}
 	{Link 0xf002 {0x9004 "commander"}}
 	{Link 0xf003 {0x9004 "gunner3"}}
+	{Link 0xe015 {0xc005 "gunner"}}
 	{Link 0xe014 {0xc005 "driver"}}
 	{Link 0xe017 {0xc005 "charger"}}
 	{Link 0xe016 {0xc005 "commander"}}
 	{Link 0xe013 {0xc005 "gunner2"}}
-	{Link 0xe015 {0xc005 "gunner"}}
 	{Link 0xe026 {0xc009 "gunner"}}
 	{Link 0xe027 {0xc009 "driver"}}
 	{Link 0xe029 {0xc009 "charger"}}
@@ -4706,10 +4773,10 @@
 	{Link 0x8058 {0x8041 "gunner"}}
 	{Link 0x8059 {0x8041 "charger"}}
 	{Link 0x8053 {0x8041 "commander"}}
+	{Link 0x8139 {0x805d "driver"}}
 	{Link 0x8047 {0x805d "gunner"}}
 	{Link 0x8045 {0x805d "charger"}}
 	{Link 0x8043 {0x805d "commander"}}
-	{Link 0x8139 {0x805d "driver"}}
 	{Link 0x804b {0x805d "gunner3"}}
 	{Link 0xe000 {0xe020 "driver"}}
 	{Link 0xe006 {0xe020 "gunner"}}
@@ -5121,7 +5188,7 @@
 	{Tags "allied_crew" 0x8080}
 	{Tags "allied_crew" 0xc028}
 	{Tags "enemy" "tank_crew" 0xa010}
-	{Tags "hidden" "allied_plane" 0xb000}
+	{Tags "hidden" "allied_plane" "20m" 0xb000}
 	{Tags "pilot" 0xb001}
 	{Tags "enemy" "tank_crew" 0x803f}
 	{Tags "enemy_tank" "enemy_start_tanks" 0x8048}
@@ -6796,7 +6863,7 @@
 		{box
 			{clear}
 			{item "binocular" {cell 0 0}{user "hand_right"}}
-			{item 0x8055 {cell 2 2}}
+			{item "flaer" "ammo" {cell 2 2}}
 			{item "radioman_hat" {cell 0 3}{user "head"}}
 		}
 	}
@@ -9194,11 +9261,13 @@
 	}
 	{Brain 0x8146
 		{Properties
+			{fix_inventory}
 			{move_mode hold}
 		}
 	}
 	{Brain 0x9008
 		{Properties
+			{fix_inventory}
 			{move_mode hold}
 		}
 	}
