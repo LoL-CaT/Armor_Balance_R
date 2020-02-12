@@ -1,29 +1,48 @@
-﻿{weapon_bullet
-	{tag "weapon mgun bullet"}
-	{filling "sprenggranate" 1}
-	{entity "flaermow"}
-
-	{fireSound	"pistol/nagan"}
-	{foresight "foresight16"} 
-
-	{aimRange 9}
-	{maxRange 10}
-
-	{aimtype adaptive}
-
-	{traceFreq 1}
-        {gravity 0.08}
- 	{speed 200}
-	{spreading 1}
-
-
-
-	{rechargeTime 5}
-	{healthDamage 35}
-;	{projectileDamageTable {90 10}}
-
+﻿{from "pattern bullet"
+	{tag "weapon pistol bullet to_hand"}
+	{mass 0.8}	
+	{filling "ammo sprenggranate" 1}
+    {fillingVisible "gewehrsprenggranate"}
+	{inventory
+		{size 2 1}
+		{weight 100 }
+		{fsm "pistol"}
+	}
+	{entity "kampfpistole_z"}
 	{cursor "cannon_on_fg"}
-	{cursorReloading "cannon_reload_fg"}
+	{cursorReloading "cannon_reload_fg"}	
 	
-    {desc "Kampfpistole (ЭДС 10)"}	
-}
+	{preloaded}
+	
+	{fireSound	"pistol/nagan"}
+	{calibre 30}
+
+	{DisableRicochet}
+	{foresight "Foresight3"}
+	{gravity 2}
+	{rechargeTime 6}
+	{curve "cumulative"}
+        {projectileDamage 1.7}
+	{projectileDamageThreshold 1}
+	{AimingTolerance 3}
+
+	{aimtype curved}
+
+	{spreading 10.5
+		{SpreadXYRatio	1}
+		{radiusFunction
+			0.0		0
+			1.0		1.0
+			1.2		2.5
+			2.5		5.0
+		}
+	}
+	
+    {aimRange 15}	
+	{range 14 15}
+
+	("speed" s(75))
+	("accuracy_flaer")
+	
+    {desc "Leuchtpistole 34 (ЭДС 14)"}	
+}	

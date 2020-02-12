@@ -1917,7 +1917,7 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0)
+        hit_turret_front__gun_brake(0.95)
         hit_turret__turret_destroy(0)
         hit_turret__turret_brake(0)
 ;///////Engineer_Den+ ////////////////

@@ -66,7 +66,7 @@
         pierce_turret_back__turret_brake(0.95)
         pierce_turret_left_right__turret_brake(0.95)
 
-        pierce_turret_front__gun_brake(0.95) pierce_mantlet__gun_brake(0.95)
+        pierce_turret_front__gun_brake(0.95) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.95)
         pierce_turret_left_right__gun_brake(0.95)
 
@@ -110,7 +110,7 @@
         pierce_turret_back__turret_brake(0.1)
         pierce_turret_left_right__turret_brake(0.1)
 
-        pierce_turret_front__gun_brake(0.1) pierce_mantlet__gun_brake(0.1)
+        pierce_turret_front__gun_brake(0.1) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.1)
         pierce_turret_left_right__gun_brake(0.1)
 
@@ -154,7 +154,7 @@
         pierce_turret_back__turret_brake(0.1)
         pierce_turret_left_right__turret_brake(0.1)
 
-        pierce_turret_front__gun_brake(0.1) pierce_mantlet__gun_brake(0.1)
+        pierce_turret_front__gun_brake(0.1) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.1)
         pierce_turret_left_right__gun_brake(0.1)
 
@@ -198,7 +198,7 @@
         pierce_turret_back__turret_brake(0.50)
         pierce_turret_left_right__turret_brake(0.50)
 
-        pierce_turret_front__gun_brake(0.50) pierce_mantlet__gun_brake(0.1)
+        pierce_turret_front__gun_brake(0.50) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.50)
         pierce_turret_left_right__gun_brake(0.50)
 
@@ -242,7 +242,7 @@
         pierce_turret_back__turret_brake(0.50)
         pierce_turret_left_right__turret_brake(0.50)
 
-        pierce_turret_front__gun_brake(0.50) pierce_mantlet__gun_brake(0.1)
+        pierce_turret_front__gun_brake(0.50) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.50)
         pierce_turret_left_right__gun_brake(0.50)
 
@@ -286,7 +286,7 @@
         pierce_turret_back__turret_brake(0.50)
         pierce_turret_left_right__turret_brake(0.50)
 
-        pierce_turret_front__gun_brake(0.50) pierce_mantlet__gun_brake(0.1)
+        pierce_turret_front__gun_brake(0.50) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.50)
         pierce_turret_left_right__gun_brake(0.50)
 
@@ -330,7 +330,7 @@
         pierce_turret_back__turret_brake(0.99)
         pierce_turret_left_right__turret_brake(0.99)
 
-        pierce_turret_front__gun_brake(0.95) pierce_mantlet__gun_brake(0.95)
+        pierce_turret_front__gun_brake(0.95) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.95)
         pierce_turret_left_right__gun_brake(0.95)
 
@@ -924,7 +924,7 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.90)
+        hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0.50)
         hit_turret__turret_brake(0.60)
         imp(0)
@@ -943,7 +943,7 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.5)
+        hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0)
         hit_turret__turret_brake(0.2)
         imp(0)
@@ -962,7 +962,7 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.5)
+        hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0)
         hit_turret__turret_brake(0.2)
         imp(0)
@@ -981,7 +981,7 @@
         hit_body__engine_brake(0.10)
         ;--------------------------
         hit_turret__explosive(0.10)
-        hit_turret_front__gun_brake(0.35)
+        hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0.10)
         hit_turret__turret_brake(0.30)
         imp(0)
@@ -1000,7 +1000,7 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.95)
+        hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0.95)
         hit_turret__turret_brake(0.95)
         imp(0)

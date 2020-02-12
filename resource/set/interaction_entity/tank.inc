@@ -184,8 +184,8 @@
                                     {components "gun" break}
                                     {damage_report "gun" "component/gun_broken"}
                                 }
-                            else
-                                {call "turret_break"}
+                            ;else
+                            ;    {call "turret_break"}
                             }
                             ;{if rand %pierce_turret_front__turret_brake
                             ;   {components "turret" break}
@@ -1832,8 +1832,8 @@
                                                 {components "gun" break}
                                                 {damage_report "gun" "component/gun_broken"}
                                             }
-										else
-											{call "turret_break"}
+										;else
+										;	{call "turret_break"}
 										}
                                         ;{if rand %pierce_turret_front__turret_brake
                                         ;   {components "turret" break}
@@ -2625,8 +2625,8 @@
                                                 {components "gun" break}
                                                 {damage_report "gun" "component/gun_broken"}
                                             }
-										else
-											{call "turret_break"}
+										;else
+										;	{call "turret_break"}
 										}
                                         ;{if rand %pierce_turret_front__turret_brake
                                         ;   {components "turret" break}

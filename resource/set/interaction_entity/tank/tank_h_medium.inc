@@ -66,7 +66,7 @@
         pierce_turret_back__turret_brake(0.10)
         pierce_turret_left_right__turret_brake(0.10)
 
-        pierce_turret_front__gun_brake(0.15) pierce_mantlet__gun_brake(0.15)
+        pierce_turret_front__gun_brake(0.15) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.15)
         pierce_turret_left_right__gun_brake(0.15)
 
@@ -374,7 +374,7 @@
         pierce_turret_back__turret_brake(0.99)
         pierce_turret_left_right__turret_brake(0.99)
 
-        pierce_turret_front__gun_brake(0.95) pierce_mantlet__gun_brake(0.01)
+        pierce_turret_front__gun_brake(0.95) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.95)
         pierce_turret_left_right__gun_brake(0.95)
 
@@ -418,7 +418,7 @@
         pierce_turret_back__turret_brake(0.99)
         pierce_turret_left_right__turret_brake(0.99)
 
-        pierce_turret_front__gun_brake(0.95) pierce_mantlet__gun_brake(0.01)
+        pierce_turret_front__gun_brake(0.95) pierce_mantlet__gun_brake(0)
         pierce_turret_back__gun_brake(0.95)
         pierce_turret_left_right__gun_brake(0.95)
 
@@ -1000,7 +1000,7 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.5)
+        hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0)
         hit_turret__turret_brake(0)
         imp(0)
@@ -1019,12 +1019,12 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.10)
+        hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0)
         hit_turret__turret_brake(0.10)
         imp(0)
         hit_tank__tank_destroy(0)
-        hit_engine__engine_brake(0)
+        hit_engine__engine_brake(0.50)
     )
     ;///////////////////////////////////////////////////////// Gun shells AP hit 100 - 107	
     ("damage_process_bullet_hit"
@@ -1038,12 +1038,12 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.20)
+        hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0)
         hit_turret__turret_brake(0.15)
         imp(0)
         hit_tank__tank_destroy(0)
-        hit_engine__engine_brake(0)
+        hit_engine__engine_brake(0.80)
     )		
     ;///////////////////////////////////////////////////////// Gun shells AP hit 120 - 130	
     ("damage_process_bullet_hit"

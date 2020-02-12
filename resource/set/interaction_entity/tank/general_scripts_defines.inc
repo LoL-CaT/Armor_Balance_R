@@ -100,7 +100,7 @@
 				{ani_play "open" +1.0 resume}
 			}
 		else
-			{if crew_in_place "gunner20"
+			{if crew_in_place "gunner2020"
 				{call "gunner_hatch_open"}
 			else
 				{if %wind
