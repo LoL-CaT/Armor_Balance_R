@@ -22,60 +22,60 @@
 		)
 	)
 	{"human"
-		{distance ("scale" d(750))
+		{distance ("scale" d(300))
 			; LOD1
 		}
-		{distance ("scale" d(1400))
+		{distance ("scale" d(800))
 			; LOD2
 		}
-		{distance ("scale" d(2500))
+		{distance ("scale" d(1500))
 			; LOD3
 		}
-		{distance ("scale" d(3000))
+		{distance ("scale" d(2000))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(4000))
+		{distance ("scale" d(2500))
 			("off")
 		}
 	}
 	{"vehicle_civilian"
-		{distance ("scale" d(2500))
+		{distance ("scale" d(1000))
 			; LOD1
 		}
-		{distance ("scale" d(3500))
+		{distance ("scale" d(1500))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(4000))
+		{distance ("scale" d(2000))
 			("off")
 		}
 	}
 	{"vehicle_small"
-		{distance ("scale" d(2500))
+		{distance ("scale" d(1000))
 			; LOD1
 		}
-		{distance ("scale" d(3500))
+		{distance ("scale" d(2000))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(5000))
+		{distance ("scale" d(3000))
 			("off")
 		}
 	}
 	{"vehicle_big"
-		{distance ("scale" d(3000))
+		{distance ("scale" d(2000))
 			; LOD1
 		}
-		{distance ("scale" d(4000))
+		{distance ("scale" d(2500))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(7000))
+		{distance ("scale" d(3500))
 			("off")
 		}
 	}
@@ -86,44 +86,44 @@
 		{distance ("scale" d(600))
 			; LOD2
 		}
-		{distance ("scale" d(1000))
+		{distance ("scale" d(800))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(1200))
+		{distance ("scale" d(1000))
 			("off_small")
 		}
 	}
 	{"part_small"
-		{distance ("scale" d(400))
+		{distance ("scale" d(40))
 			; LOD1
 		}
-		{distance ("scale" d(800))
+		{distance ("scale" d(80))
 			; LOD2
 		}
-		{distance ("scale" d(1200))
+		{distance ("scale" d(120))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(1500))
+		{distance ("scale" d(150))
 			("off_small")
 		}
 	}
 	{"part_big"
-		{distance ("scale" d(800))
+		{distance ("scale" d(80))
 			; LOD1
 		}
-		{distance ("scale" d(1200))
+		{distance ("scale" d(120))
 			; LOD2
 		}
-		{distance ("scale" d(1800))
+		{distance ("scale" d(180))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(2000))
+		{distance ("scale" d(200))
 			("off")
 		}
 	}
@@ -143,19 +143,19 @@
 			("off_small")
 		}
 	}
-	{"decor_small"
-		{distance ("scale" d(500))
+	{"decor_small"                   ; ежи и пр.
+		{distance ("scale" d(750))
 			; LOD1
 		}
-		{distance ("scale" d(1200))
+		{distance ("scale" d(1500))
 			; LOD2
 		}
-		{distance ("scale" d(1500))
+		{distance ("scale" d(2000))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(2000))
+		{distance ("scale" d(3000))
 			("off_small")
 		}
 	}
@@ -189,24 +189,24 @@
 		}
 	}
 	{"decor_tree"
-		{distance ("scale" d(500))
+		{distance ("scale" d(50))
 			; LOD1
 		}
-		{distance ("scale" d(800))
+		{distance ("scale" d(100))
 			; LOD2
 		}
-		{distance ("scale" d(1000))
+		{distance ("scale" d(250))
 			; LOD3
 		}
-		{distance ("scale" d(1500))
+		{distance ("scale" d(500))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(2000))
+		{distance ("scale" d(800))
 			; LOD5
 		}
 	}
-	{GrassDistance ("scale" d(2400))}
-	{GrassFadeDepth ("scale" d(800))}
+	{GrassDistance ("scale" d(400))}
+	{GrassFadeDepth ("scale" d(80))}
 ;}

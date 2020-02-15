@@ -1828,6 +1828,117 @@ actor
     }
 )
 
+(define "armor_spa_medium_it"
+    {volume "turret"
+       {component "turret"}
+       {tags "turret" "body"}
+    }
+    ("components_tank" repair(2))
+    {armor
+        {setting "track"
+            {thickness 20}
+            {whole_wound}
+            {durability
+                {blast
+                    {value 100}
+                }
+                {pierce
+                    {value 100}
+                }
+            }
+            {threshold
+                {blast
+                    {value 9}
+                }
+                {pierce
+                    {value 3000}
+                }				
+            }
+            {volumes "track*"}
+        }	
+        {setting "body"
+            {thickness %armor}
+			{durability
+				{blast
+					{koef 33}
+				}
+				{pierce
+                    {koef 200}
+                }
+			}
+			{threshold
+                {blast
+                    {koef  3}
+                }
+			}
+            {volumes "body2"}
+        }
+        {setting "body1"
+            {thickness %body1}
+			{durability
+				{blast
+					{koef 33}
+				}
+				{pierce
+                    {koef 200}
+                }
+			}
+			{threshold
+                {blast
+                    {koef  3}
+                }
+			}
+            {volumes "body1"}
+        }
+        {setting "engine"
+            {thickness 5}
+            {durability
+                {blast
+                    {koef 3000}
+                }
+        		{pierce
+                    {koef 4000}
+                }				
+            }
+            {threshold
+                {blast
+                    {koef 3000}
+                }
+        		{pierce
+                    {koef 4000}
+                }				
+            }
+           {volumes "engine*"}
+        }
+        {setting "gun"
+            {thickness 20}
+            {durability
+                {blast  {koef 100}}
+                {pierce  {koef 100}}
+            }
+            {threshold
+                {blast
+                    {value 3}
+                }
+                {pierce
+                    {value 3000}
+                }
+            }
+            {volumes "gun*"}
+        }
+    }
+
+    {sensor
+        {visor "view-around"
+            {vision "none"}
+            {bone "basis"}
+        }
+        {visor "main"
+            {vision "tank_main-m"}
+        }
+    }
+)
+
 (define "armor_spa_268"
     {volume "turret"
        {component "turret"}
