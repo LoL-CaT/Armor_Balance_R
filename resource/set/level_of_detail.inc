@@ -36,7 +36,7 @@
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(2500))
+		{distance ("scale" d(3500))
 			("off")
 		}
 	}
