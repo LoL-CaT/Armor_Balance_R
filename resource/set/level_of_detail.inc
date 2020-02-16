@@ -83,15 +83,15 @@
 		{distance ("scale" d(180))
 			; LOD1
 		}
-		{distance ("scale" d(600))
+		{distance ("scale" d(300))
 			; LOD2
 		}
-		{distance ("scale" d(800))
+		{distance ("scale" d(600))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(1000))
+		{distance ("scale" d(800))
 			("off_small")
 		}
 	}
@@ -171,7 +171,7 @@
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(3000))
+		{distance ("scale" d(2500))
 			("off")
 		}
 	}
@@ -182,7 +182,7 @@
 		{distance ("scale" d(1600))
 			; LOD2
 		}
-		{distance ("scale" d(2400))
+		{distance ("scale" d(2500))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
@@ -198,15 +198,15 @@
 		{distance ("scale" d(250))
 			; LOD3
 		}
-		{distance ("scale" d(500))
+		{distance ("scale" d(400))
 			{NoGetShadow}
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(800))
+		{distance ("scale" d(600))
 			; LOD5
 		}
 	}
-	{GrassDistance ("scale" d(400))}
-	{GrassFadeDepth ("scale" d(80))}
+	{GrassDistance ("scale" d(300))}
+	{GrassFadeDepth ("scale" d(40))}
 ;}

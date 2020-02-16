@@ -173,8 +173,8 @@
 				{if	stuff "sniper" {die}}
 				{if	stuff "pistol"	{if rand 0.85 {call "die"} ("health_damage" c(35))}}
 				{if	stuff "smg"	{if rand 0.85 {call "die"} ("health_damage" c(35))}}
-				{if	stuff "mgun" {if rand 0.9 {call "die"} ("health_damage" c(35))}}
-				{if	stuff "rifle" {if rand 0.95 {call "die"} ("health_damage" c(35))}}
+				{if	stuff "mgun" {if rand 0.95 {call "die"} ("health_damage" c(35))}}
+				{if	stuff "rifle" {if rand 0.9 {call "die"} ("health_damage" c(35))}}
 			}
 			{if rand 0.3
 				{take_off "head"
@@ -188,7 +188,7 @@
 				{if	stuff "pistol"	{if rand 0.5 {call "die"} ("health_damage" c(35))}}
 				{if	stuff "smg"	{if rand 0.5 {call "die"} ("health_damage" c(35))}}
 				{if	stuff "mgun" {if rand 0.75 {call "die"} ("health_damage" c(35))}}
-				{if	stuff "rifle" {if rand 0.65 {call "die"} ("health_damage" c(35))}}			
+				{if	stuff "rifle" {if rand 0.6 {call "die"} ("health_damage" c(35))}}			
 			}
 		}
 	}
