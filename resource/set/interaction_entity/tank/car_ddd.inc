@@ -1,4 +1,4 @@
-; --Штурмовик
+; --Тачка
 {on pierce
    ;///////////////////////////////////////////////////////// Bullet
     ("damage_process_pierce"
@@ -32,17 +32,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.10)
-        pierce_body__kill_gunner(0.10)
-        pierce_body__kill_driver(0.05)
-        pierce_body__kill_commander(0.10)
-        pierce_body__kill_gunner2(0.10)
+        pierce_body__kill_charger(0.50)
+        pierce_body__kill_gunner(0.50)
+        pierce_body__kill_driver(0.45)
+        pierce_body__kill_commander(0.50)
+        pierce_body__kill_gunner2(0.50)
     ;--------------------------
-        pierce_turret__kill_charger(0.10)
-        pierce_turret__kill_gunner(0.10)
-        pierce_turret__kill_driver(0.01)
-        pierce_turret__kill_commander(0.10)
-        pierce_turret__kill_gunner2(0.10)
+        pierce_turret__kill_charger(0.50)
+        pierce_turret__kill_gunner(0.50)
+        pierce_turret__kill_driver(0.41)
+        pierce_turret__kill_commander(0.50)
+        pierce_turret__kill_gunner2(0.50)
     )
 	;///////////////////////////////////////////////////////// Heavy bullet
     ("damage_process_pierce"
@@ -76,17 +76,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.10)
-        pierce_body__kill_gunner(0.10)
-        pierce_body__kill_driver(0.05)
-        pierce_body__kill_commander(0.10)
-        pierce_body__kill_gunner2(0.10)
+        pierce_body__kill_charger(0.50)
+        pierce_body__kill_gunner(0.50)
+        pierce_body__kill_driver(0.45)
+        pierce_body__kill_commander(0.50)
+        pierce_body__kill_gunner2(0.50)
     ;--------------------------
-        pierce_turret__kill_charger(0.10)
-        pierce_turret__kill_gunner(0.10)
-        pierce_turret__kill_driver(0.01)
-        pierce_turret__kill_commander(0.10)
-        pierce_turret__kill_gunner2(0.10)
+        pierce_turret__kill_charger(0.50)
+        pierce_turret__kill_gunner(0.50)
+        pierce_turret__kill_driver(0.41)
+        pierce_turret__kill_commander(0.50)
+        pierce_turret__kill_gunner2(0.50)
     )	
     ;///////////////////////////////////////////////////////// Ptr bullet
    ("damage_process_pierce"
@@ -120,17 +120,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.10)
-        pierce_body__kill_gunner(0.10)
-        pierce_body__kill_driver(0.05)
-        pierce_body__kill_commander(0.10)
-        pierce_body__kill_gunner2(0.10)
+        pierce_body__kill_charger(0.50)
+        pierce_body__kill_gunner(0.50)
+        pierce_body__kill_driver(0.45)
+        pierce_body__kill_commander(0.50)
+        pierce_body__kill_gunner2(0.50)
     ;--------------------------
-        pierce_turret__kill_charger(0.10)
-        pierce_turret__kill_gunner(0.10)
-        pierce_turret__kill_driver(0.01)
-        pierce_turret__kill_commander(0.10)
-        pierce_turret__kill_gunner2(0.10)
+        pierce_turret__kill_charger(0.50)
+        pierce_turret__kill_gunner(0.50)
+        pierce_turret__kill_driver(0.41)
+        pierce_turret__kill_commander(0.50)
+        pierce_turret__kill_gunner2(0.50)
     )
     ;///////////////////////////////////////////////////////// Gun shells AP 14 - 19
    ("damage_process_pierce"
@@ -164,17 +164,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.10)
-        pierce_body__kill_gunner(0.10)
-        pierce_body__kill_driver(0.05)
-        pierce_body__kill_commander(0.10)
-        pierce_body__kill_gunner2(0.10)
+        pierce_body__kill_charger(0.50)
+        pierce_body__kill_gunner(0.50)
+        pierce_body__kill_driver(0.45)
+        pierce_body__kill_commander(0.50)
+        pierce_body__kill_gunner2(0.50)
     ;--------------------------
-        pierce_turret__kill_charger(0.10)
-        pierce_turret__kill_gunner(0.10)
-        pierce_turret__kill_driver(0.01)
-        pierce_turret__kill_commander(0.10)
-        pierce_turret__kill_gunner2(0.10)
+        pierce_turret__kill_charger(0.50)
+        pierce_turret__kill_gunner(0.50)
+        pierce_turret__kill_driver(0.41)
+        pierce_turret__kill_commander(0.50)
+        pierce_turret__kill_gunner2(0.50)
     )
     ;///////////////////////////////////////////////////////// Gun shells AP 20 - 28	
    ("damage_process_pierce"
@@ -187,8 +187,8 @@
         pierce_inventory__explosive(0.05)
     ;--------------------------
         pierce_body__burn(0)
-        pierce_body__body_brake(0.31)
-        pierce_body__body_destroy(0.31)
+        pierce_body__body_brake(0.61)
+        pierce_body__body_destroy(0.41)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
@@ -208,17 +208,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.15)
-        pierce_body__kill_gunner(0.15)
-        pierce_body__kill_driver(0.10)
-        pierce_body__kill_commander(0.15)
-        pierce_body__kill_gunner2(0.15)
+        pierce_body__kill_charger(0.60)
+        pierce_body__kill_gunner(0.60)
+        pierce_body__kill_driver(0.55)
+        pierce_body__kill_commander(0.60)
+        pierce_body__kill_gunner2(0.60)
     ;--------------------------
-        pierce_turret__kill_charger(0.10)
-        pierce_turret__kill_gunner(0.10)
-        pierce_turret__kill_driver(0.05)
-        pierce_turret__kill_commander(0.10)
-        pierce_turret__kill_gunner2(0.10)
+        pierce_turret__kill_charger(0.60)
+        pierce_turret__kill_gunner(0.60)
+        pierce_turret__kill_driver(0.51)
+        pierce_turret__kill_commander(0.60)
+        pierce_turret__kill_gunner2(0.60)
     )
     ;///////////////////////////////////////////////////////// Gun shells AP 30 - 37	
    ("damage_process_pierce"
@@ -231,8 +231,8 @@
         pierce_inventory__explosive(0.05)
     ;--------------------------
         pierce_body__burn(0)
-        pierce_body__body_brake(0.59)
-        pierce_body__body_destroy(0.59)
+        pierce_body__body_brake(0.71)
+        pierce_body__body_destroy(0.71)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
@@ -252,17 +252,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.20)
-        pierce_body__kill_gunner(0.20)
-        pierce_body__kill_driver(0.15)
-        pierce_body__kill_commander(0.20)
-        pierce_body__kill_gunner2(0.20)
+        pierce_body__kill_charger(0.70)
+        pierce_body__kill_gunner(0.70)
+        pierce_body__kill_driver(0.65)
+        pierce_body__kill_commander(0.70)
+        pierce_body__kill_gunner2(0.70)
     ;--------------------------
-        pierce_turret__kill_charger(0.15)
-        pierce_turret__kill_gunner(0.15)
-        pierce_turret__kill_driver(0.10)
-        pierce_turret__kill_commander(0.15)
-        pierce_turret__kill_gunner2(0.15)
+        pierce_turret__kill_charger(0.70)
+        pierce_turret__kill_gunner(0.70)
+        pierce_turret__kill_driver(0.61)
+        pierce_turret__kill_commander(0.70)
+        pierce_turret__kill_gunner2(0.70)
     )
     ;///////////////////////////////////////////////////////// Gun shells AP 40 - 57
    ("damage_process_pierce"	
@@ -296,17 +296,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.25)
-        pierce_body__kill_gunner(0.25)
-        pierce_body__kill_driver(0.20)
-        pierce_body__kill_commander(0.25)
-        pierce_body__kill_gunner2(0.25)
+        pierce_body__kill_charger(0.80)
+        pierce_body__kill_gunner(0.80)
+        pierce_body__kill_driver(0.75)
+        pierce_body__kill_commander(0.80)
+        pierce_body__kill_gunner2(0.80)
     ;--------------------------
-        pierce_turret__kill_charger(0.20)
-        pierce_turret__kill_gunner(0.20)
-        pierce_turret__kill_driver(0.15)
-        pierce_turret__kill_commander(0.20)
-        pierce_turret__kill_gunner2(0.20)
+        pierce_turret__kill_charger(0.80)
+        pierce_turret__kill_gunner(0.80)
+        pierce_turret__kill_driver(0.71)
+        pierce_turret__kill_commander(0.80)
+        pierce_turret__kill_gunner2(0.80)
     )
     ;///////////////////////////////////////////////////////// Gun shells AP 70 - 77
    ("damage_process_pierce"	
@@ -855,6 +855,63 @@
                     ;else stuff "big shell"
                     ;    ;{ani_play "hit"}
                     ;}
+    ;///////////////////////////////////////////////////////// Gun shells APZ hit 20 - 28 Z	
+    ("damage_process_bullet_hit"
+       staff(fg_20_28az)
+
+        hit_body__explosive(0)
+        hit_body__engine_burn(0)
+        hit_body__body_destroy(0)
+        hit_body__body_brake(0.80)
+        ;--------------------------
+        hit_body__engine_brake(0)
+        ;--------------------------
+        hit_turret__explosive(0)
+        hit_turret_front__gun_brake(0.80)
+        hit_turret__turret_destroy(0)
+        hit_turret__turret_brake(0.80)
+        imp(0)
+        hit_tank__tank_destroy(0)
+        hit_engine__engine_brake(0)
+    )
+    ;///////////////////////////////////////////////////////// Gun shells APZ hit 30 - 37 Z	
+    ("damage_process_bullet_hit"
+       staff(fg_30_37az)
+
+        hit_body__explosive(0)
+        hit_body__engine_burn(0)
+        hit_body__body_destroy(0)
+        hit_body__body_brake(0.80)
+        ;--------------------------
+        hit_body__engine_brake(0)
+        ;--------------------------
+        hit_turret__explosive(0)
+        hit_turret_front__gun_brake(0.80)
+        hit_turret__turret_destroy(0)
+        hit_turret__turret_brake(0.80)
+        imp(0)
+        hit_tank__tank_destroy(0)
+        hit_engine__engine_brake(0)
+    )	
+    ;///////////////////////////////////////////////////////// Gun shells APZ hit 40 - 57 Z	
+    ("damage_process_bullet_hit"
+       staff(fg_40_57az)
+
+        hit_body__explosive(0)
+        hit_body__engine_burn(0)
+        hit_body__body_destroy(0.95)
+        hit_body__body_brake(0.95)
+        ;--------------------------
+        hit_body__engine_brake(0.95)
+        ;--------------------------
+        hit_turret__explosive(0)
+        hit_turret_front__gun_brake(0.95)
+        hit_turret__turret_destroy(0.95)
+        hit_turret__turret_brake(0.95)
+        imp(0)
+        hit_tank__tank_destroy(0.1)
+        hit_engine__engine_brake(0.95)
+    )					
     ;///////////////////////////////////////////////////////// Gun shells AP hit 70 - 77	
     ("damage_process_bullet_hit"
        staff(ap_70_77a)
