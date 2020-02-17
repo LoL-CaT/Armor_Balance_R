@@ -188,7 +188,7 @@
 				{if	stuff "pistol"	{if rand 0.5 {call "die"} ("health_damage" c(35))}}
 				{if	stuff "smg"	{if rand 0.5 {call "die"} ("health_damage" c(35))}}
 				{if	stuff "mgun" {if rand 0.75 {call "die"} ("health_damage" c(35))}}
-				{if	stuff "rifle" {if rand 0.6 {call "die"} ("health_damage" c(35))}}			
+				{if	stuff "rifle" {if rand 0.55 {call "die"} ("health_damage" c(35))}}			
 			}
 		}
 	}
