@@ -11,6 +11,13 @@
 			{viewAngle 20 50}
 		}
 	}
+	{Ocean
+		{active 0}
+		{state calm}
+		{zlevel 0}
+		{waveamount 8}
+		{wavedir 50}
+	}
 	{Entity "stone_landslip" 0x1
 		{Position -2353.98 -759.45}
 		{xform zl 165.87}
@@ -701,6 +708,7 @@
 	}
 	{Entity "bonfire" 0x2006
 		{Position -66.59 -1560.49 197.82}
+		{AreaDisable "cut"}
 	}
 	{Entity "stone11" 0x2007
 		{Position -185.1 -1352.44 197}
@@ -7009,6 +7017,7 @@
 	}
 	{Entity "bonfire" 0x6116
 		{Position 2151.1 1553.16 -25}
+		{AreaDisable "cut"}
 	}
 	{Entity "delphinium" 0x300a
 		{Position 10.09 2371.43 193}
@@ -13253,11 +13262,6 @@
 			{SignalDepend "movement shot explosion sound"}
 		}
 	}
-	{Entity "ds39" 0x140
-		{Extender "stuff"
-			{Item "ds" filled}
-		}
-	}
 	{Entity "shed102_corner4" 0x410b
 		{TexMod
 			{"/texture/common/wall/wall_brick_sh02" "2"}
@@ -13298,7 +13302,7 @@
 		{box
 			{clear}
 			{item "mgun" "ammo" 600 {cell 0 0}}
-			{item 0x140 {cell 0 1}{user "mgun"}}
+			{item "ds" filled {cell 0 1}}
 		}
 	}
 	{Slicer 0x3405
