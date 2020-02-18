@@ -1,0 +1,57 @@
+﻿{game_entity ; Зенитный автомат. Неподвижный.
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "cannon_small" "flak" "turret" "vision_cannon_minimum" "muzzle_zenite" "round_sandbag2"}
+        {targetSelector "cannon_shell_flak"}
+	{collider "cannon_small"}
+
+	("armor_medium")
+
+	("crew_2_human")
+			{placer	{place "gunner" {visor "main"} {useVision 0}}}	
+			
+			{boarder
+				{anm "gunner"
+					{forward	{end "pose_flak38-1_gunlayer" 10}}
+				}
+				{anm "commander"
+					{forward	{end "pose_pak40_charger" 10}}
+				}
+		}
+		{extender "cannon"
+			{animation
+								{aim	"cannon_flak38-1_gunlayer" ""}
+								{reload	"" "cannon_pak40_charger"}
+			}
+			{move {workers clear} {obstacle "close"}}
+			{attack {workers "gunner" "commander"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo bullet20x125 zenite" 100}
+			{item "ammo bullet20x125 ap" 100}
+			{item "ammo bullet20x125 fg" 100}
+		    {item "sandbag_kit2" 25}
+;           {item "plant" 5}
+		}
+	}
+	
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_type98" filling "ammo bullet20x125 zenite" 30}
+			{Rotate}
+		}
+	}   	
+	{mass 1500}
+	{Extension "type2_20mm_stand.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	
+	{bone "turret"
+		{speed2 40}
+	}
+	{bone "gun_rot"
+	    {limits -5 85}	
+		{speed2 25}
+	}	
+	
+}
