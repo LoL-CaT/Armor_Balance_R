@@ -1323,7 +1323,7 @@
 		 else min_energy 24
 			{impulse up 0.01 0.01 dir 0.3 0.1}
 			{if volume "turret"
-				{if rand 0.1
+				{if rand 0.05
 					{call "tear_turret"}
 				}
 			}
