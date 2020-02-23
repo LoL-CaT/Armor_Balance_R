@@ -926,8 +926,13 @@
 
 {"l_light tank"
 	{on blast_hit
-		{if min_energy 6
+		{if min_energy 36
 			{impulse up 0.3 0.2 dir 1 0.2}
+			{if volume "turret"
+				{call "tear_turret"}
+			}
+		else min_energy 6
+			{impulse up 0.15 0.05 dir 0.35 0.1}
 			{if volume "turret"
 				{call "tear_turret"}
 			}
@@ -950,8 +955,13 @@
 
 {"light tank"
 	{on blast_hit
-		{if min_energy 6
+		{if min_energy 36
 			{impulse up 0.3 0.2 dir 1 0.2}
+			{if volume "turret"
+				{call "tear_turret"}
+			}
+		else min_energy 6
+			{impulse up 0.15 0.05 dir 0.35 0.1}
 			{if volume "turret"
 				{call "tear_turret"}
 			}
@@ -974,11 +984,16 @@
 
 {"h_light tank"
 	{on blast_hit
-		{if min_energy 6
+		{if min_energy 36
 			{impulse up 0.3 0.2 dir 1 0.2}
 			{if volume "turret"
 				{call "tear_turret"}
 			}
+		else min_energy 6
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{call "tear_turret"}
+			}			
 		else min_energy  5.5
 			{impulse up 0.15 0.05 dir 0.35 0.1}
 			{call "tear_turret"}
@@ -999,8 +1014,15 @@
 {"l_medium tank"
 	{inflammation_time 35}
 	{on blast_hit
-		{if min_energy 15
-			{impulse up 0.3 0.2 dir 1 0.2}
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0.95
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 15
+			{impulse up 0.15 0.05 dir 0.35 0.1}
 			{if volume "turret"
 				{if rand 0.95
 					{call "tear_turret"}
@@ -1036,8 +1058,15 @@
 {"medium tank"
 	{inflammation_time 35}
 	{on blast_hit
-		{if min_energy 15
-			{impulse up 0.3 0.2 dir 1 0.2}
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0.95
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 15
+			{impulse up 0.15 0.05 dir 0.35 0.1}
 			{if volume "turret"
 				{if rand 0.95
 					{call "tear_turret"}
@@ -1073,13 +1102,20 @@
 {"h_medium tank"
 	{inflammation_time 35}
 	{on blast_hit
-		{if min_energy 15
+		{if min_energy 36
 			{impulse up 0.25 0.05 dir 2.5 0.1}
 			{if volume "turret"
 				{if rand 0.95
 					{call "tear_turret"}
 				}
 			}
+		else min_energy 15
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0.95
+					{call "tear_turret"}
+				}
+			}			
 		else min_energy 9
 			{impulse up 0.15 0.05 dir 0.35 0.1}
 			{if volume "turret"
