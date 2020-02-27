@@ -231,7 +231,7 @@
         pierce_inventory__explosive(0)
     ;--------------------------
         pierce_body__burn(0)
-        pierce_body__body_brake(0)
+        pierce_body__body_brake(10)
         pierce_body__body_destroy(0)
     ;--------------------------
 		  crew_shock_time(0)
@@ -319,7 +319,7 @@
         pierce_inventory__explosive(0.2)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.50)
+        pierce_body__body_brake(0.70)
         pierce_body__body_destroy(0.2)
     ;--------------------------
 		  crew_shock_time(0.30)
