@@ -1,7 +1,8 @@
 {actor
 	(include "/properties/cannon_mgun.ext")
-	{props "vision_cannon_minimum" "cannon" "round_sandbag" "cannon_small"}
+	{props "vision_cannon_minimum" "cannon" "round_sandbag" "cannon_small" "flak"}
 	{collider "cannon_small"}
+        {targetSelector "cannon_bullet_h_flak"}	
 
 	{props "wheeled"}
 	("wheel" args "wheelright")
@@ -70,4 +71,13 @@
 	}
 	{Volume "stan3"
 	}
+	
+	{bone "turret"
+		{speed2 75}
+	}
+	{bone "gun_rot"
+	    {limits -10 85}	
+		{speed2 75}
+	}	
+	
 }
