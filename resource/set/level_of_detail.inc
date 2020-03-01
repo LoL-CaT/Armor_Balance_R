@@ -54,20 +54,7 @@
 		}
 	}
 	{"vehicle_small"
-		{distance ("scale" d(1000))
-			; LOD1
-		}
-		{distance ("scale" d(2000))
-			{NoGetShadow}
-			{NoFog}
-			{NoCastShadow}
-		}
-		{distance ("scale" d(3000))
-			("off")
-		}
-	}
-	{"vehicle_big"
-		{distance ("scale" d(2000))
+		{distance ("scale" d(1500))
 			; LOD1
 		}
 		{distance ("scale" d(2500))
@@ -75,7 +62,20 @@
 			{NoFog}
 			{NoCastShadow}
 		}
-		{distance ("scale" d(3500))
+		{distance ("scale" d(5000))
+			("off")
+		}
+	}
+	{"vehicle_big"
+		{distance ("scale" d(2000))
+			; LOD1
+		}
+		{distance ("scale" d(3000))
+			{NoGetShadow}
+			{NoFog}
+			{NoCastShadow}
+		}
+		{distance ("scale" d(6000))
 			("off")
 		}
 	}

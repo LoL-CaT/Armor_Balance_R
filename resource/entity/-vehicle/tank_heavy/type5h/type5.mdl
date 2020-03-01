@@ -7,8 +7,8 @@
 		{sequence "stop" {speed 0.5}}
 		{sequence "fire" {speed 0.7}}
 		{sequence "open" {resume} {speed 0.18}}
-		{sequence "doorleft" {speed 0.1}}
-		{sequence "doorright" {speed 0.1}}
+		{sequence "doorleft" {speed 0.05}}
+		{sequence "doorright" {speed 0.05}}
 	}
 	{bone "basis"
 		{parameters "Wheelradius=0.5;"}
@@ -28,7 +28,7 @@
 			{VolumeView "body.ply"}
 			{bone revolute "turret"
 				{parameters "ID=Turret;"}
-				{speed 0.006}
+				{speed 0.002}
 				{Matrix34
 					0	-1	0
 					1	0	0
@@ -36,14 +36,14 @@
 					0	-5.50679	19.7044
 				}
 				{VolumeView "turret.ply"}
-                                {bone "visor11"
+                {bone "visor11"
 					{Matrix34
 						-330.979925	-330.199368	0
 						330.199368	0.979925	0
 						0	0	1
 						-0.682715	6.52132	22.799
 					}
-				}
+				}				
 				{bone "visor12"
 					{Matrix34
 						-330.979925	0.199368	0
@@ -92,36 +92,14 @@
 						-0.682715	6.52132	22.799
 					}
 				}
-
-				{bone "visor17"
-					{Matrix34
-						330.979925	-330.199368	0
-						0.199368	0.979925	0
-						0	0	1
-						-0.682715	6.52132	22.799
-					}
-				}
-
-
-                               {bone "visor17"
-					{Matrix34
-						330.979925	-330.199368	0
-						0.199368	0.979925	0
-						0	0	1
-						-0.682715	6.52132	22.799
-					}
-				}
-
-
- 
-			       {bone "visor18"
+			    {bone "visor18"
 					{Matrix34
 						0.979925	-110.199368	0
 						-0.199368	0.979925	0
 						0	0	1
 						-0.682715	6.52132	22.799
 					}
-				}				
+				}								
 				{bone "detail19"
 					{parameters "ID=Turret;"}
 					{Matrix34
@@ -275,7 +253,7 @@
 				{bone revolute "gun_rot"
 					{parameters "ID=Gun;"}
 					{limits -20 10}
-					{speed 0.007}
+					{speed 0.003}
 					{Matrix34
 						1	0	0
 						0	0	-1
@@ -298,6 +276,15 @@
 								0	0	1
 								1	0	0
 								-0.000335284	44.6294	0.067749
+							}
+							{bone revolute "idf_fire"
+								{limits 7 7}
+								{Matrix34
+									1	0	0
+									0	1	0
+									0	0	1
+									0	0	0
+								}
 							}
 						}
 					}
@@ -503,8 +490,7 @@
 				{VolumeView "cover2.ply"}
 			}
 			{bone revolute "hull_rot"
-				{limits -10 10}
-				{speed 0.01}
+				{limits -15 15}
 				{Matrix34
 					0	-1	0
 					1	0	0
@@ -513,8 +499,7 @@
 				}
 				{bone revolute "gun_rot2"
 					{parameters "ID=Gun2;"}
-					{limits -10 10}
-					{speed 0.01}
+					{limits -15 15}
 					{Matrix34
 						1	0	0
 						0	0	-1
