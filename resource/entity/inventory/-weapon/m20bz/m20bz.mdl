@@ -1,0 +1,105 @@
+;Exported by: Admin
+;Date:        Sat Jun 25 05:07:48 2016
+;File:        D:\Склад\GUN\m202.max
+{Skeleton
+	{bone "body"
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "body.ply"}
+		{bone "handle"
+			{Matrix34
+				1	0	0
+				0	0.00470085	0.999989
+				0	-0.999989	0.00470076
+				5.81741	0.180645	2.20322
+			}
+		}
+		{bone "rocket"
+			{parameters "ID=mgun;"}
+			{Matrix34
+				0	-0.999989	0.00470112
+				1	0	0
+				0	0.00470119	0.999989
+				5.31216	0.00948477	1.13851
+			}
+			{VolumeView "rocket.ply"}
+		}
+		{bone "foresight3"
+			{Matrix34
+				0.999948	-0.0102244	4.81916e-005
+				0	-0.00470088	-0.999989
+				0.0102244	0.999937	-0.00470068
+				20.4824	0.0023433	1.14226
+			}
+		}
+		{bone "fxshot"
+			{Matrix34
+				-0.999693	0.0247746	4.72551e-005
+				6.89634e-005	0.00470041	-0.999989
+				-0.0247745	-0.999682	-0.00470065
+				-6.04214	0.00233966	1.14227
+			}
+		}
+	}
+}
+{Volume "body"
+	{Polyhedron "body.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	-0.999989	0.00470115
+		0	0.0047011	0.999989
+		7.17638	0.263199	1.08453
+	}
+}
+{Volume "select"
+	{Polyhedron "select.vol"}
+	{Bone "body"}
+	{Matrix34
+		-1	0	0
+		0	-0.999989	0.00470115
+		0	0.0047011	0.999989
+		7.17638	0.263199	1.08453
+	}
+}
+{Extender "preview"
+	{"Stuff_primary"
+		{camera
+			{origin 3.93137	53.4966	0.941539}
+			{lookat 3.93137	-0.0386695	1.03651}
+			{fov 30.7899}
+			{horizon 11.9995}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 5.57153	22.7479	-14.0659}
+			}
+			{"1"
+				{type directional}
+				{direction 0	-0.379154	-0.325948}
+			}
+		}
+	}
+	{"Stuff"
+		{camera
+			{origin 4.01418	51.8214	0.790306}
+			{lookat 4.01418	-0.0394668	0.884571}
+			{fov 30.7899}
+			{horizon 15.9999}
+		}
+		{lights
+			{"0"
+				{type directional}
+				{direction 0	-0.379154	-0.325948}
+			}
+			{"1"
+				{type point}
+				{position 5.84087	25.187	-9.06628}
+			}
+		}
+	}
+}

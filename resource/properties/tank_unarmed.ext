@@ -3079,6 +3079,115 @@ actor
 	}
 )
 
+(define "armor_sheavy_mega_shit_t5h"
+    {armor
+        {setting "track"
+            {thickness 60}
+            {durability
+                {blast
+                    {koef 2000}
+                }
+                {pierce
+                    {value 2000}
+                }
+            }
+            {threshold
+                {blast
+                    {value 9}
+                }
+                {pierce
+                    {value 3000}
+                }
+            }
+            {volumes "track*"}
+            {whole_wound}
+        }
+        {setting "turret"
+            {thickness %turret}
+         
+            {durability
+                {blast
+                    {koef 2000}
+                }
+        		{pierce
+                    {koef 2000}
+                }
+            }
+        
+            {threshold
+                {blast
+                    {koef 3}
+                }
+            }
+            {volumes "turret*"}
+        }
+        {setting "gun"
+            {thickness 250}
+            {durability
+                {blast  {koef 2000}}
+                {pierce {koef 2000}}
+            }
+            {threshold
+                {blast
+                    {value 3}
+                }
+                {pierce
+                    {value 3000}
+                }
+            }
+            {volumes "gun*"}
+        }
+        {setting "body"
+            {thickness %body}
+            {durability
+                {blast
+                    {koef 4000}
+                }
+        		{pierce
+                    {koef 4000}
+                }
+            }
+            {threshold
+                {blast
+                    {koef 3}
+                }
+            }
+            {volumes "body*"}			
+        }
+        {setting "engine"
+            {thickness 150}
+            {durability
+                {blast
+                    {koef 3000}
+                }
+        		{pierce
+                    {koef 4000}
+                }				
+            }
+            {threshold
+                {blast
+                    {koef 3000}
+                }
+        		{pierce
+                    {koef 4000}
+                }				
+            }
+            {volumes "engine*"}
+        }
+	}
+	("components_tank" repair(4))
+
+	{sensor
+		{visor "view-around"
+			{vision "none"}
+			{bone "basis"}
+		}
+		{visor "main"
+			{vision "tank_main-l"}
+		}
+	}
+)
+
 (define "fuck_armor_sheavy_bug_shit_o_ni"
     {armor
         {setting "track"
