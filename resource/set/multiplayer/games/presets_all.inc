@@ -105,55 +105,55 @@
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_50"}
-		("custom_all" 			start(160) finish(9000) cp(50))
+		("custom_all" 			start(160) finish(9000) cp(40))
 	}
 	{"c:custom_60_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_60"}
-		("custom_all" 			start(160) finish(9000) cp(60))
+		("custom_all" 			start(160) finish(9000) cp(50))
 	}
 	{"c:custom_80_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_80"}
-		("custom_all" 			start(160) finish(9000) cp(80)) 
+		("custom_all" 			start(160) finish(9000) cp(60)) 
 	}
 	{"c:custom_100_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_100"}
-		("custom_all" 			start(160) finish(9000) cp(100))
+		("custom_all" 			start(160) finish(9000) cp(70))
 	}
 	{"c:custom_120_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_120"}
-		("custom_all"  			start(160) finish(9000) cp(120))
+		("custom_all"  			start(160) finish(9000) cp(80))
 	}
 	{"c:custom_140_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_140"}
-		("custom_all"  			start(160) finish(9000) cp(140))
+		("custom_all"  			start(160) finish(9000) cp(90))
 	}
 	{"c:custom_160_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_160"}
-		("custom_all"  			start(160) finish(9000) cp(160))
+		("custom_all"  			start(160) finish(9000) cp(100))
 	}
 	{"c:custom_180_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_180"}
-		("custom_all"  			start(160) finish(9000) cp(180))
+		("custom_all"  			start(160) finish(9000) cp(120))
 	}
 	{"c:custom_200_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_200"}
-		("custom_all"  			start(160) finish(9000) cp(200))
+		("custom_all"  			start(160) finish(9000) cp(140))
 	}
 ;------------------------------------------------------------------------------------------------------------
 }
