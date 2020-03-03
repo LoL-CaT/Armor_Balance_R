@@ -519,6 +519,7 @@
 			{item "mortar45" "fg" "ammo" 100 {max 100}{value 2}}  			
 			{item "mortar50_wgr36" "fg" "ammo" 100 {max 100}{value 2}}
 			{item "mortar81_wgr34" "fg" "ammo" 100 {max 100}{value 2}}
+			{item "mortar105ger" "fg" "ammo" 100 {max 100}{value 2}}			
 			{item "mortar120_wgr42" "fg" "ammo" 100 {max 100}{value 2}}
 			{item "panzerwerfer42" "ammo" 1 {max 100}{value 2}}
 			{item "nebel" "ammo" 1 {max 100}{value 2}}			
