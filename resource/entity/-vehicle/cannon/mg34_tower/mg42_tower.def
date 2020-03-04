@@ -1,0 +1,56 @@
+{game_entity
+	(include "/properties/cannon_mgun_1.ext")
+	{props "vision_cannon_minimum"}
+	{simulation {able 1}}
+
+	("armor_mgun" args 0.7)
+	
+	{Volume "touch"
+		{able clear {touch}}
+	}
+
+	{sensor 
+		{visor "main" 
+			{vision "watchtower"}
+		}
+	}
+
+	{placer	{place "gunner" {visor "main"}}}
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_mgun_stan1"}}
+		}
+	}
+	{extender "cannon"
+		{animation
+			{aim ""}
+			{reload "mgun_stan_charger1"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{type "mgun_main"}
+			{weapon "mg42_120" filled}
+			{charger "gunner"}
+		}
+	}  
+	{extender "inventory"
+		{box
+			{item "ammo mgun" 500}
+		    {item "sandbag_kit2" 25}
+;           {item "plant" 5}
+		}	
+	}	
+	
+	{Extension "mg34_tower.mdl"}
+	{bone "turret"
+	      {limits}
+	}
+	{volume "shield" {thickness 20}}
+	{extender "shield"
+		{on}
+	}
+}
