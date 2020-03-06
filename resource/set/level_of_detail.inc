@@ -13,12 +13,12 @@
 	)
 	(mod "mp"
 		(define "scale"
-			(* 2.75 %d)
+			(* 1.75 %d)
 		)
 	)
 	(mod "coop"
 		(define "scale"
-			(* 0.70 %d)
+			(* 1.70 %d)
 		)
 	)
 	{"human"
