@@ -103,60 +103,60 @@
 
 (define "cannon"
         {cannon_01 1                     ; незаметность при движении
-            {firing 999}
-            {visible 0.9}                  ; дистанция того когда обнорженый остаёться видимым до разрыва зрения
-            {still 2.2}                     ; дистанция на котрой остаёшься заметен всегда СТОЯ
+            {firing 1.6}
+            {visible 1}                  ; дистанция того когда обнарженый остаёться видимым до разрыва зрения
+            {still 1.2}                     ; дистанция на котрой остаёшься заметен всегда СТОЯ
         }
         {cannon_02 1.1
-            {firing 999}
-            {visible 0.9}
-            {still 2.2}
+            {firing 1.6}
+            {visible 1}
+            {still 1.2}
         }
         {cannon_03 1.2
-            {firing 999}
-            {visible 0.9}
-            {still 2.2}
+            {firing 1.6}
+            {visible 1}
+            {still 1.2}
         }
         {cannon_04 1.3
-            {firing 999}
+            {firing 2}
             {visible 1.1}
-            {still 2.7}
+            {still 1.7}
         }
         {cannon_05 1.4
-            {firing 999}
+            {firing 2}
             {visible 1.1}
-            {still 2.7}
+            {still 1.7}
         }
 )
 (define "tank"
         {vehicle_01 1.1
-            {firing 999}
+            {firing 3.1}
             {visible 1.6}
-            {still 3.8}
+            {still 2.8}
         }
         {vehicle_02 1.8
-            {firing 999}
+            {firing 3.2}
             {visible 1.7}
-            {still 3.9}
+            {still 2.9}
         }
         {vehicle_03 2.0
-            {firing 999}
+            {firing 3.3}
             {visible 1.8}
-            {still 4.0}
+            {still 3.0}
         }
         {vehicle_04 2.2
-            {firing 999}
+            {firing 3.4}
             {visible 1.9}
-            {still 4.1}
+            {still 3.1}
         }
         {vehicle_05 2.4
-            {firing 999}
+            {firing 3.5}
             {visible 2}
-            {still 4.2}
+            {still 3.2}
         }
-        {air 2.4
-            {firing 3}
-            {visible 1.8}
-            {still 1.8}
+        {air 2.5
+            {firing 3.7}
+            {visible 2.2}
+            {still 3.5}
         }		
 )
