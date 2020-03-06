@@ -13,7 +13,7 @@
 	)
 	(mod "mp"
 		(define "scale"
-			(* 0.75 %d)
+			(* 2.75 %d)
 		)
 	)
 	(mod "coop"
