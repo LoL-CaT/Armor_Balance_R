@@ -154,9 +154,9 @@
             {visible 2}
             {still 2.2}
         }
-        {air 3.5
-            {firing 3.7}
-            {visible 3.2}
-            {still 3.5}
+        {air 3.0
+            {firing 3.1}
+            {visible 2.9}
+            {still 3.0}
         }		
 )
