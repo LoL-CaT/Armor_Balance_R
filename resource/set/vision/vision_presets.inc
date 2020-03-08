@@ -129,32 +129,32 @@
         }
 )
 (define "tank"
-        {vehicle_01 3.4
-            {firing 3.9}
-            {visible 3.2}
-            {still 3.6}
+        {vehicle_01 2.9
+            {firing 3.4}
+            {visible 2.7}
+            {still 3.1}
         }
-        {vehicle_02 3.6
-            {firing 4.0}
-            {visible 3.3}
-            {still 3.7}
+        {vehicle_02 3.1
+            {firing 3.5}
+            {visible 2.8}
+            {still 3.2}
         }
-        {vehicle_03 3.7
-            {firing 4.0}
-            {visible 3.4}
-            {still 3.7}
+        {vehicle_03 3.2
+            {firing 3.5}
+            {visible 2.9}
+            {still 3.2}
         }
-        {vehicle_04 3.8
-            {firing 4.1}
-            {visible 3.5}
-            {still 3.8}
+        {vehicle_04 3.3
+            {firing 3.6}
+            {visible 3.0}
+            {still 3.3}
         }
-        {vehicle_05 3.9
-            {firing 4.2}
-            {visible 4.6}
-            {still 4.0}
+        {vehicle_05 3.4
+            {firing 3.7}
+            {visible 3.1}
+            {still 3.5}
         }
-        {air 3.5
+        {air 4.1
             {firing 4.4}
             {visible 3.7}
             {still 4.2}
