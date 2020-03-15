@@ -102,61 +102,61 @@
 )
 
 (define "cannon"
-        {cannon_01 1                     ; незаметность при движении
-            {firing 1.6}
+        {cannon_01 0                     ; незаметность при движении
+            {firing 0}
             {visible 1}                  ; дистанция того когда обнарженый остаёться видимым до разрыва зрения
-            {still 1.2}                     ; дистанция на котрой остаёшься заметен всегда СТОЯ
+            {still 0}                     ; дистанция на котрой остаёшься заметен всегда СТОЯ
         }
-        {cannon_02 1.1
-            {firing 1.6}
+        {cannon_02 0
+            {firing 0}
             {visible 1}
-            {still 1.2}
+            {still 0}
         }
-        {cannon_03 1.2
-            {firing 1.6}
+        {cannon_03 0
+            {firing 0}
             {visible 1}
-            {still 1.2}
+            {still 0}
         }
-        {cannon_04 1.3
-            {firing 2}
+        {cannon_04 0
+            {firing 0}
             {visible 1.1}
-            {still 1.7}
+            {still 0}
         }
-        {cannon_05 1.4
-            {firing 2}
+        {cannon_05 0
+            {firing 0}
             {visible 1.1}
-            {still 1.7}
+            {still 0}
         }
 )
 (define "tank"
-        {vehicle_01 2.9
-            {firing 3.4}
+        {vehicle_01 0
+            {firing 0}
             {visible 2.7}
-            {still 3.1}
+            {still 0}
         }
-        {vehicle_02 3.1
-            {firing 3.5}
+        {vehicle_02 0
+            {firing 0}
             {visible 2.8}
-            {still 3.2}
+            {still 0}
         }
-        {vehicle_03 3.2
-            {firing 3.5}
+        {vehicle_03 0
+            {firing 0}
             {visible 2.9}
-            {still 3.2}
+            {still 0}
         }
-        {vehicle_04 3.3
-            {firing 3.6}
+        {vehicle_04 0
+            {firing 0}
             {visible 3.0}
-            {still 3.3}
+            {still 0}
         }
-        {vehicle_05 3.4
-            {firing 3.7}
+        {vehicle_05 0
+            {firing 0}
             {visible 3.1}
-            {still 3.5}
+            {still 0}
         }
-        {air 4.1
-            {firing 4.4}
+        {air 0
+            {firing 0}
             {visible 3.7}
-            {still 4.2}
+            {still 0}
         }		
 )
