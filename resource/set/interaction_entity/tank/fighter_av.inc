@@ -55,8 +55,8 @@
         pierce_inventory__explosive(0)
     ;--------------------------
         pierce_body__burn(0)
-        pierce_body__body_brake(0.13)
-        pierce_body__body_destroy(0)
+        pierce_body__body_brake(0.05)
+        pierce_body__body_destroy(0.02)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
@@ -99,8 +99,8 @@
         pierce_inventory__explosive(0)
     ;--------------------------
         pierce_body__burn(0)
-        pierce_body__body_brake(0.12)
-        pierce_body__body_destroy(0)
+        pierce_body__body_brake(0.05)
+        pierce_body__body_destroy(0.02)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
@@ -137,14 +137,14 @@
         staff(ap_14_19aa)
 
     ;Probability component brake\destroy (Name_of_Event__Consequences) for this stuff=========
-        pierce_gun(0.05)
-        pierce_front_back_track(0.04)
-        pierce_left_right_track(0.04)
-        pierce_inventory__explosive(0.04)
+        pierce_gun(0)
+        pierce_front_back_track(0)
+        pierce_left_right_track(0)
+        pierce_inventory__explosive(0)
     ;--------------------------
         pierce_body__burn(0)
-        pierce_body__body_brake(0.14)
-        pierce_body__body_destroy(0.04)
+        pierce_body__body_brake(0.05)
+        pierce_body__body_destroy(0.02)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
