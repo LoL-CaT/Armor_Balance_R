@@ -104,59 +104,59 @@
 (define "cannon"
         {cannon_01 1                     ; видимость визором
             {firing 0}
-            {visible 0}                  ; дистанция того когда обнарженый остаёться видимым до разрыва зрения
+            {visible 1}                  ; дистанция того когда обнарженый остаёться видимым до разрыва зрения
             {still 0}                     ; дистанция на котрой остаёшься заметен всегда СТОЯ
         }
         {cannon_02 1.1
             {firing 0}
-            {visible 0}
+            {visible 1}
             {still 0}
         }
         {cannon_03 1.2
             {firing 0}
-            {visible 0}
+            {visible 1}
             {still 0}
         }
         {cannon_04 1.3
             {firing 0}
-            {visible 0}
+            {visible 1.1}
             {still 0}
         }
         {cannon_05 1.4
             {firing 0}
-            {visible 0}
+            {visible 1.1}
             {still 0}
         }
 )
 (define "tank"
         {vehicle_01 2.9
             {firing 0}
-            {visible 0}
+            {visible 2.7}
             {still 0}
         }
         {vehicle_02 3.1
             {firing 0}
-            {visible 0}
+            {visible 2.8}
             {still 0}
         }
         {vehicle_03 3.2
             {firing 0}
-            {visible 0}
+            {visible 2.9}
             {still 0}
         }
         {vehicle_04 3.3
             {firing 0}
-            {visible 0}
+            {visible 3.0}
             {still 0}
         }
         {vehicle_05 3.4
             {firing 0}
-            {visible 0}
+            {visible 3.1}
             {still 0}
         }
         {air 4.1
             {firing 0}
-            {visible 0}
+            {visible 3.7}
             {still 0}
         }		
 )
