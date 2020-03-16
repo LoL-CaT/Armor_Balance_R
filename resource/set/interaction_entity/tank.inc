@@ -11822,6 +11822,199 @@
 	("update_hatch_event" event(crew out))    
        ("burn_by_engine" args 0.3)
 }
+{"kv-3 tank"
+	{on spawn
+		{add_view	"flash_cannon_medium"		"flashbarrel0000"			"Foresight1"}
+		{add_view       "smoke_zenit"			"smoke0001"		                "Foresight2"}
+		{add_view	"flash_gun_big"	                "flashbarrel0001"	                "Foresight2"}
+                {add_view	"flash_gun_big"			"flashbarrel0002"			"Foresight5"}
+		{add_view       "smoke_zenit"			"smoke0002"		                "Foresight5"}
+		{add_view	"exhaust_dark_big"		"exhaust"				"FXsmock1"}
+		{add_view	"exhaust_dark_big"		"exhaust"				"FXsmock2"}
+	}
+	{on "add_movement_sound" overload
+                {link_sound "rotate_gun" "vehicle/turret/medium4"}
+		{link_sound "move"				"vehicle/tracks/is"}
+		{link_sound "rotate_turret" 	"vehicle/turret/heavy"	}
+		{link_sound "engine"			"vehicle/engine/kv"			}
+		{link_sound "engine_end"		"vehicle/engine/kv_end"		}
+		{link_sound "exhaust"			"vehicle/engine/m4a2_up"		}
+	}
+	{on fire "gun"
+			{ani_play "fire_zis6_kv-3"}
+      	                {spawn "dust_shot_big" 					"basis"}
+      	                {spawn "tank_canon_fire_large" 			"Foresight1" x}
+		        {blastwave c4 0.2 r0 1 r1 2.0 bone 		"Foresight1"}
+	}
+	{on fire "mgun" overload
+				{view start "flashbarrel0001"}
+				{delay 0.42
+					{view pause "flashbarrel0001"}
+				}
+				{delay 0.12 
+					{view start "smoke0001"}
+					{delay 5
+						{view pause "smoke0001"}
+					}
+				}
+
+	}
+	{on fire "mgun2" overload
+				{view start "flashbarrel0002"}
+				{delay 0.42
+					{view pause "flashbarrel0002"}
+				}
+				{delay 0.12 
+					{view start "smoke0002"}
+					{delay 5
+						{view pause "smoke0002"}
+					}
+				}
+
+	}
+        {on ik begin "gun_rot"
+		{play_sound "rotate_gun" 1}
+	}
+	{on ik end "gun_rot"
+		{stop_sound "rotate_gun"}
+	}
+	(define "update_hatch"
+		{if not operatable
+			{if %wind
+				{ani_wind "open_kv-3" end}
+                                {ani_wind "open2_kv-1" end}
+			else
+				{ani_play "open_kv-3" +1.0 resume}
+				{ani_play "open2_kv-1" +1.0 resume}
+			}
+		else
+				{if %wind
+					{ani_wind "open_kv-3" begin}
+                                        {ani_wind "open2_kv-1" begin}
+				else
+					{ani_play "open_kv-3" -1.0 resume}
+					{ani_play "open2_kv-1" -1.0 resume}
+				}
+		}
+	)
+	{on "update_hatch_on_spawn"
+		("update_hatch" wind(true))
+	}
+	(define "update_hatch_event"
+		{on %event
+			("update_hatch" wind(false))
+		}
+	)
+	("update_hatch_event" event(operatable on))
+	("update_hatch_event" event(operatable off))
+	("update_hatch_event" event(crew in))
+	("update_hatch_event" event(crew out))    
+       ("burn_by_engine" args 0.3)
+}
+{"kv-220 tank"
+	{on spawn
+		{add_view	"flash_cannon_medium"		"flashbarrel0000"			"Foresight1"}
+		{add_view       "smoke_zenit"			"smoke0001"		                "Foresight2"}
+		{add_view	"flash_gun_big"	                "flashbarrel0001"	                "Foresight2"}
+                {add_view	"flash_gun_big"			"flashbarrel0002"			"Foresight3"}
+		{add_view       "smoke_zenit"			"smoke0002"		                "Foresight3"}
+		{add_view       "smoke_zenit"			"smoke0003"		                "Foresight4"}
+		{add_view	"flash_gun_big"	                "flashbarrel0004"	                "Foresight4"}
+		{add_view	"exhaust_dark_big"		"exhaust"				"FXsmock1"}
+		{add_view	"exhaust_dark_big"		"exhaust"				"FXsmock2"}
+	}
+	{on "add_movement_sound" overload
+                {link_sound "rotate_gun" "vehicle/turret/medium4"}
+		{link_sound "move"				"vehicle/tracks/is"}
+		{link_sound "rotate_turret" 	"vehicle/turret/heavy"	}
+		{link_sound "engine"			"vehicle/engine/kv"			}
+		{link_sound "engine_end"		"vehicle/engine/kv_end"		}
+		{link_sound "exhaust"			"vehicle/engine/m4a2_up"		}
+	}
+	{on fire "gun"
+			{ani_play "fire"}
+      	{spawn "dust_shot_big" 					"basis"}
+      	{spawn "tank_canon_fire_large" 			"Foresight1" x}
+		{blastwave c4 0.2 r0 1 r1 2.0 bone 		"Foresight1"}
+	}
+	{on fire "mgun" overload
+				{view start "flashbarrel0001"}
+				{delay 0.42
+					{view pause "flashbarrel0001"}
+				}
+				{delay 0.12 
+					{view start "smoke0001"}
+					{delay 5
+						{view pause "smoke0001"}
+					}
+				}
+
+	}
+	{on fire "mgun2" overload
+				{view start "flashbarrel0004"}
+				{delay 0.42
+					{view pause "flashbarrel0004"}
+				}
+				{delay 0.12 
+					{view start "smoke0003"}
+					{delay 5
+						{view pause "smoke0003"}
+					}
+				}
+
+	}
+	{on fire "mgun3" overload
+				{view start "flashbarrel0002"}
+				{delay 0.42
+					{view pause "flashbarrel0002"}
+				}
+				{delay 0.12 
+					{view start "smoke0002"}
+					{delay 5
+						{view pause "smoke0002"}
+					}
+				}
+
+	}
+        {on ik begin "gun_rot"
+		{play_sound "rotate_gun" 1}
+	}
+	{on ik end "gun_rot"
+		{stop_sound "rotate_gun"}
+	}
+	(define "update_hatch"
+		{if not operatable
+			{if %wind
+				{ani_wind "open" end}
+                                {ani_wind "open2_kv-1" end}
+			else
+				{ani_play "open" +1.0 resume}
+				{ani_play "open2_kv-1" +1.0 resume}
+			}
+		else
+				{if %wind
+					{ani_wind "open" begin}
+                                        {ani_wind "open2_kv-1" begin}
+				else
+					{ani_play "open" -1.0 resume}
+					{ani_play "open2_kv-1" -1.0 resume}
+				}
+		}
+	)
+	{on "update_hatch_on_spawn"
+		("update_hatch" wind(true))
+	}
+	(define "update_hatch_event"
+		{on %event
+			("update_hatch" wind(false))
+		}
+	)
+	("update_hatch_event" event(operatable on))
+	("update_hatch_event" event(operatable off))
+	("update_hatch_event" event(crew in))
+	("update_hatch_event" event(crew out))    
+       ("burn_by_engine" args 0.3)
+}
 {"vk3601h1v1 tank"
 	{on spawn
 		{add_view	"flash_cannon_medium"		"flashbarrel0000"			"Foresight1"}

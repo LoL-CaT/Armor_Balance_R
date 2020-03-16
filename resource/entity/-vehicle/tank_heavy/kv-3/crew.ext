@@ -1,0 +1,88 @@
+;SDL
+{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "pose_mgun_pz6"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_m7_mgunner"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+}
+
+{placer
+	{place "driver" {group "crew"} {visor "driver"}}
+}
+{boarder
+	{door "emit6"}
+	{link "emit6" "driver" {anm "left"} {forward putoff} {reverse puton}}
+}
+
+{placer
+	{place "commander" {group "crew"} {visor "tur3"} {visor "tur3_2"} {visor "tur3_3"} {visor "tur3_4"}}
+}
+{boarder
+	{door "emit3"}
+	{link "emit3" "commander" {anm "right"} {forward putoff} {reverse puton}}
+}
+
+{placer
+	{place "gunner" {group "crew"} {visor "tur1"} {visor "tur1_2"} {visor "tur1_3"}}
+}
+{boarder
+
+	{door "emit2"}
+	{link "emit2" "gunner" {anm "right"} {forward putoff} {reverse puton}}
+}
+
+{placer
+	{place "charger" {group "crew"} {visor "tur2"}}
+}
+{boarder
+	{door "emit5"}
+	{link "emit5" "charger" {anm "left"} {forward putoff} {reverse puton}}
+}
+
+{placer
+	{place "charger2" {group "crew"} {visor "tur2_1"}}
+}
+{boarder
+	{door "emit4"}
+	{link "emit4" "charger2" {anm "left"} {forward putoff} {reverse puton}}
+}
+
+{placer
+	{place "gunner2" {group "crew"} {visor "mgun_hull"}}
+}
+{boarder
+
+	{door "emit1"}
+	{link "emit1" "gunner2" {anm "right"} {forward putoff} {reverse puton}}
+}
+(define "seat_human"
+	{placer
+		{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+("seat_human" place(seat1) bone(seat7) door(emit7)  animation(armor))
+("seat_human" place(seat2) bone(seat8) door(emit8)  animation(armor))
+("seat_human" place(seat3) bone(seat9) door(emit9)  animation(armor))
+
+
+  
+
+
+
