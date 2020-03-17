@@ -17,7 +17,7 @@
 					{start 		%start}
 					{finish 	%finish}
 					{growTime	8100}		; round time when money growing 
-					{growTable 	"0.70 0.65 0.60 0.55 0.45 0.35 0.25"}
+					{growTable 	"0.80 0.65 0.60 0.55 0.40 0.30 0.20"}
 					{payback
 						{cp 		"0		25		50 		70		100		130		160"}  
 						{restore 	"4.4	4.1	    1.3	    1.0	    0.7	    0.2	    0.1"}
@@ -59,7 +59,7 @@
 					{start 		%start}
 					{finish 	%finish}
 					{growTime	8100}		; round time when money growing 
-					{growTable 	"0.70 0.65 0.60 0.55 0.45 0.35 0.25"}
+					{growTable 	"0.80 0.65 0.60 0.55 0.40 0.30 0.20"}
 					{payback
 						{cp 		"0		25		50 		70		100		130		160"}   
 						{restore 	"4.4	4.1	    1.3	    1.0	    0.7	    0.2	    0.1"}
@@ -105,55 +105,55 @@
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_50"}
-		("custom_all" 			start(160) finish(6000) cp(40))
+		("custom_all" 			start(160) finish(7000) cp(40))
 	}
 	{"c:custom_60_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_60"}
-		("custom_all" 			start(160) finish(6000) cp(50))
+		("custom_all" 			start(160) finish(7000) cp(50))
 	}
 	{"c:custom_80_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_80"}
-		("custom_all" 			start(160) finish(6000) cp(60)) 
+		("custom_all" 			start(160) finish(7000) cp(60)) 
 	}
 	{"c:custom_100_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_100"}
-		("custom_all" 			start(160) finish(6000) cp(70))
+		("custom_all" 			start(160) finish(7000) cp(70))
 	}
 	{"c:custom_120_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_120"}
-		("custom_all"  			start(160) finish(6000) cp(80))
+		("custom_all"  			start(160) finish(7000) cp(80))
 	}
 	{"c:custom_140_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_140"}
-		("custom_all"  			start(160) finish(6000) cp(90))
+		("custom_all"  			start(160) finish(7000) cp(90))
 	}
 	{"c:custom_160_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_160"}
-		("custom_all"  			start(160) finish(6000) cp(100))
+		("custom_all"  			start(160) finish(7000) cp(100))
 	}
 	{"c:custom_180_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_180"}
-		("custom_all"  			start(160) finish(6000) cp(120))
+		("custom_all"  			start(160) finish(7000) cp(120))
 	}
 	{"c:custom_200_all"
 		{gameMode "custom"}
 		{unitMode "all"}
 		{specMode "cp_200"}
-		("custom_all"  			start(160) finish(6000) cp(140))
+		("custom_all"  			start(160) finish(7000) cp(140))
 	}
 ;------------------------------------------------------------------------------------------------------------
 }
