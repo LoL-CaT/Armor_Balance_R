@@ -4026,11 +4026,12 @@
 }
 (define "bishop_sound"
 	{on "add_movement_sound" overload
-		{link_sound "move"				"vehicle/tracks/bishop"	}
-		{link_sound "engine"			"vehicle/engine/bishop"		}
-		{link_sound "engine_end"		"vehicle/engine/bishop_end"	}
-		{link_sound "rotate_turret" 	"vehicle/turret/medium1"		}
-		{link_sound "exhaust"			"vehicle/engine/bishop_up" 	}
+                {link_sound "rotate_gun" "vehicle/turret/light"}
+		{link_sound "move"		    	"vehicle/tracks/cromwell"	}
+		{link_sound "engine"			"vehicle/engine/cromwell"		}
+		{link_sound "engine_end"		"vehicle/engine/cromwell_end"	}
+		{link_sound "rotate_turret" 	"vehicle/turret/churchill_turret"	}
+		{link_sound "exhaust"			"vehicle/engine/cromwell_up"	}
 	}
 )
 {"bishop tank"
@@ -4038,6 +4039,10 @@
 	("burn_by_engine" args 0.3)  
 }	
 {"mk3 tank"
+	("bishop_sound")
+	("burn_by_engine" args 0.3)
+}
+{"mk3cs tank"
 	("bishop_sound")
 	("burn_by_engine" args 0.3)
 }
