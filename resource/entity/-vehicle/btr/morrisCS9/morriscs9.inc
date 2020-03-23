@@ -205,7 +205,7 @@
 			{LinkAnimation "off"}
 			{gunner "gunner"}
 			{charger "gunner"}
-                        ("abm_mgun")
+            ("abm_mgun")
 		}
 		{place "mgun1"
 			{weapon "brenstan" filled}
@@ -215,7 +215,7 @@
 			{charger "gunner"}
 			{LinkBone "mgun1"}
 			{LinkAnimation "off"}
-                        ("abm_mgun")
+            ("abm_mgun")
 			{basic}
 		}
 		{place "mgun17"			
