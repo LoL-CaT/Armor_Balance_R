@@ -1702,7 +1702,7 @@
         hit_body__explosive(0)
         hit_body__engine_burn(0)
         hit_body__body_destroy(0)
-        hit_body__body_brake(30)
+        hit_body__body_brake(0.30)
         ;--------------------------
         hit_body__engine_brake(0)
         ;--------------------------

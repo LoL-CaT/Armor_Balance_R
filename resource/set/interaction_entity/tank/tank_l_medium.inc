@@ -1180,23 +1180,23 @@
     )
     ;///////////////////////////////////////////////////////// Gun shells FG hit 30 - 37	
     ("damage_process_bullet_hit"
-       staff(fg_30_37f)
+       staff(fg_120_130f)
 
         hit_body__explosive(0)
         hit_body__engine_burn(0)
         hit_body__body_destroy(0)
-        hit_body__body_brake(0.2)
+        hit_body__body_brake(0.10)
         ;--------------------------
-        hit_body__engine_brake(0)
+        hit_body__engine_brake(0.5)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.5)
-        hit_turret__turret_destroy(0)
-        hit_turret__turret_brake(0.2)
+        hit_turret_front__gun_brake(0.10)
+        hit_turret__turret_destroy(0.10)
+        hit_turret__turret_brake(0.10)
         imp(0)
         hit_tank__tank_destroy(0)
-        hit_engine__engine_brake(0)
-    )	
+        hit_engine__engine_brake(0.95)
+    )
     ;///////////////////////////////////////////////////////// Gun shells FG hit 40 - 57	
     ("damage_process_bullet_hit"
        staff(fg_40_57f)

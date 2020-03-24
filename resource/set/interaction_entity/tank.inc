@@ -1096,7 +1096,7 @@
 			{able "sinking" 1}
 		}
 	}
-(include "tank/tank_l_medium.inc")
+(include "tank/tank_l_medium_spa.inc")
 }
 
 {"medium tank"
@@ -1184,7 +1184,7 @@
 			{able "sinking" 1}
 		}
 	}
-(include "tank/tank_medium.inc")
+(include "tank/tank_medium_spa.inc")
 }
 
 {"h_medium tank"
@@ -1272,7 +1272,7 @@
 			{able "sinking" 1}
 		}
 	}
-(include "tank/tank_h_medium.inc")
+(include "tank/tank_h_medium_spa.inc")
 }
 
 {"r_heavy tank"
@@ -1352,7 +1352,7 @@
 			{able "sinking" 1}
 		}
 	}
-(include "tank/tank_r_heavy.inc")
+(include "tank/tank_r_heavy_spa.inc")
 }
 
 {"l_heavy tank"
@@ -1432,7 +1432,7 @@
 			{able "sinking" 1}
 		}
 	}
-(include "tank/tank_l_heavy.inc")
+(include "tank/tank_l_heavy_spa.inc")
 }
 
 {"heavy tank"
@@ -1512,7 +1512,7 @@
 			{able "sinking" 1}
 		}
 	}
-(include "tank/tank_heavy.inc")
+(include "tank/tank_heavy_spa.inc")
 }
 
 {"h_heavy tank"
@@ -1592,7 +1592,7 @@
 			{able "sinking" 1}
 		}
 	}
-(include "tank/tank_h_heavy.inc")
+(include "tank/tank_h_heavy_spa.inc")
 }
 
 {"sheavy tank"
@@ -1655,7 +1655,7 @@
 		 else min_energy 24
 			{impulse up 0.01 0.01 dir 0.3 0.1}
 			{if volume "turret"
-				{if rand 0.
+				{if rand 0
 					{call "tear_turret"}
 				}
 			}
@@ -1672,7 +1672,7 @@
 			{able "sinking" 1}
 		}
 	}
-(include "tank/tank_sheavy.inc")
+(include "tank/tank_sheavy_spa.inc")
 }
 
 {"fighter_av"

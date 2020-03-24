@@ -1304,9 +1304,9 @@
         hit_body__engine_brake(0)
         ;--------------------------
         hit_turret__explosive(0)
-        hit_turret_front__gun_brake(0.95)
-        hit_turret__turret_destroy(0.70)
-        hit_turret__turret_brake(0.30)
+        hit_turret_front__gun_brake(0)
+        hit_turret__turret_destroy(0)
+        hit_turret__turret_brake(0)
         imp(0)
         hit_tank__tank_destroy(0)
         hit_engine__engine_brake(0.95)
