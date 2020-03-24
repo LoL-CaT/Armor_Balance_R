@@ -1055,6 +1055,50 @@
 (include "tank/tank_l_medium.inc")
 }
 
+{"l_medium_spa tank"
+	{inflammation_time 35}
+	{on blast_hit
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 15
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 9
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 6
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+		 else min_energy 3
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+		 else min_energy 1.9
+		 	;{ani_play "hit"}
+		}
+	}
+	{on "_explosion"
+		{blastwave c4 10 r0 2.5 r1 10}
+		{impulse up 2 0.5 dir 0.4 0.2}
+	}
+	{on "check_water_level" overload
+		{if water_level 1.6
+			{able "sinking" 1}
+		}
+	}
+(include "tank/tank_l_medium.inc")
+}
+
 {"medium tank"
 	{inflammation_time 35}
 	{on blast_hit
@@ -1076,6 +1120,50 @@
 			{impulse up 0.15 0.05 dir 0.35 0.1}
 			{if volume "turret"
 				{if rand 0.7
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 6
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+		 else min_energy 3
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+		 else min_energy 1.9
+		 	;{ani_play "hit"}
+		}
+	}
+	{on "_explosion"
+		{blastwave c4 10 r0 2.5 r1 10}
+		{impulse up 2 0.5 dir 0.4 0.2}
+	}
+	{on "check_water_level" overload
+		{if water_level 1.6
+			{able "sinking" 1}
+		}
+	}
+(include "tank/tank_medium.inc")
+}
+
+{"medium_spa tank"
+	{inflammation_time 35}
+	{on blast_hit
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 15
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 9
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
 					{call "tear_turret"}
 				}
 			}
@@ -1143,6 +1231,50 @@
 (include "tank/tank_h_medium.inc")
 }
 
+{"h_medium_spa tank"
+	{inflammation_time 35}
+	{on blast_hit
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 15
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}			
+		else min_energy 9
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 6
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+		 else min_energy 3
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+		 else min_energy 1.9
+		 	;{ani_play "hit"}
+		}
+	}
+	{on "_explosion"
+		{blastwave c4 10 r0 2.5 r1 10}
+		{impulse up 2 0.5 dir 0.4 0.2}
+	}
+	{on "check_water_level" overload
+		{if water_level 1.6
+			{able "sinking" 1}
+		}
+	}
+(include "tank/tank_h_medium.inc")
+}
+
 {"r_heavy tank"
 	{inflammation_time 35}
 	{on blast_hit
@@ -1164,6 +1296,46 @@
 			{impulse up 0.1 0.05 dir 0.3 0.1}
 			{if volume "turret"
 				{if rand 0.2
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 6
+		 	;{ani_play "hit"}
+		}
+	}
+	{on "_explosion"
+        {blastwave c4 15 r0 2.5 r1 10}
+		{impulse up 1 1 dir 0.2 0.2}
+	}
+	{on "check_water_level" overload
+		{if water_level 1.8
+			{able "sinking" 1}
+		}
+	}
+(include "tank/tank_r_heavy.inc")
+}
+
+{"r_heavy_spa tank"
+	{inflammation_time 35}
+	{on blast_hit
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 24
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 15
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+			{if volume "turret"
+				{if rand 0
 					{call "tear_turret"}
 				}
 			}
@@ -1223,6 +1395,46 @@
 (include "tank/tank_l_heavy.inc")
 }
 
+{"l_heavy_spa tank"
+	{inflammation_time 35}
+	{on blast_hit
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 24
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 15
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 6
+		 	;{ani_play "hit"}
+		}
+	}
+	{on "_explosion"
+        {blastwave c4 15 r0 2.5 r1 10}
+		{impulse up 1 1 dir 0.2 0.2}
+	}
+	{on "check_water_level" overload
+		{if water_level 1.8
+			{able "sinking" 1}
+		}
+	}
+(include "tank/tank_l_heavy.inc")
+}
+
 {"heavy tank"
 	{inflammation_time 35}
 	{on blast_hit
@@ -1244,6 +1456,46 @@
 			{impulse up 0.1 0.05 dir 0.3 0.1}
 			{if volume "turret"
 				{if rand 0.2
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 6
+		 	;{ani_play "hit"}
+		}
+	}
+	{on "_explosion"
+        {blastwave c4 15 r0 2.5 r1 10}
+		{impulse up 1 1 dir 0.2 0.2}
+	}
+	{on "check_water_level" overload
+		{if water_level 1.8
+			{able "sinking" 1}
+		}
+	}
+(include "tank/tank_heavy.inc")
+}
+
+{"heavy_spa tank"
+	{inflammation_time 35}
+	{on blast_hit
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 24
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 15
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+			{if volume "turret"
+				{if rand 0
 					{call "tear_turret"}
 				}
 			}
@@ -1303,6 +1555,46 @@
 (include "tank/tank_h_heavy.inc")
 }
 
+{"h_heavy_spa tank"
+	{inflammation_time 35}
+	{on blast_hit
+		{if min_energy 36
+			{impulse up 0.25 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 24
+			{impulse up 0.15 0.05 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 15
+			{impulse up 0.1 0.05 dir 0.3 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 6
+		 	;{ani_play "hit"}
+		}
+	}
+	{on "_explosion"
+        {blastwave c4 15 r0 2.5 r1 10}
+		{impulse up 1 1 dir 0.2 0.2}
+	}
+	{on "check_water_level" overload
+		{if water_level 1.8
+			{able "sinking" 1}
+		}
+	}
+(include "tank/tank_h_heavy.inc")
+}
+
 {"sheavy tank"
 	{inflammation_time 35}
 	{on blast_hit
@@ -1324,6 +1616,46 @@
 			{impulse up 0.01 0.01 dir 0.3 0.1}
 			{if volume "turret"
 				{if rand 0.05
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 15
+		 	;{ani_play "hit"}
+		}
+	}
+	{on "_explosion"
+        {blastwave c4 15 r0 2.5 r1 10}
+		{impulse up 1 1 dir 0.2 0.2}
+	}
+	{on "check_water_level" overload
+		{if water_level 2.3
+			{able "sinking" 1}
+		}
+	}
+(include "tank/tank_sheavy.inc")
+}
+
+{"sheavy_spa tank"
+	{inflammation_time 35}
+	{on blast_hit
+		{if min_energy 38
+			{impulse up 0.1 0.05 dir 2.5 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		else min_energy 36
+			{impulse up 0.05 0.01 dir 0.35 0.1}
+			{if volume "turret"
+				{if rand 0
+					{call "tear_turret"}
+				}
+			}
+		 else min_energy 24
+			{impulse up 0.01 0.01 dir 0.3 0.1}
+			{if volume "turret"
+				{if rand 0.
 					{call "tear_turret"}
 				}
 			}
