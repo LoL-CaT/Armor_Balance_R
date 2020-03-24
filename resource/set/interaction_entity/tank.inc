@@ -6221,16 +6221,46 @@
 	("burn_by_engine" args 0.3)
 }
 {"sturmtiger tank"
+    {on spawn
+        {bone hide "mask_ammo"}
+    }
 	("tiger_sound")
 	("burn_by_engine" args 0.3)
-	{on "_explosion"
-		{spawn "fuel_die"}
-		{blastwave c4 5 r0 4 r1 15}
-		{fire radius 8 time 15 heating 10}
-	}
-	{on fire "gun"
-		{spawn "sturmtiger_fire" inv_normal}
-	}
+    {on "_explosion" overload
+            {delay_ex 0
+                    {set "no_burn_volumes" 1}
+                    {set_skeleton "_xx"}
+                    {ani_play "death"}
+                    {call "cut_parts"}
+            {set "big_explosion" 0}
+            {spawn "fuel_die"}
+            {blastwave c4 5 r0 4 r1 15}
+            {fire radius 8 time 15 heating 10}
+
+            {if explosive_amount 50         
+                {blastwave c4 30 r0 8 r1 16}     
+                {blastwave c4 3 r0 20 r1 30}
+                {spawn "train_die" "basis"}
+                {set "big_explosion" 1}
+            }
+        }
+    }
+    {on fire "gun"
+        {spawn "sturmtiger_fire" inv_normal}
+        {delay 0.1
+            {ani_play "reload"}
+            {bone hide "rocket_shell00"}
+        }
+        {delay 32
+            {bone show "mask_ammo"}
+        }
+        {delay 81
+            {bone hide "mask_ammo"}
+        }
+        {delay 120
+            {bone show "rocket_shell00"}
+        }
+    }
 	{on "__explosion"
 		{set "big_explosion" 0}
 		{if explosive_amount 50         
@@ -6284,6 +6314,22 @@
 		
 		}	
 	}
+    {on break
+        {if  component "shield"
+             ("cut_shield_part" args "shieldr1")
+             ("cut_shield_part" args "shieldr2")
+             ("cut_shield_part" args "shieldr3")
+             ("cut_shield_part" args "shieldr4")
+             ("cut_shield_part" args "shieldr5")
+             ("cut_shield_part" args "shieldr6")
+             ("cut_shield_part" args "shieldl1")
+             ("cut_shield_part" args "shieldl2")
+             ("cut_shield_part" args "shieldl3")
+             ("cut_shield_part" args "shieldl4")
+             ("cut_shield_part" args "shieldl5")
+             ("cut_shield_part" args "shieldl6")
+        }
+    }	
 }
 {"chi-ha120 tank"
 	{on "add_movement_sound" overload
