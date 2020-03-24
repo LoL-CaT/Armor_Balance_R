@@ -12,25 +12,87 @@
 	{volume "body1"
 		{component "body"}
 		{tags "body"}
-		{thickness 60}
 	}
 	{volume "body2"
 		{component "body"}
 		{tags "body"}
+	}
+
+	{volume "engine"
+		{thickness 8}
+	}
+	{volume "gun"
+		{tags "gun"}
+		{component "gun"}
+	}
+
+	{volume "gunrot2"
 		{thickness 60}
 	}
+	{volume "gunshield"
+		{thickness 70}
+	}
+
+	{volume "mg34"
+		{thickness 5}
+	}
+	{volume "mg342"
+		{component "mg34"}
+		{tags "mg34"}
+		{thickness 5}
+	}
+	{volume "mg343"
+		{component "mg34"}
+		{tags "mg34"}
+		{thickness 4}
+	}
+	{volume "turretmg"
+		{thickness 10}
+	}
+
+	{volume "detail30"
+		{thickness 15}
+	}
+	{volume "detail31"
+		{thickness 15}
+	}
+	{volume "detail32"
+		{thickness 15}
+	}
+
 
 	("armor_spa_light"  armor(60 20 8 8))
 	("armor_mantlet" t(60))
 	("wheels_armor" args 5)	
 	("shield" args 10)
-	
-	{Volume "mantlet"
-		{tags "gun"}
-		{component "gun"}
-		{thickness 60}
+
+	{extender "shield"
+		{on}
 	}
-	
+		
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldl5" {tags "shield"}}
+	{component "shieldl6" {tags "shield"}}
+	{component "shieldl8" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+	{component "shieldr5" {tags "shield"}}
+
+	{component	"gunrot2" {tags "gunrot2"}}
+	{component	"gunshield" {tags "gunshield"}}
+	{component	"mg34" {tags "mg34"}}
+	{component	"turretmg" {tags "turretmg"}}
+	{component	"detail30" {tags "detail30"}}
+	{component	"detail31" {tags "detail31"}}
+	{component	"detail32" {tags "detail32"}}
+
+
+
 	("crew_3_human")
 
 	{boarder
@@ -53,10 +115,7 @@
 		}
 	}
 
-	{extender "inventory"	
-		{weapon "mgun"
-			{mask "weapon mgun"}
-		}
+	{extender "inventory"
 		{box
             {item "ammo bullet75ger ap" 32}
             {item "ammo bullet75ger fg" 9}
@@ -74,11 +133,9 @@
 		}
 		{place "mgun"
 			{type "mgun_aa"}
-			{weapon "mg34tank" filled}			
+			{weapon "mg34tank" filled}	
 			{gunner "gunner3"}
 			{charger "gunner3"}
-			{LinkBone "mgun2"}
-			{LinkAnimation "off"}
 			("abm_mgun")
 			{basic}
 		}
@@ -86,7 +143,7 @@
 
 	{mass 15750}
 	{Chassis
-		("tank_trace" fx("tracks_mid") step(0.52) len(1.44))
+		("tank_trace" fx("tracks_mid") step(0.52) len(-0.55))
 		("mobility"
 			speed(42)
 			weight(15.7)
@@ -97,15 +154,16 @@
 
 	{Extension "Hetzer.mdl"}
 
-	{bone "mantlet"
-		{limits -13 6}
-		{speed2 5}
-	}
 	{bone "gun_rot"
+		{limits -10 6.5}
 		{speed2 5}
-                {limits -13 6}
 	}
-	{bone "mgun2"
+	{bone "gun_rot2"
+		{speed2 5}
+                {limits -10 6}
+	}
+	{bone "mg_rot"
 		{speed 0.002}
+                {limits -10 8.5}
 	}
 }
