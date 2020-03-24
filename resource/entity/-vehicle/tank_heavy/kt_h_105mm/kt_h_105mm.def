@@ -1,0 +1,242 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/h_tank_mobility.ext")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{collider "tank.heavy"}
+
+	{collider "tank.heavy"}
+	{props "heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+
+    {Volume "body1"
+        {tags "body"}
+        {component "body"}
+    }
+    {Volume "body2"
+        {tags "body"}
+        {component "body"}
+    }
+    {Volume "engine"
+        {tags "engine"}
+        {component "engine"}
+    }
+    {Volume "gun"
+        {tags "gun"}
+        {component "gun"}
+    }
+    {Volume "mantlet"
+        {tags "gun"}
+        {component "gun"}
+    }
+    {Volume "shieldl1"
+        {thickness 5}
+    }
+    {Volume "shieldl2"
+        {thickness 5}
+    }
+    {Volume "shieldl3"
+        {thickness 5}
+    }
+    {Volume "shieldl4"
+        {thickness 5}
+    }
+    {Volume "shieldl5"
+        {thickness 5}
+    }
+    {Volume "shieldl6"
+        {thickness 5}
+    }
+    {Volume "shieldl7"
+        {thickness 5}
+    }
+    {Volume "shieldr1"
+        {thickness 5}
+    }
+    {Volume "shieldr2"
+        {thickness 5}
+    }
+    {Volume "shieldr3"
+        {thickness 5}
+    }
+    {Volume "shieldr4"
+        {thickness 5}
+    }
+    {Volume "shieldr5"
+        {thickness 5}
+    }
+    {Volume "shieldr6"
+        {thickness 5}
+    }
+    {Volume "shieldr7"
+        {thickness 5}
+    }
+    {Volume "trackleft"
+        {component "trackleft"}
+    }
+    {Volume "trackright"
+        {component "trackright"}
+    }
+    {Volume "turret1"
+        {tags "turret"}
+        {component "turret"}
+    }
+    {Volume "turret2"
+        {tags "turret"}
+        {component "turret"}
+    }
+    {Volume "turret3"
+        {tags "turret"}
+        {component "turret"}
+    }
+    {Volume "turret4"
+        {tags "turret"}
+        {component "turret"}
+    }
+	{Volume "wood1"
+		{material "wood"}
+        {thickness 5}
+	}
+	{Volume "wood2"
+		{material "wood"}
+        {thickness 5}
+	}
+
+    ("armor_heavy_wt_ht" turret1(185 80 80 44) turret2(185 80 80 44) turret3(185 185 185 185) turret4(80 80 80 44) body1(150 80 80 40) body2(120 80 80 150))
+    ("armor_mantlet" t(200))
+    ("armor_engine"  t(40 40 40 40))
+
+    ("shield" args 5)
+
+    {extender "shield"
+        {on}
+    }
+
+    {component "shieldl1" {tags "shield"}}
+    {component "shieldl2" {tags "shield"}}
+    {component "shieldl3" {tags "shield"}}
+    {component "shieldl4" {tags "shield"}}
+    {component "shieldl5" {tags "shield"}}
+    {component "shieldl6" {tags "shield"}}
+    {component "shieldl7" {tags "shield"}}
+    {component "shieldr1" {tags "shield"}}
+    {component "shieldr2" {tags "shield"}}
+    {component "shieldr3" {tags "shield"}}
+    {component "shieldr4" {tags "shield"}}
+    {component "shieldr5" {tags "shield"}}
+    {component "shieldr6" {tags "shield"}}
+    {component "shieldr7" {tags "shield"}}
+
+;==============================================
+    (define "crew_human_visible"
+        {placer {place "%place" {group "crew"} {linkbone "%place"} {visor "%visor"} {turnoff {sensor} {shadow} {targetable}}}   }
+        {boarder {door "%door"} {link "%door" "%place" {anm "%place"} {forward putoff} {reverse puton}}}
+    )
+
+    {boarder
+        {anm "driver"
+            {forward    {begin  "board_sherman_left"} {end "seat_driver_car"} {base "open_driver"}}
+            {reverse    {end    "emit_tank_2_hold"} {base "open_driver" -1}}
+        }
+        {anm "charger"
+            {forward    {begin  "board_sturmtiger_back"} {end "seat_driver_car"} {base "open_crew"}}
+            {reverse    {end    "emit_sturmtiger_back"} {base "open_crew" -1}}
+        }
+        {anm "gunner"           
+            {forward    {begin  "board_sturmtiger_back"} {end "seat_driver_car"} {base "open_crew"}}
+            {reverse    {end    "emit_sturmtiger_back"} {base "open_crew" -1}}
+        }
+        {anm "gunner2"           
+            {forward    {begin  "board_sturmtiger_back"} {end "seat_driver_car"} {base "open_crew"}}
+            {reverse    {end    "emit_sturmtiger_back"} {base "open_crew" -1}}
+        }		
+        {anm "commander"          
+            {forward    {begin  "board_sturmtiger_back"} {end "seat_driver_car"} {base "open_crew"}}
+            {reverse    {end    "emit_sturmtiger_back"} {base "open_crew" -1}}
+        }
+        {anm "charger2"
+            {forward    {begin  "board_sherman_right"} {end "seat_driver_car"} {base "open_charger2"}}
+            {reverse    {end    "emit_tank_2_hold"} {base "open_charger2" -1}}
+        }
+    }
+
+    ("crew_human_visible" place(driver) door(emit0) visor(driver))
+    ("crew_human_visible" place(charger)    door(emit2) visor(main))
+    ("crew_human_visible" place(charger2)   door(emit1) visor(main))
+    ("crew_human_visible" place(gunner) door(emit2) visor(main))
+    ("crew_human_visible" place(gunner2) door(emit2) visor(main))	
+    ("crew_human_visible" place(commander) door(emit2) visor(main))
+;==============================================
+
+    {extender "inventory"
+        {box
+			{item "ammo mgun" 3000}
+			{item "ammo bullet105ger ap" 30}
+			{item "ammo bullet105ger fg" 24}
+			{item "ammo bullet105ger apcr" 2}
+        }
+    }
+    {Weaponry
+        ("restore_ik_time")
+        {place "gun"
+            {RestoreIKAfterAim}
+		    {weapon "105mm_kwk45" filling "ammo bullet105ger ap" 1}	
+	        ("abm_high")
+        }
+;        {place "gun2"
+;            {weapon "66mm_smoke_x12" filled}
+;            {foresight "smoke"} 
+;            {gunner "charger"}
+;            {charger "charger"}
+;            {basic}
+;        }
+        {place "mgun1"
+            {type "mgun_hull"}
+			{weapon "mg34tank" filled}
+            {foresight "foresight4"}
+            {gunner "commander"}
+            {charger "commander"}
+;           {basic}
+            ("abm_mgun")
+        }
+        {place "mgun2"
+            {type "mgun_coaxial"}
+			{weapon "mg34tank" filled}
+            {foresight "foresight5"}
+            {gunner "gunner"}
+            {charger "gunner"}
+            {basic}
+            ("abm_mgun")
+        }
+;        {place "mgun3"
+;            {type "mgun_aa"}
+;            {weapon "mg34" filled}
+;            {foresight "foresight6"}
+;            {gunner "commander"}
+;            {charger "commander"}
+;            ("abm_mgun")
+;            {basic}
+;        }
+    }
+
+	{mass 69000}
+	
+	{Chassis
+        ("tank_trace" fx("tracks_big") step(0.47) len(-0.81))
+		("mobility"
+			speed(41)
+			weight(69.0)
+			power(750)
+			fuel(860)		
+		)
+	}
+
+    {Extension "pzkpfw_6_ausf_b_tiger(h)_sla16.mdl"}
+	
+	{bone "turret"
+		{speed2 19} 
+        }	
+	{bone "gun_rot"
+		{limits -6 15}
+		{speed2 5}
+	}
+	
+}
