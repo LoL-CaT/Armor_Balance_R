@@ -89,11 +89,11 @@
 		{component "turret"}
 	}
 
-	("armor_sturmtiger" turret1(150 82 82 40) body1(150 82 82 40) body2(152 82 82 82) body3(152 82 82 82))
-	("armor_mantlet" t(200))
-	("armor_engine"  t(40 40 40 40))
+	("armor_sturmtiger" turret1(150 82 82 30) body1(150 82 82 30) body2(152 82 82 82) body3(152 82 82 82))
+	("armor_mantlet" t(150))
+	("armor_engine"  t(30 30 30 30))
 	("wheels_armor" args 5)	
-	("shield" args 5)
+	("shield" args 8)
 
 	{extender "shield"
 		{on}
@@ -114,7 +114,7 @@
 
 ;==============================================
 	(define "crew_human_visible"
-		{placer	{place "%place" {group "crew"} {linkbone "%place"} {visor "%visor"} {turnoff {sensor} {shadow} {targetable}}}  	}
+		{placer	{place "%place" {group "crew"} {visor "%visor"} {turnoff {sensor} {shadow} {targetable}}}  	}
 		{boarder {door "%door"}	{link "%door" "%place" {anm "%place"} {forward putoff} {reverse puton}}}
 	)
 

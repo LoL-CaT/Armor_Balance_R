@@ -2,10 +2,9 @@
 	(include "/properties/tank.ext")
 	(include "/properties/h_tank_mobility.ext")
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
-	{collider "tank.heavy"}
 
 	{collider "tank.heavy"}
-	{props "heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
+	{props "tank" "h_heavy" "turret_rotator" "vision_vehicle_maximum" "muzzle_large"}
 
     {Volume "body1"
         {tags "body"}
@@ -100,11 +99,11 @@
         {thickness 5}
 	}
 
-    ("armor_heavy_wt_ht" turret1(185 80 80 44) turret2(185 80 80 44) turret3(185 185 185 185) turret4(80 80 80 44) body1(150 80 80 40) body2(120 80 80 150))
+    ("armor_heavy_wt_ht" turret1(185 80 80 45) turret2(185 80 80 45) turret3(185 185 185 185) turret4(80 80 80 45) body1(150 80 80 45) body2(120 80 80 150))
     ("armor_mantlet" t(185))
     ("armor_engine"  t(40 40 40 40))
 	("wheels_armor" args 5)
-    ("shield" args 5)
+    ("shield" args 8)
 
     {extender "shield"
         {on}
@@ -127,7 +126,7 @@
 
 ;==============================================
     (define "crew_human_visible"
-        {placer {place "%place" {group "crew"} {linkbone "%place"} {visor "%visor"} {turnoff {sensor} {shadow} {targetable}}}   }
+        {placer {place "%place" {group "crew"} {visor "%visor"} {turnoff {sensor} {shadow} {targetable}}}   }
         {boarder {door "%door"} {link "%door" "%place" {anm "%place"} {forward putoff} {reverse puton}}}
     )
 
