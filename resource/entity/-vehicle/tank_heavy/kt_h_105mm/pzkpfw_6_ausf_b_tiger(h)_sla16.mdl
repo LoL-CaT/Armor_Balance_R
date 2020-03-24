@@ -38,6 +38,70 @@
 				{speed 0.006}
 				{Position 4.42752	-0.0787525	13.9005}
 				{VolumeView "turret.ply"}
+                {bone "visor11"
+					{Matrix34
+						-330.979925	-330.199368	0
+						330.199368	0.979925	0
+						0	0	1
+						-0.682715	6.52132	22.799
+					}
+				}
+				{bone "visor12"
+					{Matrix34
+						-0.979925	0.199368	0
+						-0.199368	-0.979925	0
+						0	0	1
+						-17.6551	6.59339	22.799
+					}
+				}
+				{bone "visor13"
+					{Matrix34
+						-330.979925	330.199368	0
+						330.199368	0.979925	0
+						0	0	1
+						-0.682715	6.52132	22.799
+					}
+				}
+				{bone "visor14"
+					{Matrix34
+						0.979925	110.199368	0
+						-0.199368	0.979925	0
+						0	0	1
+						-0.682715	6.52132	22.799
+					}
+				}
+				{bone "visor15"
+					{Matrix34
+						300.979925	330.199368	0
+						-330.199368	0.979925	0
+						0	0	1
+						-0.682715	6.52132	22.799
+					}
+				}
+				{bone "visor16"
+					{Matrix34
+						0.979925	0.199368	0
+						-0.199368	0.979925	0
+						0	0	1
+						-0.682715	6.52132	22.799
+					}
+				}
+				{bone "visor17"
+					{Matrix34
+						330.979925	-330.199368	0
+						0.199368	0.979925	0
+						0	0	1
+						-0.682715	6.52132	22.799
+					}
+				}
+			    {bone "visor18"
+					{Matrix34
+						0.979925	-110.199368	0
+						-0.199368	0.979925	0
+						0	0	1
+						-0.682715	6.52132	22.799
+					}
+				}				
 				{bone revolute "gun_rot"
 					{parameters "ID=gun;"}
 					{animation
@@ -46,9 +110,9 @@
 					{limits -8 15}
 					{speed 0.005}
 					{Matrix34
-						1	0	0
-						0	0	1
-						0	-1	0
+						1.16	0	0
+						0	0	1.19
+						0	-1.19	0
 						27.6493	-1.21062	7.30026
 					}
 					{VolumeView "gun_rot.ply"}
@@ -84,46 +148,46 @@
 						}
 					}
 				}
-				{bone "turret_mount"
-					{parameters "ID=turret;"}
-					{Position 3.79932	9.34824	23.1687}
-					{VolumeView "turret_mount.ply"}
-					{bone revolute "mgun_aa_turret"
-						{parameters "ID=turret;"}
-						{limits -20 20}
-						{speed 0.015}
-						{Position 0.850862	-0.0554981	-0.649612}
-						{VolumeView "mgun_aa_turret.ply"}
-						{bone "mgun_aa_pole"
-							{parameters "ID=turret;"}
-							{Position 4.68564	0.739832	2.75591}
-							{VolumeView "mgun_aa_pole.ply"}
-							{bone revolute "mgun_aa_rot"
-								{limits -35 10}
-								{speed 0.015}
-								{Matrix34
-									0.965926	0	0.258819
-									-0.258819	0	0.965926
-									0	-1	0
-									3.17177	-0.662003	2.18761
-								}
-								{bone "mgun3"
-									{parameters "ID=turret;"}
-									{Matrix34
-										1	0	0
-										0	0	-1
-										0	1	0
-										-0.0439148	0.745464	-0.892101
-									}
-									{VolumeView "mgun3.ply"}
-									{bone "foresight6"
-										{Position 12.9252	-0.619532	-0.469311}
-									}
-								}
-							}
-						}
-					}
-				}
+;				{bone "turret_mount"
+;					{parameters "ID=turret;"}
+;					{Position 3.79932	9.34824	23.1687}
+;					{VolumeView "turret_mount.ply"}
+;					{bone revolute "mgun_aa_turret"
+;						{parameters "ID=turret;"}
+;						{limits -20 20}
+;						{speed 0.015}
+;						{Position 0.850862	-0.0554981	-0.649612}
+;						{VolumeView "mgun_aa_turret.ply"}
+;						{bone "mgun_aa_pole"
+;							{parameters "ID=turret;"}
+;							{Position 4.68564	0.739832	2.75591}
+;							{VolumeView "mgun_aa_pole.ply"}
+;							{bone revolute "mgun_aa_rot"
+;								{limits -35 10}
+;								{speed 0.015}
+;								{Matrix34
+;									0.965926	0	0.258819
+;									-0.258819	0	0.965926
+;									0	-1	0
+;									3.17177	-0.662003	2.18761
+;								}
+;								{bone "mgun3"
+;									{parameters "ID=turret;"}
+;									{Matrix34
+;										1	0	0
+;										0	0	-1
+;										0	1	0
+;										-0.0439148	0.745464	-0.892101
+;									}
+;									{VolumeView "mgun3.ply"}
+;									{bone "foresight6"
+;										{Position 12.9252	-0.619532	-0.469311}
+;									}
+;								}
+;							}
+;						}
+;					}
+;				}
 				{bone "turret_inside"
 					{parameters "ID=turret;"}
 					{Position -6.04169	1.14292e-05	0.784508}
@@ -235,6 +299,9 @@
 				{bone "gunner"
 					{Position 8.1037	7.50888	-13.623}
 				}
+				{bone "gunner2"
+					{Position 8.1037	7.50888	-13.623}
+				}				
 				{bone "charger"
 					{Matrix34
 						0	1	0

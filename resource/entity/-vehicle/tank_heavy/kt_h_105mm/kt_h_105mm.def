@@ -101,9 +101,9 @@
 	}
 
     ("armor_heavy_wt_ht" turret1(185 80 80 44) turret2(185 80 80 44) turret3(185 185 185 185) turret4(80 80 80 44) body1(150 80 80 40) body2(120 80 80 150))
-    ("armor_mantlet" t(200))
+    ("armor_mantlet" t(185))
     ("armor_engine"  t(40 40 40 40))
-
+	("wheels_armor" args 5)
     ("shield" args 5)
 
     {extender "shield"
@@ -165,6 +165,61 @@
     ("crew_human_visible" place(gunner2) door(emit2) visor(main))	
     ("crew_human_visible" place(commander) door(emit2) visor(main))
 ;==============================================
+
+	{sensor
+		{visor "tur1"
+			{vision "tank_main-h"}
+			{bone "visor1"}
+		}
+	        {visor "tur1_2"
+			{vision "tank_back"}
+			{bone "visor4"}
+		}
+	        {visor "tur2_1"
+			{vision "tank_pr"}
+			{bone "visor11"}
+		}
+	        {visor "tur2_2"
+			{vision "tank_pr"}
+			{bone "visor12"}
+		}
+	        {visor "tur2_3"
+			{vision "tank_pr"}
+			{bone "visor13"}
+		}
+	        {visor "tur2_4"
+			{vision "tank_pr"}
+			{bone "visor14"}
+		}
+	        {visor "tur2_5"
+			{vision "tank_pr"}
+			{bone "visor15"}
+		}
+	        {visor "tur2_6"
+			{vision "tank_pr"}
+			{bone "visor16"}
+		}
+	        {visor "tur2_7"
+			{vision "tank_pr"}
+			{bone "visor17"}
+		}
+	        {visor "tur2_8"
+			{vision "tank_pr"}
+			{bone "visor18"}
+		}
+;		{visor "mgun_aa"
+;			{vision "vehicle_top_mgun"}
+;			{bone "foresight6"}
+;		}
+		{visor "mgun_hull"
+			{vision "tank_back"}
+			{bone "foresight4"}
+		}
+		{visor "driver"
+			{vision "tank_driver"}
+			{bone "visor2"}
+		}
+	}
 
     {extender "inventory"
         {box
