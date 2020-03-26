@@ -953,7 +953,8 @@
 			{item "bullet152_d1" "fg" "ammo" 1 {max 100}{value 2}}				
 			{item "bullet152rus51" "ap" "ammo" 1 {max 100}{value 2}}    
 			{item "bullet152rus51" "fg" "ammo" 1 {max 100}{value 2}}
-			{item "bullet203" "ammo" 1 {max 100}{value 2}}			
+			{item "bullet203" "ammo" 1 {max 100}{value 2}}
+			{item "bullet280rus" "ammo" 1 {max 100}{value 2}}			
 			{item "dyakonov_grenade" 100 {max 100}{value 2}}
 			{item "mortar" "fg" "ammo" 100 {max 100}{value 1}}			
 			{item "mortar50_o822" "ammo" "fg" 100 {max 100}{value 2}}  
