@@ -992,14 +992,14 @@
     ("damage_process_bullet_hit"
        staff(ap_70_77a)
 
-        hit_body__explosive(0)
-        hit_body__engine_burn(0)
-        hit_body__body_destroy(0)
-        hit_body__body_brake(0)
+        hit_body__explosive(0.1)
+        hit_body__engine_burn(0.1)
+        hit_body__body_destroy(0.1)
+        hit_body__body_brake(0.20)
         ;--------------------------
-        hit_body__engine_brake(0)
+        hit_body__engine_brake(0.10)
         ;--------------------------
-        hit_turret__explosive(0)
+        hit_turret__explosive(0.10)
         hit_turret_front__gun_brake(0)
         hit_turret__turret_destroy(0.95)
         hit_turret__turret_brake(0.95)
@@ -1220,10 +1220,10 @@
     ("damage_process_bullet_hit"
        staff(fg_70_77f)
 
-        hit_body__explosive(0)
-        hit_body__engine_burn(0)
-        hit_body__body_destroy(0)
-        hit_body__body_brake(0)
+        hit_body__explosive(0.1)
+        hit_body__engine_burn(0.1)
+        hit_body__body_destroy(0.1)
+        hit_body__body_brake(0.20)
         ;--------------------------
         hit_body__engine_brake(0.2)
         ;--------------------------
