@@ -7,23 +7,33 @@
 	{targetClass "light_tank"}
 	{patherId "tank.light"}
 	
-	{extender "enumerator"}
-
-    {Volume "Body1"
-        {tags "body"}
-        {component "body"}
-    }
-    {Volume "Body2"
-        {tags "body"}
-        {component "body"}
-    }
-
-	("armor_light" turret(22 19 10 10) body(15 15 15 10))
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+	}
+	("armor_light_shit" turret(22 19 10 10) body(15 15 15 10))
 	("armor_mantlet" t(20))
 	("wheels_armor" args 5)		
 	("armor_engine"  t(10))
-
+	
+;	{extender "enumerator"}
+	
     {sensor
+		{visor "main"
+			{vision "tank_main-l"}
+		}
+		    {visor "main1"
+			{vision "tank_main-l"}
+			{bone "foresight1"}
+		}	
 	        {visor "tur2_4"
 			{vision "tank_pr"}
 			{bone "visor14"}
@@ -32,7 +42,7 @@
 			{vision "tank_pr"}
 			{bone "visor18"}
 		}	
-	}	
+	}		
 	
     {extender "inventory"
         {box
@@ -45,7 +55,7 @@
         ("restore_ik_time")
         {place "gun"
             {RestoreIKAfterAim}
-	    {weapon "76mm_kt28" filling "ammo bullet76_obr27 ap" 1}
+	        {weapon "76mm_kt28" filling "ammo bullet76_obr27 ap" 1}
             {charger "gunner"}
             ("abm_low")
         }
@@ -66,37 +76,37 @@
 			("abm_mgun")
         }
     }
-
-    ("crew_2_human")
-    ("crew_human" place(commander)  door1(emit1) door2(emit2) visor(back))
-
-    {boarder
-        {anm "left"
-            {forward    {begin  "board_kv"}}
-            {reverse    {end    "emit_tank_1_hold"}}
-        }
-        {anm "right"
-            {forward    {begin  "board_tank_right"}}
-            {reverse    {end    "emit_tank_1_hold"}}
-        }
-        {anm "armor"
-            {forward    {begin  "board_MiddleArmor"}    {end "pose_seat_armor_1"}}
-            {reverse    {end    "emit_tank_1"}}
-        }
-        {anm "armor1"
-            {forward    {begin  "board_MiddleArmor"}    {end "pose_seat_armor_2"}}
-            {reverse    {end    "emit_body"}}
-        }
-    }
-
-    ("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
-    ("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
-    ("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
-    ("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
+	("crew_3_human_extended")
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {base "open_driver"}}
+			{reverse 	{end	"emit_t34_hold"} {base "open_driver"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_kv"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_MiddleArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_MiddleArmor"} 	{end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor))
 
     {mass 14200}
     {Chassis
-        ("tank_trace_ex" fx("tracks_sm") step(0.3) len(1.0) boneleft("wheell4") boneright("wheelr4"))
+		("tank_trace_ex" fx("tracks_sm") step(0.3) len(0.55) boneleft("wheell4") boneright("wheelr4"))
 		("mobility"
 			speed(52)
 			weight(14.2)
@@ -111,22 +121,23 @@
             {bone "foresight4"}
         }
     }
-
-    {Extension "bt7a.mdl"}
-
+	{extension "bt-7a.mdl"}
+	
     {bone "gun_rot"
         {speed2 5}
-        {limits -26 8}
+        {limits -5 25}
     }
     {bone "turret"
         {speed2 7}
     }
-	{bone "mgun"
-        {limits 20}
+	{bone "mgun_rot"
         {speed2 80}
 	}
-	{bone "coaxial_mgun"
-        {limits 10}
+	{bone "mgun2_rot"
         {speed2 80}
     }
+	{bone "mgun_a2"
+        {speed2 80}
+    }	
+	
 }
