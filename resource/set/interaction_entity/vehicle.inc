@@ -405,7 +405,9 @@
 	{on "contact_airborne"
 		{if not "contact_airborne_first"
 			{set "contact_airborne_first" 1}
-			{component break}
+				{if rand 0.4
+			        {component break}
+				}
 			{delay 0.1
 				{set "contact_airborne_second" 1}
 				{delay 0.1
@@ -414,7 +416,7 @@
 				}
 			}
 		else "contact_airborne_second"
-			{call "explosion"}
+;			{call "explosion"}
 		}
 	}
 
