@@ -869,7 +869,7 @@ function updatePlatoonStatus(platoon, nextTargetFlag)
 		if ((platoon.order == PLATOON_CAPTURE_INFANTRY or platoon.order == PLATOON_CAPTURE_VEHICLES) and IsCapturedFlag(platoon.flag)) then
 				if verbose then print("BOT",BotApi.Instance.playerId, " platoon ",platoon.name,platoonSize(platoon),_flag," waiting capture") end
 				platoon.order = PLATOON_WAIT
-				platoon.lockUntil = quants + 1500
+				platoon.lockUntil = quants + 2500
 				return
 		end
 		
