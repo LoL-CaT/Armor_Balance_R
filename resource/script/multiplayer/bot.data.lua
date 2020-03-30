@@ -20,7 +20,7 @@ UnitClass = {
 
 
 function readAllUnits(sq,units,army)
-	local base = "mods\\Armor_Balance\\resource\\set\\multiplayer\\units_bot\\"
+	local base = "mods\\Armor_Balance_R\\resource\\set\\multiplayer\\units_bot\\"
 
 	local army = BotApi.Instance.army
 	print(" parsing units for " .. army)
