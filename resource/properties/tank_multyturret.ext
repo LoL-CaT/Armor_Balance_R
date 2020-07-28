@@ -360,13 +360,13 @@
 (define "armor_tank_MT3" ; armor system details for t-28
     {armor
         {setting "track"
-            {thickness 20}
+            {thickness 23}
             {durability
                 {blast
-                    {koef 100}
+                    {koef 9}
                 }
                 {pierce
-                    {value 100}
+                    {value 2000}
                 }
             }
             {threshold
@@ -562,10 +562,10 @@
 (define "armor_tank_MT5" ; armor system details for t-35
     {armor
         {setting "track"
-            {thickness 30}
+            {thickness 23}
             {durability
                 {blast
-                    {koef 2000}
+                    {koef 9}
                 }
                 {pierce
                     {value 2000}
@@ -828,13 +828,13 @@
 (define "armor_tank_MT2" ; armor system details for t-26
     {armor
         {setting "track"
-            {thickness 15}
+            {thickness 5}
             {durability
                 {blast
-                    {koef 5}
+                    {koef 3}
                 }
                 {pierce
-                    {value 5}
+                    {value 150}
                 }
             }
             {threshold
@@ -943,12 +943,27 @@
 )
 (define "armor_tank_M2"
 	{armor
-		{setting "track"
-			{thickness (* %t 1)}
-		;	{max_absorb (* %ta 1)}
-			{volumes "track*"}
-		;	{whole_wound}
-		}
+        {setting "track"
+            {thickness 5}
+            {durability
+                {blast
+                    {koef 3}
+                }
+                {pierce
+                    {value 150}
+                }
+            }
+            {threshold
+                {blast
+                    {value 9}
+                }
+                {pierce
+                    {value 3000}
+                }
+            }
+            {volumes "track*"}
+            {whole_wound}
+        }
 		{setting "turret"
 			{thickness %tur}
 			{volumes "turret*"}
@@ -972,7 +987,7 @@
 	}
 )
 (define "armor_light_M2"
-	("armor_tank_M2" t(15) bod(%body) tur(%turret) tur2(%turret2) g(15) en(5))
+	("armor_tank_M2" t(3) bod(%body) tur(%turret) tur2(%turret2) g(15) en(5))
 
 	("components_tank" repair(0.5))
 	{sensor
