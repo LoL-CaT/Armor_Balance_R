@@ -561,7 +561,7 @@
     ;--------------------------
         pierce_body__burn(0.2)
         pierce_body__body_brake(0.65)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_destroy(0.40)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
@@ -650,8 +650,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.75)
-        pierce_body__body_destroy(0.2)
+        pierce_body__body_brake(0.55)
+        pierce_body__body_destroy(0.75)
     ;--------------------------
 		  crew_shock_time(0.30)
     ;--------------------------
@@ -696,34 +696,34 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.20)
-        pierce_body__kill_gunner(0.20)
-        pierce_body__kill_driver(0.20)
-        pierce_body__kill_commander(0.20)
-        pierce_body__kill_gunner2(0.20)
+        pierce_body__kill_charger(0.40)
+        pierce_body__kill_gunner(0.40)
+        pierce_body__kill_driver(0.40)
+        pierce_body__kill_commander(0.40)
+        pierce_body__kill_gunner2(0.40)
 ;///////Engineer_Den+ ////////////////
-        pierce_body__kill_radist(0.20)
-        pierce_turret__kill_radist(0.20)
+        pierce_body__kill_radist(0.40)
+        pierce_turret__kill_radist(0.40)
 
-        pierce_body__kill_gunner3(0.20)
-        pierce_turret2__kill_gunner3(0.20)
-        pierce_body__kill_gunner4(0.20)
-        pierce_turret3__kill_gunner4(0.20)
-        pierce_body__kill_gunner5(0.20)
-        pierce_turret4__kill_gunner5(0.20)
-        pierce_body__kill_charger5(0.20)
-        pierce_turret4__kill_charger5(0.20)
-        pierce_body__kill_gunner6(0.20)
-        pierce_turret5__kill_gunner6(0.20)
-        pierce_body__kill_charger6(0.20)
-        pierce_turret5__kill_charger6(0.20)
+        pierce_body__kill_gunner3(0.40)
+        pierce_turret2__kill_gunner3(0.40)
+        pierce_body__kill_gunner4(0.40)
+        pierce_turret3__kill_gunner4(0.40)
+        pierce_body__kill_gunner5(0.40)
+        pierce_turret4__kill_gunner5(0.40)
+        pierce_body__kill_charger5(0.40)
+        pierce_turret4__kill_charger5(0.40)
+        pierce_body__kill_gunner6(0.40)
+        pierce_turret5__kill_gunner6(0.40)
+        pierce_body__kill_charger6(0.40)
+        pierce_turret5__kill_charger6(0.40)
 ;///////Engineer_Den - ////////////////			
     ;--------------------------
-        pierce_turret__kill_charger(0.20)
-        pierce_turret__kill_gunner(0.20)
-        pierce_turret__kill_driver(0.20)
-        pierce_turret__kill_commander(0.20)
-        pierce_turret__kill_gunner2(0.20)
+        pierce_turret__kill_charger(0.40)
+        pierce_turret__kill_gunner(0.40)
+        pierce_turret__kill_driver(0.40)
+        pierce_turret__kill_commander(0.40)
+        pierce_turret__kill_gunner2(0.40)
     )	
     ;///////////////////////////////////////////////////////// Gun shells AP 80 - 95
    ("damage_process_pierce"	
@@ -740,8 +740,8 @@
         pierce_inventory__explosive(0.2)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.90)
-        pierce_body__body_destroy(0.2)
+        pierce_body__body_brake(0.25)
+        pierce_body__body_destroy(0.85)
     ;--------------------------
 		  crew_shock_time(3.95)
     ;--------------------------
@@ -786,34 +786,34 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.40)
-        pierce_body__kill_gunner(0.40)
-        pierce_body__kill_driver(0.40)
-        pierce_body__kill_commander(0.40)
-        pierce_body__kill_gunner2(0.40)
+        pierce_body__kill_charger(0.60)
+        pierce_body__kill_gunner(0.60)
+        pierce_body__kill_driver(0.60)
+        pierce_body__kill_commander(0.60)
+        pierce_body__kill_gunner2(0.60)
 ;///////Engineer_Den+ ////////////////
-        pierce_body__kill_radist(0.40)
-        pierce_turret__kill_radist(0.40)
+        pierce_body__kill_radist(0.60)
+        pierce_turret__kill_radist(0.60)
 
-        pierce_body__kill_gunner3(0.40)
-        pierce_turret2__kill_gunner3(0.40)
-        pierce_body__kill_gunner4(0.40)
-        pierce_turret3__kill_gunner4(0.40)
-        pierce_body__kill_gunner5(0.40)
-        pierce_turret4__kill_gunner5(0.40)
-        pierce_body__kill_charger5(0.40)
-        pierce_turret4__kill_charger5(0.40)
-        pierce_body__kill_gunner6(0.40)
-        pierce_turret5__kill_gunner6(0.40)
-        pierce_body__kill_charger6(0.40)
-        pierce_turret5__kill_charger6(0.40)
+        pierce_body__kill_gunner3(0.60)
+        pierce_turret2__kill_gunner3(0.60)
+        pierce_body__kill_gunner4(0.60)
+        pierce_turret3__kill_gunner4(0.60)
+        pierce_body__kill_gunner5(0.60)
+        pierce_turret4__kill_gunner5(0.60)
+        pierce_body__kill_charger5(0.60)
+        pierce_turret4__kill_charger5(0.60)
+        pierce_body__kill_gunner6(0.60)
+        pierce_turret5__kill_gunner6(0.60)
+        pierce_body__kill_charger6(0.60)
+        pierce_turret5__kill_charger6(0.60)
 ;///////Engineer_Den - ////////////////			
     ;--------------------------
-        pierce_turret__kill_charger(0.40)
-        pierce_turret__kill_gunner(0.40)
-        pierce_turret__kill_driver(0.40)
-        pierce_turret__kill_commander(0.40)
-        pierce_turret__kill_gunner2(0.40)
+        pierce_turret__kill_charger(0.60)
+        pierce_turret__kill_gunner(0.60)
+        pierce_turret__kill_driver(0.60)
+        pierce_turret__kill_commander(0.60)
+        pierce_turret__kill_gunner2(0.60)
     )	
     ;///////////////////////////////////////////////////////// Gun shells AP 100 - 107
    ("damage_process_pierce"   
@@ -830,8 +830,8 @@
         pierce_inventory__explosive(0.2)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.2)
+        pierce_body__body_brake(0.15)
+        pierce_body__body_destroy(0.90)
     ;--------------------------
 		  crew_shock_time(3.95)
     ;--------------------------
@@ -876,34 +876,34 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.40)
-        pierce_body__kill_gunner(0.40)
-        pierce_body__kill_driver(0.40)
-        pierce_body__kill_commander(0.40)
-        pierce_body__kill_gunner2(0.40)
+        pierce_body__kill_charger(0.75)
+        pierce_body__kill_gunner(0.75)
+        pierce_body__kill_driver(0.75)
+        pierce_body__kill_commander(0.75)
+        pierce_body__kill_gunner2(0.75)
 ;///////Engineer_Den+ ////////////////
-        pierce_body__kill_radist(0.40)
-        pierce_turret__kill_radist(0.40)
+        pierce_body__kill_radist(0.75)
+        pierce_turret__kill_radist(0.75)
 
-        pierce_body__kill_gunner3(0.40)
-        pierce_turret2__kill_gunner3(0.40)
-        pierce_body__kill_gunner4(0.40)
-        pierce_turret3__kill_gunner4(0.40)
-        pierce_body__kill_gunner5(0.40)
-        pierce_turret4__kill_gunner5(0.40)
-        pierce_body__kill_charger5(0.40)
-        pierce_turret4__kill_charger5(0.40)
-        pierce_body__kill_gunner6(0.40)
-        pierce_turret5__kill_gunner6(0.40)
-        pierce_body__kill_charger6(0.40)
-        pierce_turret5__kill_charger6(0.40)
+        pierce_body__kill_gunner3(0.75)
+        pierce_turret2__kill_gunner3(0.75)
+        pierce_body__kill_gunner4(0.75)
+        pierce_turret3__kill_gunner4(0.75)
+        pierce_body__kill_gunner5(0.75)
+        pierce_turret4__kill_gunner5(0.75)
+        pierce_body__kill_charger5(0.75)
+        pierce_turret4__kill_charger5(0.75)
+        pierce_body__kill_gunner6(0.75)
+        pierce_turret5__kill_gunner6(0.75)
+        pierce_body__kill_charger6(0.75)
+        pierce_turret5__kill_charger6(0.75)
 ;///////Engineer_Den - ////////////////			
     ;--------------------------
-        pierce_turret__kill_charger(0.40)
-        pierce_turret__kill_gunner(0.40)
-        pierce_turret__kill_driver(0.40)
-        pierce_turret__kill_commander(0.40)
-        pierce_turret__kill_gunner2(0.40)
+        pierce_turret__kill_charger(0.75)
+        pierce_turret__kill_gunner(0.75)
+        pierce_turret__kill_driver(0.75)
+        pierce_turret__kill_commander(0.75)
+        pierce_turret__kill_gunner2(0.75)
     )	
     ;///////////////////////////////////////////////////////// Gun shells AP 120 - 130
    ("damage_process_pierce"    
@@ -920,8 +920,8 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.85)
+        pierce_body__body_brake(0.02)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
     ;--------------------------
@@ -1010,7 +1010,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -1100,7 +1100,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -1190,7 +1190,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -1280,7 +1280,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)

@@ -54,8 +54,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.1)
-        pierce_body__body_brake(0.15)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.60)
+        pierce_body__body_destroy(0.50)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
@@ -98,8 +98,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.60)
+        pierce_body__body_destroy(0.50)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
@@ -142,8 +142,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.60)
+        pierce_body__body_destroy(0.50)
     ;--------------------------
 		  crew_shock_time(0)
     ;--------------------------
@@ -186,8 +186,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.60)
+        pierce_body__body_destroy(0.50)
     ;--------------------------
 		  crew_shock_time(0.90)
     ;--------------------------
@@ -230,8 +230,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.70)
+        pierce_body__body_destroy(0.80)
     ;--------------------------
 		  crew_shock_time(0.90)
     ;--------------------------
@@ -274,8 +274,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.1)
+        pierce_body__body_destroy(0.98)
     ;--------------------------
 		  crew_shock_time(0.90)
     ;--------------------------
@@ -318,8 +318,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(0.95)
     ;--------------------------
@@ -362,8 +362,8 @@
         pierce_inventory__explosive(0.2)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.2)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(3.95)
     ;--------------------------
@@ -406,8 +406,8 @@
         pierce_inventory__explosive(0.2)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.2)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(4.95)
     ;--------------------------
@@ -450,8 +450,8 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.85)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
     ;--------------------------
@@ -494,7 +494,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -538,7 +538,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -582,7 +582,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -626,7 +626,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)

@@ -231,12 +231,12 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.1)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(0.20)
     ;--------------------------
-        pierce_turret__explosive(0.1)
+        pierce_turret__explosive(0.01)
 
         pierce_turret_front__turret_brake(0.95)
         pierce_turret_back__turret_brake(0.95)
@@ -252,17 +252,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.20)
-        pierce_body__kill_gunner(0.20)
-        pierce_body__kill_driver(0.20)
-        pierce_body__kill_commander(0.20)
-        pierce_body__kill_gunner2(0.20)
+        pierce_body__kill_charger(0.40)
+        pierce_body__kill_gunner(0.40)
+        pierce_body__kill_driver(0.40)
+        pierce_body__kill_commander(0.40)
+        pierce_body__kill_gunner2(0.40)
     ;--------------------------
-        pierce_turret__kill_charger(0.20)
-        pierce_turret__kill_gunner(0.20)
-        pierce_turret__kill_driver(0.20)
-        pierce_turret__kill_commander(0.20)
-        pierce_turret__kill_gunner2(0.20)
+        pierce_turret__kill_charger(0.40)
+        pierce_turret__kill_gunner(0.40)
+        pierce_turret__kill_driver(0.40)
+        pierce_turret__kill_commander(0.40)
+        pierce_turret__kill_gunner2(0.40)
     )	
     ;///////////////////////////////////////////////////////// Gun shells AP 40 - 57
    ("damage_process_pierce"	
@@ -275,8 +275,8 @@
         pierce_inventory__explosive(0.1)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.1)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(0.30)
     ;--------------------------
@@ -296,17 +296,17 @@
 
     ;Probability crew die
     ;--------------------------
-        pierce_body__kill_charger(0.20)
-        pierce_body__kill_gunner(0.20)
-        pierce_body__kill_driver(0.20)
-        pierce_body__kill_commander(0.20)
-        pierce_body__kill_gunner2(0.20)
+        pierce_body__kill_charger(0.40)
+        pierce_body__kill_gunner(0.40)
+        pierce_body__kill_driver(0.40)
+        pierce_body__kill_commander(0.40)
+        pierce_body__kill_gunner2(0.40)
     ;--------------------------
-        pierce_turret__kill_charger(0.20)
-        pierce_turret__kill_gunner(0.20)
-        pierce_turret__kill_driver(0.20)
-        pierce_turret__kill_commander(0.20)
-        pierce_turret__kill_gunner2(0.20)
+        pierce_turret__kill_charger(0.40)
+        pierce_turret__kill_gunner(0.40)
+        pierce_turret__kill_driver(0.40)
+        pierce_turret__kill_commander(0.40)
+        pierce_turret__kill_gunner2(0.40)
     )
     ;///////////////////////////////////////////////////////// Gun shells AP 70 - 77
    ("damage_process_pierce"		
@@ -319,8 +319,8 @@
         pierce_inventory__explosive(0.2)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.2)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(0.95)
     ;--------------------------
@@ -363,8 +363,8 @@
         pierce_inventory__explosive(0.2)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.2)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(3.95)
     ;--------------------------
@@ -407,8 +407,8 @@
         pierce_inventory__explosive(0.2)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.2)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(4.95)
     ;--------------------------
@@ -451,8 +451,8 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
-        pierce_body__body_destroy(0.85)
+        pierce_body__body_brake(0.01)
+        pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
     ;--------------------------
@@ -495,7 +495,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -539,7 +539,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -583,7 +583,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
@@ -627,7 +627,7 @@
         pierce_inventory__explosive(0.95)
     ;--------------------------
         pierce_body__burn(0.5)
-        pierce_body__body_brake(0.99)
+        pierce_body__body_brake(0.01)
         pierce_body__body_destroy(0.99)
     ;--------------------------
 		  crew_shock_time(29.95)
