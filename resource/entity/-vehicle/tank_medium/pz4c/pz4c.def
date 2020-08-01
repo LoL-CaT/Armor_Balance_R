@@ -1,30 +1,28 @@
-{Entity
+{game_entity
 	(include "/properties/tank.ext")
 	(include "/properties/m_tank_mobility.ext")
 	(include "/properties/selection/vehicle.inc"  scale(1.2))
 	{collider "tank.medium"}
 	{props "l_medium" "turret_rotator" "vision_vehicle_medium" "muzzle_medium" "tank"}
-	
+
 	{extender "enumerator"
 		{digit_folder "ger"}
 	}
-	
+
 	{volume "body1"
-		{tags "body"}
-		{component "body"}
-		{thickness 30}
+		{tags "body2"}
+		{component "body2"}
 	}
 	{volume "body2"
 		{tags "body"}
 		{component "body"}
-		{thickness 30}
 	}
-	
-	("armor_medium" turret(30 15 15 12) body(30 15 15 12))
+
+	("armor_medium" turret(35 15 15 12) body(30 15 15 12) body2(30 15 15 12))
 	("wheels_armor" args 5)	
 	("armor_engine"  t(12 12 12 12))
-	("armor_mantlet" t(30))
-	
+	("armor_mantlet" t(35))
+
 	("crew_4_human_extended")
 	
 	{boarder
@@ -53,13 +51,13 @@
 			{reverse 	{end	"emit_body"}}
 		}
 	}
-	
+
 ;	("gunner_visible")
 	("crew_human" place(gunner2) door1(emit1) door2(emit2) visor(main))
-	
-	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
-	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
-	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor2))
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit6)  animation(armor2))
 	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
 	
     {sensor
@@ -104,41 +102,48 @@
 			{bone "visor188"}
 		}		
 	}	
-	
+
 	{extender "inventory"
 		{box
-            		{item "ammo mgun" 2400}
 ;           		{item "ammo bullet75gers ap" 10}
             		{item "ammo bullet75gers Aheat" 50}
             		{item "ammo bullet75gers fg" 30}
+            		{item "ammo mgun" 2400}					
 		}
 	}
+
 	{Weaponry
 		("restore_ik_time")
 		{place "gun"
 			{RestoreIKAfterAim}
-			{weapon "75mm_kwk37_erli" filling "ammo bullet75gers Aheat" 1}	
-			{gunner "gunner"}
-			{charger "gunner"}
+			{weapon "75mm_kwk37_erli" filling "ammo bullet75gers Aheat" 1}					
 			("abm_medium")
 		}
-		{place "mgun1"
-			{type "mgun_hull"}
-			{weapon "mg34tank" filled}
-			{foresight "foresight4"}
-			{gunner "driver"}
-			{charger "driver"}
-			("abm_mgun")
-		}
+;		{place "mgun"
+;			{type "mgun_aa"}
+;			{gunner "gunner2"}
+;			{charger "gunner2"}
+;			{LinkBone "mgun_rot"}
+;			{LinkAnimation "off"}
+;			("abm_mgun")
+;		}
+;		{place "mgun1"
+;			{type "mgun_hull"}
+;			{weapon "mg34tank" filled}
+;			{foresight "foresight4"}
+;			{gunner "driver"}
+;			{charger "driver"}
+;			("abm_mgun")
+;		}
 		{place "mgun2"
 			{type "mgun_coaxial"}
 			{weapon "mg34tank" filled}
 			{foresight "foresight5"}
 			("abm_mgun")
-            {basic}
+			{basic}
 		}
 	}
-	
+
 	{mass 19000}
 	{Chassis
 		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
@@ -149,13 +154,26 @@
 			fuel(420)		
 		)
 	}
-	
-	{Extension "pz4c.mdl"}
-	
-	{bone "turret"
-		{speed2 14}
+
+	{Extension "Pz4e.mdl"}
+
+	{bone "turret_mgun"
+		{limits -30 30}
+		{speed 0.03}
+		{terminator}
 	}
 	{bone "gun_rot"
+		{limits -20 10}
 		{speed2 5}
 	}
+	{bone "turret"		
+		{speed2 14}
+	}
+	{bone "foresight5"
+		{limits -1 1}
+	}
+;	{bone "mgun"
+;		{limits 15}
+;		{speed2 80}
+;	}
 }
