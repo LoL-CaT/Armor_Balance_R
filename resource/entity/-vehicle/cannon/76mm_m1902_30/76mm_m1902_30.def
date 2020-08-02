@@ -41,6 +41,7 @@
 	{Weaponry
 		{place "gun"
 			{weapon "76mm_1902_30_l40" filling "ammo bullet76rus fg" 1}
+;			{RestoreIKAfterAim}
 			{Rotate}
 			("abm_field_gun")
 		}
@@ -50,6 +51,7 @@
 	(include "/properties/selection/cannon.inc"  scale(0.7))
 	{extender "cannon"
 		{animation
+			{switch "close"}
 			{move	"cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
 			{aim	"Cannon_pdr25_gunlayer" ""}
 			{fire	"Cannon_pdr25_gunlayer_fire-alert" "cannon_pdr25_charger_fire"}
@@ -57,7 +59,7 @@
 		}
 		{move {obstacle "close"}}
 		{attack {obstacle "open"}}
-		{rotate_ik_Limit 0}		
+;		(mod "mp" {rotate_ik_Limit 0}		
 	}
 	{Chassis "track"
 ;		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
@@ -65,11 +67,15 @@
 	}
 	{bone "turret"
 		{limits -3 3}	
-		{speed2 5}
+		{speed2 6}
 	}	
 	{bone "gun_rot"
 		{limits -3 37}	
-		{speed2 5}
+		{speed2 6}
+	}
+
+	{bone "basis"
+		{speed2 3}
 	}
 
 	{Texmod "bo4"}

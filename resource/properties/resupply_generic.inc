@@ -896,7 +896,7 @@
 			{item "bullet37_m3l" "fg" "ammo" 20 {max 200}{value 2}}			
 			{item "bullet45rus" "ap" "ammo" 10 {max 100}{value 2}}
             {item "bullet45rus" "fg" "ammo" 10 {max 100}{value 2}}
-            {item "bullet45rus" "zenite" "ammo" 10 {max 100}{value 2}}			
+            {item "bullet45rusz" "zenite" "ammo" 10 {max 100}{value 2}}			
 			{item "bullet45_53k" "ap" "ammo" 10 {max 100}{value 2}}
             {item "bullet45_53k" "fg" "ammo" 10 {max 100}{value 2}}			
 			{item "bullet57rus" "ap" "ammo" 10 {max 100}{value 2}}
@@ -1101,7 +1101,9 @@
 			{item "bullet75" "fg" "ammo" 5 {max 100}{value 2}}
 			{item "bullet75" "heat" "ammo" 5 {max 100}{value 2}}
 			{item "bullet75_pak40" "ap" "ammo" 5 {max 100}{value 2}}
-			{item "bullet75_pak40" "fg" "ammo" 5 {max 100}{value 2}}		
+			{item "bullet75_pak40" "fg" "ammo" 5 {max 100}{value 2}}
+			{item "bullet75_pak40ri" "ap" "ammo" 5 {max 100}{value 2}}
+			{item "bullet75_pak40ri" "fg" "ammo" 5 {max 100}{value 2}}		
 			{item "bullet76_pak36" "ap" "ammo" 5 {max 100}{value 2}}
 			{item "bullet76_pak36" "fg" "ammo" 5 {max 100}{value 2}}			
 			{item "bullet88" "ap" "ammo" 5 {max 100}{value 2}}

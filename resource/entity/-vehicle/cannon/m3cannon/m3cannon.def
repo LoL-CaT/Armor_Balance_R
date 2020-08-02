@@ -58,7 +58,7 @@
 		}
 		{move {obstacle "close"}}
 		{attack {obstacle "open"}}
-		(mod "mp" {rotate_ik_Limit 0})
+;		(mod "mp" {rotate_ik_Limit 0})
 	}
 	{Chassis "track"
 		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
@@ -66,10 +66,15 @@
 	}
 	{bone "turret"
 		{limits -30 30}
-		{speed2 5}
+		{speed2 8}
 	}
 	{bone "gun_rot"
 		{limits -10 15}
-		{speed2 5}
-	}	
+		{speed2 8}
+	}
+
+	{bone "basis"
+		{speed2 4}
+	}
+	
 }

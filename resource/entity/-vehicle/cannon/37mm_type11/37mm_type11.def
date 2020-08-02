@@ -1,6 +1,6 @@
 {game_entity
 	(include "/properties/cannon.ext")
-	{props "vehicle" "cannon" "cannon_small" "wheeled" "vision_cannon_minimum" "muzzle_minimum" "round_sandbag4"}
+	{props "vehicle" "cannon" "cannon_small" "vision_cannon_minimum" "muzzle_minimum" "round_sandbag4"}
 	{collider "cannon_small"}
 	("armor_light")
 	
@@ -47,12 +47,9 @@
 	
 	(include "/properties/selection/cannon.inc"  scale(0.7))
 	
-	{bone "basis"
-	      {limits}
-	}
-	
 	{extender "cannon"
 		{animation
+			{switch "close"}		
 			{move "mgun_browning_driver_r" "mortar_driver_l"}
 			{aim "cannon_m42_gunlayer" ""}
 			{fire  "Cannon_gunlayer_fire-alert and pose_m42_gunlayer" "cannon_m42_charger_fire"}
@@ -60,6 +57,7 @@
 		}
 		{move {obstacle "close"}}
 		{attack {obstacle "open"}}
+;		(mod "mp" {rotate_ik_Limit 0})		
 	}
 	
 	{Volume "body1"
@@ -90,5 +88,17 @@
 	{Chassis "track"
 		("loco_small")
 	}
-	{texmod "dunkelgelb"}	
+	{texmod "dunkelgelb"}
+
+	{bone "turret"	
+		{speed2 14}
+	}	
+	{bone "gun_rot"
+		{speed2 14}
+	}
+	
+	{bone "basis"
+		{speed2 9}
+	}
+	
 }

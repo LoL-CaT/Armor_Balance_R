@@ -41,7 +41,7 @@
 	{Weaponry
 		{place "gun"
 			{weapon "76mm_f22" filling "bullet76rus ap" 1}
-			{RestoreIKAfterAim}
+;			{RestoreIKAfterAim}
 			{Rotate}
 			("abm_field_gun")
 		}
@@ -61,7 +61,7 @@
 		}
 		{move {obstacle "close"}}
 		{attack {obstacle "open"}}
-		(mod "mp" {rotate_ik_Limit 0})
+;		(mod "mp" {rotate_ik_Limit 0})
 	}
 
 	{Chassis "track"
@@ -70,12 +70,16 @@
 	}
 	{bone "turret"
 		{limits -30 30}
-		{speed2 5}
+		{speed2 6}
 	}
 	{bone "gun_rot"
 		{limits -5 45}	
-		{speed2 5}
+		{speed2 6}
 	}
+	
+	{bone "basis"
+		{speed2 3}
+	}		
 	
 	{Volume "body"
 	}
