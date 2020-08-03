@@ -43,25 +43,16 @@
 			{if rand 0.99
 				{components "body" break}
 ;				{call "_burn"}
-			else stuff "shell"
+            else volume "body"
+;				{components "body" break}
+				{if min_energy 1.6
 					{call "blast_body"}
-				{if rand 0.99
+					}
+            else volume "body1"
+;				{components "body" break}
+				{if min_energy 1.6
 					{call "blast_body"}
-			else stuff "heat"
-				{call "blast_body"}
-				}
-			}
-		}
-	}
-	
-	{on break_armor
-		{if name "pierce"
-			{if volume "fuel"
-				{call "pierce_fuel"}
-			}
-		else name "blast"                   
-			{if volume "body"
-					{call "blast_body"}
+					}						
 			else volume "inventory"
 				{components "body" break}
 			else volume "engine"
@@ -73,24 +64,562 @@
 					}
 				}
 			else volume "cabin"
-				{components "body" break}
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
 			else volume "bodyback"
-				{components "body" break}
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "bodyback2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback4"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fuel"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "glass"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun_rot"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "inventory"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "sticky"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}	
+			else volume "fenderl"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fenderf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "detail1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "detailf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}											
+			else volume "shield"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "motor"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else stuff "shell"
+					{call "blast_body"}
+				{if rand 0.99
+					{call "blast_body"}
+			else stuff "heat"
+				{call "blast_body"}
+				}
 			}
+		}
+	}
+	
+{on blast
+		{if volume "body"
+			{if rand 0.99
+				{components "body" break}
+;				{call "_burn"}
+            else volume "body"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+            else volume "body1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "inventory"
+				{components "body" break}
+			else volume "engine"
+				{if min_energy 1.6
+					{call "blast_body"} 
+				else
+					{if rand 0.05 
+					{call "burn"}
+					}
+				}
+			else volume "cabin"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "bodyback2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback4"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fuel"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "glass"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun_rot"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "inventory"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "sticky"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}	
+			else volume "fenderl"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fenderf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "detail1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "detailf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}											
+			else volume "shield"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "motor"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else stuff "shell"
+					{call "blast_body"}
+				{if rand 0.99
+					{call "blast_body"}
+			else stuff "heat"
+				{call "blast_body"}
+				}
+			}
+		}
+	}	
+	
+	{on break_armor
+		{if name "pierce"
+			{if volume "fuel"
+				{call "pierce_fuel"}
+			}
+            else volume "body1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "inventory"
+				{components "body" break}
+			else volume "engine"
+				{if min_energy 1.6
+					{call "blast_body"} 
+				else
+					{if rand 0.05 
+					{call "burn"}
+					}
+				}
+			else volume "cabin"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "bodyback2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback4"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fuel"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "glass"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun_rot"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "inventory"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "sticky"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}	
+			else volume "fenderl"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fenderf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "detail1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "detailf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}											
+			else volume "shield"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "motor"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}			
+		else name "blast"        ;---------------           
+			{if volume "body"
+				{if min_energy 1.6
+					{call "blast_body"}
+					}	
+			else volume "body1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "inventory"
+				{components "body" break}
+			else volume "engine"
+				{if min_energy 1.6
+					{call "blast_body"} 
+				else
+					{if rand 0.05 
+					{call "burn"}
+					}
+				}
+			else volume "cabin"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "bodyback2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback4"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fuel"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "glass"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun_rot"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "inventory"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "sticky"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}	
+			else volume "fenderl"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fenderf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "detail1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "detailf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}											
+			else volume "shield"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "motor"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			}			
 		}
 	}
 	{on break_armor_again
 		{if name "blast"
 			{if volume "body"
-					{components "body" break}
+;					{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
 			else volume "inventory"
-				{components "body" break}
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
 			else volume "engine"
-					{components "engine" break}
+;					{components "engine" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
 			else volume "cabin"
-				{components "body" break}
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
 			else volume "bodyback"
-				{components "body" break}
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
 			else stuff "shell"
 				{if rand 0.99
 					{call "blast_body"}
@@ -118,12 +647,140 @@
 				else
 					{call "blast_body"}
 				}
+			else volume "body1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "inventory"
+				{components "body" break}
+			else volume "engine"
+				{if min_energy 1.6
+					{call "blast_body"} 
+				else
+					{if rand 0.05 
+					{call "burn"}
+					}
+				}
+			else volume "cabin"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "bodyback2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback4"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fuel"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "glass"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun_rot"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "inventory"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "sticky"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}	
+			else volume "fenderl"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fenderf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "detail1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "detailf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}											
+			else volume "shield"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "motor"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}				
 			}
 		}
 		{if volume "glass"
 		 	{call "break_glass"}
 		 else volume "cabin"
-		 	{call "break_glass"}
+;		 	{call "break_glass"}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
 		}
 	}
 	{on bullet_hit
@@ -303,9 +960,148 @@
 				}
 			else min_energy 4.1
 				{call "tear_wheel"}
+			else min_energy 1.6
+				{call "blast_body"}				
 			else min_energy 0.8
 				{component break}
-			}
+            else volume "body"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+            else volume "body1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "inventory"
+				{components "body" break}
+			else volume "engine"
+				{if min_energy 1.6
+					{call "blast_body"} 
+				else
+					{if rand 0.05 
+					{call "burn"}
+					}
+				}
+			else volume "cabin"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "bodyback2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "bodyback4"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fuel"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}						
+			else volume "glass"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun_rot"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "gun"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "inventory"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "sticky"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret2"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "turret3"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}	
+			else volume "fenderl"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "fenderf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}					
+			else volume "detail1"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "detailf"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}											
+			else volume "shield"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else volume "motor"
+;				{components "body" break}
+				{if min_energy 1.6
+					{call "blast_body"}
+					}
+			else stuff "shell"
+					{call "blast_body"}
+				{if rand 0.99
+					{call "blast_body"}
+			else stuff "heat"
+				{call "blast_body"}
+				}			
+			}			
 		}
 	}
 	{on break_armor

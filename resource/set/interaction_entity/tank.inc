@@ -1599,14 +1599,14 @@
 	{inflammation_time 35}
 	{on blast_hit
 		{if min_energy 38
-			{impulse up 0.1 0.05 dir 2.5 0.1}
+			{impulse up 0.01 0.01 dir 0.3 0.1}
 			{if volume "turret"
 				{if rand 0.9
 					{call "tear_turret"}
 				}
 			}
 		else min_energy 36
-			{impulse up 0.05 0.01 dir 0.35 0.1}
+			{impulse up 0.01 0.01 dir 0.3 0.1}
 			{if volume "turret"
 				{if rand 0.5
 					{call "tear_turret"}
@@ -1639,14 +1639,14 @@
 	{inflammation_time 35}
 	{on blast_hit
 		{if min_energy 38
-			{impulse up 0.1 0.05 dir 2.5 0.1}
+			{impulse up 0.01 0.01 dir 0.3 0.1}
 			{if volume "turret"
 				{if rand 0
 					{call "tear_turret"}
 				}
 			}
 		else min_energy 36
-			{impulse up 0.05 0.01 dir 0.35 0.1}
+			{impulse up 0.01 0.01 dir 0.3 0.1}
 			{if volume "turret"
 				{if rand 0
 					{call "tear_turret"}
