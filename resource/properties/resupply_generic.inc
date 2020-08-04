@@ -770,6 +770,8 @@
 			{item "bullet75usaP" "fg" "ammo" 5 {max 100}{value 2}}			
 			{item "bullet76usa" "fg" "ammo" 5 {max 100}{value 2}}
 			{item "bullet76usa" "ap" "ammo" 5 {max 100}{value 2}}
+			{item "bullet76usa_hvap" "fg" "ammo" 5 {max 100}{value 2}}
+			{item "bullet76usa_hvap" "ap" "ammo" 5 {max 100}{value 2}}			
 			{item "bullet76usaL" "fg" "ammo" 5 {max 100}{value 2}}
 			{item "bullet76usaL" "ap" "ammo" 5 {max 100}{value 2}}			
 			{item "bullet90usa" "fg" "ammo" 5 {max 100}{value 2}}

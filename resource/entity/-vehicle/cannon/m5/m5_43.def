@@ -1,0 +1,96 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{props "vehicle" "cannon" "wheeled" "round_sandbag2" "vision_cannon_low" "muzzle_medium"} 
+	("armor_medium")
+
+	{Volume "gun1"
+		{tags "gun"}
+		{component "gun"}
+	}
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+	}
+	{component "shield_right"}
+	{component "shield_right1"}
+	{component "shield_left"}
+	{component "shield_left1"}
+	
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("crew_wheeled_gun")
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_m5_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{end "pose_m5_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet76usa ap" 60}
+			{item "bullet76usa fg" 60}
+		    {item "sandbag_kit2" 25}
+;           {item "plant" 5}
+		}
+	}
+	{Weaponry
+
+		{place "gun"
+			{weapon "76mm_m5" filling "ammo bullet76usa ap" 1}
+			{Rotate}
+			("abm_field_gun")
+		}
+	}
+	{mass 2215}
+	{Extension "m5.mdl"}
+	(include "/properties/selection/cannon.inc"  scale(0.7))
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right"}
+			{aim "Cannon_m5_gunlayer" ""}
+			{fire  "Cannon_gunlayer_fire-alert" "cannon_pdr25_charger_fire"}
+			{reload  "" "Cannon_m5_charger"}
+		}
+		{move {obstacle "close"}}
+		{attack {obstacle "open"}}
+;		(mod "mp" {rotate_ik_Limit 0})
+	}
+	{Chassis "track"
+		("car_trace" fx("tracewheel01") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("loco_medium")
+	}
+	{bone "turret"
+		{limits -27 27}
+		{speed2 6}
+	}
+	{bone "gun_rot"
+		{limits -30 5}
+		{speed2 6}
+	}
+	
+	{bone "basis"
+		{speed2 3}
+	}			
+	
+}
