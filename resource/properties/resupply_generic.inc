@@ -740,7 +740,8 @@
 			{item "arl" "ammo" 8 {max 8}{value 1}}
 			{item "T64" "ammo" 6 {max 6}{value 1}}
 			{item "bullet20x110hispano" "airplane" "ammo" 240 {max 240}{value 2}}	
-			{item "bullet37_usaflack" "airplane" "ammo" 30 {max 30}{value 2}}			
+			{item "bullet37_usaflack" "airplane" "ammo" 30 {max 30}{value 2}}	
+			{item "bullet75usa" "airplane" "ammo" 21 {max 21}{value 2}}			
 			;			
 			{item "bullet20usa" "zenite" "ammo" 100 {max 400}{value 2}}
 			{item "bullet20x138b" "ap" "ammo" 100 {max 400}{value 2}}

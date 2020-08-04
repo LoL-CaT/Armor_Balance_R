@@ -60,11 +60,18 @@ actor
         {OrderTime %order_time}                    ;s
     }
 )
-(define "abm_zenite"
+(define "abm_av_ca"
     ("accuracy_by_motion"
         max_linear(9) accuracy_by_linear(0.7)
         max_angular(9) accuracy_by_angular(0.6)
         disorder_time(2.2) order_time(1.2)
+    )
+)
+(define "abm_av_mg"
+    ("accuracy_by_motion"
+        max_linear(3) accuracy_by_linear(0.9)
+        max_angular(3) accuracy_by_angular(0.8)
+        disorder_time(5.2) order_time(1.2)
     )
 )
 {volume "propeller"
