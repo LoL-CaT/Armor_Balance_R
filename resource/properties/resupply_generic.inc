@@ -669,6 +669,7 @@
 		    {item "bullet155eng" "fg" "ammo" 1 {max 100}{value 2}}			
 		    {item "bullet183eng" "ap" "ammo" 1 {max 100}{value 2}}
 		    {item "bullet183eng" "fg" "ammo" 1 {max 100}{value 2}}
+			{item "bullet203usa" "fg" "ammo" 1 {max 100}{value 2}}
 			{item "bullet240usa" "fg" "ammo" 1 {max 100}{value 2}}				
 		    {item "bullet290" "ammo" 1 {max 100}{value 2}}
 			{item "mortar" "fg" "ammo" 100 {max 100}{value 1}}			
@@ -797,6 +798,7 @@
 			{item "bullet155usaLT" "fg" "ammo" 1 {max 100}{value 2}}	
 			{item "bullet155usaLT" "ap" "ammo" 1 {max 100}{value 2}}			
 ;			{item "bullet155usa" "heat" "ammo" 1 {max 100}{value 2}}
+			{item "bullet203usa" "fg" "ammo" 1 {max 100}{value 2}}
 			{item "bullet240usa" "fg" "ammo" 1 {max 100}{value 2}}			
 			{item "mortar" "fg" "ammo" 100 {max 100}{value 1}}
 			{item "mortar60" "fg" "ammo" 100 {max 100}{value 2}}
