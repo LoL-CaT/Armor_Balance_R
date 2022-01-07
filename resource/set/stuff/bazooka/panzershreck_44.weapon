@@ -1,8 +1,8 @@
 ﻿{from "pattern rpg_weapon"
-;1942
-	{filling "ammo bazooka" 1}	
-	{entity "bazooka"}	
-	{mass 6.8}	
+;1943
+	{filling "ammo panzershreck" 1}
+	{mass 12}	
+	{entity "panzershreck"}
 	{parameters "fg"
 		{curve "cumulative"}
     	{projectileDamage 7}
@@ -20,13 +20,14 @@
 	}
 	{parameters "ap"
 	{DisableRicochet}
-		{projectileDamageTable {0 76} {500 76} {1000 76} {1500 76} {2000 76}}
+		{projectileDamageTable {0 230} {50 230} {100 230} {1500 230} {200 230}}
 		{spreading 3}
 	}
-	{fireSound "reactive/grnd_launch"}
-	{range 11 11}
-	{calibre 60}
-	("speed" s(80))
+	{fireSound "reactive/RPzB54_shoot.wav"}
+	("speed" s(110))
+	{range 18 18}
+	{calibre 88}
 	
-    {desc "M1A1 Rocket Launcher (ЭДС 11 БП 76)"}		
+    {desc "8 cm R.Pz.B 54/1 (ЭДС 18 БП 230)"}	
 }
+

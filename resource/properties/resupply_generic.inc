@@ -43,6 +43,7 @@
 			{item "m18recoilless" "ammo" 10 {max 5}}
 			{item "piatrocket" "ammo" 10 {max 5}}
 			{item "type_4" "ammo" 10 {max 5}}
+			{item "type_4_90" "ammo" 10 {max 5}}
 			{item "rifle_grenade" "ammo" 20 {max 10}}
 			{item "rifle_grenade_at" "ammo" 20 {max 10}}
 			{item "m9" "ammo" 25 {max 10}}
@@ -121,6 +122,7 @@
 			{item "m18recoilless" "ammo" 10 {max 5}}
 			{item "piatrocket" "ammo" 10 {max 5}}
 			{item "type_4" "ammo" 10 {max 5}}
+			{item "type_4_90" "ammo" 10 {max 5}}
 			{item "rifle_grenade" "ammo" 20 {max 10}}
 			{item "rifle_grenade_at" "ammo" 20 {max 10}}
 			{item "m9" "ammo" 25 {max 10}}
@@ -199,6 +201,7 @@
 			{item "m18recoilless" "ammo" 4 {max 5}}
 			{item "piatrocket" "ammo" 4 {max 5}}
 			{item "type_4" "ammo" 4 {max 5}}
+			{item "type_4_90" "ammo" 10 {max 5}}
 			{item "rifle_grenade" "ammo" 20 {max 10}}
 			{item "rifle_grenade_at" "ammo" 20 {max 10}}
 			{item "m9" "ammo" 25 {max 10}}
@@ -341,6 +344,7 @@
 			{item "m18recoilless" "ammo" 4 {max 5}}
 			{item "piatrocket" "ammo" 4 {max 5}}
 			{item "type_4" "ammo" 4 {max 5}}
+			{item "type_4_90" "ammo" 10 {max 5}}
 			{item "rifle_grenade" "ammo" 20 {max 10}}
 			{item "rifle_grenade_at" "ammo" 20 {max 10}}
 			{item "m9" "ammo" 25 {max 10}}
@@ -566,6 +570,7 @@
 			{item "m18recoilless" "ammo" 4 {max 5}}
 			{item "piatrocket" "ammo" 4 {max 5}}
 			{item "type_4" "ammo" 4 {max 5}}
+			{item "type_4_90" "ammo" 10 {max 5}}
 			{item "tulip" "ammo" 2 {max 4}}			
 			{item "rifle_grenade" "ammo" 20 {max 10}}
 			{item "rifle_grenade_at" "ammo" 20 {max 10}}
@@ -715,6 +720,7 @@
 			{item "m18recoilless" "ammo" 4 {max 5}}
 			{item "piatrocket" "ammo" 4 {max 5}}
 			{item "type_4" "ammo" 4 {max 5}}
+			{item "type_4_90" "ammo" 10 {max 5}}
 			{item "rifle_grenade" "ammo" 20 {max 10}}
 			{item "rifle_grenade_at" "ammo" 20 {max 10}}
 			{item "m9" "ammo" 25 {max 10}}
@@ -851,6 +857,7 @@
 			{item "m18recoilless" "ammo" 4 {max 5}}
 			{item "piatrocket" "ammo" 4 {max 5}}
 			{item "type_4" "ammo" 4 {max 5}}
+			{item "type_4_90" "ammo" 10 {max 5}}
 			{item "rifle_grenade" "ammo" 20 {max 10}}
 			{item "rifle_grenade_at" "ammo" 20 {max 10}}
 			{item "m9" "ammo" 25 {max 10}}
@@ -1007,6 +1014,7 @@
 			{item "m18recoilless" "ammo" 4 {max 5}}
 			{item "piatrocket" "ammo" 4 {max 5}}
 			{item "type_4" "ammo" 4 {max 5}}
+			{item "type_4_90" "ammo" 10 {max 5}}
 			{item "rifle_grenade" "ammo" 20 {max 10}}
 			{item "rifle_grenade_at" "ammo" 20 {max 10}}
 			{item "m9" "ammo" 25 {max 10}}
